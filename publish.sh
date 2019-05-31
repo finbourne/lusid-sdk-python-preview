@@ -11,7 +11,7 @@ fi
 
 if [[ (${#2} -eq 0) ]] ; then
     echo 
-    echo "[ERROR] missing NuGet repo"
+    echo "[ERROR] missing PyPi repo"
     echo
     exit 1
 fi
