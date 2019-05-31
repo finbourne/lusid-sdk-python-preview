@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+
+  lusid-sdk-python-sdk-gen:
+    container_name: lusid-sdk-python-sdk-gen
+    build: .
+    image: finbourne/lusid-sdk-python-sdk-gen
+    volumes:
+      - .:/usr/swagger
+    command: lusid.json
