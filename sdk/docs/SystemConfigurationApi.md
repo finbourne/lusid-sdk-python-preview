@@ -133,7 +133,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
-types = NULL # list[TransactionConfigurationDataRequest] | The complete set of transaction type definitions (optional)
+types = None # list[TransactionConfigurationDataRequest] | The complete set of transaction type definitions (optional)
 
 try:
     # Set transaction types
