@@ -31,7 +31,8 @@ java -jar openapi-generator-cli.jar generate \
     -i $gen_root/$1 \
     -g python \
     -o $sdk_output_folder \
-    -c $config_file   
+    -c $config_file \
+    -t $gen_root/templates
 
 # create a version file
 cat << EOF > $sdk_output_folder/lusid/__version__.py
