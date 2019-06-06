@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_data_types**
-> ResourceListOfDataType list_data_types(scope, include_default=include_default, include_system=include_system, sort_by=sort_by, start=start, limit=limit, filter=filter)
+> ResourceListOfDataType list_data_types(scope, include_system=include_system, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
 List data types
 
@@ -201,7 +201,6 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The requested scope of the data types
-include_default = True # bool | Whether to additionally include those data types in the \"default\" scope (optional)
 include_system = True # bool | Whether to additionally include those data types in the \"system\" scope (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
@@ -210,7 +209,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 
 try:
     # List data types
-    api_response = api_instance.list_data_types(scope, include_default=include_default, include_system=include_system, sort_by=sort_by, start=start, limit=limit, filter=filter)
+    api_response = api_instance.list_data_types(scope, include_system=include_system, sort_by=sort_by, start=start, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataTypesApi->list_data_types: %s\n" % e)
@@ -221,7 +220,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The requested scope of the data types | 
- **include_default** | **bool**| Whether to additionally include those data types in the \&quot;default\&quot; scope | [optional] 
  **include_system** | **bool**| Whether to additionally include those data types in the \&quot;system\&quot; scope | [optional] 
  **sort_by** | [**list[str]**](str.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int**| Optional. When paginating, skip this number of results | [optional] 
