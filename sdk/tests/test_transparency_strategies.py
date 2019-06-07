@@ -377,7 +377,7 @@ class TransparencyStrategies(TestFinbourneApi):
                                                                   code='strategy',
                                                                   value_required=False,
                                                                   display_name='strategy',
-                                                                  data_type_id=models.ResourceId(scope='default',
+                                                                  data_type_id=models.ResourceId(scope='system',
                                                                                                  code='string'))
         # Call LUSID to create our new property
         property_response = self.property_definition_api.create_property_definition(
