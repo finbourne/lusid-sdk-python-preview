@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/finbourne/lusid-sdk-python.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-python)
+[![Build Status](https://travis-ci.org/finbourne/lusid-sdk-python-preview.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-python-preview)
 
 # LUSID<sup>®</sup> Python SDK
 
