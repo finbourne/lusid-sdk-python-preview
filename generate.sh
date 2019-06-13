@@ -14,7 +14,7 @@ config_file=$gen_root/config.json
 #   remove all previously generated files
 shopt -s extglob 
 echo "removing previous sdk: $sdk_output_folder"
-rm -rf $sdk_output_folder/lusid
+rm -rf $sdk_output_folder/lusid/!(utilities)
 shopt -u extglob 
 
 # ignore files
