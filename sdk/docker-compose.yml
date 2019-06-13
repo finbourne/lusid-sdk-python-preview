@@ -2,10 +2,10 @@ version: "3"
 
 services:
 
-  lusid-sdk-python-test:
+  lusid-sdk-python-preview-test:
     build: .
-    container_name: lusid-sdk-python-test
-    image: finbourne/lusid-sdk-python-test
+    container_name: lusid-sdk-python-preview-test
+    image: finbourne/lusid-sdk-python-preview-test
     environment:
       - FBN_CLIENT_ID
       - FBN_CLIENT_SECRET
