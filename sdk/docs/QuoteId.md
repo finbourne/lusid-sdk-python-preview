@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **provider** | **str** |  | 
-**price_source** | **str** |  | 
+**price_source** | **str** |  | [optional] 
 **instrument_id** | **str** |  | 
 **instrument_id_type** | **str** |  | 
 **quote_type** | **str** |  | 
