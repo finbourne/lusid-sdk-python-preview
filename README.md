@@ -8,7 +8,7 @@
 The PyPi package for the LUSID SDK can installed using the following:
 
 ```
-$ pip install lusid-sdk
+$ pip install lusid-sdk-preview
 ```
 
 A pre-generated version of the latest SDK is included in the sdk folder based on the OpenAPI specification named lusid.json in the root folder. The most up to date version of the OpenAPI specification can be downloaded from https://api.lusid.com/swagger/v0/swagger.json
