@@ -41,5 +41,4 @@ EOF
 
 rm -rf $sdk_output_folder/.openapi-generator/
 rm -rf $sdk_output_folder/test/
-rm -rf $sdk_output_folder/test/
 rm -f $sdk_output_folder/.openapi-generator-ignore
