@@ -1,6 +1,6 @@
 # lusid.AnalyticsStoresApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://http:/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
