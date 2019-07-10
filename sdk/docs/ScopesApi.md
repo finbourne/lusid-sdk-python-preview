@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_scopes**](ScopesApi.md#list_scopes) | **GET** /api/scopes | List scopes
+[**list_scopes**](ScopesApi.md#list_scopes) | **GET** /api/scopes | [EARLY ACCESS] List scopes
 
 
 # **list_scopes**
 > ResourceListOfScopeDefinition list_scopes(sort_by=sort_by, start=start, limit=limit, filter=filter, query=query)
 
-List scopes
+[EARLY ACCESS] List scopes
 
 List all the scopes
 
@@ -36,7 +36,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 query = 'query_example' # str | Optional. Expression specifying the criteria that the returned portfolios must meet (optional)
 
 try:
-    # List scopes
+    # [EARLY ACCESS] List scopes
     api_response = api_instance.list_scopes(sort_by=sort_by, start=start, limit=limit, filter=filter, query=query)
     pprint(api_response)
 except ApiException as e:

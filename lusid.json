@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "0.10.419",
+    "version": "0.10.420",
     "title": "LUSID API",
     "description": "# Introduction\n\nThis page documents the [LUSID APIs](https://api.lusid.com/swagger), which allows authorised clients to query and update their data within the LUSID platform.\n\nSDKs to interact with the LUSID APIs are available in the following languages :\n\n* [C#](https://github.com/finbourne/lusid-sdk-csharp)\n* [Java](https://github.com/finbourne/lusid-sdk-java)\n* [JavaScript](https://github.com/finbourne/lusid-sdk-js)\n* [Python](https://github.com/finbourne/lusid-sdk-python)\n\n# Data Model\n\nThe LUSID API has a relatively lightweight but extremely powerful data model.   One of the goals of LUSID was not to enforce on clients a single rigid data model but rather to provide a flexible foundation onto which clients can streamline their data.   One of the primary tools to extend the data model is through using properties.  Properties can be associated with amongst others: -\n* Transactions\n* Instruments\n* Portfolios \n\nThe LUSID data model is exposed through the LUSID APIs.  The APIs provide access to both business objects and the meta data used to configure the systems behaviours.   The key business entities are: -\n* **Portfolios**\nA portfolio is the primary container for transactions and holdings. \n* **Derived Portfolios**\nDerived portfolios allow portfolios to be created based on other portfolios, by overriding or overlaying specific items\n* **Holdings**\nA holding is a position account for a instrument within a portfolio.  Holdings can only be adjusted via transactions.\n* **Transactions**\nA Transaction is a source of transactions used to manipulate holdings. \n* **Corporate Actions**\nA corporate action is a market event which occurs to a instrument, for example a stock split\n* **Instruments** \nA instrument represents a currency, tradable instrument or OTC contract that is attached to a transaction and a holding.\n* **Properties**\nSeveral entities allow additional user defined properties to be associated with them.   For example, a Portfolio manager may be associated with a portfolio\n\nMeta data includes: -\n* **Transaction Types**\nTransactions are booked with a specific transaction type.  The types are client defined and are used to map the Transaction to a series of movements which update the portfolio holdings. \n* **Properties Types**\nTypes of user defined properties used within the system.\n\nThis section describes the data model that LUSID exposes via the APIs.\n\n## Scope\n\nAll data in LUSID is segregated at the client level.  Entities in LUSID are identifiable by a unique code.  Every entity lives within a logical data partition known as a Scope.  Scope is an identity namespace allowing two entities with the same unique code to co-exist within individual address spaces.\n\nFor example, prices for equities from different vendors may be uploaded into different scopes such as `client/vendor1` and `client/vendor2`.  A portfolio may then be valued using either of the price sources by referencing the appropriate scope.\n\nLUSID Clients cannot access scopes of other clients.\n\n## Schema\n\nA detailed description of the entities used by the API and parameters for endpoints which take a JSON document can be retrieved via the `schema` endpoint.\n\n## Instruments\n\nLUSID has its own built-in instrument master which you can use to master your own instrument universe.\n\nEvery instrument must be created with one or more unique market identifiers, such as [FIGI](https://openfigi.com/). For any non-listed instruments (eg OTCs), you can upload an instrument against a custom ID of your choosing.\n\nIn addition, LUSID will allocate each instrument a unique 'LUSID instrument identifier'. The LUSID instrument identifier is what is used when uploading transactions, holdings, prices, etc. The API exposes an `instrument/lookup` endpoint which can be used to lookup these LUSID identifiers using their market identifiers.\n\nCash can be referenced using the ISO currency code prefixed with \"`CCY_`\" e.g. `CCY_GBP`\n\n## Instrument Prices (Analytics)\n\nInstrument prices are stored in LUSID's Analytics Store\n\n| Field|Type|Description |\n| ---|---|--- |\n| InstrumentUid|string|Unique instrument identifier |\n| Value|decimal|Value of the analytic, eg price |\n| Denomination|string|Underlying unit of the analytic, eg currency, EPS etc. |\n\n\n## Instrument Data\n\nInstrument data can be uploaded to the system using the [Instrument Properties](#tag/InstrumentProperties) endpoint.\n\n| Field|Type|Description |\n| ---|---|--- |\n\n\n## Portfolios\n\nPortfolios are the top-level entity containers within LUSID, containing transactions, corporate actions and holdings.    The transactions build up the portfolio holdings on which valuations, analytics profit & loss and risk can be calculated.    \nProperties can be associated with Portfolios to add in additional model data.  Portfolio properties can be changed over time as well.  For example, to allow a Portfolio Manager to be linked with a Portfolio.\n\nAdditionally, portfolios can be securitised and held by other portfolios, allowing LUSID to perform \"drill-through\" into underlying fund holdings\n\n### Reference Portfolios\nReference portfolios are portfolios that contain only weights, as opposed to transactions, and are designed to represent entities such as indices.\n\n### Derived Portfolios\n\nLUSID also allows for a portfolio to be composed of another portfolio via derived portfolios.  A derived portfolio can contain its own transactions and also inherits any transactions from its parent portfolio.  Any changes made to the parent portfolio are automatically reflected in derived portfolio.\n\nDerived portfolios in conjunction with scopes are a powerful construct.  For example, to do pre-trade what-if analysis, a derived portfolio could be created a new namespace linked to the underlying live (parent) portfolio.  Analysis can then be undertaken on the derived portfolio without affecting the live portfolio.\n\n### Portfolio Groups\nPortfolio groups allow the construction of a hierarchy from portfolios and groups.  Portfolio operations on the group are executed on an aggregated set of portfolios in the hierarchy. \n\nFor example:\n \n* Global Portfolios _(group)_\n  * APAC _(group)_\n    * Hong Kong _(portfolio)_\n    * Japan _(portfolio)_\n  * Europe _(group)_\n    * France _(portfolio)_\n    * Germany _(portfolio)_\n  * UK _(portfolio)_\n \nIn this example **Global Portfolios** is a group that consists of an aggregate of **Hong Kong**, **Japan**, **France**, **Germany** and **UK** portfolios.\n\n### Movements Engine\nThe Movements engine sits on top of the immutable event store and is used to manage the relationship between input trading actions and their associated portfolio holdings.   \n\nThe movements engine reads in the following entity types:-\n* Posting Transactions\n* Applying Corporate Actions \n* Holding Adjustments\n\nThese are converted to one or more movements and used by the movements engine to calculate holdings.  At the same time it also calculates running balances, and realised P&L.  The outputs from the movements engine are holdings and transactions.\n\n## Transactions\n\nA transaction represents an economic activity against a Portfolio.\n\nTransactions are processed according to a configuration. This will tell the LUSID engine how to interpret the transaction and correctly update the holdings. LUSID comes with a set of transaction types you can use out of the box, or you can configure your own set(s) of transactions.\n\nFor more details see the [LUSID Getting Started Guide for transaction configuration.](https://support.finbourne.com/hc/en-us/articles/360016737511-Configuring-Transaction-Types)\n\n| Field|Type|Description |\n| ---|---|--- |\n| TransactionId|string|Unique transaction identifier |\n| Type|string|LUSID transaction type code - Buy, Sell, StockIn, StockOut, etc |\n| InstrumentIdentifiers|map|Unique instrument identifiers |\n| InstrumentUid|string|LUSID's internal unique instrument identifier, resolved from the instrument identifiers |\n| TransactionDate|datetime|Transaction date |\n| SettlementDate|datetime|Settlement date |\n| Units|decimal|Quantity of trade in units of the instrument |\n| TransactionPrice|tradeprice|Execution price for the transaction |\n| TotalConsideration|currencyandamount|Total value of the transaction in settlement currency |\n| ExchangeRate|decimal|Rate between transaction and settlement currency |\n| TransactionCurrency|currency|Transaction currency |\n| CounterpartyId|string|Counterparty identifier |\n| Source|string|Where this transaction came from |\n\n\nFrom these fields, the following values can be calculated\n * **Transaction value in Transaction currency**: TotalConsideration / ExchangeRate\n * **Transaction value in Portfolio currency**: Transaction value in Transaction currency * TradeToPortfolioRate\n\n### Example Transactions\n\n#### A Common Purchase Example\nThree example transactions are shown in the table below. \n\nThey represent a purchase of USD denominated IBM shares within a Sterling denominated portfolio.\n\n * The first two transactions are for separate buy and fx trades\n   * Buying 500 IBM shares for $71,480.00\n   * A foreign exchange conversion to fund the IBM purchase. (Buy $71,480.00 for &#163;54,846.60)\n * The third transaction is an alternate version of the above trades. Buying 500 IBM shares and settling directly in Sterling.\n\n| Column |  Buy Trade | Fx Trade | Buy Trade with foreign Settlement |\n| ----- | ----- | ----- | ----- |\n| TransactionId | FBN00001 | FBN00002 | FBN00003 |\n| Type | Buy | FxBuy | Buy |\n| InstrumentIdentifiers | { \"figi\", \"BBG000BLNNH6\" } | { \"CCY\", \"CCY_USD\" } | { \"figi\", \"BBG000BLNNH6\" } |\n| TransactionDate | 2018-08-02 | 2018-08-02 | 2018-08-02 |\n| SettlementDate | 2018-08-06 | 2018-08-06 | 2018-08-06 |\n| Units | 500 | 71480 | 500 |\n| TransactionPrice | 142.96 | 1 | 142.96 |\n| TradeCurrency | USD | USD | USD |\n| ExchangeRate | 1 | 0.7673 | 0.7673 |\n| TotalConsideration.Amount | 71480.00 | 54846.60 | 54846.60 |\n| TotalConsideration.Currency | USD | GBP | GBP |\n| Trade/default/TradeToPortfolioRate&ast; | 0.7673 | 0.7673 | 0.7673 |\n\n[&ast; This is a property field]\n\n#### A Forward FX Example\n\nLUSID has a flexible transaction modelling system, and there are a number of different ways of modelling forward fx trades.\n\nThe default LUSID transaction types are FwdFxBuy and FwdFxSell. Other types and behaviours can be configured as required.\n\nUsing these transaction types, the holdings query will report two forward positions. One in each currency. \n\nSince an FX trade is an exchange of one currency for another, the following two 6 month forward transactions are equivalent:\n\n| Column |  Forward 'Sell' Trade | Forward 'Buy' Trade |\n| ----- | ----- | ----- |\n| TransactionId | FBN00004 | FBN00005 |\n| Type | FwdFxSell | FwdFxBuy |\n| InstrumentIdentifiers | { \"CCY\", \"CCY_GBP\" } | { \"CCY\", \"CCY_USD\" } |\n| TransactionDate | 2018-08-02 | 2018-08-02 |\n| SettlementDate | 2019-02-06 | 2019-02-06 |\n| Units | 10000.00 | 13142.00 |\n| TransactionPrice |1 | 1 |\n| TradeCurrency | GBP | USD |\n| ExchangeRate | 1.3142 | 0.760919 |\n| TotalConsideration.Amount | 13142.00 | 10000.00 |\n| TotalConsideration.Currency | USD | GBP |\n| Trade/default/TradeToPortfolioRate | 1.0 | 0.760919 |\n\n## Holdings\n\nA holding represents a position in a instrument or cash on a given date.\n\n| Field|Type|Description |\n| ---|---|--- |\n| InstrumentUid|string|Unique instrument identifier |\n| HoldingType|string|Type of holding, eg Position, Balance, CashCommitment, Receivable, ForwardFX |\n| Units|decimal|Quantity of holding |\n| SettledUnits|decimal|Settled quantity of holding |\n| Cost|currencyandamount|Book cost of holding in transaction currency |\n| CostPortfolioCcy|currencyandamount|Book cost of holding in portfolio currency |\n| Transaction|Transaction|If this is commitment-type holding, the transaction behind it |\n\n\n## Corporate Actions\n\nCorporate actions are represented within LUSID in terms of a set of instrument-specific 'transitions'.  These transitions are used to specify the participants of the corporate action, and the effect that the corporate action will have on holdings in those participants.\n\n### Corporate Action\n\n| Field|Type|Description |\n| ---|---|--- |\n| CorporateActionCode|code|The unique identifier of this corporate action |\n| AnnouncementDate|datetime|The announcement date of the corporate action |\n| ExDate|datetime|The ex date of the corporate action |\n| RecordDate|datetime|The record date of the corporate action |\n| PaymentDate|datetime|The payment date of the corporate action |\n| Transitions|list|The transitions that result from this corporate action |\n\n\n### Transition\n\n| Field|Type|Description |\n| ---|---|--- |\n| InputTransition|transition|Indicating the basis of the corporate action - which security and how many units |\n| OutputTransitions|list|What will be generated relative to the input transition |\n\n\n### Example Corporate Action Transitions\n\n#### A Dividend Action Transition\n\nIn this example, for each share of IBM, 0.20 units (or 20 pence) of GBP are generated.\n\n| Column |  Input Transition | Output Transition |\n| ----- | ----- | ----- |\n| Instrument Identifiers | { \"figi\" : \"BBG000BLNNH6\" } | { \"ccy\" : \"CCY_GBP\" } |\n| Units Factor | 1 | 0.20 |\n| Cost Factor | 1 | 0 |\n\n#### A Split Action Transition\n\nIn this example, for each share of IBM, we end up with 2 units (2 shares) of IBM, with total value unchanged.\n\n| Column |  Input Transition | Output Transition |\n| ----- | ----- | ----- |\n| Instrument Identifiers | { \"figi\" : \"BBG000BLNNH6\" } | { \"figi\" : \"BBG000BLNNH6\" } |\n| Units Factor | 1 | 2 |\n| Cost Factor | 1 | 1 |\n\n#### A Spinoff Action Transition\n\nIn this example, for each share of IBM, we end up with 1 unit (1 share) of IBM and 3 units (3 shares) of Celestica, with 85% of the value remaining on the IBM share, and 5% in each Celestica share (15% total).\n\n| Column |  Input Transition | Output Transition 1 | Output Transition 2 |\n| ----- | ----- | ----- | ----- |\n| Instrument Identifiers | { \"figi\" : \"BBG000BLNNH6\" } | { \"figi\" : \"BBG000BLNNH6\" } | { \"figi\" : \"BBG000HBGRF3\" } |\n| Units Factor | 1 | 1 | 3 |\n| Cost Factor | 1 | 0.85 | 0.15 |\n\n## Property\n\nProperties are key-value pairs that can be applied to any entity within a domain (where a domain is `trade`, `portfolio`, `security` etc).  Properties must be defined before use with a `PropertyDefinition` and can then subsequently be added to entities.\n\n# Schemas\n\nThe following headers are returned on all responses from LUSID\n\n| Name | Purpose |\n| --- | --- |\n| lusid-meta-duration | Duration of the request |\n| lusid-meta-success | Whether or not LUSID considered the request to be successful |\n| lusid-meta-requestId | The unique identifier for the request |\n| lusid-schema-url | Url of the schema for the data being returned |\n| lusid-property-schema-url | Url of the schema for any properties |\n\n\n# Error Codes\n\n| Code|Name|Description |\n| ---|---|--- |\n| <a name=\"102\">102</a>|VersionNotFound|  |\n| <a name=\"104\">104</a>|InstrumentNotFound|  |\n| <a name=\"105\">105</a>|PropertyNotFound|  |\n| <a name=\"106\">106</a>|PortfolioRecursionDepth|  |\n| <a name=\"108\">108</a>|GroupNotFound|  |\n| <a name=\"109\">109</a>|PortfolioNotFound|  |\n| <a name=\"110\">110</a>|PropertySchemaNotFound|  |\n| <a name=\"111\">111</a>|PortfolioAncestryNotFound|  |\n| <a name=\"112\">112</a>|PortfolioWithIdAlreadyExists|  |\n| <a name=\"113\">113</a>|OrphanedPortfolio|  |\n| <a name=\"119\">119</a>|MissingBaseClaims|  |\n| <a name=\"121\">121</a>|PropertyNotDefined|  |\n| <a name=\"122\">122</a>|CannotDeleteSystemProperty|  |\n| <a name=\"123\">123</a>|CannotModifyImmutablePropertyField|  |\n| <a name=\"124\">124</a>|PropertyAlreadyExists|  |\n| <a name=\"125\">125</a>|InvalidPropertyLifeTime|  |\n| <a name=\"127\">127</a>|CannotModifyDefaultDataType|  |\n| <a name=\"128\">128</a>|GroupAlreadyExists|  |\n| <a name=\"129\">129</a>|NoSuchDataType|  |\n| <a name=\"132\">132</a>|ValidationError|  |\n| <a name=\"133\">133</a>|LoopDetectedInGroupHierarchy|  |\n| <a name=\"135\">135</a>|SubGroupAlreadyExists|  |\n| <a name=\"138\">138</a>|PriceSourceNotFound|  |\n| <a name=\"139\">139</a>|AnalyticStoreNotFound|  |\n| <a name=\"141\">141</a>|AnalyticStoreAlreadyExists|  |\n| <a name=\"143\">143</a>|ClientInstrumentAlreadyExists|  |\n| <a name=\"144\">144</a>|DuplicateInParameterSet|  |\n| <a name=\"147\">147</a>|ResultsNotFound|  |\n| <a name=\"148\">148</a>|OrderFieldNotInResultSet|  |\n| <a name=\"149\">149</a>|OperationFailed|  |\n| <a name=\"150\">150</a>|ElasticSearchError|  |\n| <a name=\"151\">151</a>|InvalidParameterValue|  |\n| <a name=\"153\">153</a>|CommandProcessingFailure|  |\n| <a name=\"154\">154</a>|EntityStateConstructionFailure|  |\n| <a name=\"155\">155</a>|EntityTimelineDoesNotExist|  |\n| <a name=\"156\">156</a>|EventPublishFailure|  |\n| <a name=\"157\">157</a>|InvalidRequestFailure|  |\n| <a name=\"158\">158</a>|EventPublishUnknown|  |\n| <a name=\"159\">159</a>|EventQueryFailure|  |\n| <a name=\"160\">160</a>|BlobDidNotExistFailure|  |\n| <a name=\"162\">162</a>|SubSystemRequestFailure|  |\n| <a name=\"163\">163</a>|SubSystemConfigurationFailure|  |\n| <a name=\"165\">165</a>|FailedToDelete|  |\n| <a name=\"166\">166</a>|UpsertClientInstrumentFailure|  |\n| <a name=\"167\">167</a>|IllegalAsAtInterval|  |\n| <a name=\"168\">168</a>|IllegalBitemporalQuery|  |\n| <a name=\"169\">169</a>|InvalidAlternateId|  |\n| <a name=\"170\">170</a>|CannotAddSourcePortfolioPropertyExplicitly|  |\n| <a name=\"171\">171</a>|EntityAlreadyExistsInGroup|  |\n| <a name=\"173\">173</a>|EntityWithIdAlreadyExists|  |\n| <a name=\"174\">174</a>|DerivedPortfolioDetailsDoNotExist|  |\n| <a name=\"176\">176</a>|PortfolioWithNameAlreadyExists|  |\n| <a name=\"177\">177</a>|InvalidTransactions|  |\n| <a name=\"178\">178</a>|ReferencePortfolioNotFound|  |\n| <a name=\"179\">179</a>|DuplicateIdFailure|  |\n| <a name=\"180\">180</a>|CommandRetrievalFailure|  |\n| <a name=\"181\">181</a>|DataFilterApplicationFailure|  |\n| <a name=\"182\">182</a>|SearchFailed|  |\n| <a name=\"183\">183</a>|MovementsEngineConfigurationKeyFailure|  |\n| <a name=\"184\">184</a>|FxRateSourceNotFound|  |\n| <a name=\"185\">185</a>|AccrualSourceNotFound|  |\n| <a name=\"186\">186</a>|AccessDenied|  |\n| <a name=\"187\">187</a>|InvalidIdentityToken|  |\n| <a name=\"188\">188</a>|InvalidRequestHeaders|  |\n| <a name=\"189\">189</a>|PriceNotFound|  |\n| <a name=\"190\">190</a>|InvalidSubHoldingKeysProvided|  |\n| <a name=\"191\">191</a>|DuplicateSubHoldingKeysProvided|  |\n| <a name=\"192\">192</a>|CutDefinitionNotFound|  |\n| <a name=\"193\">193</a>|CutDefinitionInvalid|  |\n| <a name=\"200\">200</a>|InvalidUnitForDataType|  |\n| <a name=\"201\">201</a>|InvalidTypeForDataType|  |\n| <a name=\"202\">202</a>|InvalidValueForDataType|  |\n| <a name=\"203\">203</a>|UnitNotDefinedForDataType|  |\n| <a name=\"204\">204</a>|UnitsNotSupportedOnDataType|  |\n| <a name=\"205\">205</a>|CannotSpecifyUnitsOnDataType|  |\n| <a name=\"206\">206</a>|UnitSchemaInconsistentWithDataType|  |\n| <a name=\"207\">207</a>|UnitDefinitionNotSpecified|  |\n| <a name=\"208\">208</a>|DuplicateUnitDefinitionsSpecified|  |\n| <a name=\"209\">209</a>|InvalidUnitsDefinition|  |\n| <a name=\"210\">210</a>|InvalidInstrumentIdentifierUnit|  |\n| <a name=\"211\">211</a>|HoldingsAdjustmentDoesNotExist|  |\n| <a name=\"212\">212</a>|CouldNotBuildExcelUrl|  |\n| <a name=\"213\">213</a>|CouldNotGetExcelVersion|  |\n| <a name=\"214\">214</a>|InstrumentByCodeNotFound|  |\n| <a name=\"215\">215</a>|EntitySchemaDoesNotExist|  |\n| <a name=\"216\">216</a>|FeatureNotSupportedOnPortfolioType|  |\n| <a name=\"217\">217</a>|QuoteNotFoundFailure|  |\n| <a name=\"219\">219</a>|InvalidInstrumentDefinition|  |\n| <a name=\"221\">221</a>|InstrumentUpsertFailure|  |\n| <a name=\"222\">222</a>|ReferencePortfolioRequestNotSupported|  |\n| <a name=\"223\">223</a>|TransactionPortfolioRequestNotSupported|  |\n| <a name=\"224\">224</a>|InvalidPropertyValueAssignment|  |\n| <a name=\"230\">230</a>|TransactionTypeNotFound|  |\n| <a name=\"231\">231</a>|TransactionTypeDuplication|  |\n| <a name=\"232\">232</a>|PortfolioDoesNotExistAtGivenDate|  |\n| <a name=\"233\">233</a>|QueryParserFailure|  |\n| <a name=\"234\">234</a>|DuplicateConstituentFailure|  |\n| <a name=\"235\">235</a>|UnresolvedInstrumentConstituentFailure|  |\n| <a name=\"236\">236</a>|UnresolvedInstrumentInTransitionFailure|  |\n| <a name=\"300\">300</a>|MissingRecipeFailure|  |\n| <a name=\"301\">301</a>|DependenciesFailure|  |\n| <a name=\"304\">304</a>|PortfolioPreprocessFailure|  |\n| <a name=\"310\">310</a>|ValuationEngineFailure|  |\n| <a name=\"311\">311</a>|TaskFactoryFailure|  |\n| <a name=\"312\">312</a>|TaskEvaluationFailure|  |\n| <a name=\"350\">350</a>|InstrumentFailure|  |\n| <a name=\"351\">351</a>|CashFlowsFailure|  |\n| <a name=\"360\">360</a>|AggregationFailure|  |\n| <a name=\"370\">370</a>|ResultRetrievalFailure|  |\n| <a name=\"371\">371</a>|VendorPricingFailure|  |\n| <a name=\"371\">371</a>|VendorPricingFailure|  |\n| <a name=\"372\">372</a>|VendorResultProcessingFailure|  |\n| <a name=\"373\">373</a>|VendorResultMappingFailure|  |\n| <a name=\"374\">374</a>|AttemptToUpsertDuplicateQuotes|  |\n| <a name=\"375\">375</a>|CorporateActionSourceDoesNotExist|  |\n| <a name=\"376\">376</a>|InstrumentIdentifierAlreadyInUse|  |\n| <a name=\"377\">377</a>|CorporateActionSourceAlreadyExists|  |\n| <a name=\"378\">378</a>|PropertiesNotFound|  |\n| <a name=\"379\">379</a>|BatchOperationAborted|  |\n| <a name=\"-10\">-10</a>|ServerConfigurationError|  |\n| <a name=\"-1\">-1</a>|Unknown error|  |\n",
     "termsOfService": "Not to be used without explicit authorisation from FINBOURNE",
@@ -21,7 +21,7 @@
         "tags": [
           "Analytics Stores"
         ],
-        "summary": "List analytic stores",
+        "summary": "[EXPERIMENTAL] List analytic stores",
         "description": "List all defined analytic stores",
         "operationId": "ListAnalyticStores",
         "consumes": [],
@@ -101,7 +101,7 @@
         "tags": [
           "Analytics Stores"
         ],
-        "summary": "Create analytic store",
+        "summary": "[EXPERIMENTAL] Create analytic store",
         "description": "Create a new analytic store for the specified scope and date",
         "operationId": "CreateAnalyticStore",
         "consumes": [],
@@ -149,7 +149,7 @@
         "tags": [
           "Analytics Stores"
         ],
-        "summary": "Get analytic store",
+        "summary": "[EXPERIMENTAL] Get analytic store",
         "description": "Get the meta data associated with a specified scope and date combination (analytic store)",
         "operationId": "GetAnalyticStore",
         "consumes": [],
@@ -225,7 +225,7 @@
         "tags": [
           "Analytics Stores"
         ],
-        "summary": "Delete analytic store",
+        "summary": "[EXPERIMENTAL] Delete analytic store",
         "description": "Delete stored analytic data in the specified scope for the specified date",
         "operationId": "DeleteAnalyticStore",
         "consumes": [],
@@ -295,7 +295,7 @@
         "tags": [
           "Analytics Stores"
         ],
-        "summary": "Set analytic data",
+        "summary": "[EXPERIMENTAL] Set analytic data",
         "description": "Store the complete set of analytics for an existing analytic store for the specified scope and date",
         "operationId": "SetAnalytics",
         "consumes": [],
@@ -378,7 +378,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "Get corporate action sources",
+        "summary": "[BETA] Get corporate action sources",
         "description": "Gets a list of all corporate action sources",
         "operationId": "ListCorporateActionSources",
         "consumes": [],
@@ -458,7 +458,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "Create Corporate Action Source",
+        "summary": "[BETA] Create Corporate Action Source",
         "description": "Attempt to create a corporate action source.",
         "operationId": "CreateCorporateActionSource",
         "consumes": [],
@@ -506,7 +506,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "Delete a corporate action source",
+        "summary": "[BETA] Delete a corporate action source",
         "description": "Deletes a single corporate action source",
         "operationId": "DeleteCorporateActionSource",
         "consumes": [],
@@ -559,7 +559,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "Get corporate actions",
+        "summary": "[BETA] Get corporate actions",
         "description": "Gets corporate actions from a specific corporate action source",
         "operationId": "GetCorporateActions",
         "consumes": [],
@@ -669,7 +669,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "Upsert corporate actions",
+        "summary": "[BETA] Upsert corporate actions",
         "description": "Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.",
         "operationId": "BatchUpsertCorporateActions",
         "consumes": [],
@@ -735,7 +735,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "Create data type definition",
+        "summary": "[BETA] Create data type definition",
         "description": "Create a new data type definition\r\n\r\nData types cannot be created in either the \"default\" or \"system\" scopes.",
         "operationId": "CreateDataType",
         "consumes": [],
@@ -783,7 +783,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "List data types",
+        "summary": "[EARLY ACCESS] List data types",
         "description": "List all data types in a specified scope",
         "operationId": "ListDataTypes",
         "consumes": [],
@@ -871,7 +871,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "Get data type definition",
+        "summary": "[EARLY ACCESS] Get data type definition",
         "description": "Get the definition of a specified data type",
         "operationId": "GetDataType",
         "consumes": [],
@@ -922,7 +922,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "Update data type definition",
+        "summary": "[BETA] Update data type definition",
         "description": "Update the definition of the specified existing data type\r\n\r\nNot all elements within a data type definition are modifiable due to the potential implications for data\r\nalready stored against the types",
         "operationId": "UpdateDataType",
         "consumes": [],
@@ -984,7 +984,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "Get units from data type",
+        "summary": "[EARLY ACCESS] Get units from data type",
         "description": "Get the definitions of the specified units associated bound to a specific data type",
         "operationId": "GetUnitsFromDataType",
         "consumes": [],
@@ -1056,7 +1056,7 @@
         "tags": [
           "Derived Transaction Portfolios"
         ],
-        "summary": "Create derived transaction portfolio",
+        "summary": "[EARLY ACCESS] Create derived transaction portfolio",
         "description": "Creates a transaction portfolio that derives from an existing transaction portfolio. In a derived portfolio, parts of the portfolio can either be specific to this portfolio, or can be inherited from a \"parent\". Different parts of the portfolio (e.g. transactions or properties) are combined in different ways. The portfolio details are either overridden in entirety, or not at all. The same is true for properties. Transactions on a derived portfolio are merged with its parent portfolio's transactions. If the parent portfolio is itself a derived portfolio, transactions from that parent are also merged (and that parent's portfolio's, if it is also a derived portfolio, and so on).",
         "operationId": "CreateDerivedPortfolio",
         "consumes": [],
@@ -1111,7 +1111,7 @@
         "tags": [
           "Derived Transaction Portfolios"
         ],
-        "summary": "Delete portfolio details",
+        "summary": "[EARLY ACCESS] Delete portfolio details",
         "description": "Deletes the portfolio details for the specified derived transaction portfolio",
         "operationId": "DeleteDerivedPortfolioDetails",
         "consumes": [],
@@ -1172,7 +1172,7 @@
         "tags": [
           "Entities"
         ],
-        "summary": "Get the next change to each portfolio in a scope.",
+        "summary": "[BETA] Get the next change to each portfolio in a scope.",
         "description": "Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.\r\nIncludes changes from parent portfolios in different scopes.\r\nExcludes changes from subcriptions (e.g corporate actions).",
         "operationId": "GetPortfolioChanges",
         "consumes": [],
@@ -1234,7 +1234,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get all of the currently mastered instruments in LUSID",
+        "summary": "[EARLY ACCESS] Get all of the currently mastered instruments in LUSID",
         "description": "Lists all instruments that have been mastered within LUSID.",
         "operationId": "ListInstruments",
         "consumes": [],
@@ -1342,7 +1342,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Upsert instruments",
+        "summary": "[EARLY ACCESS] Upsert instruments",
         "description": "Attempt to master one or more instruments in LUSID's instrument master. Each instrument is keyed by some unique key. This key is unimportant, and serves only as a method to identify created instruments in the response.\r\n\r\nThe response will return both the collection of successfully created instruments, as well as those that were rejected and why their creation failed. They will be keyed against the key supplied in the\r\nrequest.\r\n            \r\nIt is important to always check the 'Failed' set for any unsuccessful results.",
         "operationId": "UpsertInstruments",
         "consumes": [],
@@ -1447,7 +1447,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get instrument definition",
+        "summary": "[EARLY ACCESS] Get instrument definition",
         "description": "Get an individual instrument by the one of its unique instrument identifiers. Optionally, it is possible to decorate each instrument with specified property data.",
         "operationId": "GetInstrument",
         "consumes": [],
@@ -1526,7 +1526,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Update instrument identifier",
+        "summary": "[EARLY ACCESS] Update instrument identifier",
         "description": "Adds, updates, or removes an identifier on an instrument",
         "operationId": "UpdateInstrumentIdentifier",
         "consumes": [],
@@ -1586,7 +1586,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Delete instrument",
+        "summary": "[EARLY ACCESS] Delete instrument",
         "description": "Attempt to delete one or more \"client\" instruments.\r\n\r\nThe response will include those instruments that could not be deleted (as well as any available details).\r\n            \r\nIt is important to always check the 'Failed' set for any unsuccessful results.",
         "operationId": "DeleteInstrument",
         "consumes": [],
@@ -1639,7 +1639,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get instrument definition",
+        "summary": "[EARLY ACCESS] Get instrument definition",
         "description": "Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.",
         "operationId": "GetInstruments",
         "consumes": [],
@@ -1730,7 +1730,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Upsert instrument properties",
+        "summary": "[EARLY ACCESS] Upsert instrument properties",
         "description": "Attempt to upsert property data for one or more instruments, properties, and effective dates.\r\n\r\nThe response will include the details of any failures that occurred during data storage.\r\n            \r\nIt is important to always check the 'Failed' collection for any unsuccessful results.",
         "operationId": "UpsertInstrumentsProperties",
         "consumes": [],
@@ -1782,7 +1782,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get allowable instrument identifiers",
+        "summary": "[EARLY ACCESS] Get allowable instrument identifiers",
         "description": "Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties\r\nof a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can\r\nshare the same identifier value), and its corresponding PropertyKey.",
         "operationId": "GetInstrumentIdentifiers",
         "consumes": [],
@@ -1860,7 +1860,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "Get resources available for access control",
+        "summary": "[EARLY ACCESS] Get resources available for access control",
         "description": "Get the comprehensive set of resources that are available for access control",
         "operationId": "ListAccessControlledResources",
         "consumes": [],
@@ -1906,7 +1906,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "Download Excel Addin",
+        "summary": "[EARLY ACCESS] Download Excel Addin",
         "description": "Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned",
         "operationId": "GetExcelAddin",
         "consumes": [],
@@ -1952,7 +1952,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "Get LUSID versions",
+        "summary": "[EARLY ACCESS] Get LUSID versions",
         "description": "Get the semantic versions associated with LUSID and its ecosystem",
         "operationId": "GetLusidVersions",
         "consumes": [],
@@ -1984,7 +1984,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "List groups in scope",
+        "summary": "[EARLY ACCESS] List groups in scope",
         "description": "Lists all portfolio groups in a specified scope",
         "operationId": "ListPortfolioGroups",
         "consumes": [],
@@ -2071,7 +2071,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Create group",
+        "summary": "[EARLY ACCESS] Create group",
         "description": "Create a new portfolio group.",
         "operationId": "CreatePortfolioGroup",
         "consumes": [],
@@ -2126,7 +2126,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Get portfolio group",
+        "summary": "[EARLY ACCESS] Get portfolio group",
         "description": "Get the definition of the specified portfolio group",
         "operationId": "GetPortfolioGroup",
         "consumes": [],
@@ -2185,7 +2185,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Update group",
+        "summary": "[EARLY ACCESS] Update group",
         "description": "Update the definition of the specified existing portfolio group.\r\n\r\nNot all elements within a portfolio group definition are modifiable after creation.",
         "operationId": "UpdatePortfolioGroup",
         "consumes": [],
@@ -2245,7 +2245,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Delete group",
+        "summary": "[EARLY ACCESS] Delete group",
         "description": "Deletes the definition of the specified portfolio group",
         "operationId": "DeletePortfolioGroup",
         "consumes": [],
@@ -2298,7 +2298,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "Aggregate data in a portfolio group",
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio group",
         "description": "Aggregate data sourced from the specified portfolio group",
         "operationId": "GetAggregationByGroup",
         "consumes": [],
@@ -2388,7 +2388,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "Aggregate data in a portfolio group, as nested",
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio group, as nested",
         "description": "Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.",
         "operationId": "GetNestedAggregationByGroup",
         "consumes": [],
@@ -2450,7 +2450,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Get commands",
+        "summary": "[EARLY ACCESS] Get commands",
         "description": "Gets all commands that modified a specific portfolio group",
         "operationId": "GetPortfolioGroupCommands",
         "consumes": [],
@@ -2554,7 +2554,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Get a full expansion of a portfolio group",
+        "summary": "[EARLY ACCESS] Get a full expansion of a portfolio group",
         "description": "Lists all portfolios in a group, and all sub groups. Portfolios are decorated with their properties.",
         "operationId": "GetPortfolioGroupExpansion",
         "consumes": [],
@@ -2635,7 +2635,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Add portfolio to group",
+        "summary": "[EARLY ACCESS] Add portfolio to group",
         "description": "Adds a portfolio to a previously defined portfolio group",
         "operationId": "AddPortfolioToGroup",
         "consumes": [],
@@ -2697,7 +2697,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Remove portfolio from group",
+        "summary": "[EARLY ACCESS] Remove portfolio from group",
         "description": "Removes a portfolio from a portfolio group",
         "operationId": "DeletePortfolioFromGroup",
         "consumes": [],
@@ -2764,7 +2764,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Add group to group",
+        "summary": "[EARLY ACCESS] Add group to group",
         "description": "Adds a portfolio group, as a sub-group, to an existing portfolio group",
         "operationId": "AddSubGroupToGroup",
         "consumes": [],
@@ -2826,7 +2826,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "Remove group from group",
+        "summary": "[EARLY ACCESS] Remove group from group",
         "description": "Remove a portfolio group (sub-group) from a parent portfolio group",
         "operationId": "DeleteSubGroupFromGroup",
         "consumes": [],
@@ -2893,7 +2893,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "List portfolios",
+        "summary": "[EARLY ACCESS] List portfolios",
         "description": "List all portfolios matching the specified criteria.\r\n            \r\nExample query syntax for the query parameter:\r\n            \r\n- To see which portfolios have holdings in the specified instruments:\r\n            \r\n    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\r\n            \r\n* Note that copy/pasting above examples results in incorrect single quote character",
         "operationId": "ListPortfolios",
         "consumes": [],
@@ -3009,7 +3009,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "List portfolios for scope",
+        "summary": "[EARLY ACCESS] List portfolios for scope",
         "description": "List all the portfolios in the specified scope",
         "operationId": "ListPortfoliosForScope",
         "consumes": [],
@@ -3118,7 +3118,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Get portfolio definition",
+        "summary": "[EARLY ACCESS] Get portfolio definition",
         "description": "Retrieves the basic set of information about a portfolio using the specified scope and code.",
         "operationId": "GetPortfolio",
         "consumes": [],
@@ -3185,7 +3185,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Update portfolio definition",
+        "summary": "[EARLY ACCESS] Update portfolio definition",
         "description": "Update the definition of a specific portfolio. Note, some parts of a portfolio definition are not available for modification after the initial creation.",
         "operationId": "UpdatePortfolio",
         "consumes": [],
@@ -3253,7 +3253,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Delete portfolio",
+        "summary": "[EARLY ACCESS] Delete portfolio",
         "description": "Delete a portfolio at the specified effectiveAt",
         "operationId": "DeletePortfolio",
         "consumes": [],
@@ -3314,7 +3314,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "Aggregate data in a portfolio",
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio",
         "description": "Aggregate data sourced from the specified portfolio",
         "operationId": "GetAggregationByPortfolio",
         "consumes": [],
@@ -3404,7 +3404,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Get commands",
+        "summary": "[EARLY ACCESS] Get commands",
         "description": "Gets all commands that modified a specific portfolio, including any input transactions.",
         "operationId": "GetPortfolioCommands",
         "consumes": [],
@@ -3508,7 +3508,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Get portfolio properties",
+        "summary": "[EARLY ACCESS] Get portfolio properties",
         "description": "Get the properties of a portfolio",
         "operationId": "GetPortfolioProperties",
         "consumes": [],
@@ -3603,7 +3603,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Upsert portfolio properties",
+        "summary": "[EARLY ACCESS] Upsert portfolio properties",
         "description": "Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.",
         "operationId": "UpsertPortfolioProperties",
         "consumes": [],
@@ -3643,14 +3643,14 @@
                     "value": 12345.5672,
                     "unit": "Unit"
                   },
-                  "effectiveFrom": "2019-07-09T18:12:42.8079934+00:00"
+                  "effectiveFrom": "2019-07-10T09:42:06.9995002+00:00"
                 },
                 "Portfolio/MyScope/MyPropertyName2": {
                   "metricValue": {
                     "value": 925.3,
                     "unit": "Unit"
                   },
-                  "effectiveFrom": "2019-07-09T18:12:42.8079964+00:00"
+                  "effectiveFrom": "2019-07-10T09:42:06.9995036+00:00"
                 }
               }
             }
@@ -3682,7 +3682,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Delete portfolio properties",
+        "summary": "[EARLY ACCESS] Delete portfolio properties",
         "description": "Delete one, many or all property values from a portfolio for the specified effectiveAt\r\n            \r\nSpecifying no effectiveAt will delete all properties",
         "operationId": "DeletePortfolioProperties",
         "consumes": [],
@@ -3755,7 +3755,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "Reconcile portfolio holdings",
+        "summary": "[EARLY ACCESS] Reconcile portfolio holdings",
         "description": "Reconcile the holdings of two portfolios.",
         "operationId": "ReconcileHoldings",
         "consumes": [],
@@ -3838,7 +3838,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
+        "summary": "[EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileValuation",
         "consumes": [],
@@ -3921,7 +3921,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Get multiple property definitions",
+        "summary": "[EARLY ACCESS] Get multiple property definitions",
         "description": "Retrieve the definition of one or more specified properties.",
         "operationId": "GetMultiplePropertyDefinitions",
         "consumes": [],
@@ -3985,7 +3985,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Create property definition",
+        "summary": "[EARLY ACCESS] Create property definition",
         "description": "Define a new property.",
         "operationId": "CreatePropertyDefinition",
         "consumes": [],
@@ -4033,7 +4033,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Get property definition",
+        "summary": "[EARLY ACCESS] Get property definition",
         "description": "Retrieve the definition of the specified property.",
         "operationId": "GetPropertyDefinition",
         "consumes": [],
@@ -4109,7 +4109,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Update property definition",
+        "summary": "[EARLY ACCESS] Update property definition",
         "description": "Update display name of specified existing property.",
         "operationId": "UpdatePropertyDefinition",
         "consumes": [],
@@ -4186,7 +4186,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Delete property definition",
+        "summary": "[EARLY ACCESS] Delete property definition",
         "description": "Delete the definition of the specified property.",
         "operationId": "DeletePropertyDefinition",
         "consumes": [],
@@ -4256,7 +4256,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "Upsert quotes",
+        "summary": "[BETA] Upsert quotes",
         "description": "Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried",
         "operationId": "UpsertQuotes",
         "consumes": [],
@@ -4298,7 +4298,7 @@
                     "value": 1460,
                     "unit": "CNY"
                   },
-                  "effectiveAt": "2019-07-09T18:12:42.8908281+00:00"
+                  "effectiveAt": "2019-07-10T09:42:07.1623246+00:00"
                 },
                 {
                   "quoteId": {
@@ -4312,7 +4312,7 @@
                     "value": 1.367,
                     "unit": "EUR/USD"
                   },
-                  "effectiveAt": "2019-07-09T18:12:42.8908296+00:00",
+                  "effectiveAt": "2019-07-10T09:42:07.1623257+00:00",
                   "lineage": "PriceSource:Citi"
                 }
               ]
@@ -4347,7 +4347,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "Delete a quote",
+        "summary": "[BETA] Delete a quote",
         "description": "Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.",
         "operationId": "DeleteQuotes",
         "consumes": [],
@@ -4384,7 +4384,7 @@
                   "quoteType": "Price",
                   "priceSide": "Mid"
                 },
-                "effectiveAt": "2019-07-09T18:12:42.8950857+00:00"
+                "effectiveAt": "2019-07-10T09:42:07.1695052+00:00"
               }
             }
           }
@@ -4417,7 +4417,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "Get quotes",
+        "summary": "[BETA] Get quotes",
         "description": "Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.\r\nQuotes which are older than this at the time of the effective date/time will not be returned.\r\nMaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).\r\nThe results are paged, and by default the 1st page of results is returned with a limit of 100 results per page",
         "operationId": "GetQuotes",
         "consumes": [],
@@ -4515,7 +4515,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Create reference portfolio",
+        "summary": "[EARLY ACCESS] Create reference portfolio",
         "description": "Create a new reference portfolio.",
         "operationId": "CreateReferencePortfolio",
         "consumes": [],
@@ -4570,7 +4570,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Get constituents",
+        "summary": "[EARLY ACCESS] Get constituents",
         "description": "Get all the constituents in the specified reference portfolio",
         "operationId": "GetReferencePortfolioConstituents",
         "consumes": [],
@@ -4677,7 +4677,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Add constituents",
+        "summary": "[EARLY ACCESS] Add constituents",
         "description": "Add constituents to the specified reference portfolio.",
         "operationId": "UpsertReferencePortfolioConstituents",
         "consumes": [],
@@ -4739,7 +4739,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Gets constituents adjustments in an interval of effective time.",
+        "summary": "[EARLY ACCESS] Gets constituents adjustments in an interval of effective time.",
         "description": "Specify a time period in which you'd like to see the list of times that adjustments where made to this portfolio",
         "operationId": "ListConstituentsAdjustments",
         "consumes": [],
@@ -4816,7 +4816,7 @@
         "tags": [
           "Results"
         ],
-        "summary": "Upsert results",
+        "summary": "[EXPERIMENTAL] Upsert results",
         "description": "Upsert pre-calculated results against a specified combination of key parameters defined in the CreateResults request.",
         "operationId": "UpsertResults",
         "consumes": [],
@@ -4864,7 +4864,7 @@
         "tags": [
           "Results"
         ],
-        "summary": "Retrieve a page of results all keyed by the provided parameters. The result store is not bi-temporal; a single date\r\naddressed the market effectiveAt.",
+        "summary": "[EXPERIMENTAL] Retrieve a page of results all keyed by the provided parameters. The result store is not bi-temporal; a single date\r\naddressed the market effectiveAt.",
         "description": "Retrieve pre-calculated results that have been stored in LUSID.",
         "operationId": "GetResults",
         "consumes": [],
@@ -4939,7 +4939,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "Aggregate using result data",
+        "summary": "[EXPERIMENTAL] Aggregate using result data",
         "description": "Aggregate data from a previously-run Result data set into a flat row of results",
         "operationId": "GetAggregationByResultSet",
         "consumes": [],
@@ -5029,7 +5029,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "List entities",
+        "summary": "[BETA] List entities",
         "description": "List all available entities for which schema information is available.",
         "operationId": "ListEntities",
         "consumes": [],
@@ -5061,7 +5061,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "Get schema",
+        "summary": "[BETA] Get schema",
         "description": "Gets the schema and meta-data for a given entity",
         "operationId": "GetEntitySchema",
         "consumes": [],
@@ -5107,7 +5107,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "Get property schema",
+        "summary": "[BETA] Get property schema",
         "description": "Get the schemas for the provided list of property keys.",
         "operationId": "GetPropertySchema",
         "consumes": [],
@@ -5166,7 +5166,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "Get value types",
+        "summary": "[BETA] Get value types",
         "description": "Gets the available value types for which a schema is available.",
         "operationId": "GetValueTypes",
         "consumes": [],
@@ -5233,7 +5233,7 @@
         "tags": [
           "Scopes"
         ],
-        "summary": "List scopes",
+        "summary": "[EARLY ACCESS] List scopes",
         "description": "List all the scopes",
         "operationId": "ListScopes",
         "consumes": [],
@@ -5314,7 +5314,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "Search instruments",
+        "summary": "[EXPERIMENTAL] Search instruments",
         "description": "Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service",
         "operationId": "InstrumentsSearch",
         "consumes": [],
@@ -5386,7 +5386,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "Search portfolio groups",
+        "summary": "[EXPERIMENTAL] Search portfolio groups",
         "description": "Search through all portfolio groups",
         "operationId": "PortfolioGroupsSearch",
         "consumes": [],
@@ -5469,7 +5469,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "Search portfolios",
+        "summary": "[EXPERIMENTAL] Search portfolios",
         "description": "Search through all portfolios",
         "operationId": "PortfoliosSearch",
         "consumes": [],
@@ -5552,7 +5552,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "Search property definitions",
+        "summary": "[EXPERIMENTAL] Search property definitions",
         "description": "Search through all property definitions",
         "operationId": "PropertiesSearch",
         "consumes": [],
@@ -5635,7 +5635,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "List Existing Cut Labels",
+        "summary": "[EARLY ACCESS] List Existing Cut Labels",
         "description": "List all the Cut Label Definitions that are valid at the given AsAt time",
         "operationId": "ListCutLabelDefinitions",
         "consumes": [],
@@ -5722,7 +5722,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "Create a Cut Label",
+        "summary": "[EARLY ACCESS] Create a Cut Label",
         "description": "Create a Cut Label valid in all scopes",
         "operationId": "CreateCutLabelDefinition",
         "consumes": [],
@@ -5770,7 +5770,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "Get a Cut Label",
+        "summary": "[EARLY ACCESS] Get a Cut Label",
         "description": "Get a specified cut label at a given time",
         "operationId": "GetCutLabelDefinition",
         "consumes": [],
@@ -5822,7 +5822,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "Update a Cut Label",
+        "summary": "[EARLY ACCESS] Update a Cut Label",
         "description": "Update a specified cut label",
         "operationId": "UpdateCutLabelDefinition",
         "consumes": [],
@@ -5875,7 +5875,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "Delete a Cut Label",
+        "summary": "[EARLY ACCESS] Delete a Cut Label",
         "description": "Delete a specified cut label",
         "operationId": "DeleteCutLabelDefinition",
         "consumes": [],
@@ -5922,7 +5922,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "List transaction types",
+        "summary": "[EARLY ACCESS] List transaction types",
         "description": "Get the list of persisted transaction types",
         "operationId": "ListConfigurationTransactionTypes",
         "consumes": [],
@@ -5952,7 +5952,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "Set transaction types",
+        "summary": "[EXPERIMENTAL] Set transaction types",
         "description": "Set all transaction types to be used by the movements engine, for the organisation\r\n            \r\nWARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.",
         "operationId": "SetConfigurationTransactionTypes",
         "consumes": [],
@@ -6068,7 +6068,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "Create transaction type",
+        "summary": "[EARLY ACCESS] Create transaction type",
         "description": "Create a new transaction type by specifying a definition and the mappings to movements",
         "operationId": "CreateConfigurationTransactionType",
         "consumes": [],
@@ -6116,7 +6116,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Create portfolio",
+        "summary": "[EARLY ACCESS] Create portfolio",
         "description": "Create a transaction portfolio in a specific scope.",
         "operationId": "CreatePortfolio",
         "consumes": [],
@@ -6171,7 +6171,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get details",
+        "summary": "[EARLY ACCESS] Get details",
         "description": "Get the details associated with a transaction portfolio.",
         "operationId": "GetDetails",
         "consumes": [],
@@ -6251,7 +6251,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert portfolio details",
+        "summary": "[EARLY ACCESS] Upsert portfolio details",
         "description": "Upsert details for the specified transaction portfolio.",
         "operationId": "UpsertPortfolioDetails",
         "consumes": [],
@@ -6321,7 +6321,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert executions",
+        "summary": "[EARLY ACCESS] Upsert executions",
         "description": "Upsert executions into the specified transaction portfolio.",
         "operationId": "UpsertExecutions",
         "consumes": [],
@@ -6385,7 +6385,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Cancel executions",
+        "summary": "[EARLY ACCESS] Cancel executions",
         "description": "Cancel one or more executions from a transaction portfolio.",
         "operationId": "CancelExecutions",
         "consumes": [],
@@ -6450,7 +6450,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get holdings",
+        "summary": "[EARLY ACCESS] Get holdings",
         "description": "Get the holdings of the specified transaction portfolio.",
         "operationId": "GetHoldings",
         "consumes": [],
@@ -6531,7 +6531,7 @@
                 },
                 "values": [
                   {
-                    "instrumentUid": "LUID_17TCB7SQ",
+                    "instrumentUid": "LUID_7XLS43RB",
                     "holdingType": "P",
                     "units": 10,
                     "settledUnits": 10,
@@ -6569,7 +6569,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Set holdings",
+        "summary": "[EARLY ACCESS] Set holdings",
         "description": "Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically\r\nconstruct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio\r\nare always set to the provided targets for the given effectiveAt datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
         "operationId": "SetHoldings",
         "consumes": [],
@@ -6641,7 +6641,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Adjust holdings",
+        "summary": "[EARLY ACCESS] Adjust holdings",
         "description": "Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will\r\nautomatically construct adjustment transactions to ensure that the holdings which have been adjusted are\r\nalways set to the provided targets for the given effectiveAt datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
         "operationId": "AdjustHoldings",
         "consumes": [],
@@ -6713,7 +6713,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Cancel adjust holdings",
+        "summary": "[EARLY ACCESS] Cancel adjust holdings",
         "description": "Cancel all previous holding adjustments made on the specified transaction portfolio for a given effectiveAt\r\ndatetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.",
         "operationId": "CancelAdjustHoldings",
         "consumes": [],
@@ -6774,7 +6774,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "List holdings adjustments",
+        "summary": "[EARLY ACCESS] List holdings adjustments",
         "description": "List the holdings adjustments made to a transaction portfolio over a given interval of effectiveAt time.",
         "operationId": "ListHoldingsAdjustments",
         "consumes": [],
@@ -6851,7 +6851,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get holdings adjustment",
+        "summary": "[EARLY ACCESS] Get holdings adjustment",
         "description": "Get a holdings adjustment made to a transaction portfolio at a specific effectiveAt datetime. Note that a\r\nholdings adjustment will only be returned if one exists for the specified effectiveAt datetime.",
         "operationId": "GetHoldingsAdjustment",
         "consumes": [],
@@ -6912,7 +6912,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-192836"
                       },
-                      "instrumentUid": "LUID_BY19NPS7",
+                      "instrumentUid": "LUID_GGYE6MVM",
                       "subHoldingKeys": [],
                       "taxLots": [
                         {
@@ -6928,7 +6928,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-462810"
                       },
-                      "instrumentUid": "LUID_1GLQ8JFY",
+                      "instrumentUid": "LUID_8G6P6NE1",
                       "subHoldingKeys": [],
                       "taxLots": [
                         {
@@ -6966,7 +6966,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get transactions",
+        "summary": "[EARLY ACCESS] Get transactions",
         "description": "Get the transactions from the specified transaction portfolio over a given interval of effectiveAt time. \r\n\r\nWhen the specified portfolio is a derived transaction portfolio, the returned set of transactions is the\r\nunion set of all transactions of the parent (and ancestors) and the specified derived transaction portfolio.",
         "operationId": "GetTransactions",
         "consumes": [],
@@ -7043,8 +7043,8 @@
             "examples": {
               "application/json": {
                 "version": {
-                  "effectiveFrom": "2019-07-09T18:12:43.260792+00:00",
-                  "asAtDate": "2019-07-09T18:02:43.2607924+00:00"
+                  "effectiveFrom": "2019-07-10T09:42:07.8585503+00:00",
+                  "asAtDate": "2019-07-10T09:32:07.8585507+00:00"
                 },
                 "values": [
                   {
@@ -7053,7 +7053,7 @@
                     "instrumentIdentifiers": {
                       "Instrument/default/RIC": "RIC.L"
                     },
-                    "instrumentUid": "LUID_IN5JI7MD",
+                    "instrumentUid": "LUID_XNW0EVBP",
                     "transactionDate": "2018-08-04T00:00:00+00:00",
                     "settlementDate": "2018-08-06T00:00:00+00:00",
                     "units": 1000,
@@ -7105,7 +7105,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert transactions",
+        "summary": "[EARLY ACCESS] Upsert transactions",
         "description": "Upsert transactions into the specified transaction portfolio.",
         "operationId": "UpsertTransactions",
         "consumes": [],
@@ -7169,7 +7169,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Cancel transactions",
+        "summary": "[EARLY ACCESS] Cancel transactions",
         "description": "Cancel one or more transactions from the specified transaction portfolio.",
         "operationId": "CancelTransactions",
         "consumes": [],
@@ -7234,7 +7234,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Add transaction property",
+        "summary": "[EARLY ACCESS] Add transaction property",
         "description": "Upsert one or more transaction properties to a single transaction in a transaction portfolio.",
         "operationId": "AddTransactionProperty",
         "consumes": [],
@@ -7318,7 +7318,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Delete property from transaction",
+        "summary": "[EARLY ACCESS] Delete property from transaction",
         "description": "Delete a single property value from a single transaction in a transaction portfolio.",
         "operationId": "DeletePropertyFromTransaction",
         "consumes": [],
@@ -7385,7 +7385,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Build transactions",
+        "summary": "[EARLY ACCESS] Build transactions",
         "description": "Builds and returns all transactions that affect the holdings of a portfolio over a given interval of\r\neffectiveAt time into a set of output transactions. This includes transactions automatically generated by\r\nLUSID such as holding adjustments.",
         "operationId": "BuildTransactions",
         "consumes": [],
@@ -7455,8 +7455,8 @@
             "examples": {
               "application/json": {
                 "version": {
-                  "effectiveFrom": "2019-07-09T18:12:43.3200066+00:00",
-                  "asAtDate": "2019-07-09T18:02:43.3200068+00:00"
+                  "effectiveFrom": "2019-07-10T09:42:07.9875847+00:00",
+                  "asAtDate": "2019-07-10T09:32:07.9875851+00:00"
                 },
                 "values": [
                   {
@@ -7681,7 +7681,7 @@
       },
       "example": {
         "scope": "MyScope",
-        "date": "2019-07-09T18:12:42.0639499+00:00"
+        "date": "2019-07-10T09:42:05.6005354+00:00"
       }
     },
     "AnalyticStore": {
@@ -8790,7 +8790,7 @@
           "scope": "MyParentPortfolioScope",
           "code": "MyParentPortfolioCode"
         },
-        "created": "2019-07-09T18:12:42.3148553+00:00",
+        "created": "2019-07-10T09:42:06.1572535+00:00",
         "corporateActionSourceId": {
           "scope": "MyScope",
           "code": "MyCorporateActionSourceId"
@@ -9297,7 +9297,7 @@
             "key": "Instrument/MyScope/MyPropertyName",
             "value": {
               "labelValue": "MyValue",
-              "effectiveFrom": "2019-07-09T18:12:42.4243769+00:00"
+              "effectiveFrom": "2019-07-10T09:42:06.3169162+00:00"
             }
           }
         ],
@@ -9872,8 +9872,8 @@
           "scope": "MyScope",
           "code": "default"
         },
-        "asAt": "2019-07-09T18:12:42.9927537+00:00",
-        "effectiveAt": "2019-07-09T18:12:42.9927532+00:00",
+        "asAt": "2019-07-10T09:42:07.38016+00:00",
+        "effectiveAt": "2019-07-10T09:42:07.3801592+00:00",
         "metrics": [
           {
             "key": "Holding/default/PV",
@@ -10609,7 +10609,7 @@
       "example": {
         "displayName": "MyPortfolioName",
         "description": "Long form description of portfolio",
-        "created": "2019-07-09T18:12:42.7784779+00:00"
+        "created": "2019-07-10T09:42:06.9461147+00:00"
       }
     },
     "PortfolioProperties": {
@@ -10671,16 +10671,16 @@
             "scope": "MySourceScope",
             "code": "MySourcePortfolioCode"
           },
-          "effectiveAt": "2019-07-09T18:12:42.8341141+00:00",
-          "asAt": "2019-07-09T18:12:42.8341163+00:00"
+          "effectiveAt": "2019-07-10T09:42:07.0545956+00:00",
+          "asAt": "2019-07-10T09:42:07.0545991+00:00"
         },
         "right": {
           "portfolioId": {
             "scope": "MyTargetScope",
             "code": "MyTargetPortfolioCode"
           },
-          "effectiveAt": "2019-07-09T18:12:42.8341172+00:00",
-          "asAt": "2019-07-09T18:12:42.8341175+00:00"
+          "effectiveAt": "2019-07-10T09:42:07.0546005+00:00",
+          "asAt": "2019-07-10T09:42:07.0546009+00:00"
         },
         "instrumentPropertyKeys": [
           "Instrument/default/Name"
@@ -11330,7 +11330,7 @@
         "displayName": "MyPortfolioName",
         "description": "Description of my portfolio",
         "code": "MyPortfolioCode",
-        "created": "2019-07-09T18:12:42.928561+00:00",
+        "created": "2019-07-10T09:42:07.2431821+00:00",
         "properties": {}
       }
     },
@@ -11395,7 +11395,7 @@
         }
       },
       "example": {
-        "effectiveFrom": "2019-07-09T18:12:42.9367951+00:00",
+        "effectiveFrom": "2019-07-10T09:42:07.2619952+00:00",
         "weightType": "Periodical",
         "periodType": "Quarterly",
         "periodCount": 2,
@@ -11671,7 +11671,7 @@
         }
       },
       "example": {
-        "effectiveAt": "2019-07-09T18:12:42.9775514+00:00",
+        "effectiveAt": "2019-07-10T09:42:07.3754537+00:00",
         "entityScope": "MyEntityScope",
         "entityCode": "MyEntityCode",
         "calculationScope": "MyCalculationScope",
@@ -13273,8 +13273,8 @@
           "Instrument/default/Figi": "BBG000C6K6G9",
           "Instrument/default/Isin": "GB00BH4HKS39"
         },
-        "transactionDate": "2019-07-09T18:12:43.2784328+00:00",
-        "settlementDate": "2019-07-12T18:12:43.2784352+00:00",
+        "transactionDate": "2019-07-10T09:42:07.8737299+00:00",
+        "settlementDate": "2019-07-13T09:42:07.8737317+00:00",
         "units": 1000,
         "transactionPrice": {
           "price": 123,

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_entity_schema**](SchemasApi.md#get_entity_schema) | **GET** /api/schemas/entities/{entity} | Get schema
-[**get_property_schema**](SchemasApi.md#get_property_schema) | **GET** /api/schemas/properties | Get property schema
-[**get_value_types**](SchemasApi.md#get_value_types) | **GET** /api/schemas/types | Get value types
-[**list_entities**](SchemasApi.md#list_entities) | **GET** /api/schemas/entities | List entities
+[**get_entity_schema**](SchemasApi.md#get_entity_schema) | **GET** /api/schemas/entities/{entity} | [BETA] Get schema
+[**get_property_schema**](SchemasApi.md#get_property_schema) | **GET** /api/schemas/properties | [BETA] Get property schema
+[**get_value_types**](SchemasApi.md#get_value_types) | **GET** /api/schemas/types | [BETA] Get value types
+[**list_entities**](SchemasApi.md#list_entities) | **GET** /api/schemas/entities | [BETA] List entities
 
 
 # **get_entity_schema**
 > Schema get_entity_schema(entity)
 
-Get schema
+[BETA] Get schema
 
 Gets the schema and meta-data for a given entity
 
@@ -35,7 +35,7 @@ api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 entity = 'entity_example' # str | The name of a valid entity
 
 try:
-    # Get schema
+    # [BETA] Get schema
     api_response = api_instance.get_entity_schema(entity)
     pprint(api_response)
 except ApiException as e:
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 # **get_property_schema**
 > PropertySchema get_property_schema(property_keys=property_keys, as_at=as_at)
 
-Get property schema
+[BETA] Get property schema
 
 Get the schemas for the provided list of property keys.
 
@@ -89,7 +89,7 @@ property_keys = ['property_keys_example'] # list[str] | One or more property key
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 
 try:
-    # Get property schema
+    # [BETA] Get property schema
     api_response = api_instance.get_property_schema(property_keys=property_keys, as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 # **get_value_types**
 > ResourceListOfValueType get_value_types(sort_by=sort_by, start=start, limit=limit)
 
-Get value types
+[BETA] Get value types
 
 Gets the available value types for which a schema is available.
 
@@ -145,7 +145,7 @@ start = 56 # int | Optional. When paginating, skip this number of results (optio
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 
 try:
-    # Get value types
+    # [BETA] Get value types
     api_response = api_instance.get_value_types(sort_by=sort_by, start=start, limit=limit)
     pprint(api_response)
 except ApiException as e:
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 # **list_entities**
 > ResourceListOfString list_entities()
 
-List entities
+[BETA] List entities
 
 List all available entities for which schema information is available.
 
@@ -199,7 +199,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 
 try:
-    # List entities
+    # [BETA] List entities
     api_response = api_instance.list_entities()
     pprint(api_response)
 except ApiException as e:

@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | Delete a quote
-[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | Get quotes
-[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | Upsert quotes
+[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [BETA] Delete a quote
+[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [BETA] Get quotes
+[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [BETA] Upsert quotes
 
 
 # **delete_quotes**
 > DeleteQuotesResponse delete_quotes(scope, quotes=quotes)
 
-Delete a quote
+[BETA] Delete a quote
 
 Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
 
@@ -35,7 +35,7 @@ scope = 'scope_example' # str | The scope of the quote
 quotes = None # list[DeleteQuoteRequest] | The quotes to delete (optional)
 
 try:
-    # Delete a quote
+    # [BETA] Delete a quote
     api_response = api_instance.delete_quotes(scope, quotes=quotes)
     pprint(api_response)
 except ApiException as e:
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 # **get_quotes**
 > GetQuotesResponse get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, page=page, limit=limit, quote_ids=quote_ids)
 
-Get quotes
+[BETA] Get quotes
 
 Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
 
@@ -95,7 +95,7 @@ limit = 56 # int | Optional. The number of results per page (optional)
 quote_ids = None # list[QuoteId] | The ids of the quotes (optional)
 
 try:
-    # Get quotes
+    # [BETA] Get quotes
     api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, page=page, limit=limit, quote_ids=quote_ids)
     pprint(api_response)
 except ApiException as e:
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 # **upsert_quotes**
 > UpsertQuotesResponse upsert_quotes(scope, quotes=quotes)
 
-Upsert quotes
+[BETA] Upsert quotes
 
 Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
 
@@ -155,7 +155,7 @@ scope = 'scope_example' # str | The scope of the quotes
 quotes = None # list[UpsertQuoteRequest] | The quotes to upsert (optional)
 
 try:
-    # Upsert quotes
+    # [BETA] Upsert quotes
     api_response = api_instance.upsert_quotes(scope, quotes=quotes)
     pprint(api_response)
 except ApiException as e:

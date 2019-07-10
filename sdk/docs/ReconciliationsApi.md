@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | Reconcile portfolio holdings
-[**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+[**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] Reconcile portfolio holdings
+[**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | [EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
 
 
 # **reconcile_holdings**
 > ResourceListOfReconciliationBreak reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
 
-Reconcile portfolio holdings
+[EARLY ACCESS] Reconcile portfolio holdings
 
 Reconcile the holdings of two portfolios.
 
@@ -37,7 +37,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 request = lusid.PortfoliosReconciliationRequest() # PortfoliosReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
 try:
-    # Reconcile portfolio holdings
+    # [EARLY ACCESS] Reconcile portfolio holdings
     api_response = api_instance.reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 # **reconcile_valuation**
 > ResourceListOfReconciliationBreak reconcile_valuation(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
 
-Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+[EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
 
 Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
 
@@ -98,7 +98,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 request = lusid.ValuationsReconciliationRequest() # ValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
 try:
-    # Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+    # [EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
     api_response = api_instance.reconcile_valuation(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
     pprint(api_response)
 except ApiException as e:

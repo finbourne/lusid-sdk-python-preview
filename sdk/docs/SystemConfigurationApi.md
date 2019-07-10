@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_configuration_transaction_type**](SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactiontypes | Create transaction type
-[**list_configuration_transaction_types**](SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactiontypes | List transaction types
-[**set_configuration_transaction_types**](SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactiontypes | Set transaction types
+[**create_configuration_transaction_type**](SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] Create transaction type
+[**list_configuration_transaction_types**](SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] List transaction types
+[**set_configuration_transaction_types**](SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactiontypes | [EXPERIMENTAL] Set transaction types
 
 
 # **create_configuration_transaction_type**
 > ResourceListOfTransactionConfigurationData create_configuration_transaction_type(type=type)
 
-Create transaction type
+[EARLY ACCESS] Create transaction type
 
 Create a new transaction type by specifying a definition and the mappings to movements
 
@@ -34,7 +34,7 @@ api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
 type = lusid.TransactionConfigurationDataRequest() # TransactionConfigurationDataRequest | A transaction type definition (optional)
 
 try:
-    # Create transaction type
+    # [EARLY ACCESS] Create transaction type
     api_response = api_instance.create_configuration_transaction_type(type=type)
     pprint(api_response)
 except ApiException as e:
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 # **list_configuration_transaction_types**
 > ResourceListOfTransactionConfigurationData list_configuration_transaction_types()
 
-List transaction types
+[EARLY ACCESS] List transaction types
 
 Get the list of persisted transaction types
 
@@ -86,7 +86,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
 
 try:
-    # List transaction types
+    # [EARLY ACCESS] List transaction types
     api_response = api_instance.list_configuration_transaction_types()
     pprint(api_response)
 except ApiException as e:
@@ -114,7 +114,7 @@ This endpoint does not need any parameter.
 # **set_configuration_transaction_types**
 > ResourceListOfTransactionConfigurationData set_configuration_transaction_types(types=types)
 
-Set transaction types
+[EXPERIMENTAL] Set transaction types
 
 Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
 
@@ -136,7 +136,7 @@ api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
 types = None # list[TransactionConfigurationDataRequest] | The complete set of transaction type definitions (optional)
 
 try:
-    # Set transaction types
+    # [EXPERIMENTAL] Set transaction types
     api_response = api_instance.set_configuration_transaction_types(types=types)
     pprint(api_response)
 except ApiException as e:

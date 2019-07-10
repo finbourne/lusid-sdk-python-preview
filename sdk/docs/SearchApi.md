@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | Search instruments
-[**portfolio_groups_search**](SearchApi.md#portfolio_groups_search) | **POST** /api/search/portfoliogroups | Search portfolio groups
-[**portfolios_search**](SearchApi.md#portfolios_search) | **POST** /api/search/portfolios | Search portfolios
-[**properties_search**](SearchApi.md#properties_search) | **POST** /api/search/propertydefinitions | Search property definitions
+[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EXPERIMENTAL] Search instruments
+[**portfolio_groups_search**](SearchApi.md#portfolio_groups_search) | **POST** /api/search/portfoliogroups | [EXPERIMENTAL] Search portfolio groups
+[**portfolios_search**](SearchApi.md#portfolios_search) | **POST** /api/search/portfolios | [EXPERIMENTAL] Search portfolios
+[**properties_search**](SearchApi.md#properties_search) | **POST** /api/search/propertydefinitions | [EXPERIMENTAL] Search property definitions
 
 
 # **instruments_search**
 > list[InstrumentMatch] instruments_search(mastered_effective_at=mastered_effective_at, mastered_only=mastered_only, symbols=symbols)
 
-Search instruments
+[EXPERIMENTAL] Search instruments
 
 Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
 
@@ -37,7 +37,7 @@ mastered_only = False # bool | Optional. If set to true, only search over instru
 symbols = None # list[InstrumentSearchProperty] | A collection of instrument symbols to search for (optional)
 
 try:
-    # Search instruments
+    # [EXPERIMENTAL] Search instruments
     api_response = api_instance.instruments_search(mastered_effective_at=mastered_effective_at, mastered_only=mastered_only, symbols=symbols)
     pprint(api_response)
 except ApiException as e:
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 # **portfolio_groups_search**
 > ResourceListOfPortfolioGroup portfolio_groups_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
 
-Search portfolio groups
+[EXPERIMENTAL] Search portfolio groups
 
 Search through all portfolio groups
 
@@ -96,7 +96,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 request = None # object | A valid Elasticsearch 5.x request (optional)
 
 try:
-    # Search portfolio groups
+    # [EXPERIMENTAL] Search portfolio groups
     api_response = api_instance.portfolio_groups_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 # **portfolios_search**
 > ResourceListOfPortfolioSearchResult portfolios_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
 
-Search portfolios
+[EXPERIMENTAL] Search portfolios
 
 Search through all portfolios
 
@@ -157,7 +157,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 request = None # object | A valid Elasticsearch 5.x request (optional)
 
 try:
-    # Search portfolios
+    # [EXPERIMENTAL] Search portfolios
     api_response = api_instance.portfolios_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 # **properties_search**
 > ResourceListOfPropertyDefinition properties_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
 
-Search property definitions
+[EXPERIMENTAL] Search property definitions
 
 Search through all property definitions
 
@@ -218,7 +218,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 request = None # object | A valid Elasticsearch 5.x request (optional)
 
 try:
-    # Search property definitions
+    # [EXPERIMENTAL] Search property definitions
     api_response = api_instance.properties_search(sort_by=sort_by, start=start, limit=limit, filter=filter, request=request)
     pprint(api_response)
 except ApiException as e:

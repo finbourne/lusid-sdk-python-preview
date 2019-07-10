@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_aggregation_by_group**](AggregationApi.md#get_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregate | Aggregate data in a portfolio group
-[**get_aggregation_by_portfolio**](AggregationApi.md#get_aggregation_by_portfolio) | **POST** /api/portfolios/{scope}/{code}/$aggregate | Aggregate data in a portfolio
-[**get_aggregation_by_result_set**](AggregationApi.md#get_aggregation_by_result_set) | **POST** /api/results/{scope}/{resultsKey}/$aggregate | Aggregate using result data
-[**get_nested_aggregation_by_group**](AggregationApi.md#get_nested_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregatenested | Aggregate data in a portfolio group, as nested
+[**get_aggregation_by_group**](AggregationApi.md#get_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio group
+[**get_aggregation_by_portfolio**](AggregationApi.md#get_aggregation_by_portfolio) | **POST** /api/portfolios/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio
+[**get_aggregation_by_result_set**](AggregationApi.md#get_aggregation_by_result_set) | **POST** /api/results/{scope}/{resultsKey}/$aggregate | [EXPERIMENTAL] Aggregate using result data
+[**get_nested_aggregation_by_group**](AggregationApi.md#get_nested_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio group, as nested
 
 
 # **get_aggregation_by_group**
 > ListAggregationResponse get_aggregation_by_group(scope, code, sort_by=sort_by, start=start, limit=limit, request=request)
 
-Aggregate data in a portfolio group
+[EXPERIMENTAL] Aggregate data in a portfolio group
 
 Aggregate data sourced from the specified portfolio group
 
@@ -40,7 +40,7 @@ limit = 56 # int | Optional. When paginating, limit the number of returned resul
 request = lusid.AggregationRequest() # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # Aggregate data in a portfolio group
+    # [EXPERIMENTAL] Aggregate data in a portfolio group
     api_response = api_instance.get_aggregation_by_group(scope, code, sort_by=sort_by, start=start, limit=limit, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 # **get_aggregation_by_portfolio**
 > ListAggregationResponse get_aggregation_by_portfolio(scope, code, sort_by=sort_by, start=start, limit=limit, request=request)
 
-Aggregate data in a portfolio
+[EXPERIMENTAL] Aggregate data in a portfolio
 
 Aggregate data sourced from the specified portfolio
 
@@ -103,7 +103,7 @@ limit = 56 # int | Optional. When paginating, limit the number of returned resul
 request = lusid.AggregationRequest() # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # Aggregate data in a portfolio
+    # [EXPERIMENTAL] Aggregate data in a portfolio
     api_response = api_instance.get_aggregation_by_portfolio(scope, code, sort_by=sort_by, start=start, limit=limit, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 # **get_aggregation_by_result_set**
 > ListAggregationResponse get_aggregation_by_result_set(scope, results_key, sort_by=sort_by, start=start, limit=limit, request=request)
 
-Aggregate using result data
+[EXPERIMENTAL] Aggregate using result data
 
 Aggregate data from a previously-run Result data set into a flat row of results
 
@@ -166,7 +166,7 @@ limit = 56 # int | Optional. When paginating, limit the number of returned resul
 request = lusid.AggregationRequest() # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # Aggregate using result data
+    # [EXPERIMENTAL] Aggregate using result data
     api_response = api_instance.get_aggregation_by_result_set(scope, results_key, sort_by=sort_by, start=start, limit=limit, request=request)
     pprint(api_response)
 except ApiException as e:
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 # **get_nested_aggregation_by_group**
 > NestedAggregationResponse get_nested_aggregation_by_group(scope, code, request=request)
 
-Aggregate data in a portfolio group, as nested
+[EXPERIMENTAL] Aggregate data in a portfolio group, as nested
 
 Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
 
@@ -226,7 +226,7 @@ code = 'code_example' # str | The code of the portfolio group
 request = lusid.AggregationRequest() # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # Aggregate data in a portfolio group, as nested
+    # [EXPERIMENTAL] Aggregate data in a portfolio group, as nested
     api_response = api_instance.get_nested_aggregation_by_group(scope, code, request=request)
     pprint(api_response)
 except ApiException as e:
