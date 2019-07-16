@@ -1,13 +1,14 @@
-# Quote
+# QuoteSeriesId
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quote_id** | [**QuoteId**](QuoteId.md) |  | 
-**metric_value** | [**MetricValue**](MetricValue.md) |  | 
-**lineage** | **str** |  | [optional] 
-**uploaded_by** | **str** |  | 
-**as_at** | **datetime** |  | 
+**provider** | **str** |  | 
+**price_source** | **str** |  | 
+**instrument_id** | **str** |  | 
+**instrument_id_type** | **str** |  | 
+**quote_type** | **str** |  | 
+**field** | **str** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

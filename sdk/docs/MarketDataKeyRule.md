@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **supplier** | **str** | The market data supplier (where the data comes from) | 
 **data_scope** | **str** | The scope in which the data should be found when using this rule. | 
 **quote_type** | **str** | Is the quote to be looked for a price, yield etc. | [optional] 
-**price_side** | **str** | The conceptual qualification for the field. Something like Bid, Ask or Mid. | [optional] 
+**field** | **str** | The conceptual qualification for the field, such as bid, mid, or ask.   The field must be one of a defined set for the given supplier, in the same way as it  is for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
