@@ -32,7 +32,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quote
-quotes = None # list[QuoteId] | The quotes to delete (optional)
+quotes = {'key': lusid.QuoteId()} # dict(str, QuoteId) | The quotes to delete (optional)
 
 try:
     # [BETA] Delete a quote
@@ -47,7 +47,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the quote | 
- **quotes** | [**list[QuoteId]**](list.md)| The quotes to delete | [optional] 
+ **quotes** | [**dict(str, QuoteId)**](QuoteId.md)| The quotes to delete | [optional] 
 
 ### Return type
 
@@ -90,7 +90,7 @@ scope = 'scope_example' # str | The scope of the quotes
 effective_at = 'effective_at_example' # str | Optional. The date/time from which the quotes are effective (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The 'AsAt' date/time (optional)
 max_age = 'max_age_example' # str | Optional. The quote staleness tolerance (optional)
-quote_ids = None # list[QuoteSeriesId] | The ids of the quotes (optional)
+quote_ids = {'key': lusid.QuoteSeriesId()} # dict(str, QuoteSeriesId) | The ids of the quotes (optional)
 
 try:
     # [BETA] Get quotes
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
  **effective_at** | **str**| Optional. The date/time from which the quotes are effective | [optional] 
  **as_at** | **datetime**| Optional. The &#39;AsAt&#39; date/time | [optional] 
  **max_age** | **str**| Optional. The quote staleness tolerance | [optional] 
- **quote_ids** | [**list[QuoteSeriesId]**](list.md)| The ids of the quotes | [optional] 
+ **quote_ids** | [**dict(str, QuoteSeriesId)**](QuoteSeriesId.md)| The ids of the quotes | [optional] 
 
 ### Return type
 
@@ -148,7 +148,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes
-quotes = None # list[UpsertQuoteRequest] | The quotes to upsert (optional)
+quotes = {'key': lusid.UpsertQuoteRequest()} # dict(str, UpsertQuoteRequest) | The quotes to upsert (optional)
 
 try:
     # [BETA] Upsert quotes
@@ -163,7 +163,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the quotes | 
- **quotes** | [**list[UpsertQuoteRequest]**](list.md)| The quotes to upsert | [optional] 
+ **quotes** | [**dict(str, UpsertQuoteRequest)**](UpsertQuoteRequest.md)| The quotes to upsert | [optional] 
 
 ### Return type
 

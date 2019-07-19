@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **quote_id** | [**QuoteId**](QuoteId.md) |  | 
 **metric_value** | [**MetricValue**](MetricValue.md) |  | 
 **lineage** | **str** |  | [optional] 
+**cut_label** | **str** |  | [optional] 
 **uploaded_by** | **str** |  | 
 **as_at** | **datetime** |  | 
 
