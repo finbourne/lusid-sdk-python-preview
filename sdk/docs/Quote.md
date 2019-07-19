@@ -5,10 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quote_id** | [**QuoteId**](QuoteId.md) |  | 
 **metric_value** | [**MetricValue**](MetricValue.md) |  | 
-**effective_at** | **datetime** |  | 
-**as_at** | **datetime** |  | 
-**uploaded_by** | **str** |  | 
 **lineage** | **str** |  | [optional] 
+**uploaded_by** | **str** |  | 
+**as_at** | **datetime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

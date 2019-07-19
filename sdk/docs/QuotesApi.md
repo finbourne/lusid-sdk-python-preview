@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **delete_quotes**
-> DeleteQuotesResponse delete_quotes(scope, quotes=quotes)
+> AnnulQuotesResponse delete_quotes(scope, quotes=quotes)
 
 [BETA] Delete a quote
 
@@ -32,7 +32,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quote
-quotes = None # list[DeleteQuoteRequest] | The quotes to delete (optional)
+quotes = None # list[QuoteId] | The quotes to delete (optional)
 
 try:
     # [BETA] Delete a quote
@@ -47,11 +47,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the quote | 
- **quotes** | [**list[DeleteQuoteRequest]**](list.md)| The quotes to delete | [optional] 
+ **quotes** | [**list[QuoteId]**](list.md)| The quotes to delete | [optional] 
 
 ### Return type
 
-[**DeleteQuotesResponse**](DeleteQuotesResponse.md)
+[**AnnulQuotesResponse**](AnnulQuotesResponse.md)
 
 ### Authorization
 
@@ -65,11 +65,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_quotes**
-> GetQuotesResponse get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, page=page, limit=limit, quote_ids=quote_ids)
+> GetQuotesResponse get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, quote_ids=quote_ids)
 
 [BETA] Get quotes
 
-Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
+Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
 
 ### Example
 
@@ -87,16 +87,14 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes
-effective_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The date/time from which the quotes are effective (optional)
+effective_at = 'effective_at_example' # str | Optional. The date/time from which the quotes are effective (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The 'AsAt' date/time (optional)
 max_age = 'max_age_example' # str | Optional. The quote staleness tolerance (optional)
-page = 56 # int | Optional. The page of results to return (optional)
-limit = 56 # int | Optional. The number of results per page (optional)
-quote_ids = None # list[QuoteId] | The ids of the quotes (optional)
+quote_ids = None # list[QuoteSeriesId] | The ids of the quotes (optional)
 
 try:
     # [BETA] Get quotes
-    api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, page=page, limit=limit, quote_ids=quote_ids)
+    api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, quote_ids=quote_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QuotesApi->get_quotes: %s\n" % e)
@@ -107,12 +105,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the quotes | 
- **effective_at** | **datetime**| Optional. The date/time from which the quotes are effective | [optional] 
+ **effective_at** | **str**| Optional. The date/time from which the quotes are effective | [optional] 
  **as_at** | **datetime**| Optional. The &#39;AsAt&#39; date/time | [optional] 
  **max_age** | **str**| Optional. The quote staleness tolerance | [optional] 
- **page** | **int**| Optional. The page of results to return | [optional] 
- **limit** | **int**| Optional. The number of results per page | [optional] 
- **quote_ids** | [**list[QuoteId]**](list.md)| The ids of the quotes | [optional] 
+ **quote_ids** | [**list[QuoteSeriesId]**](list.md)| The ids of the quotes | [optional] 
 
 ### Return type
 
