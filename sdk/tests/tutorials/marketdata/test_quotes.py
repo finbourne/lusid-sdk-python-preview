@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime, timedelta
 
 import pytz as pytz
+import json
 
 import lusid
 import lusid.models as models
@@ -24,42 +25,45 @@ class Quotes(unittest.TestCase):
 
         request = models.UpsertQuoteRequest(
             quote_id=models.QuoteId(
-                provider="DataScope",
-                instrument_id="BBG000B9XRY4",
-                instrument_id_type="Figi",
-                quote_type="Price",
-                price_side="Mid"
+                models.QuoteSeriesId(
+                    provider="DataScope",
+                    instrument_id="BBG000B9XRY4",
+                    instrument_id_type="Figi",
+                    quote_type="Price",
+                    field="mid"
+                ),
+                effective_at = datetime(2019, 4, 15, tzinfo=pytz.utc)
             ),
             metric_value=models.MetricValue(
                 value=199.23,
                 unit="USD"
-            ),
-            effective_at=datetime(2019, 4, 15, tzinfo=pytz.utc)
+            )
         )
 
-        self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, quotes=[request])
+        self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, quotes={"quote1": request})
 
     def test_get_quote_for_instrument_for_single_day(self):
 
-        quote_id = models.QuoteId(
+        quote_series_id = models.QuoteSeriesId(
             provider="DataScope",
             instrument_id="BBG000B9XRY4",
             instrument_id_type="Figi",
             quote_type="Price",
-            price_side="Mid"
+            field="mid"
         )
+
         effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
 
         # get the close quote for AAPL on 15-Apr-19
         quote_response = self.quotes_api.get_quotes(
             scope=TestDataUtilities.tutorials_scope,
             effective_at=effective_date,
-            quote_ids=[quote_id]
+            quote_ids={"quote1": quote_series_id}
         )
 
-        self.assertEqual(len(quote_response.found), 1)
+        self.assertEqual(len(quote_response.values), 1)
 
-        quote = quote_response.found[0]
+        quote = quote_response.values["quote1"]
 
         self.assertEqual(quote.metric_value.value, 199.23)
 
@@ -68,12 +72,12 @@ class Quotes(unittest.TestCase):
         start_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
         date_range = [start_date - timedelta(days=x) for x in range(0, 30)]
 
-        quote_id = models.QuoteId(
+        quote_id = models.QuoteSeriesId(
             provider="DataScope",
             instrument_id="BBG000B9XRY4",
             instrument_id_type="Figi",
             quote_type="Price",
-            price_side="Mid"
+            field="mid"
         )
 
         # get the quotes for each day in the date range
@@ -81,7 +85,7 @@ class Quotes(unittest.TestCase):
             self.quotes_api.get_quotes(
                 scope=TestDataUtilities.tutorials_scope,
                 effective_at=d,
-                quote_ids=[quote_id]
+                quote_ids={"quote1": quote_id}
             )
             for d in date_range
         ]

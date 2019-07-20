@@ -159,7 +159,7 @@ class Instruments(unittest.TestCase):
         self.instruments_api.upsert_instruments_properties(instrument_properties=[
             models.UpsertInstrumentPropertyRequest(
                 lusid_instrument_id=instrument.lusid_instrument_id,
-                properties=[models.InstrumentProperty(key=property_key, value=property_value)]
+                properties=[models.ModelProperty(key=property_key, value=property_value)]
             )
         ])
 
