@@ -74,6 +74,7 @@ class Quotes(unittest.TestCase):
 
         quote_id = models.QuoteSeriesId(
             provider="DataScope",
+            price_source="USDRC",
             instrument_id="BBG000B9XRY4",
             instrument_id_type="Figi",
             quote_type="Price",
