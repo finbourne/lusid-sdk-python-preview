@@ -173,7 +173,7 @@ class Instruments(unittest.TestCase):
         self.assertGreaterEqual(len(instrument.properties), 1)
 
         prop = list(
-            filter(lambda p: p.key == property_key and p.value == property_value.label_value, instrument.properties))
+            filter(lambda p: p.key == property_key and p.value.label_value == property_value.label_value, instrument.properties))
 
         self.assertEqual(len(prop), 1, f"cannot find property key=${property_key} value={property_value}")
 
