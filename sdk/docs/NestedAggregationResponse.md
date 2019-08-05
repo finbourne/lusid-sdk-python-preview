@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aggregation_effective_at** | **datetime** |  | [optional] 
+**aggregation_as_at** | **datetime** |  | [optional] 
 **href** | **str** |  | [optional] 
 **data** | [**AggregationResponseNode**](AggregationResponseNode.md) |  | [optional] 
 **aggregation_currency** | **str** |  | [optional] 
