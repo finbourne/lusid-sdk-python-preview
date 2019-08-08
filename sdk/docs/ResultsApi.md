@@ -17,19 +17,15 @@ Retrieve pre-calculated results that have been stored in LUSID.
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
+api_instance = lusid.ResultsApi()
 entity_scope = 'entity_scope_example' # str | The scope of the data or entity being stored
 entity_code = 'entity_code_example' # str | The identifier for the data or results entity being stored
 calculation_scope = 'calculation_scope_example' # str | The identifying scope for the calculation that produced the result
@@ -60,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,19 +74,15 @@ Upsert pre-calculated results against a specified combination of key parameters 
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
+api_instance = lusid.ResultsApi()
 request = lusid.CreateResults() # CreateResults | The details of what to upsert (optional)
 
 try:
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 

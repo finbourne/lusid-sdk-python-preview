@@ -19,19 +19,15 @@ Aggregate data sourced from the specified portfolio group
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+api_instance = lusid.AggregationApi()
 scope = 'scope_example' # str | The scope of the portfolio group
 code = 'code_example' # str | The code of the portfolio group
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,19 +78,15 @@ Aggregate data sourced from the specified portfolio
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+api_instance = lusid.AggregationApi()
 scope = 'scope_example' # str | The scope of the portfolio
 code = 'code_example' # str | The code of the portfolio
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -127,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,19 +137,15 @@ Aggregate data from a previously-run Result data set into a flat row of results
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+api_instance = lusid.AggregationApi()
 scope = 'scope_example' # str | The scope of the Result data set
 results_key = 'results_key_example' # str | The key of the Result data set
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -190,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,19 +196,15 @@ Obsolete - Aggregate data sourced from the specified portfolio group into a nest
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+api_instance = lusid.AggregationApi()
 scope = 'scope_example' # str | The scope of the portfolio group
 code = 'code_example' # str | The code of the portfolio group
 request = lusid.AggregationRequest() # AggregationRequest | The request specifying the parameters of the aggregation (optional)
@@ -247,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 

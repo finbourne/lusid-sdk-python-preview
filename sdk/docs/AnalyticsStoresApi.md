@@ -20,19 +20,15 @@ Create a new analytic store for the specified scope and date
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
+api_instance = lusid.AnalyticsStoresApi()
 request = lusid.CreateAnalyticStoreRequest() # CreateAnalyticStoreRequest | A populated analytic store definition (optional)
 
 try:
@@ -55,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,19 +69,15 @@ Delete stored analytic data in the specified scope for the specified date
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
+api_instance = lusid.AnalyticsStoresApi()
 scope = 'scope_example' # str | The analytics data scope
 year = 56 # int | The year component of the date
 month = 56 # int | The month component of the date
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,19 +124,15 @@ Get the meta data associated with a specified scope and date combination (analyt
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
+api_instance = lusid.AnalyticsStoresApi()
 scope = 'scope_example' # str | The analytics data scope
 year = 56 # int | The year component of the date for the data in the scope
 month = 56 # int | The month component of the date for the data in the scope
@@ -175,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -193,19 +181,15 @@ List all defined analytic stores
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
+api_instance = lusid.AnalyticsStoresApi()
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
@@ -236,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -254,19 +238,15 @@ Store the complete set of analytics for an existing analytic store for the speci
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
+api_instance = lusid.AnalyticsStoresApi()
 scope = 'scope_example' # str | The scope of the data being stored
 year = 56 # int | The year component of the date for the data
 month = 56 # int | The month component of the date for the data
@@ -297,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 

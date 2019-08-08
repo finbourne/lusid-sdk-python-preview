@@ -19,19 +19,15 @@ Gets the schema and meta-data for a given entity
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
+api_instance = lusid.SchemasApi()
 entity = 'entity_example' # str | The name of a valid entity
 
 try:
@@ -54,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -72,19 +68,15 @@ Get the schemas for the provided list of property keys.
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
+api_instance = lusid.SchemasApi()
 property_keys = ['property_keys_example'] # list[str] | One or more property keys for which the schema is requested (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 
@@ -109,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,19 +119,15 @@ Gets the available value types for which a schema is available.
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
+api_instance = lusid.SchemasApi()
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -184,19 +172,15 @@ List all available entities for which schema information is available.
 
 ### Example
 
-* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
+api_instance = lusid.SchemasApi()
 
 try:
     # [BETA] List entities
@@ -215,7 +199,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
