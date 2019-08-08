@@ -1,6 +1,6 @@
 # lusid.SearchApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://http:/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,15 +19,19 @@ Search through instruments that have been mastered in LUSID, and optionally augm
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SearchApi()
+api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 mastered_effective_at = 'mastered_effective_at_example' # str | Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)
 mastered_only = False # bool | Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional) (default to False)
 symbols = None # list[InstrumentSearchProperty] | A collection of instrument symbols to search for (optional)
@@ -54,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -72,15 +76,19 @@ Search through all portfolio groups
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SearchApi()
+api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
@@ -111,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -129,15 +137,19 @@ Search through all portfolios
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SearchApi()
+api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
@@ -168,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -186,15 +198,19 @@ Search through all property definitions
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = lusid.SearchApi()
+api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
@@ -225,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
