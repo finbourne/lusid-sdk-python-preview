@@ -1,10 +1,11 @@
 # lusid.InstrumentsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_instrument**](InstrumentsApi.md#delete_instrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Delete instrument
+[**delete_instrument_properties**](InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] Delete properties from an instrument
 [**get_instrument**](InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Get instrument
 [**get_instrument_identifiers**](InstrumentsApi.md#get_instrument_identifiers) | **GET** /api/instruments/identifiers | [EARLY ACCESS] Get instrument identifiers
 [**get_instruments**](InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | [EARLY ACCESS] Get instruments
@@ -57,6 +58,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteInstrumentResponse**](DeleteInstrumentResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_instrument_properties**
+> DeleteInstrumentPropertiesResponse delete_instrument_properties(identifier_type, identifier, property_keys, effective_at=effective_at)
+
+[EXPERIMENTAL] Delete properties from an instrument
+
+Delete a collection of property values from an instrument, optionally, at the specified effective date, returning a  Finbourne.WebApi.Interface.Dto.Instruments.DeleteInstrumentPropertiesResponse value, containing the AsAtTime at which the operation was completed.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
+identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
+identifier = 'identifier_example' # str | The identifier of the instrument to delete properties from.
+property_keys = None # list[str] | The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied.
+effective_at = 'effective_at_example' # str | The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. (optional)
+
+try:
+    # [EXPERIMENTAL] Delete properties from an instrument
+    api_response = api_instance.delete_instrument_properties(identifier_type, identifier, property_keys, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling InstrumentsApi->delete_instrument_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier_type** | **str**| The identifier type of the instrument, e.g., \&quot;Figi\&quot; | 
+ **identifier** | **str**| The identifier of the instrument to delete properties from. | 
+ **property_keys** | [**list[str]**](list.md)| The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied. | 
+ **effective_at** | **str**| The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. | [optional] 
+
+### Return type
+
+[**DeleteInstrumentPropertiesResponse**](DeleteInstrumentPropertiesResponse.md)
 
 ### Authorization
 
@@ -369,7 +429,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert instruments
 
-Update or insert one or more instruments into the LUSID instrument master. An instrument will be updated  if it already exists and inserted if it does not.                In the request each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.    The response will return both the collection of successfully updated or inserted instruments, as well as those that failed.  For the failures a reason will be provided explaining why the instrument could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+Update or insert one or more instruments into the LUSID instrument master. An instrument will be updated  if it already exists and inserted if it does not.                In the request each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.                The response will return both the collection of successfully updated or inserted instruments, as well as those that failed.  For the failures a reason will be provided explaining why the instrument could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
 
 ### Example
 
