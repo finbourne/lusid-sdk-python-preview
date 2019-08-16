@@ -7,7 +7,7 @@ import lusid.models as models
 
 import unittest
 
-class TestDataUtilities():
+class TestDataUtilities:
 
     tutorials_scope = "Testdemo"
 
