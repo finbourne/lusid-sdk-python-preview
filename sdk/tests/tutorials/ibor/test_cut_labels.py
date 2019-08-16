@@ -20,16 +20,11 @@ class CutLabels(unittest.TestCase):
         # create a configured API client
         api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
 
-        cls.scopes_api = lusid.ScopesApi(api_client)
-        cls.portfolios_api = lusid.PortfoliosApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
 
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
-
-        cls.portfolios = lusid.PortfoliosApi(api_client)
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
 
@@ -49,7 +44,7 @@ class CutLabels(unittest.TestCase):
         # create a dictionary to keep track of cut labels
         code = {}
 
-        def create_cut_label(hours, minutes, display_name, description, time_zone):
+        def create_cut_label(hours, minutes, display_name, description, time_zone, code_dict):
             # Create the time for the cut label
             time = models.CutLocalTime(hours=hours, minutes=minutes)
             
@@ -62,25 +57,25 @@ class CutLabels(unittest.TestCase):
                 time_zone=time_zone)
 
             # Add the codes of our cut labels to our dictionary
-            code[request.display_name] = request.code 
+            code_dict[request.display_name] = request.code 
             
             # Send the request to LUSID to create the cut label
             result = self.cut_labels.create_cut_label_definition(
                 create_request=request)
 
             # Check that result gives same details as input
-            self.assertEqual(result.display_name, display_name) # should this be self?
+            self.assertEqual(result.display_name, display_name)
             self.assertEqual(result.description, description)
             self.assertEqual(result.cut_local_time, time)
             self.assertEqual(result.time_zone, time_zone)
 
         # Create cut labels for different time zones
-        create_cut_label(hours=9, minutes=0, display_name="LondonOpen", description="London Opening Time, 9am in UK", time_zone="GB")
-        create_cut_label(hours=17, minutes=0, display_name="LondonClose", description="London Closing Time, 5pm in UK", time_zone="GB")
-        create_cut_label(hours=9, minutes=0, display_name="SingaporeOpen", description="", time_zone="Singapore")
-        create_cut_label(hours=17, minutes=0, display_name="SingaporeClose", description="", time_zone="Singapore")
-        create_cut_label(hours=9, minutes=0, display_name="NYOpen", description="", time_zone="America/New_York")
-        create_cut_label(hours=17, minutes=0, display_name="NYClose", description="", time_zone="America/New_York")
+        create_cut_label(hours=9, minutes=0, display_name="LondonOpen", description="London Opening Time, 9am in UK", time_zone="GB", code_dict=code)
+        create_cut_label(hours=17, minutes=0, display_name="LondonClose", description="London Closing Time, 5pm in UK", time_zone="GB", code_dict=code)
+        create_cut_label(hours=9, minutes=0, display_name="SingaporeOpen", description="", time_zone="Singapore", code_dict=code)
+        create_cut_label(hours=17, minutes=0, display_name="SingaporeClose", description="", time_zone="Singapore", code_dict=code)
+        create_cut_label(hours=9, minutes=0, display_name="NYOpen", description="", time_zone="America/New_York", code_dict=code)
+        create_cut_label(hours=17, minutes=0, display_name="NYClose", description="", time_zone="America/New_York", code_dict=code)
 
 
         ## Create portfolio
@@ -88,7 +83,7 @@ class CutLabels(unittest.TestCase):
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(scope)
 
 
-        ## Add instruments
+        ## Get the instrument identifiers
         instrument1 = self.instrument_ids[0]
         instrument2 = self.instrument_ids[1]
         instrument3 = self.instrument_ids[2]
