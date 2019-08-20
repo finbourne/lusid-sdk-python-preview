@@ -23,5 +23,6 @@ from lusid.api.results_api import ResultsApi
 from lusid.api.schemas_api import SchemasApi
 from lusid.api.scopes_api import ScopesApi
 from lusid.api.search_api import SearchApi
+from lusid.api.structured_market_data_api import StructuredMarketDataApi
 from lusid.api.system_configuration_api import SystemConfigurationApi
 from lusid.api.transaction_portfolios_api import TransactionPortfoliosApi
