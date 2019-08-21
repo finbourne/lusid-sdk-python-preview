@@ -122,11 +122,11 @@ class Instruments(unittest.TestCase):
 
     def test_list_available_identifiers(self):
 
-        identifiers = self.instruments_api.get_instrument_identifier_types()
+        identifiers = self.instruments_api.get_instrument_identifiers()
 
         for scheme in identifiers.values:
             print(
-                f"name: {scheme.identifier_type}\nproperty key: {scheme.property_key}\nis unique: {scheme.is_unique_identifier_type}\n")
+                f"name: {scheme.id_name}\nproperty key: {scheme.property_key_value}\nis unique: {scheme.is_unique_identifier}\n")
 
     def test_list_all_instruments(self):
 
