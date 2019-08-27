@@ -1,6 +1,6 @@
 # lusid.SearchApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_portfolios**
-> ResourceListOfPortfolioSearchResult search_portfolios(filter=filter, sort_by=sort_by, start=start, limit=limit)
+> ResourceListOfPortfolioSearchResult search_portfolios(search=search, filter=filter, sort_by=sort_by, start=start, limit=limit)
 
 [EXPERIMENTAL] Search Portfolios
 
@@ -255,6 +255,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
+search = 'search_example' # str | A parameter used for searching any portfolio field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). See <see href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID </see> for more details. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</see>. (optional)
 sort_by = 'sort_by_example' # str | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName (optional)
 start = 56 # int | When paginating, skip this number of results (optional)
@@ -262,7 +263,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 
 try:
     # [EXPERIMENTAL] Search Portfolios
-    api_response = api_instance.search_portfolios(filter=filter, sort_by=sort_by, start=start, limit=limit)
+    api_response = api_instance.search_portfolios(search=search, filter=filter, sort_by=sort_by, start=start, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SearchApi->search_portfolios: %s\n" % e)
@@ -272,6 +273,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **str**| A parameter used for searching any portfolio field. Wildcards(*) are supported at the end of words (e.g. &#39;Port*&#39;). See &lt;see href&#x3D;\&quot;https://support.lusid.com/filtering-results-from-lusid\&quot;&gt; filtering results from LUSID &lt;/see&gt; for more details. | [optional] 
  **filter** | **str**| Expression to filter the result set. Read more about &lt;see href&#x3D;\&quot;https://support.lusid.com/filtering-results-from-lusid\&quot;&gt; filtering results from LUSID&lt;/see&gt;. | [optional] 
  **sort_by** | **str**| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName | [optional] 
  **start** | **int**| When paginating, skip this number of results | [optional] 
