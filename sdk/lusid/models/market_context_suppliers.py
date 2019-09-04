@@ -32,95 +32,41 @@ class MarketContextSuppliers(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'fx': 'str',
-        'rates': 'str',
         'commodity': 'str',
         'credit': 'str',
-        'equity': 'str'
+        'equity': 'str',
+        'fx': 'str',
+        'rates': 'str'
     }
 
     attribute_map = {
-        'fx': 'Fx',
-        'rates': 'Rates',
         'commodity': 'Commodity',
         'credit': 'Credit',
-        'equity': 'Equity'
+        'equity': 'Equity',
+        'fx': 'Fx',
+        'rates': 'Rates'
     }
 
-    def __init__(self, fx=None, rates=None, commodity=None, credit=None, equity=None):  # noqa: E501
+    def __init__(self, commodity=None, credit=None, equity=None, fx=None, rates=None):  # noqa: E501
         """MarketContextSuppliers - a model defined in OpenAPI"""  # noqa: E501
 
-        self._fx = None
-        self._rates = None
         self._commodity = None
         self._credit = None
         self._equity = None
+        self._fx = None
+        self._rates = None
         self.discriminator = None
 
-        if fx is not None:
-            self.fx = fx
-        if rates is not None:
-            self.rates = rates
         if commodity is not None:
             self.commodity = commodity
         if credit is not None:
             self.credit = credit
         if equity is not None:
             self.equity = equity
-
-    @property
-    def fx(self):
-        """Gets the fx of this MarketContextSuppliers.  # noqa: E501
-
-
-        :return: The fx of this MarketContextSuppliers.  # noqa: E501
-        :rtype: str
-        """
-        return self._fx
-
-    @fx.setter
-    def fx(self, fx):
-        """Sets the fx of this MarketContextSuppliers.
-
-
-        :param fx: The fx of this MarketContextSuppliers.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["DataScope", "Lusid", "Isda"]  # noqa: E501
-        if fx not in allowed_values:
-            raise ValueError(
-                "Invalid value for `fx` ({0}), must be one of {1}"  # noqa: E501
-                .format(fx, allowed_values)
-            )
-
-        self._fx = fx
-
-    @property
-    def rates(self):
-        """Gets the rates of this MarketContextSuppliers.  # noqa: E501
-
-
-        :return: The rates of this MarketContextSuppliers.  # noqa: E501
-        :rtype: str
-        """
-        return self._rates
-
-    @rates.setter
-    def rates(self, rates):
-        """Sets the rates of this MarketContextSuppliers.
-
-
-        :param rates: The rates of this MarketContextSuppliers.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["DataScope", "Lusid", "Isda"]  # noqa: E501
-        if rates not in allowed_values:
-            raise ValueError(
-                "Invalid value for `rates` ({0}), must be one of {1}"  # noqa: E501
-                .format(rates, allowed_values)
-            )
-
-        self._rates = rates
+        if fx is not None:
+            self.fx = fx
+        if rates is not None:
+            self.rates = rates
 
     @property
     def commodity(self):
@@ -202,6 +148,60 @@ class MarketContextSuppliers(object):
             )
 
         self._equity = equity
+
+    @property
+    def fx(self):
+        """Gets the fx of this MarketContextSuppliers.  # noqa: E501
+
+
+        :return: The fx of this MarketContextSuppliers.  # noqa: E501
+        :rtype: str
+        """
+        return self._fx
+
+    @fx.setter
+    def fx(self, fx):
+        """Sets the fx of this MarketContextSuppliers.
+
+
+        :param fx: The fx of this MarketContextSuppliers.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["DataScope", "Lusid", "Isda"]  # noqa: E501
+        if fx not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fx` ({0}), must be one of {1}"  # noqa: E501
+                .format(fx, allowed_values)
+            )
+
+        self._fx = fx
+
+    @property
+    def rates(self):
+        """Gets the rates of this MarketContextSuppliers.  # noqa: E501
+
+
+        :return: The rates of this MarketContextSuppliers.  # noqa: E501
+        :rtype: str
+        """
+        return self._rates
+
+    @rates.setter
+    def rates(self, rates):
+        """Sets the rates of this MarketContextSuppliers.
+
+
+        :param rates: The rates of this MarketContextSuppliers.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["DataScope", "Lusid", "Isda"]  # noqa: E501
+        if rates not in allowed_values:
+            raise ValueError(
+                "Invalid value for `rates` ({0}), must be one of {1}"  # noqa: E501
+                .format(rates, allowed_values)
+            )
+
+        self._rates = rates
 
     def to_dict(self):
         """Returns the model properties as a dict"""
