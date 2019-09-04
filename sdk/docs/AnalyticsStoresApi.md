@@ -1,6 +1,6 @@
 # lusid.AnalyticsStoresApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://http:/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,9 +31,7 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
+# create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 request = lusid.CreateAnalyticStoreRequest() # CreateAnalyticStoreRequest | A populated analytic store definition (optional)
 
@@ -64,13 +62,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | The meta data of the created analytic store |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_analytic_store**
@@ -93,9 +84,7 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
+# create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The analytics data scope
 year = 56 # int | The year component of the date
@@ -132,13 +121,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | A confirmation of the deleted store |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_analytic_store**
@@ -161,9 +143,7 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
+# create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The analytics data scope
 year = 56 # int | The year component of the date for the data in the scope
@@ -202,13 +182,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The analytic store&#39;s meta data |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_analytic_stores**
@@ -231,9 +204,7 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
+# create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -272,13 +243,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | A list of analytic store keys |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_analytics**
@@ -301,15 +265,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
+# create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the data being stored
 year = 56 # int | The year component of the date for the data
 month = 56 # int | The month component of the date for the data
 day = 56 # int | The day component of the date for the data
-data = [lusid.InstrumentAnalytic()] # list[InstrumentAnalytic] | The analytic data being inserted (optional)
+data = None # list[InstrumentAnalytic] | The analytic data being inserted (optional)
 
 try:
     # [EXPERIMENTAL] Set analytic data
@@ -327,7 +289,7 @@ Name | Type | Description  | Notes
  **year** | **int**| The year component of the date for the data | 
  **month** | **int**| The month component of the date for the data | 
  **day** | **int**| The day component of the date for the data | 
- **data** | [**list[InstrumentAnalytic]**](InstrumentAnalytic.md)| The analytic data being inserted | [optional] 
+ **data** | [**list[InstrumentAnalytic]**](list.md)| The analytic data being inserted | [optional] 
 
 ### Return type
 
@@ -341,13 +303,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The meta data of the analytic store |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
