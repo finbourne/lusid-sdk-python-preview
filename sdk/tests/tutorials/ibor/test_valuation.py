@@ -20,9 +20,8 @@ class Valuation(unittest.TestCase):
 
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
-        cls.analytic_stores_api = lusid.AnalyticsStoresApi(api_client)
         cls.aggregation_api = lusid.AggregationApi(api_client)
-
+        cls.quotes_api = lusid.QuotesApi(api_client)
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
@@ -59,33 +58,54 @@ class Valuation(unittest.TestCase):
                                                             code=portfolio_code,
                                                             transactions=transactions)
 
-        analytic_stores = self.analytic_stores_api.list_analytic_stores()
-        store = next(
-            filter(lambda s: s.date == effective_date and s.scope == TestDataUtilities.tutorials_scope,
-                   analytic_stores.values), None)
-
-        if store is None:
-            #   create an analytic store
-            analytic_store_request = models.CreateAnalyticStoreRequest(scope=TestDataUtilities.tutorials_scope,
-                                                                       date=effective_date)
-
-            self.analytic_stores_api.create_analytic_store(request=analytic_store_request)
-
         prices = [
             models.InstrumentAnalytic(self.instrument_ids[0], 100),
             models.InstrumentAnalytic(self.instrument_ids[1], 200),
             models.InstrumentAnalytic(self.instrument_ids[2], 300)
         ]
 
-        #   add prices
-        self.analytic_stores_api.set_analytics(scope=TestDataUtilities.tutorials_scope,
-                                               year=effective_date.year,
-                                               month=effective_date.month,
-                                               day=effective_date.day,
-                                               data=prices)
+        requests = []
+        for ii in range(3):
+            requests.append(
+                models.UpsertQuoteRequest(
+                    quote_id=models.QuoteId(
+                        models.QuoteSeriesId(
+                            provider="DataScope",
+                            instrument_id=self.instrument_ids[ii],
+                            instrument_id_type="LusidInstrumentId",
+                            quote_type="Price",
+                            field="mid"
+                        ),
+                        effective_at=effective_date
+                    ),
+                    metric_value=models.MetricValue(
+                        value=prices[ii].value,
+                        unit="GBP"
+                    )
+                )
+            )
+
+        # for request_number in range(len(requests)):
+        quotes_result = self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope,
+                                                      quotes={"quote" + str(request_number): requests[request_number]
+                                                              for request_number in range(len(requests))})
+
+        inline_recipe = models.ConfigurationRecipe(
+            code='quotes_recipe',
+            market=models.MarketContext(
+                market_rules=[],
+                suppliers=models.MarketContextSuppliers(
+                    equity='DataScope'
+                ),
+                options=models.MarketOptions(
+                    default_supplier='DataScope',
+                    default_instrument_code_type='LusidInstrumentId',
+                    default_scope=TestDataUtilities.tutorials_scope)
+            )
+        )
 
         aggregation_request = models.AggregationRequest(
-            recipe_id=models.ResourceId(TestDataUtilities.tutorials_scope, "default"),
+            inline_recipe=inline_recipe,
             metrics=[
                 models.AggregateSpec("Instrument/default/Name", "Value"),
                 models.AggregateSpec("Holding/default/PV", "Proportion"),
@@ -103,3 +123,9 @@ class Valuation(unittest.TestCase):
         for item in aggregation.data:
             print("\t{}\t{}\t{}".format(item["Instrument/default/Name"], item["Proportion(Holding/default/PV)"],
                                         item["Sum(Holding/default/PV)"]))
+
+        # Asserts
+        assert len(aggregation.data) == 3
+        assert aggregation.data[0]["Sum(Holding/default/PV)"] == 10000
+        assert aggregation.data[1]["Sum(Holding/default/PV)"] == 20000
+        assert aggregation.data[2]["Sum(Holding/default/PV)"] == 30000
