@@ -1,6 +1,6 @@
 # lusid.ConfigurationRecipeApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to delete.
 code = 'code_example' # str | The Configuration Recipe to delete.
@@ -62,6 +64,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The AsAt of deletion or failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_configuration_recipe**
@@ -84,7 +93,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to retrieve.
 code = 'code_example' # str | The name of the recipe to retrieve the data for.
@@ -119,6 +130,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved Configuration Recipe or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_configuration_recipe**
@@ -141,7 +159,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Configuration Recipe.
 structured_data = lusid.UpsertRecipeRequest() # UpsertRecipeRequest | The Configuration Recipe to update or insert
@@ -173,6 +193,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

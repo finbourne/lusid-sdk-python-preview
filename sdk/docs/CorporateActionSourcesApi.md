@@ -1,6 +1,6 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,11 +31,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of corporate action source
 code = 'code_example' # str | The code of the corporate action source
-actions = None # list[UpsertCorporateActionRequest] | The corporate action definitions (optional)
+actions = [lusid.UpsertCorporateActionRequest()] # list[UpsertCorporateActionRequest] | The corporate action definitions (optional)
 
 try:
     # [BETA] Upsert corporate actions
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of corporate action source | 
  **code** | **str**| The code of the corporate action source | 
- **actions** | [**list[UpsertCorporateActionRequest]**](list.md)| The corporate action definitions | [optional] 
+ **actions** | [**list[UpsertCorporateActionRequest]**](UpsertCorporateActionRequest.md)| The corporate action definitions | [optional] 
 
 ### Return type
 
@@ -65,6 +67,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The created corporate actions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -88,7 +97,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 request = lusid.CreateCorporateActionSourceRequest() # CreateCorporateActionSourceRequest | The corporate action source definition
 
@@ -119,6 +130,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The created corporate action source |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_corporate_action_source**
@@ -141,7 +159,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The Scope of the Corporate Action Source to be deleted
 code = 'code_example' # str | The Code of the Corporate Action Source to be deleted
@@ -174,6 +194,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Corporate Action Source Deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_corporate_actions**
@@ -196,7 +223,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source
 code = 'code_example' # str | The code of the corporate action source
@@ -243,6 +272,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Corporate Actions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_corporate_action_sources**
@@ -265,7 +301,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -303,6 +341,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | All Existing Corporate Action Sources |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
