@@ -1,6 +1,6 @@
 # lusid.InstrumentsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
 identifier = 'identifier_example' # str | The value of the identifier that resolves to the instrument to delete.
@@ -68,6 +70,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the instrument was deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_instrument_properties**
@@ -90,11 +99,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
 identifier = 'identifier_example' # str | The identifier of the instrument to delete properties from.
-property_keys = None # list[str] | The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied.
+property_keys = ['property_keys_example'] # list[str] | The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied.
 effective_at = 'effective_at_example' # str | The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. (optional)
 
 try:
@@ -111,7 +122,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier_type** | **str**| The identifier type of the instrument, e.g., \&quot;Figi\&quot; | 
  **identifier** | **str**| The identifier of the instrument to delete properties from. | 
- **property_keys** | [**list[str]**](list.md)| The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied. | 
+ **property_keys** | [**list[str]**](str.md)| The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied. | 
  **effective_at** | **str**| The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. | [optional] 
 
 ### Return type
@@ -126,6 +137,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The AsAt time of at which the properties were deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -149,7 +167,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
 identifier = 'identifier_example' # str | The value of the identifier for the requested instrument.
@@ -188,6 +208,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested instrument |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument_identifier_types**
@@ -210,7 +237,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 
 try:
@@ -237,6 +266,12 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The allowable instrument identifier types |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instruments**
@@ -259,10 +294,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
-identifiers = None # list[str] | The values of the identifier for the requested instruments.
+identifiers = ['identifiers_example'] # list[str] | The values of the identifier for the requested instruments.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)
 instrument_property_keys = ['instrument_property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
@@ -280,7 +317,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier_type** | **str**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
- **identifiers** | [**list[str]**](list.md)| The values of the identifier for the requested instruments. | 
+ **identifiers** | [**list[str]**](str.md)| The values of the identifier for the requested instruments. | 
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. | [optional] 
  **instrument_property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
@@ -297,6 +334,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested instruments which could be identified along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -320,7 +364,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. (optional)
@@ -365,6 +411,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested instruments |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_instrument_identifier**
@@ -387,7 +440,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier to use to resolve the instrument e.g. \"Figi\".
 identifier = 'identifier_example' # str | The original value of the identifier for the requested instrument.
@@ -422,6 +477,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The updated instrument definition with the identifier updated, inserted or deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_instruments**
@@ -444,7 +506,9 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 requests = {'key': lusid.InstrumentDefinition()} # dict(str, InstrumentDefinition) | The definitions of the instruments to update or insert. (optional)
 
@@ -475,6 +539,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The successfully updated or inserted instruments along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_instruments_properties**
@@ -497,9 +568,11 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
-instrument_properties = None # list[UpsertInstrumentPropertyRequest] | A collection of instruments and associated instrument properties to update or insert.
+instrument_properties = [lusid.UpsertInstrumentPropertyRequest()] # list[UpsertInstrumentPropertyRequest] | A collection of instruments and associated instrument properties to update or insert.
 
 try:
     # [EARLY ACCESS] Upsert instruments properties
@@ -513,7 +586,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instrument_properties** | [**list[UpsertInstrumentPropertyRequest]**](list.md)| A collection of instruments and associated instrument properties to update or insert. | 
+ **instrument_properties** | [**list[UpsertInstrumentPropertyRequest]**](UpsertInstrumentPropertyRequest.md)| A collection of instruments and associated instrument properties to update or insert. | 
 
 ### Return type
 
@@ -527,6 +600,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The asAt time at which the properties were updated, inserted or deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
