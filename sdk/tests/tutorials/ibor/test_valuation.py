@@ -29,7 +29,7 @@ class Valuation(unittest.TestCase):
 
     def test_portfolio_aggregation(self):
 
-        effective_date = datetime(2018, 1, 1, tzinfo=pytz.utc)
+        effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
 
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
 
@@ -65,13 +65,13 @@ class Valuation(unittest.TestCase):
         ]
 
         requests = []
-        for ii in range(3):
+        for i in range(3):
             requests.append(
                 models.UpsertQuoteRequest(
                     quote_id=models.QuoteId(
                         models.QuoteSeriesId(
                             provider="DataScope",
-                            instrument_id=self.instrument_ids[ii],
+                            instrument_id=self.instrument_ids[i],
                             instrument_id_type="LusidInstrumentId",
                             quote_type="Price",
                             field="mid"
@@ -79,16 +79,15 @@ class Valuation(unittest.TestCase):
                         effective_at=effective_date
                     ),
                     metric_value=models.MetricValue(
-                        value=prices[ii].value,
+                        value=prices[i].value,
                         unit="GBP"
                     )
                 )
             )
 
-        # for request_number in range(len(requests)):
-        quotes_result = self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope,
-                                                      quotes={"quote" + str(request_number): requests[request_number]
-                                                              for request_number in range(len(requests))})
+        self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope,
+                                      quotes={"quote" + str(request_number): requests[request_number]
+                                              for request_number in range(len(requests))})
 
         inline_recipe = models.ConfigurationRecipe(
             code='quotes_recipe',
@@ -125,7 +124,7 @@ class Valuation(unittest.TestCase):
                                         item["Sum(Holding/default/PV)"]))
 
         # Asserts
-        assert len(aggregation.data) == 3
-        assert aggregation.data[0]["Sum(Holding/default/PV)"] == 10000
-        assert aggregation.data[1]["Sum(Holding/default/PV)"] == 20000
-        assert aggregation.data[2]["Sum(Holding/default/PV)"] == 30000
+        self.assertEqual(len(aggregation.data),3)
+        self.assertEqual(aggregation.data[0]["Sum(Holding/default/PV)"], 10000)
+        self.assertEqual(aggregation.data[1]["Sum(Holding/default/PV)"], 20000)
+        self.assertEqual(aggregation.data[2]["Sum(Holding/default/PV)"], 30000)
