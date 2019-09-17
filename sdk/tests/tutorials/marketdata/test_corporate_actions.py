@@ -1,11 +1,12 @@
 import unittest
 
 import lusid
-import lusid.models
+import lusid.models as models
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from lusid.exceptions import ApiException
 from utilities.credentials_source import CredentialsSource
 from utilities.test_data_utilities import TestDataUtilities
+import uuid
 
 
 class CorporateActions(unittest.TestCase):
@@ -17,7 +18,18 @@ class CorporateActions(unittest.TestCase):
 
         cls.corporate_actions_sources_api = lusid.CorporateActionSourcesApi(api_client)
 
+    def get_guid(self):
+        # creates random alphanumeric code
+        return str(uuid.uuid4())[:12]
+
     def test_list_corporate_action_sources(self):
+        uuid = self.get_guid()
+        request = models.CreateCorporateActionSourceRequest(
+            scope=TestDataUtilities.tutorials_scope,
+            code=f"test-corp-action-code-{uuid}",
+            display_name=f"test-corp-action-{uuid}"
+        )
+        self.corporate_actions_sources_api.create_corporate_action_source(request)
         sources = self.corporate_actions_sources_api.list_corporate_action_sources()
         self.assertGreater(len(sources.values), 0)
         for source in sources.values:
@@ -25,7 +37,14 @@ class CorporateActions(unittest.TestCase):
 
     @unittest.skip("Not Implemented")
     def test_list_corporate_actions_for_one_day(self):
+        uuid = self.get_guid()
+        request = models.CreateCorporateActionSourceRequest(
+            scope=TestDataUtilities.tutorials_scope,
+            code=f"test-corp-action-code-{uuid}",
+            display_name=f"test-corp-action-{uuid}"
+        )
+        self.corporate_actions_sources_api.create_corporate_action_source(request)
         sources = self.corporate_actions_sources_api.get_corporate_actions(
-            scope="UK_High_Growth_Equities_Fund_a4fb",
-            code="UK_High_Growth_Equities_Fund_base_fund_corporate_action_source"
+            scope=f"test-corp-action-code-{uuid}",
+            code=f"test-corp-action-code-{uuid}"
         )
