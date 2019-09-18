@@ -1,14 +1,17 @@
 from datetime import datetime
 
 import pytz
+import threading
 import uuid
 import lusid
 import lusid.models as models
+from lusid.utilities import ApiClientBuilder
+from utilities import CredentialsSource
 
 import unittest
 
-class TestDataUtilities:
 
+class TestDataUtilities:
     tutorials_scope = "Testdemo"
 
     lusid_cash_identifier = "Instrument/default/Currency"
@@ -17,6 +20,17 @@ class TestDataUtilities:
     def __init__(self, transaction_portfolio_api: lusid.TransactionPortfoliosApi):
         self.transaction_portfolio_api = transaction_portfolio_api
         self.test = self.TestDataUtilitiesTests()
+
+    _api_client = None
+    _lock = threading.Lock()
+
+    @classmethod
+    def api_client(cls):
+        if not cls._api_client:
+            with cls._lock:
+                if not cls._api_client:
+                    cls._api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+        return cls._api_client
 
     def create_transaction_portfolio(self, scope):
         guid = str(uuid.uuid4())
@@ -34,7 +48,7 @@ class TestDataUtilities:
         # Create the portfolio in LUSID
         portfolio = self.transaction_portfolio_api.create_portfolio(scope, create_request=request)
 
-        assert(portfolio.id.code == request.code)
+        assert (portfolio.id.code == request.code)
 
         return portfolio.id.code
 
@@ -46,7 +60,8 @@ class TestDataUtilities:
                                          settlement_date=trade_date,
                                          units=units,
                                          transaction_price=models.TransactionPrice(price=price),
-                                         total_consideration=models.CurrencyAndAmount(amount=price*units, currency=currency),
+                                         total_consideration=models.CurrencyAndAmount(amount=price * units,
+                                                                                      currency=currency),
                                          source="Broker")
 
     def build_cash_fundsin_transaction_request(self, units, currency, trade_date):
@@ -62,34 +77,34 @@ class TestDataUtilities:
 
     def build_adjust_holdings_request(self, instrument_id, units, price, currency, trade_date):
         return models.AdjustHoldingRequest(
-                instrument_identifiers={
-                    TestDataUtilities.lusid_luid_identifier: instrument_id
-                },
-                tax_lots=[
-                    models.TargetTaxLotRequest(units=units,
-                                               price=price,
-                                               cost=models.CurrencyAndAmount(amount=price*units, currency=currency),
-                                               portfolio_cost=price*units,
-                                               purchase_date=trade_date,  
-                                               settlement_date=trade_date)
-                ])
+            instrument_identifiers={
+                TestDataUtilities.lusid_luid_identifier: instrument_id
+            },
+            tax_lots=[
+                models.TargetTaxLotRequest(units=units,
+                                           price=price,
+                                           cost=models.CurrencyAndAmount(amount=price * units, currency=currency),
+                                           portfolio_cost=price * units,
+                                           purchase_date=trade_date,
+                                           settlement_date=trade_date)
+            ])
 
     def build_cash_funds_in_adjust_holdings_request(self, currency, units):
         return models.AdjustHoldingRequest(
-                instrument_identifiers={
-                    TestDataUtilities.lusid_cash_identifier: currency
-                },
-                tax_lots=[
-                    models.TargetTaxLotRequest(units=units,
-                    price=None,
-                                               cost=None,
-                                               portfolio_cost=None,
-                                               purchase_date=None,  
-                                               settlement_date=None)
-                ])
+            instrument_identifiers={
+                TestDataUtilities.lusid_cash_identifier: currency
+            },
+            tax_lots=[
+                models.TargetTaxLotRequest(units=units,
+                                           price=None,
+                                           cost=None,
+                                           portfolio_cost=None,
+                                           purchase_date=None,
+                                           settlement_date=None)
+            ])
 
     class TestDataUtilitiesTests(unittest.TestCase):
-        
+
         def assert_holdings(self, holdings, index, instrument_id, units, cost_amount):
             self.assertEqual(holdings.values[index].instrument_uid, instrument_id)
             self.assertEqual(holdings.values[index].units, units)
