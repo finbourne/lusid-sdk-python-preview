@@ -2,13 +2,10 @@ import unittest
 from datetime import datetime, timedelta
 
 import pytz as pytz
-import json
 
 import lusid
 import lusid.models as models
-from lusid.utilities.api_client_builder import ApiClientBuilder
-from utilities.credentials_source import CredentialsSource
-from utilities.test_data_utilities import TestDataUtilities
+from utilities import TestDataUtilities
 
 
 class Quotes(unittest.TestCase):
@@ -17,7 +14,7 @@ class Quotes(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+        api_client = TestDataUtilities.api_client()
 
         cls.quotes_api = lusid.QuotesApi(api_client)
 
