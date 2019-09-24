@@ -14,6 +14,7 @@
       "backgroundColor": "#415464"
     }
   },
+  "basePath": "/api",
   "paths": {
     "/api/analytics": {
       "get": {
@@ -4381,7 +4382,7 @@
                     "value": 1.367,
                     "unit": "EUR/USD"
                   },
-                  "lineage": "Oanda/FxRates_2019-09-23.csv"
+                  "lineage": "Oanda/FxRates_2019-09-24.csv"
                 }
               }
             }
@@ -5616,7 +5617,7 @@
                     },
                     "displayName": "Test portfolio group",
                     "description": "UK Portfolio",
-                    "created": "2019-09-23T00:00:00+00:00",
+                    "created": "2019-09-24T00:00:00+00:00",
                     "portfolios": [
                       {
                         "scope": "demo-scope",
@@ -7177,7 +7178,7 @@
                 },
                 "values": [
                   {
-                    "instrumentUid": "LUID_VW2PO70P",
+                    "instrumentUid": "LUID_BJRKK1P0",
                     "holdingType": "P",
                     "units": 10,
                     "settledUnits": 10,
@@ -7558,7 +7559,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-192836"
                       },
-                      "instrumentUid": "LUID_GDYKGSX6",
+                      "instrumentUid": "LUID_T0ZETQM6",
                       "subHoldingKeys": {},
                       "properties": {},
                       "taxLots": [
@@ -7575,7 +7576,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-462810"
                       },
-                      "instrumentUid": "LUID_50ZKW98T",
+                      "instrumentUid": "LUID_MP67IPV0",
                       "subHoldingKeys": {},
                       "properties": {},
                       "taxLots": [
@@ -7701,7 +7702,7 @@
                     "instrumentIdentifiers": {
                       "Instrument/default/RIC": "RIC.L"
                     },
-                    "instrumentUid": "LUID_Y8GEBP99",
+                    "instrumentUid": "LUID_VNGXGVVC",
                     "transactionDate": "2018-08-04T00:00:00+00:00",
                     "settlementDate": "2018-08-06T00:00:00+00:00",
                     "units": 1000,
@@ -10701,7 +10702,7 @@
       },
       "example": {
         "code": "MyGroupCode",
-        "created": "2019-09-23T16:56:27.4901068+00:00",
+        "created": "2019-09-24T13:08:06.4530295+00:00",
         "values": [
           {
             "scope": "MyScope",
@@ -15405,7 +15406,7 @@
   "securityDefinitions": {
     "oauth2": {
       "flow": "implicit",
-      "authorizationUrl": "http://dummy.451.okta.com/v1/authorize",
+      "authorizationUrl": "https://lusid.okta.com/oauth2/aus5al5yopbHW2wJn2p6/v1/authorize",
       "type": "oauth2",
       "description": "OAuth2 Implicit Grant"
     }
