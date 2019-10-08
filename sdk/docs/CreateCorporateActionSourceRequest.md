@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **str** |  | 
-**code** | **str** |  | 
+**scope** | **str** | Scope of Corporate Action Source | 
+**code** | **str** | Code of Corporate Action Source | 
 **display_name** | **str** |  | 
 **description** | **str** |  | [optional] 
 

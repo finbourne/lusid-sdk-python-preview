@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**movement_types** | **str** | The Movement Types | 
-**side** | **str** | The Movement Side | 
-**direction** | **int** | The Movement direction | 
+**movement_types** | **str** | The movement types | 
+**side** | **str** | The Side | 
+**direction** | **int** |  | 
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) |  | [optional] 
 **mappings** | [**list[TransactionPropertyMappingRequest]**](TransactionPropertyMappingRequest.md) |  | [optional] 
 
