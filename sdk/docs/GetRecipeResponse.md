@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**href** | **str** |  | [optional] 
+**href** | **str** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **value** | [**ConfigurationRecipe**](ConfigurationRecipe.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

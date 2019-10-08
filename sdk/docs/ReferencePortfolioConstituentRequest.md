@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_identifiers** | **dict(str, str)** |  | 
+**instrument_identifiers** | **dict(str, str)** | Unique instrument identifiers | 
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) |  | [optional] 
 **weight** | **float** |  | 
 **currency** | **str** |  | [optional] 

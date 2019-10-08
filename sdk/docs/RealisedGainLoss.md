@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_uid** | **str** |  | 
-**units** | **float** |  | 
-**purchase_trade_date** | **datetime** |  | [optional] 
-**purchase_settlement_date** | **datetime** |  | [optional] 
-**purchase_price** | **float** |  | [optional] 
+**instrument_uid** | **str** | The unqiue Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with. | 
+**units** | **float** | The number of units of the associated instrument against which the gain or loss has been realised. | 
+**purchase_trade_date** | **datetime** | The effective datetime that the units associated with this gain or loss where originally purchased. | [optional] 
+**purchase_settlement_date** | **datetime** | The effective datetime that the units associated with this gain or loss where originally settled. | [optional] 
+**purchase_price** | **float** | The purchase price of each unit associated with this gain or loss. | [optional] 
 **cost_trade_ccy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **cost_portfolio_ccy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **realised_trade_ccy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
