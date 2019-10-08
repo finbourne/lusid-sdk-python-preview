@@ -7181,7 +7181,7 @@
                 },
                 "values": [
                   {
-                    "instrumentUid": "LUID_NJS2CUZZ",
+                    "instrumentUid": "LUID_NGIZS8L1",
                     "holdingType": "P",
                     "units": 10,
                     "settledUnits": 10,
@@ -7562,7 +7562,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-192836"
                       },
-                      "instrumentUid": "LUID_KGF41TVX",
+                      "instrumentUid": "LUID_TVGHLAM6",
                       "subHoldingKeys": {},
                       "properties": {},
                       "taxLots": [
@@ -7579,7 +7579,7 @@
                       "instrumentIdentifiers": {
                         "Instrument/default/ClientInternal": "CLI-462810"
                       },
-                      "instrumentUid": "LUID_MDE1KKHH",
+                      "instrumentUid": "LUID_BPWABMQB",
                       "subHoldingKeys": {},
                       "properties": {},
                       "taxLots": [
@@ -7705,7 +7705,7 @@
                     "instrumentIdentifiers": {
                       "Instrument/default/RIC": "RIC.L"
                     },
-                    "instrumentUid": "LUID_NU5K3CQU",
+                    "instrumentUid": "LUID_6LR4B201",
                     "transactionDate": "2018-08-04T00:00:00+00:00",
                     "settlementDate": "2018-08-06T00:00:00+00:00",
                     "units": 1000,
@@ -10705,7 +10705,7 @@
       },
       "example": {
         "code": "MyGroupCode",
-        "created": "2019-10-08T09:27:54.5438009+00:00",
+        "created": "2019-10-08T09:46:46.9912971+00:00",
         "values": [
           {
             "scope": "MyScope",
