@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://api
+configuration.host = "http://api"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group
@@ -102,8 +102,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://api
+configuration.host = "http://api"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -174,8 +174,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://api
+configuration.host = "http://api"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Result data set
@@ -246,8 +246,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://api
+configuration.host = "http://api"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group
