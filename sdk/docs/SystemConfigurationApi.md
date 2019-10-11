@@ -1,16 +1,16 @@
 # lusid.SystemConfigurationApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_configuration_transaction_type**](SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] Create transaction type
-[**list_configuration_transaction_types**](SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] List transaction types
-[**set_configuration_transaction_types**](SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactiontypes | [EXPERIMENTAL] Set transaction types
+[**create_configuration_transaction_type**](SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] Create transaction type
+[**list_configuration_transaction_types**](SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] List transaction types
+[**set_configuration_transaction_types**](SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactions | [EXPERIMENTAL] Set transaction types
 
 
 # **create_configuration_transaction_type**
-> ResourceListOfTransactionConfigurationData create_configuration_transaction_type(type=type)
+> TransactionSetConfigurationData create_configuration_transaction_type(type=type)
 
 [EARLY ACCESS] Create transaction type
 
@@ -29,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
 type = lusid.TransactionConfigurationDataRequest() # TransactionConfigurationDataRequest | A transaction type definition (optional)
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_configuration_transaction_types**
-> ResourceListOfTransactionConfigurationData list_configuration_transaction_types()
+> TransactionSetConfigurationData list_configuration_transaction_types()
 
 [EARLY ACCESS] List transaction types
 
@@ -91,8 +91,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
 
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_configuration_transaction_types**
-> ResourceListOfTransactionConfigurationData set_configuration_transaction_types(types=types)
+> TransactionSetConfigurationData set_configuration_transaction_types(types=types)
 
 [EXPERIMENTAL] Set transaction types
 
@@ -148,11 +148,11 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
-types = [lusid.TransactionConfigurationDataRequest()] # list[TransactionConfigurationDataRequest] | The complete set of transaction type definitions (optional)
+types = lusid.TransactionSetConfigurationDataRequest() # TransactionSetConfigurationDataRequest | The complete set of transaction type definitions (optional)
 
 try:
     # [EXPERIMENTAL] Set transaction types
@@ -166,11 +166,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **types** | [**list[TransactionConfigurationDataRequest]**](TransactionConfigurationDataRequest.md)| The complete set of transaction type definitions | [optional] 
+ **types** | [**TransactionSetConfigurationDataRequest**](TransactionSetConfigurationDataRequest.md)| The complete set of transaction type definitions | [optional] 
 
 ### Return type
 
-[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
 
 ### Authorization
 
