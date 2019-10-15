@@ -1,10 +1,10 @@
 import unittest
-
 from time import sleep
-from lusid.utilities import ApiClientBuilder
-from lusid.utilities import RefreshingToken
+
 from lusid.utilities import ApiConfigurationLoader
+from lusid.utilities import RefreshingToken
 from utilities import CredentialsSource
+from utilities import TokenUtilities as tu
 
 
 class TokenRefresh(unittest.TestCase):
@@ -13,28 +13,8 @@ class TokenRefresh(unittest.TestCase):
     def setUpClass(cls):
         cls.config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
 
-    @staticmethod
-    def get_okta_tokens():
-        original_token = ""
-        refresh_token = ""
-
-        def extract_refresh_token(okta_response):
-            nonlocal refresh_token
-            nonlocal original_token
-
-            okta_json = okta_response.json()
-            refresh_token = okta_json["refresh_token"]
-            original_token = okta_json["access_token"]
-
-        ApiClientBuilder().build(
-            CredentialsSource.secrets_path(),
-            extract_refresh_token
-        )
-
-        return original_token, refresh_token
-
     def test_get_token(self):
-        original_token, refresh_token = self.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens()
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
@@ -47,13 +27,13 @@ class TokenRefresh(unittest.TestCase):
         self.assertEqual(original_token, refreshed_token)
 
     def test_refreshed_token_when_expired(self):
-        original_token, refresh_token = self.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens()
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
                                           client_secret=self.config.client_secret,
                                           initial_access_token=original_token,
-                                          initial_token_expiry=1,   # 1s expiry
+                                          initial_token_expiry=1,  # 1s expiry
                                           refresh_token=refresh_token,
                                           expiry_offset=3599)  # set to 1s expiry
 
@@ -67,7 +47,7 @@ class TokenRefresh(unittest.TestCase):
         self.assertNotEqual(first_value, refreshed_token)
 
     def test_token_when_not_expired_does_not_refresh(self):
-        original_token, refresh_token = self.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens()
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
@@ -86,7 +66,7 @@ class TokenRefresh(unittest.TestCase):
         self.assertEqual(first_value, refreshed_token)
 
     def test_can_make_header(self):
-        original_token, refresh_token = self.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens()
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
