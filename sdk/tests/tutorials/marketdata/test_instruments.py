@@ -41,7 +41,7 @@ class Instruments(unittest.TestCase):
             cls.property_definitions_api.create_property_definition(definition=property_definition)
 
     def test_seed_instrument_master(self):
-        response = self.instruments_api.upsert_instruments(requests={
+        response = self.instruments_api.upsert_instruments(instruments={
 
             "BBG000FD8G46": models.InstrumentDefinition(
                 name="HISCOX LTD",
@@ -91,7 +91,7 @@ class Instruments(unittest.TestCase):
         figi = "BBG000FD8G46"
 
         # set up the instrument
-        response = self.instruments_api.upsert_instruments(requests={
+        response = self.instruments_api.upsert_instruments(instruments={
             figi: models.InstrumentDefinition(
                 name="HISCOX LTD",
                 identifiers={
@@ -106,7 +106,7 @@ class Instruments(unittest.TestCase):
         # unique id, in this case an OpenFigi, and also return a list of aliases
         looked_up_instruments = self.instruments_api.get_instruments(identifier_type="Figi",
                                                                      identifiers=[figi],
-                                                                     instrument_property_keys=[
+                                                                     property_keys=[
                                                                          "Instrument/default/ClientInternal"
                                                                      ])
 
@@ -165,7 +165,7 @@ class Instruments(unittest.TestCase):
         instrument = self.instruments_api.get_instrument(
             identifier_type=identifier_type,
             identifier=identifier,
-            instrument_property_keys=[property_key]
+            property_keys=[property_key]
         )
 
         self.assertGreaterEqual(len(instrument.properties), 1)
@@ -195,7 +195,7 @@ class Instruments(unittest.TestCase):
                 content="<customFormat>upload in custom xml or JSON format</customFormat>"))
 
         # create the swap
-        swap_response = self.instruments_api.upsert_instruments(requests={
+        swap_response = self.instruments_api.upsert_instruments(instruments={
             "request": swap_definition
         })
 
