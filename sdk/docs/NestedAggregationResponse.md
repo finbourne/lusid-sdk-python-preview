@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **aggregation_as_at** | **datetime** |  | [optional] 
 **href** | **str** |  | [optional] 
 **data** | [**AggregationResponseNodeOfDictionaryOfStringToObject**](AggregationResponseNodeOfDictionaryOfStringToObject.md) |  | [optional] 
-**aggregation_currency** | **str** |  | [optional] 
+**aggregation_currency** | [**Currency**](Currency.md) |  | [optional] 
 **data_schema** | [**ResultDataSchema**](ResultDataSchema.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 
