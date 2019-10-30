@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **transaction_time** | **datetime** | Time of execution/order creation. FIX field 60. | 
 **last_shares** | **float** | Quantity (e.g. shares) bought/sold on this (last) fill. FIX field 32. | 
 **last_px** | **float** | Price of this (last) fill. FIX field 31. | 
-**currency** | [**Currency**](Currency.md) |  | 
+**currency** | **str** | The currency used for the price. FIX field 15. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

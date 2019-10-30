@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | A long form description of the transaction portfolio. | [optional] 
 **code** | **str** | The code that the transaction portfolio will be created with. Together with the scope this uniquely identifies the transaction portfolio. | 
 **created** | **datetime** | The effective datetime at which the transaction portfolio will be created. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified. | [optional] 
-**base_currency** | [**Currency**](Currency.md) |  | 
+**base_currency** | **str** | The base currency of the transaction portfolio. | 
 **corporate_action_source_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **accounting_method** | **str** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. | [optional] 
 **sub_holding_keys** | **list[str]** | A set of unique transaction properties to group the transaction portfolio&#39;s holdings by. Each property must be from the &#39;Transaction&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Transaction/strategies/quantsignal&#39;. | [optional] 
