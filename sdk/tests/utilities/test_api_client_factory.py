@@ -81,3 +81,15 @@ class ApiFactory(unittest.TestCase):
         result = portfolios.list_portfolios(limit=10)
 
         self.assertGreater(len(result.values), 0)
+
+    def test_wrapped_method(self):
+        factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
+
+        wrapped_portfolio = factory.build(PortfoliosApi)
+        portfolio = PortfoliosApi(wrapped_portfolio.api_client)
+
+        self.assertEqual(portfolio.__doc__, wrapped_portfolio.__doc__)
+        self.assertEqual(portfolio.__module__, wrapped_portfolio.__module__)
+        self.assertDictEqual(portfolio.__dict__, wrapped_portfolio.__dict__)
+
+

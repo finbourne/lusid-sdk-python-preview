@@ -1,3 +1,4 @@
+import functools
 import importlib
 import inspect
 import lusid
@@ -52,6 +53,7 @@ class ApiClientFactory:
 
             attr = super(metaclass, source_obj).__getattribute__(name)
 
+            @functools.wraps(attr)
             def wrapper(*args, **kwargs):
 
                 def is_http_info_method(m):
@@ -81,13 +83,11 @@ class ApiClientFactory:
 
             return wrapper if inspect.ismethod(attr) else attr
 
-        def init_impl(dest, src):
+        def init_impl(dest, src=None):
             if type(dest) == type(src):
                 dest.__dict__ = src.__dict__
             elif type(src) == ApiClient:
                 dest.api_client = src
-            else:
-                raise Exception(f"invalid argument {src} passed to __init__")
 
         module = importlib.import_module('lusid.api')
         api_name = metaclass.__name__
