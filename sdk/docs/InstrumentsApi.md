@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument**
-> Instrument get_instrument(identifier_type, identifier, effective_at=effective_at, as_at=as_at, instrument_property_keys=instrument_property_keys)
+> Instrument get_instrument(identifier_type, identifier, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
 
 [EARLY ACCESS] Get instrument
 
@@ -175,11 +175,11 @@ identifier_type = 'identifier_type_example' # str | The identifier being supplie
 identifier = 'identifier_example' # str | The value of the identifier for the requested instrument.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)
-instrument_property_keys = ['instrument_property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
 
 try:
     # [EARLY ACCESS] Get instrument
-    api_response = api_instance.get_instrument(identifier_type, identifier, effective_at=effective_at, as_at=as_at, instrument_property_keys=instrument_property_keys)
+    api_response = api_instance.get_instrument(identifier_type, identifier, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InstrumentsApi->get_instrument: %s\n" % e)
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
  **identifier** | **str**| The value of the identifier for the requested instrument. | 
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional] 
- **instrument_property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
 ### Return type
 
@@ -275,7 +275,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instruments**
-> GetInstrumentsResponse get_instruments(identifier_type, identifiers, effective_at=effective_at, as_at=as_at, instrument_property_keys=instrument_property_keys)
+> GetInstrumentsResponse get_instruments(identifier_type, identifiers, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
 
 [EARLY ACCESS] Get instruments
 
@@ -302,11 +302,11 @@ identifier_type = 'identifier_type_example' # str | The identifier being supplie
 identifiers = ['identifiers_example'] # list[str] | The values of the identifier for the requested instruments.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)
-instrument_property_keys = ['instrument_property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
 
 try:
     # [EARLY ACCESS] Get instruments
-    api_response = api_instance.get_instruments(identifier_type, identifiers, effective_at=effective_at, as_at=as_at, instrument_property_keys=instrument_property_keys)
+    api_response = api_instance.get_instruments(identifier_type, identifiers, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InstrumentsApi->get_instruments: %s\n" % e)
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
  **identifiers** | [**list[str]**](str.md)| The values of the identifier for the requested instruments. | 
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. | [optional] 
- **instrument_property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
 ### Return type
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_instruments**
-> UpsertInstrumentsResponse upsert_instruments(requests=requests)
+> UpsertInstrumentsResponse upsert_instruments(instruments)
 
 [EARLY ACCESS] Upsert instruments
 
@@ -510,11 +510,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
-requests = {'key': lusid.InstrumentDefinition()} # dict(str, InstrumentDefinition) | The definitions of the instruments to update or insert. (optional)
+instruments = {'key': lusid.InstrumentDefinition()} # dict(str, InstrumentDefinition) | The definitions of the instruments to update or insert.
 
 try:
     # [EARLY ACCESS] Upsert instruments
-    api_response = api_instance.upsert_instruments(requests=requests)
+    api_response = api_instance.upsert_instruments(instruments)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InstrumentsApi->upsert_instruments: %s\n" % e)
@@ -524,7 +524,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requests** | [**dict(str, InstrumentDefinition)**](InstrumentDefinition.md)| The definitions of the instruments to update or insert. | [optional] 
+ **instruments** | [**dict(str, InstrumentDefinition)**](InstrumentDefinition.md)| The definitions of the instruments to update or insert. | 
 
 ### Return type
 

@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_property_definition**
-> PropertyDefinition update_property_definition(domain, scope, code, definition=definition)
+> PropertyDefinition update_property_definition(domain, scope, code, definition)
 
 [EARLY ACCESS] Update property definition
 
@@ -300,11 +300,11 @@ api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 domain = 'domain_example' # str | The domain of the property being updated.
 scope = 'scope_example' # str | The scope of the property being updated.
 code = 'code_example' # str | The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.
-definition = lusid.UpdatePropertyDefinitionRequest() # UpdatePropertyDefinitionRequest | The updated definition of the property. (optional)
+definition = lusid.UpdatePropertyDefinitionRequest() # UpdatePropertyDefinitionRequest | The updated definition of the property.
 
 try:
     # [EARLY ACCESS] Update property definition
-    api_response = api_instance.update_property_definition(domain, scope, code, definition=definition)
+    api_response = api_instance.update_property_definition(domain, scope, code, definition)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PropertyDefinitionsApi->update_property_definition: %s\n" % e)
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
  **domain** | **str**| The domain of the property being updated. | 
  **scope** | **str**| The scope of the property being updated. | 
  **code** | **str**| The code of the property being updated. Together with the domain and scope this uniquely              identifies the property. | 
- **definition** | [**UpdatePropertyDefinitionRequest**](UpdatePropertyDefinitionRequest.md)| The updated definition of the property. | [optional] 
+ **definition** | [**UpdatePropertyDefinitionRequest**](UpdatePropertyDefinitionRequest.md)| The updated definition of the property. | 
 
 ### Return type
 
