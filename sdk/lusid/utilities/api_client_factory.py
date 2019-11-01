@@ -2,9 +2,11 @@ import functools
 import importlib
 import inspect
 import lusid
+import lusid.utilities
 from lusid import ApiClient
 
 from lusid.utilities import ApiClientBuilder
+from lusid.utilities.lusid_retry import lusidretry
 
 
 class ApiClientFactory:
@@ -54,6 +56,7 @@ class ApiClientFactory:
             attr = super(metaclass, source_obj).__getattribute__(name)
 
             @functools.wraps(attr)
+            @lusidretry
             def wrapper(*args, **kwargs):
 
                 def is_http_info_method(m):
