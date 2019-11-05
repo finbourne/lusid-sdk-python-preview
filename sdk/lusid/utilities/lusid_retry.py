@@ -7,7 +7,11 @@ from lusid import ApiException
 def lusidretry(fn):
 
     @functools.wraps(fn)
-    def __retry(retries=3, *args, **kwargs):
+    def __retry(*args, **kwargs):
+
+        retries = kwargs.get("lusid_retries", 3)
+        if not isinstance(retries, int):
+            retries = 3
 
         tries = 0
         while tries < retries:
