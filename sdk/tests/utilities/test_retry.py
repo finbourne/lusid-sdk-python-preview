@@ -12,7 +12,7 @@ class MockApi:
     def __init__(self, api_client):
         pass
 
-    def execute_retryable_call(self):
+    def execute_retryable_call(self, *args, **kwargs):
 
         if self.invocations < 2:
             self.invocations += 1
@@ -44,7 +44,7 @@ class MockApi:
 
         raise ApiException(404, http_resp=failed_response)
 
-    def execute_failing_retryable(self):
+    def execute_failing_retryable(self, *args, **kwargs):
         self.invocations += 1
 
         # include Retry-After header
@@ -88,6 +88,45 @@ class RetryTests(unittest.TestCase):
 
         with self.assertRaises(ApiException) as ex:
             api.execute_failing_retryable()
+
+        self.assertEqual(ex.exception.status, 404)
+        self.assertEqual(api.invocations, 3)
+
+    def test_providing_positional_arguments_success(self):
+        api = self.factory.build(MockApi)
+
+        api.execute_retryable_call("Portfolio")
+
+        self.assertEqual(api.invocations, 3)
+
+    def test_providing_keyword_arguments_success(self):
+        api = self.factory.build(MockApi)
+
+        api.execute_retryable_call(name="Portfolio")
+
+        self.assertEqual(api.invocations, 3)
+
+    def test_providing_positional_keyword_arguments_success(self):
+        api = self.factory.build(MockApi)
+
+        api.execute_retryable_call("Portfolio", name="Portfolio")
+
+        self.assertEqual(api.invocations, 3)
+
+    def test_providing_retry_override_argument_success(self):
+        api = self.factory.build(MockApi)
+
+        with self.assertRaises(ApiException) as ex:
+            api.execute_failing_retryable("Portfolio", name="Portfolio", lusid_retries=10)
+
+        self.assertEqual(ex.exception.status, 404)
+        self.assertEqual(api.invocations, 10)
+
+    def test_providing_retry_override_argument_not_int_uses_default(self):
+        api = self.factory.build(MockApi)
+
+        with self.assertRaises(ApiException) as ex:
+            api.execute_failing_retryable("Portfolio", name="Portfolio", lusid_retries="ThisWontWork")
 
         self.assertEqual(ex.exception.status, 404)
         self.assertEqual(api.invocations, 3)
