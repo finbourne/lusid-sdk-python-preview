@@ -4,10 +4,10 @@ from time import sleep
 from lusid import ApiException
 
 
-def lusidretry(fn):
+def lusidretry(fn, retries=3):
 
     @functools.wraps(fn)
-    def __retry(retries=3, *args, **kwargs):
+    def __retry(*args, **kwargs):
 
         tries = 0
         while tries < retries:
