@@ -1,6 +1,6 @@
 # lusid.AnalyticsStoresApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 request = lusid.CreateAnalyticStoreRequest() # CreateAnalyticStoreRequest | A populated analytic store definition (optional)
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The analytics data scope
@@ -161,8 +161,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The analytics data scope
@@ -231,8 +231,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
@@ -301,8 +301,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AnalyticsStoresApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the data being stored
