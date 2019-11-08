@@ -20,9 +20,6 @@ class ApiFactory(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertGreater(len(result.values), 0)
 
-    def test_create_factory_without_config_throws_error(self):
-        self.assertRaises(ValueError, lambda: ApiClientFactory())
-
     def test_get_unknown_api_throws_exception(self):
         factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
         with self.assertRaises(TypeError) as error:
@@ -51,9 +48,6 @@ class ApiFactory(unittest.TestCase):
 
         self.assertIsInstance(api, PortfoliosApi)
         self.validate_api(api)
-
-    def test_get_api_without_initialising_throws_error(self):
-        self.assertRaises(Exception, lambda: ApiClientFactory())
 
     def test_get_api_with_info(self):
         factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
