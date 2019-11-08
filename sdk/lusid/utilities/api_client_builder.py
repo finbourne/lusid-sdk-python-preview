@@ -1,3 +1,5 @@
+from urllib.request import pathname2url
+
 import requests
 
 import lusid
@@ -8,7 +10,7 @@ from .refreshing_token import RefreshingToken
 class ApiClientBuilder:
 
     @staticmethod
-    def build(api_secrets_filename, okta_response_handler=None):
+    def build(api_secrets_filename=None, okta_response_handler=None):
         """
         :param api_secrets_filename: name api configuration file
         :param okta_response_handler: optional function to handle Okta response
@@ -18,10 +20,14 @@ class ApiClientBuilder:
         # Load the configuration
         configuration = ApiConfigurationLoader().load(api_secrets_filename)
 
+        encoded_password = pathname2url(configuration.password)
+        encoded_client_id = pathname2url(configuration.client_id)
+        encoded_client_secret = pathname2url(configuration.client_secret)
+
         # Prepare our authentication request
         token_request_body = f"grant_type=password&username={configuration.username}" \
-            f"&password={configuration.password}&scope=openid client groups offline_access" \
-            f"&client_id={configuration.client_id}&client_secret={configuration.client_secret}"
+            f"&password={encoded_password}&scope=openid client groups offline_access" \
+            f"&client_id={encoded_client_id}&client_secret={encoded_client_secret}"
         headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
 
         # Make our authentication request
@@ -38,8 +44,8 @@ class ApiClientBuilder:
 
         # Retrieve our api token from the authentication response
         api_token = RefreshingToken(token_url=configuration.token_url,
-                                    client_id=configuration.client_id,
-                                    client_secret=configuration.client_secret,
+                                    client_id=encoded_client_id,
+                                    client_secret=encoded_client_secret,
                                     initial_access_token=okta_json["access_token"],
                                     initial_token_expiry=okta_json["expires_in"],
                                     refresh_token=okta_json["refresh_token"])

@@ -37,7 +37,8 @@ class ApiClientFactory:
         elif 'api_secrets_filename' in kwargs:
             api_client = ApiClientBuilder.build(kwargs['api_secrets_filename'])
         else:
-            raise ValueError("Missing initialistion values. Secrets file or token and api url must be supplied.")
+            # use env vars
+            api_client = ApiClientBuilder()
 
         self.api_client = api_client
 
