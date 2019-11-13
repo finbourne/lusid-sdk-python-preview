@@ -1,5 +1,6 @@
 import unittest
 
+from lusid.models import ResourceListOfPortfolio
 from lusid import ApiConfigurationLoader, PortfoliosApi
 from lusid.utilities import ApiClientFactory
 from utilities import TokenUtilities as tu, CredentialsSource
@@ -41,6 +42,10 @@ class ApiFactory(unittest.TestCase):
 
         self.assertIsInstance(api, PortfoliosApi)
         self.validate_api(api)
+
+        response = api.list_portfolios()
+
+        self.assertIsInstance(response, ResourceListOfPortfolio)
 
     def test_get_api_with_configuration(self):
         factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
