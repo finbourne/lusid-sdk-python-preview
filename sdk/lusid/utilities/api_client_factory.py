@@ -32,7 +32,7 @@ class ApiClientFactory:
 
             api_client = lusid.ApiClient(config,
                                          header_name="X-LUSID-Application",
-                                         header_value=kwargs.get('app_name', None))
+                                         header_value=kwargs.get('app_name', 'Not Specified'))
 
         elif 'api_secrets_filename' in kwargs:
             api_client = ApiClientBuilder.build(kwargs['api_secrets_filename'])
