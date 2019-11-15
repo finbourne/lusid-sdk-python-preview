@@ -57,31 +57,30 @@ class Valuation(unittest.TestCase):
                                                             transactions=transactions)
 
         prices = [
-            models.InstrumentAnalytic(self.instrument_ids[0], 100),
-            models.InstrumentAnalytic(self.instrument_ids[1], 200),
-            models.InstrumentAnalytic(self.instrument_ids[2], 300)
+            (self.instrument_ids[0], 100),
+            (self.instrument_ids[1], 200),
+            (self.instrument_ids[2], 300)
         ]
 
-        requests = []
-        for i in range(3):
-            requests.append(
-                models.UpsertQuoteRequest(
-                    quote_id=models.QuoteId(
-                        models.QuoteSeriesId(
-                            provider="DataScope",
-                            instrument_id=self.instrument_ids[i],
-                            instrument_id_type="LusidInstrumentId",
-                            quote_type="Price",
-                            field="mid"
-                        ),
-                        effective_at=effective_date
+        requests = [
+            models.UpsertQuoteRequest(
+                quote_id=models.QuoteId(
+                    models.QuoteSeriesId(
+                        provider="DataScope",
+                        instrument_id=price[0],
+                        instrument_id_type="LusidInstrumentId",
+                        quote_type="Price",
+                        field="mid"
                     ),
-                    metric_value=models.MetricValue(
-                        value=prices[i].value,
-                        unit="GBP"
-                    )
+                    effective_at=effective_date
+                ),
+                metric_value=models.MetricValue(
+                    value=price[1],
+                    unit="GBP"
                 )
             )
+            for price in prices
+        ]
 
         self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope,
                                       quotes={"quote" + str(request_number): requests[request_number]
