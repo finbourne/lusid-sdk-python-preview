@@ -106,7 +106,7 @@ api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
 identifier = 'identifier_example' # str | The identifier of the instrument to delete properties from.
 property_keys = ['property_keys_example'] # list[str] | The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied.
-effective_at = 'effective_at_example' # str | The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. (optional)
+effective_at = 'effective_at_example' # str | The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.WebApi.Interface.Dto.PropertyLifeTime.TimeVariant, otherwise this value must not be set. (optional)
 
 try:
     # [EXPERIMENTAL] Delete properties from an instrument
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
  **identifier_type** | **str**| The identifier type of the instrument, e.g., \&quot;Figi\&quot; | 
  **identifier** | **str**| The identifier of the instrument to delete properties from. | 
  **property_keys** | [**list[str]**](str.md)| The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied. | 
- **effective_at** | **str**| The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set. | [optional] 
+ **effective_at** | **str**| The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.WebApi.Interface.Dto.PropertyLifeTime.TimeVariant, otherwise this value must not be set. | [optional] 
 
 ### Return type
 
