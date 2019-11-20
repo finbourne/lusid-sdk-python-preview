@@ -6,7 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [BETA] Delete quotes
 [**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [BETA] Get quotes
+[**get_quotes_access_metadata_rule**](QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] Get a quote access metadata rule
 [**list_quotes**](QuotesApi.md#list_quotes) | **GET** /api/quotes/{scope} | [BETA] List quotes
+[**list_quotes_access_metadata_rules**](QuotesApi.md#list_quotes_access_metadata_rules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] List all quote access metadata rules in a scope
+[**upsert_quote_access_metadata_rule**](QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
 [**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [BETA] Upsert quotes
 
 
@@ -144,6 +147,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_quotes_access_metadata_rule**
+> QuoteAccessMetadataRule get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
+
+[EXPERIMENTAL] Get a quote access metadata rule
+
+Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+provider = 'provider_example' # str | The Provider of the rule (optional)
+price_source = 'price_source_example' # str | The PriceSource of the rule (optional)
+instrument_id_type = 'instrument_id_type_example' # str | The InstrumentIdType of the rule (optional)
+instrument_id = 'instrument_id_example' # str | The InstrumentId of the rule (optional)
+quote_type = 'quote_type_example' # str | The QuoteType of the rule (optional)
+field = 'field_example' # str | The Field of the rule (optional)
+effective_at = 'effective_at_example' # str | The effective date of the rule (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] Get a quote access metadata rule
+    api_response = api_instance.get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QuotesApi->get_quotes_access_metadata_rule: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Quote Access Metadata Rule to retrieve. | 
+ **provider** | **str**| The Provider of the rule | [optional] 
+ **price_source** | **str**| The PriceSource of the rule | [optional] 
+ **instrument_id_type** | **str**| The InstrumentIdType of the rule | [optional] 
+ **instrument_id** | **str**| The InstrumentId of the rule | [optional] 
+ **quote_type** | **str**| The QuoteType of the rule | [optional] 
+ **field** | **str**| The Field of the rule | [optional] 
+ **effective_at** | **str**| The effective date of the rule | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. | [optional] 
+
+### Return type
+
+[**QuoteAccessMetadataRule**](QuoteAccessMetadataRule.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved Quote Access Metadata Rule or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_quotes**
 > ResourceListOfQuote list_quotes(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
@@ -211,6 +292,136 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested quotes |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_quotes_access_metadata_rules**
+> ResourceListOfQuoteAccessMetadataRule list_quotes_access_metadata_rules(scope, as_at=as_at)
+
+[EXPERIMENTAL] List all quote access metadata rules in a scope
+
+Get all the quote access metadata rules in the specified scope
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] List all quote access metadata rules in a scope
+    api_response = api_instance.list_quotes_access_metadata_rules(scope, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QuotesApi->list_quotes_access_metadata_rules: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Quote Access Metadata Rule to retrieve. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. | [optional] 
+
+### Return type
+
+[**ResourceListOfQuoteAccessMetadataRule**](ResourceListOfQuoteAccessMetadataRule.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The filtered list of results |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_quote_access_metadata_rule**
+> QuoteAccessMetadataRule upsert_quote_access_metadata_rule(scope, request, effective_at=effective_at)
+
+[EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+
+Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
+request = lusid.UpsertQuoteAccessMetadataRuleRequest() # UpsertQuoteAccessMetadataRuleRequest | The Quote Access Metadata Rule to update or insert
+effective_at = 'effective_at_example' # str | The date this rule will effective from (optional)
+
+try:
+    # [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+    api_response = api_instance.upsert_quote_access_metadata_rule(scope, request, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QuotesApi->upsert_quote_access_metadata_rule: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope to use when updating or inserting the Quote Access Metadata Rule. | 
+ **request** | [**UpsertQuoteAccessMetadataRuleRequest**](UpsertQuoteAccessMetadataRuleRequest.md)| The Quote Access Metadata Rule to update or insert | 
+ **effective_at** | **str**| The date this rule will effective from | [optional] 
+
+### Return type
+
+[**QuoteAccessMetadataRule**](QuoteAccessMetadataRule.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
