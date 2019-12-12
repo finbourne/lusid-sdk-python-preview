@@ -4,6 +4,7 @@ import inspect
 import lusid
 import lusid.utilities
 from lusid import ApiClient
+import os
 
 from lusid.utilities import ApiClientBuilder
 from lusid.utilities.lusid_retry import lusidretry
@@ -23,12 +24,19 @@ class ApiClientFactory:
         """
 
         api_client = None
+        api_url = None
 
-        if 'token' in kwargs and 'api_url' in kwargs:
+        if 'api_url' in kwargs.keys():
+            api_url = kwargs["api_url"]
+
+        else:
+            api_url = os.getenv("FBN_LUSID_API_URL", None)
+
+        if 'token' in kwargs and api_url is not None:
 
             config = lusid.Configuration()
             config.access_token = kwargs['token']
-            config.host = kwargs['api_url']
+            config.host = api_url
 
             api_client = lusid.ApiClient(config,
                                          header_name="X-LUSID-Application",

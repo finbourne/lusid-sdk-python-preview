@@ -4,6 +4,7 @@ from lusid.models import ResourceListOfPortfolio
 from lusid import ApiConfigurationLoader, PortfoliosApi
 from lusid.utilities import ApiClientFactory
 from utilities import TokenUtilities as tu, CredentialsSource
+import os
 
 
 class UnknownApi:
@@ -38,6 +39,22 @@ class ApiFactory(unittest.TestCase):
         config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
 
         factory = ApiClientFactory(token=token, api_url=config.api_url, app_name=config.app_name)
+        api = factory.build(PortfoliosApi)
+
+        self.assertIsInstance(api, PortfoliosApi)
+        self.validate_api(api)
+
+        response = api.list_portfolios()
+
+        self.assertIsInstance(response, ResourceListOfPortfolio)
+
+    def test_get_api_with_token_url_as_env_var(self):
+        token, _ = tu.get_okta_tokens()
+        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
+
+        os.environ["FBN_LUSID_API_URL"] = config.api_url
+
+        factory = ApiClientFactory(token=token, app_name=config.app_name)
         api = factory.build(PortfoliosApi)
 
         self.assertIsInstance(api, PortfoliosApi)
