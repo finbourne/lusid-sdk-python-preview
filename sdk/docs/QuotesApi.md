@@ -1,9 +1,10 @@
 # lusid.QuotesApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_quote_accces_metadata_rule**](QuotesApi.md#delete_quote_accces_metadata_rule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Delete a Quote Access Metadata Rule
 [**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [BETA] Delete quotes
 [**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [BETA] Get quotes
 [**get_quotes_access_metadata_rule**](QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] Get a quote access metadata rule
@@ -12,6 +13,82 @@ Method | HTTP request | Description
 [**upsert_quote_access_metadata_rule**](QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
 [**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [BETA] Upsert quotes
 
+
+# **delete_quote_accces_metadata_rule**
+> QuoteAccessMetadataRule delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
+
+[EXPERIMENTAL] Delete a Quote Access Metadata Rule
+
+Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+provider = 'provider_example' # str | The Provider of the rule (optional)
+price_source = 'price_source_example' # str | The PriceSource of the rule (optional)
+instrument_id_type = 'instrument_id_type_example' # str | The InstrumentIdType of the rule (optional)
+instrument_id = 'instrument_id_example' # str | The InstrumentId of the rule (optional)
+quote_type = 'quote_type_example' # str | The QuoteType of the rule (optional)
+field = 'field_example' # str | The Field of the rule (optional)
+effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
+
+try:
+    # [EXPERIMENTAL] Delete a Quote Access Metadata Rule
+    api_response = api_instance.delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QuotesApi->delete_quote_accces_metadata_rule: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Quote Access Metadata Rule to retrieve. | 
+ **provider** | **str**| The Provider of the rule | [optional] 
+ **price_source** | **str**| The PriceSource of the rule | [optional] 
+ **instrument_id_type** | **str**| The InstrumentIdType of the rule | [optional] 
+ **instrument_id** | **str**| The InstrumentId of the rule | [optional] 
+ **quote_type** | **str**| The QuoteType of the rule | [optional] 
+ **field** | **str**| The Field of the rule | [optional] 
+ **effective_at** | **str**| The effective date to delete at, if this is not supplied, it will delete all data found | [optional] 
+
+### Return type
+
+[**QuoteAccessMetadataRule**](QuoteAccessMetadataRule.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The rule that has been deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_quotes**
 > AnnulQuotesResponse delete_quotes(scope, quotes=quotes)
@@ -33,8 +110,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to delete.
@@ -97,8 +174,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to retrieve.
@@ -167,8 +244,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -245,8 +322,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to list.
@@ -317,8 +394,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -381,8 +458,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
@@ -447,8 +524,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the quotes.
