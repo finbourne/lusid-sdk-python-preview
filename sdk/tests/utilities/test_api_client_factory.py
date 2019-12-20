@@ -48,6 +48,19 @@ class ApiFactory(unittest.TestCase):
 
         self.assertIsInstance(response, ResourceListOfPortfolio)
 
+    def test_get_api_with_none_token(self):
+
+        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
+        factory = ApiClientFactory(token=None, api_url=config.api_url, app_name=config.app_name, api_secrets_filename=CredentialsSource.secrets_path())
+        api = factory.build(PortfoliosApi)
+
+        self.assertIsInstance(api, PortfoliosApi)
+        self.validate_api(api)
+
+        response = api.list_portfolios()
+
+        self.assertIsInstance(response, ResourceListOfPortfolio)
+
     def test_get_api_with_token_url_as_env_var(self):
         token, _ = tu.get_okta_tokens()
         config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
