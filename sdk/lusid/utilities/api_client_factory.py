@@ -11,7 +11,6 @@ from lusid.utilities.lusid_retry import lusidretry
 
 
 class ApiClientFactory:
-
     def __init__(self, **kwargs):
         """
         Iniitalise an ApiClientFactory by passing the token, api_url and app_name, or by
@@ -26,24 +25,26 @@ class ApiClientFactory:
         api_client = None
         api_url = None
 
-        if 'api_url' in kwargs.keys():
+        if "api_url" in kwargs.keys():
             api_url = kwargs["api_url"]
 
         else:
             api_url = os.getenv("FBN_LUSID_API_URL", None)
 
-        if 'token' in kwargs and api_url is not None:
+        if ("token" in kwargs and kwargs["token"] is not None) and api_url is not None:
 
             config = lusid.Configuration()
-            config.access_token = kwargs['token']
+            config.access_token = kwargs["token"]
             config.host = api_url
 
-            api_client = lusid.ApiClient(config,
-                                         header_name="X-LUSID-Application",
-                                         header_value=kwargs.get('app_name', 'Not Specified'))
+            api_client = lusid.ApiClient(
+                config,
+                header_name="X-LUSID-Application",
+                header_value=kwargs.get("app_name", "Not Specified"),
+            )
 
-        elif 'api_secrets_filename' in kwargs:
-            api_client = ApiClientBuilder.build(kwargs['api_secrets_filename'])
+        elif "api_secrets_filename" in kwargs:
+            api_client = ApiClientBuilder.build(kwargs["api_secrets_filename"])
         else:
             # use env vars
             api_client = ApiClientBuilder()
@@ -67,12 +68,13 @@ class ApiClientFactory:
             @functools.wraps(attr)
             @lusidretry
             def wrapper(*args, **kwargs):
-
                 def is_http_info_method(m):
-                    return inspect.ismethod(m) and m.__name__.endswith('_with_http_info')
+                    return inspect.ismethod(m) and m.__name__.endswith(
+                        "_with_http_info"
+                    )
 
-                if kwargs.get('call_info') is not None:
-                    callback = kwargs.pop('call_info')
+                if kwargs.get("call_info") is not None:
+                    callback = kwargs.pop("call_info")
 
                     if not inspect.isfunction(callback):
                         raise ValueError("call_info value must be a lambda")
@@ -101,16 +103,16 @@ class ApiClientFactory:
             elif type(src) == ApiClient:
                 dest.api_client = src
 
-        module = importlib.import_module('lusid.api')
+        module = importlib.import_module("lusid.api")
         api_name = metaclass.__name__
 
-        if not api_name.endswith('Api') or not hasattr(module, api_name):
+        if not api_name.endswith("Api") or not hasattr(module, api_name):
             raise TypeError(f"unknown api: {api_name}")
 
         # create an instance of the api
         api_impl = getattr(module, api_name)(self.api_client)
 
-        setattr(metaclass, '__getattribute__', get_attribute_impl)
-        setattr(metaclass, '__init__', init_impl)
+        setattr(metaclass, "__getattribute__", get_attribute_impl)
+        setattr(metaclass, "__init__", init_impl)
 
         return api_impl
