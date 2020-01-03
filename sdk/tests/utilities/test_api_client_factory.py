@@ -4,6 +4,8 @@ from lusid.models import ResourceListOfPortfolio
 from lusid import ApiConfigurationLoader, PortfoliosApi
 from lusid.utilities import ApiClientFactory
 from utilities import TokenUtilities as tu, CredentialsSource
+from collections import UserString
+from datetime import datetime
 import os
 
 
@@ -13,6 +15,24 @@ class UnknownApi:
 
 class UnknownImpl:
     pass
+
+
+class RefreshingToken(UserString):
+
+    def __init__(self):
+        token_data = {"expires": datetime.now(), "current_access_token": ""}
+
+        def get_token():
+            token_data["current_access_token"] = None
+            return token_data["current_access_token"]
+
+        self.access_token = get_token
+
+    def __getattribute__(self, name):
+        token = object.__getattribute__(self, "access_token")()
+        if name == "data":
+            return token
+        return token.__getattribute__(name)
 
 
 class ApiFactory(unittest.TestCase):
@@ -58,6 +78,24 @@ class ApiFactory(unittest.TestCase):
         config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
         factory = ApiClientFactory(
             token=None,
+            api_url=config.api_url,
+            app_name=config.app_name,
+            api_secrets_filename=CredentialsSource.secrets_path(),
+        )
+        api = factory.build(PortfoliosApi)
+
+        self.assertIsInstance(api, PortfoliosApi)
+        self.validate_api(api)
+
+        response = api.list_portfolios()
+
+        self.assertIsInstance(response, ResourceListOfPortfolio)
+
+    def test_get_api_with_str_none_token(self):
+
+        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
+        factory = ApiClientFactory(
+            token=RefreshingToken(),
             api_url=config.api_url,
             app_name=config.app_name,
             api_secrets_filename=CredentialsSource.secrets_path(),

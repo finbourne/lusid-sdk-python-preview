@@ -31,7 +31,7 @@ class ApiClientFactory:
         else:
             api_url = os.getenv("FBN_LUSID_API_URL", None)
 
-        if ("token" in kwargs and kwargs["token"] is not None) and api_url is not None:
+        if ("token" in kwargs and str(kwargs["token"]) != "None") and api_url is not None:
 
             config = lusid.Configuration()
             config.access_token = kwargs["token"]
