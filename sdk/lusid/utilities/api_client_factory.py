@@ -47,7 +47,7 @@ class ApiClientFactory:
             api_client = ApiClientBuilder.build(kwargs["api_secrets_filename"])
         else:
             # use env vars
-            api_client = ApiClientBuilder()
+            api_client = ApiClientBuilder.build()
 
         self.api_client = api_client
 
