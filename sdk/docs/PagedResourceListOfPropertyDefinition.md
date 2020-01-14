@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next_page** | **str** |  | [optional] 
 **previous_page** | **str** |  | [optional] 
-**values** | [**list[PropertyDefinition]**](PropertyDefinition.md) |  | 
+**values** | [**list[PropertyDefinition]**](PropertyDefinition.md) |  | [optional] 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 
