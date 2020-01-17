@@ -10,15 +10,16 @@ from .refreshing_token import RefreshingToken
 class ApiClientBuilder:
 
     @staticmethod
-    def build(api_secrets_filename=None, okta_response_handler=None):
+    def build(api_secrets_filename=None, okta_response_handler=None, api_configuration=None):
         """
         :param api_secrets_filename: name api configuration file
+        :param api_configuration: populated ApiConfiguration, if supplied this is used in preference to api_secrets_filename
         :param okta_response_handler: optional function to handle Okta response
         :return: ApiClient correctly configured with credentials and host
         """
 
         # Load the configuration
-        configuration = ApiConfigurationLoader().load(api_secrets_filename)
+        configuration = api_configuration if api_configuration is not None else ApiConfigurationLoader().load(api_secrets_filename)
 
         encoded_password = pathname2url(configuration.password)
         encoded_client_id = pathname2url(configuration.client_id)
