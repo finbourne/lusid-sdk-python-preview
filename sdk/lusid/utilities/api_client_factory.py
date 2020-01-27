@@ -20,16 +20,22 @@ class ApiClientFactory:
         :param str api_url: LUSID API url
         :param str app_name: Application name (optional)
         :param str api_secrets_filename: Name of secrets file (including full path)
+        :param str certificate_filename: Name of the certificate file (.pem, .cer or .crt)
+        :param str proxy_url: The url of the proxy to use
         """
 
         api_client = None
         api_url = None
+        certificate_filename = None
+        proxy_url = None
 
         if "api_url" in kwargs.keys():
             api_url = kwargs["api_url"]
-
         else:
             api_url = os.getenv("FBN_LUSID_API_URL", None)
+
+        if "certificate_filename" in kwargs.keys():
+            certificate_filename = str(kwargs["certificate_filename"])
 
         if ("token" in kwargs and str(kwargs["token"]) != "None") and api_url is not None:
 
@@ -37,17 +43,28 @@ class ApiClientFactory:
             config.access_token = kwargs["token"]
             config.host = api_url
 
-            api_client = lusid.ApiClient(
-                config,
-                header_name="X-LUSID-Application",
-                header_value=kwargs.get("app_name", "Not Specified"),
-            )
+            if certificate_filename is not None:
+                config.ssl_ca_cert = certificate_filename
+
+            if proxy_url is not None:
+                config.proxy = proxy_url
+
+                api_client = lusid.ApiClient(
+                    config,
+                    header_name="X-LUSID-Application",
+                    header_value=kwargs.get("app_name", "Not Specified"),
+                )
 
         elif "api_secrets_filename" in kwargs:
-            api_client = ApiClientBuilder.build(kwargs["api_secrets_filename"])
+            api_client = ApiClientBuilder.build(
+                kwargs["api_secrets_filename"],
+                certificate_filename=certificate_filename,
+                proxy_url=proxy_url)
         else:
             # use env vars
-            api_client = ApiClientBuilder.build()
+            api_client = ApiClientBuilder.build(
+                certificate_filename=certificate_filename,
+                proxy_url=proxy_url)
 
         self.api_client = api_client
 
