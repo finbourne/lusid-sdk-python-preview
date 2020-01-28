@@ -1,6 +1,8 @@
 from urllib.request import pathname2url
 
 import requests
+from requests.auth import HTTPProxyAuth
+from urllib3 import make_headers
 
 import lusid
 from .api_configuration_loader import ApiConfigurationLoader
@@ -10,18 +12,17 @@ from .refreshing_token import RefreshingToken
 class ApiClientBuilder:
 
     @staticmethod
-    def build(api_secrets_filename=None, okta_response_handler=None, api_configuration=None,
-              certificate_filename=None, proxy_url=None):
+    def build(api_secrets_filename=None, okta_response_handler=None, api_configuration=None):
         """
         :param api_secrets_filename: name api configuration file
         :param api_configuration: populated ApiConfiguration, if supplied this is used in preference to api_secrets_filename
         :param okta_response_handler: optional function to handle Okta response
-        :param str certificate_filename: Name of the certificate file (.pem, .cer or .crt)
         :return: ApiClient correctly configured with credentials and host
         """
 
         # Load the configuration
-        configuration = api_configuration if api_configuration is not None else ApiConfigurationLoader().load(api_secrets_filename)
+        configuration = api_configuration if api_configuration is not None else ApiConfigurationLoader().load(
+            api_secrets_filename)
 
         encoded_password = pathname2url(configuration.password)
         encoded_client_id = pathname2url(configuration.client_id)
@@ -29,22 +30,41 @@ class ApiClientBuilder:
 
         # Prepare our authentication request
         token_request_body = f"grant_type=password&username={configuration.username}" \
-            f"&password={encoded_password}&scope=openid client groups offline_access" \
-            f"&client_id={encoded_client_id}&client_secret={encoded_client_secret}"
+                             f"&password={encoded_password}&scope=openid client groups offline_access" \
+                             f"&client_id={encoded_client_id}&client_secret={encoded_client_secret}"
         headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
 
-        # Make our authentication request
-        if certificate_filename is not None:
-            okta_response = requests.post(configuration.token_url, data=token_request_body, headers=headers,
-                                          verify=certificate_filename)
-        else:
-            okta_response = requests.post(configuration.token_url, data=token_request_body, headers=headers)
+        # extra request args
+        kwargs = {"headers": headers}
+
+        # use proxy if supplied
+        proxy_config = configuration.proxy_config
+        if proxy_config is not None:
+
+            proxy_url = proxy_config.address
+            if proxy_config.username is not None and proxy_config.password is not None:
+                index = proxy_config.address.index("://")
+
+                proxy_url = f"{proxy_config.address[0:index + 3]}{proxy_config.username}:{proxy_config.password}@{proxy_config.address[index + 3:]}"
+
+            kwargs["proxies"] = {
+                "http": proxy_url,
+                "https": proxy_url
+            }
+
+        # use certificate if supplied
+        if configuration.certificate_filename is not None:
+            kwargs["verify"] = configuration.certificate_filename
+
+        # make request to Okta to get an authentication token
+        okta_response = requests.post(configuration.token_url, data=token_request_body, **kwargs)
 
         if okta_response_handler is not None:
             okta_response_handler(okta_response)
 
         # Ensure that we have a 200 response code
-        assert okta_response.status_code == 200
+        if okta_response.status_code != 200:
+            raise ValueError(okta_response.json())
 
         # convert the json encoded response to be able to extract the token values
         okta_json = okta_response.json()
@@ -62,11 +82,13 @@ class ApiClientBuilder:
         config.access_token = api_token
         config.host = configuration.api_url
 
-        if certificate_filename is not None:
-            config.ssl_ca_cert = certificate_filename
+        # set the cert
+        config.ssl_ca_cert = configuration.certificate_filename
 
-        if proxy_url is not None:
-            config.proxy = proxy_url
-
+        # set the poxy for LUSID if needed
+        if configuration.proxy_config is not None:
+            config.proxy = configuration.proxy_config.address
+            if proxy_config.username is not None and proxy_config.password is not None:
+                config.proxy_headers = make_headers(proxy_basic_auth=f"{proxy_config.username}:{proxy_config.password}")
 
         return lusid.ApiClient(config, header_name="X-LUSID-Application", header_value=configuration.app_name)

@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from lusid.models import ResourceListOfPortfolio
 from lusid import ApiConfigurationLoader, PortfoliosApi
@@ -178,3 +179,17 @@ class ApiFactory(unittest.TestCase):
         self.assertEqual(portfolio.__doc__, wrapped_portfolio.__doc__)
         self.assertEqual(portfolio.__module__, wrapped_portfolio.__module__)
         self.assertDictEqual(portfolio.__dict__, wrapped_portfolio.__dict__)
+
+    def test_get_api_with_proxy(self):
+        proxy_credentials = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+
+        factory = ApiClientFactory(api_secrets_filename=proxy_credentials)
+
+        portfolios = PortfoliosApi(factory.build(PortfoliosApi))
+        result = portfolios.list_portfolios(limit=10)
+
+        self.assertGreater(len(result.values), 0)
+
+    def test_get_api_with_proxy_without_username_password(self):
+        pass
+

@@ -49,22 +49,17 @@ class ApiClientFactory:
             if proxy_url is not None:
                 config.proxy = proxy_url
 
-                api_client = lusid.ApiClient(
-                    config,
-                    header_name="X-LUSID-Application",
-                    header_value=kwargs.get("app_name", "Not Specified"),
-                )
+            api_client = lusid.ApiClient(
+                config,
+                header_name="X-LUSID-Application",
+                header_value=kwargs.get("app_name", "Not Specified"),
+            )
 
         elif "api_secrets_filename" in kwargs:
-            api_client = ApiClientBuilder.build(
-                kwargs["api_secrets_filename"],
-                certificate_filename=certificate_filename,
-                proxy_url=proxy_url)
+            api_client = ApiClientBuilder.build(kwargs["api_secrets_filename"])
         else:
             # use env vars
-            api_client = ApiClientBuilder.build(
-                certificate_filename=certificate_filename,
-                proxy_url=proxy_url)
+            api_client = ApiClientBuilder.build()
 
         self.api_client = api_client
 
