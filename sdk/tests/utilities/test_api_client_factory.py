@@ -59,7 +59,7 @@ class ApiFactory(unittest.TestCase):
         self.assertEqual(error.exception.args[0], "unknown api: UnknownImpl")
 
     def test_get_api_with_token(self):
-        token, _ = tu.get_okta_tokens()
+        token, _ = tu.get_okta_tokens(CredentialsSource.secrets_path())
         config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
 
         factory = ApiClientFactory(
@@ -111,7 +111,7 @@ class ApiFactory(unittest.TestCase):
         self.assertIsInstance(response, ResourceListOfPortfolio)
 
     def test_get_api_with_token_url_as_env_var(self):
-        token, _ = tu.get_okta_tokens()
+        token, _ = tu.get_okta_tokens(CredentialsSource.secrets_path())
         config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
 
         os.environ["FBN_LUSID_API_URL"] = config.api_url
@@ -189,7 +189,3 @@ class ApiFactory(unittest.TestCase):
         result = portfolios.list_portfolios(limit=10)
 
         self.assertGreater(len(result.values), 0)
-
-    def test_get_api_with_proxy_without_username_password(self):
-        pass
-

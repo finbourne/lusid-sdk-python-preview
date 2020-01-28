@@ -9,7 +9,7 @@ from collections import UserString
 class RefreshingToken(UserString):
 
     def __init__(self, token_url, client_id, client_secret, initial_access_token, initial_token_expiry, refresh_token,
-                 expiry_offset=60, certificate_filename = None):
+                 expiry_offset=60, proxies=None):
         """
         Implementation of UserString that will automatically refresh the token value upon expiry
 
@@ -20,6 +20,7 @@ class RefreshingToken(UserString):
         :param initial_token_expiry: number of seconds the initial token is valid for before expiring
         :param refresh_token: initial refresh token        
         :param expiry_offset: number of seconds before token expiry to refresh the token
+        :param proxy_config: dictionary containing proxy schemas
         """
 
         token_data = {
@@ -41,11 +42,13 @@ class RefreshingToken(UserString):
 
                 request_body = f"grant_type=refresh_token&scope=openid client groups offline_access&refresh_token={refresh_token}"
 
-                if certificate_filename is not None:
-                    okta_response = requests.post(token_url, data=request_body, headers=headers,
-                                                  verify=certificate_filename)
-                else:
-                    okta_response = requests.post(token_url, data=request_body, headers=headers)
+                # request parameters
+                kwargs = { "headers": headers}
+
+                if proxies is not None:
+                    kwargs["proxies"] = proxies
+
+                okta_response = requests.post(token_url, data=request_body, **kwargs)
 
                 if okta_response.status_code != 200:
                     raise Exception(okta_response.json())
