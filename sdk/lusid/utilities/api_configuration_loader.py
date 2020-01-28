@@ -21,10 +21,6 @@ class ApiConfigurationLoader:
         client_id_env_key = "FBN_CLIENT_ID"
         client_secret_env_key = "FBN_CLIENT_SECRET"
         app_name_env_key = "FBN_APP_NAME"
-        proxy_address = "FBN_PROXY_ADDRESS"
-        proxy_port = "FBN_PROXY_PORT"
-        proxy_username = "FBN_PROXY_USERNAME"
-        proxy_password = "FBN_PROXY_PASSWORD"
 
         token_url_config_key = "tokenUrl"
         lusid_url_config_key = "apiUrl"

@@ -1,13 +1,14 @@
+import json
+import os
 import unittest
-from pathlib import Path
-
-from lusid.models import ResourceListOfPortfolio
-from lusid import ApiConfigurationLoader, PortfoliosApi
-from lusid.utilities import ApiClientFactory
-from utilities import TokenUtilities as tu, CredentialsSource
 from collections import UserString
 from datetime import datetime
-import os
+from pathlib import Path
+from unittest.mock import patch
+
+from lusid import ApiConfigurationLoader, ScopesApi, ResourceListOfScopeDefinition
+from lusid.utilities import ApiClientFactory, format_proxy_schema
+from utilities import TokenUtilities as tu, CredentialsSource
 
 
 class UnknownApi:
@@ -38,7 +39,7 @@ class RefreshingToken(UserString):
 
 class ApiFactory(unittest.TestCase):
     def validate_api(self, api):
-        result = api.list_portfolios(limit=10)
+        result = api.list_scopes()
         self.assertIsNotNone(result)
         self.assertGreater(len(result.values), 0)
 
@@ -65,14 +66,14 @@ class ApiFactory(unittest.TestCase):
         factory = ApiClientFactory(
             token=token, api_url=config.api_url, app_name=config.app_name
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
-        response = api.list_portfolios()
+        response = api.list_scopes()
 
-        self.assertIsInstance(response, ResourceListOfPortfolio)
+        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_none_token(self):
 
@@ -83,14 +84,14 @@ class ApiFactory(unittest.TestCase):
             app_name=config.app_name,
             api_secrets_filename=CredentialsSource.secrets_path(),
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
-        response = api.list_portfolios()
+        response = api.list_scopes()
 
-        self.assertIsInstance(response, ResourceListOfPortfolio)
+        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_str_none_token(self):
 
@@ -101,14 +102,14 @@ class ApiFactory(unittest.TestCase):
             app_name=config.app_name,
             api_secrets_filename=CredentialsSource.secrets_path(),
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
-        response = api.list_portfolios()
+        response = api.list_scopes()
 
-        self.assertIsInstance(response, ResourceListOfPortfolio)
+        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_token_url_as_env_var(self):
         token, _ = tu.get_okta_tokens(CredentialsSource.secrets_path())
@@ -117,34 +118,34 @@ class ApiFactory(unittest.TestCase):
         os.environ["FBN_LUSID_API_URL"] = config.api_url
 
         factory = ApiClientFactory(token=token, app_name=config.app_name)
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
-        response = api.list_portfolios()
+        response = api.list_scopes()
 
-        self.assertIsInstance(response, ResourceListOfPortfolio)
+        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_configuration(self):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
     def test_get_api_with_info(self):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
+        self.assertIsInstance(api, ScopesApi)
 
         with self.assertRaises(ValueError) as error:
-            api.list_portfolios(limit=10, call_info="invalid param")
+            api.list_scopes(call_info="invalid param")
 
         self.assertEqual(error.exception.args[0], "call_info value must be a lambda")
 
@@ -152,10 +153,10 @@ class ApiFactory(unittest.TestCase):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
-        api = factory.build(PortfoliosApi)
+        api = factory.build(ScopesApi)
 
-        self.assertIsInstance(api, PortfoliosApi)
-        result = api.list_portfolios(limit=10, call_info=lambda r: print(r))
+        self.assertIsInstance(api, ScopesApi)
+        result = api.list_scopes(call_info=lambda r: print(r))
 
         self.assertIsNotNone(result)
 
@@ -163,8 +164,8 @@ class ApiFactory(unittest.TestCase):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
-        portfolios = PortfoliosApi(factory.build(PortfoliosApi))
-        result = portfolios.list_portfolios(limit=10)
+        scopes_api = ScopesApi(factory.build(ScopesApi))
+        result = scopes_api.list_scopes()
 
         self.assertGreater(len(result.values), 0)
 
@@ -173,19 +174,63 @@ class ApiFactory(unittest.TestCase):
             api_secrets_filename=CredentialsSource.secrets_path()
         )
 
-        wrapped_portfolio = factory.build(PortfoliosApi)
-        portfolio = PortfoliosApi(wrapped_portfolio.api_client)
+        wrapped_scopes_api = factory.build(ScopesApi)
+        portfolio = ScopesApi(wrapped_scopes_api.api_client)
 
-        self.assertEqual(portfolio.__doc__, wrapped_portfolio.__doc__)
-        self.assertEqual(portfolio.__module__, wrapped_portfolio.__module__)
-        self.assertDictEqual(portfolio.__dict__, wrapped_portfolio.__dict__)
+        self.assertEqual(portfolio.__doc__, wrapped_scopes_api.__doc__)
+        self.assertEqual(portfolio.__module__, wrapped_scopes_api.__module__)
+        self.assertDictEqual(portfolio.__dict__, wrapped_scopes_api.__dict__)
 
     def test_get_api_with_proxy(self):
         proxy_credentials = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
 
         factory = ApiClientFactory(api_secrets_filename=proxy_credentials)
 
-        portfolios = PortfoliosApi(factory.build(PortfoliosApi))
-        result = portfolios.list_portfolios(limit=10)
+        scopes_api = ScopesApi(factory.build(ScopesApi))
+        result = scopes_api.list_scopes()
 
         self.assertGreater(len(result.values), 0)
+
+    def test_get_api_with_proxy_using_env_vars(self):
+
+        proxy_credentials = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+
+        if os.path.isfile(proxy_credentials):
+            with open(proxy_credentials, "r") as secrets_file:
+                config = json.load(secrets_file)
+
+                proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
+
+                env_vars = {
+                    "FBN_TOKEN_URL": config["api"].get("tokenUrl", None),
+                    "FBN_USERNAME": config["api"].get("username", None),
+                    "FBN_PASSWORD": config["api"].get("password", None),
+                    "FBN_CLIENT_ID": config["api"].get("clientId", None),
+                    "FBN_CLIENT_SECRET": config["api"].get("clientSecret", None),
+                    "FBN_LUSID_API_URL": config["api"].get("apiUrl", None),
+                    "FBN_APP_NAME": config["api"].get("applicationName", None),
+                    "HTTPS_PROXY": proxies["https"]
+                }
+
+        else:
+            env_vars = {
+                "FBN_TOKEN_URL": os.getenv("FBN_TOKEN_URL"),
+                "FBN_USERNAME": os.getenv("FBN_USERNAME"),
+                "FBN_PASSWORD": os.getenv("FBN_PASSWORD"),
+                "FBN_CLIENT_ID": os.getenv("FBN_CLIENT_ID"),
+                "FBN_CLIENT_SECRET": os.getenv("FBN_CLIENT_SECRET"),
+                "FBN_LUSID_API_URL": os.getenv("FBN_LUSID_API_URL"),
+                "FBN_APP_NAME": os.getenv("FBN_APP_NAME"),
+                "HTTPS_PROXY": os.getenv("HTTPS_PROXY")
+            }
+
+        if None in env_vars.values():
+            assert False, "Source test configuration missing values from both secrets file and environment variables"
+
+        with patch.dict('os.environ', env_vars):
+            factory = ApiClientFactory()
+
+            scopes_api = ScopesApi(factory.build(ScopesApi))
+            result = scopes_api.list_scopes()
+
+            self.assertGreater(len(result.values), 0)
