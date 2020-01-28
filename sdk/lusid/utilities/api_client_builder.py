@@ -1,10 +1,10 @@
 from urllib.request import pathname2url
 
 import requests
-from requests.auth import HTTPProxyAuth
 from urllib3 import make_headers
 
 import lusid
+from .proxy_config import format_proxy_schema
 from .api_configuration_loader import ApiConfigurationLoader
 from .refreshing_token import RefreshingToken
 
@@ -40,17 +40,7 @@ class ApiClientBuilder:
         # use proxy if supplied
         proxy_config = configuration.proxy_config
         if proxy_config is not None:
-
-            proxy_url = proxy_config.address
-            if proxy_config.username is not None and proxy_config.password is not None:
-                index = proxy_config.address.index("://")
-
-                proxy_url = f"{proxy_config.address[0:index + 3]}{proxy_config.username}:{proxy_config.password}@{proxy_config.address[index + 3:]}"
-
-            kwargs["proxies"] = {
-                "http": proxy_url,
-                "https": proxy_url
-            }
+            kwargs["proxies"] = format_proxy_schema(proxy_config.address, proxy_config.username, proxy_config.password)
 
         # use certificate if supplied
         if configuration.certificate_filename is not None:

@@ -1,7 +1,10 @@
+import json
+import os
 import unittest
+from pathlib import Path
 from time import sleep
 
-from lusid.utilities import ApiConfigurationLoader
+from lusid.utilities import ApiConfigurationLoader, format_proxy_schema
 from lusid.utilities import RefreshingToken
 from utilities import CredentialsSource
 from utilities import TokenUtilities as tu
@@ -14,7 +17,7 @@ class TokenRefresh(unittest.TestCase):
         cls.config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
 
     def test_get_token(self):
-        original_token, refresh_token = tu.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
@@ -26,8 +29,32 @@ class TokenRefresh(unittest.TestCase):
         self.assertIsNotNone(refreshed_token)
         self.assertEqual(original_token, refreshed_token)
 
+    def test_get_token_with_proxy(self):
+
+        proxy_config_path = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+        original_token, refresh_token = tu.get_okta_tokens(proxy_config_path)
+
+        if os.path.isfile(proxy_config_path):
+            with open(proxy_config_path, "r") as proxy_config:
+                config = json.load(proxy_config)
+                proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
+
+                refreshed_token = RefreshingToken(token_url=self.config.token_url,
+                                                  client_id=self.config.client_id,
+                                                  client_secret=self.config.client_secret,
+                                                  initial_access_token=original_token,
+                                                  initial_token_expiry=1,  # 1s expiry
+                                                  refresh_token=refresh_token,
+                                                  expiry_offset=3599,     # set to 1s expiry
+                                                  proxies=proxies)
+
+                self.assertIsNotNone(refreshed_token)
+
+        else:
+            self.skipTest(f"missing secrets file: {proxy_config_path}")
+
     def test_refreshed_token_when_expired(self):
-        original_token, refresh_token = tu.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
@@ -47,7 +74,7 @@ class TokenRefresh(unittest.TestCase):
         self.assertNotEqual(first_value, refreshed_token)
 
     def test_token_when_not_expired_does_not_refresh(self):
-        original_token, refresh_token = tu.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,
@@ -66,7 +93,7 @@ class TokenRefresh(unittest.TestCase):
         self.assertEqual(first_value, refreshed_token)
 
     def test_can_make_header(self):
-        original_token, refresh_token = tu.get_okta_tokens()
+        original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
 
         refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                           client_id=self.config.client_id,

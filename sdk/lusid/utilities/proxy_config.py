@@ -16,3 +16,17 @@ class ProxyConfig:
     @property
     def password(self):
         return self.__password
+
+
+def format_proxy_schema(address, username, password):
+
+    proxy_url = address
+    if username is not None and password is not None:
+        index = address.index("://")
+
+        proxy_url = f"{address[0:index + 3]}{username}:{password}@{address[index + 3:]}"
+
+    return {
+        "http": proxy_url,
+        "https": proxy_url
+    }

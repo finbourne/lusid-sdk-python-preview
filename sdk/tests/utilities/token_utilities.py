@@ -5,7 +5,7 @@ from utilities import CredentialsSource
 class TokenUtilities:
 
     @staticmethod
-    def get_okta_tokens():
+    def get_okta_tokens(secrets_path):
         original_token = ""
         refresh_token = ""
 
@@ -17,9 +17,6 @@ class TokenUtilities:
             refresh_token = okta_json["refresh_token"]
             original_token = okta_json["access_token"]
 
-        ApiClientBuilder().build(
-            CredentialsSource.secrets_path(),
-            extract_refresh_token
-        )
+        ApiClientBuilder().build(secrets_path, extract_refresh_token)
 
         return original_token, refresh_token
