@@ -2,6 +2,7 @@ import json
 import os
 
 from .api_configuration import ApiConfiguration
+from .proxy_config import ProxyConfig
 
 
 class ApiConfigurationLoader:
@@ -20,6 +21,10 @@ class ApiConfigurationLoader:
         client_id_env_key = "FBN_CLIENT_ID"
         client_secret_env_key = "FBN_CLIENT_SECRET"
         app_name_env_key = "FBN_APP_NAME"
+        proxy_address = "FBN_PROXY_ADDRESS"
+        proxy_port = "FBN_PROXY_PORT"
+        proxy_username = "FBN_PROXY_USERNAME"
+        proxy_password = "FBN_PROXY_PASSWORD"
 
         token_url_config_key = "tokenUrl"
         lusid_url_config_key = "apiUrl"
@@ -28,6 +33,10 @@ class ApiConfigurationLoader:
         client_id_config_key = "clientId"
         client_secret_config_key = "clientSecret"
         app_name_config_key = "applicationName"
+        proxy_key = "proxy"
+        proxy_address_key = "proxyAddress"
+        proxy_username_key = "username"
+        proxy_password_key = "password"
 
         def vars_from_env():
             # Load our configuration details from the environment variables
@@ -87,5 +96,14 @@ class ApiConfigurationLoader:
                 }
 
                 raise ValueError(f"Trying to load config from secrets file but missing: {','.join([var_to_config[k] for k in missing_config.keys()])}")
+
+            #  proxy config
+            if proxy_key in config:
+                proxy_values = {
+                    "address": config[proxy_key].get(proxy_address_key, None),
+                    "username": config[proxy_key].get(proxy_username_key, None),
+                    "password": config[proxy_key].get(proxy_password_key, None),
+                }
+                config_values["proxy_config"] = ProxyConfig(**proxy_values)
 
         return ApiConfiguration(**config_values)
