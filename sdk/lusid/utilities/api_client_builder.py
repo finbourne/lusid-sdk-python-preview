@@ -75,7 +75,7 @@ class ApiClientBuilder:
         # set the cert
         config.ssl_ca_cert = configuration.certificate_filename
 
-        # set the poxy for LUSID if needed
+        # set the proxy for LUSID if needed
         if configuration.proxy_config is not None:
             config.proxy = configuration.proxy_config.address
             if proxy_config.username is not None and proxy_config.password is not None:
