@@ -4,6 +4,11 @@ services:
 script:
 - |
 
+  # run a proxy for proxy tests
+  HOST_IP_ADDRESS="$(/sbin/ip route|awk '/default/ { print $3 }')"
+
+  docker run -d --rm --name='tinyproxy' -p 8888:8888 --env BASIC_AUTH_USER=user --env BASIC_AUTH_PASSWORD=password dannydirect/tinyproxy:latest ANY
+
   if [ "$TRAVIS_BRANCH" = "master" ]; then
     fbn_token_url="MASTER_FBN_TOKEN_URL"
     fbn_username="MASTER_FBN_USERNAME"
@@ -21,7 +26,8 @@ script:
     fbn_lusid_api_url="DEVELOP_FBN_LUSID_API_URL"
     fbn_app_name="DEVELOP_FBN_APP_NAME"
   fi
-
+  https_proxy="http://$PROXY_USER:$PROXY_PASSWORD@$HOST_IP_ADDRESS:8888"
+  
   cd sdk
   docker build -t finbourne/lusid-sdk-python-preview-test .
   docker run \
@@ -32,6 +38,7 @@ script:
     -e FBN_CLIENT_SECRET=${!fbn_client_secret} \
     -e FBN_LUSID_API_URL=${!fbn_lusid_api_url} \
     -e FBN_APP_NAME=${!fbn_app_name} \
+    -e HTTPS_PROXY=${!https_proxy} \
     -v $(pwd):/usr/src/ \
     finbourne/lusid-sdk-python-preview-test
 
