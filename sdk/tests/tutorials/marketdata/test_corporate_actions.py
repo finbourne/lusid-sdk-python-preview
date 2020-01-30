@@ -32,8 +32,6 @@ class CorporateActions(unittest.TestCase):
         self.corporate_actions_sources_api.create_corporate_action_source(request)
         sources = self.corporate_actions_sources_api.list_corporate_action_sources()
         self.assertGreater(len(sources.values), 0)
-        for source in sources.values:
-            print(f"{source.id.scope}\t:\t{source.id.code}")
 
     @unittest.skip("Not Implemented")
     def test_list_corporate_actions_for_one_day(self):
