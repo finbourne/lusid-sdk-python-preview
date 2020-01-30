@@ -31,12 +31,16 @@ class TokenRefresh(unittest.TestCase):
 
     def test_get_token_with_proxy(self):
 
-        proxy_config_path = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+        proxy_config_path = CredentialsSource.secrets_path()
         original_token, refresh_token = tu.get_okta_tokens(proxy_config_path)
 
         if os.path.isfile(proxy_config_path):
             with open(proxy_config_path, "r") as proxy_config:
                 config = json.load(proxy_config)
+
+                if "proxy" not in config:
+                    self.skipTest("no proxy defined")
+
                 proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
 
                 refreshed_token = RefreshingToken(token_url=self.config.token_url,

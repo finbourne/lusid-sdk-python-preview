@@ -2,6 +2,18 @@ version: "3"
 
 services:
 
+  tinyproxy:
+    image: dannydirect/tinyproxy:latest
+    container_name: tinyproxy
+    environment:
+      - BASIC_AUTH_USER=user
+      - BASIC_AUTH_PASSWORD=password
+    ports:
+      - 8888:8888
+    command:
+      - ANY
+    tty: true
+
   lusid-sdk-python-preview-test:
     build: .
     container_name: lusid-sdk-python-preview-test
@@ -15,3 +27,5 @@ services:
       - FBN_USERNAME
     volumes:
       - .:/usr/src
+    depends_on:
+      - tinyproxy

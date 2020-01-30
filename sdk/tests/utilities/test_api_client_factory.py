@@ -182,7 +182,7 @@ class ApiFactory(unittest.TestCase):
         self.assertDictEqual(portfolio.__dict__, wrapped_scopes_api.__dict__)
 
     def test_get_api_with_proxy(self):
-        proxy_credentials = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+        proxy_credentials = CredentialsSource.secrets_path()
 
         factory = ApiClientFactory(api_secrets_filename=proxy_credentials)
 
@@ -193,11 +193,14 @@ class ApiFactory(unittest.TestCase):
 
     def test_get_api_with_proxy_using_env_vars(self):
 
-        proxy_credentials = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+        proxy_credentials = CredentialsSource.secrets_path()
 
         if os.path.isfile(proxy_credentials):
             with open(proxy_credentials, "r") as secrets_file:
                 config = json.load(secrets_file)
+
+                if "proxy" not in config:
+                    self.skipTest("no proxy defined")
 
                 proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
 
