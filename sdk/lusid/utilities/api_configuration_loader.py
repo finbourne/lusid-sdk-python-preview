@@ -21,6 +21,7 @@ class ApiConfigurationLoader:
         client_id_env_key = "FBN_CLIENT_ID"
         client_secret_env_key = "FBN_CLIENT_SECRET"
         app_name_env_key = "FBN_APP_NAME"
+        certificate_filename_env_key = "FBN_CLIENT_CERTIFICATE"
 
         token_url_config_key = "tokenUrl"
         lusid_url_config_key = "apiUrl"
@@ -33,22 +34,23 @@ class ApiConfigurationLoader:
         proxy_address_key = "proxyAddress"
         proxy_username_key = "username"
         proxy_password_key = "password"
+        certificate_filename_key = "client_certificate"
 
         def vars_from_env():
             # Load our configuration details from the environment variables
             return {
-                "token_url": os.getenv(token_url_env_key, None),
-                "api_url": os.getenv(lusid_url_env_key, None),
-                "username": os.getenv(username_env_key, None),
-                "password": os.getenv(password_env_key, None),
-                "client_id": os.getenv(client_id_env_key, None),
-                "client_secret": os.getenv(client_secret_env_key, None),
-                "app_name": os.getenv(app_name_env_key, "")
+                "token_url": (os.getenv(token_url_env_key, None), True),
+                "api_url": (os.getenv(lusid_url_env_key, None), True),
+                "username": (os.getenv(username_env_key, None), True),
+                "password": (os.getenv(password_env_key, None), True),
+                "client_id": (os.getenv(client_id_env_key, None), True),
+                "client_secret": (os.getenv(client_secret_env_key, None), True),
+                "app_name": (os.getenv(app_name_env_key, None), False),
+                "certificate_filename": (os.getenv(certificate_filename_env_key, None), False),
             }
 
         config_values = vars_from_env()
-        missing = {k: v for k, v in config_values.items() if v is None}
-        missing.pop("app_name", None)
+        missing = {k: v for k, v in config_values.items() if v[0] is None and v[1]}
 
         # If any of the environmental variables are missing use a local secrets file
         if len(missing) > 0:
@@ -69,17 +71,16 @@ class ApiConfigurationLoader:
                 config = json.load(secrets)
 
             config_values = {
-                "token_url": config["api"].get(token_url_config_key, None),
-                "username": config["api"].get(username_config_key, None),
-                "password": config["api"].get(password_config_key, None),
-                "client_id": config["api"].get(client_id_config_key, None),
-                "client_secret": config["api"].get(client_secret_config_key, None),
-                "api_url": config["api"].get(lusid_url_config_key, None),
-                "app_name": config["api"].get(app_name_config_key, "")
+                "token_url": (config["api"].get(token_url_config_key, None), True),
+                "username": (config["api"].get(username_config_key, None), True),
+                "password": (config["api"].get(password_config_key, None), True),
+                "client_id": (config["api"].get(client_id_config_key, None), True),
+                "client_secret": (config["api"].get(client_secret_config_key, None), True),
+                "api_url": (config["api"].get(lusid_url_config_key, None), True),
+                "app_name": (config["api"].get(app_name_config_key, ""), False),
             }
 
-            missing_config = {k: v for k, v in config_values.items() if v is None}
-            missing_config.pop("app_name", None)
+            missing_config = {k: v for k, v in config_values.items() if v[0] is None and v[1]}
 
             if len(missing_config) > 0:
                 var_to_config = {
@@ -100,6 +101,13 @@ class ApiConfigurationLoader:
                     "username": config[proxy_key].get(proxy_username_key, None),
                     "password": config[proxy_key].get(proxy_password_key, None),
                 }
-                config_values["proxy_config"] = ProxyConfig(**proxy_values)
+                config_values["proxy_config"] = (ProxyConfig(**proxy_values), False)
 
-        return ApiConfiguration(**config_values)
+            # certificate
+            if certificate_filename_key in config:
+                config_values["certificate_filename"] = (config[certificate_filename_key], False)
+
+        # map back to a dict of values
+        api_values = {k: v[0] for k, v in config_values.items() if v[0] is not None}
+
+        return ApiConfiguration(**api_values)
