@@ -106,11 +106,14 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
                          'Path to secrets file not specified and missing the following environment variables: FBN_TOKEN_URL,FBN_LUSID_API_URL,FBN_USERNAME,FBN_PASSWORD,FBN_CLIENT_ID,FBN_CLIENT_SECRET')
 
     def test_load_proxy_config_from_file(self):
-        proxy_config_path = Path(__file__).parent.parent.joinpath('secrets.proxy.json')
+        proxy_config_path = Path(__file__).parent.parent.joinpath('secrets.json')
 
         if os.path.isfile(proxy_config_path):
             with open(proxy_config_path, "r") as proxy_config:
                 config = json.load(proxy_config)
+
+            if "proxy" not in config:
+                self.skipTest(f"missing 'proxy' section in {proxy_config_path}")
 
             api_config = ApiConfigurationLoader.load(proxy_config_path)
 
@@ -119,3 +122,22 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             self.assertEqual(config["proxy"]["password"], api_config.proxy_config.password)
         else:
             self.skipTest(f"missing secrets file: {proxy_config_path}")
+
+    def test_load_certificate_path_from_file(self):
+        config_path = Path(__file__).parent.joinpath('sample.json')
+
+        if not os.path.isfile(config_path):
+            self.skipTest(f"missing secrets file: {config_path}")
+
+        with patch.dict('os.environ', clear=True):
+            api_config = ApiConfigurationLoader.load(config_path)
+            self.assertEqual(api_config.certificate_filename, "certificate.pfx")
+
+    def test_load_certificate_path_from_env(self):
+
+        env_vars = self.env_vars
+        env_vars["FBN_CLIENT_CERTIFICATE"] = "certificate.pfx"
+
+        with patch.dict('os.environ', self.env_vars):
+            config = ApiConfigurationLoader.load(self.credentials)
+            self.assertEqual(config.certificate_filename, "certificate.pfx")
