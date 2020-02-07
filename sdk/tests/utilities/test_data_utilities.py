@@ -13,6 +13,7 @@ import unittest
 
 class TestDataUtilities:
     tutorials_scope = "Testdemo"
+    market_data_scope = "FinbourneMarketData"
 
     lusid_cash_identifier = "Instrument/default/Currency"
     lusid_luid_identifier = "Instrument/default/LusidInstrumentId"
