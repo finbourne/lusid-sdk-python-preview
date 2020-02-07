@@ -70,8 +70,7 @@ class Quotes(unittest.TestCase):
         date_range = [start_date + timedelta(days=x) for x in range(0, 30)]
 
         quote_id = models.QuoteSeriesId(
-            provider="DataScope",
-            price_source="USDRC",
+            provider="Client",
             instrument_id="BBG000B9XRY4",
             instrument_id_type="Figi",
             quote_type="Price",
@@ -81,7 +80,7 @@ class Quotes(unittest.TestCase):
         # get the quotes for each day in the date range
         quote_responses = [
             self.quotes_api.get_quotes(
-                scope=TestDataUtilities.tutorials_scope,
+                scope=TestDataUtilities.market_data_scope,
                 effective_at=d,
                 quote_ids={"quote1": quote_id}
             )
