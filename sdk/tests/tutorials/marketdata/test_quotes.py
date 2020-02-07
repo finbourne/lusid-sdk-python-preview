@@ -62,12 +62,12 @@ class Quotes(unittest.TestCase):
 
         quote = quote_response.values["quote1"]
 
-        self.assertEqual(quote.metric_value.value, 199.23)
+        self.assertEqual(199.23, quote.metric_value.value)
 
     def test_get_timeseries_quotes(self):
 
         start_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
-        date_range = [start_date - timedelta(days=x) for x in range(0, 30)]
+        date_range = [start_date + timedelta(days=x) for x in range(0, 30)]
 
         quote_id = models.QuoteSeriesId(
             provider="DataScope",
@@ -88,4 +88,5 @@ class Quotes(unittest.TestCase):
             for d in date_range
         ]
 
-        self.assertEqual(len(quote_responses), 30)
+        # flatmap the quotes in the response
+        self.assertEqual(30, len([result for response in quote_responses for result in response.values.values()]))
