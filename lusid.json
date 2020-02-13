@@ -13594,8 +13594,8 @@
               "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
               "fgnCcy": "GBP",
               "refSpotRate": 1.5,
-              "startDate": "2020-02-13T19:11:51.6190879+00:00",
-              "maturityDate": "2020-03-14T19:11:51.6190901+00:00",
+              "startDate": "2020-02-13T19:25:57.7605405+00:00",
+              "maturityDate": "2020-03-14T19:25:57.7605426+00:00",
               "domCcy": "USD",
               "instrumentType": "FxForward"
             }
