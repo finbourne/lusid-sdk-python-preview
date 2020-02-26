@@ -1,14 +1,14 @@
-import json
-import os
 import unittest
 from collections import UserString
 from datetime import datetime
-from pathlib import Path
 from unittest.mock import patch
+from parameterized import parameterized
 
-from lusid import ApiConfigurationLoader, ScopesApi, ResourceListOfScopeDefinition
-from lusid.utilities import ApiClientFactory, format_proxy_schema
+from lusid import ScopesApi, ResourceListOfScopeDefinition
+from lusid.utilities import ApiClientFactory
+
 from utilities import TokenUtilities as tu, CredentialsSource
+from utilities.temp_file_manager import TempFileManager
 
 
 class UnknownApi:
@@ -17,6 +17,9 @@ class UnknownApi:
 
 class UnknownImpl:
     pass
+
+
+source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
 
 
 class RefreshingToken(UserString):
@@ -42,97 +45,69 @@ class ApiFactory(unittest.TestCase):
         result = api.list_scopes()
         self.assertIsNotNone(result)
         self.assertGreater(len(result.values), 0)
+        self.assertIsInstance(result, ResourceListOfScopeDefinition)
 
-    def test_get_unknown_api_throws_exception(self):
+    @parameterized.expand([
+        ["Unknown API", UnknownApi, "unknown api: UnknownApi"],
+        ["Unknown Implementation", UnknownImpl, "unknown api: UnknownImpl"]
+    ])
+    def test_get_unknown_api_throws_exception(self, _, api_to_build, error_message):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
-        with self.assertRaises(TypeError) as error:
-            factory.build(UnknownApi)
-        self.assertEqual(error.exception.args[0], "unknown api: UnknownApi")
 
-    def test_get_unknown_type_throws_exception(self):
-        factory = ApiClientFactory(
-            api_secrets_filename=CredentialsSource.secrets_path()
-        )
         with self.assertRaises(TypeError) as error:
-            factory.build(UnknownImpl)
-        self.assertEqual(error.exception.args[0], "unknown api: UnknownImpl")
+            factory.build(api_to_build)
+        self.assertEqual(error.exception.args[0], error_message)
 
     def test_get_api_with_token(self):
-        token, _ = tu.get_okta_tokens(CredentialsSource.secrets_path())
-        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
-
+        token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
         factory = ApiClientFactory(
-            token=token, api_url=config.api_url, app_name=config.app_name
+            token=token,
+            api_url=source_config_details["api_url"],
+            app_name=source_config_details["app_name"]
         )
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
-
-        response = api.list_scopes()
-
-        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_none_token(self):
-
-        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
         factory = ApiClientFactory(
             token=None,
-            api_url=config.api_url,
-            app_name=config.app_name,
+            api_url=source_config_details["api_url"],
+            app_name=source_config_details["app_name"],
             api_secrets_filename=CredentialsSource.secrets_path(),
         )
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
-
-        response = api.list_scopes()
-
-        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_str_none_token(self):
-
-        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
         factory = ApiClientFactory(
             token=RefreshingToken(),
-            api_url=config.api_url,
-            app_name=config.app_name,
+            api_url=source_config_details["api_url"],
+            app_name=source_config_details["app_name"],
             api_secrets_filename=CredentialsSource.secrets_path(),
         )
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
-
-        response = api.list_scopes()
-
-        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_token_url_as_env_var(self):
-        token, _ = tu.get_okta_tokens(CredentialsSource.secrets_path())
-        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
-
-        os.environ["FBN_LUSID_API_URL"] = config.api_url
-
-        factory = ApiClientFactory(token=token, app_name=config.app_name)
+        token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())
+        with patch.dict('os.environ', {"FBN_LUSID_API_URL": source_config_details["api_url"]}, clear=True):
+            factory = ApiClientFactory(
+                token=token,
+                app_name=source_config_details["app_name"])
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
-
-        response = api.list_scopes()
-
-        self.assertIsInstance(response, ResourceListOfScopeDefinition)
 
     def test_get_api_with_configuration(self):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
         self.validate_api(api)
 
@@ -143,31 +118,21 @@ class ApiFactory(unittest.TestCase):
         api = factory.build(ScopesApi)
 
         self.assertIsInstance(api, ScopesApi)
+        result = api.list_scopes(call_info=lambda r: print(r))
 
-        with self.assertRaises(ValueError) as error:
-            api.list_scopes(call_info="invalid param")
-
-        self.assertEqual(error.exception.args[0], "call_info value must be a lambda")
+        self.assertIsNotNone(result)
 
     def test_get_info_with_invalid_param_throws_error(self):
         factory = ApiClientFactory(
             api_secrets_filename=CredentialsSource.secrets_path()
         )
         api = factory.build(ScopesApi)
-
         self.assertIsInstance(api, ScopesApi)
-        result = api.list_scopes(call_info=lambda r: print(r))
 
-        self.assertIsNotNone(result)
+        with self.assertRaises(ValueError) as error:
+            api.list_scopes(call_info="invalid param")
 
-    def test_init_from_value(self):
-        factory = ApiClientFactory(
-            api_secrets_filename=CredentialsSource.secrets_path()
-        )
-        scopes_api = ScopesApi(factory.build(ScopesApi))
-        result = scopes_api.list_scopes()
-
-        self.assertGreater(len(result.values), 0)
+        self.assertEqual(error.exception.args[0], "call_info value must be a lambda")
 
     def test_wrapped_method(self):
         factory = ApiClientFactory(
@@ -181,59 +146,56 @@ class ApiFactory(unittest.TestCase):
         self.assertEqual(portfolio.__module__, wrapped_scopes_api.__module__)
         self.assertDictEqual(portfolio.__dict__, wrapped_scopes_api.__dict__)
 
-    def test_get_api_with_proxy(self):
-        proxy_credentials = CredentialsSource.secrets_path()
+    def test_get_api_with_proxy_file(self):
 
-        factory = ApiClientFactory(api_secrets_filename=proxy_credentials)
-
-        scopes_api = ScopesApi(factory.build(ScopesApi))
-        result = scopes_api.list_scopes()
-
-        self.assertGreater(len(result.values), 0)
-
-    def test_get_api_with_proxy_using_env_vars(self):
-
-        proxy_credentials = CredentialsSource.secrets_path()
-
-        if os.path.isfile(proxy_credentials):
-            with open(proxy_credentials, "r") as secrets_file:
-                config = json.load(secrets_file)
-
-                if "proxy" not in config:
-                    self.skipTest("no proxy defined")
-
-                proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
-
-                env_vars = {
-                    "FBN_TOKEN_URL": config["api"].get("tokenUrl", None),
-                    "FBN_USERNAME": config["api"].get("username", None),
-                    "FBN_PASSWORD": config["api"].get("password", None),
-                    "FBN_CLIENT_ID": config["api"].get("clientId", None),
-                    "FBN_CLIENT_SECRET": config["api"].get("clientSecret", None),
-                    "FBN_LUSID_API_URL": config["api"].get("apiUrl", None),
-                    "FBN_APP_NAME": config["api"].get("applicationName", None),
-                    "HTTPS_PROXY": proxies["https"]
-                }
-
-        else:
-            env_vars = {
-                "FBN_TOKEN_URL": os.getenv("FBN_TOKEN_URL"),
-                "FBN_USERNAME": os.getenv("FBN_USERNAME"),
-                "FBN_PASSWORD": os.getenv("FBN_PASSWORD"),
-                "FBN_CLIENT_ID": os.getenv("FBN_CLIENT_ID"),
-                "FBN_CLIENT_SECRET": os.getenv("FBN_CLIENT_SECRET"),
-                "FBN_LUSID_API_URL": os.getenv("FBN_LUSID_API_URL"),
-                "FBN_APP_NAME": os.getenv("FBN_APP_NAME"),
-                "HTTPS_PROXY": os.getenv("HTTPS_PROXY")
+        secrets = {
+            "api": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" not in key
+            },
+            "proxy": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" in key
             }
+        }
 
-        if None in env_vars.values():
-            assert False, "Source test configuration missing values from both secrets file and environment variables"
+        secrets["api"].pop("clientCertificate", None)
 
-        with patch.dict('os.environ', env_vars):
-            factory = ApiClientFactory()
+        if secrets["proxy"].get("address", None) is None:
+            self.skipTest(f"missing proxy configuration")
 
-            scopes_api = ScopesApi(factory.build(ScopesApi))
-            result = scopes_api.list_scopes()
+        secrets_file = TempFileManager.create_temp_file(secrets)
+        # Load the config
+        factory = ApiClientFactory(api_secrets_filename=secrets_file.name)
+        # Close and thus delete the temporary file
+        TempFileManager.delete_temp_file(secrets_file)
+        api = factory.build(ScopesApi)
+        self.validate_api(api)
 
-            self.assertGreater(len(result.values), 0)
+    def test_get_api_with_proxy_config(self):
+
+        secrets = {
+            "api": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" not in key
+            }
+        }
+
+        secrets["api"].pop("clientCertificate", None)
+
+        if source_config_details.get("proxy_address", None) is None:
+            self.skipTest(f"missing proxy configuration")
+
+        secrets_file = TempFileManager.create_temp_file(secrets)
+        # Load the config
+        with patch.dict('os.environ', {}, clear=True):
+            factory = ApiClientFactory(
+                api_secrets_filename=secrets_file.name,
+                proxy_url=source_config_details["proxy_address"],
+                proxy_username=source_config_details["proxy_username"],
+                proxy_password=source_config_details["proxy_password"])
+
+        # Close and thus delete the temporary file
+        TempFileManager.delete_temp_file(secrets_file)
+        api = factory.build(ScopesApi)
+        self.validate_api(api)

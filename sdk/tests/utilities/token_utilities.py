@@ -1,5 +1,4 @@
 from lusid import ApiClientBuilder
-from utilities import CredentialsSource
 
 
 class TokenUtilities:
