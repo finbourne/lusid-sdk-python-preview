@@ -1,11 +1,12 @@
 from datetime import datetime
-
 import pytz
 import threading
 import uuid
+
 import lusid
 import lusid.models as models
 from lusid.utilities import ApiClientBuilder
+
 from utilities import CredentialsSource
 
 import unittest

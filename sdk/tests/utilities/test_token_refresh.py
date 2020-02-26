@@ -1,13 +1,17 @@
-import json
 import os
 import unittest
-from pathlib import Path
 from time import sleep
 
-from lusid.utilities import ApiConfigurationLoader, format_proxy_schema
+from lusid.utilities import ApiConfigurationLoader
+from lusid.utilities.proxy_config import ProxyConfig
 from lusid.utilities import RefreshingToken
+
 from utilities import CredentialsSource
+from unittest.mock import patch
 from utilities import TokenUtilities as tu
+from utilities.temp_file_manager import TempFileManager
+
+source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
 
 
 class TokenRefresh(unittest.TestCase):
@@ -31,31 +35,91 @@ class TokenRefresh(unittest.TestCase):
 
     def test_get_token_with_proxy(self):
 
-        proxy_config_path = CredentialsSource.secrets_path()
-        original_token, refresh_token = tu.get_okta_tokens(proxy_config_path)
+        secrets = {
+            "api": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" not in key
+            },
+            "proxy": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" in key
+            }
+        }
 
-        if os.path.isfile(proxy_config_path):
-            with open(proxy_config_path, "r") as proxy_config:
-                config = json.load(proxy_config)
+        secrets["api"].pop("clientCertificate", None)
 
-                if "proxy" not in config:
-                    self.skipTest("no proxy defined")
+        if secrets["proxy"].get("address", None) is None:
+            self.skipTest(f"missing proxy configuration")
 
-                proxies = format_proxy_schema(config["proxy"]["proxyAddress"], config["proxy"]["username"], config["proxy"]["password"])
+        secrets_file = TempFileManager.create_temp_file(secrets)
 
-                refreshed_token = RefreshingToken(token_url=self.config.token_url,
-                                                  client_id=self.config.client_id,
-                                                  client_secret=self.config.client_secret,
-                                                  initial_access_token=original_token,
-                                                  initial_token_expiry=1,  # 1s expiry
-                                                  refresh_token=refresh_token,
-                                                  expiry_offset=3599,     # set to 1s expiry
-                                                  proxies=proxies)
+        original_token, refresh_token = tu.get_okta_tokens(secrets_file.name)
 
-                self.assertIsNotNone(refreshed_token)
+        proxy_config = ProxyConfig(
+            address=secrets["proxy"]["address"],
+            username=secrets["proxy"]["username"],
+            password=secrets["proxy"]["password"]
+        )
 
-        else:
-            self.skipTest(f"missing secrets file: {proxy_config_path}")
+        proxies = proxy_config.format_proxy_schema()
+
+        with patch.dict('os.environ', {"HTTPS_PROXY": proxies["https"]}, clear=True):
+            proxy_url = os.getenv("HTTPS_PROXY", None)
+
+        if proxy_url is not None:
+
+            refreshed_token = RefreshingToken(token_url=self.config.token_url,
+                                              client_id=self.config.client_id,
+                                              client_secret=self.config.client_secret,
+                                              initial_access_token=original_token,
+                                              initial_token_expiry=1,  # 1s expiry
+                                              refresh_token=refresh_token,
+                                              expiry_offset=3599,     # set to 1s expiry
+                                              proxies={})
+
+            self.assertIsNotNone(refreshed_token)
+
+    def test_get_token_with_proxy_from_config(self):
+
+        secrets = {
+            "api": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" not in key
+            },
+            "proxy": {
+                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                value is not None and "proxy" in key
+            }
+        }
+
+        secrets["api"].pop("clientCertificate", None)
+
+        if secrets["proxy"].get("address", None) is None:
+            self.skipTest(f"missing proxy configuration")
+
+        secrets_file = TempFileManager.create_temp_file(secrets)
+
+        original_token, refresh_token = tu.get_okta_tokens(secrets_file.name)
+
+        proxy_config = ProxyConfig(
+            address=secrets["proxy"]["address"],
+            username=secrets["proxy"]["username"],
+            password=secrets["proxy"]["password"]
+        )
+
+        proxies = proxy_config.format_proxy_schema()
+
+        refreshed_token = RefreshingToken(token_url=self.config.token_url,
+                                          client_id=self.config.client_id,
+                                          client_secret=self.config.client_secret,
+                                          initial_access_token=original_token,
+                                          initial_token_expiry=1,  # 1s expiry
+                                          refresh_token=refresh_token,
+                                          expiry_offset=3599,     # set to 1s expiry
+                                          proxies=proxies)
+
+        self.assertIsNotNone(refreshed_token)
+
 
     def test_refreshed_token_when_expired(self):
         original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())

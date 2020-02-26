@@ -1,113 +1,66 @@
 import json
 import os
+from pathlib import Path
+import logging
 
-from .api_configuration import ApiConfiguration
-from .proxy_config import ProxyConfig
+from lusid.utilities.api_configuration import ApiConfiguration
+from lusid.utilities.proxy_config import ProxyConfig
 
 
 class ApiConfigurationLoader:
-
+    """
+    The ApiConfigurationLoader is responsible for populating the API and Proxy configuration from a secrets file or
+    environment variables with preference given to the secrets file.
+    """
     @staticmethod
     def load(api_secrets_filename=None):
         """
-        :param api_secrets_filename: name of api configuration file
-        :return: populated ApiConfiguration
+        :param str api_secrets_filename: The full path to the JSON file containing the API credentials and optional proxy details
+
+        :return: lusid.utilities.ApiConfiguration: The populated ApiConfiguration
         """
+        # Get the config keys which contain the mapping between the ApiConfiguration attributes and the variable names
+        # in the secrets.json file and environment variables e.g. token_url is tokenUrl (secrets.json) and
+        # FBN_TOKEN_URL (env variable)
+        with open(Path(__file__).parent.joinpath('config_keys.json')) as json_file:
+            config_keys = json.load(json_file)
 
-        token_url_env_key = "FBN_TOKEN_URL"
-        lusid_url_env_key = "FBN_LUSID_API_URL"
-        username_env_key = "FBN_USERNAME"
-        password_env_key = "FBN_PASSWORD"
-        client_id_env_key = "FBN_CLIENT_ID"
-        client_secret_env_key = "FBN_CLIENT_SECRET"
-        app_name_env_key = "FBN_APP_NAME"
-        certificate_filename_env_key = "FBN_CLIENT_CERTIFICATE"
+        # The secrets file is a nested dictionary, set the names of the top level keys
+        api_config_key = "api"
+        proxy_config_key = "proxy"
 
-        token_url_config_key = "tokenUrl"
-        lusid_url_config_key = "apiUrl"
-        username_config_key = "username"
-        password_config_key = "password"
-        client_id_config_key = "clientId"
-        client_secret_config_key = "clientSecret"
-        app_name_config_key = "applicationName"
-        proxy_key = "proxy"
-        proxy_address_key = "proxyAddress"
-        proxy_username_key = "username"
-        proxy_password_key = "password"
-        certificate_filename_key = "client_certificate"
-
-        def vars_from_env():
-            # Load our configuration details from the environment variables
-            return {
-                "token_url": (os.getenv(token_url_env_key, None), True),
-                "api_url": (os.getenv(lusid_url_env_key, None), True),
-                "username": (os.getenv(username_env_key, None), True),
-                "password": (os.getenv(password_env_key, None), True),
-                "client_id": (os.getenv(client_id_env_key, None), True),
-                "client_secret": (os.getenv(client_secret_env_key, None), True),
-                "app_name": (os.getenv(app_name_env_key, None), False),
-                "certificate_filename": (os.getenv(certificate_filename_env_key, None), False),
-            }
-
-        config_values = vars_from_env()
-        missing = {k: v for k, v in config_values.items() if v[0] is None and v[1]}
-
-        # If any of the environmental variables are missing use a local secrets file
-        if len(missing) > 0:
-
-            if api_secrets_filename is None:
-                var_to_env = {
-                    "token_url": token_url_env_key,
-                    "api_url": lusid_url_env_key,
-                    "username": username_env_key,
-                    "password": password_env_key,
-                    "client_id": client_id_env_key,
-                    "client_secret": client_secret_env_key
-                }
-
-                raise ValueError(f"Path to secrets file not specified and missing the following environment variables: {','.join([var_to_env[k] for k in missing.keys()])}")
-
+        # If there is a secrets file specified and it exists get the details from it
+        if api_secrets_filename is not None and os.path.exists(api_secrets_filename) and os.path.isfile(api_secrets_filename):
             with open(api_secrets_filename, "r") as secrets:
                 config = json.load(secrets)
+        # If there is a secrets file specified and it does not exist log a warning to indicate that the specified file
+        # could not be found and create an empty config
+        elif api_secrets_filename is not None and (not os.path.exists(api_secrets_filename) or not os.path.isfile(api_secrets_filename)):
+            logging.warning(f"Provided secrets file of {api_secrets_filename} can not be found, please ensure you "
+                             f"have correctly specified the full path to the file or don't provide a secrets file to use "
+                             f"environment variables instead.")
+            config = {}
+        # If no secrets file is specified just create an empty config
+        else:
+            config = {}
 
-            config_values = {
-                "token_url": (config["api"].get(token_url_config_key, None), True),
-                "username": (config["api"].get(username_config_key, None), True),
-                "password": (config["api"].get(password_config_key, None), True),
-                "client_id": (config["api"].get(client_id_config_key, None), True),
-                "client_secret": (config["api"].get(client_secret_config_key, None), True),
-                "api_url": (config["api"].get(lusid_url_config_key, None), True),
-                "app_name": (config["api"].get(app_name_config_key, ""), False),
-            }
+        # Populate the values for the api configuration preferring the secrets file over the environment variables
+        populated_api_config_values = {
+            key: config.get(api_config_key, {}).get(value["config"], os.getenv(value["env"], None))
+            for key, value in config_keys.items() if "proxy" not in key
+        }
 
-            missing_config = {k: v for k, v in config_values.items() if v[0] is None and v[1]}
+        # Populate the values for the proxy preferring the secrets file over the environment variables
+        populated_proxy_values = {
+            key.replace("proxy_", ""): config.get(proxy_config_key, {}).get(value["config"], os.getenv(value["env"], None))
+            for key, value in config_keys.items() if "proxy" in key
+        }
 
-            if len(missing_config) > 0:
-                var_to_config = {
-                    "token_url": token_url_config_key,
-                    "api_url": lusid_url_config_key,
-                    "username": username_config_key,
-                    "password": password_config_key,
-                    "client_id": client_id_config_key,
-                    "client_secret": client_secret_config_key
-                }
-
-                raise ValueError(f"Trying to load config from secrets file but missing: {','.join([var_to_config[k] for k in missing_config.keys()])}")
-
-            #  proxy config
-            if proxy_key in config:
-                proxy_values = {
-                    "address": config[proxy_key].get(proxy_address_key, None),
-                    "username": config[proxy_key].get(proxy_username_key, None),
-                    "password": config[proxy_key].get(proxy_password_key, None),
-                }
-                config_values["proxy_config"] = (ProxyConfig(**proxy_values), False)
-
-            # certificate
-            if certificate_filename_key in config:
-                config_values["certificate_filename"] = (config[certificate_filename_key], False)
-
-        # map back to a dict of values
-        api_values = {k: v[0] for k, v in config_values.items() if v[0] is not None}
-
-        return ApiConfiguration(**api_values)
+        # If the proxy address is missing ensure that no proxy is used in the ApiConfiguration
+        if populated_proxy_values.get("address", None) is None:
+            populated_api_config_values["proxy_config"] = None
+        # Otherwise create a ProxyConfig to use
+        else:
+            populated_api_config_values["proxy_config"] = ProxyConfig(**populated_proxy_values)
+        # Create and return the ApiConfiguration
+        return ApiConfiguration(**populated_api_config_values)

@@ -12,7 +12,7 @@ services:
       - 8888:8888
     command:
       - ANY
-    tty: true
+    tty: false
 
   lusid-sdk-python-preview-test:
     build: .
@@ -25,6 +25,9 @@ services:
       - FBN_PASSWORD
       - FBN_TOKEN_URL
       - FBN_USERNAME
+      - FBN_PROXY_ADDRESS=http://tinyproxy:8888
+      - FBN_PROXY_USERNAME=user
+      - FBN_PROXY_PASSWORD=password
     volumes:
       - .:/usr/src
     depends_on:
