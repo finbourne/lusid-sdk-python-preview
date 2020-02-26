@@ -8,16 +8,20 @@ Method | HTTP request | Description
 [**add_sub_group_to_group**](PortfolioGroupsApi.md#add_sub_group_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add sub group to group
 [**create_portfolio_group**](PortfolioGroupsApi.md#create_portfolio_group) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create portfolio group
 [**delete_group_properties**](PortfolioGroupsApi.md#delete_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] Delete group properties
+[**delete_key_from_portfolio_group_access_metadata**](PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{key} | [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
 [**delete_portfolio_from_group**](PortfolioGroupsApi.md#delete_portfolio_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Delete portfolio from group
 [**delete_portfolio_group**](PortfolioGroupsApi.md#delete_portfolio_group) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete portfolio group
 [**delete_sub_group_from_group**](PortfolioGroupsApi.md#delete_sub_group_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Delete sub group from group
 [**get_group_properties**](PortfolioGroupsApi.md#get_group_properties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] Get group properties
 [**get_portfolio_group**](PortfolioGroupsApi.md#get_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Get portfolio group
+[**get_portfolio_group_access_metadata_by_key**](PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{key} | [EXPERIMENTAL] Get an entry identified by a key in the Access Metadata of a Portfolio Group
 [**get_portfolio_group_commands**](PortfolioGroupsApi.md#get_portfolio_group_commands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio group commands
 [**get_portfolio_group_expansion**](PortfolioGroupsApi.md#get_portfolio_group_expansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get portfolio group expansion
+[**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
 [**list_portfolio_groups**](PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List portfolio groups
 [**update_portfolio_group**](PortfolioGroupsApi.md#update_portfolio_group) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update portfolio group
 [**upsert_group_properties**](PortfolioGroupsApi.md#upsert_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] Upsert group properties
+[**upsert_portfolio_group_access_metadata**](PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{key} | [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific key. This creates or updates the data in LUSID.
 
 
 # **add_portfolio_to_group**
@@ -283,6 +287,74 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The datetime that the properties were deleted from the specified group |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_key_from_portfolio_group_access_metadata**
+> DeletedEntityResponse delete_key_from_portfolio_group_access_metadata(scope, code, key, effective_at=effective_at)
+
+[EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
+
+Deletes the Portfolio Group Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
+code = 'code_example' # str | The Portfolio Group code
+key = 'key_example' # str | Key of the Access Metadata entry to delete
+effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
+
+try:
+    # [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
+    api_response = api_instance.delete_key_from_portfolio_group_access_metadata(scope, code, key, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_key_from_portfolio_group_access_metadata: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio Group | 
+ **code** | **str**| The Portfolio Group code | 
+ **key** | **str**| Key of the Access Metadata entry to delete | 
+ **effective_at** | **str**| The effective date to delete at, if this is not supplied, it will delete all data found | [optional] 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The has been deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -628,6 +700,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_portfolio_group_access_metadata_by_key**
+> list[AccessMetadataValue] get_portfolio_group_access_metadata_by_key(scope, code, key, effective_at=effective_at, as_at=as_at)
+
+[EXPERIMENTAL] Get an entry identified by a key in the Access Metadata of a Portfolio Group
+
+Get a specific Portfolio Group access metadata by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
+code = 'code_example' # str | The Portfolio Group code
+key = 'key_example' # str | Key of the metadata entry to retrieve
+effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the access metadata (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata (optional)
+
+try:
+    # [EXPERIMENTAL] Get an entry identified by a key in the Access Metadata of a Portfolio Group
+    api_response = api_instance.get_portfolio_group_access_metadata_by_key(scope, code, key, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_access_metadata_by_key: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio Group | 
+ **code** | **str**| The Portfolio Group code | 
+ **key** | **str**| Key of the metadata entry to retrieve | 
+ **effective_at** | **str**| The effectiveAt datetime at which to retrieve the access metadata | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the access metadata | [optional] 
+
+### Return type
+
+[**list[AccessMetadataValue]**](AccessMetadataValue.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved Portfolio group access metadata filtered by key or any failure. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_portfolio_group_commands**
 > ResourceListOfProcessedCommand get_portfolio_group_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
 
@@ -763,6 +905,74 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The expanded portfolio group |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_portfolio_group_metadata**
+> dict(str, list[AccessMetadataValue]) get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
+
+[EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
+
+Pass the scope and Portfolio Group code parameters to retrieve the associated Access Metadata
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
+code = 'code_example' # str | The Portfolio Group code
+effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
+
+try:
+    # [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
+    api_response = api_instance.get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_metadata: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio Group | 
+ **code** | **str**| The Portfolio Group code | 
+ **effective_at** | **str**| The effectiveAt datetime at which to retrieve the Access Metadata | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Access Metadata | [optional] 
+
+### Return type
+
+**dict(str, list[AccessMetadataValue])**
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The access metadata for the portfolio group or any failure. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -965,6 +1175,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The updated or inserted properties |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_portfolio_group_access_metadata**
+> ResourceListOfAccessMetadataValueOf upsert_portfolio_group_access_metadata(scope, code, key, request, effective_at=effective_at)
+
+[EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific key. This creates or updates the data in LUSID.
+
+Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a key can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
+code = 'code_example' # str | The Portfolio Group code
+key = 'key_example' # str | Key of the access metadata entry to upsert
+request = lusid.UpsertPortfolioGroupAccessMetadataRequest() # UpsertPortfolioGroupAccessMetadataRequest | The Portfolio Group Access Metadata rule to upsert
+effective_at = 'effective_at_example' # str | The date this rule will be effective from (optional)
+
+try:
+    # [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific key. This creates or updates the data in LUSID.
+    api_response = api_instance.upsert_portfolio_group_access_metadata(scope, code, key, request, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->upsert_portfolio_group_access_metadata: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio Group | 
+ **code** | **str**| The Portfolio Group code | 
+ **key** | **str**| Key of the access metadata entry to upsert | 
+ **request** | [**UpsertPortfolioGroupAccessMetadataRequest**](UpsertPortfolioGroupAccessMetadataRequest.md)| The Portfolio Group Access Metadata rule to upsert | 
+ **effective_at** | **str**| The date this rule will be effective from | [optional] 
+
+### Return type
+
+[**ResourceListOfAccessMetadataValueOf**](ResourceListOfAccessMetadataValueOf.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
