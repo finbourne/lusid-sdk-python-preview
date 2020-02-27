@@ -1,6 +1,6 @@
 # lusid.DataTypesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 request = lusid.CreateDataTypeRequest() # CreateDataTypeRequest | The definition of the new data type (optional)
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the data type
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the data type
@@ -229,8 +229,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The requested scope of the data types
@@ -303,8 +303,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.DataTypesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the data type
