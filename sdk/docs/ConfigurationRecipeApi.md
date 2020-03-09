@@ -1,6 +1,6 @@
 # lusid.ConfigurationRecipeApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to delete.
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to retrieve.
@@ -160,13 +160,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipes to list
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)
-filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
+filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on code, use \"value.code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
 try:
     # [EXPERIMENTAL] List the set of Configuration Recipes
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Configuration Recipes to list | 
  **as_at** | **datetime**| The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional] 
- **filter** | **str**| Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **filter** | **str**| Expression to filter the result set.              For example, to filter on code, use \&quot;value.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -226,8 +226,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Configuration Recipe.

@@ -1,6 +1,6 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**create_corporate_action_source**](CorporateActionSourcesApi.md#create_corporate_action_source) | **POST** /api/corporateactionsources | [BETA] Create Corporate Action Source
 [**delete_corporate_action_source**](CorporateActionSourcesApi.md#delete_corporate_action_source) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] Delete a corporate action source
 [**get_corporate_actions**](CorporateActionSourcesApi.md#get_corporate_actions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] Get corporate actions
-[**list_corporate_action_sources**](CorporateActionSourcesApi.md#list_corporate_action_sources) | **GET** /api/corporateactionsources | [BETA] Get corporate action sources
+[**list_corporate_action_sources**](CorporateActionSourcesApi.md#list_corporate_action_sources) | **GET** /api/corporateactionsources | [BETA] List corporate action sources
 
 
 # **batch_upsert_corporate_actions**
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of corporate action source
@@ -97,8 +97,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 request = lusid.CreateCorporateActionSourceRequest() # CreateCorporateActionSourceRequest | The corporate action source definition
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The Scope of the Corporate Action Source to be deleted
@@ -223,8 +223,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source
@@ -235,7 +235,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the 
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many (optional)
-filter = 'filter_example' # str | Optional. Expression to filter the result set (optional)
+filter = 'filter_example' # str | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
 try:
     # [BETA] Get corporate actions
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
  **sort_by** | [**list[str]**](str.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int**| Optional. When paginating, limit the number of returned results to this many | [optional] 
- **filter** | **str**| Optional. Expression to filter the result set | [optional] 
+ **filter** | **str**| Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 # **list_corporate_action_sources**
 > ResourceListOfCorporateActionSource list_corporate_action_sources(as_at=as_at, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[BETA] Get corporate action sources
+[BETA] List corporate action sources
 
 Gets a list of all corporate action sources
 
@@ -301,18 +301,18 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many (optional)
-filter = 'filter_example' # str | Optional. Expression to filter the result set (optional)
+filter = 'filter_example' # str | Optional. Expression to filter the result set.               For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
 try:
-    # [BETA] Get corporate action sources
+    # [BETA] List corporate action sources
     api_response = api_instance.list_corporate_action_sources(as_at=as_at, sort_by=sort_by, start=start, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
  **sort_by** | [**list[str]**](str.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int**| Optional. When paginating, limit the number of returned results to this many | [optional] 
- **filter** | **str**| Optional. Expression to filter the result set | [optional] 
+ **filter** | **str**| Optional. Expression to filter the result set.               For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
