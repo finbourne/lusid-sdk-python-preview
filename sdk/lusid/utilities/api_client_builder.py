@@ -10,11 +10,13 @@ from .refreshing_token import RefreshingToken
 class ApiClientBuilder:
 
     @staticmethod
-    def build(api_secrets_filename=None, okta_response_handler=None, api_configuration=None):
+    def build(api_secrets_filename=None, okta_response_handler=None, api_configuration=None,
+              certificate_filename=None, proxy_url=None):
         """
         :param api_secrets_filename: name api configuration file
         :param api_configuration: populated ApiConfiguration, if supplied this is used in preference to api_secrets_filename
         :param okta_response_handler: optional function to handle Okta response
+        :param str certificate_filename: Name of the certificate file (.pem, .cer or .crt)
         :return: ApiClient correctly configured with credentials and host
         """
 
@@ -32,7 +34,11 @@ class ApiClientBuilder:
         headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
 
         # Make our authentication request
-        okta_response = requests.post(configuration.token_url, data=token_request_body, headers=headers)
+        if certificate_filename is not None:
+            okta_response = requests.post(configuration.token_url, data=token_request_body, headers=headers,
+                                          verify=certificate_filename)
+        else:
+            okta_response = requests.post(configuration.token_url, data=token_request_body, headers=headers)
 
         if okta_response_handler is not None:
             okta_response_handler(okta_response)
@@ -55,5 +61,12 @@ class ApiClientBuilder:
         config = lusid.Configuration()
         config.access_token = api_token
         config.host = configuration.api_url
+
+        if certificate_filename is not None:
+            config.ssl_ca_cert = certificate_filename
+
+        if proxy_url is not None:
+            config.proxy = proxy_url
+
 
         return lusid.ApiClient(config, header_name="X-LUSID-Application", header_value=configuration.app_name)

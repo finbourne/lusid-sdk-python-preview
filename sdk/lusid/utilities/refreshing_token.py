@@ -8,7 +8,8 @@ from collections import UserString
 
 class RefreshingToken(UserString):
 
-    def __init__(self, token_url, client_id, client_secret, initial_access_token, initial_token_expiry, refresh_token, expiry_offset=60):
+    def __init__(self, token_url, client_id, client_secret, initial_access_token, initial_token_expiry, refresh_token,
+                 expiry_offset=60, certificate_filename = None):
         """
         Implementation of UserString that will automatically refresh the token value upon expiry
 
@@ -39,7 +40,12 @@ class RefreshingToken(UserString):
                 }
 
                 request_body = f"grant_type=refresh_token&scope=openid client groups offline_access&refresh_token={refresh_token}"
-                okta_response = requests.post(token_url, data=request_body, headers=headers)
+
+                if certificate_filename is not None:
+                    okta_response = requests.post(token_url, data=request_body, headers=headers,
+                                                  verify=certificate_filename)
+                else:
+                    okta_response = requests.post(token_url, data=request_body, headers=headers)
 
                 if okta_response.status_code != 200:
                     raise Exception(okta_response.json())
