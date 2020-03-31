@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from lusid.api.aggregation_api import AggregationApi
+from lusid.api.allocations_api import AllocationsApi
 from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
