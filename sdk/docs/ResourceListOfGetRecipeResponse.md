@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | [**list[GetRecipeResponse]**](GetRecipeResponse.md) |  | [optional] 
+**values** | [**list[GetRecipeResponse]**](GetRecipeResponse.md) |  | 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

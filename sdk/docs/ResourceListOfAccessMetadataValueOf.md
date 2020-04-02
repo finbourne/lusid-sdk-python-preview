@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | **list[list[AccessMetadataValue]]** |  | [optional] 
+**values** | **list[list[AccessMetadataValue]]** |  | 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

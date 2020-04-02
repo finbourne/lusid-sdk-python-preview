@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | [**list[Change]**](Change.md) |  | [optional] 
+**values** | [**list[Change]**](Change.md) |  | 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

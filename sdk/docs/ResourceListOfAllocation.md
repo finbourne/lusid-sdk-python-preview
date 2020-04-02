@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | [**list[Allocation]**](Allocation.md) |  | [optional] 
+**values** | [**list[Allocation]**](Allocation.md) |  | 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

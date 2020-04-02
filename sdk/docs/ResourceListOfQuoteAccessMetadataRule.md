@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | [**list[QuoteAccessMetadataRule]**](QuoteAccessMetadataRule.md) |  | [optional] 
+**values** | [**list[QuoteAccessMetadataRule]**](QuoteAccessMetadataRule.md) |  | 
 **href** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 
