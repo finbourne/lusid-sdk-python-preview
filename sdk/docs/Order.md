@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **instrument_identifiers** | **dict(str, str)** | The instrument ordered. | 
 **quantity** | **int** | The quantity of given instrument ordered. | 
 **side** | **str** | The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) | 
-**order_book** | [**ResourceId**](ResourceId.md) |  | 
-**portfolio** | [**ResourceId**](ResourceId.md) |  | 
+**order_book_id** | [**ResourceId**](ResourceId.md) |  | 
+**portfolio_id** | [**ResourceId**](ResourceId.md) |  | 
 **id** | [**ResourceId**](ResourceId.md) |  | 
 **lusid_instrument_id** | **str** | The LUSID instrument id for the instrument ordered. | 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
