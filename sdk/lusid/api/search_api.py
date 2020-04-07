@@ -108,8 +108,8 @@ class SearchApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'symbols' is set
-        if self.api_client.client_side_validation and ('symbols' not in local_var_params or  # noqa: E501
-                                                        local_var_params['symbols'] is None):  # noqa: E501
+        if ('symbols' not in local_var_params or
+                local_var_params['symbols'] is None):
             raise ApiValueError("Missing the required parameter `symbols` when calling `instruments_search`")  # noqa: E501
 
         collection_formats = {}
@@ -117,9 +117,9 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'mastered_effective_at' in local_var_params and local_var_params['mastered_effective_at'] is not None:  # noqa: E501
+        if 'mastered_effective_at' in local_var_params:
             query_params.append(('masteredEffectiveAt', local_var_params['mastered_effective_at']))  # noqa: E501
-        if 'mastered_only' in local_var_params and local_var_params['mastered_only'] is not None:  # noqa: E501
+        if 'mastered_only' in local_var_params:
             query_params.append(('masteredOnly', local_var_params['mastered_only']))  # noqa: E501
 
         header_params = {}
@@ -133,6 +133,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -226,8 +227,8 @@ class SearchApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
+        if ('request' not in local_var_params or
+                local_var_params['request'] is None):
             raise ApiValueError("Missing the required parameter `request` when calling `portfolio_groups_search`")  # noqa: E501
 
         collection_formats = {}
@@ -235,7 +236,7 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -249,6 +250,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -342,8 +344,8 @@ class SearchApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
+        if ('request' not in local_var_params or
+                local_var_params['request'] is None):
             raise ApiValueError("Missing the required parameter `request` when calling `portfolios_search`")  # noqa: E501
 
         collection_formats = {}
@@ -351,7 +353,7 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -365,6 +367,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -458,8 +461,8 @@ class SearchApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
+        if ('request' not in local_var_params or
+                local_var_params['request'] is None):
             raise ApiValueError("Missing the required parameter `request` when calling `properties_search`")  # noqa: E501
 
         collection_formats = {}
@@ -467,7 +470,7 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -481,6 +484,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -585,15 +589,15 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if 'search' in local_var_params:
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+        if 'page' in local_var_params:
             query_params.append(('page', local_var_params['page']))  # noqa: E501
 
         header_params = {}
@@ -605,6 +609,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -709,15 +714,15 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if 'search' in local_var_params:
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+        if 'page' in local_var_params:
             query_params.append(('page', local_var_params['page']))  # noqa: E501
 
         header_params = {}
@@ -729,6 +734,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -833,15 +839,15 @@ class SearchApi(object):
         path_params = {}
 
         query_params = []
-        if 'search' in local_var_params and local_var_params['search'] is not None:  # noqa: E501
+        if 'search' in local_var_params:
             query_params.append(('search', local_var_params['search']))  # noqa: E501
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+        if 'page' in local_var_params:
             query_params.append(('page', local_var_params['page']))  # noqa: E501
 
         header_params = {}
@@ -853,6 +859,7 @@ class SearchApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

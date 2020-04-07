@@ -1,6 +1,5 @@
 # AggregationRequest
 
-Specification object for the parameters of an aggregation
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

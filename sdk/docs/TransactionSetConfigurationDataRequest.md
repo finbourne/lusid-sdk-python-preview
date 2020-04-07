@@ -1,6 +1,5 @@
 # TransactionSetConfigurationDataRequest
 
-A bundle of requests to configure a set of transaction types.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

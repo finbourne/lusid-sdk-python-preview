@@ -114,12 +114,12 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_aggregation_by_group`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_aggregation_by_group`")  # noqa: E501
 
         collection_formats = {}
@@ -131,12 +131,12 @@ class AggregationApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
             collection_formats['sortBy'] = 'multi'  # noqa: E501
-        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+        if 'start' in local_var_params:
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -150,6 +150,7 @@ class AggregationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -251,12 +252,12 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_aggregation_by_portfolio`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_aggregation_by_portfolio`")  # noqa: E501
 
         collection_formats = {}
@@ -268,12 +269,12 @@ class AggregationApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
             collection_formats['sortBy'] = 'multi'  # noqa: E501
-        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+        if 'start' in local_var_params:
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -287,6 +288,7 @@ class AggregationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -388,12 +390,12 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_aggregation_by_result_set`")  # noqa: E501
         # verify the required parameter 'results_key' is set
-        if self.api_client.client_side_validation and ('results_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['results_key'] is None):  # noqa: E501
+        if ('results_key' not in local_var_params or
+                local_var_params['results_key'] is None):
             raise ApiValueError("Missing the required parameter `results_key` when calling `get_aggregation_by_result_set`")  # noqa: E501
 
         collection_formats = {}
@@ -405,12 +407,12 @@ class AggregationApi(object):
             path_params['resultsKey'] = local_var_params['results_key']  # noqa: E501
 
         query_params = []
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
             collection_formats['sortBy'] = 'multi'  # noqa: E501
-        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+        if 'start' in local_var_params:
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -424,6 +426,7 @@ class AggregationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -523,8 +526,8 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_aggregation_of_weighted_instruments`")  # noqa: E501
 
         collection_formats = {}
@@ -534,12 +537,12 @@ class AggregationApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+        if 'sort_by' in local_var_params:
             query_params.append(('sortBy', local_var_params['sort_by']))  # noqa: E501
             collection_formats['sortBy'] = 'multi'  # noqa: E501
-        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+        if 'start' in local_var_params:
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -553,6 +556,7 @@ class AggregationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -648,12 +652,12 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_nested_aggregation_by_group`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_nested_aggregation_by_group`")  # noqa: E501
 
         collection_formats = {}
@@ -677,6 +681,7 @@ class AggregationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

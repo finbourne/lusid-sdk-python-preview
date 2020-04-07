@@ -118,8 +118,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_quote_accces_metadata_rule`")  # noqa: E501
 
         collection_formats = {}
@@ -129,19 +129,19 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'provider' in local_var_params and local_var_params['provider'] is not None:  # noqa: E501
+        if 'provider' in local_var_params:
             query_params.append(('provider', local_var_params['provider']))  # noqa: E501
-        if 'price_source' in local_var_params and local_var_params['price_source'] is not None:  # noqa: E501
+        if 'price_source' in local_var_params:
             query_params.append(('priceSource', local_var_params['price_source']))  # noqa: E501
-        if 'instrument_id_type' in local_var_params and local_var_params['instrument_id_type'] is not None:  # noqa: E501
+        if 'instrument_id_type' in local_var_params:
             query_params.append(('instrumentIdType', local_var_params['instrument_id_type']))  # noqa: E501
-        if 'instrument_id' in local_var_params and local_var_params['instrument_id'] is not None:  # noqa: E501
+        if 'instrument_id' in local_var_params:
             query_params.append(('instrumentId', local_var_params['instrument_id']))  # noqa: E501
-        if 'quote_type' in local_var_params and local_var_params['quote_type'] is not None:  # noqa: E501
+        if 'quote_type' in local_var_params:
             query_params.append(('quoteType', local_var_params['quote_type']))  # noqa: E501
-        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
+        if 'field' in local_var_params:
             query_params.append(('field', local_var_params['field']))  # noqa: E501
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -153,6 +153,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -246,8 +247,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_quotes`")  # noqa: E501
 
         collection_formats = {}
@@ -269,6 +270,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -368,8 +370,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_quotes`")  # noqa: E501
 
         collection_formats = {}
@@ -379,11 +381,11 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'max_age' in local_var_params and local_var_params['max_age'] is not None:  # noqa: E501
+        if 'max_age' in local_var_params:
             query_params.append(('maxAge', local_var_params['max_age']))  # noqa: E501
 
         header_params = {}
@@ -397,6 +399,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -504,8 +507,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_quotes_access_metadata_rule`")  # noqa: E501
 
         collection_formats = {}
@@ -513,23 +516,23 @@ class QuotesApi(object):
         path_params = {}
 
         query_params = []
-        if 'scope' in local_var_params and local_var_params['scope'] is not None:  # noqa: E501
+        if 'scope' in local_var_params:
             query_params.append(('scope', local_var_params['scope']))  # noqa: E501
-        if 'provider' in local_var_params and local_var_params['provider'] is not None:  # noqa: E501
+        if 'provider' in local_var_params:
             query_params.append(('provider', local_var_params['provider']))  # noqa: E501
-        if 'price_source' in local_var_params and local_var_params['price_source'] is not None:  # noqa: E501
+        if 'price_source' in local_var_params:
             query_params.append(('priceSource', local_var_params['price_source']))  # noqa: E501
-        if 'instrument_id_type' in local_var_params and local_var_params['instrument_id_type'] is not None:  # noqa: E501
+        if 'instrument_id_type' in local_var_params:
             query_params.append(('instrumentIdType', local_var_params['instrument_id_type']))  # noqa: E501
-        if 'instrument_id' in local_var_params and local_var_params['instrument_id'] is not None:  # noqa: E501
+        if 'instrument_id' in local_var_params:
             query_params.append(('instrumentId', local_var_params['instrument_id']))  # noqa: E501
-        if 'quote_type' in local_var_params and local_var_params['quote_type'] is not None:  # noqa: E501
+        if 'quote_type' in local_var_params:
             query_params.append(('quoteType', local_var_params['quote_type']))  # noqa: E501
-        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
+        if 'field' in local_var_params:
             query_params.append(('field', local_var_params['field']))  # noqa: E501
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -541,6 +544,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -642,8 +646,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `list_quotes`")  # noqa: E501
 
         collection_formats = {}
@@ -653,15 +657,15 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+        if 'page' in local_var_params:
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+        if 'start' in local_var_params:
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -673,6 +677,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -766,8 +771,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `list_quotes_access_metadata_rules`")  # noqa: E501
 
         collection_formats = {}
@@ -777,7 +782,7 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -789,6 +794,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -884,12 +890,12 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `upsert_quote_access_metadata_rule`")  # noqa: E501
         # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
+        if ('request' not in local_var_params or
+                local_var_params['request'] is None):
             raise ApiValueError("Missing the required parameter `request` when calling `upsert_quote_access_metadata_rule`")  # noqa: E501
 
         collection_formats = {}
@@ -899,7 +905,7 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -913,6 +919,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -1006,8 +1013,8 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `upsert_quotes`")  # noqa: E501
 
         collection_formats = {}
@@ -1029,6 +1036,7 @@ class QuotesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

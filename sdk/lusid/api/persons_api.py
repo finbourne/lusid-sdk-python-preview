@@ -108,16 +108,16 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `delete_person`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `delete_person`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `delete_person`")  # noqa: E501
 
         collection_formats = {}
@@ -141,6 +141,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -240,20 +241,20 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `delete_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `delete_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `delete_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['metadata_key'] is None):  # noqa: E501
+        if ('metadata_key' not in local_var_params or
+                local_var_params['metadata_key'] is None):
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `delete_person_access_metadata`")  # noqa: E501
 
         collection_formats = {}
@@ -269,7 +270,7 @@ class PersonsApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -281,6 +282,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -380,16 +382,16 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `get_all_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `get_all_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_all_person_access_metadata`")  # noqa: E501
 
         collection_formats = {}
@@ -403,9 +405,9 @@ class PersonsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -417,6 +419,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -518,16 +521,16 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `get_person`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `get_person`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_person`")  # noqa: E501
 
         collection_formats = {}
@@ -541,12 +544,12 @@ class PersonsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
+        if 'property_keys' in local_var_params:
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -558,6 +561,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -659,20 +663,20 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `get_person_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `get_person_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_person_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['metadata_key'] is None):  # noqa: E501
+        if ('metadata_key' not in local_var_params or
+                local_var_params['metadata_key'] is None):
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `get_person_access_metadata_by_key`")  # noqa: E501
 
         collection_formats = {}
@@ -688,9 +692,9 @@ class PersonsApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -702,6 +706,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -811,6 +816,7 @@ class PersonsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
 
@@ -911,24 +917,24 @@ class PersonsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
+        if ('id_type_scope' not in local_var_params or
+                local_var_params['id_type_scope'] is None):
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `upsert_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id_type_code'] is None):  # noqa: E501
+        if ('id_type_code' not in local_var_params or
+                local_var_params['id_type_code'] is None):
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `upsert_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `upsert_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['metadata_key'] is None):  # noqa: E501
+        if ('metadata_key' not in local_var_params or
+                local_var_params['metadata_key'] is None):
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `upsert_person_access_metadata`")  # noqa: E501
         # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
+        if ('request' not in local_var_params or
+                local_var_params['request'] is None):
             raise ApiValueError("Missing the required parameter `request` when calling `upsert_person_access_metadata`")  # noqa: E501
 
         collection_formats = {}
@@ -944,7 +950,7 @@ class PersonsApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
+        if 'effective_at' in local_var_params:
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -958,6 +964,7 @@ class PersonsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

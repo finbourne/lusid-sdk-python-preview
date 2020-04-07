@@ -47,22 +47,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio to.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio to.
 code = 'code_example' # str | The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the portfolio will be added to the group.
 portfolio_id = lusid.ResourceId() # ResourceId | The resource identifier of the portfolio to add to the portfolio group. (optional)
 
-    try:
-        # [EARLY ACCESS] Add portfolio to group
-        api_response = api_instance.add_portfolio_to_group(scope, code, effective_at, portfolio_id=portfolio_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->add_portfolio_to_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Add portfolio to group
+    api_response = api_instance.add_portfolio_to_group(scope, code, effective_at, portfolio_id=portfolio_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->add_portfolio_to_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -118,22 +115,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio group to.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio group to.
 code = 'code_example' # str | The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the sub group will be added to the group.
 portfolio_group_id = lusid.ResourceId() # ResourceId | The resource identifier of the portfolio group to add to the portfolio group as a sub group. (optional)
 
-    try:
-        # [EARLY ACCESS] Add sub group to group
-        api_response = api_instance.add_sub_group_to_group(scope, code, effective_at, portfolio_group_id=portfolio_group_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->add_sub_group_to_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Add sub group to group
+    api_response = api_instance.add_sub_group_to_group(scope, code, effective_at, portfolio_group_id=portfolio_group_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->add_sub_group_to_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -189,20 +183,17 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope that the portfolio group will be created in.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope that the portfolio group will be created in.
 request = lusid.CreatePortfolioGroupRequest() # CreatePortfolioGroupRequest | The definition and details of the portfolio group. (optional)
 
-    try:
-        # [EARLY ACCESS] Create portfolio group
-        api_response = api_instance.create_portfolio_group(scope, request=request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->create_portfolio_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Create portfolio group
+    api_response = api_instance.create_portfolio_group(scope, request=request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->create_portfolio_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -256,22 +247,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the group to delete properties from.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the group to delete properties from.
 code = 'code_example' # str | The code of the group to delete properties from. Together with the scope this uniquely identifies the group.
 property_keys = ['property_keys_example'] # list[str] | The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\". Each property must be from the \"PortfolioGroup\" domain.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the properties. (optional)
 
-    try:
-        # [EARLY ACCESS] Delete group properties
-        api_response = api_instance.delete_group_properties(scope, code, property_keys, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->delete_group_properties: %s\n" % e)
+try:
+    # [EARLY ACCESS] Delete group properties
+    api_response = api_instance.delete_group_properties(scope, code, property_keys, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_group_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -327,22 +315,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the Portfolio Group
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
 code = 'code_example' # str | The Portfolio Group code
 metadata_key = 'metadata_key_example' # str | Key of the Access Metadata entry to delete
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
-    try:
-        # [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
-        api_response = api_instance.delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->delete_key_from_portfolio_group_access_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
+    api_response = api_instance.delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_key_from_portfolio_group_access_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -398,23 +383,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to remove the portfolio from.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to remove the portfolio from.
 code = 'code_example' # str | The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group.
 portfolio_scope = 'portfolio_scope_example' # str | The scope of the portfolio being removed from the portfolio group.
 portfolio_code = 'portfolio_code_example' # str | The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the portfolio will be removed from the portfolio group.
 
-    try:
-        # [EARLY ACCESS] Delete portfolio from group
-        api_response = api_instance.delete_portfolio_from_group(scope, code, portfolio_scope, portfolio_code, effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->delete_portfolio_from_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Delete portfolio from group
+    api_response = api_instance.delete_portfolio_from_group(scope, code, portfolio_scope, portfolio_code, effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_portfolio_from_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -471,20 +453,17 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to delete.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to delete.
 code = 'code_example' # str | The code of the portfolio group to delete. Together with the scope this uniquely identifies the portfolio group to delete.
 
-    try:
-        # [EARLY ACCESS] Delete portfolio group
-        api_response = api_instance.delete_portfolio_group(scope, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->delete_portfolio_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Delete portfolio group
+    api_response = api_instance.delete_portfolio_group(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_portfolio_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -538,23 +517,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to remove the sub group from.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to remove the sub group from.
 code = 'code_example' # str | The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group.
 subgroup_scope = 'subgroup_scope_example' # str | The scope of the sub group to remove from the portfolio group.
 subgroup_code = 'subgroup_code_example' # str | The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the sub group will be removed from the portfolio group.
 
-    try:
-        # [EARLY ACCESS] Delete sub group from group
-        api_response = api_instance.delete_sub_group_from_group(scope, code, subgroup_scope, subgroup_code, effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->delete_sub_group_from_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Delete sub group from group
+    api_response = api_instance.delete_sub_group_from_group(scope, code, subgroup_scope, subgroup_code, effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->delete_sub_group_from_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -611,22 +587,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the group to list the properties for.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the group to list the properties for.
 code = 'code_example' # str | The code of the group to list the properties for. Together with the scope this uniquely identifies the group.
 effective_at = 'effective_at_example' # str | The effective date time or cut label at which to list the group's properties. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt date time at which to list the group's properties. Defaults to return the latest version of each property if not specified. (optional)
 
-    try:
-        # [EARLY ACCESS] Get group properties
-        api_response = api_instance.get_group_properties(scope, code, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_group_properties: %s\n" % e)
+try:
+    # [EARLY ACCESS] Get group properties
+    api_response = api_instance.get_group_properties(scope, code, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_group_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -682,12 +655,9 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group.
 code = 'code_example' # str | The code of the portfolio group. Together with the scope this uniquely identifies              the portfolio group.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the holdings of transaction              portfolios in the portfolio group. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the holdings of transaction portfolios in the portfolio group. Defaults              to return the latest version of the holdings if not specified. (optional)
@@ -695,12 +665,12 @@ filter = 'filter_example' # str | Expression to filter the result set. Read more
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\". (optional)
 by_taxlots = True # bool | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get holdings for transaction portfolios in portfolio group
-        api_response = api_instance.get_holdings_for_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, by_taxlots=by_taxlots)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_holdings_for_portfolio_group: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get holdings for transaction portfolios in portfolio group
+    api_response = api_instance.get_holdings_for_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, by_taxlots=by_taxlots)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_holdings_for_portfolio_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -759,22 +729,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to retrieve the definition for.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to retrieve the definition for.
 code = 'code_example' # str | The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)
 
-    try:
-        # [EARLY ACCESS] Get portfolio group
-        api_response = api_instance.get_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_portfolio_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Get portfolio group
+    api_response = api_instance.get_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -830,23 +797,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the Portfolio Group
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
 code = 'code_example' # str | The Portfolio Group code
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the access metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata (optional)
 
-    try:
-        # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
-        api_response = api_instance.get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_portfolio_group_access_metadata_by_key: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+    api_response = api_instance.get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_access_metadata_by_key: %s\n" % e)
 ```
 
 ### Parameters
@@ -903,23 +867,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to retrieve the commands for.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to retrieve the commands for.
 code = 'code_example' # str | The code of the portfolio group to retrieve the commands for. Together with the scope this uniquely identifies the portfolio group.
 from_as_at = '2013-10-20T19:20:30+01:00' # datetime | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)
 to_as_at = '2013-10-20T19:20:30+01:00' # datetime | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.                For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-    try:
-        # [EARLY ACCESS] Get portfolio group commands
-        api_response = api_instance.get_portfolio_group_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_portfolio_group_commands: %s\n" % e)
+try:
+    # [EARLY ACCESS] Get portfolio group commands
+    api_response = api_instance.get_portfolio_group_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_commands: %s\n" % e)
 ```
 
 ### Parameters
@@ -976,23 +937,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to expand.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to expand.
 code = 'code_example' # str | The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to expand the portfolio group. Defaults to return the latest version of each portfolio in the group if not specified. (optional)
 property_filter = ['property_filter_example'] # list[str] | The restricted list of property keys from the \"Portfolio\" domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional)
 
-    try:
-        # [EARLY ACCESS] Get portfolio group expansion
-        api_response = api_instance.get_portfolio_group_expansion(scope, code, effective_at=effective_at, as_at=as_at, property_filter=property_filter)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_portfolio_group_expansion: %s\n" % e)
+try:
+    # [EARLY ACCESS] Get portfolio group expansion
+    api_response = api_instance.get_portfolio_group_expansion(scope, code, effective_at=effective_at, as_at=as_at, property_filter=property_filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_expansion: %s\n" % e)
 ```
 
 ### Parameters
@@ -1049,22 +1007,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the Portfolio Group
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
 code = 'code_example' # str | The Portfolio Group code
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
-        api_response = api_instance.get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->get_portfolio_group_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
+    api_response = api_instance.get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->get_portfolio_group_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -1120,22 +1075,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope to list the portfolio groups in.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope to list the portfolio groups in.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-    try:
-        # [EARLY ACCESS] List portfolio groups
-        api_response = api_instance.list_portfolio_groups(scope, effective_at=effective_at, as_at=as_at, filter=filter)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->list_portfolio_groups: %s\n" % e)
+try:
+    # [EARLY ACCESS] List portfolio groups
+    api_response = api_instance.list_portfolio_groups(scope, effective_at=effective_at, as_at=as_at, filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->list_portfolio_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -1191,22 +1143,19 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio group to update the definition for.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio group to update the definition for.
 code = 'code_example' # str | The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group.
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime at which to update the definition.
 request = lusid.UpdatePortfolioGroupRequest() # UpdatePortfolioGroupRequest | The updated portfolio group definition. (optional)
 
-    try:
-        # [EARLY ACCESS] Update portfolio group
-        api_response = api_instance.update_portfolio_group(scope, code, effective_at, request=request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->update_portfolio_group: %s\n" % e)
+try:
+    # [EARLY ACCESS] Update portfolio group
+    api_response = api_instance.update_portfolio_group(scope, code, effective_at, request=request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->update_portfolio_group: %s\n" % e)
 ```
 
 ### Parameters
@@ -1262,21 +1211,18 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the group to update or insert the properties onto.
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the group to update or insert the properties onto.
 code = 'code_example' # str | The code of the group to update or insert the properties onto. Together with the scope this uniquely identifies the group.
 group_properties = {'key': lusid.ModelProperty()} # dict(str, ModelProperty) | The properties to be updated or inserted onto the group. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\". (optional)
 
-    try:
-        # [EARLY ACCESS] Upsert group properties
-        api_response = api_instance.upsert_group_properties(scope, code, group_properties=group_properties)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->upsert_group_properties: %s\n" % e)
+try:
+    # [EARLY ACCESS] Upsert group properties
+    api_response = api_instance.upsert_group_properties(scope, code, group_properties=group_properties)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->upsert_group_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -1331,23 +1277,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PortfolioGroupsApi(api_client)
-    scope = 'scope_example' # str | The scope of the Portfolio Group
+# Create an instance of the API class
+api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio Group
 code = 'code_example' # str | The Portfolio Group code
 metadata_key = 'metadata_key_example' # str | Key of the access metadata entry to upsert
 request = lusid.UpsertPortfolioGroupAccessMetadataRequest() # UpsertPortfolioGroupAccessMetadataRequest | The Portfolio Group Access Metadata rule to upsert
 effective_at = 'effective_at_example' # str | The date this rule will be effective from (optional)
 
-    try:
-        # [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-        api_response = api_instance.upsert_portfolio_group_access_metadata(scope, code, metadata_key, request, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PortfolioGroupsApi->upsert_portfolio_group_access_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+    api_response = api_instance.upsert_portfolio_group_access_metadata(scope, code, metadata_key, request, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfolioGroupsApi->upsert_portfolio_group_access_metadata: %s\n" % e)
 ```
 
 ### Parameters

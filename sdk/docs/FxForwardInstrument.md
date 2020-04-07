@@ -1,6 +1,5 @@
 # FxForwardInstrument
 
-Lusid-ibor internal representation of a Fx Forward instrument
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

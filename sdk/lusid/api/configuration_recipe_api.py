@@ -106,12 +106,12 @@ class ConfigurationRecipeApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_configuration_recipe`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `delete_configuration_recipe`")  # noqa: E501
 
         collection_formats = {}
@@ -133,6 +133,7 @@ class ConfigurationRecipeApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -228,12 +229,12 @@ class ConfigurationRecipeApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `get_configuration_recipe`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
-                                                        local_var_params['code'] is None):  # noqa: E501
+        if ('code' not in local_var_params or
+                local_var_params['code'] is None):
             raise ApiValueError("Missing the required parameter `code` when calling `get_configuration_recipe`")  # noqa: E501
 
         collection_formats = {}
@@ -245,7 +246,7 @@ class ConfigurationRecipeApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -257,6 +258,7 @@ class ConfigurationRecipeApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -352,8 +354,8 @@ class ConfigurationRecipeApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `list_configuration_recipes`")  # noqa: E501
 
         collection_formats = {}
@@ -363,9 +365,9 @@ class ConfigurationRecipeApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+        if 'as_at' in local_var_params:
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+        if 'filter' in local_var_params:
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -377,6 +379,7 @@ class ConfigurationRecipeApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -470,12 +473,12 @@ class ConfigurationRecipeApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
-                                                        local_var_params['scope'] is None):  # noqa: E501
+        if ('scope' not in local_var_params or
+                local_var_params['scope'] is None):
             raise ApiValueError("Missing the required parameter `scope` when calling `upsert_configuration_recipe`")  # noqa: E501
         # verify the required parameter 'structured_data' is set
-        if self.api_client.client_side_validation and ('structured_data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['structured_data'] is None):  # noqa: E501
+        if ('structured_data' not in local_var_params or
+                local_var_params['structured_data'] is None):
             raise ApiValueError("Missing the required parameter `structured_data` when calling `upsert_configuration_recipe`")  # noqa: E501
 
         collection_formats = {}
@@ -497,6 +500,7 @@ class ConfigurationRecipeApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

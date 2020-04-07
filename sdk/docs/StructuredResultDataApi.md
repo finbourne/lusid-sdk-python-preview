@@ -31,20 +31,17 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope of the structured result data to delete.
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the structured result data to delete.
 structured_data_ids = {'key': lusid.StructuredResultDataId()} # dict(str, StructuredResultDataId) | The structured result data Ids to delete, each keyed by a unique correlation id.
 
-    try:
-        # [EXPERIMENTAL] Delete one or more items of structured result data, assuming they are present.
-        api_response = api_instance.delete_structured_result_data(scope, structured_data_ids)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->delete_structured_result_data: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete one or more items of structured result data, assuming they are present.
+    api_response = api_instance.delete_structured_result_data(scope, structured_data_ids)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->delete_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -98,23 +95,20 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope of the structured result data to retrieve.
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the structured result data to retrieve.
 structured_data_ids = {'key': lusid.StructuredResultDataId()} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 effective_at = 'effective_at_example' # str | The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to return the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured result data item must exist to be retrieved. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get structured result data
-        api_response = api_instance.get_structured_result_data(scope, structured_data_ids, effective_at=effective_at, as_at=as_at, max_age=max_age)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get structured result data
+    api_response = api_instance.get_structured_result_data(scope, structured_data_ids, effective_at=effective_at, as_at=as_at, max_age=max_age)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -171,20 +165,17 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Defining host is optional and default to http://localhost
 configuration.host = "http://localhost"
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope to use when updating or inserting the structured result data.
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope to use when updating or inserting the structured result data.
 structured_data = {'key': lusid.UpsertStructuredResultDataRequest()} # dict(str, UpsertStructuredResultDataRequest) | The set of structured result data items to update or insert keyed by a unique correlation id.
 
-    try:
-        # [EXPERIMENTAL] Upsert a set of structured result data items. This creates or updates the data in Lusid.
-        api_response = api_instance.upsert_structured_result_data(scope, structured_data)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->upsert_structured_result_data: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert a set of structured result data items. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_structured_result_data(scope, structured_data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->upsert_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters
