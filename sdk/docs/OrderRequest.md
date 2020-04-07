@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **instrument_identifiers** | **dict(str, str)** | The instrument ordered. | 
 **quantity** | **int** | The quantity of given instrument ordered. | 
 **side** | **str** | The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) | 
-**order_book** | [**ResourceId**](ResourceId.md) |  | 
-**portfolio** | [**ResourceId**](ResourceId.md) |  | 
-**code** | **str** | Uniquely identifies this order. | 
+**order_book_id** | [**ResourceId**](ResourceId.md) |  | 
+**portfolio_id** | [**ResourceId**](ResourceId.md) |  | 
+**id** | [**ResourceId**](ResourceId.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
