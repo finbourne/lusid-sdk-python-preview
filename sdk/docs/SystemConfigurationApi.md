@@ -1,6 +1,6 @@
 # lusid.SystemConfigurationApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,18 +30,21 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
-type = lusid.TransactionConfigurationDataRequest() # TransactionConfigurationDataRequest | A transaction type definition (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EARLY ACCESS] Create transaction type
-    api_response = api_instance.create_configuration_transaction_type(type=type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SystemConfigurationApi->create_configuration_transaction_type: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.SystemConfigurationApi(api_client)
+    type = lusid.TransactionConfigurationDataRequest() # TransactionConfigurationDataRequest | A transaction type definition (optional)
+
+    try:
+        # [EARLY ACCESS] Create transaction type
+        api_response = api_instance.create_configuration_transaction_type(type=type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SystemConfigurationApi->create_configuration_transaction_type: %s\n" % e)
 ```
 
 ### Parameters
@@ -92,18 +95,21 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
-side = lusid.SideConfigurationDataRequest() # SideConfigurationDataRequest | The definition of the side to be created. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EXPERIMENTAL] Create side definition
-    api_response = api_instance.create_side_definition(side=side)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SystemConfigurationApi->create_side_definition: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.SystemConfigurationApi(api_client)
+    side = lusid.SideConfigurationDataRequest() # SideConfigurationDataRequest | The definition of the side to be created. (optional)
+
+    try:
+        # [EXPERIMENTAL] Create side definition
+        api_response = api_instance.create_side_definition(side=side)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SystemConfigurationApi->create_side_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -154,17 +160,20 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EARLY ACCESS] List transaction types
-    api_response = api_instance.list_configuration_transaction_types()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SystemConfigurationApi->list_configuration_transaction_types: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.SystemConfigurationApi(api_client)
+    
+    try:
+        # [EARLY ACCESS] List transaction types
+        api_response = api_instance.list_configuration_transaction_types()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SystemConfigurationApi->list_configuration_transaction_types: %s\n" % e)
 ```
 
 ### Parameters
@@ -211,18 +220,21 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.SystemConfigurationApi(lusid.ApiClient(configuration))
-types = lusid.TransactionSetConfigurationDataRequest() # TransactionSetConfigurationDataRequest | The complete set of transaction type definitions (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EXPERIMENTAL] Set transaction types
-    api_response = api_instance.set_configuration_transaction_types(types=types)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SystemConfigurationApi->set_configuration_transaction_types: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.SystemConfigurationApi(api_client)
+    types = lusid.TransactionSetConfigurationDataRequest() # TransactionSetConfigurationDataRequest | The complete set of transaction type definitions (optional)
+
+    try:
+        # [EXPERIMENTAL] Set transaction types
+        api_response = api_instance.set_configuration_transaction_types(types=types)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SystemConfigurationApi->set_configuration_transaction_types: %s\n" % e)
 ```
 
 ### Parameters

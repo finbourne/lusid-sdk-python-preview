@@ -1,5 +1,6 @@
 # InstrumentLeg
 
+The leg of the swap.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

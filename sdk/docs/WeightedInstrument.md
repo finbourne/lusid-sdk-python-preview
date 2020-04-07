@@ -1,5 +1,6 @@
 # WeightedInstrument
 
+Specification for a holding or quantity of (weight for) an instrument on a given date.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

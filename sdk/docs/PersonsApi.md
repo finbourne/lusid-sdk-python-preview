@@ -1,6 +1,6 @@
 # lusid.PersonsApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,20 +33,23 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | The code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.
 
-try:
-    # [EXPERIMENTAL] Delete person
-    api_response = api_instance.delete_person(id_type_scope, id_type_code, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->delete_person: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Delete person
+        api_response = api_instance.delete_person(id_type_scope, id_type_code, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->delete_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -99,22 +102,25 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
-try:
-    # [EXPERIMENTAL] Delete a Person Access Metadata entry
-    api_response = api_instance.delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->delete_person_access_metadata: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Delete a Person Access Metadata entry
+        api_response = api_instance.delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->delete_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -169,22 +175,25 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
-try:
-    # [EXPERIMENTAL] Get Access Metadata rules for a Person
-    api_response = api_instance.get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->get_all_person_access_metadata: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Get Access Metadata rules for a Person
+        api_response = api_instance.get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->get_all_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -239,23 +248,26 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified. (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)
 
-try:
-    # [EXPERIMENTAL] Get Person
-    api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->get_person: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Get Person
+        api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->get_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -311,23 +323,26 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
-try:
-    # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person
-    api_response = api_instance.get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->get_person_access_metadata_by_key: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person
+        api_response = api_instance.get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->get_person_access_metadata_by_key: %s\n" % e)
 ```
 
 ### Parameters
@@ -383,18 +398,21 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-request = lusid.UpsertPersonRequest() # UpsertPersonRequest | Request to create or update a person. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EXPERIMENTAL] Upsert Person
-    api_response = api_instance.upsert_person(request=request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->upsert_person: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    request = lusid.UpsertPersonRequest() # UpsertPersonRequest | Request to create or update a person. (optional)
+
+    try:
+        # [EXPERIMENTAL] Upsert Person
+        api_response = api_instance.upsert_person(request=request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->upsert_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -445,23 +463,26 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
-id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PersonsApi(api_client)
+    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 request = lusid.UpsertPersonAccessMetadataRequest() # UpsertPersonAccessMetadataRequest | The Person Access Metadata entry to upsert
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to upsert the Access Metadata (optional)
 
-try:
-    # [EXPERIMENTAL] Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-    api_response = api_instance.upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, request, effective_at=effective_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PersonsApi->upsert_person_access_metadata: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        api_response = api_instance.upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, request, effective_at=effective_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PersonsApi->upsert_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters

@@ -1,6 +1,6 @@
 # lusid.AllocationsApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,21 +27,24 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to which the allocation belongs.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AllocationsApi(api_client)
+    scope = 'scope_example' # str | The scope to which the allocation belongs.
 code = 'code_example' # str | The allocation's unique identifier.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Allocations\" domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional)
 
-try:
-    # [EXPERIMENTAL] Fetch a given allocation.
-    api_response = api_instance.get_allocation(scope, code, as_at=as_at, property_keys=property_keys)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AllocationsApi->get_allocation: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Fetch a given allocation.
+        api_response = api_instance.get_allocation(scope, code, as_at=as_at, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->get_allocation: %s\n" % e)
 ```
 
 ### Parameters
@@ -93,11 +96,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AllocationsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 sort_by = ['sort_by_example'] # list[str] | Allocation the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
@@ -105,12 +111,12 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.  Currently Allocations can be filtered by Code (e.g.              \"Id eq 'ALLOC001'), Allocated Order Id (e.g. AllocatedOrderId eq 'ORD001'), Quantity (e.g. \"Quantity lt 100\"),              LUSID Instrument Id (e.g. \"LusidInstrumentId eq 'LUID_12345678'\") or by Property (Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid). (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Allocations\" domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional)
 
-try:
-    # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
-    api_response = api_instance.list_allocations(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AllocationsApi->list_allocations: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+        api_response = api_instance.list_allocations(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->list_allocations: %s\n" % e)
 ```
 
 ### Parameters
@@ -165,18 +171,21 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
-request = lusid.AllocationSetRequest() # AllocationSetRequest | The collection of allocation requests. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 
-try:
-    # [EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.
-    api_response = api_instance.upsert_allocations(request=request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AllocationsApi->upsert_allocations: %s\n" % e)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AllocationsApi(api_client)
+    request = lusid.AllocationSetRequest() # AllocationSetRequest | The collection of allocation requests. (optional)
+
+    try:
+        # [EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.
+        api_response = api_instance.upsert_allocations(request=request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->upsert_allocations: %s\n" % e)
 ```
 
 ### Parameters

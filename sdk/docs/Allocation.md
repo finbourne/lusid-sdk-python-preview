@@ -1,5 +1,6 @@
 # Allocation
 
+An Allocation of a certain quantity of a specific instrument against an originating  Order.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

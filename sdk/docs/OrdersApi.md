@@ -1,6 +1,6 @@
 # lusid.OrdersApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,21 +28,24 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to which the order belongs.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.OrdersApi(api_client)
+    scope = 'scope_example' # str | The scope to which the order belongs.
 code = 'code_example' # str | The order's unique identifier.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto the order.              These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
-try:
-    # [EXPERIMENTAL] Fetch a given order.
-    api_response = api_instance.get_order(scope, code, as_at=as_at, property_keys=property_keys)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrdersApi->get_order: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Fetch a given order.
+        api_response = api_instance.get_order(scope, code, as_at=as_at, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrdersApi->get_order: %s\n" % e)
 ```
 
 ### Parameters
@@ -94,11 +97,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to which the orders belong.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.OrdersApi(api_client)
+    scope = 'scope_example' # str | The scope to which the orders belong.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing orders from a previous call to list orders.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
@@ -107,12 +113,12 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'Quantity gt 0' # str | Expression to filter the result set.  Currently Orders can be filtered by Code (e.g.              \"Id eq 'TestScope/ORD001'), Quantity (e.g. \"Quantity lt 100\"), Portfolio (e.g. \"Portfolio eq 'TestScope/UKEquities'\"),              LUSID Instrument Id (e.g. \"LusidInstrumentId eq 'LUID_12345678'\") or by Property (Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid). (optional) (default to 'Quantity gt 0')
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
-try:
-    # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
-    api_response = api_instance.list_orders(scope, as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrdersApi->list_orders: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        api_response = api_instance.list_orders(scope, as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrdersApi->list_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -168,19 +174,22 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to which the orders belong.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.OrdersApi(api_client)
+    scope = 'scope_example' # str | The scope to which the orders belong.
 request = [lusid.UpsertOrderPropertiesRequest()] # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
 
-try:
-    # [EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.
-    api_response = api_instance.upsert_order_properties(scope, request=request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrdersApi->upsert_order_properties: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.
+        api_response = api_instance.upsert_order_properties(scope, request=request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrdersApi->upsert_order_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -230,19 +239,22 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
-# Create an instance of the API class
-api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to which the orders belong.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.OrdersApi(api_client)
+    scope = 'scope_example' # str | The scope to which the orders belong.
 request = lusid.OrderSetRequest() # OrderSetRequest | The collection of order requests. (optional)
 
-try:
-    # [EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.
-    api_response = api_instance.upsert_orders(scope, request=request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrdersApi->upsert_orders: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.
+        api_response = api_instance.upsert_orders(scope, request=request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrdersApi->upsert_orders: %s\n" % e)
 ```
 
 ### Parameters
