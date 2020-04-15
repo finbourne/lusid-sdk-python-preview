@@ -26,7 +26,7 @@ from six.moves.urllib.parse import urlencode
 import urllib3
 
 from lusid.exceptions import ApiException, ApiValueError
-from lusid.tcp.tcp_keep_alive_probes import TCPKeepAlivePoolManager, TCPKeepAliveProxyManager
+
 
 logger = logging.getLogger(__name__)
 
@@ -83,8 +83,9 @@ class RESTClientObject(object):
             else:
                 maxsize = 4
 
+        # https pool manager
         if configuration.proxy:
-            self.pool_manager = TCPKeepAliveProxyManager(
+            self.pool_manager = urllib3.ProxyManager(
                 num_pools=pools_size,
                 maxsize=maxsize,
                 cert_reqs=cert_reqs,
@@ -96,7 +97,7 @@ class RESTClientObject(object):
                 **addition_pool_args
             )
         else:
-            self.pool_manager = TCPKeepAlivePoolManager(
+            self.pool_manager = urllib3.PoolManager(
                 num_pools=pools_size,
                 maxsize=maxsize,
                 cert_reqs=cert_reqs,
