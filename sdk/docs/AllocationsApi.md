@@ -1,6 +1,6 @@
 # lusid.AllocationsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,8 +27,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the allocation belongs.
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
@@ -102,7 +102,7 @@ page = 'page_example' # str | The pagination token to use to continue listing al
 sort_by = ['sort_by_example'] # list[str] | Allocation the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
-filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)
+filter = 'filter_example' # str | Expression to filter the result set.  Currently Allocations can be filtered by Id (e.g.              \"Id eq 'ALLOC001'), Allocated Order Id (e.g. AllocatedOrderId eq 'ORD001'), Quantity (e.g. \"Quantity lt 100\"),              LUSID Instrument Id (e.g. \"LusidInstrumentId eq 'LUID_12345678'\") or by Property (Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid). (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Allocations\" domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional)
 
 try:
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
  **sort_by** | [**list[str]**](str.md)| Allocation the results by these fields. Use use the &#39;-&#39; sign to denote descending allocation e.g. -MyFieldName. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **filter** | **str**| Expression to filter the result set.  Currently Allocations can be filtered by Id (e.g.              \&quot;Id eq &#39;ALLOC001&#39;), Allocated Order Id (e.g. AllocatedOrderId eq &#39;ORD001&#39;), Quantity (e.g. \&quot;Quantity lt 100\&quot;),              LUSID Instrument Id (e.g. \&quot;LusidInstrumentId eq &#39;LUID_12345678&#39;\&quot;) or by Property (Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid). | [optional] 
  **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. | [optional] 
 
 ### Return type
@@ -165,8 +165,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 request = lusid.AllocationSetRequest() # AllocationSetRequest | The collection of allocation requests. (optional)
