@@ -8767,7 +8767,7 @@
                     },
                     "displayName": "Test portfolio group",
                     "description": "UK Portfolio",
-                    "created": "2020-05-07T00:00:00.0000000+00:00",
+                    "created": "2020-05-08T00:00:00.0000000+00:00",
                     "portfolios": [
                       {
                         "scope": "demo-scope",
@@ -16370,8 +16370,8 @@
               "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
               "fgnCcy": "GBP",
               "refSpotRate": 1.5,
-              "startDate": "2020-05-07T18:22:33.4222393+00:00",
-              "maturityDate": "2020-06-06T18:22:33.4222397+00:00",
+              "startDate": "2020-05-08T19:12:12.0173869+00:00",
+              "maturityDate": "2020-06-07T19:12:12.0173874+00:00",
               "domCcy": "USD",
               "instrumentType": "FxForward"
             }
@@ -16618,8 +16618,8 @@
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 1.5,
-                  "startDate": "2020-05-07T18:22:33.4556965+00:00",
-                  "maturityDate": "2020-06-06T18:22:33.4556970+00:00",
+                  "startDate": "2020-05-08T19:12:12.0650994+00:00",
+                  "maturityDate": "2020-06-07T19:12:12.0650999+00:00",
                   "domCcy": "USD",
                   "instrumentType": "FxForward"
                 }
@@ -16662,8 +16662,8 @@
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 132,
-                  "startDate": "2020-05-07T18:22:33.4557013+00:00",
-                  "maturityDate": "2020-06-06T18:22:33.4557014+00:00",
+                  "startDate": "2020-05-08T19:12:12.0651066+00:00",
+                  "maturityDate": "2020-06-07T19:12:12.0651067+00:00",
                   "domCcy": "JPY",
                   "instrumentType": "FxForward"
                 }
