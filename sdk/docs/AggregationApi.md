@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,8 +33,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group
@@ -105,8 +105,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -177,8 +177,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Result data set
@@ -249,8 +249,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the instruments should that be required
@@ -319,8 +319,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group
@@ -385,8 +385,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -451,8 +451,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 pagination = 'pagination_example' # str | The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. (optional)
