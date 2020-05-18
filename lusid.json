@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "0.10.1380",
+    "version": "0.10.1381",
     "title": "LUSID API",
     "contact": {
       "name": "FINBOURNE Technology",
@@ -16549,8 +16549,8 @@
               "fixingDate": "0001-01-01T00:00:00+00:00",
               "fgnCcy": "GBP",
               "refSpotRate": 1.5,
-              "startDate": "2020-05-18T14:35:56.1333529+00:00",
-              "maturityDate": "2020-06-17T14:35:56.1333535+00:00",
+              "startDate": "2020-05-18T15:06:42.7565501+00:00",
+              "maturityDate": "2020-06-17T15:06:42.7565508+00:00",
               "domCcy": "USD",
               "instrumentType": "FxForward"
             }
@@ -16797,8 +16797,8 @@
                   "fixingDate": "0001-01-01T00:00:00+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 1.5,
-                  "startDate": "2020-05-18T14:35:56.1692183+00:00",
-                  "maturityDate": "2020-06-17T14:35:56.1692188+00:00",
+                  "startDate": "2020-05-18T15:06:42.7962265+00:00",
+                  "maturityDate": "2020-06-17T15:06:42.7962272+00:00",
                   "domCcy": "USD",
                   "instrumentType": "FxForward"
                 }
@@ -16841,8 +16841,8 @@
                   "fixingDate": "0001-01-01T00:00:00+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 132,
-                  "startDate": "2020-05-18T14:35:56.1692243+00:00",
-                  "maturityDate": "2020-06-17T14:35:56.1692244+00:00",
+                  "startDate": "2020-05-18T15:06:42.7962324+00:00",
+                  "maturityDate": "2020-06-17T15:06:42.7962325+00:00",
                   "domCcy": "JPY",
                   "instrumentType": "FxForward"
                 }
@@ -17441,8 +17441,7 @@
                 "supplier": "DataScope",
                 "dataScope": "SomeScopeToLookAt",
                 "quoteType": "Rate",
-                "field": "Mid",
-                "priceSource": ""
+                "field": "Mid"
               }
             ],
             "suppliers": {},
