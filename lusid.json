@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "0.10.1388",
+    "version": "0.10.1389",
     "title": "LUSID API",
     "contact": {
       "name": "FINBOURNE Technology",
@@ -16549,8 +16549,8 @@
               "fixingDate": "0001-01-01T00:00:00+00:00",
               "fgnCcy": "GBP",
               "refSpotRate": 1.5,
-              "startDate": "2020-05-20T09:33:07.2753275+00:00",
-              "maturityDate": "2020-06-19T09:33:07.2753279+00:00",
+              "startDate": "2020-05-20T09:43:13.2033638+00:00",
+              "maturityDate": "2020-06-19T09:43:13.2033642+00:00",
               "domCcy": "USD",
               "instrumentType": "FxForward"
             }
@@ -16797,8 +16797,8 @@
                   "fixingDate": "0001-01-01T00:00:00+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 1.5,
-                  "startDate": "2020-05-20T09:33:07.3039716+00:00",
-                  "maturityDate": "2020-06-19T09:33:07.303972+00:00",
+                  "startDate": "2020-05-20T09:43:13.2323711+00:00",
+                  "maturityDate": "2020-06-19T09:43:13.2323715+00:00",
                   "domCcy": "USD",
                   "instrumentType": "FxForward"
                 }
@@ -16841,8 +16841,8 @@
                   "fixingDate": "0001-01-01T00:00:00+00:00",
                   "fgnCcy": "GBP",
                   "refSpotRate": 132,
-                  "startDate": "2020-05-20T09:33:07.3039773+00:00",
-                  "maturityDate": "2020-06-19T09:33:07.3039774+00:00",
+                  "startDate": "2020-05-20T09:43:13.232375+00:00",
+                  "maturityDate": "2020-06-19T09:43:13.2323751+00:00",
                   "domCcy": "JPY",
                   "instrumentType": "FxForward"
                 }
