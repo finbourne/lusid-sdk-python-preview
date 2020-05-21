@@ -3,10 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**conventions** | [**FlowConventions**](FlowConventions.md) |  | 
-**is_pay_not_receive** | **bool** | True if the holder of the swap pays, false if they receive the flows on this leg. | 
-**is_float_not_fixed** | **bool** | True if the payments float or are fixed. | 
-**fixed_rate** | **float** | If the leg is fixed, the fixed rate. | 
+**notional** | **float** | scaling factor to apply to leg quantities. | 
+**maturity_date** | **datetime** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.              For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as              Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date | 
+**start_date** | **datetime** | The start date of the instrument. This is normally synonymous with the trade-date. | 
+**leg_definition** | [**LegDefinition**](LegDefinition.md) |  | 
+**instrument_type** | **str** | Instrument type, must be property for JSON. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
