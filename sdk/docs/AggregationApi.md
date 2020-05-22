@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**generate_configuration_recipe**](AggregationApi.md#generate_configuration_recipe) | **POST** /api/{scope}/{code} | [EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
 [**get_aggregation_by_group**](AggregationApi.md#get_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio group
 [**get_aggregation_by_portfolio**](AggregationApi.md#get_aggregation_by_portfolio) | **POST** /api/portfolios/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio
 [**get_aggregation_by_result_set**](AggregationApi.md#get_aggregation_by_result_set) | **POST** /api/results/{scope}/{resultsKey}/$aggregate | [EXPERIMENTAL] Aggregate using result data
@@ -12,6 +13,72 @@ Method | HTTP request | Description
 [**get_nested_aggregation_by_portfolio**](AggregationApi.md#get_nested_aggregation_by_portfolio) | **POST** /api/portfolios/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] 
 [**get_queryable_keys**](AggregationApi.md#get_queryable_keys) | **GET** /api/results/queryable/keys | [EXPERIMENTAL] Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
 
+
+# **generate_configuration_recipe**
+> ConfigurationRecipe generate_configuration_recipe(scope, code, request=request)
+
+[EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
+
+Given a set of scopes, a portfolio Id and a basic recipe, this endpoint generates a configuration recipe with relevant rules that can value the instruments in the portfolio.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost/api
+configuration.host = "http://localhost/api"
+# Create an instance of the API class
+api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the portfolio
+code = 'code_example' # str | The code of the portfolio
+request = lusid.CreateRecipeRequest() # CreateRecipeRequest | The request specifying the parameters of the aggregation (optional)
+
+try:
+    # [EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
+    api_response = api_instance.generate_configuration_recipe(scope, code, request=request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AggregationApi->generate_configuration_recipe: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the portfolio | 
+ **code** | **str**| The code of the portfolio | 
+ **request** | [**CreateRecipeRequest**](CreateRecipeRequest.md)| The request specifying the parameters of the aggregation | [optional] 
+
+### Return type
+
+[**ConfigurationRecipe**](ConfigurationRecipe.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_aggregation_by_group**
 > ListAggregationResponse get_aggregation_by_group(scope, code, sort_by=sort_by, start=start, limit=limit, request=request)
