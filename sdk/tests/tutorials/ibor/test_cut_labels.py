@@ -53,7 +53,7 @@ class CutLabels(unittest.TestCase):
 
             # Send the request to LUSID to create the cut label
             result = self.cut_labels.create_cut_label_definition(
-                create_request=request)
+                create_cut_label_definition_request=request)
 
             # Check that result gives same details as input
             self.assertEqual(result.display_name, display_name)
@@ -119,7 +119,7 @@ class CutLabels(unittest.TestCase):
         # add initial holdings to our portfolio from LondonOpen 5 days ago
         self.transaction_portfolios_api.set_holdings(scope=scope,
                                                      code=portfolio_code,
-                                                     holding_adjustments=initial_holdings,
+                                                     adjust_holding_request=initial_holdings,
                                                      effective_at=initial_holdings_cut_label)
 
         ## Check initial holdings
@@ -185,7 +185,7 @@ class CutLabels(unittest.TestCase):
         # Add transactions to the portfolio
         self.transaction_portfolios_api.upsert_transactions(scope=scope,
                                                             code=portfolio_code,
-                                                            transactions=transactions)
+                                                            transaction_request=transactions)
 
         ## Retrieve holdings at LondonClose today (5pm local time)
         # This will mean that the 4th transaction will not be included, demonstrating how cut labels work across time zones

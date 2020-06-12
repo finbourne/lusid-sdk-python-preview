@@ -73,7 +73,7 @@ class Properties(unittest.TestCase):
 
         # create portfolio
         portfolio_request = self.transaction_portfolios_api.create_portfolio(scope=TestDataUtilities.tutorials_scope,
-                                                                             transaction_portfolio=create_portfolio_request)
+                                                                             create_transaction_portfolio_request=create_portfolio_request)
 
         # get properties for assertions
         portfolio_properties = self.portfolios_api.get_portfolio_properties(scope=TestDataUtilities.tutorials_scope,
@@ -124,7 +124,7 @@ class Properties(unittest.TestCase):
 
         # Create portfolio
         portfolio_result = self.transaction_portfolios_api.create_portfolio(scope=TestDataUtilities.tutorials_scope,
-                                                                            transaction_portfolio=create_portfolio_request)
+                                                                            create_transaction_portfolio_request=create_portfolio_request)
         portfolio_properties = self.portfolios_api.get_portfolio_properties(scope=TestDataUtilities.tutorials_scope,
                                                                             code=portfolio_result.id.code).properties
         metric_property = portfolio_properties[metric_property_definition_result.key]

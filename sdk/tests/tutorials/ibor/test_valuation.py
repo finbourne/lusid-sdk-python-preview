@@ -54,7 +54,7 @@ class Valuation(unittest.TestCase):
 
         self.transaction_portfolios_api.upsert_transactions(scope=TestDataUtilities.tutorials_scope,
                                                             code=portfolio_code,
-                                                            transactions=transactions)
+                                                            transaction_request=transactions)
 
         prices = [
             (self.instrument_ids[0], 100),
@@ -83,7 +83,7 @@ class Valuation(unittest.TestCase):
         ]
 
         self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope,
-                                      quotes={"quote" + str(request_number): requests[request_number]
+                                      request_body={"quote" + str(request_number): requests[request_number]
                                               for request_number in range(len(requests))})
 
         inline_recipe = models.ConfigurationRecipe(
@@ -114,7 +114,7 @@ class Valuation(unittest.TestCase):
         #   do the aggregation
         aggregation = self.aggregation_api.get_aggregation_by_portfolio(scope=TestDataUtilities.tutorials_scope,
                                                                         code=portfolio_code,
-                                                                        request=aggregation_request)
+                                                                        aggregation_request=aggregation_request)
 
         for item in aggregation.data:
             print("\t{}\t{}\t{}".format(item["Instrument/default/Name"], item["Proportion(Holding/default/PV)"],
