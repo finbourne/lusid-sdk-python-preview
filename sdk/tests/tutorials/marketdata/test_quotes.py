@@ -37,7 +37,7 @@ class Quotes(unittest.TestCase):
             )
         )
 
-        self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, quotes={"quote1": request})
+        self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, request_body={"quote1": request})
 
     def test_get_quote_for_instrument_for_single_day(self):
 
@@ -55,7 +55,7 @@ class Quotes(unittest.TestCase):
         quote_response = self.quotes_api.get_quotes(
             scope=TestDataUtilities.tutorials_scope,
             effective_at=effective_date,
-            quote_ids={"quote1": quote_series_id}
+            request_body={"quote1": quote_series_id}
         )
 
         self.assertEqual(len(quote_response.values), 1)
@@ -82,7 +82,7 @@ class Quotes(unittest.TestCase):
             self.quotes_api.get_quotes(
                 scope=TestDataUtilities.market_data_scope,
                 effective_at=d,
-                quote_ids={"quote1": quote_id}
+                request_body={"quote1": quote_id}
             )
             for d in date_range
         ]

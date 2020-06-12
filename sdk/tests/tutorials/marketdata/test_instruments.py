@@ -41,7 +41,7 @@ class Instruments(unittest.TestCase):
             cls.property_definitions_api.create_property_definition(definition=property_definition)
 
     def test_seed_instrument_master(self):
-        response = self.instruments_api.upsert_instruments(instruments={
+        response = self.instruments_api.upsert_instruments(request_body={
 
             "BBG000FD8G46": models.InstrumentDefinition(
                 name="HISCOX LTD",
@@ -91,7 +91,7 @@ class Instruments(unittest.TestCase):
         figi = "BBG000FD8G46"
 
         # set up the instrument
-        response = self.instruments_api.upsert_instruments(instruments={
+        response = self.instruments_api.upsert_instruments(request_body={
             figi: models.InstrumentDefinition(
                 name="HISCOX LTD",
                 identifiers={
@@ -105,7 +105,7 @@ class Instruments(unittest.TestCase):
         # look up an instrument that already exists in the instrument master by a
         # unique id, in this case an OpenFigi, and also return a list of aliases
         looked_up_instruments = self.instruments_api.get_instruments(identifier_type="Figi",
-                                                                     identifiers=[figi],
+                                                                     request_body=[figi],
                                                                      property_keys=[
                                                                          "Instrument/default/ClientInternal"
                                                                      ])
@@ -137,7 +137,7 @@ class Instruments(unittest.TestCase):
         figis = ["BBG000FD8G46", "BBG000DW76R4", "BBG000PQKVN8"]
 
         # get a set of instruments querying by FIGIs
-        instruments = self.instruments_api.get_instruments(identifier_type="Figi", identifiers=figis)
+        instruments = self.instruments_api.get_instruments(identifier_type="Figi", request_body=figis)
 
         for figi in figis:
             self.assertTrue(figi in instruments.values, msg=f"{figi} not returned")
@@ -150,7 +150,7 @@ class Instruments(unittest.TestCase):
         identifier = "BBG000FD8G46"
 
         # update the instrument
-        self.instruments_api.upsert_instruments_properties(instrument_properties=[
+        self.instruments_api.upsert_instruments_properties(upsert_instrument_property_request=[
             models.UpsertInstrumentPropertyRequest(
                 identifier_type=identifier_type,
                 identifier=identifier,
@@ -192,7 +192,7 @@ class Instruments(unittest.TestCase):
                 content="<customFormat>upload in custom xml or JSON format</customFormat>"))
 
         # create the swap
-        swap_response = self.instruments_api.upsert_instruments(instruments={
+        swap_response = self.instruments_api.upsert_instruments(request_body={
             "request": swap_definition
         })
 
