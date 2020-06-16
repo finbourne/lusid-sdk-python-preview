@@ -1,6 +1,6 @@
 # lusid.StructuredMarketDataApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost:46312*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **delete_structured_market_data**
-> AnnulStructuredDataResponse delete_structured_market_data(scope, structured_data_ids)
+> AnnulStructuredDataResponse delete_structured_market_data(scope, request_body)
 
 [EXPERIMENTAL] Delete one or more items of structured market data, assuming they are present.
 
@@ -29,16 +29,16 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost:46312
+configuration.host = "http://localhost:46312"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to delete.
-structured_data_ids = {'key': lusid.StructuredMarketDataId()} # dict(str, StructuredMarketDataId) | The structured market data Ids to delete, each keyed by a unique correlation id.
+request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The structured market data Ids to delete, each keyed by a unique correlation id.
 
 try:
     # [EXPERIMENTAL] Delete one or more items of structured market data, assuming they are present.
-    api_response = api_instance.delete_structured_market_data(scope, structured_data_ids)
+    api_response = api_instance.delete_structured_market_data(scope, request_body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StructuredMarketDataApi->delete_structured_market_data: %s\n" % e)
@@ -49,7 +49,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the structured market data to delete. | 
- **structured_data_ids** | [**dict(str, StructuredMarketDataId)**](StructuredMarketDataId.md)| The structured market data Ids to delete, each keyed by a unique correlation id. | 
+ **request_body** | [**dict(str, StructuredMarketDataId)**](StructuredMarketDataId.md)| The structured market data Ids to delete, each keyed by a unique correlation id. | 
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_structured_market_data**
-> GetStructuredMarketDataResponse get_structured_market_data(scope, structured_data_ids, effective_at=effective_at, as_at=as_at, max_age=max_age)
+> GetStructuredMarketDataResponse get_structured_market_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
 
 [EXPERIMENTAL] Get structured market data
 
@@ -93,19 +93,19 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost:46312
+configuration.host = "http://localhost:46312"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to retrieve.
-structured_data_ids = {'key': lusid.StructuredMarketDataId()} # dict(str, StructuredMarketDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
+request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 effective_at = 'effective_at_example' # str | The effective datetime at which to retrieve the structured market data. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured market data. Defaults to return the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured market data item must exist to be retrieved. (optional)
 
 try:
     # [EXPERIMENTAL] Get structured market data
-    api_response = api_instance.get_structured_market_data(scope, structured_data_ids, effective_at=effective_at, as_at=as_at, max_age=max_age)
+    api_response = api_instance.get_structured_market_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StructuredMarketDataApi->get_structured_market_data: %s\n" % e)
@@ -116,7 +116,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the structured market data to retrieve. | 
- **structured_data_ids** | [**dict(str, StructuredMarketDataId)**](StructuredMarketDataId.md)| The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
+ **request_body** | [**dict(str, StructuredMarketDataId)**](StructuredMarketDataId.md)| The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
  **effective_at** | **str**| The effective datetime at which to retrieve the structured market data. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the structured market data. Defaults to return the latest version if not specified. | [optional] 
  **max_age** | **str**| The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured market data item must exist to be retrieved. | [optional] 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_structured_market_data**
-> UpsertStructuredDataResponse upsert_structured_market_data(scope, structured_data)
+> UpsertStructuredDataResponse upsert_structured_market_data(scope, request_body)
 
 [EXPERIMENTAL] Upsert a set of structured market data items. This creates or updates the data in Lusid.
 
@@ -163,16 +163,16 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost:46312
+configuration.host = "http://localhost:46312"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured market data.
-structured_data = {'key': lusid.UpsertStructuredMarketDataRequest()} # dict(str, UpsertStructuredMarketDataRequest) | The set of structured market data items to update or insert keyed by a unique correlation id.
+request_body = {"first-item":{"marketDataId":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVolSurface","marketAsset":"USDJPY"},"marketData":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"marketDataId":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"IrVolCube","marketAsset":"RBS"},"marketData":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 1","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredMarketDataRequest) | The set of structured market data items to update or insert keyed by a unique correlation id.
 
 try:
     # [EXPERIMENTAL] Upsert a set of structured market data items. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_structured_market_data(scope, structured_data)
+    api_response = api_instance.upsert_structured_market_data(scope, request_body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StructuredMarketDataApi->upsert_structured_market_data: %s\n" % e)
@@ -183,7 +183,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope to use when updating or inserting the structured market data. | 
- **structured_data** | [**dict(str, UpsertStructuredMarketDataRequest)**](UpsertStructuredMarketDataRequest.md)| The set of structured market data items to update or insert keyed by a unique correlation id. | 
+ **request_body** | [**dict(str, UpsertStructuredMarketDataRequest)**](UpsertStructuredMarketDataRequest.md)| The set of structured market data items to update or insert keyed by a unique correlation id. | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details

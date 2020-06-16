@@ -1,6 +1,6 @@
 # lusid.ResultsApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost:46312*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost:46312
+configuration.host = "http://localhost:46312"
 # Create an instance of the API class
 api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
 entity_scope = 'entity_scope_example' # str | The scope of the data or entity being stored
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_results**
-> Results upsert_results(request=request)
+> Results upsert_results(create_results=create_results)
 
 [EXPERIMENTAL] Upsert results
 
@@ -98,15 +98,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost/api
-configuration.host = "http://localhost/api"
+# Defining host is optional and default to http://localhost:46312
+configuration.host = "http://localhost:46312"
 # Create an instance of the API class
 api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
-request = lusid.CreateResults() # CreateResults | The details of what to upsert (optional)
+create_results = {"effectiveAt":"2018-03-05T00:00:00+00:00","entityScope":"MyEntityScope","entityCode":"MyEntityCode","calculationScope":"MyCalculationScope","calculationCode":"MyCalculationCode","format":"DataReader","data":"[]"} # CreateResults | The details of what to upsert (optional)
 
 try:
     # [EXPERIMENTAL] Upsert results
-    api_response = api_instance.upsert_results(request=request)
+    api_response = api_instance.upsert_results(create_results=create_results)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ResultsApi->upsert_results: %s\n" % e)
@@ -116,7 +116,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CreateResults**](CreateResults.md)| The details of what to upsert | [optional] 
+ **create_results** | [**CreateResults**](CreateResults.md)| The details of what to upsert | [optional] 
 
 ### Return type
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details

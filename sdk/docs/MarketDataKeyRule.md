@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **str** | The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*) | 
-**supplier** | **str** | The market data supplier (where the data comes from) | 
+**supplier** | **str** | The available values are: DataScope, Lusid, Isda, Client, Edi, TraderMade, FactSet | 
 **data_scope** | **str** | The scope in which the data should be found when using this rule. | 
-**quote_type** | **str** | Is the quote to be looked for a price, yield etc. | 
+**quote_type** | **str** | The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront | 
 **field** | **str** | The conceptual qualification for the field, such as bid, mid, or ask.   The field must be one of a defined set for the given supplier, in the same way as it  is for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId | 
 **quote_interval** | **str** | Shorthand for the time interval used to select market data. | [optional] 
 **as_at** | **datetime** | The AsAt predicate specification. | [optional] 

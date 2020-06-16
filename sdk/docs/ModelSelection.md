@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**library** | **str** | Which library is used for pricing requests | 
-**model** | **str** | Which model should be used for pricing requests | 
+**library** | **str** | The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds | 
+**model** | **str** | The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
