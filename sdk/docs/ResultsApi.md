@@ -1,6 +1,6 @@
 # lusid.ResultsApi
 
-All URIs are relative to *http://localhost:30907*
+All URIs are relative to *http://localhost:45608*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
 entity_scope = 'entity_scope_example' # str | The scope of the data or entity being stored
@@ -98,8 +98,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.ResultsApi(lusid.ApiClient(configuration))
 create_results = {"effectiveAt":"2018-03-05T00:00:00+00:00","entityScope":"MyEntityScope","entityCode":"MyEntityCode","calculationScope":"MyCalculationScope","calculationCode":"MyCalculationCode","format":"DataReader","data":"[]"} # CreateResults | The details of what to upsert (optional)

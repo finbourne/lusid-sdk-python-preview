@@ -1,6 +1,6 @@
 # lusid.InstrumentsApi
 
-All URIs are relative to *http://localhost:30907*
+All URIs are relative to *http://localhost:45608*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,8 +36,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -100,8 +100,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
@@ -168,8 +168,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -238,8 +238,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 
@@ -295,8 +295,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -365,8 +365,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. (optional)
@@ -441,8 +441,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier to use to resolve the instrument e.g. \"Figi\".
@@ -507,8 +507,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 request_body = {"request_id_1":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier","effectiveAt":"0001-01-01T00:00:00+00:00"},"figi":{"value":"some-figi-code","effectiveAt":"0001-01-01T00:00:00+00:00"}},"properties":[{"key":"Instrument/default/Isin","value":{"labelValue":"US0378331005"},"effectiveFrom":"2018-06-18T09:00:00+00:00"}],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":"some-format","content":"{\"some-key\": \"some-value\"}"}},"request_id_2":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier-2","effectiveAt":"0001-01-01T00:00:00+00:00"},"figi":{"value":"some-figi-code-2","effectiveAt":"0001-01-01T00:00:00+00:00"}},"properties":[],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":"some-format","content":"{\"some-key\": \"some-value\"}"}}} # dict(str, InstrumentDefinition) | The definitions of the instruments to update or insert.
@@ -569,8 +569,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 upsert_instrument_property_request = [{"identifierType":"LusidInstrumentId","identifier":"LUID_00000000","properties":[{"key":"Instrument/MyScope/MyPropertyName","value":{"labelValue":"MyValue"},"effectiveFrom":"2018-03-05T12:00:00+00:00"}]}] # list[UpsertInstrumentPropertyRequest] | A collection of instruments and associated instrument properties to update or insert.
@@ -631,8 +631,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:30907
-configuration.host = "http://localhost:30907"
+# Defining host is optional and default to http://localhost:45608
+configuration.host = "http://localhost:45608"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 request_body = {"request_id_1":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier","effectiveAt":"0001-01-01T00:00:00+00:00"},"figi":{"value":"some-figi-code","effectiveAt":"0001-01-01T00:00:00+00:00"}},"properties":[{"key":"Instrument/default/Isin","value":{"labelValue":"US0378331005"},"effectiveFrom":"2018-06-18T09:00:00+00:00"}],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":"some-format","content":"{\"some-key\": \"some-value\"}"}},"request_id_2":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier-2","effectiveAt":"0001-01-01T00:00:00+00:00"},"figi":{"value":"some-figi-code-2","effectiveAt":"0001-01-01T00:00:00+00:00"}},"properties":[],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":"some-format","content":"{\"some-key\": \"some-value\"}"}}} # dict(str, LusidInstrumentDefinition) | The definitions of the instruments to update or insert.
