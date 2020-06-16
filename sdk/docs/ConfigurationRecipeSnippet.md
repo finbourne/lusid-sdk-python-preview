@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**scope** | **str** | The scope used when updating or inserting the Configuration Recipe snippet | 
+**code** | **str** | User given string name (code) to identify the recipe. | 
 **aggregation_options** | [**AggregationOptions**](AggregationOptions.md) |  | [optional] 
 **model_rules** | [**list[VendorModelRule]**](VendorModelRule.md) | The set of model rules that are available. There may be multiple rules for Vendors, but only one per model-instrument pair.  Which of these preference sets is used depends upon the model choice selection if specified, or failing that the global default model specification  in the options. | [optional] 
 **pricing_options** | [**PricingOptions**](PricingOptions.md) |  | [optional] 
