@@ -87,6 +87,7 @@ class Valuation(unittest.TestCase):
                                               for request_number in range(len(requests))})
 
         inline_recipe = models.ConfigurationRecipe(
+            scope='default',
             code='quotes_recipe',
             market=models.MarketContext(
                 market_rules=[],
