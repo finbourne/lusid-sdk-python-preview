@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1508",
+    "version": "0.11.1509",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:51462"
     }
   ],
   "paths": {
@@ -68,8 +68,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00"
               }
             },
             "application/json": {
@@ -84,8 +84,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00"
               }
             },
             "text/json": {
@@ -100,8 +100,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00"
               }
             },
             "application/*+json": {
@@ -116,8 +116,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00"
               }
             }
           }
@@ -517,8 +517,8 @@
                         "instrument/default/Currency": "GBP"
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "properties": {
                         "allocation/MyScope/SomeAllocationProperty": {
@@ -556,8 +556,8 @@
                         "instrument/default/Currency": "GBP"
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "properties": {
                         "allocation/MyScope/SomeAllocationProperty": {
@@ -595,8 +595,8 @@
                         "instrument/default/Currency": "GBP"
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "properties": {
                         "allocation/MyScope/SomeAllocationProperty": {
@@ -735,8 +735,8 @@
                     "instrument/default/Currency": "GBP"
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "properties": {
                     "allocation/MyScope/SomeAllocationProperty": {
@@ -770,8 +770,8 @@
                     "instrument/default/Currency": "GBP"
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "properties": {
                     "allocation/MyScope/SomeAllocationProperty": {
@@ -805,8 +805,8 @@
                     "instrument/default/Currency": "GBP"
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "properties": {
                     "allocation/MyScope/SomeAllocationProperty": {
@@ -1244,10 +1244,10 @@
               "example": {
                 "corporateActionCode": "MyStockSplitId",
                 "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
-                "exDate": "2018-06-01T00:00:00.0000000+00:00",
-                "recordDate": "2018-06-02T00:00:00.0000000+00:00",
-                "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                "announcementDate": "2018-03-01T00:00:00+00:00",
+                "exDate": "2018-06-01T00:00:00+00:00",
+                "recordDate": "2018-06-02T00:00:00+00:00",
+                "paymentDate": "2018-08-02T00:00:00+00:00",
                 "transitions": [
                   {
                     "inputTransition": {
@@ -1282,10 +1282,10 @@
               "example": {
                 "corporateActionCode": "MyStockSplitId",
                 "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
-                "exDate": "2018-06-01T00:00:00.0000000+00:00",
-                "recordDate": "2018-06-02T00:00:00.0000000+00:00",
-                "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                "announcementDate": "2018-03-01T00:00:00+00:00",
+                "exDate": "2018-06-01T00:00:00+00:00",
+                "recordDate": "2018-06-02T00:00:00+00:00",
+                "paymentDate": "2018-08-02T00:00:00+00:00",
                 "transitions": [
                   {
                     "inputTransition": {
@@ -1320,10 +1320,10 @@
               "example": {
                 "corporateActionCode": "MyStockSplitId",
                 "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
-                "exDate": "2018-06-01T00:00:00.0000000+00:00",
-                "recordDate": "2018-06-02T00:00:00.0000000+00:00",
-                "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                "announcementDate": "2018-03-01T00:00:00+00:00",
+                "exDate": "2018-06-01T00:00:00+00:00",
+                "recordDate": "2018-06-02T00:00:00+00:00",
+                "paymentDate": "2018-08-02T00:00:00+00:00",
                 "transitions": [
                   {
                     "inputTransition": {
@@ -1358,10 +1358,10 @@
               "example": {
                 "corporateActionCode": "MyStockSplitId",
                 "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
-                "exDate": "2018-06-01T00:00:00.0000000+00:00",
-                "recordDate": "2018-06-02T00:00:00.0000000+00:00",
-                "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                "announcementDate": "2018-03-01T00:00:00+00:00",
+                "exDate": "2018-06-01T00:00:00+00:00",
+                "recordDate": "2018-06-02T00:00:00+00:00",
+                "paymentDate": "2018-08-02T00:00:00+00:00",
                 "transitions": [
                   {
                     "inputTransition": {
@@ -2446,7 +2446,7 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -2470,7 +2470,7 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -2494,7 +2494,7 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -2518,7 +2518,7 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -2823,11 +2823,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -2836,7 +2836,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -2853,11 +2853,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -2886,11 +2886,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -2899,7 +2899,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -2916,11 +2916,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -2949,11 +2949,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -2962,7 +2962,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -2979,11 +2979,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -3012,11 +3012,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -3025,7 +3025,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -3042,11 +3042,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -3461,7 +3461,7 @@
               "example": {
                 "type": "Figi",
                 "value": "updated-figi",
-                "effectiveAt": "2018-02-01T10:00:00.0000000+00:00"
+                "effectiveAt": "2018-02-01T10:00:00+00:00"
               }
             },
             "application/json": {
@@ -3471,7 +3471,7 @@
               "example": {
                 "type": "Figi",
                 "value": "updated-figi",
-                "effectiveAt": "2018-02-01T10:00:00.0000000+00:00"
+                "effectiveAt": "2018-02-01T10:00:00+00:00"
               }
             },
             "text/json": {
@@ -3481,7 +3481,7 @@
               "example": {
                 "type": "Figi",
                 "value": "updated-figi",
-                "effectiveAt": "2018-02-01T10:00:00.0000000+00:00"
+                "effectiveAt": "2018-02-01T10:00:00+00:00"
               }
             },
             "application/*+json": {
@@ -3491,7 +3491,7 @@
               "example": {
                 "type": "Figi",
                 "value": "updated-figi",
-                "effectiveAt": "2018-02-01T10:00:00.0000000+00:00"
+                "effectiveAt": "2018-02-01T10:00:00+00:00"
               }
             }
           },
@@ -4017,7 +4017,7 @@
                       "value": {
                         "labelValue": "MyValue"
                       },
-                      "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-03-05T12:00:00+00:00"
                     }
                   ]
                 }
@@ -4041,7 +4041,7 @@
                       "value": {
                         "labelValue": "MyValue"
                       },
-                      "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-03-05T12:00:00+00:00"
                     }
                   ]
                 }
@@ -4065,7 +4065,7 @@
                       "value": {
                         "labelValue": "MyValue"
                       },
-                      "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-03-05T12:00:00+00:00"
                     }
                   ]
                 }
@@ -4089,7 +4089,7 @@
                       "value": {
                         "labelValue": "MyValue"
                       },
-                      "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-03-05T12:00:00+00:00"
                     }
                   ]
                 }
@@ -4231,11 +4231,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -4244,7 +4244,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -4261,11 +4261,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -4294,11 +4294,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -4307,7 +4307,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -4324,11 +4324,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -4357,11 +4357,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -4370,7 +4370,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -4387,11 +4387,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -4420,11 +4420,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [
@@ -4433,7 +4433,7 @@
                       "value": {
                         "labelValue": "US0378331005"
                       },
-                      "effectiveFrom": "2018-06-18T09:00:00.0000000+00:00"
+                      "effectiveFrom": "2018-06-18T09:00:00+00:00"
                     }
                   ],
                   "lookThroughPortfolioId": {
@@ -4450,11 +4450,11 @@
                   "identifiers": {
                     "clientInternal": {
                       "value": "some-identifier-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     },
                     "figi": {
                       "value": "some-figi-code-2",
-                      "effectiveAt": "0001-01-01T00:00:00.0000000+00:00"
+                      "effectiveAt": "0001-01-01T00:00:00+00:00"
                     }
                   },
                   "properties": [],
@@ -5743,8 +5743,8 @@
                         }
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "instrumentIdentifiers": {
                         "instrument/default/Currency": "GBP"
@@ -5783,8 +5783,8 @@
                         }
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "instrumentIdentifiers": {
                         "instrument/default/Currency": "GBP"
@@ -5823,8 +5823,8 @@
                         }
                       },
                       "version": {
-                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                        "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                        "asAtDate": "2018-03-05T10:10:10+00:00"
                       },
                       "instrumentIdentifiers": {
                         "instrument/default/Currency": "GBP"
@@ -5964,8 +5964,8 @@
                     }
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "instrumentIdentifiers": {
                     "instrument/default/Currency": "GBP"
@@ -6000,8 +6000,8 @@
                     }
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "instrumentIdentifiers": {
                     "instrument/default/Currency": "GBP"
@@ -6036,8 +6036,8 @@
                     }
                   },
                   "version": {
-                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
-                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T10:10:10+00:00",
+                    "asAtDate": "2018-03-05T10:10:10+00:00"
                   },
                   "instrumentIdentifiers": {
                     "instrument/default/Currency": "GBP"
@@ -6217,7 +6217,7 @@
                   "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
                 },
                 "example": {
-                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                  "asAtDate": "0001-01-01T00:00:00+00:00"
                 }
               },
               "application/json": {
@@ -6225,7 +6225,7 @@
                   "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
                 },
                 "example": {
-                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                  "asAtDate": "0001-01-01T00:00:00+00:00"
                 }
               },
               "text/json": {
@@ -6233,7 +6233,7 @@
                   "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
                 },
                 "example": {
-                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                  "asAtDate": "0001-01-01T00:00:00+00:00"
                 }
               }
             }
@@ -6328,14 +6328,14 @@
                       "value": {
                         "labelValue": "SalesRepresentative"
                       },
-                      "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-01-01T00:00:00+00:00"
                     },
                     {
                       "key": "Person/CompanyDetails/Role",
                       "value": {
                         "labelValue": "CustomerServiceRepresentative"
                       },
-                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -6381,14 +6381,14 @@
                       "value": {
                         "labelValue": "SalesRepresentative"
                       },
-                      "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-01-01T00:00:00+00:00"
                     },
                     {
                       "key": "Person/CompanyDetails/Role",
                       "value": {
                         "labelValue": "CustomerServiceRepresentative"
                       },
-                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -6434,14 +6434,14 @@
                       "value": {
                         "labelValue": "SalesRepresentative"
                       },
-                      "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-01-01T00:00:00+00:00"
                     },
                     {
                       "key": "Person/CompanyDetails/Role",
                       "value": {
                         "labelValue": "CustomerServiceRepresentative"
                       },
-                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -6487,14 +6487,14 @@
                       "value": {
                         "labelValue": "SalesRepresentative"
                       },
-                      "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-01-01T00:00:00+00:00"
                     },
                     {
                       "key": "Person/CompanyDetails/Role",
                       "value": {
                         "labelValue": "CustomerServiceRepresentative"
                       },
-                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2016-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -6549,20 +6549,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -6608,20 +6608,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -6667,20 +6667,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               }
@@ -6851,8 +6851,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   },
                   "values": [
                     {
@@ -6893,20 +6893,20 @@
                             "value": {
                               "labelValue": "SalesRepresentative"
                             },
-                            "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-01-01T00:00:00+00:00"
                           },
                           {
                             "key": "Person/CompanyDetails/Role",
                             "value": {
                               "labelValue": "CustomerServiceRepresentative"
                             },
-                            "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-07-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     },
                     {
@@ -6955,13 +6955,13 @@
                             "value": {
                               "labelValue": "Manager"
                             },
-                            "effectiveFrom": "2018-04-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2018-04-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     }
                   ],
@@ -6974,8 +6974,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   },
                   "values": [
                     {
@@ -7016,20 +7016,20 @@
                             "value": {
                               "labelValue": "SalesRepresentative"
                             },
-                            "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-01-01T00:00:00+00:00"
                           },
                           {
                             "key": "Person/CompanyDetails/Role",
                             "value": {
                               "labelValue": "CustomerServiceRepresentative"
                             },
-                            "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-07-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     },
                     {
@@ -7078,13 +7078,13 @@
                             "value": {
                               "labelValue": "Manager"
                             },
-                            "effectiveFrom": "2018-04-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2018-04-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     }
                   ],
@@ -7097,8 +7097,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   },
                   "values": [
                     {
@@ -7139,20 +7139,20 @@
                             "value": {
                               "labelValue": "SalesRepresentative"
                             },
-                            "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-01-01T00:00:00+00:00"
                           },
                           {
                             "key": "Person/CompanyDetails/Role",
                             "value": {
                               "labelValue": "CustomerServiceRepresentative"
                             },
-                            "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2016-07-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     },
                     {
@@ -7201,13 +7201,13 @@
                             "value": {
                               "labelValue": "Manager"
                             },
-                            "effectiveFrom": "2018-04-01T00:00:00.0000000+00:00"
+                            "effectiveFrom": "2018-04-01T00:00:00+00:00"
                           }
                         ]
                       },
                       "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.01+00:00"
                       }
                     }
                   ],
@@ -7382,20 +7382,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -7441,20 +7441,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -7500,20 +7500,20 @@
                         "value": {
                           "labelValue": "SalesRepresentative"
                         },
-                        "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-01-01T00:00:00+00:00"
                       },
                       {
                         "key": "Person/CompanyDetails/Role",
                         "value": {
                           "labelValue": "CustomerServiceRepresentative"
                         },
-                        "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2016-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               }
@@ -7803,13 +7803,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -7847,13 +7847,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -7891,13 +7891,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-01-01T12:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               }
@@ -8705,7 +8705,7 @@
                       "value": {
                         "labelValue": "01156786789"
                       },
-                      "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -8723,7 +8723,7 @@
                       "value": {
                         "labelValue": "01156786789"
                       },
-                      "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -8741,7 +8741,7 @@
                       "value": {
                         "labelValue": "01156786789"
                       },
-                      "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -8759,7 +8759,7 @@
                       "value": {
                         "labelValue": "01156786789"
                       },
-                      "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-07-01T00:00:00+00:00"
                     }
                   ]
                 }
@@ -8806,13 +8806,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-07-01T00:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -8850,13 +8850,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-07-01T00:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               },
@@ -8894,13 +8894,13 @@
                         "value": {
                           "labelValue": "01156786789"
                         },
-                        "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00"
+                        "effectiveFrom": "2019-07-01T00:00:00+00:00"
                       }
                     ]
                   },
                   "version": {
-                    "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "effectiveFrom": "2019-07-01T00:00:00+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.01+00:00"
                   }
                 }
               }
@@ -9101,7 +9101,7 @@
               },
               "example": {
                 "code": "MyGroupCode",
-                "created": "2019-10-04T00:00:00.0000000+00:00",
+                "created": "2019-10-04T00:00:00+00:00",
                 "values": [
                   {
                     "scope": "MyScope",
@@ -9129,7 +9129,7 @@
               },
               "example": {
                 "code": "MyGroupCode",
-                "created": "2019-10-04T00:00:00.0000000+00:00",
+                "created": "2019-10-04T00:00:00+00:00",
                 "values": [
                   {
                     "scope": "MyScope",
@@ -9157,7 +9157,7 @@
               },
               "example": {
                 "code": "MyGroupCode",
-                "created": "2019-10-04T00:00:00.0000000+00:00",
+                "created": "2019-10-04T00:00:00+00:00",
                 "values": [
                   {
                     "scope": "MyScope",
@@ -9185,7 +9185,7 @@
               },
               "example": {
                 "code": "MyGroupCode",
-                "created": "2019-10-04T00:00:00.0000000+00:00",
+                "created": "2019-10-04T00:00:00+00:00",
                 "values": [
                   {
                     "scope": "MyScope",
@@ -9340,7 +9340,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -9372,7 +9372,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -9404,7 +9404,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -10027,8 +10027,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -10053,8 +10053,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -10079,8 +10079,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -10105,8 +10105,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -10542,8 +10542,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -10569,8 +10569,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -10596,8 +10596,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -11798,7 +11798,7 @@
                   "value": {
                     "labelValue": "Smith"
                   },
-                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00"
                 },
                 "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
@@ -11826,7 +11826,7 @@
                   "value": {
                     "labelValue": "Smith"
                   },
-                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00"
                 },
                 "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
@@ -11854,7 +11854,7 @@
                   "value": {
                     "labelValue": "Smith"
                   },
-                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00"
                 },
                 "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
@@ -11882,7 +11882,7 @@
                   "value": {
                     "labelValue": "Smith"
                   },
-                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00"
                 },
                 "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
@@ -12329,8 +12329,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -12340,8 +12340,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -12385,8 +12385,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -12396,8 +12396,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -12441,8 +12441,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -12452,8 +12452,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -12653,8 +12653,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -12665,8 +12665,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -12704,8 +12704,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -12715,8 +12715,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -12762,13 +12762,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -12798,8 +12798,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -12829,8 +12829,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -12869,8 +12869,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -12881,8 +12881,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -12920,8 +12920,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -12931,8 +12931,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -12978,13 +12978,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -13014,8 +13014,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -13045,8 +13045,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -13085,8 +13085,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -13097,8 +13097,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -13136,8 +13136,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -13147,8 +13147,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -13194,13 +13194,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -13230,8 +13230,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -13261,8 +13261,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -14243,8 +14243,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -14269,8 +14269,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -14295,8 +14295,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -14321,8 +14321,8 @@
                   "scope": "MyScope",
                   "code": "default"
                 },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "metrics": [
                   {
                     "key": "Holding/default/PV",
@@ -16994,7 +16994,7 @@
                       "quoteType": "Price",
                       "field": "mid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1460,
@@ -17011,7 +17011,7 @@
                       "quoteType": "Price",
                       "field": "bid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1.367,
@@ -17041,7 +17041,7 @@
                       "quoteType": "Price",
                       "field": "mid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1460,
@@ -17058,7 +17058,7 @@
                       "quoteType": "Price",
                       "field": "bid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1.367,
@@ -17088,7 +17088,7 @@
                       "quoteType": "Price",
                       "field": "mid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1460,
@@ -17105,7 +17105,7 @@
                       "quoteType": "Price",
                       "field": "bid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1.367,
@@ -17135,7 +17135,7 @@
                       "quoteType": "Price",
                       "field": "mid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1460,
@@ -17152,7 +17152,7 @@
                       "quoteType": "Price",
                       "field": "bid"
                     },
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                    "effectiveAt": "2018-03-05T00:00:00+00:00"
                   },
                   "metricValue": {
                     "value": 1.367,
@@ -17402,7 +17402,7 @@
                     "quoteType": "Price",
                     "field": "mid"
                   },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveAt": "2018-03-05T00:00:00+00:00"
                 }
               }
             },
@@ -17425,7 +17425,7 @@
                     "quoteType": "Price",
                     "field": "mid"
                   },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveAt": "2018-03-05T00:00:00+00:00"
                 }
               }
             },
@@ -17448,7 +17448,7 @@
                     "quoteType": "Price",
                     "field": "mid"
                   },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveAt": "2018-03-05T00:00:00+00:00"
                 }
               }
             },
@@ -17471,7 +17471,7 @@
                     "quoteType": "Price",
                     "field": "mid"
                   },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00"
+                  "effectiveAt": "2018-03-05T00:00:00+00:00"
                 }
               }
             }
@@ -17875,98 +17875,6 @@
       }
     },
     "/api/recipes": {
-      "get": {
-        "tags": [
-          "Configuration Recipe"
-        ],
-        "summary": "[EXPERIMENTAL] List the set of Configuration Recipes from all scopes",
-        "description": "List the set of configuration recipes at the specified date/time across all the scopes and allowing filtering (e.g. filter by scope)",
-        "operationId": "ListConfigurationRecipesForAllScopes",
-        "parameters": [
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The configuration recipes for all scopes",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/recipes/{scope}": {
       "post": {
         "tags": [
           "Configuration Recipe"
@@ -17974,18 +17882,6 @@
         "summary": "[EXPERIMENTAL] Upsert a Configuration Recipe. This creates or updates the data in Lusid.",
         "description": "Update or insert one Configuration Recipe in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Configuration Recipe or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertConfigurationRecipe",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope to use when updating or inserting the Configuration Recipe.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The scope to use when updating or inserting the Configuration Recipe."
-            }
-          }
-        ],
         "requestBody": {
           "description": "The Configuration Recipe to update or insert",
           "content": {
@@ -17994,8 +17890,8 @@
                 "$ref": "#/components/schemas/UpsertRecipeRequest"
               },
               "example": {
-                "code": "MyNamedRecipe12345",
                 "configurationRecipe": {
+                  "scope": "scopeName",
                   "code": "MyNamedRecipe12345",
                   "market": {
                     "marketRules": [
@@ -18051,8 +17947,8 @@
                 "$ref": "#/components/schemas/UpsertRecipeRequest"
               },
               "example": {
-                "code": "MyNamedRecipe12345",
                 "configurationRecipe": {
+                  "scope": "scopeName",
                   "code": "MyNamedRecipe12345",
                   "market": {
                     "marketRules": [
@@ -18108,8 +18004,8 @@
                 "$ref": "#/components/schemas/UpsertRecipeRequest"
               },
               "example": {
-                "code": "MyNamedRecipe12345",
                 "configurationRecipe": {
+                  "scope": "scopeName",
                   "code": "MyNamedRecipe12345",
                   "market": {
                     "marketRules": [
@@ -18165,8 +18061,8 @@
                 "$ref": "#/components/schemas/UpsertRecipeRequest"
               },
               "example": {
-                "code": "MyNamedRecipe12345",
                 "configurationRecipe": {
+                  "scope": "scopeName",
                   "code": "MyNamedRecipe12345",
                   "market": {
                     "marketRules": [
@@ -18279,6 +18175,98 @@
         ],
         "x-fbn-apistatus": "Experimental"
       },
+      "get": {
+        "tags": [
+          "Configuration Recipe"
+        ],
+        "summary": "[EXPERIMENTAL] List the set of Configuration Recipes from all scopes",
+        "description": "List the set of configuration recipes at the specified date/time across all the scopes and allowing filtering (e.g. filter by scope)",
+        "operationId": "ListConfigurationRecipesForAllScopes",
+        "parameters": [
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configuration recipes for all scopes",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/recipes/{scope}": {
       "get": {
         "tags": [
           "Configuration Recipe"
@@ -18603,7 +18591,7 @@
                 "displayName": "MyPortfolioName",
                 "description": "Description of my portfolio",
                 "code": "MyPortfolioCode",
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "properties": {}
               }
             },
@@ -18615,7 +18603,7 @@
                 "displayName": "MyPortfolioName",
                 "description": "Description of my portfolio",
                 "code": "MyPortfolioCode",
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "properties": {}
               }
             },
@@ -18627,7 +18615,7 @@
                 "displayName": "MyPortfolioName",
                 "description": "Description of my portfolio",
                 "code": "MyPortfolioCode",
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "properties": {}
               }
             },
@@ -18639,7 +18627,7 @@
                 "displayName": "MyPortfolioName",
                 "description": "Description of my portfolio",
                 "code": "MyPortfolioCode",
-                "created": "2018-03-05T00:00:00.0000000+00:00",
+                "created": "2018-03-05T00:00:00+00:00",
                 "properties": {}
               }
             }
@@ -18746,7 +18734,7 @@
                 "$ref": "#/components/schemas/UpsertReferencePortfolioConstituentsRequest"
               },
               "example": {
-                "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveFrom": "2018-03-05T00:00:00+00:00",
                 "weightType": "Periodical",
                 "periodType": "Quarterly",
                 "periodCount": 2,
@@ -18787,7 +18775,7 @@
                 "$ref": "#/components/schemas/UpsertReferencePortfolioConstituentsRequest"
               },
               "example": {
-                "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveFrom": "2018-03-05T00:00:00+00:00",
                 "weightType": "Periodical",
                 "periodType": "Quarterly",
                 "periodCount": 2,
@@ -18828,7 +18816,7 @@
                 "$ref": "#/components/schemas/UpsertReferencePortfolioConstituentsRequest"
               },
               "example": {
-                "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveFrom": "2018-03-05T00:00:00+00:00",
                 "weightType": "Periodical",
                 "periodType": "Quarterly",
                 "periodCount": 2,
@@ -18869,7 +18857,7 @@
                 "$ref": "#/components/schemas/UpsertReferencePortfolioConstituentsRequest"
               },
               "example": {
-                "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveFrom": "2018-03-05T00:00:00+00:00",
                 "weightType": "Periodical",
                 "periodType": "Quarterly",
                 "periodCount": 2,
@@ -19238,7 +19226,7 @@
                 "$ref": "#/components/schemas/CreateResults"
               },
               "example": {
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "entityScope": "MyEntityScope",
                 "entityCode": "MyEntityCode",
                 "calculationScope": "MyCalculationScope",
@@ -19252,7 +19240,7 @@
                 "$ref": "#/components/schemas/CreateResults"
               },
               "example": {
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "entityScope": "MyEntityScope",
                 "entityCode": "MyEntityCode",
                 "calculationScope": "MyCalculationScope",
@@ -19266,7 +19254,7 @@
                 "$ref": "#/components/schemas/CreateResults"
               },
               "example": {
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "entityScope": "MyEntityScope",
                 "entityCode": "MyEntityCode",
                 "calculationScope": "MyCalculationScope",
@@ -19280,7 +19268,7 @@
                 "$ref": "#/components/schemas/CreateResults"
               },
               "example": {
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
                 "entityScope": "MyEntityScope",
                 "entityCode": "MyEntityCode",
                 "calculationScope": "MyCalculationScope",
@@ -20414,7 +20402,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20446,7 +20434,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20478,7 +20466,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20607,7 +20595,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20639,7 +20627,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20671,7 +20659,7 @@
                       },
                       "displayName": "Test portfolio group",
                       "description": "UK Portfolio",
-                      "created": "2020-06-17T00:00:00.0000000+00:00",
+                      "created": "2020-06-17T00:00:00+00:00",
                       "portfolios": [
                         {
                           "scope": "demo-scope",
@@ -20811,7 +20799,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -20823,7 +20811,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -20847,7 +20835,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -20859,7 +20847,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -20883,7 +20871,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -20895,7 +20883,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -21016,7 +21004,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -21028,7 +21016,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -21052,7 +21040,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -21064,7 +21052,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -21088,7 +21076,7 @@
                       "description": "UK Holidings",
                       "displayName": "UK Portfolio",
                       "isDerived": true,
-                      "created": "2019-04-06T12:00:05.0000000+00:00",
+                      "created": "2019-04-06T12:00:05+00:00",
                       "parentPortfolioId": {
                         "scope": "demo-parent",
                         "code": "demo-parent"
@@ -21100,7 +21088,7 @@
                           "value": {
                             "labelValue": "UK"
                           },
-                          "effectiveFrom": "2019-04-06T12:00:05.0000000+00:00"
+                          "effectiveFrom": "2019-04-06T12:00:05+00:00"
                         }
                       ]
                     }
@@ -21557,7 +21545,7 @@
                     "provider": "DataScope",
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "FxVolSurface",
                     "marketAsset": "USDJPY"
                   },
@@ -21573,7 +21561,7 @@
                     "provider": "DataScope",
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "IrVolCube",
                     "marketAsset": "RBS"
                   },
@@ -21600,7 +21588,7 @@
                     "provider": "DataScope",
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "FxVolSurface",
                     "marketAsset": "USDJPY"
                   },
@@ -21616,7 +21604,7 @@
                     "provider": "DataScope",
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "IrVolCube",
                     "marketAsset": "RBS"
                   },
@@ -21643,7 +21631,7 @@
                     "provider": "DataScope",
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "FxVolSurface",
                     "marketAsset": "USDJPY"
                   },
@@ -21659,7 +21647,7 @@
                     "provider": "DataScope",
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "IrVolCube",
                     "marketAsset": "RBS"
                   },
@@ -21686,7 +21674,7 @@
                     "provider": "DataScope",
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "FxVolSurface",
                     "marketAsset": "USDJPY"
                   },
@@ -21702,7 +21690,7 @@
                     "provider": "DataScope",
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "marketElementType": "IrVolCube",
                     "marketAsset": "RBS"
                   },
@@ -21814,7 +21802,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -21833,7 +21821,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -21852,7 +21840,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -21871,7 +21859,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -22010,7 +21998,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -22029,7 +22017,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -22048,7 +22036,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -22067,7 +22055,7 @@
                   "provider": "DataScope",
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "marketElementType": "FxVol",
                   "marketAsset": "USDJPY"
                 }
@@ -23591,7 +23579,7 @@
                 "displayName": "Portfolio UK",
                 "description": "Portfolio for UK market",
                 "code": "PortfolioUk",
-                "created": "2018-03-05T12:00:00.0000000+00:00",
+                "created": "2018-03-05T12:00:00+00:00",
                 "baseCurrency": "GBP",
                 "corporateActionSourceId": {
                   "scope": "Sources",
@@ -23605,7 +23593,7 @@
                     "value": {
                       "labelValue": "Matt Smith"
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   },
                   "portfolio/Manager/Id": {
                     "key": "Portfolio/Manager/Id",
@@ -23615,7 +23603,7 @@
                         "unit": "NoUnits"
                       }
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   }
                 }
               }
@@ -23628,7 +23616,7 @@
                 "displayName": "Portfolio UK",
                 "description": "Portfolio for UK market",
                 "code": "PortfolioUk",
-                "created": "2018-03-05T12:00:00.0000000+00:00",
+                "created": "2018-03-05T12:00:00+00:00",
                 "baseCurrency": "GBP",
                 "corporateActionSourceId": {
                   "scope": "Sources",
@@ -23642,7 +23630,7 @@
                     "value": {
                       "labelValue": "Matt Smith"
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   },
                   "portfolio/Manager/Id": {
                     "key": "Portfolio/Manager/Id",
@@ -23652,7 +23640,7 @@
                         "unit": "NoUnits"
                       }
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   }
                 }
               }
@@ -23665,7 +23653,7 @@
                 "displayName": "Portfolio UK",
                 "description": "Portfolio for UK market",
                 "code": "PortfolioUk",
-                "created": "2018-03-05T12:00:00.0000000+00:00",
+                "created": "2018-03-05T12:00:00+00:00",
                 "baseCurrency": "GBP",
                 "corporateActionSourceId": {
                   "scope": "Sources",
@@ -23679,7 +23667,7 @@
                     "value": {
                       "labelValue": "Matt Smith"
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   },
                   "portfolio/Manager/Id": {
                     "key": "Portfolio/Manager/Id",
@@ -23689,7 +23677,7 @@
                         "unit": "NoUnits"
                       }
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   }
                 }
               }
@@ -23702,7 +23690,7 @@
                 "displayName": "Portfolio UK",
                 "description": "Portfolio for UK market",
                 "code": "PortfolioUk",
-                "created": "2018-03-05T12:00:00.0000000+00:00",
+                "created": "2018-03-05T12:00:00+00:00",
                 "baseCurrency": "GBP",
                 "corporateActionSourceId": {
                   "scope": "Sources",
@@ -23716,7 +23704,7 @@
                     "value": {
                       "labelValue": "Matt Smith"
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   },
                   "portfolio/Manager/Id": {
                     "key": "Portfolio/Manager/Id",
@@ -23726,7 +23714,7 @@
                         "unit": "NoUnits"
                       }
                     },
-                    "effectiveFrom": "2018-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T12:00:00+00:00"
                   }
                 }
               }
@@ -24378,7 +24366,7 @@
                 "instrumentIdentifiers": {
                   "clientInternal": "CLI-183461"
                 },
-                "transactionTime": "2018-03-05T12:00:00.0000000+00:00",
+                "transactionTime": "2018-03-05T12:00:00+00:00",
                 "lastShares": 1000,
                 "lastPx": 1.23,
                 "currency": "USD"
@@ -24399,7 +24387,7 @@
                 "instrumentIdentifiers": {
                   "clientInternal": "CLI-183461"
                 },
-                "transactionTime": "2018-03-05T12:00:00.0000000+00:00",
+                "transactionTime": "2018-03-05T12:00:00+00:00",
                 "lastShares": 1000,
                 "lastPx": 1.23,
                 "currency": "USD"
@@ -24420,7 +24408,7 @@
                 "instrumentIdentifiers": {
                   "clientInternal": "CLI-183461"
                 },
-                "transactionTime": "2018-03-05T12:00:00.0000000+00:00",
+                "transactionTime": "2018-03-05T12:00:00+00:00",
                 "lastShares": 1000,
                 "lastPx": 1.23,
                 "currency": "USD"
@@ -24441,7 +24429,7 @@
                 "instrumentIdentifiers": {
                   "clientInternal": "CLI-183461"
                 },
-                "transactionTime": "2018-03-05T12:00:00.0000000+00:00",
+                "transactionTime": "2018-03-05T12:00:00+00:00",
                 "lastShares": 1000,
                 "lastPx": 1.23,
                 "currency": "USD"
@@ -25160,8 +25148,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -25187,8 +25175,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -25214,8 +25202,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -25468,10 +25456,10 @@
                 },
                 "example": {
                   "value": {
-                    "effectiveAt": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveAt": "0001-01-01T00:00:00+00:00",
                     "version": {
-                      "effectiveFrom": "2019-03-05T00:00:00.0000000+00:00",
-                      "asAtDate": "2019-03-08T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-03-05T00:00:00+00:00",
+                      "asAtDate": "2019-03-08T00:00:00+00:00"
                     },
                     "unmatchedHoldingMethod": "KeepTheSame",
                     "adjustments": [
@@ -25519,10 +25507,10 @@
                 },
                 "example": {
                   "value": {
-                    "effectiveAt": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveAt": "0001-01-01T00:00:00+00:00",
                     "version": {
-                      "effectiveFrom": "2019-03-05T00:00:00.0000000+00:00",
-                      "asAtDate": "2019-03-08T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-03-05T00:00:00+00:00",
+                      "asAtDate": "2019-03-08T00:00:00+00:00"
                     },
                     "unmatchedHoldingMethod": "KeepTheSame",
                     "adjustments": [
@@ -25570,10 +25558,10 @@
                 },
                 "example": {
                   "value": {
-                    "effectiveAt": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveAt": "0001-01-01T00:00:00+00:00",
                     "version": {
-                      "effectiveFrom": "2019-03-05T00:00:00.0000000+00:00",
-                      "asAtDate": "2019-03-08T00:00:00.0000000+00:00"
+                      "effectiveFrom": "2019-03-05T00:00:00+00:00",
+                      "asAtDate": "2019-03-08T00:00:00+00:00"
                     },
                     "unmatchedHoldingMethod": "KeepTheSame",
                     "adjustments": [
@@ -25757,8 +25745,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -25812,8 +25800,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -25867,8 +25855,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2019-03-05T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-03-05T12:00:00.0000000+00:00"
+                    "effectiveFrom": "2019-03-05T12:00:00+00:00",
+                    "asAtDate": "2019-03-05T12:00:00+00:00"
                   },
                   "values": [
                     {
@@ -26058,8 +26046,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -26069,8 +26057,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -26114,8 +26102,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -26125,8 +26113,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -26170,8 +26158,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -26181,8 +26169,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_1C7YTL5M",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionPrice": {
                         "price": 88.8,
@@ -26309,8 +26297,8 @@
                   "instrument/default/Figi": "BBG000C6K6G9",
                   "instrument/default/Isin": "GB00BH4HKS39"
                 },
-                "transactionDate": "2018-03-05T00:00:00.0000000+00:00",
-                "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                "transactionDate": "2018-03-05T00:00:00+00:00",
+                "settlementDate": "2018-03-08T00:00:00+00:00",
                 "units": 1000,
                 "transactionPrice": {
                   "price": 123,
@@ -26348,8 +26336,8 @@
                   "instrument/default/Figi": "BBG000C6K6G9",
                   "instrument/default/Isin": "GB00BH4HKS39"
                 },
-                "transactionDate": "2018-03-05T00:00:00.0000000+00:00",
-                "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                "transactionDate": "2018-03-05T00:00:00+00:00",
+                "settlementDate": "2018-03-08T00:00:00+00:00",
                 "units": 1000,
                 "transactionPrice": {
                   "price": 123,
@@ -26387,8 +26375,8 @@
                   "instrument/default/Figi": "BBG000C6K6G9",
                   "instrument/default/Isin": "GB00BH4HKS39"
                 },
-                "transactionDate": "2018-03-05T00:00:00.0000000+00:00",
-                "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                "transactionDate": "2018-03-05T00:00:00+00:00",
+                "settlementDate": "2018-03-08T00:00:00+00:00",
                 "units": 1000,
                 "transactionPrice": {
                   "price": 123,
@@ -26426,8 +26414,8 @@
                   "instrument/default/Figi": "BBG000C6K6G9",
                   "instrument/default/Isin": "GB00BH4HKS39"
                 },
-                "transactionDate": "2018-03-05T00:00:00.0000000+00:00",
-                "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                "transactionDate": "2018-03-05T00:00:00+00:00",
+                "settlementDate": "2018-03-08T00:00:00+00:00",
                 "units": 1000,
                 "transactionPrice": {
                   "price": 123,
@@ -27077,8 +27065,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -27089,8 +27077,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -27128,8 +27116,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -27139,8 +27127,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -27186,13 +27174,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -27222,8 +27210,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -27253,8 +27241,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -27293,8 +27281,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -27305,8 +27293,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -27344,8 +27332,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -27355,8 +27343,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -27402,13 +27390,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -27438,8 +27426,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -27469,8 +27457,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -27509,8 +27497,8 @@
                 },
                 "example": {
                   "version": {
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "asAtDate": "2018-03-04T23:50:00.0000000+00:00"
+                    "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                    "asAtDate": "2018-03-04T23:50:00+00:00"
                   },
                   "values": [
                     {
@@ -27521,8 +27509,8 @@
                         "instrument/default/RIC": "RIC.L"
                       },
                       "instrumentUid": "LUID_JLH24106",
-                      "transactionDate": "2018-08-04T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-04T00:00:00+00:00",
+                      "settlementDate": "2018-08-06T00:00:00+00:00",
                       "units": 1000,
                       "transactionAmount": 88800,
                       "transactionPrice": {
@@ -27560,8 +27548,8 @@
                       },
                       "source": "",
                       "transactionStatus": "Cancelled",
-                      "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "entryDateTime": "2018-08-04T12:22:06+00:00",
+                      "cancelDateTime": "2018-08-04T12:25:14+00:00"
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -27571,8 +27559,8 @@
                         "instrument/default/ClientInternal": "INT:00024106"
                       },
                       "instrumentUid": "LUID_OI5JX1V7",
-                      "transactionDate": "2018-08-07T00:00:00.0000000+00:00",
-                      "settlementDate": "2018-08-10T00:00:00.0000000+00:00",
+                      "transactionDate": "2018-08-07T00:00:00+00:00",
+                      "settlementDate": "2018-08-10T00:00:00+00:00",
                       "units": 10000,
                       "transactionAmount": 1470100,
                       "transactionPrice": {
@@ -27618,13 +27606,13 @@
                       },
                       "source": "",
                       "transactionStatus": "Active",
-                      "entryDateTime": "2018-08-07T10:30:12.0000000+00:00",
+                      "entryDateTime": "2018-08-07T10:30:12+00:00",
                       "realisedGainLoss": [
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-02T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-05T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-02T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-05T00:00:00+00:00",
                           "purchasePrice": 142.96,
                           "costTradeCcy": {
                             "amount": 643320,
@@ -27654,8 +27642,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 4500,
-                          "purchaseTradeDate": "2018-08-03T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-06T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-03T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-06T00:00:00+00:00",
                           "purchasePrice": 147.7,
                           "costTradeCcy": {
                             "amount": 664650,
@@ -27685,8 +27673,8 @@
                         {
                           "instrumentUid": "LUID_OI5JX1V7",
                           "units": 1000,
-                          "purchaseTradeDate": "2018-08-06T00:00:00.0000000+00:00",
-                          "purchaseSettlementDate": "2018-08-08T00:00:00.0000000+00:00",
+                          "purchaseTradeDate": "2018-08-06T00:00:00+00:00",
+                          "purchaseSettlementDate": "2018-08-08T00:00:00+00:00",
                           "purchasePrice": 146.03,
                           "costTradeCcy": {
                             "amount": 146030,
@@ -27796,7 +27784,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27810,7 +27798,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27835,7 +27823,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27849,7 +27837,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27874,7 +27862,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27888,7 +27876,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27913,7 +27901,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -27927,7 +27915,7 @@
                   "id": {
                     "source": "Client",
                     "code": "MyUploadedRiskResults",
-                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00+00:00",
                     "resultType": "Risk"
                   },
                   "data": {
@@ -28037,7 +28025,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28054,7 +28042,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28071,7 +28059,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28088,7 +28076,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28225,7 +28213,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28242,7 +28230,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28259,7 +28247,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28276,7 +28264,7 @@
                 "someCorrelationId1": {
                   "source": "MiddleOffice",
                   "code": "MyUploadedRiskResults",
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
                   "resultType": "Risk"
                 }
               }
@@ -28803,6 +28791,11 @@
         ],
         "type": "object",
         "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the Configuration Recipe.",
+            "nullable": true
+          },
           "code": {
             "type": "string",
             "description": "User given string name (code) to identify the recipe."
@@ -34168,6 +34161,91 @@
         },
         "additionalProperties": false
       },
+      "ConfigurationRecipeSnippet": {
+        "required": [
+          "code",
+          "scope"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the Configuration Recipe snippet"
+          },
+          "code": {
+            "type": "string",
+            "description": "User given string name (code) to identify the recipe."
+          },
+          "aggregationOptions": {
+            "$ref": "#/components/schemas/AggregationOptions"
+          },
+          "modelRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendorModelRule"
+            },
+            "description": "The set of model rules that are available. There may be multiple rules for Vendors, but only one per model-instrument pair.\r\nWhich of these preference sets is used depends upon the model choice selection if specified, or failing that the global default model specification\r\nin the options.",
+            "nullable": true
+          },
+          "pricingOptions": {
+            "$ref": "#/components/schemas/PricingOptions"
+          },
+          "marketRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketDataKeyRule"
+            },
+            "description": "The set of rules that define how to resolve particular use cases. These can be relatively general or specific in nature.\r\nNominally any number are possible and will be processed in order where applicable. However, there is evidently a potential\r\nfor increased computational cost where many rules must be applied to resolve data. Ensuring that portfolios are structured in\r\nsuch a way as to reduce the number of rules required is therefore sensible.",
+            "nullable": true
+          },
+          "marketOptions": {
+            "$ref": "#/components/schemas/MarketOptions"
+          },
+          "recipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          }
+        },
+        "additionalProperties": false,
+        "description": "If it is desired to have multiple recipes, there is a strong likelihood that they will share various components.\r\nA configuration recipe snippet allows a user to define a set of rules that can then be included into a parent recipe.\r\nThis allows sharing of common blocks of the recipe.\r\n            \r\nFor example, a user might define a set of rules for resolving Fx and then include them into every recipe used firm-wide, thereby\r\nenforcing consistency. As the rules can be permissioned differently using Shrine, it is possible to enable users to \r\nread but not alter such a rule set.\r\n            \r\nThe same applies to a set of pricing rules.\r\n            \r\nA configuration snippet must only contain one entry from the available set. \r\n            \r\nRecipes are compiled from the set of snippets through a model that is analogous to inheritance.\r\nA recipe can have a set of 'parent' recipes from which it inherits. These are specified in the inheritance section of a recipe.\r\nUpon loading, the recipe will fall back on these recipe components for any options or rules that are not explicitly specified in the\r\nnamed recipe for the request.\r\n            \r\nThis allows control of pricing to be harmonised across a set of desks within an institution. Suppose that, e.g.\r\nthere are four desks looking after products under the areas of Fx, Rates, Credit and Exotics.\r\nThe model and market data for pricing given asset types would potentially be controlled by the appropriate desk; e.g. rules for Fx market data resolution being\r\ncontrolled by the Fx desk. The exotics desk would likely depend upon rules for all the other asset classes as well as, say, correlation rules of its own.\r\nIt could inherit the market data and model rules from the other desks for finding the appropriate institution-standard data and then overlay that with the correlation rules.\r\n            \r\nNote that permissioning of the store means that one could decide that only a particular desk or control function could update certain rules. That would assist the abilitiy\r\nto ensure that pricing is performed consistently and provide an audit of changes made to it along with restricting changes to appropriate authorised functions."
+      },
+      "UpsertRecipeRequest": {
+        "type": "object",
+        "properties": {
+          "configurationRecipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          },
+          "configurationRecipeSnippet": {
+            "$ref": "#/components/schemas/ConfigurationRecipeSnippet"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A recipe or recipe snippet that is to be stored in the recipe structured data store.\r\nOnly one of these must be present."
+      },
+      "UpsertSingleStructuredDataResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "description": "The value that was successfully retrieved.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response from upserting structured data document"
+      },
       "GetRecipeResponse": {
         "type": "object",
         "properties": {
@@ -34216,86 +34294,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ConfigurationRecipeSnippet": {
-        "type": "object",
-        "properties": {
-          "aggregationOptions": {
-            "$ref": "#/components/schemas/AggregationOptions"
-          },
-          "modelRules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/VendorModelRule"
-            },
-            "description": "The set of model rules that are available. There may be multiple rules for Vendors, but only one per model-instrument pair.\r\nWhich of these preference sets is used depends upon the model choice selection if specified, or failing that the global default model specification\r\nin the options.",
-            "nullable": true
-          },
-          "pricingOptions": {
-            "$ref": "#/components/schemas/PricingOptions"
-          },
-          "marketRules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketDataKeyRule"
-            },
-            "description": "The set of rules that define how to resolve particular use cases. These can be relatively general or specific in nature.\r\nNominally any number are possible and will be processed in order where applicable. However, there is evidently a potential\r\nfor increased computational cost where many rules must be applied to resolve data. Ensuring that portfolios are structured in\r\nsuch a way as to reduce the number of rules required is therefore sensible.",
-            "nullable": true
-          },
-          "marketOptions": {
-            "$ref": "#/components/schemas/MarketOptions"
-          },
-          "recipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          }
-        },
-        "additionalProperties": false,
-        "description": "If it is desired to have multiple recipes, there is a strong likelihood that they will share various components.\r\nA configuration recipe snippet allows a user to define a set of rules that can then be included into a parent recipe.\r\nThis allows sharing of common blocks of the recipe.\r\n            \r\nFor example, a user might define a set of rules for resolving Fx and then include them into every recipe used firm-wide, thereby\r\nenforcing consistency. As the rules can be permissioned differently using Shrine, it is possible to enable users to \r\nread but not alter such a rule set.\r\n            \r\nThe same applies to a set of pricing rules.\r\n            \r\nA configuration snippet must only contain one entry from the available set. \r\n            \r\nRecipes are compiled from the set of snippets through a model that is analogous to inheritance.\r\nA recipe can have a set of 'parent' recipes from which it inherits. These are specified in the inheritance section of a recipe.\r\nUpon loading, the recipe will fall back on these recipe components for any options or rules that are not explicitly specified in the\r\nnamed recipe for the request.\r\n            \r\nThis allows control of pricing to be harmonised across a set of desks within an institution. Suppose that, e.g.\r\nthere are four desks looking after products under the areas of Fx, Rates, Credit and Exotics.\r\nThe model and market data for pricing given asset types would potentially be controlled by the appropriate desk; e.g. rules for Fx market data resolution being\r\ncontrolled by the Fx desk. The exotics desk would likely depend upon rules for all the other asset classes as well as, say, correlation rules of its own.\r\nIt could inherit the market data and model rules from the other desks for finding the appropriate institution-standard data and then overlay that with the correlation rules.\r\n            \r\nNote that permissioning of the store means that one could decide that only a particular desk or control function could update certain rules. That would assist the abilitiy\r\nto ensure that pricing is performed consistently and provide an audit of changes made to it along with restricting changes to appropriate authorised functions."
-      },
-      "UpsertRecipeRequest": {
-        "required": [
-          "code"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "User given string name (code) to identify the recipe or snippet for storage in and retrieval from the data store.\r\nSensibly it would be expected to match the same code given inside the configuration recipe, if that is the element being stored,\r\nthough this is not enforced. In the case of a snippet for rules or options, again a sensible naming convention such as options_...\r\nor marketrules_... is advocated to aid in ease of understanding when included elsewhere though not enforced."
-          },
-          "configurationRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "configurationRecipeSnippet": {
-            "$ref": "#/components/schemas/ConfigurationRecipeSnippet"
-          }
-        },
-        "additionalProperties": false,
-        "description": "A recipe or recipe snippet that is to be stored in the recipe structured data store.\r\nOnly one of these must be present."
-      },
-      "UpsertSingleStructuredDataResponse": {
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string",
-            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
-            "format": "uri",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "description": "The value that was successfully retrieved.",
-            "format": "date-time"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Response from upserting structured data document"
       },
       "AnnulSingleStructuredDataResponse": {
         "type": "object",
@@ -38028,7 +38026,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/aus5al5yopbHW2wJn2p6/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

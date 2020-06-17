@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**scope** | **str** | The scope used when updating or inserting the Configuration Recipe. | [optional] 
 **code** | **str** | User given string name (code) to identify the recipe. | 
 **market** | [**MarketContext**](MarketContext.md) |  | [optional] 
 **pricing** | [**PricingContext**](PricingContext.md) |  | [optional] 
