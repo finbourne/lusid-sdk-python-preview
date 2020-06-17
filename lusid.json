@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1509",
+    "version": "0.11.1510",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:51462"
+      "url": "http://localhost:53158"
     }
   ],
   "paths": {
@@ -28787,14 +28787,14 @@
       },
       "ConfigurationRecipe": {
         "required": [
-          "code"
+          "code",
+          "scope"
         ],
         "type": "object",
         "properties": {
           "scope": {
             "type": "string",
-            "description": "The scope used when updating or inserting the Configuration Recipe.",
-            "nullable": true
+            "description": "The scope used when updating or inserting the Configuration Recipe."
           },
           "code": {
             "type": "string",
