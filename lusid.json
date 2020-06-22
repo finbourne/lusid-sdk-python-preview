@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1520",
+    "version": "0.11.1521",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,10 +17,458 @@
   },
   "servers": [
     {
-      "url": "http://localhost:36605"
+      "url": "http://localhost:38874"
     }
   ],
   "paths": {
+    "/api/aggregation/{scope}/{code}/$aggregate": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group",
+        "description": "Aggregate data sourced from the specified portfolio or portfolio group",
+        "operationId": "GetAggregation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Optional. When paginating, skip this number of results",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, skip this number of results",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The request specifying the parameters of the aggregation",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/aggregation/{scope}/{code}/$aggregatenested": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested",
+        "description": "Aggregate data sourced from the specified portfolio or portfolio group into a nested structure. Data is nested following the group-by specifications.",
+        "operationId": "GetNestedAggregation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the portfolio or portfolio group",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request specifying the parameters of the aggregation",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "effectiveAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/aggregation/{scope}/{code}/$generateconfigurationrecipe": {
       "post": {
         "tags": [
@@ -9908,7 +10356,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/json": {
@@ -9934,7 +10383,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "text/json": {
@@ -9960,7 +10410,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/*+json": {
@@ -9986,7 +10437,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             }
           }
@@ -10109,7 +10561,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/json": {
@@ -10135,7 +10588,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "text/json": {
@@ -10161,7 +10615,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/*+json": {
@@ -10187,7 +10642,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             }
           }
@@ -14200,7 +14656,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/json": {
@@ -14226,7 +14683,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "text/json": {
@@ -14252,7 +14710,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/*+json": {
@@ -14278,7 +14737,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             }
           }
@@ -14401,7 +14861,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/json": {
@@ -14427,7 +14888,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "text/json": {
@@ -14453,7 +14915,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/*+json": {
@@ -14479,7 +14942,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             }
           }
@@ -15728,7 +16192,8 @@
                   ],
                   "groupBy": [
                     "Instrument/default/Name"
-                  ]
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
                 },
                 "instruments": [
                   {
@@ -15774,7 +16239,8 @@
                   ],
                   "groupBy": [
                     "Instrument/default/Name"
-                  ]
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
                 },
                 "instruments": [
                   {
@@ -15820,7 +16286,8 @@
                   ],
                   "groupBy": [
                     "Instrument/default/Name"
-                  ]
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
                 },
                 "instruments": [
                   {
@@ -15866,7 +16333,8 @@
                   ],
                   "groupBy": [
                     "Instrument/default/Name"
-                  ]
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
                 },
                 "instruments": [
                   {
@@ -16265,7 +16733,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16278,8 +16747,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-22T09:04:56.1031071+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031081+00:00",
+                          "startDate": "2020-06-22T09:54:58.148575+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485757+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16309,7 +16778,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16322,8 +16792,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-22T09:04:56.1031161+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031163+00:00",
+                          "startDate": "2020-06-22T09:54:58.148584+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485841+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16363,7 +16833,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16376,8 +16847,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-22T09:04:56.1031071+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031081+00:00",
+                          "startDate": "2020-06-22T09:54:58.148575+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485757+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16407,7 +16878,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16420,8 +16892,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-22T09:04:56.1031161+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031163+00:00",
+                          "startDate": "2020-06-22T09:54:58.148584+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485841+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16461,7 +16933,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16474,8 +16947,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-22T09:04:56.1031071+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031081+00:00",
+                          "startDate": "2020-06-22T09:54:58.148575+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485757+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16505,7 +16978,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16518,8 +16992,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-22T09:04:56.1031161+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031163+00:00",
+                          "startDate": "2020-06-22T09:54:58.148584+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485841+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16559,7 +17033,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16572,8 +17047,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-22T09:04:56.1031071+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031081+00:00",
+                          "startDate": "2020-06-22T09:54:58.148575+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485757+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16603,7 +17078,8 @@
                       ],
                       "groupBy": [
                         "Instrument/default/Name"
-                      ]
+                      ],
+                      "portfolioIdentifierCode": "SinglePortfolio"
                     },
                     "instruments": [
                       {
@@ -16616,8 +17092,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-22T09:04:56.1031161+00:00",
-                          "maturityDate": "2020-07-22T09:04:56.1031163+00:00",
+                          "startDate": "2020-06-22T09:54:58.148584+00:00",
+                          "maturityDate": "2020-07-22T09:54:58.1485841+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16782,7 +17258,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "right": {
@@ -16809,7 +17286,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "instrumentPropertyKeys": [
@@ -16846,7 +17324,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "right": {
@@ -16873,7 +17352,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "instrumentPropertyKeys": [
@@ -16910,7 +17390,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "right": {
@@ -16937,7 +17418,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "instrumentPropertyKeys": [
@@ -16974,7 +17456,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "right": {
@@ -17001,7 +17484,8 @@
                     ],
                     "groupBy": [
                       "Instrument/default/Name"
-                    ]
+                    ],
+                    "portfolioIdentifierCode": "SinglePortfolio"
                   }
                 },
                 "instrumentPropertyKeys": [
@@ -20677,7 +21161,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/json": {
@@ -20703,7 +21188,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "text/json": {
@@ -20729,7 +21215,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             },
             "application/*+json": {
@@ -20755,7 +21242,8 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
-                ]
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
               }
             }
           }
@@ -30266,20 +30754,134 @@
         "additionalProperties": false,
         "description": "The Configuration or Calculation Recipe controls how LUSID processes a given request.\r\nThis can be used to change where market data used in pricing is loaded from and in what order, or which model is used to\r\nprice a given instrument as well as how aggregation will process the produced results."
       },
-      "CreateRecipeRequest": {
+      "AggregationOp": {
+        "enum": [
+          "Sum",
+          "Proportion",
+          "Average",
+          "Count",
+          "Min",
+          "Max",
+          "Value"
+        ],
+        "type": "string"
+      },
+      "AggregateSpec": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
+            "nullable": true
+          },
+          "op": {
+            "enum": [
+              "Sum",
+              "Proportion",
+              "Average",
+              "Count",
+              "Min",
+              "Max",
+              "Value"
+            ],
+            "type": "string",
+            "description": "The available values are: Sum, Proportion, Average, Count, Min, Max, Value"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operator": {
+        "enum": [
+          "Equals",
+          "NotEquals",
+          "GreaterThan",
+          "GreaterThanOrEqualTo",
+          "LessThan",
+          "LessThanOrEqualTo",
+          "In"
+        ],
+        "type": "string"
+      },
+      "OperandType": {
+        "enum": [
+          "Absolute",
+          "Property"
+        ],
+        "type": "string"
+      },
+      "PropertyFilter": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "string",
+            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
+            "nullable": true
+          },
+          "operator": {
+            "enum": [
+              "Equals",
+              "NotEquals",
+              "GreaterThan",
+              "GreaterThanOrEqualTo",
+              "LessThan",
+              "LessThanOrEqualTo",
+              "In"
+            ],
+            "type": "string",
+            "description": "The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In"
+          },
+          "right": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          },
+          "rightOperandType": {
+            "enum": [
+              "Absolute",
+              "Property"
+            ],
+            "type": "string",
+            "description": "The available values are: Absolute, Property"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SortOrder": {
+        "enum": [
+          "Ascending",
+          "Descending"
+        ],
+        "type": "string"
+      },
+      "OrderBySpec": {
         "required": [
-          "effectiveAt",
-          "recipeCreationMarketDataScopes"
+          "key",
+          "sortOrder"
         ],
         "type": "object",
         "properties": {
-          "recipeCreationMarketDataScopes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The scopes in which the recipe creation would look for quotes/data."
+          "key": {
+            "type": "string",
+            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
           },
+          "sortOrder": {
+            "enum": [
+              "Ascending",
+              "Descending"
+            ],
+            "type": "string",
+            "description": "The available values are: Ascending, Descending"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AggregationRequest": {
+        "required": [
+          "effectiveAt",
+          "metrics"
+        ],
+        "type": "object",
+        "properties": {
           "recipeId": {
             "$ref": "#/components/schemas/ResourceId"
           },
@@ -30292,14 +30894,523 @@
             "format": "date-time",
             "nullable": true
           },
+          "effectiveFrom": {
+            "type": "string",
+            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
           "effectiveAt": {
             "type": "string",
-            "description": "The market data time, i.e. the recipe generated will look for rules with this effectiveAt.",
+            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
+            "format": "dateorcutlabel"
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregateSpec"
+            },
+            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
+          },
+          "groupBy": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+            },
+            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyFilter"
+            },
+            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
+            "nullable": true
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit the results to a particular number of values.",
+            "format": "int32",
+            "nullable": true
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderBySpec"
+            },
+            "description": "A (possibly empty/null) set of specifications for how to order the results.",
+            "nullable": true
+          },
+          "reportCcy": {
+            "type": "string",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
+            "nullable": true
+          },
+          "portfolioIdentifierCode": {
+            "type": "string",
+            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the parameters of an aggregation"
+      },
+      "ValueType": {
+        "enum": [
+          "String",
+          "Int",
+          "Decimal",
+          "DateTime",
+          "Boolean",
+          "Map",
+          "List",
+          "PropertyArray",
+          "Percentage",
+          "BenchmarkType",
+          "Code",
+          "Id",
+          "Uri",
+          "ArrayOfIds",
+          "ArrayOfTransactionAliases",
+          "ArrayofTransactionMovements",
+          "ArrayofUnits",
+          "StringArray",
+          "CurrencyAndAmount",
+          "TradePrice",
+          "UnitCreation",
+          "Currency",
+          "UserId",
+          "MetricValue",
+          "QuoteId",
+          "QuoteSeriesId",
+          "ResourceId",
+          "ResultValue",
+          "CutLocalTime",
+          "DateOrCutLabel",
+          "Transition",
+          "StructuredData",
+          "StructuredDataId",
+          "ConfigurationRecipe",
+          "ConfigurationRecipeSnippet",
+          "StructuredResultDataId",
+          "StructuredResultData",
+          "DataMapping",
+          "LusidInstrument",
+          "WeightedInstrument",
+          "Tenor",
+          "CdsProtectionDetailSpecification",
+          "FlowConventions",
+          "CdsFlowConventions",
+          "LegDefinition",
+          "IndexConvention",
+          "OrderId"
+        ],
+        "type": "string",
+        "description": "A list of types, familiar to the Ui, that define the expected input or output types on a piece of data"
+      },
+      "FieldSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "String",
+              "Int",
+              "Decimal",
+              "DateTime",
+              "Boolean",
+              "Map",
+              "List",
+              "PropertyArray",
+              "Percentage",
+              "BenchmarkType",
+              "Code",
+              "Id",
+              "Uri",
+              "ArrayOfIds",
+              "ArrayOfTransactionAliases",
+              "ArrayofTransactionMovements",
+              "ArrayofUnits",
+              "StringArray",
+              "CurrencyAndAmount",
+              "TradePrice",
+              "UnitCreation",
+              "Currency",
+              "UserId",
+              "MetricValue",
+              "QuoteId",
+              "QuoteSeriesId",
+              "ResourceId",
+              "ResultValue",
+              "CutLocalTime",
+              "DateOrCutLabel",
+              "Transition",
+              "StructuredData",
+              "StructuredDataId",
+              "ConfigurationRecipe",
+              "ConfigurationRecipeSnippet",
+              "StructuredResultDataId",
+              "StructuredResultData",
+              "DataMapping",
+              "LusidInstrument",
+              "WeightedInstrument",
+              "Tenor",
+              "CdsProtectionDetailSpecification",
+              "FlowConventions",
+              "CdsFlowConventions",
+              "LegDefinition",
+              "IndexConvention",
+              "OrderId"
+            ],
+            "type": "string",
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId"
+          },
+          "displayOrder": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultDataSchema": {
+        "type": "object",
+        "properties": {
+          "nodeValueSchema": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FieldSchema"
+            },
+            "nullable": true
+          },
+          "propertySchema": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FieldSchema"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AggregationMeasureFailureDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "measure": {
+            "type": "string",
+            "nullable": true
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuoteSeriesId": {
+        "required": [
+          "field",
+          "instrumentId",
+          "instrumentIdType",
+          "provider",
+          "quoteType"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "The platform or vendor that provided the quote, e.g. 'DataScope', 'LUSID' etc."
+          },
+          "priceSource": {
+            "type": "string",
+            "description": "The source or originator of the quote, e.g. a bank or financial institution.",
+            "nullable": true
+          },
+          "instrumentId": {
+            "type": "string",
+            "description": "The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. 'BBG00JX0P539'."
+          },
+          "instrumentIdType": {
+            "enum": [
+              "LusidInstrumentId",
+              "Figi",
+              "RIC",
+              "QuotePermId",
+              "Isin",
+              "CurrencyPair"
+            ],
+            "type": "string",
+            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair",
+            "nullable": true
+          },
+          "quoteType": {
+            "enum": [
+              "Price",
+              "Spread",
+              "Rate",
+              "LogNormalVol",
+              "NormalVol",
+              "ParSpread",
+              "IsdaSpread",
+              "Upfront"
+            ],
+            "type": "string",
+            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront",
+            "nullable": true
+          },
+          "field": {
+            "type": "string",
+            "description": "The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this\r\nuniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes."
+      },
+      "QuoteId": {
+        "required": [
+          "effectiveAt",
+          "quoteSeriesId"
+        ],
+        "type": "object",
+        "properties": {
+          "quoteSeriesId": {
+            "$ref": "#/components/schemas/QuoteSeriesId"
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective datetime or cut label at which the quote is valid from.",
             "format": "dateorcutlabel"
           }
         },
         "additionalProperties": false,
-        "description": "Specification class to request for the creation/supplementing of a configuration recipe"
+        "description": "The unique identifier of the quote."
+      },
+      "MetricValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "description": "The numerical value of the property.",
+            "format": "double"
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Quote": {
+        "required": [
+          "asAt",
+          "quoteId",
+          "uploadedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "quoteId": {
+            "$ref": "#/components/schemas/QuoteId"
+          },
+          "metricValue": {
+            "$ref": "#/components/schemas/MetricValue"
+          },
+          "lineage": {
+            "type": "string",
+            "description": "Description of the quote's lineage e.g. 'FundAccountant_GreenQuality'.",
+            "nullable": true
+          },
+          "cutLabel": {
+            "type": "string",
+            "description": "The cut label that this quote was updated or inserted with.",
+            "nullable": true
+          },
+          "uploadedBy": {
+            "type": "string",
+            "description": "The unique id of the user that updated or inserted the quote."
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt datetime at which the quote was committed to LUSID.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The quote id, value and lineage of the quotes all keyed by a unique correlation id."
+      },
+      "ValueTupleOfMarketDataKeyRuleToQuote": {
+        "type": "object",
+        "properties": {
+          "item1": {
+            "$ref": "#/components/schemas/MarketDataKeyRule"
+          },
+          "item2": {
+            "$ref": "#/components/schemas/Quote"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StructuredMarketData": {
+        "required": [
+          "document",
+          "documentFormat"
+        ],
+        "type": "object",
+        "properties": {
+          "documentFormat": {
+            "type": "string",
+            "description": "The format of the accompanying document."
+          },
+          "version": {
+            "type": "string",
+            "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name or description for the document",
+            "nullable": true
+          },
+          "document": {
+            "type": "string",
+            "description": "The document that will be stored (or retrieved) and which describes a structured market data entity such as a credit or interest rate curve"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An item of structured market data that is to be inserted into Lusid. This will typically be a Json or Xml document that\r\ncontains a set of market quotes (tradables) that can be used to construct a composite view of a market property such as the\r\ninterest rates over time; commonly referred to as an interest rate, projection or discount curve. Other examples include\r\nvolatility surfaces and credit spread curves."
+      },
+      "ValueTupleOfMarketDataKeyRuleToStructuredMarketData": {
+        "type": "object",
+        "properties": {
+          "item1": {
+            "$ref": "#/components/schemas/MarketDataKeyRule"
+          },
+          "item2": {
+            "$ref": "#/components/schemas/StructuredMarketData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketDataManifest": {
+        "type": "object",
+        "properties": {
+          "quotes": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ValueTupleOfMarketDataKeyRuleToQuote"
+            },
+            "nullable": true
+          },
+          "structuredMarketData": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ValueTupleOfMarketDataKeyRuleToStructuredMarketData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Link": {
+        "required": [
+          "href",
+          "method",
+          "relation"
+        ],
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "method": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListAggregationResponse": {
+        "type": "object",
+        "properties": {
+          "aggregationEffectiveAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aggregationAsAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false
+              }
+            },
+            "nullable": true
+          },
+          "aggregationCurrency": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSchema": {
+            "$ref": "#/components/schemas/ResultDataSchema"
+          },
+          "aggregationFailures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
+            },
+            "nullable": true
+          },
+          "manifest": {
+            "$ref": "#/components/schemas/MarketDataManifest"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LusidValidationProblemDetails": {
         "required": [
@@ -30425,6 +31536,119 @@
         },
         "additionalProperties": false
       },
+      "AggregationResponseNode": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "$ref": "#/components/schemas/AggregateSpec"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "depth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationResponseNode"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NestedAggregationResponse": {
+        "type": "object",
+        "properties": {
+          "aggregationEffectiveAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aggregationAsAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AggregationResponseNode"
+          },
+          "aggregationCurrency": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSchema": {
+            "$ref": "#/components/schemas/ResultDataSchema"
+          },
+          "aggregationFailures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
+            },
+            "nullable": true
+          },
+          "manifest": {
+            "$ref": "#/components/schemas/MarketDataManifest"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRecipeRequest": {
+        "required": [
+          "effectiveAt",
+          "recipeCreationMarketDataScopes"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeCreationMarketDataScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The scopes in which the recipe creation would look for quotes/data."
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "inlineRecipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt date to use",
+            "format": "date-time",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the recipe generated will look for rules with this effectiveAt.",
+            "format": "dateorcutlabel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification class to request for the creation/supplementing of a configuration recipe"
+      },
       "Version": {
         "required": [
           "asAtDate",
@@ -30445,21 +31669,6 @@
         },
         "additionalProperties": false,
         "description": "The version metadata."
-      },
-      "MetricValue": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "The numerical value of the property.",
-            "format": "double"
-          },
-          "unit": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "PropertyValue": {
         "type": "object",
@@ -30489,31 +31698,6 @@
           },
           "value": {
             "$ref": "#/components/schemas/PropertyValue"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Link": {
-        "required": [
-          "href",
-          "method",
-          "relation"
-        ],
-        "type": "object",
-        "properties": {
-          "relation": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string",
-            "format": "uri"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "method": {
-            "type": "string"
           }
         },
         "additionalProperties": false
@@ -31110,59 +32294,6 @@
         ],
         "type": "string",
         "description": "This class indicates what the range of data acceptable by a data type"
-      },
-      "ValueType": {
-        "enum": [
-          "String",
-          "Int",
-          "Decimal",
-          "DateTime",
-          "Boolean",
-          "Map",
-          "List",
-          "PropertyArray",
-          "Percentage",
-          "BenchmarkType",
-          "Code",
-          "Id",
-          "Uri",
-          "ArrayOfIds",
-          "ArrayOfTransactionAliases",
-          "ArrayofTransactionMovements",
-          "ArrayofUnits",
-          "StringArray",
-          "CurrencyAndAmount",
-          "TradePrice",
-          "UnitCreation",
-          "Currency",
-          "UserId",
-          "MetricValue",
-          "QuoteId",
-          "QuoteSeriesId",
-          "ResourceId",
-          "ResultValue",
-          "CutLocalTime",
-          "DateOrCutLabel",
-          "Transition",
-          "StructuredData",
-          "StructuredDataId",
-          "ConfigurationRecipe",
-          "ConfigurationRecipeSnippet",
-          "StructuredResultDataId",
-          "StructuredResultData",
-          "DataMapping",
-          "LusidInstrument",
-          "WeightedInstrument",
-          "Tenor",
-          "CdsProtectionDetailSpecification",
-          "FlowConventions",
-          "CdsFlowConventions",
-          "LegDefinition",
-          "IndexConvention",
-          "OrderId"
-        ],
-        "type": "string",
-        "description": "A list of types, familiar to the Ui, that define the expected input or output types on a piece of data"
       },
       "UnitSchema": {
         "enum": [
@@ -33322,644 +34453,6 @@
           "description": {
             "type": "string",
             "description": "A long form description of the portfolio group.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AggregationOp": {
-        "enum": [
-          "Sum",
-          "Proportion",
-          "Average",
-          "Count",
-          "Min",
-          "Max",
-          "Value"
-        ],
-        "type": "string"
-      },
-      "AggregateSpec": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-            "nullable": true
-          },
-          "op": {
-            "enum": [
-              "Sum",
-              "Proportion",
-              "Average",
-              "Count",
-              "Min",
-              "Max",
-              "Value"
-            ],
-            "type": "string",
-            "description": "The available values are: Sum, Proportion, Average, Count, Min, Max, Value"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Operator": {
-        "enum": [
-          "Equals",
-          "NotEquals",
-          "GreaterThan",
-          "GreaterThanOrEqualTo",
-          "LessThan",
-          "LessThanOrEqualTo",
-          "In"
-        ],
-        "type": "string"
-      },
-      "OperandType": {
-        "enum": [
-          "Absolute",
-          "Property"
-        ],
-        "type": "string"
-      },
-      "PropertyFilter": {
-        "type": "object",
-        "properties": {
-          "left": {
-            "type": "string",
-            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-            "nullable": true
-          },
-          "operator": {
-            "enum": [
-              "Equals",
-              "NotEquals",
-              "GreaterThan",
-              "GreaterThanOrEqualTo",
-              "LessThan",
-              "LessThanOrEqualTo",
-              "In"
-            ],
-            "type": "string",
-            "description": "The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In"
-          },
-          "right": {
-            "type": "object",
-            "additionalProperties": false,
-            "nullable": true
-          },
-          "rightOperandType": {
-            "enum": [
-              "Absolute",
-              "Property"
-            ],
-            "type": "string",
-            "description": "The available values are: Absolute, Property"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SortOrder": {
-        "enum": [
-          "Ascending",
-          "Descending"
-        ],
-        "type": "string"
-      },
-      "OrderBySpec": {
-        "required": [
-          "key",
-          "sortOrder"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
-          },
-          "sortOrder": {
-            "enum": [
-              "Ascending",
-              "Descending"
-            ],
-            "type": "string",
-            "description": "The available values are: Ascending, Descending"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AggregationRequest": {
-        "required": [
-          "effectiveAt",
-          "metrics"
-        ],
-        "type": "object",
-        "properties": {
-          "recipeId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "inlineRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt date to use",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
-            "format": "dateorcutlabel"
-          },
-          "metrics": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregateSpec"
-            },
-            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
-          },
-          "groupBy": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
-            },
-            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
-            "nullable": true
-          },
-          "filters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyFilter"
-            },
-            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
-            "nullable": true
-          },
-          "limit": {
-            "type": "integer",
-            "description": "limit the results to a particular number of values.",
-            "format": "int32",
-            "nullable": true
-          },
-          "sort": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderBySpec"
-            },
-            "description": "A (possibly empty/null) set of specifications for how to order the results.",
-            "nullable": true
-          },
-          "reportCcy": {
-            "type": "string",
-            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification object for the parameters of an aggregation"
-      },
-      "FieldSchema": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "enum": [
-              "String",
-              "Int",
-              "Decimal",
-              "DateTime",
-              "Boolean",
-              "Map",
-              "List",
-              "PropertyArray",
-              "Percentage",
-              "BenchmarkType",
-              "Code",
-              "Id",
-              "Uri",
-              "ArrayOfIds",
-              "ArrayOfTransactionAliases",
-              "ArrayofTransactionMovements",
-              "ArrayofUnits",
-              "StringArray",
-              "CurrencyAndAmount",
-              "TradePrice",
-              "UnitCreation",
-              "Currency",
-              "UserId",
-              "MetricValue",
-              "QuoteId",
-              "QuoteSeriesId",
-              "ResourceId",
-              "ResultValue",
-              "CutLocalTime",
-              "DateOrCutLabel",
-              "Transition",
-              "StructuredData",
-              "StructuredDataId",
-              "ConfigurationRecipe",
-              "ConfigurationRecipeSnippet",
-              "StructuredResultDataId",
-              "StructuredResultData",
-              "DataMapping",
-              "LusidInstrument",
-              "WeightedInstrument",
-              "Tenor",
-              "CdsProtectionDetailSpecification",
-              "FlowConventions",
-              "CdsFlowConventions",
-              "LegDefinition",
-              "IndexConvention",
-              "OrderId"
-            ],
-            "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId"
-          },
-          "displayOrder": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResultDataSchema": {
-        "type": "object",
-        "properties": {
-          "nodeValueSchema": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/FieldSchema"
-            },
-            "nullable": true
-          },
-          "propertySchema": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/FieldSchema"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AggregationMeasureFailureDetail": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "measure": {
-            "type": "string",
-            "nullable": true
-          },
-          "reason": {
-            "type": "string",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "QuoteSeriesId": {
-        "required": [
-          "field",
-          "instrumentId",
-          "instrumentIdType",
-          "provider",
-          "quoteType"
-        ],
-        "type": "object",
-        "properties": {
-          "provider": {
-            "type": "string",
-            "description": "The platform or vendor that provided the quote, e.g. 'DataScope', 'LUSID' etc."
-          },
-          "priceSource": {
-            "type": "string",
-            "description": "The source or originator of the quote, e.g. a bank or financial institution.",
-            "nullable": true
-          },
-          "instrumentId": {
-            "type": "string",
-            "description": "The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. 'BBG00JX0P539'."
-          },
-          "instrumentIdType": {
-            "enum": [
-              "LusidInstrumentId",
-              "Figi",
-              "RIC",
-              "QuotePermId",
-              "Isin",
-              "CurrencyPair"
-            ],
-            "type": "string",
-            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair",
-            "nullable": true
-          },
-          "quoteType": {
-            "enum": [
-              "Price",
-              "Spread",
-              "Rate",
-              "LogNormalVol",
-              "NormalVol",
-              "ParSpread",
-              "IsdaSpread",
-              "Upfront"
-            ],
-            "type": "string",
-            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront",
-            "nullable": true
-          },
-          "field": {
-            "type": "string",
-            "description": "The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this\r\nuniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes."
-      },
-      "QuoteId": {
-        "required": [
-          "effectiveAt",
-          "quoteSeriesId"
-        ],
-        "type": "object",
-        "properties": {
-          "quoteSeriesId": {
-            "$ref": "#/components/schemas/QuoteSeriesId"
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The effective datetime or cut label at which the quote is valid from.",
-            "format": "dateorcutlabel"
-          }
-        },
-        "additionalProperties": false,
-        "description": "The unique identifier of the quote."
-      },
-      "Quote": {
-        "required": [
-          "asAt",
-          "quoteId",
-          "uploadedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "quoteId": {
-            "$ref": "#/components/schemas/QuoteId"
-          },
-          "metricValue": {
-            "$ref": "#/components/schemas/MetricValue"
-          },
-          "lineage": {
-            "type": "string",
-            "description": "Description of the quote's lineage e.g. 'FundAccountant_GreenQuality'.",
-            "nullable": true
-          },
-          "cutLabel": {
-            "type": "string",
-            "description": "The cut label that this quote was updated or inserted with.",
-            "nullable": true
-          },
-          "uploadedBy": {
-            "type": "string",
-            "description": "The unique id of the user that updated or inserted the quote."
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt datetime at which the quote was committed to LUSID.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false,
-        "description": "The quote id, value and lineage of the quotes all keyed by a unique correlation id."
-      },
-      "ValueTupleOfMarketDataKeyRuleToQuote": {
-        "type": "object",
-        "properties": {
-          "item1": {
-            "$ref": "#/components/schemas/MarketDataKeyRule"
-          },
-          "item2": {
-            "$ref": "#/components/schemas/Quote"
-          }
-        },
-        "additionalProperties": false
-      },
-      "StructuredMarketData": {
-        "required": [
-          "document",
-          "documentFormat"
-        ],
-        "type": "object",
-        "properties": {
-          "documentFormat": {
-            "type": "string",
-            "description": "The format of the accompanying document."
-          },
-          "version": {
-            "type": "string",
-            "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name or description for the document",
-            "nullable": true
-          },
-          "document": {
-            "type": "string",
-            "description": "The document that will be stored (or retrieved) and which describes a structured market data entity such as a credit or interest rate curve"
-          }
-        },
-        "additionalProperties": false,
-        "description": "An item of structured market data that is to be inserted into Lusid. This will typically be a Json or Xml document that\r\ncontains a set of market quotes (tradables) that can be used to construct a composite view of a market property such as the\r\ninterest rates over time; commonly referred to as an interest rate, projection or discount curve. Other examples include\r\nvolatility surfaces and credit spread curves."
-      },
-      "ValueTupleOfMarketDataKeyRuleToStructuredMarketData": {
-        "type": "object",
-        "properties": {
-          "item1": {
-            "$ref": "#/components/schemas/MarketDataKeyRule"
-          },
-          "item2": {
-            "$ref": "#/components/schemas/StructuredMarketData"
-          }
-        },
-        "additionalProperties": false
-      },
-      "MarketDataManifest": {
-        "type": "object",
-        "properties": {
-          "quotes": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ValueTupleOfMarketDataKeyRuleToQuote"
-            },
-            "nullable": true
-          },
-          "structuredMarketData": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ValueTupleOfMarketDataKeyRuleToStructuredMarketData"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ListAggregationResponse": {
-        "type": "object",
-        "properties": {
-          "aggregationEffectiveAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "aggregationAsAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": false
-              }
-            },
-            "nullable": true
-          },
-          "aggregationCurrency": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataSchema": {
-            "$ref": "#/components/schemas/ResultDataSchema"
-          },
-          "aggregationFailures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
-            },
-            "nullable": true
-          },
-          "manifest": {
-            "$ref": "#/components/schemas/MarketDataManifest"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AggregationResponseNode": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "$ref": "#/components/schemas/AggregateSpec"
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "depth": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationResponseNode"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NestedAggregationResponse": {
-        "type": "object",
-        "properties": {
-          "aggregationEffectiveAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "aggregationAsAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/AggregationResponseNode"
-          },
-          "aggregationCurrency": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataSchema": {
-            "$ref": "#/components/schemas/ResultDataSchema"
-          },
-          "aggregationFailures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
-            },
-            "nullable": true
-          },
-          "manifest": {
-            "$ref": "#/components/schemas/MarketDataManifest"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
             "nullable": true
           }
         },
