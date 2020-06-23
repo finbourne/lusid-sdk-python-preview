@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1536",
+    "version": "0.11.1537",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:57700"
+      "url": "http://localhost:34029"
     }
   ],
   "paths": {
@@ -16747,8 +16747,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-23T15:49:37.0589858+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589873+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470332+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470336+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16792,8 +16792,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-23T15:49:37.0589954+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589955+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470382+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470383+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16847,8 +16847,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-23T15:49:37.0589858+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589873+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470332+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470336+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16892,8 +16892,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-23T15:49:37.0589954+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589955+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470382+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470383+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16947,8 +16947,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-23T15:49:37.0589858+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589873+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470332+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470336+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16992,8 +16992,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-23T15:49:37.0589954+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589955+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470382+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470383+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17047,8 +17047,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-23T15:49:37.0589858+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589873+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470332+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470336+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17092,8 +17092,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-23T15:49:37.0589954+00:00",
-                          "maturityDate": "2020-07-23T15:49:37.0589955+00:00",
+                          "startDate": "2020-06-23T16:53:36.9470382+00:00",
+                          "maturityDate": "2020-07-23T16:53:36.9470383+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -38936,6 +38936,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "IL Bond Instrument; Lusid-ibor internal representation of a Bond instrument"
       },
       "CdsFlowConventions": {
@@ -39150,6 +39151,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
       },
       "OptionType": {
@@ -39281,6 +39283,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "Lusid-ibor internal representation of a plain vanilla equity option instrument."
       },
       "IndexConvention": {
@@ -39495,6 +39498,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "representation of a fixed rates leg"
       },
       "FloatingLeg": {
@@ -39577,6 +39581,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "representation of a floating rates leg"
       },
       "FxForwardInstrument": {
@@ -39660,6 +39665,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "Lusid-ibor internal representation of a Fx Forward instrument"
       },
       "FxOption": {
@@ -39739,6 +39745,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "Lusid-ibor DTO representation of a plain vanilla FX Option instrument."
       },
       "InstrumentLeg": {
@@ -39818,6 +39825,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "Representation of a rates leg.\r\n            A set of cashflows that are paid at a set of points in time according to some set of conventions.",
         "discriminator": {
           "propertyName": "lusidInstrument"
@@ -39876,6 +39884,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\n            \r\n             A swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\n             These may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\n             payment currency, payment frequency and so on they can be used to match sets of future obligations"
       },
       "Swaption": {
@@ -39940,6 +39949,7 @@
             }
           }
         ],
+        "additionalProperties": false,
         "description": "A swaption, an option to enter into an interest rate swap."
       }
     },
