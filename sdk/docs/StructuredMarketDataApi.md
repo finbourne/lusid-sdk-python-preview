@@ -1,6 +1,6 @@
 # lusid.StructuredMarketDataApi
 
-All URIs are relative to *http://localhost:44591*
+All URIs are relative to *http://localhost:46481*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44591
-configuration.host = "http://localhost:44591"
+# Defining host is optional and default to http://localhost:46481
+configuration.host = "http://localhost:46481"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to delete.
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44591
-configuration.host = "http://localhost:44591"
+# Defining host is optional and default to http://localhost:46481
+configuration.host = "http://localhost:46481"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to retrieve.
@@ -163,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44591
-configuration.host = "http://localhost:44591"
+# Defining host is optional and default to http://localhost:46481
+configuration.host = "http://localhost:46481"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured market data.
