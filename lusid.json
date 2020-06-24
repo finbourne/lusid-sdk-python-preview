@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1538",
+    "version": "0.11.1539",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:57104"
+      "url": "http://localhost:56223"
     }
   ],
   "paths": {
@@ -16747,8 +16747,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-24T12:54:40.5555575+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555584+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973392+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973402+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16792,8 +16792,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-24T12:54:40.555568+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555681+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973465+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973466+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16847,8 +16847,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-24T12:54:40.5555575+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555584+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973392+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973402+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16892,8 +16892,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-24T12:54:40.555568+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555681+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973465+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973466+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16947,8 +16947,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-24T12:54:40.5555575+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555584+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973392+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973402+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16992,8 +16992,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-24T12:54:40.555568+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555681+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973465+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973466+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17047,8 +17047,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-24T12:54:40.5555575+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555584+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973392+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973402+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17092,8 +17092,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-24T12:54:40.555568+00:00",
-                          "maturityDate": "2020-07-24T12:54:40.5555681+00:00",
+                          "startDate": "2020-06-24T14:43:00.8973465+00:00",
+                          "maturityDate": "2020-07-24T14:43:00.8973466+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33472,7 +33472,7 @@
         "additionalProperties": false,
         "description": "Base class in hierarchy for LUSID Instruments. Valuation would normally be performed through passing LUSID a Code for a portfolio to be valued.\r\nIn that case the set of instruments have already been uploaded. Equally, one might wish to pass in a set of instruments directly and have LUSID\r\nvalue the inlined set. This the base instrument for this case.",
         "discriminator": {
-          "propertyName": "lusidInstrument"
+          "propertyName": "instrumentType"
         }
       },
       "LusidInstrumentDefinition": {
@@ -38936,7 +38936,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "IL Bond Instrument; Lusid-ibor internal representation of a Bond instrument"
       },
       "CdsFlowConventions": {
@@ -39151,7 +39150,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
       },
       "OptionType": {
@@ -39283,7 +39281,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "Lusid-ibor internal representation of a plain vanilla equity option instrument."
       },
       "IndexConvention": {
@@ -39424,9 +39421,6 @@
             "$ref": "#/components/schemas/InstrumentLeg"
           },
           {
-            "$ref": "#/components/schemas/LusidInstrument"
-          },
-          {
             "required": [
               "instrumentType",
               "legDefinition",
@@ -39498,7 +39492,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "representation of a fixed rates leg"
       },
       "FloatingLeg": {
@@ -39507,9 +39500,6 @@
             "$ref": "#/components/schemas/InstrumentLeg"
           },
           {
-            "$ref": "#/components/schemas/LusidInstrument"
-          },
-          {
             "required": [
               "instrumentType",
               "legDefinition",
@@ -39581,7 +39571,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "representation of a floating rates leg"
       },
       "FxForwardInstrument": {
@@ -39665,7 +39654,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "Lusid-ibor internal representation of a Fx Forward instrument"
       },
       "FxOption": {
@@ -39745,7 +39733,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "Lusid-ibor DTO representation of a plain vanilla FX Option instrument."
       },
       "InstrumentLeg": {
@@ -39755,54 +39742,10 @@
           },
           {
             "required": [
-              "instrumentType",
-              "legDefinition",
-              "maturityDate",
-              "notional",
-              "startDate"
+              "instrumentType"
             ],
             "type": "object",
             "properties": {
-              "notional": {
-                "type": "number",
-                "description": "scaling factor to apply to leg quantities.",
-                "format": "double"
-              },
-              "maturityDate": {
-                "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
-                "format": "date-time"
-              },
-              "startDate": {
-                "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
-                "format": "date-time"
-              },
-              "legDefinition": {
-                "$ref": "#/components/schemas/LegDefinition"
-              },
-              "overrides": {
-                "type": "object",
-                "properties": {
-                  "Amortization": {
-                    "type": "array",
-                    "items": {
-                      "type": "number",
-                      "format": "double"
-                    }
-                  },
-                  "Spreads": {
-                    "type": "array",
-                    "items": {
-                      "type": "number",
-                      "format": "double"
-                    }
-                  }
-                },
-                "additionalProperties": false,
-                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\n            This supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
-                "nullable": true
-              },
               "instrumentType": {
                 "enum": [
                   "QuotedSecurity",
@@ -39825,10 +39768,9 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "Representation of a rates leg.\r\n            A set of cashflows that are paid at a set of points in time according to some set of conventions.",
         "discriminator": {
-          "propertyName": "lusidInstrument"
+          "propertyName": "instrumentType"
         }
       },
       "SwapInstrument": {
@@ -39884,7 +39826,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\n            \r\n             A swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\n             These may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\n             payment currency, payment frequency and so on they can be used to match sets of future obligations"
       },
       "Swaption": {
@@ -39949,7 +39890,6 @@
             }
           }
         ],
-        "additionalProperties": false,
         "description": "A swaption, an option to enter into an interest rate swap."
       }
     },
