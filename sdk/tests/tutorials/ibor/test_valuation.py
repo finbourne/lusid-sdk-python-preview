@@ -113,7 +113,7 @@ class Valuation(unittest.TestCase):
         )
 
         #   do the aggregation
-        aggregation = self.aggregation_api.get_aggregation_by_portfolio(scope=TestDataUtilities.tutorials_scope,
+        aggregation = self.aggregation_api.get_aggregation(scope=TestDataUtilities.tutorials_scope,
                                                                         code=portfolio_code,
                                                                         aggregation_request=aggregation_request)
 
