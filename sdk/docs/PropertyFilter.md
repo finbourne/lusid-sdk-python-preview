@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**left** | **str** | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | [optional] 
+**left** | **str** | The key that uniquely identifies a queryable address in Lusid. | [optional] 
 **operator** | **str** | The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In | [optional] 
 **right** | [**object**](.md) |  | [optional] 
 **right_operand_type** | **str** | The available values are: Absolute, Property | [optional] 
