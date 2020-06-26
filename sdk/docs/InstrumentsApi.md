@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_instrument**](InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | Get instrument
 [**get_instrument_identifier_types**](InstrumentsApi.md#get_instrument_identifier_types) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] Get instrument identifier types
 [**get_instruments**](InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | Get instruments
+[**get_lusid_instruments**](InstrumentsApi.md#get_lusid_instruments) | **POST** /api/instruments/otc/$get | [EXPERIMENTAL] Get instruments
 [**list_instruments**](InstrumentsApi.md#list_instruments) | **GET** /api/instruments | [EARLY ACCESS] List instruments
 [**update_instrument_identifier**](InstrumentsApi.md#update_instrument_identifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
 [**upsert_instruments**](InstrumentsApi.md#upsert_instruments) | **POST** /api/instruments | Upsert instruments
@@ -326,6 +327,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetInstrumentsResponse**](GetInstrumentsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested instruments which could be identified along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_lusid_instruments**
+> GetExpandedInstrumentsResponse get_lusid_instruments(identifier_type, request_body, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
+
+[EXPERIMENTAL] Get instruments
+
+Get the definition of one or more Lusid (OTC) instruments identified by a collection of unique instrument identifiers.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
+# Create an instance of the API class
+api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
+identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
+request_body = ["instrument-identifier-1","instrument-identifier-2"] # list[str] | The values of the identifier for the requested instruments.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional)
+
+try:
+    # [EXPERIMENTAL] Get instruments
+    api_response = api_instance.get_lusid_instruments(identifier_type, request_body, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling InstrumentsApi->get_lusid_instruments: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier_type** | **str**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
+ **request_body** | [**list[str]**](str.md)| The values of the identifier for the requested instruments. | 
+ **effective_at** | **str**| The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
+
+### Return type
+
+[**GetExpandedInstrumentsResponse**](GetExpandedInstrumentsResponse.md)
 
 ### Authorization
 

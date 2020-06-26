@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1549",
+    "version": "0.11.1550",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -4937,6 +4937,182 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpsertInstrumentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instruments/otc/$get": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] Get instruments",
+        "description": "Get the definition of one or more Lusid (OTC) instruments identified by a collection of unique instrument identifiers.",
+        "operationId": "GetLusidInstruments",
+        "parameters": [
+          {
+            "name": "identifierType",
+            "in": "query",
+            "description": "The identifier being supplied e.g. \"Figi\".",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The identifier being supplied e.g. \"Figi\"."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the instrument definitions.\r\n            Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the instrument definitions.\r\n            Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the instrument definitions.\r\n            Defaults to return the latest version of each instrument definition if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the instrument definitions.\r\n            Defaults to return the latest version of each instrument definition if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the \"Instrument\" domain to decorate onto the instrument.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from the \"Instrument\" domain to decorate onto the instrument.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The values of the identifier for the requested instruments.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The values of the identifier for the requested instruments."
+              },
+              "example": [
+                "instrument-identifier-1",
+                "instrument-identifier-2"
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The values of the identifier for the requested instruments."
+              },
+              "example": [
+                "instrument-identifier-1",
+                "instrument-identifier-2"
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The values of the identifier for the requested instruments."
+              },
+              "example": [
+                "instrument-identifier-1",
+                "instrument-identifier-2"
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The values of the identifier for the requested instruments."
+              },
+              "example": [
+                "instrument-identifier-1",
+                "instrument-identifier-2"
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The requested instruments which could be identified along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetExpandedInstrumentsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetExpandedInstrumentsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetExpandedInstrumentsResponse"
                 }
               }
             }
@@ -16747,8 +16923,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-26T10:35:06.7817687+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817690+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365652+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365656+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16792,8 +16968,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-26T10:35:06.7817828+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817828+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365737+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365738+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16847,8 +17023,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-26T10:35:06.7817687+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817690+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365652+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365656+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16892,8 +17068,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-26T10:35:06.7817828+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817828+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365737+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365738+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16947,8 +17123,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-26T10:35:06.7817687+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817690+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365652+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365656+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16992,8 +17168,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-26T10:35:06.7817828+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817828+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365737+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365738+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17047,8 +17223,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-06-26T10:35:06.7817687+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817690+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365652+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365656+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17092,8 +17268,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-06-26T10:35:06.7817828+00:00",
-                          "maturityDate": "2020-07-26T10:35:06.7817828+00:00",
+                          "startDate": "2020-06-26T11:21:49.1365737+00:00",
+                          "maturityDate": "2020-07-26T11:21:49.1365738+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33508,6 +33684,108 @@
         },
         "additionalProperties": false
       },
+      "ExpandedInstrument": {
+        "required": [
+          "identifiers",
+          "lusidInstrumentId",
+          "name",
+          "state",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "lusidInstrumentId": {
+            "type": "string",
+            "description": "The unique LUSID Instrument Identifier (LUID) of the instrument."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the instrument."
+          },
+          "identifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The set of identifiers that can be used to identify the instrument."
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The requested instrument properties. These will be from the 'Instrument' domain.",
+            "nullable": true
+          },
+          "lookthroughPortfolio": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentDefinition": {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          "state": {
+            "enum": [
+              "Active",
+              "Inactive"
+            ],
+            "type": "string",
+            "description": "The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An instrument which has the Lusid economic representation where it exists.\r\nLusid has two ways of representing instruments with an extended definition. The first is native to Lusid using the LusidInstrument format.\r\nThe second is essentially a free-text methodology where 'any' Json or Xml string can be given. This is to support the use case where Lusid does not\r\nunderstand the instrument natively but may be able to run a limited set of queries against it."
+      },
+      "GetExpandedInstrumentsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ExpandedInstrument"
+            },
+            "description": "The instrument definitions, keyed by the identifier used to retrieve them. Only instruments that were found will be contained in this collection.",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The identifiers which did not resolve to an instrument along with the nature of the failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ActionId": {
         "required": [
           "activity",
@@ -39290,6 +39568,74 @@
           }
         ],
         "description": "Lusid-ibor internal representation of a plain vanilla equity option instrument."
+      },
+      "InstrumentDefinitionFormat": {
+        "required": [
+          "sourceSystem",
+          "vendor",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "sourceSystem": {
+            "type": "string",
+            "description": "which source system does the format originate from"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID's), some won't.\r\n            The provenance of an instrument indicates who \"owns\" the associated format."
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the document. Would be preferable to avoid the need, but LUSID will not control other organisations' trade formats."
+          }
+        },
+        "additionalProperties": false,
+        "description": "What is the provenance of an instrument. This defines who creates/owns it, what format it is in (e.g. a proprietary format or a common and known one)\r\n            and what the version of that is."
+      },
+      "ExoticInstrument": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          {
+            "required": [
+              "content",
+              "instrumentFormat",
+              "instrumentType"
+            ],
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other\r\n            interface is supported it is possible to fall back onto this.\r\n            For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system."
+              },
+              "instrumentFormat": {
+                "$ref": "#/components/schemas/InstrumentDefinitionFormat"
+              },
+              "instrumentType": {
+                "enum": [
+                  "QuotedSecurity",
+                  "InterestRateSwap",
+                  "FxForward",
+                  "Exotic",
+                  "FxOption",
+                  "CreditDefaultSwap",
+                  "InterestRateSwaption",
+                  "Bond",
+                  "EquityOption",
+                  "FixedRateLeg",
+                  "FloatingRateLeg",
+                  "BespokeCashflowLeg",
+                  "Unknown"
+                ],
+                "type": "string",
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+              }
+            }
+          }
+        ],
+        "description": "Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,\r\n            by a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics\r\n            like FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches."
       },
       "IndexConvention": {
         "required": [
