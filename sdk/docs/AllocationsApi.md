@@ -1,6 +1,6 @@
 # lusid.AllocationsApi
 
-All URIs are relative to *http://localhost:44340*
+All URIs are relative to *http://localhost:32991*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,8 +27,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44340
-configuration.host = "http://localhost:44340"
+# Defining host is optional and default to http://localhost:32991
+configuration.host = "http://localhost:32991"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the allocation belongs.
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44340
-configuration.host = "http://localhost:44340"
+# Defining host is optional and default to http://localhost:32991
+configuration.host = "http://localhost:32991"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
@@ -165,8 +165,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:44340
-configuration.host = "http://localhost:44340"
+# Defining host is optional and default to http://localhost:32991
+configuration.host = "http://localhost:32991"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 allocation_set_request = {"allocationRequests":[{"properties":{"allocation/MyScope/SomeAllocationProperty":{"key":"Allocation/MyScope/SomeAllocationProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"portfolioId":{"scope":"MyScope","code":"UK Equity"},"allocatedOrderId":{"scope":"MyScope","code":"ORD00000123"},"id":{"scope":"MyScope","code":"ALLOC00000123"}}]} # AllocationSetRequest | The collection of allocation requests. (optional)
