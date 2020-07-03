@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *http://localhost:46298*
+All URIs are relative to *http://localhost:54855*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**get_aggregation_by_result_set**](AggregationApi.md#get_aggregation_by_result_set) | **POST** /api/results/{scope}/{resultsKey}/$aggregate | [EXPERIMENTAL] Aggregate using result data
 [**get_aggregation_of_weighted_instruments**](AggregationApi.md#get_aggregation_of_weighted_instruments) | **POST** /api/portfolios/{scope}/$aggregateinlined | [EXPERIMENTAL] Aggregate data in an inlined portfolio
 [**get_nested_aggregation**](AggregationApi.md#get_nested_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested
-[**get_nested_aggregation_by_group**](AggregationApi.md#get_nested_aggregation_by_group) | **POST** /api/portfoliogroups/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio group, as nested
 [**get_nested_aggregation_by_portfolio**](AggregationApi.md#get_nested_aggregation_by_portfolio) | **POST** /api/portfolios/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] 
 [**get_queryable_keys**](AggregationApi.md#get_queryable_keys) | **GET** /api/results/queryable/keys | [EXPERIMENTAL] Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
 
@@ -36,8 +35,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -102,8 +101,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -174,8 +173,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group
@@ -246,8 +245,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -318,8 +317,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Result data set
@@ -390,8 +389,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the instruments should that be required
@@ -460,8 +459,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -506,72 +505,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_nested_aggregation_by_group**
-> NestedAggregationResponse get_nested_aggregation_by_group(scope, code, aggregation_request=aggregation_request)
-
-[EXPERIMENTAL] Aggregate data in a portfolio group, as nested
-
-Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
-# Create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the portfolio group
-code = 'code_example' # str | The code of the portfolio group
-aggregation_request = {"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"} # AggregationRequest | The request specifying the parameters of the aggregation (optional)
-
-try:
-    # [EXPERIMENTAL] Aggregate data in a portfolio group, as nested
-    api_response = api_instance.get_nested_aggregation_by_group(scope, code, aggregation_request=aggregation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AggregationApi->get_nested_aggregation_by_group: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the portfolio group | 
- **code** | **str**| The code of the portfolio group | 
- **aggregation_request** | [**AggregationRequest**](AggregationRequest.md)| The request specifying the parameters of the aggregation | [optional] 
-
-### Return type
-
-[**NestedAggregationResponse**](NestedAggregationResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_nested_aggregation_by_portfolio**
 > NestedAggregationResponse get_nested_aggregation_by_portfolio(scope, code, aggregation_request=aggregation_request)
 
@@ -592,8 +525,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -658,8 +591,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:46298
-configuration.host = "http://localhost:46298"
+# Defining host is optional and default to http://localhost:54855
+configuration.host = "http://localhost:54855"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 page = 'page_example' # str | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional)
