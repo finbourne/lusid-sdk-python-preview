@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1606",
+    "version": "0.11.1607",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:35645"
+      "url": "http://localhost:44264"
     }
   ],
   "paths": {
@@ -16513,8 +16513,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T15:36:28.6938561+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938569+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585351+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585362+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16558,8 +16558,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T15:36:28.6938633+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938634+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585445+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585446+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16612,8 +16612,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T15:36:28.6938561+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938569+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585351+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585362+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16657,8 +16657,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T15:36:28.6938633+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938634+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585445+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585446+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16711,8 +16711,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T15:36:28.6938561+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938569+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585351+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585362+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16756,8 +16756,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T15:36:28.6938633+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938634+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585445+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585446+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16810,8 +16810,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T15:36:28.6938561+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938569+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585351+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585362+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16855,8 +16855,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T15:36:28.6938633+00:00",
-                          "maturityDate": "2020-08-06T15:36:28.6938634+00:00",
+                          "startDate": "2020-07-07T16:16:21.2585445+00:00",
+                          "maturityDate": "2020-08-06T16:16:21.2585446+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -19537,114 +19537,11 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Configuration Recipes from all scopes",
-        "description": "List the set of configuration recipes at the specified date/time across all the scopes and allowing filtering (e.g. filter by scope)",
-        "operationId": "ListConfigurationRecipesForAllScopes",
-        "parameters": [
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The configuration recipes for all scopes",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/recipes/{scope}": {
-      "get": {
-        "tags": [
-          "Configuration Recipe"
-        ],
         "summary": "[EXPERIMENTAL] List the set of Configuration Recipes",
-        "description": "List the set of  configuration recipes at the specified date/time and scope",
+        "description": "List the set of configuration recipes at the specified date/time and scope",
         "operationId": "ListConfigurationRecipes",
         "parameters": [
           {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope of the Configuration Recipes to list",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The scope of the Configuration Recipes to list",
-              "nullable": true
-            }
-          },
-          {
             "name": "asAt",
             "in": "query",
             "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
@@ -19655,16 +19552,6 @@
               "nullable": true
             },
             "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set.\r\n            For example, to filter on code, use \"value.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set.\r\n            For example, to filter on code, use \"value.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
           }
         ],
         "responses": {
@@ -19874,6 +19761,98 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/recipes/list": {
+      "get": {
+        "tags": [
+          "Configuration Recipe"
+        ],
+        "summary": "[EXPERIMENTAL] List the set of Configuration Recipes from all scopes",
+        "description": "List the set of configuration recipes at the specified date/time across all the scopes and allowing filtering (e.g. filter by scope)",
+        "operationId": "ListConfigurationRecipesForAllScopes",
+        "parameters": [
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set.\r\n           For example, to filter on code, use \"value.code eq 'string'\"\r\n           Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configuration recipes for all scopes",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfGetRecipeResponse"
                 }
               }
             }
@@ -30684,14 +30663,14 @@
       },
       "ConfigurationRecipe": {
         "required": [
-          "code"
+          "code",
+          "scope"
         ],
         "type": "object",
         "properties": {
           "scope": {
             "type": "string",
-            "description": "The scope used when updating or inserting the Configuration Recipe.",
-            "nullable": true
+            "description": "The scope used when updating or inserting the Configuration Recipe."
           },
           "code": {
             "type": "string",
