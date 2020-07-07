@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1600",
+    "version": "0.11.1601",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:33208"
+      "url": "http://localhost:33075"
     }
   ],
   "paths": {
@@ -14774,211 +14774,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/portfolios/{scope}/{code}/$aggregatenested": {
-      "post": {
-        "tags": [
-          "Aggregation"
-        ],
-        "summary": "[EXPERIMENTAL] ",
-        "description": "Aggregate data in a portfolio, as nested",
-        "operationId": "GetNestedAggregationByPortfolio",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope of the portfolio",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The scope of the portfolio",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The code of the portfolio",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The code of the portfolio",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The request specifying the parameters of the aggregation",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00+00:00",
-                "effectiveAt": "2018-03-05T00:00:00+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00+00:00",
-                "effectiveAt": "2018-03-05T00:00:00+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00+00:00",
-                "effectiveAt": "2018-03-05T00:00:00+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00+00:00",
-                "effectiveAt": "2018-03-05T00:00:00+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/NestedAggregationResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NestedAggregationResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NestedAggregationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/portfolios/{scope}/{code}/commands": {
       "get": {
         "tags": [
@@ -16718,8 +16513,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T09:45:36.6727752+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.6727762+00:00",
+                          "startDate": "2020-07-07T10:16:41.1160357+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160368+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16763,8 +16558,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T09:45:36.6727839+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.672784+00:00",
+                          "startDate": "2020-07-07T10:16:41.116047+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160472+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16816,8 +16611,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T09:45:36.6727752+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.6727762+00:00",
+                          "startDate": "2020-07-07T10:16:41.1160357+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160368+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16861,8 +16656,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T09:45:36.6727839+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.672784+00:00",
+                          "startDate": "2020-07-07T10:16:41.116047+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160472+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16914,8 +16709,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T09:45:36.6727752+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.6727762+00:00",
+                          "startDate": "2020-07-07T10:16:41.1160357+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160368+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16959,8 +16754,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T09:45:36.6727839+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.672784+00:00",
+                          "startDate": "2020-07-07T10:16:41.116047+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160472+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17012,8 +16807,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-07T09:45:36.6727752+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.6727762+00:00",
+                          "startDate": "2020-07-07T10:16:41.1160357+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160368+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17057,8 +16852,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-07T09:45:36.6727839+00:00",
-                          "maturityDate": "2020-08-06T09:45:36.672784+00:00",
+                          "startDate": "2020-07-07T10:16:41.116047+00:00",
+                          "maturityDate": "2020-08-06T10:16:41.1160472+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
