@@ -21,7 +21,9 @@ class TCPKeepAliveValidationMethods:
     @staticmethod
     def adjust_connection_socket(conn, protocol: str = "https"):
         """
-        Adjusts the socket settings so that the client sends a TCP keep alive probe over the connection.
+        Adjusts the socket settings so that the client sends a TCP keep alive probe over the connection. This is only
+        applied where possible, if the ability to set the socket options is not available, for example using Anaconda,
+        then the settings will be left as is.
 
         :param conn: The connection to update the socket settings for
         :param str protocol: The protocol of the connection
@@ -44,11 +46,11 @@ class TCPKeepAliveValidationMethods:
             pass
 
         # TCP Keep Alive Probes for Windows OS
-        elif platform == 'win32' and hasattr(socket, "SIO_KEEPALIVE_VALS"):
+        elif platform == 'win32' and hasattr(socket, "SIO_KEEPALIVE_VALS") and getattr(conn.sock, "ioctl", None) is not None:
             conn.sock.ioctl(socket.SIO_KEEPALIVE_VALS, (1, TCP_KEEP_IDLE * 1000, TCP_KEEPALIVE_INTERVAL * 1000))
 
         # TCP Keep Alive Probes for Mac OS
-        elif platform == 'darwin':
+        elif platform == 'darwin' and getattr(conn.sock, "setsockopt", None) is not None:
             conn.sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
             conn.sock.setsockopt(socket.IPPROTO_TCP, TCP_KEEPALIVE, TCP_KEEPALIVE_INTERVAL)
 
