@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**scope** | **str** | The scope used when updating or inserting the convention. | [optional] 
+**code** | **str** | The code of the convention. | [optional] 
 **currency** | **str** | Currency of the flow convention. | 
 **payment_frequency** | [**Tenor**](Tenor.md) |  | 
 **day_count_convention** | **str** | The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid | 
