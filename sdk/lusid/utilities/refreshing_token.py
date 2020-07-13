@@ -44,9 +44,11 @@ class RefreshingToken(UserString):
                 request_body = f"grant_type=refresh_token&scope=openid client groups offline_access&refresh_token={refresh_token}"
 
                 # request parameters
-                kwargs = {"headers": headers}
-                kwargs["proxies"] = proxies
-                kwargs["verify"] = certificate_filename
+                kwargs = {
+                    "headers": headers,
+                    "proxies": proxies,
+                    "verify": certificate_filename
+                }
 
                 okta_response = requests.post(token_url, data=request_body, **kwargs)
 

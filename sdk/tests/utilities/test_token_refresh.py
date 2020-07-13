@@ -67,14 +67,13 @@ class TokenRefresh(unittest.TestCase):
             proxy_url = os.getenv("HTTPS_PROXY", None)
 
         if proxy_url is not None:
-
             refreshed_token = RefreshingToken(token_url=self.config.token_url,
                                               client_id=self.config.client_id,
                                               client_secret=self.config.client_secret,
                                               initial_access_token=original_token,
                                               initial_token_expiry=1,  # 1s expiry
                                               refresh_token=refresh_token,
-                                              expiry_offset=3599,     # set to 1s expiry
+                                              expiry_offset=3599,  # set to 1s expiry
                                               proxies={})
 
             self.assertIsNotNone(refreshed_token)
@@ -115,11 +114,10 @@ class TokenRefresh(unittest.TestCase):
                                           initial_access_token=original_token,
                                           initial_token_expiry=1,  # 1s expiry
                                           refresh_token=refresh_token,
-                                          expiry_offset=3599,     # set to 1s expiry
+                                          expiry_offset=3599,  # set to 1s expiry
                                           proxies=proxies)
 
         self.assertIsNotNone(refreshed_token)
-
 
     def test_refreshed_token_when_expired(self):
         original_token, refresh_token = tu.get_okta_tokens(CredentialsSource.secrets_path())

@@ -74,6 +74,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         api_configuration = ApiConfiguration(**{
                     key: value for key, value in source_config_details.items() if "proxy" not in key
         })
+        api_configuration.app_name = "test_build_client_no_token_provided_config_takes_precedence"
 
         # Use a temporary file and no environment variables to generate the API Client
         with patch.dict('os.environ', env_vars, clear=True), patch("requests.post") as mock_requests:
@@ -107,6 +108,7 @@ class ApiClientBuilderTests(unittest.TestCase):
                         value is not None and "proxy" not in key
                     }
                 }
+        secrets["api"]["applicationName"] = "test_build_client_no_token_provided_file_only"
 
         env_vars = {}
 
@@ -163,6 +165,7 @@ class ApiClientBuilderTests(unittest.TestCase):
                 value is not None and "proxy" not in key
             }
         }
+        secrets["api"]["applicationName"] = "test_build_client_with_token_provided"
 
         [secrets.pop(config) for config in config_to_remove]
 
@@ -186,6 +189,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         api_configuration = ApiConfiguration(**{
             key: value for key, value in source_config_details.items() if "proxy" not in key
         })
+        api_configuration.app_name = "test_use_okta_response_handler"
 
         api_configuration.certificate_filename = None
 
