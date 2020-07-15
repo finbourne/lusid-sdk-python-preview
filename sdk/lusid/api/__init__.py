@@ -7,6 +7,7 @@ from lusid.api.aggregation_api import AggregationApi
 from lusid.api.allocations_api import AllocationsApi
 from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
+from lusid.api.conventions_api import ConventionsApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
 from lusid.api.cut_label_definitions_api import CutLabelDefinitionsApi
 from lusid.api.data_types_api import DataTypesApi

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1660",
+    "version": "0.11.1661",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:37639"
+      "url": "http://localhost:31731"
     }
   ],
   "paths": {
@@ -1264,6 +1264,108 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Get Flow Conventions",
+        "description": "Get a Flow Conventions from a single scope.\r\nThe response will return either the recipe that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
+        "operationId": "GetFlowConventions",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Flow Conventions to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Flow Conventions to retrieve."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The name of the Flow Conventions to retrieve the data for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The name of the Flow Conventions to retrieve the data for."
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved Flow Conventions or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
                 }
               }
             }
@@ -16513,8 +16615,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-15T15:52:47.7510923+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7510935+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178768+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.217878+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16558,8 +16660,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-15T15:52:47.7511016+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7511017+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178854+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.2178855+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16612,8 +16714,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-15T15:52:47.7510923+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7510935+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178768+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.217878+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16657,8 +16759,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-15T15:52:47.7511016+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7511017+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178854+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.2178855+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16711,8 +16813,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-15T15:52:47.7510923+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7510935+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178768+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.217878+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16756,8 +16858,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-15T15:52:47.7511016+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7511017+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178854+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.2178855+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -16810,8 +16912,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-15T15:52:47.7510923+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7510935+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178768+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.217878+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -16855,8 +16957,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-15T15:52:47.7511016+00:00",
-                          "maturityDate": "2020-08-14T15:52:47.7511017+00:00",
+                          "startDate": "2020-07-15T16:19:46.2178854+00:00",
+                          "maturityDate": "2020-08-14T16:19:46.2178855+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -31848,6 +31950,255 @@
         },
         "additionalProperties": false
       },
+      "TenorUnit": {
+        "enum": [
+          "Invalid",
+          "BusinessDay",
+          "Bd",
+          "Day",
+          "D",
+          "Week",
+          "W",
+          "Month",
+          "M",
+          "Quarter",
+          "Q",
+          "Qtr",
+          "SemiAnnual",
+          "SA",
+          "Year",
+          "Y",
+          "Annual"
+        ],
+        "type": "string"
+      },
+      "Tenor": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "unit": {
+            "enum": [
+              "Invalid",
+              "BusinessDay",
+              "Bd",
+              "Day",
+              "D",
+              "Week",
+              "W",
+              "Month",
+              "M",
+              "Quarter",
+              "Q",
+              "Qtr",
+              "SemiAnnual",
+              "SA",
+              "Year",
+              "Y",
+              "Annual"
+            ],
+            "type": "string",
+            "description": "The available values are: Invalid, BusinessDay, Bd, Day, D, Week, W, Month, M, Quarter, Q, Qtr, SemiAnnual, SA, Year, Y, Annual"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DayCountConvention": {
+        "enum": [
+          "Actual360",
+          "Act360",
+          "MoneyMarket",
+          "Actual365",
+          "Act365",
+          "Thirty360",
+          "ThirtyU360",
+          "Bond",
+          "ThirtyE360",
+          "EuroBond",
+          "ActAct",
+          "ActualActual",
+          "ActActIsda",
+          "Invalid"
+        ],
+        "type": "string"
+      },
+      "BusinessDayConvention": {
+        "enum": [
+          "NoAdjustment",
+          "None",
+          "Previous",
+          "P",
+          "Following",
+          "F",
+          "ModifiedPrevious",
+          "MP",
+          "ModifiedFollowing",
+          "MF",
+          "EndOfMonth",
+          "EOM",
+          "EndOfMonthPrevious",
+          "EOMP",
+          "EndOfMonthFollowing",
+          "EOMF",
+          "Invalid"
+        ],
+        "type": "string"
+      },
+      "FlowConventions": {
+        "required": [
+          "currency",
+          "dayCountConvention",
+          "holidayCalendars",
+          "paymentFrequency",
+          "rollConvention"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the convention.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The code of the convention.",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency of the flow convention."
+          },
+          "paymentFrequency": {
+            "$ref": "#/components/schemas/Tenor"
+          },
+          "dayCountConvention": {
+            "enum": [
+              "Actual360",
+              "Act360",
+              "MoneyMarket",
+              "Actual365",
+              "Act365",
+              "Thirty360",
+              "ThirtyU360",
+              "Bond",
+              "ThirtyE360",
+              "EuroBond",
+              "ActAct",
+              "ActualActual",
+              "ActActIsda",
+              "Invalid"
+            ],
+            "type": "string",
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid"
+          },
+          "rollConvention": {
+            "enum": [
+              "NoAdjustment",
+              "None",
+              "Previous",
+              "P",
+              "Following",
+              "F",
+              "ModifiedPrevious",
+              "MP",
+              "ModifiedFollowing",
+              "MF",
+              "EndOfMonth",
+              "EOM",
+              "EndOfMonthPrevious",
+              "EOMP",
+              "EndOfMonthFollowing",
+              "EOMF",
+              "Invalid"
+            ],
+            "type": "string",
+            "description": "The available values are: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid"
+          },
+          "holidayCalendars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of strings denoting holiday calendars that apply to generation and payment."
+          },
+          "settleDays": {
+            "type": "integer",
+            "description": "Number of Good Business Days between the trade date and the effective or settlement date of the instrument.",
+            "format": "int32"
+          },
+          "resetDays": {
+            "type": "integer",
+            "description": "The number of Good Business Days between determination and payment of reset.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A flow convention defines the specification for generation of the date schedule for a leg or set of cashflows.\r\nIt determines the tenor of these and, how to map the unadjusted set of dates to dates which are 'good business\r\ndays'. For example, if an unadjusted date falls on a Saturday or a bank holiday, should it be rolled forward\r\nor backward to obtain the adjusted date."
+      },
+      "ErrorDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of the failed item that this error relates to.",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of failure that occurred.",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "description": "Description of the failure that occurred.",
+            "nullable": true
+          },
+          "errorDetails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "description": "Information about the particular instance of the failure (supplied information depends on the type of failure).",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetConventionsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "$ref": "#/components/schemas/FlowConventions"
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The identifiers which did not resolve to a convention along with the nature of the failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateCorporateActionSourceRequest": {
         "required": [
           "code",
@@ -32163,38 +32514,6 @@
         },
         "additionalProperties": false,
         "description": "A corporate action"
-      },
-      "ErrorDetail": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The id of the failed item that this error relates to.",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of failure that occurred.",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "description": "Description of the failure that occurred.",
-            "nullable": true
-          },
-          "errorDetails": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "description": "Information about the particular instance of the failure (supplied information depends on the type of failure).",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "UpsertCorporateActionsResponse": {
         "type": "object",
@@ -38924,183 +39243,6 @@
         },
         "additionalProperties": false
       },
-      "TenorUnit": {
-        "enum": [
-          "Invalid",
-          "BusinessDay",
-          "Bd",
-          "Day",
-          "D",
-          "Week",
-          "W",
-          "Month",
-          "M",
-          "Quarter",
-          "Q",
-          "Qtr",
-          "SemiAnnual",
-          "SA",
-          "Year",
-          "Y",
-          "Annual"
-        ],
-        "type": "string"
-      },
-      "Tenor": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "format": "double"
-          },
-          "unit": {
-            "enum": [
-              "Invalid",
-              "BusinessDay",
-              "Bd",
-              "Day",
-              "D",
-              "Week",
-              "W",
-              "Month",
-              "M",
-              "Quarter",
-              "Q",
-              "Qtr",
-              "SemiAnnual",
-              "SA",
-              "Year",
-              "Y",
-              "Annual"
-            ],
-            "type": "string",
-            "description": "The available values are: Invalid, BusinessDay, Bd, Day, D, Week, W, Month, M, Quarter, Q, Qtr, SemiAnnual, SA, Year, Y, Annual"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DayCountConvention": {
-        "enum": [
-          "Actual360",
-          "Act360",
-          "MoneyMarket",
-          "Actual365",
-          "Act365",
-          "Thirty360",
-          "ThirtyU360",
-          "Bond",
-          "ThirtyE360",
-          "EuroBond",
-          "ActAct",
-          "ActualActual",
-          "ActActIsda",
-          "Invalid"
-        ],
-        "type": "string"
-      },
-      "BusinessDayConvention": {
-        "enum": [
-          "NoAdjustment",
-          "None",
-          "Previous",
-          "P",
-          "Following",
-          "F",
-          "ModifiedPrevious",
-          "MP",
-          "ModifiedFollowing",
-          "MF",
-          "EndOfMonth",
-          "EOM",
-          "EndOfMonthPrevious",
-          "EOMP",
-          "EndOfMonthFollowing",
-          "EOMF",
-          "Invalid"
-        ],
-        "type": "string"
-      },
-      "FlowConventions": {
-        "required": [
-          "currency",
-          "dayCountConvention",
-          "holidayCalendars",
-          "paymentFrequency",
-          "rollConvention"
-        ],
-        "type": "object",
-        "properties": {
-          "scope": {
-            "type": "string",
-            "description": "The scope used when updating or inserting the convention.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The code of the convention.",
-            "nullable": true
-          },
-          "currency": {
-            "type": "string",
-            "description": "Currency of the flow convention."
-          },
-          "paymentFrequency": {
-            "$ref": "#/components/schemas/Tenor"
-          },
-          "dayCountConvention": {
-            "enum": [
-              "Actual360",
-              "Act360",
-              "MoneyMarket",
-              "Actual365",
-              "Act365",
-              "Thirty360",
-              "ThirtyU360",
-              "Bond",
-              "ThirtyE360",
-              "EuroBond",
-              "ActAct",
-              "ActualActual",
-              "ActActIsda",
-              "Invalid"
-            ],
-            "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid"
-          },
-          "rollConvention": {
-            "enum": [
-              "NoAdjustment",
-              "None",
-              "Previous",
-              "P",
-              "Following",
-              "F",
-              "ModifiedPrevious",
-              "MP",
-              "ModifiedFollowing",
-              "MF",
-              "EndOfMonth",
-              "EOM",
-              "EndOfMonthPrevious",
-              "EOMP",
-              "EndOfMonthFollowing",
-              "EOMF",
-              "Invalid"
-            ],
-            "type": "string",
-            "description": "The available values are: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid"
-          },
-          "holidayCalendars": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "An array of strings denoting holiday calendars that apply to generation and payment."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A flow convention defines the specification for generation of the date schedule for a leg or set of cashflows.\r\nIt determines the tenor of these and, how to map the unadjusted set of dates to dates which are 'good business\r\ndays'. For example, if an unadjusted date falls on a Saturday or a bank holiday, should it be rolled forward\r\nor backward to obtain the adjusted date."
-      },
       "BondInstrument": {
         "allOf": [
           {
@@ -39254,6 +39396,16 @@
               "type": "string"
             },
             "description": "An array of strings denoting holiday calendars that apply to generation and payment."
+          },
+          "settleDays": {
+            "type": "integer",
+            "description": "Number of Good Business Days between the trade date and the effective or settlement date of the instrument.",
+            "format": "int32"
+          },
+          "resetDays": {
+            "type": "integer",
+            "description": "The number of Good Business Days between determination and payment of reset.",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -40241,6 +40393,10 @@
       "description": "Methods for the storage and retrieval of Configuration Recipe documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/recipes."
     },
     {
+      "name": "Conventions",
+      "description": "Methods for the storage and retrieval of flow conventions."
+    },
+    {
       "name": "Corporate Action Sources",
       "description": "Methods for storage and retrieval of Corporate Action Sources"
     },
@@ -40344,6 +40500,7 @@
       "Allocations",
       "Application Metadata",
       "Configuration Recipe",
+      "Conventions",
       "Corporate Action Sources",
       "Cut Label Definitions",
       "Data Types",
