@@ -1,6 +1,6 @@
 # lusid.ReconciliationsApi
 
-All URIs are relative to *http://localhost:54718*
+All URIs are relative to *http://localhost:59141*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:54718
-configuration.host = "http://localhost:54718"
+# Defining host is optional and default to http://localhost:59141
+configuration.host = "http://localhost:59141"
 # Create an instance of the API class
 api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -100,8 +100,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:54718
-configuration.host = "http://localhost:54718"
+# Defining host is optional and default to http://localhost:59141
+configuration.host = "http://localhost:59141"
 # Create an instance of the API class
 api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -170,15 +170,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:54718
-configuration.host = "http://localhost:54718"
+# Defining host is optional and default to http://localhost:59141
+configuration.host = "http://localhost:59141"
 # Create an instance of the API class
 api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-inline_valuations_reconciliation_request = {"left":{"scope":"MySourceScope","aggregation":{"request":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPUSD","instrument":{"domAmount":100,"fgnAmount":-150,"isNdf":false,"fixingDate":"0001-01-01T00:00:00+00:00","fgnCcy":"GBP","refSpotRate":1.5,"startDate":"2020-07-17T11:51:02.9217552+00:00","maturityDate":"2020-08-16T11:51:02.9217562+00:00","domCcy":"USD","instrumentType":"FxForward"}}]}},"right":{"scope":"MyTargetScope","aggregation":{"request":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPJPY","instrument":{"domAmount":100,"fgnAmount":-150,"isNdf":false,"fixingDate":"0001-01-01T00:00:00+00:00","fgnCcy":"GBP","refSpotRate":132,"startDate":"2020-07-17T11:51:02.9217643+00:00","maturityDate":"2020-08-16T11:51:02.9217644+00:00","domCcy":"JPY","instrumentType":"FxForward"}}]}},"leftToRightMapping":[],"preserveKeys":[]} # InlineValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
+inline_valuations_reconciliation_request = {"left":{"scope":"MySourceScope","aggregation":{"request":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPUSD","instrument":{"domAmount":100,"fgnAmount":-150,"isNdf":false,"fixingDate":"0001-01-01T00:00:00+00:00","fgnCcy":"GBP","refSpotRate":1.5,"startDate":"2020-07-17T12:09:09.0003745+00:00","maturityDate":"2020-08-16T12:09:09.0003753+00:00","domCcy":"USD","instrumentType":"FxForward"}}]}},"right":{"scope":"MyTargetScope","aggregation":{"request":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPJPY","instrument":{"domAmount":100,"fgnAmount":-150,"isNdf":false,"fixingDate":"0001-01-01T00:00:00+00:00","fgnCcy":"GBP","refSpotRate":132,"startDate":"2020-07-17T12:09:09.0003822+00:00","maturityDate":"2020-08-16T12:09:09.0003824+00:00","domCcy":"JPY","instrumentType":"FxForward"}}]}},"leftToRightMapping":[],"preserveKeys":[]} # InlineValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
 try:
     # [EXPERIMENTAL] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
@@ -240,8 +240,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:54718
-configuration.host = "http://localhost:54718"
+# Defining host is optional and default to http://localhost:59141
+configuration.host = "http://localhost:59141"
 # Create an instance of the API class
 api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
