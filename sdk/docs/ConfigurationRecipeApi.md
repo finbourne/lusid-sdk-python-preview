@@ -1,13 +1,12 @@
 # lusid.ConfigurationRecipeApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:55744*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_configuration_recipe**](ConfigurationRecipeApi.md#delete_configuration_recipe) | **DELETE** /api/recipes/{scope}/{code} | [EXPERIMENTAL] Delete a Configuration Recipe, assuming that it is present.
 [**get_configuration_recipe**](ConfigurationRecipeApi.md#get_configuration_recipe) | **GET** /api/recipes/{scope}/{code} | [EXPERIMENTAL] Get Configuration Recipe
 [**list_configuration_recipes**](ConfigurationRecipeApi.md#list_configuration_recipes) | **GET** /api/recipes | [EXPERIMENTAL] List the set of Configuration Recipes
-[**list_configuration_recipes_for_all_scopes**](ConfigurationRecipeApi.md#list_configuration_recipes_for_all_scopes) | **GET** /api/recipes/list | [EXPERIMENTAL] List the set of Configuration Recipes from all scopes
 [**upsert_configuration_recipe**](ConfigurationRecipeApi.md#upsert_configuration_recipe) | **POST** /api/recipes | [EXPERIMENTAL] Upsert a Configuration Recipe. This creates or updates the data in Lusid.
 
 
@@ -31,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:55744
+configuration.host = "http://localhost:55744"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to delete.
@@ -95,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:55744
+configuration.host = "http://localhost:55744"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Configuration Recipe to retrieve.
@@ -161,8 +160,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:55744
+configuration.host = "http://localhost:55744"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)
@@ -203,70 +202,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_configuration_recipes_for_all_scopes**
-> ResourceListOfGetRecipeResponse list_configuration_recipes_for_all_scopes(as_at=as_at, filter=filter)
-
-[EXPERIMENTAL] List the set of Configuration Recipes from all scopes
-
-List the set of configuration recipes at the specified date/time across all the scopes and allowing filtering (e.g. filter by scope)
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)
-filter = 'filter_example' # str | Expression to filter the result set.             For example, to filter on code, use \"value.code eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-
-try:
-    # [EXPERIMENTAL] List the set of Configuration Recipes from all scopes
-    api_response = api_instance.list_configuration_recipes_for_all_scopes(as_at=as_at, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConfigurationRecipeApi->list_configuration_recipes_for_all_scopes: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **as_at** | **datetime**| The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional] 
- **filter** | **str**| Expression to filter the result set.             For example, to filter on code, use \&quot;value.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
-
-### Return type
-
-[**ResourceListOfGetRecipeResponse**](ResourceListOfGetRecipeResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The configuration recipes for all scopes |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **upsert_configuration_recipe**
 > UpsertSingleStructuredDataResponse upsert_configuration_recipe(upsert_recipe_request)
 
@@ -287,8 +222,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:55744
+configuration.host = "http://localhost:55744"
 # Create an instance of the API class
 api_instance = lusid.ConfigurationRecipeApi(lusid.ApiClient(configuration))
 upsert_recipe_request = {"configurationRecipe":{"scope":"scopeName","code":"MyNamedRecipe12345","market":{"marketRules":[{"key":"Fx.CurrencyPair.*","supplier":"DataScope","dataScope":"SomeScopeToLookAt","quoteType":"Rate","field":"Mid","priceSource":""}],"suppliers":{},"options":{"defaultSupplier":"Lusid","defaultInstrumentCodeType":"LusidInstrumentId","defaultScope":"default","attemptToInferMissingFx":false,"manifestLevelOfDetail":"None"}},"pricing":{"modelRules":[],"modelChoice":{},"options":{"modelSelection":{"library":"Lusid","model":"SimpleStatic"},"useInstrumentTypeToDeterminePricer":false,"allowAnyInstrumentsWithSecUidToPriceOffLookup":false,"allowPartiallySuccessfulEvaluation":false,"produceSeparateResultForLinearOtcLegs":false,"enableUseOfCachedUnitResults":false,"windowValuationOnInstrumentStartEnd":false,"removeContingentCashflowsInPaymentDiary":false,"useChildSubHoldingKeysForPortfolioExpansion":false},"resultDataRules":[]},"aggregation":{"options":{"useAnsiLikeSyntax":false}},"inheritedRecipes":[],"description":""}} # UpsertRecipeRequest | The Configuration Recipe to update or insert
