@@ -1,0 +1,20 @@
+# Date
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**href** | **str** |  | [optional] 
+**calendar_identifier** | [**ResourceId**](ResourceId.md) |  | 
+**date_identifier** | **str** |  | 
+**from_utc** | **datetime** |  | 
+**to_utc** | **datetime** |  | 
+**local_date** | **str** |  | 
+**timezone** | **str** |  | 
+**description** | **str** |  | 
+**type** | **str** |  | 
+**attributes** | [**DateAttributes**](DateAttributes.md) |  | 
+**source_data** | **dict(str, str)** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
