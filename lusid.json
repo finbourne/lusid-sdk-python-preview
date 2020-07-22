@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1690",
+    "version": "0.11.1691",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:44670"
+      "url": "http://localhost:47226"
     }
   ],
   "paths": {
@@ -18160,8 +18160,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T14:36:56.7145352+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145362+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264322+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264329+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18205,8 +18205,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T14:36:56.7145433+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145434+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264394+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264395+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18259,8 +18259,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T14:36:56.7145352+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145362+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264322+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264329+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18304,8 +18304,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T14:36:56.7145433+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145434+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264394+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264395+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18358,8 +18358,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T14:36:56.7145352+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145362+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264322+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264329+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18403,8 +18403,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T14:36:56.7145433+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145434+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264394+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264395+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18457,8 +18457,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T14:36:56.7145352+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145362+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264322+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264329+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18502,8 +18502,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T14:36:56.7145433+00:00",
-                          "maturityDate": "2020-08-21T14:36:56.7145434+00:00",
+                          "startDate": "2020-07-22T18:08:32.6264394+00:00",
+                          "maturityDate": "2020-08-21T18:08:32.6264395+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33970,8 +33970,6 @@
           "ActAct",
           "ActualActual",
           "ActActIsda",
-          "ActActIsma",
-          "ActActIcma",
           "Invalid"
         ],
         "type": "string"
@@ -34040,12 +34038,10 @@
               "ActAct",
               "ActualActual",
               "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
               "Invalid"
             ],
             "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid"
           },
           "rollConvention": {
             "enum": [
@@ -41390,12 +41386,10 @@
               "ActAct",
               "ActualActual",
               "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
               "Invalid"
             ],
             "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid"
           },
           "rollConvention": {
             "enum": [
@@ -41821,12 +41815,10 @@
               "ActAct",
               "ActualActual",
               "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
               "Invalid"
             ],
             "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, Invalid"
           },
           "currency": {
             "type": "string",
