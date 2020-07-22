@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **add_date_to_calendar**
-> Date add_date_to_calendar(scope, code, create_date_request)
+> CalendarDate add_date_to_calendar(scope, code, create_date_request)
 
 [EXPERIMENTAL] Add a date to a calendar
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Date**](Date.md)
+[**CalendarDate**](CalendarDate.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_date_from_calendar**
-> Date delete_date_from_calendar(scope, code, date_id)
+> CalendarDate delete_date_from_calendar(scope, code, date_id)
 
 [EXPERIMENTAL] Remove a date from a calendar
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Date**](Date.md)
+[**CalendarDate**](CalendarDate.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_dates**
-> ResourceListOfDate get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
+> ResourceListOfCalendarDate get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
 
 [EXPERIMENTAL] Get dates for a specific calendar
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfDate**](ResourceListOfDate.md)
+[**ResourceListOfCalendarDate**](ResourceListOfCalendarDate.md)
 
 ### Authorization
 

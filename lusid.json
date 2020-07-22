@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1687",
+    "version": "0.11.1688",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -1983,7 +1983,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfDate"
+                  "$ref": "#/components/schemas/ResourceListOfCalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2003,7 +2003,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfDate"
+                  "$ref": "#/components/schemas/ResourceListOfCalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2023,7 +2023,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfDate"
+                  "$ref": "#/components/schemas/ResourceListOfCalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2178,7 +2178,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2198,7 +2198,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2218,7 +2218,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2323,7 +2323,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2343,7 +2343,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -2363,7 +2363,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Date"
+                  "$ref": "#/components/schemas/CalendarDate"
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
@@ -18160,8 +18160,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T11:16:42.7314203+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314209+00:00",
+                          "startDate": "2020-07-22T12:38:02.2167985+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2167991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18205,8 +18205,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T11:16:42.7314285+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314286+00:00",
+                          "startDate": "2020-07-22T12:38:02.2168053+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2168054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18259,8 +18259,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T11:16:42.7314203+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314209+00:00",
+                          "startDate": "2020-07-22T12:38:02.2167985+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2167991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18304,8 +18304,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T11:16:42.7314285+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314286+00:00",
+                          "startDate": "2020-07-22T12:38:02.2168053+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2168054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18358,8 +18358,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T11:16:42.7314203+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314209+00:00",
+                          "startDate": "2020-07-22T12:38:02.2167985+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2167991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18403,8 +18403,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T11:16:42.7314285+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314286+00:00",
+                          "startDate": "2020-07-22T12:38:02.2168053+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2168054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18457,8 +18457,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-22T11:16:42.7314203+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314209+00:00",
+                          "startDate": "2020-07-22T12:38:02.2167985+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2167991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18502,8 +18502,8 @@
                           "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-22T11:16:42.7314285+00:00",
-                          "maturityDate": "2020-08-21T11:16:42.7314286+00:00",
+                          "startDate": "2020-07-22T12:38:02.2168053+00:00",
+                          "maturityDate": "2020-08-21T12:38:02.2168054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33739,7 +33739,7 @@
         },
         "additionalProperties": false
       },
-      "Date": {
+      "CalendarDate": {
         "required": [
           "attributes",
           "calendarIdentifier",
@@ -33797,7 +33797,7 @@
         },
         "additionalProperties": false
       },
-      "ResourceListOfDate": {
+      "ResourceListOfCalendarDate": {
         "required": [
           "values"
         ],
@@ -33806,7 +33806,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Date"
+              "$ref": "#/components/schemas/CalendarDate"
             }
           },
           "href": {
