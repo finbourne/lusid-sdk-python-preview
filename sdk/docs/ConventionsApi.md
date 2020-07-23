@@ -1,6 +1,6 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *http://localhost:47515*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47515
-configuration.host = "http://localhost:47515"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the conventions to delete.
@@ -93,8 +93,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47515
-configuration.host = "http://localhost:47515"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47515
-configuration.host = "http://localhost:47515"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
