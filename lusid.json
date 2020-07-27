@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1703",
+    "version": "0.11.1704",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:49308"
+      "url": "http://localhost:57724"
     }
   ],
   "paths": {
@@ -18160,8 +18160,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-27T13:20:07.5857218+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857223+00:00",
+                          "startDate": "2020-07-27T14:17:00.831454+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314549+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18205,8 +18205,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-27T13:20:07.5857288+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857289+00:00",
+                          "startDate": "2020-07-27T14:17:00.8314616+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314617+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18259,8 +18259,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-27T13:20:07.5857218+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857223+00:00",
+                          "startDate": "2020-07-27T14:17:00.831454+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314549+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18304,8 +18304,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-27T13:20:07.5857288+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857289+00:00",
+                          "startDate": "2020-07-27T14:17:00.8314616+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314617+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18358,8 +18358,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-27T13:20:07.5857218+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857223+00:00",
+                          "startDate": "2020-07-27T14:17:00.831454+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314549+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18403,8 +18403,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-27T13:20:07.5857288+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857289+00:00",
+                          "startDate": "2020-07-27T14:17:00.8314616+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314617+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18457,8 +18457,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-07-27T13:20:07.5857218+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857223+00:00",
+                          "startDate": "2020-07-27T14:17:00.831454+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314549+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18502,8 +18502,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-07-27T13:20:07.5857288+00:00",
-                          "maturityDate": "2020-08-26T13:20:07.5857289+00:00",
+                          "startDate": "2020-07-27T14:17:00.8314616+00:00",
+                          "maturityDate": "2020-08-26T14:17:00.8314617+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -19431,19 +19431,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -19459,19 +19460,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -19487,19 +19489,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -19974,7 +19977,7 @@
                 "$ref": "#/components/schemas/CreateDerivedPropertyDefinitionRequest"
               },
               "example": {
-                "domain": "Portfolio",
+                "domain": "Instrument",
                 "scope": "MyScope",
                 "code": "MyDerivedPropertyName",
                 "displayName": "My Property Display Name",
@@ -19990,7 +19993,7 @@
                 "$ref": "#/components/schemas/CreateDerivedPropertyDefinitionRequest"
               },
               "example": {
-                "domain": "Portfolio",
+                "domain": "Instrument",
                 "scope": "MyScope",
                 "code": "MyDerivedPropertyName",
                 "displayName": "My Property Display Name",
@@ -20006,7 +20009,7 @@
                 "$ref": "#/components/schemas/CreateDerivedPropertyDefinitionRequest"
               },
               "example": {
-                "domain": "Portfolio",
+                "domain": "Instrument",
                 "scope": "MyScope",
                 "code": "MyDerivedPropertyName",
                 "displayName": "My Property Display Name",
@@ -20022,7 +20025,7 @@
                 "$ref": "#/components/schemas/CreateDerivedPropertyDefinitionRequest"
               },
               "example": {
-                "domain": "Portfolio",
+                "domain": "Instrument",
                 "scope": "MyScope",
                 "code": "MyDerivedPropertyName",
                 "displayName": "My Property Display Name",
@@ -24528,19 +24531,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -24556,19 +24560,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -24584,19 +24589,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -24709,19 +24715,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -24737,19 +24744,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -24765,19 +24773,20 @@
                       "href": "https://example.lusid.com/api/properties/demo-scope/demo-code",
                       "key": "Portfolio/default/Country",
                       "valueType": "String",
-                      "valueRequired": false,
                       "displayName": "Country",
                       "dataTypeId": {
                         "scope": "demo-scope",
                         "code": "demo-code"
                       },
-                      "lifeTime": "Perpetual",
                       "type": "Information",
                       "unitSchema": "Basic",
                       "domain": "Portfolio",
                       "scope": "default",
                       "code": "Country",
-                      "constraintStyle": "Property"
+                      "valueRequired": false,
+                      "lifeTime": "Perpetual",
+                      "constraintStyle": "Property",
+                      "propertyDefinitionType": "ValueProperty"
                     }
                   ],
                   "href": "https://example.lusid.com/api/properties"
@@ -38192,6 +38201,13 @@
         "type": "string",
         "description": "See https://wiki.finbourne.com/information/domain-model-properties"
       },
+      "PropertyDefinitionType": {
+        "enum": [
+          "ValueProperty",
+          "DerivedDefinition"
+        ],
+        "type": "string"
+      },
       "PropertyDefinition": {
         "type": "object",
         "properties": {
@@ -38263,10 +38279,6 @@
             "type": "string",
             "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
-          "valueRequired": {
-            "type": "boolean",
-            "description": "Whether or not a value is always required for this property."
-          },
           "displayName": {
             "type": "string",
             "description": "The display name of the property.",
@@ -38274,14 +38286,6 @@
           },
           "dataTypeId": {
             "$ref": "#/components/schemas/ResourceId"
-          },
-          "lifeTime": {
-            "enum": [
-              "Perpetual",
-              "TimeVariant"
-            ],
-            "type": "string",
-            "description": "Describes how the property's values can change over time. The available values are: Perpetual, TimeVariant"
           },
           "type": {
             "enum": [
@@ -38337,10 +38341,30 @@
             "nullable": true,
             "readOnly": true
           },
+          "valueRequired": {
+            "type": "boolean",
+            "description": "Whether or not a value is always required for this property."
+          },
+          "lifeTime": {
+            "enum": [
+              "Perpetual",
+              "TimeVariant"
+            ],
+            "type": "string",
+            "description": "Describes how the property's values can change over time. The available values are: Perpetual, TimeVariant"
+          },
           "constraintStyle": {
             "type": "string",
             "description": "Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key.",
             "nullable": true
+          },
+          "propertyDefinitionType": {
+            "enum": [
+              "ValueProperty",
+              "DerivedDefinition"
+            ],
+            "type": "string",
+            "description": "The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition"
           },
           "links": {
             "type": "array",
