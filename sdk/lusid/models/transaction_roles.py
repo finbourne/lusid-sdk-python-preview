@@ -30,12 +30,12 @@ class TransactionRoles(object):
     LONGLONGER = "LongLonger"
     LONGSHORTER = "LongShorter"
     SHORTSHORTER = "ShortShorter"
+    SHORTER = "Shorter"
     SHORTLONGER = "ShortLonger"
     LONGER = "Longer"
-    SHORTER = "Shorter"
     ALLROLES = "AllRoles"
 
-    allowable_values = [NONE, LONGLONGER, LONGSHORTER, SHORTSHORTER, SHORTLONGER, LONGER, SHORTER, ALLROLES]  # noqa: E501
+    allowable_values = [NONE, LONGLONGER, LONGSHORTER, SHORTSHORTER, SHORTER, SHORTLONGER, LONGER, ALLROLES]  # noqa: E501
 
     """
     Attributes:
