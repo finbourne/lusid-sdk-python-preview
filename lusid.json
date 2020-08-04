@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1736",
+    "version": "0.11.1737",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:32735"
+      "url": "http://localhost:59598"
     }
   ],
   "paths": {
@@ -17674,8 +17674,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-04T10:12:16.4403374+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403384+00:00",
+                          "startDate": "2020-08-04T10:49:06.2055977+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2055991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17719,8 +17719,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-04T10:12:16.440346+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403461+00:00",
+                          "startDate": "2020-08-04T10:49:06.2056053+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2056054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17773,8 +17773,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-04T10:12:16.4403374+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403384+00:00",
+                          "startDate": "2020-08-04T10:49:06.2055977+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2055991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17818,8 +17818,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-04T10:12:16.440346+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403461+00:00",
+                          "startDate": "2020-08-04T10:49:06.2056053+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2056054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17872,8 +17872,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-04T10:12:16.4403374+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403384+00:00",
+                          "startDate": "2020-08-04T10:49:06.2055977+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2055991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17917,8 +17917,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-04T10:12:16.440346+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403461+00:00",
+                          "startDate": "2020-08-04T10:49:06.2056053+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2056054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17971,8 +17971,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-04T10:12:16.4403374+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403384+00:00",
+                          "startDate": "2020-08-04T10:49:06.2055977+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2055991+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18016,8 +18016,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-04T10:12:16.440346+00:00",
-                          "maturityDate": "2020-09-03T10:12:16.4403461+00:00",
+                          "startDate": "2020-08-04T10:49:06.2056053+00:00",
+                          "maturityDate": "2020-09-03T10:49:06.2056054+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -41299,79 +41299,29 @@
         ],
         "description": "Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,\r\n            by a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics\r\n            like FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches."
       },
-      "TenorUnit": {
-        "enum": [
-          "Invalid",
-          "BusinessDay",
-          "Bd",
-          "Day",
-          "D",
-          "Week",
-          "W",
-          "Month",
-          "M",
-          "Quarter",
-          "Q",
-          "Qtr",
-          "SemiAnnual",
-          "SA",
-          "Year",
-          "Y",
-          "Annual"
-        ],
-        "type": "string"
-      },
-      "Tenor": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "format": "double"
-          },
-          "unit": {
-            "enum": [
-              "Invalid",
-              "BusinessDay",
-              "Bd",
-              "Day",
-              "D",
-              "Week",
-              "W",
-              "Month",
-              "M",
-              "Quarter",
-              "Q",
-              "Qtr",
-              "SemiAnnual",
-              "SA",
-              "Year",
-              "Y",
-              "Annual"
-            ],
-            "type": "string",
-            "description": "The available values are: Invalid, BusinessDay, Bd, Day, D, Week, W, Month, M, Quarter, Q, Qtr, SemiAnnual, SA, Year, Y, Annual"
-          }
-        },
-        "additionalProperties": false
-      },
       "IndexConvention": {
         "required": [
           "currency",
           "dayCountConvention",
           "fixingReference",
-          "name",
           "paymentTenor",
           "publicationDayLag"
         ],
         "type": "object",
         "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the convention.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The code of the convention.",
+            "nullable": true
+          },
           "fixingReference": {
             "type": "string",
             "description": "The reference rate name for fixings"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the index convention"
           },
           "publicationDayLag": {
             "type": "integer",
@@ -41379,7 +41329,8 @@
             "format": "int32"
           },
           "paymentTenor": {
-            "$ref": "#/components/schemas/Tenor"
+            "type": "string",
+            "description": "The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year."
           },
           "dayCountConvention": {
             "enum": [
