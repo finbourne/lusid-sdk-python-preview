@@ -1,14 +1,17 @@
+from threading import Lock
+
 from urllib3 import make_headers
-from urllib.request import pathname2url
-import requests
 
 from lusid import Configuration, ApiClient
-
 from .api_configuration_loader import ApiConfigurationLoader
-from .refreshing_token import RefreshingToken
+from .client_credentials_flow_provider import ClientCredentialsFlowProvider
 
 
 class ApiClientBuilder:
+
+    __mutex = Lock()
+    __okta_responses = {}
+
     """
     The ApiClientBuilder is responsible for building a lusid.ApiClient. This includes obtaining an access token from
     Okta or using the provided token.
@@ -36,8 +39,8 @@ class ApiClientBuilder:
                 f"please ensure that you have provided them directly, via a secrets file or environment "
                 f"variables")
 
-    @staticmethod
-    def __generate_access_token(configuration, okta_response_handler):
+    @classmethod
+    def __generate_access_token(cls, configuration, okta_response_handler):
         """
         This function generates an access token by making a call to Okta
 
@@ -46,52 +49,46 @@ class ApiClientBuilder:
 
         :return: RefreshingToken api_token: A refreshing API token
         """
-        # Encode credentials that may contain special characters
-        encoded_password = pathname2url(configuration.password)
-        encoded_client_id = pathname2url(configuration.client_id)
-        encoded_client_secret = pathname2url(configuration.client_secret)
 
-        # Prepare our authentication request
-        token_request_body = f"grant_type=password&username={configuration.username}" \
-            f"&password={encoded_password}&scope=openid client groups offline_access" \
-            f"&client_id={encoded_client_id}&client_secret={encoded_client_secret}"
+        try:
 
-        headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
+            cls.__mutex.acquire()
 
-        # extra request args
-        kwargs = {"headers": headers}
+            # create a simple key by concatentating all the credential values
+            token_key = "_".join([x for x in configuration.__dict__.values() if x is not None and isinstance(x, str)])
+            api_tokens = cls.__okta_responses.get(token_key)
 
-        if configuration.proxy_config is not None:
-            kwargs["proxies"] = configuration.proxy_config.format_proxy_schema()
+            # if there isn't a token cached then get a new one from Okta
+            if api_tokens is None:
 
-        # use certificate if supplied
-        if configuration.certificate_filename is not None:
-            kwargs["verify"] = configuration.certificate_filename
+                okta_response = None
 
-        # make request to Okta to get an authentication token
-        okta_response = requests.post(configuration.token_url, data=token_request_body, **kwargs)
+                def extract_tokens(response):
+                    nonlocal okta_response
+                    okta_response = response
 
-        if okta_response_handler is not None:
-            okta_response_handler(okta_response)
+                    if okta_response_handler is not None:
+                        okta_response_handler(response)
 
-        # Ensure that we have a 200 response code
-        if okta_response.status_code != 200:
-            raise ValueError(okta_response.json())
+                token_provider = ClientCredentialsFlowProvider(configuration, extract_tokens)
+                api_token = token_provider.get_auth_token()
 
-        # convert the json encoded response to be able to extract the token values
-        okta_json = okta_response.json()
+                # cache the token and the corresponding okta response
+                cls.__okta_responses[token_key] = (api_token, okta_response)
 
-        # Retrieve our api token from the authentication response
-        api_token = RefreshingToken(token_url=configuration.token_url,
-                                    client_id=encoded_client_id,
-                                    client_secret=encoded_client_secret,
-                                    initial_access_token=okta_json["access_token"],
-                                    initial_token_expiry=okta_json["expires_in"],
-                                    refresh_token=okta_json["refresh_token"],
-                                    proxies=kwargs.get("proxies", None),
-                                    certificate_filename=kwargs.get("verify", None))
+            else:
+
+                # if a handler is defined, call it with the okta response for the token
+                if okta_response_handler is not None:
+                    okta_response_handler(api_tokens[1])
+
+                api_token = api_tokens[0]
+
+        finally:
+            cls.__mutex.release()
 
         return api_token
+
 
     @classmethod
     def build(cls, api_secrets_filename=None, okta_response_handler=None, api_configuration=None, token=None):

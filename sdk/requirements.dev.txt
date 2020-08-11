@@ -1,1 +1,3 @@
+-r requirements.txt
+asynctest
 parameterized==0.7.*
