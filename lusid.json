@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1759",
+    "version": "0.11.1760",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:37256"
+      "url": "http://localhost:48199"
     }
   ],
   "paths": {
@@ -1264,6 +1264,132 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/calendar/businessday/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Calendars"
+        ],
+        "summary": "[EXPERIMENTAL] Check whether a DateTime is a \"Business DateTime\"",
+        "description": "A Business DateTime is defined as a point in time that:\r\n    * Does not represent a day that overlaps with the calendars WeekendMask\r\n    * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar\r\n    * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar\r\n            \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive \r\ne.g. From: 2020-12-25-00-00-00 \r\n     To: 2020-12-26-00-00-00\r\nIsBusinessDay(2020-12-26-00-00-00) == false",
+        "operationId": "IsBusinessDateTime",
+        "parameters": [
+          {
+            "name": "dateTime",
+            "in": "query",
+            "description": "DateTime to check - This DateTime must be UTC",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "DateTime to check - This DateTime must be UTC",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope of the calendar",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the calendar"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the calendar",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the calendar"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "AsAt for the request",
+            "schema": {
+              "type": "string",
+              "description": "AsAt for the request",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether or not the requested DateTime is a BusinessDay or not",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IsBusinessDayResponse"
+                },
+                "example": {
+                  "requestedDateTime": "2020-02-12T12:00:00+00:00",
+                  "isBusinessDay": true
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IsBusinessDayResponse"
+                },
+                "example": {
+                  "requestedDateTime": "2020-02-12T12:00:00+00:00",
+                  "isBusinessDay": true
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IsBusinessDayResponse"
+                },
+                "example": {
+                  "requestedDateTime": "2020-02-12T12:00:00+00:00",
+                  "isBusinessDay": true
                 }
               }
             }
@@ -17674,8 +17800,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:30:08.3990691+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990697+00:00",
+                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17719,8 +17845,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:30:08.3990755+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990755+00:00",
+                          "startDate": "2020-08-12T08:58:09.331469+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17773,8 +17899,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:30:08.3990691+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990697+00:00",
+                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17818,8 +17944,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:30:08.3990755+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990755+00:00",
+                          "startDate": "2020-08-12T08:58:09.331469+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17872,8 +17998,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:30:08.3990691+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990697+00:00",
+                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17917,8 +18043,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:30:08.3990755+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990755+00:00",
+                          "startDate": "2020-08-12T08:58:09.331469+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17971,8 +18097,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:30:08.3990691+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990697+00:00",
+                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18016,8 +18142,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:30:08.3990755+00:00",
-                          "maturityDate": "2020-09-11T08:30:08.3990755+00:00",
+                          "startDate": "2020-08-12T08:58:09.331469+00:00",
+                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33108,6 +33234,24 @@
           }
         },
         "additionalProperties": false
+      },
+      "IsBusinessDayResponse": {
+        "required": [
+          "isBusinessDay",
+          "requestedDateTime"
+        ],
+        "type": "object",
+        "properties": {
+          "requestedDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isBusinessDay": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Whether or not a DateTimeOffset is a business DateTime"
       },
       "DayOfWeek": {
         "enum": [
