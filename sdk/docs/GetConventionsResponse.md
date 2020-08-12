@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
-**value** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
+**value** | [**Conventions**](Conventions.md) |  | [optional] 
 **failed** | [**dict(str, ErrorDetail)**](ErrorDetail.md) | The identifiers which did not resolve to a conventions along with the nature of the failure. | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 

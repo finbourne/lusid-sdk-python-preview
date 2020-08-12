@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1760",
+    "version": "0.11.1761",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:48199"
+      "url": "http://localhost:41522"
     }
   ],
   "paths": {
@@ -2890,7 +2890,509 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/conventions/{scope}/{code}": {
+    "/api/conventions/credit/conventions": {
+      "post": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.",
+        "description": "Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
+        "operationId": "UpsertCdsFlowConventions",
+        "requestBody": {
+          "description": "The CDS Flow Conventions to update or insert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "rollFrequency": "6M",
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleCdsFlowConventionsName"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "rollFrequency": "6M",
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleCdsFlowConventionsName"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "rollFrequency": "6M",
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleCdsFlowConventionsName"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "rollFrequency": "6M",
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleCdsFlowConventionsName"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully updated or inserted item or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/credit/conventions/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Get CDS Flow Conventions",
+        "description": "Get a CDS Flow Conventions from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
+        "operationId": "GetCdsFlowConventions",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the CDS Flow Conventions to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the CDS Flow Conventions to retrieve."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The name of the CDS Flow Conventions to retrieve the data for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The name of the CDS Flow Conventions to retrieve the data for."
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved CDS Flow Conventions or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.",
+        "description": "Delete the specified CDS Flow Conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
+        "operationId": "DeleteCdsFlowConventions",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the CDS Flow Conventions to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the CDS Flow Conventions to delete."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The CDS Flow Conventions to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The CDS Flow Conventions to delete."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The AsAt of deletion or failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/rates/flowconventions": {
+      "post": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.",
+        "description": "Update or insert Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
+        "operationId": "UpsertFlowConventions",
+        "requestBody": {
+          "description": "The Flow Conventions to update or insert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleFlowConventionsName"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleFlowConventionsName"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleFlowConventionsName"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "currency": "GBP",
+                  "paymentFrequency": "1Y",
+                  "dayCountConvention": "Act360",
+                  "rollConvention": "F",
+                  "holidayCalendars": [
+                    "LON"
+                  ],
+                  "settleDays": 2,
+                  "resetDays": 2,
+                  "scope": "someScope",
+                  "code": "exampleFlowConventionsName"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully updated or inserted item or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/rates/flowconventions/{scope}/{code}": {
       "get": {
         "tags": [
           "Conventions"
@@ -2995,28 +3497,356 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Delete the conventions of given scope and code, assuming that it is present.",
+        "summary": "[EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.",
         "description": "Delete the specified conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
-        "operationId": "DeleteConventions",
+        "operationId": "DeleteFlowConventions",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the conventions to delete.",
+            "description": "The scope of the Flow Conventions to delete.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The scope of the conventions to delete."
+              "description": "The scope of the Flow Conventions to delete."
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The conventions to delete.",
+            "description": "The Flow Conventions to delete.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The conventions to delete."
+              "description": "The Flow Conventions to delete."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The AsAt of deletion or failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/rates/indexconventions": {
+      "post": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.",
+        "description": "Update or insert Index Convention in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Index Convention or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
+        "operationId": "UpsertIndexConvention",
+        "requestBody": {
+          "description": "The Index Conventions to update or insert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "fixingReference": "Unknown",
+                  "publicationDayLag": 2,
+                  "paymentTenor": "1Y",
+                  "dayCountConvention": "Act360",
+                  "currency": "GBP",
+                  "scope": "someScope",
+                  "code": "exampleIndexonventionsName"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "fixingReference": "Unknown",
+                  "publicationDayLag": 2,
+                  "paymentTenor": "1Y",
+                  "dayCountConvention": "Act360",
+                  "currency": "GBP",
+                  "scope": "someScope",
+                  "code": "exampleIndexonventionsName"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "fixingReference": "Unknown",
+                  "publicationDayLag": 2,
+                  "paymentTenor": "1Y",
+                  "dayCountConvention": "Act360",
+                  "currency": "GBP",
+                  "scope": "someScope",
+                  "code": "exampleIndexonventionsName"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertConventionsRequest"
+              },
+              "example": {
+                "conventions": {
+                  "fixingReference": "Unknown",
+                  "publicationDayLag": 2,
+                  "paymentTenor": "1Y",
+                  "dayCountConvention": "Act360",
+                  "currency": "GBP",
+                  "scope": "someScope",
+                  "code": "exampleIndexonventionsName"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully updated or inserted item or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertSingleStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/conventions/rates/indexconventions/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Get Index Convention",
+        "description": "Get a Index Convention from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
+        "operationId": "GetIndexConvention",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Index Convention to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Index Convention to retrieve."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The name of the Index Convention to retrieve the data for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The name of the Index Convention to retrieve the data for."
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved Index Convention or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConventionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Conventions"
+        ],
+        "summary": "[EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.",
+        "description": "Delete the specified Index Convention from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
+        "operationId": "DeleteIndexConvention",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Index Convention to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Index Convention to delete."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The Index Convention to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The Index Convention to delete."
             }
           }
         ],
@@ -17800,8 +18630,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670733+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670742+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17845,8 +18675,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:58:09.331469+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670832+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670833+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17899,8 +18729,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670733+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670742+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -17944,8 +18774,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:58:09.331469+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670832+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670833+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -17998,8 +18828,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670733+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670742+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18043,8 +18873,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:58:09.331469+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670832+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670833+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18097,8 +18927,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T08:58:09.3314604+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314613+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670733+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670742+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18142,8 +18972,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T08:58:09.331469+00:00",
-                          "maturityDate": "2020-09-11T08:58:09.3314691+00:00",
+                          "startDate": "2020-08-12T11:20:01.7670832+00:00",
+                          "maturityDate": "2020-09-11T11:20:01.7670833+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -32316,6 +33146,7 @@
           "CdsProtectionDetailSpecification",
           "FlowConventions",
           "CdsFlowConventions",
+          "Conventions",
           "LegDefinition",
           "IndexConvention",
           "OrderId",
@@ -32387,6 +33218,7 @@
               "CdsProtectionDetailSpecification",
               "FlowConventions",
               "CdsFlowConventions",
+              "Conventions",
               "LegDefinition",
               "IndexConvention",
               "OrderId",
@@ -32396,7 +33228,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "displayOrder": {
             "type": "integer",
@@ -33584,59 +34416,7 @@
         },
         "additionalProperties": false
       },
-      "DayCountConvention": {
-        "enum": [
-          "Actual360",
-          "Act360",
-          "MoneyMarket",
-          "Actual365",
-          "Act365",
-          "Thirty360",
-          "ThirtyU360",
-          "Bond",
-          "ThirtyE360",
-          "EuroBond",
-          "ActAct",
-          "ActualActual",
-          "ActActIsda",
-          "ActActIsma",
-          "ActActIcma",
-          "Invalid"
-        ],
-        "type": "string"
-      },
-      "BusinessDayConvention": {
-        "enum": [
-          "NoAdjustment",
-          "None",
-          "Previous",
-          "P",
-          "Following",
-          "F",
-          "ModifiedPrevious",
-          "MP",
-          "ModifiedFollowing",
-          "MF",
-          "EndOfMonth",
-          "EOM",
-          "EndOfMonthPrevious",
-          "EOMP",
-          "EndOfMonthFollowing",
-          "EOMF",
-          "Invalid"
-        ],
-        "type": "string"
-      },
-      "FlowConventions": {
-        "required": [
-          "currency",
-          "dayCountConvention",
-          "holidayCalendars",
-          "paymentFrequency",
-          "resetDays",
-          "rollConvention",
-          "settleDays"
-        ],
+      "Conventions": {
         "type": "object",
         "properties": {
           "scope": {
@@ -33648,80 +34428,10 @@
             "type": "string",
             "description": "The code of the convention.",
             "nullable": true
-          },
-          "currency": {
-            "type": "string",
-            "description": "Currency of the flow convention."
-          },
-          "paymentFrequency": {
-            "type": "string",
-            "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment."
-          },
-          "dayCountConvention": {
-            "enum": [
-              "Actual360",
-              "Act360",
-              "MoneyMarket",
-              "Actual365",
-              "Act365",
-              "Thirty360",
-              "ThirtyU360",
-              "Bond",
-              "ThirtyE360",
-              "EuroBond",
-              "ActAct",
-              "ActualActual",
-              "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
-              "Invalid"
-            ],
-            "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
-          },
-          "rollConvention": {
-            "enum": [
-              "NoAdjustment",
-              "None",
-              "Previous",
-              "P",
-              "Following",
-              "F",
-              "ModifiedPrevious",
-              "MP",
-              "ModifiedFollowing",
-              "MF",
-              "EndOfMonth",
-              "EOM",
-              "EndOfMonthPrevious",
-              "EOMP",
-              "EndOfMonthFollowing",
-              "EOMF",
-              "Invalid"
-            ],
-            "type": "string",
-            "description": "The available values are: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid"
-          },
-          "holidayCalendars": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "An array of strings denoting holiday calendars that apply to generation and payment."
-          },
-          "settleDays": {
-            "type": "integer",
-            "description": "Number of Good Business Days between the trade date and the effective or settlement date of the instrument.",
-            "format": "int32"
-          },
-          "resetDays": {
-            "type": "integer",
-            "description": "The number of Good Business Days between determination and payment of reset.",
-            "format": "int32"
           }
         },
         "additionalProperties": false,
-        "description": "A flow convention defines the specification for generation of the date schedule for a leg or set of cashflows.\r\nIt determines the tenor of these and, how to map the unadjusted set of dates to dates which are 'good business\r\ndays'. For example, if an unadjusted date falls on a Saturday or a bank holiday, should it be rolled forward\r\nor backward to obtain the adjusted date."
+        "description": "Base class for conventions class"
       },
       "ErrorDetail": {
         "type": "object",
@@ -33765,7 +34475,7 @@
             "nullable": true
           },
           "value": {
-            "$ref": "#/components/schemas/FlowConventions"
+            "$ref": "#/components/schemas/Conventions"
           },
           "failed": {
             "type": "object",
@@ -33811,6 +34521,41 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpsertConventionsRequest": {
+        "type": "object",
+        "properties": {
+          "conventions": {
+            "$ref": "#/components/schemas/Conventions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A convention that is to be stored in the convention data store.\r\nOnly one of these must be present."
+      },
+      "UpsertSingleStructuredDataResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "description": "The value that was successfully retrieved.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response from upserting structured data document"
       },
       "AnnulSingleStructuredDataResponse": {
         "type": "object",
@@ -34332,6 +35077,7 @@
               "CdsProtectionDetailSpecification",
               "FlowConventions",
               "CdsFlowConventions",
+              "Conventions",
               "LegDefinition",
               "IndexConvention",
               "OrderId",
@@ -34341,7 +35087,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -34477,6 +35223,7 @@
               "CdsProtectionDetailSpecification",
               "FlowConventions",
               "CdsFlowConventions",
+              "Conventions",
               "LegDefinition",
               "IndexConvention",
               "OrderId",
@@ -34486,7 +35233,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -34617,6 +35364,7 @@
               "CdsProtectionDetailSpecification",
               "FlowConventions",
               "CdsFlowConventions",
+              "Conventions",
               "LegDefinition",
               "IndexConvention",
               "OrderId",
@@ -34626,7 +35374,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -37897,6 +38645,7 @@
               "CdsProtectionDetailSpecification",
               "FlowConventions",
               "CdsFlowConventions",
+              "Conventions",
               "LegDefinition",
               "IndexConvention",
               "OrderId",
@@ -37906,7 +38655,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "displayName": {
             "type": "string",
@@ -38335,31 +39084,6 @@
         },
         "additionalProperties": false,
         "description": "A recipe or recipe snippet that is to be stored in the recipe structured data store.\r\nOnly one of these must be present."
-      },
-      "UpsertSingleStructuredDataResponse": {
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string",
-            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
-            "format": "uri",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "description": "The value that was successfully retrieved.",
-            "format": "date-time"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Response from upserting structured data document"
       },
       "GetRecipeResponse": {
         "type": "object",
@@ -40935,6 +41659,145 @@
         },
         "additionalProperties": false
       },
+      "DayCountConvention": {
+        "enum": [
+          "Actual360",
+          "Act360",
+          "MoneyMarket",
+          "Actual365",
+          "Act365",
+          "Thirty360",
+          "ThirtyU360",
+          "Bond",
+          "ThirtyE360",
+          "EuroBond",
+          "ActAct",
+          "ActualActual",
+          "ActActIsda",
+          "ActActIsma",
+          "ActActIcma",
+          "Invalid"
+        ],
+        "type": "string"
+      },
+      "BusinessDayConvention": {
+        "enum": [
+          "NoAdjustment",
+          "None",
+          "Previous",
+          "P",
+          "Following",
+          "F",
+          "ModifiedPrevious",
+          "MP",
+          "ModifiedFollowing",
+          "MF",
+          "EndOfMonth",
+          "EOM",
+          "EndOfMonthPrevious",
+          "EOMP",
+          "EndOfMonthFollowing",
+          "EOMF",
+          "Invalid"
+        ],
+        "type": "string"
+      },
+      "FlowConventions": {
+        "required": [
+          "currency",
+          "dayCountConvention",
+          "holidayCalendars",
+          "paymentFrequency",
+          "resetDays",
+          "rollConvention",
+          "settleDays"
+        ],
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Currency of the flow convention."
+          },
+          "paymentFrequency": {
+            "type": "string",
+            "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment."
+          },
+          "dayCountConvention": {
+            "enum": [
+              "Actual360",
+              "Act360",
+              "MoneyMarket",
+              "Actual365",
+              "Act365",
+              "Thirty360",
+              "ThirtyU360",
+              "Bond",
+              "ThirtyE360",
+              "EuroBond",
+              "ActAct",
+              "ActualActual",
+              "ActActIsda",
+              "ActActIsma",
+              "ActActIcma",
+              "Invalid"
+            ],
+            "type": "string",
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+          },
+          "rollConvention": {
+            "enum": [
+              "NoAdjustment",
+              "None",
+              "Previous",
+              "P",
+              "Following",
+              "F",
+              "ModifiedPrevious",
+              "MP",
+              "ModifiedFollowing",
+              "MF",
+              "EndOfMonth",
+              "EOM",
+              "EndOfMonthPrevious",
+              "EOMP",
+              "EndOfMonthFollowing",
+              "EOMF",
+              "Invalid"
+            ],
+            "type": "string",
+            "description": "The available values are: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid"
+          },
+          "holidayCalendars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of strings denoting holiday calendars that apply to generation and payment."
+          },
+          "settleDays": {
+            "type": "integer",
+            "description": "Number of Good Business Days between the trade date and the effective or settlement date of the instrument.",
+            "format": "int32"
+          },
+          "resetDays": {
+            "type": "integer",
+            "description": "The number of Good Business Days between determination and payment of reset.",
+            "format": "int32"
+          },
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the convention.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The code of the convention.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A flow convention defines the specification for generation of the date schedule for a leg or set of cashflows.\r\nIt determines the tenor of these and, how to map the unadjusted set of dates to dates which are 'good business\r\ndays'. For example, if an unadjusted date falls on a Saturday or a bank holiday, should it be rolled forward\r\nor backward to obtain the adjusted date."
+      },
       "BondInstrument": {
         "allOf": [
           {
@@ -41025,16 +41888,6 @@
             "description": "The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products",
             "nullable": true
           },
-          "scope": {
-            "type": "string",
-            "description": "The scope used when updating or inserting the convention.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The code of the convention.",
-            "nullable": true
-          },
           "currency": {
             "type": "string",
             "description": "Currency of the flow convention."
@@ -41104,6 +41957,16 @@
             "type": "integer",
             "description": "The number of Good Business Days between determination and payment of reset.",
             "format": "int32"
+          },
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the convention.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The code of the convention.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -41457,16 +42320,6 @@
         ],
         "type": "object",
         "properties": {
-          "scope": {
-            "type": "string",
-            "description": "The scope used when updating or inserting the convention.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The code of the convention.",
-            "nullable": true
-          },
           "fixingReference": {
             "type": "string",
             "description": "The reference rate name for fixings"
@@ -41505,6 +42358,16 @@
           "currency": {
             "type": "string",
             "description": "Currency of the index convention."
+          },
+          "scope": {
+            "type": "string",
+            "description": "The scope used when updating or inserting the convention.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The code of the convention.",
+            "nullable": true
           }
         },
         "additionalProperties": false,

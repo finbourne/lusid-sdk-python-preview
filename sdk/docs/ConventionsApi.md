@@ -1,20 +1,27 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *http://localhost:48199*
+All URIs are relative to *http://localhost:41522*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_conventions**](ConventionsApi.md#delete_conventions) | **DELETE** /api/conventions/{scope}/{code} | [EXPERIMENTAL] Delete the conventions of given scope and code, assuming that it is present.
-[**get_flow_conventions**](ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/{scope}/{code} | [EXPERIMENTAL] Get Flow Conventions
+[**delete_cds_flow_conventions**](ConventionsApi.md#delete_cds_flow_conventions) | **DELETE** /api/conventions/credit/conventions/{scope}/{code} | [EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+[**delete_flow_conventions**](ConventionsApi.md#delete_flow_conventions) | **DELETE** /api/conventions/rates/flowconventions/{scope}/{code} | [EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
+[**delete_index_convention**](ConventionsApi.md#delete_index_convention) | **DELETE** /api/conventions/rates/indexconventions/{scope}/{code} | [EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
+[**get_cds_flow_conventions**](ConventionsApi.md#get_cds_flow_conventions) | **GET** /api/conventions/credit/conventions/{scope}/{code} | [EXPERIMENTAL] Get CDS Flow Conventions
+[**get_flow_conventions**](ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/rates/flowconventions/{scope}/{code} | [EXPERIMENTAL] Get Flow Conventions
+[**get_index_convention**](ConventionsApi.md#get_index_convention) | **GET** /api/conventions/rates/indexconventions/{scope}/{code} | [EXPERIMENTAL] Get Index Convention
 [**list_conventions**](ConventionsApi.md#list_conventions) | **GET** /api/conventions | [EXPERIMENTAL] List the set of conventions
+[**upsert_cds_flow_conventions**](ConventionsApi.md#upsert_cds_flow_conventions) | **POST** /api/conventions/credit/conventions | [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+[**upsert_flow_conventions**](ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
+[**upsert_index_convention**](ConventionsApi.md#upsert_index_convention) | **POST** /api/conventions/rates/indexconventions | [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
 
-# **delete_conventions**
-> AnnulSingleStructuredDataResponse delete_conventions(scope, code)
+# **delete_cds_flow_conventions**
+> AnnulSingleStructuredDataResponse delete_cds_flow_conventions(scope, code)
 
-[EXPERIMENTAL] Delete the conventions of given scope and code, assuming that it is present.
+[EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
 
-Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+Delete the specified CDS Flow Conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
 
 ### Example
 
@@ -29,27 +36,27 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48199
-configuration.host = "http://localhost:48199"
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the conventions to delete.
-code = 'code_example' # str | The conventions to delete.
+scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
+code = 'code_example' # str | The CDS Flow Conventions to delete.
 
 try:
-    # [EXPERIMENTAL] Delete the conventions of given scope and code, assuming that it is present.
-    api_response = api_instance.delete_conventions(scope, code)
+    # [EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+    api_response = api_instance.delete_cds_flow_conventions(scope, code)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ConventionsApi->delete_conventions: %s\n" % e)
+    print("Exception when calling ConventionsApi->delete_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the conventions to delete. | 
- **code** | **str**| The conventions to delete. | 
+ **scope** | **str**| The scope of the CDS Flow Conventions to delete. | 
+ **code** | **str**| The CDS Flow Conventions to delete. | 
 
 ### Return type
 
@@ -68,6 +75,200 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The AsAt of deletion or failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_flow_conventions**
+> AnnulSingleStructuredDataResponse delete_flow_conventions(scope, code)
+
+[EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
+
+Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
+code = 'code_example' # str | The Flow Conventions to delete.
+
+try:
+    # [EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
+    api_response = api_instance.delete_flow_conventions(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->delete_flow_conventions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Flow Conventions to delete. | 
+ **code** | **str**| The Flow Conventions to delete. | 
+
+### Return type
+
+[**AnnulSingleStructuredDataResponse**](AnnulSingleStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The AsAt of deletion or failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_index_convention**
+> AnnulSingleStructuredDataResponse delete_index_convention(scope, code)
+
+[EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
+
+Delete the specified Index Convention from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Index Convention to delete.
+code = 'code_example' # str | The Index Convention to delete.
+
+try:
+    # [EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
+    api_response = api_instance.delete_index_convention(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->delete_index_convention: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Index Convention to delete. | 
+ **code** | **str**| The Index Convention to delete. | 
+
+### Return type
+
+[**AnnulSingleStructuredDataResponse**](AnnulSingleStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The AsAt of deletion or failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_cds_flow_conventions**
+> GetConventionsResponse get_cds_flow_conventions(scope, code, as_at=as_at)
+
+[EXPERIMENTAL] Get CDS Flow Conventions
+
+Get a CDS Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
+code = 'code_example' # str | The name of the CDS Flow Conventions to retrieve the data for.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] Get CDS Flow Conventions
+    api_response = api_instance.get_cds_flow_conventions(scope, code, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->get_cds_flow_conventions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the CDS Flow Conventions to retrieve. | 
+ **code** | **str**| The name of the CDS Flow Conventions to retrieve the data for. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. | [optional] 
+
+### Return type
+
+[**GetConventionsResponse**](GetConventionsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved CDS Flow Conventions or any failure |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -93,8 +294,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48199
-configuration.host = "http://localhost:48199"
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
@@ -139,6 +340,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_index_convention**
+> GetConventionsResponse get_index_convention(scope, code, as_at=as_at)
+
+[EXPERIMENTAL] Get Index Convention
+
+Get a Index Convention from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
+code = 'code_example' # str | The name of the Index Convention to retrieve the data for.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] Get Index Convention
+    api_response = api_instance.get_index_convention(scope, code, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->get_index_convention: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Index Convention to retrieve. | 
+ **code** | **str**| The name of the Index Convention to retrieve the data for. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. | [optional] 
+
+### Return type
+
+[**GetConventionsResponse**](GetConventionsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved Index Convention or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_conventions**
 > ResourceListOfGetConventionsResponse list_conventions(as_at=as_at)
 
@@ -159,8 +426,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48199
-configuration.host = "http://localhost:48199"
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
@@ -196,6 +463,192 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested conventions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_cds_flow_conventions**
+> UpsertSingleStructuredDataResponse upsert_cds_flow_conventions(upsert_conventions_request)
+
+[EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+
+Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+upsert_conventions_request = {"conventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertConventionsRequest | The CDS Flow Conventions to update or insert
+
+try:
+    # [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_cds_flow_conventions(upsert_conventions_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->upsert_cds_flow_conventions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The CDS Flow Conventions to update or insert | 
+
+### Return type
+
+[**UpsertSingleStructuredDataResponse**](UpsertSingleStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_flow_conventions**
+> UpsertSingleStructuredDataResponse upsert_flow_conventions(upsert_conventions_request)
+
+[EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
+
+Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+upsert_conventions_request = {"conventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertConventionsRequest | The Flow Conventions to update or insert
+
+try:
+    # [EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_flow_conventions(upsert_conventions_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->upsert_flow_conventions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The Flow Conventions to update or insert | 
+
+### Return type
+
+[**UpsertSingleStructuredDataResponse**](UpsertSingleStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_index_convention**
+> UpsertSingleStructuredDataResponse upsert_index_convention(upsert_conventions_request)
+
+[EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+
+Update or insert Index Convention in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful                It is important to always check to verify success (or failure).
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:41522
+configuration.host = "http://localhost:41522"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+upsert_conventions_request = {"conventions":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertConventionsRequest | The Index Conventions to update or insert
+
+try:
+    # [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_index_convention(upsert_conventions_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->upsert_index_convention: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The Index Conventions to update or insert | 
+
+### Return type
+
+[**UpsertSingleStructuredDataResponse**](UpsertSingleStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
