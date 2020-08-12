@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1769",
+    "version": "0.11.1770",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:54645"
+      "url": "http://localhost:31030"
     }
   ],
   "paths": {
@@ -18630,8 +18630,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T17:42:10.5562911+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5562921+00:00",
+                          "startDate": "2020-08-12T18:53:20.056219+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562198+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18675,8 +18675,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T17:42:10.5563025+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5563026+00:00",
+                          "startDate": "2020-08-12T18:53:20.0562278+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562279+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18729,8 +18729,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T17:42:10.5562911+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5562921+00:00",
+                          "startDate": "2020-08-12T18:53:20.056219+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562198+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18774,8 +18774,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T17:42:10.5563025+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5563026+00:00",
+                          "startDate": "2020-08-12T18:53:20.0562278+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562279+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18828,8 +18828,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T17:42:10.5562911+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5562921+00:00",
+                          "startDate": "2020-08-12T18:53:20.056219+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562198+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18873,8 +18873,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T17:42:10.5563025+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5563026+00:00",
+                          "startDate": "2020-08-12T18:53:20.0562278+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562279+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -18927,8 +18927,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-12T17:42:10.5562911+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5562921+00:00",
+                          "startDate": "2020-08-12T18:53:20.056219+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562198+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -18972,8 +18972,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-12T17:42:10.5563025+00:00",
-                          "maturityDate": "2020-09-11T17:42:10.5563026+00:00",
+                          "startDate": "2020-08-12T18:53:20.0562278+00:00",
+                          "maturityDate": "2020-09-11T18:53:20.0562279+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
