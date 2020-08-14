@@ -1,17 +1,17 @@
 # lusid.CalendarsApi
 
-All URIs are relative to *http://localhost:57966*
+All URIs are relative to *http://localhost:56549*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendar/generic/{scope}/{code}/dates | [EXPERIMENTAL] Add a date to a calendar
-[**create_calendar**](CalendarsApi.md#create_calendar) | **POST** /api/calendar/generic | [EXPERIMENTAL] Create a calendar in its generic form
-[**delete_calendar**](CalendarsApi.md#delete_calendar) | **DELETE** /api/calendar/generic/{scope}/{code} | [EXPERIMENTAL] Delete a calendar
-[**delete_date_from_calendar**](CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendar/generic/{scope}/{code}/dates/{dateId} | [EXPERIMENTAL] Remove a date from a calendar
-[**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendar/generic/{scope}/{code} | [EXPERIMENTAL] Get a calendar in its generic form
-[**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendar/generic/{scope}/{code}/dates | [EXPERIMENTAL] Get dates for a specific calendar
-[**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendar/businessday/{scope}/{code} | [EXPERIMENTAL] Check whether a DateTime is a \&quot;Business DateTime\&quot;
-[**update_calendar**](CalendarsApi.md#update_calendar) | **PUT** /api/calendar/generic/{scope}/{code}/mask | [EXPERIMENTAL] Update a calendar
+[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Add a date to a calendar
+[**create_calendar**](CalendarsApi.md#create_calendar) | **POST** /api/calendars/generic | [EXPERIMENTAL] Create a calendar in its generic form
+[**delete_calendar**](CalendarsApi.md#delete_calendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Delete a calendar
+[**delete_date_from_calendar**](CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [EXPERIMENTAL] Remove a date from a calendar
+[**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Get a calendar in its generic form
+[**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Get dates for a specific calendar
+[**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [EXPERIMENTAL] Check whether a DateTime is a \&quot;Business DateTime\&quot;
+[**update_calendar**](CalendarsApi.md#update_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/mask | [EXPERIMENTAL] Update a calendar
 
 
 # **add_date_to_calendar**
@@ -34,8 +34,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -100,8 +100,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne Calendar Service","properties":[{"key":"Calendar/default/Center","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
@@ -162,8 +162,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -226,8 +226,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -292,8 +292,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar identifier
@@ -358,8 +358,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -430,8 +430,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
@@ -498,8 +498,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:57966
-configuration.host = "http://localhost:57966"
+# Defining host is optional and default to http://localhost:56549
+configuration.host = "http://localhost:56549"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the request
