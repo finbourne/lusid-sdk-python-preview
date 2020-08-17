@@ -1,6 +1,6 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *http://localhost:48225*
+All URIs are relative to *http://localhost:56304*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,8 +36,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
@@ -100,8 +100,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
@@ -164,8 +164,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to delete.
@@ -228,8 +228,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
@@ -294,8 +294,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
@@ -360,8 +360,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
@@ -426,8 +426,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
@@ -488,8 +488,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_conventions_request = {"conventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertConventionsRequest | The CDS Flow Conventions to update or insert
@@ -550,8 +550,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_conventions_request = {"conventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertConventionsRequest | The Flow Conventions to update or insert
@@ -612,8 +612,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:48225
-configuration.host = "http://localhost:48225"
+# Defining host is optional and default to http://localhost:56304
+configuration.host = "http://localhost:56304"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_conventions_request = {"conventions":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertConventionsRequest | The Index Conventions to update or insert
