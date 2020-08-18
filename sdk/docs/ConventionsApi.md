@@ -1,6 +1,6 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:63611*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,9 +10,11 @@ Method | HTTP request | Description
 [**get_cds_flow_conventions**](ConventionsApi.md#get_cds_flow_conventions) | **GET** /api/conventions/credit/conventions/{scope}/{code} | [EXPERIMENTAL] Get CDS Flow Conventions
 [**get_flow_conventions**](ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/rates/flowconventions/{scope}/{code} | [EXPERIMENTAL] Get Flow Conventions
 [**get_index_convention**](ConventionsApi.md#get_index_convention) | **GET** /api/conventions/rates/indexconventions/{scope}/{code} | [EXPERIMENTAL] Get Index Convention
-[**list_conventions**](ConventionsApi.md#list_conventions) | **GET** /api/conventions | [EXPERIMENTAL] List the set of conventions
+[**list_cds_flow_conventions**](ConventionsApi.md#list_cds_flow_conventions) | **GET** /api/conventions/credit/conventions | [EXPERIMENTAL] List the set of CDS Flow Conventions
+[**list_flow_conventions**](ConventionsApi.md#list_flow_conventions) | **GET** /api/conventions/rates/flowconventions | [EXPERIMENTAL] List the set of Flow Conventions
+[**list_index_convention**](ConventionsApi.md#list_index_convention) | **GET** /api/conventions/rates/indexconventions | [EXPERIMENTAL] List the set of Index Conventions
 [**upsert_cds_flow_conventions**](ConventionsApi.md#upsert_cds_flow_conventions) | **POST** /api/conventions/credit/conventions | [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
-[**upsert_flow_conventions**](ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
+[**upsert_flow_conventions**](ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
 [**upsert_index_convention**](ConventionsApi.md#upsert_index_convention) | **POST** /api/conventions/rates/indexconventions | [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
 
@@ -36,8 +38,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
@@ -100,8 +102,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
@@ -164,8 +166,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to delete.
@@ -209,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cds_flow_conventions**
-> GetConventionsResponse get_cds_flow_conventions(scope, code, as_at=as_at)
+> GetCdsFlowConventionsResponse get_cds_flow_conventions(scope, code, as_at=as_at)
 
 [EXPERIMENTAL] Get CDS Flow Conventions
 
@@ -228,8 +230,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
@@ -254,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetConventionsResponse**](GetConventionsResponse.md)
+[**GetCdsFlowConventionsResponse**](GetCdsFlowConventionsResponse.md)
 
 ### Authorization
 
@@ -275,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_flow_conventions**
-> GetConventionsResponse get_flow_conventions(scope, code, as_at=as_at)
+> GetFlowConventionsResponse get_flow_conventions(scope, code, as_at=as_at)
 
 [EXPERIMENTAL] Get Flow Conventions
 
@@ -294,8 +296,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
@@ -320,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetConventionsResponse**](GetConventionsResponse.md)
+[**GetFlowConventionsResponse**](GetFlowConventionsResponse.md)
 
 ### Authorization
 
@@ -341,7 +343,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_index_convention**
-> GetConventionsResponse get_index_convention(scope, code, as_at=as_at)
+> GetIndexConventionResponse get_index_convention(scope, code, as_at=as_at)
 
 [EXPERIMENTAL] Get Index Convention
 
@@ -360,8 +362,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
@@ -386,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetConventionsResponse**](GetConventionsResponse.md)
+[**GetIndexConventionResponse**](GetIndexConventionResponse.md)
 
 ### Authorization
 
@@ -406,12 +408,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_conventions**
-> ResourceListOfGetConventionsResponse list_conventions(as_at=as_at)
+# **list_cds_flow_conventions**
+> ResourceListOfGetCdsFlowConventionsResponse list_cds_flow_conventions(as_at=as_at)
 
-[EXPERIMENTAL] List the set of conventions
+[EXPERIMENTAL] List the set of CDS Flow Conventions
 
-List the set of conventions at the specified date/time
+List the set of CDS Flow Conventions at the specified date/time
 
 ### Example
 
@@ -426,18 +428,18 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] List the set of conventions
-    api_response = api_instance.list_conventions(as_at=as_at)
+    # [EXPERIMENTAL] List the set of CDS Flow Conventions
+    api_response = api_instance.list_cds_flow_conventions(as_at=as_at)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ConventionsApi->list_conventions: %s\n" % e)
+    print("Exception when calling ConventionsApi->list_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -448,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfGetConventionsResponse**](ResourceListOfGetConventionsResponse.md)
+[**ResourceListOfGetCdsFlowConventionsResponse**](ResourceListOfGetCdsFlowConventionsResponse.md)
 
 ### Authorization
 
@@ -462,14 +464,138 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested conventions |  -  |
+**200** | The requested CDS Flow conventions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_flow_conventions**
+> ResourceListOfGetFlowConventionsResponse list_flow_conventions(as_at=as_at)
+
+[EXPERIMENTAL] List the set of Flow Conventions
+
+List the set of Flow Conventions at the specified date/time
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] List the set of Flow Conventions
+    api_response = api_instance.list_flow_conventions(as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->list_flow_conventions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **as_at** | **datetime**| The asAt datetime at which to list the conventions. Defaults to latest if not specified. | [optional] 
+
+### Return type
+
+[**ResourceListOfGetFlowConventionsResponse**](ResourceListOfGetFlowConventionsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested Flow conventions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_index_convention**
+> ResourceListOfGetIndexConventionResponse list_index_convention(as_at=as_at)
+
+[EXPERIMENTAL] List the set of Index Conventions
+
+List the set of Index Conventions at the specified date/time
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
+# Create an instance of the API class
+api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] List the set of Index Conventions
+    api_response = api_instance.list_index_convention(as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConventionsApi->list_index_convention: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **as_at** | **datetime**| The asAt datetime at which to list the conventions. Defaults to latest if not specified. | [optional] 
+
+### Return type
+
+[**ResourceListOfGetIndexConventionResponse**](ResourceListOfGetIndexConventionResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested Index conventions |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_cds_flow_conventions**
-> UpsertSingleStructuredDataResponse upsert_cds_flow_conventions(upsert_conventions_request)
+> UpsertSingleStructuredDataResponse upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
 
 [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
 
@@ -488,15 +614,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_conventions_request = {"conventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertConventionsRequest | The CDS Flow Conventions to update or insert
+upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
 
 try:
     # [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_cds_flow_conventions(upsert_conventions_request)
+    api_response = api_instance.upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConventionsApi->upsert_cds_flow_conventions: %s\n" % e)
@@ -506,7 +632,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The CDS Flow Conventions to update or insert | 
+ **upsert_cds_flow_conventions_request** | [**UpsertCdsFlowConventionsRequest**](UpsertCdsFlowConventionsRequest.md)| The CDS Flow Conventions to update or insert | 
 
 ### Return type
 
@@ -531,9 +657,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_flow_conventions**
-> UpsertSingleStructuredDataResponse upsert_flow_conventions(upsert_conventions_request)
+> UpsertSingleStructuredDataResponse upsert_flow_conventions(upsert_flow_conventions_request)
 
-[EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
+[EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
 
 Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
@@ -550,15 +676,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_conventions_request = {"conventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertConventionsRequest | The Flow Conventions to update or insert
+upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"F","holidayCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
 try:
-    # [EXPERIMENTAL] Upsert a set of Flow Conventions. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_flow_conventions(upsert_conventions_request)
+    # [EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_flow_conventions(upsert_flow_conventions_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConventionsApi->upsert_flow_conventions: %s\n" % e)
@@ -568,7 +694,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The Flow Conventions to update or insert | 
+ **upsert_flow_conventions_request** | [**UpsertFlowConventionsRequest**](UpsertFlowConventionsRequest.md)| The Flow Conventions to update or insert | 
 
 ### Return type
 
@@ -593,7 +719,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_index_convention**
-> UpsertSingleStructuredDataResponse upsert_index_convention(upsert_conventions_request)
+> UpsertSingleStructuredDataResponse upsert_index_convention(upsert_index_convention_request)
 
 [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
@@ -612,15 +738,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63611
+configuration.host = "http://localhost:63611"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_conventions_request = {"conventions":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertConventionsRequest | The Index Conventions to update or insert
+upsert_index_convention_request = {"indexConvention":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertIndexConventionRequest | The Index Conventions to update or insert
 
 try:
     # [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_index_convention(upsert_conventions_request)
+    api_response = api_instance.upsert_index_convention(upsert_index_convention_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConventionsApi->upsert_index_convention: %s\n" % e)
@@ -630,7 +756,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upsert_conventions_request** | [**UpsertConventionsRequest**](UpsertConventionsRequest.md)| The Index Conventions to update or insert | 
+ **upsert_index_convention_request** | [**UpsertIndexConventionRequest**](UpsertIndexConventionRequest.md)| The Index Conventions to update or insert | 
 
 ### Return type
 
