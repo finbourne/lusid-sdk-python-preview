@@ -2,6 +2,7 @@ import unittest
 
 import lusid
 import lusid.models as models
+from features.lusid_feature import lusid_feature
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from lusid.exceptions import ApiException
 from utilities.credentials_source import CredentialsSource
@@ -22,6 +23,7 @@ class CorporateActions(unittest.TestCase):
         # creates random alphanumeric code
         return str(uuid.uuid4())[:12]
 
+    @lusid_feature("F33")
     def test_list_corporate_action_sources(self):
         uuid = self.get_guid()
         request = models.CreateCorporateActionSourceRequest(

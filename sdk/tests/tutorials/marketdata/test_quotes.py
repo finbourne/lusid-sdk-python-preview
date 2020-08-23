@@ -5,6 +5,7 @@ import pytz as pytz
 
 import lusid
 import lusid.models as models
+from features.lusid_feature import lusid_feature
 from utilities import TestDataUtilities
 
 
@@ -18,6 +19,7 @@ class Quotes(unittest.TestCase):
 
         cls.quotes_api = lusid.QuotesApi(api_client)
 
+    @lusid_feature("F28")
     def test_add_quote(self):
 
         request = models.UpsertQuoteRequest(
@@ -39,6 +41,7 @@ class Quotes(unittest.TestCase):
 
         self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, request_body={"quote1": request})
 
+    @lusid_feature("F29")
     def test_get_quote_for_instrument_for_single_day(self):
 
         quote_series_id = models.QuoteSeriesId(
@@ -64,6 +67,7 @@ class Quotes(unittest.TestCase):
 
         self.assertEqual(199.23, quote.metric_value.value)
 
+    @lusid_feature("F30")
     def test_get_timeseries_quotes(self):
 
         start_date = datetime(2019, 4, 15, tzinfo=pytz.utc)

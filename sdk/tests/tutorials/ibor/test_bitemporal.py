@@ -5,6 +5,7 @@ from time import sleep
 import pytz
 
 import lusid
+from features.lusid_feature import lusid_feature
 from utilities import InstrumentLoader
 from utilities import TestDataUtilities
 
@@ -13,7 +14,6 @@ class Bitemporal(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
         # create a configured API client
         api_client = TestDataUtilities.api_client()
 
@@ -34,7 +34,7 @@ class Bitemporal(unittest.TestCase):
                                               transaction.units,
                                               transaction.transaction_price.price,
                                               transaction.total_consideration.amount))
-
+    @lusid_feature("F1")
     def test_apply_bitemporal_portfolio_change(self):
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
 

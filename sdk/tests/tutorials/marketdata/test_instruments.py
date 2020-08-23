@@ -2,6 +2,7 @@ import unittest
 
 import lusid
 import lusid.models as models
+from features.lusid_feature import lusid_feature
 from lusid.exceptions import ApiException
 from utilities import TestDataUtilities
 
@@ -86,6 +87,7 @@ class Instruments(unittest.TestCase):
 
         self.assertEqual(len(response.values), 5, response.failed)
 
+    @lusid_feature("F22")
     def test_lookup_instrument_by_unique_id(self):
 
         figi = "BBG000FD8G46"
@@ -118,11 +120,13 @@ class Instruments(unittest.TestCase):
         property = next(filter(lambda i: i.key == "Instrument/default/ClientInternal", instrument.properties), None)
         self.assertTrue(property.value, "internal_id_1")
 
+    @lusid_feature("F23")
     def test_list_available_identifiers(self):
 
         identifiers = self.instruments_api.get_instrument_identifier_types()
         self.assertGreater(len(identifiers.values), 0)
 
+    @lusid_feature("F24")
     def test_list_all_instruments(self):
 
         page_size = 5
@@ -132,6 +136,7 @@ class Instruments(unittest.TestCase):
 
         self.assertLessEqual(len(instruments.values), page_size)
 
+    @lusid_feature("F25")
     def test_list_instruments_by_identifier_type(self):
 
         figis = ["BBG000FD8G46", "BBG000DW76R4", "BBG000PQKVN8"]
@@ -142,6 +147,7 @@ class Instruments(unittest.TestCase):
         for figi in figis:
             self.assertTrue(figi in instruments.values, msg=f"{figi} not returned")
 
+    @lusid_feature("F26")
     def test_edit_instrument_property(self):
 
         property_value = models.PropertyValue(label_value="Insurance")
