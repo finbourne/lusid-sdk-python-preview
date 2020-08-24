@@ -7,8 +7,8 @@ class Noinput2Test(unittest.TestCase):
 
     @lusid_feature()
     def test_dummy_method_1(self):
-        pass
+        pass  # Empty for testing purposes
 
     @lusid_feature("F5")
     def test_control_method(self):
-        pass
+        pass  # Empty for testing purposes

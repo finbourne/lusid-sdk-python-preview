@@ -7,8 +7,8 @@ class Empties2Tests(unittest.TestCase):
 
     @lusid_feature("")
     def test_dummy_method_1(self):
-        pass
+        pass  # Empty for testing purposes
 
     @lusid_feature("F3")
     def test_control_method(self):
-        pass
+        pass  # Empty for testing purposes
