@@ -7,8 +7,8 @@ class DuplicateTests(unittest.TestCase):
 
     @lusid_feature("F1")
     def test_dummy_method_1(self):
-        pass
+        pass  # Empty for testing purposes
 
     @lusid_feature("F2")
     def test_control_method(self):
-        pass
+        pass  # Empty for testing purposes

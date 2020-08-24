@@ -20,26 +20,33 @@ def validate_feature_list(feature_list):
                                  'Please make sure each feature code is unique.')
 
 
+def get_decorator_values_from_classes(module, feature_list):
+    classes = inspect.getmembers(module, predicate=inspect.isclass)
+    for cls_name, cls in classes:
+        methods = inspect.getmembers(cls)
+        for method_name, method in methods:  # Using method option as sourcecode parsing parses comments
+            if hasattr(method, "decorator_value"):
+                feature_list.append(method.decorator_value)
+
+
+def get_decorator_values_from_functions(module, feature_list):
+    functions = inspect.getmembers(module, predicate=inspect.isfunction)
+    for function_name, function in functions:
+        if hasattr(function, "decorator_value"):
+            feature_list.append(function.decorator_value)
+
+
 def extract_all_features_from_package(package_name):
     root = get_project_root()
     feature_list = []
     for importer, name, is_pkg in pkgutil.walk_packages([root]):
         if is_pkg or not name.startswith(package_name):
             continue
+
         module = importlib.import_module(name)
-
-        classes = inspect.getmembers(module, predicate=inspect.isclass)
-        for cls_name, cls in classes:
-            methods = inspect.getmembers(cls)
-            for method_name, method in methods:  # Using method option as sourcecode parsing parses comments
-                if hasattr(method, "decorator_value"):
-                    feature_list.append(method.decorator_value)
-
+        get_decorator_values_from_classes(module, feature_list)
         # Functions are optional. To be decided after review.
-        functions = inspect.getmembers(module, predicate=inspect.isfunction)
-        for function_name, function in functions:
-            if hasattr(function, "decorator_value"):
-                feature_list.append(function.decorator_value)
+        get_decorator_values_from_functions(module, feature_list)
 
     validate_feature_list(feature_list)
     return feature_list
