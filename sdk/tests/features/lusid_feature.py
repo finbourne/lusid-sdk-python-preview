@@ -1,13 +1,12 @@
 def lusid_feature(feature_code):
     if type(feature_code) != str:
-        raise ValueError("lusid_feature error: Only strings should be passed as the decorator parameter")
+        raise ValueError("lusid_feature error: Decorator requires a string input parameter.")
 
-    def wrap_method(method_for_testing):
-        def method(*unit_test_args):
-            return method_for_testing(*unit_test_args)
-        method.decorator_value = feature_code  # <-- store the feature
-        return method
-
+    def wrap_method(decorated_method):
+        def get_decorated_method(*decorated_method_args):
+            return decorated_method(*decorated_method_args)
+        get_decorated_method.decorator_value = feature_code  # <-- store the feature
+        return get_decorated_method
     return wrap_method
 
 
