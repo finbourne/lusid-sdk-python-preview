@@ -2,20 +2,8 @@ import os
 import unittest
 
 from features.feature_extractor import extract_all_features_from_package
-from features.feature_file_writer import write_features_to_file
+from features.feature_file_writer import write_features_to_file, remove_file, read_file
 from features.get_project_root import get_project_root
-
-
-def remove_file(filepath):
-    is_file = os.path.isfile(filepath)
-    if is_file:
-        os.remove(filepath)
-
-
-def read_file(filepath):
-    with open(filepath, "r") as f:
-        features_from_file = f.read().splitlines()
-    return features_from_file
 
 
 class FeatureFileWriterTests(unittest.TestCase):

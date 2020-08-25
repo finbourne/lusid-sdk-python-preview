@@ -23,7 +23,8 @@ class FeatureExtractorTests(unittest.TestCase):
             extract_all_features_from_package(package)
 
         self.assertTrue(f'lusid_feature error: Feature code "{expected_duplicate}" is a duplicate. '
-                             'Please make sure each feature code is unique.' in str(context.exception))
+                        'Please make sure each feature code is unique. Also make sure lusid_feature '
+                        'decorator is on top of any other decorators for that function/method.' in str(context.exception))
 
     def test_if_throws_error_on_empty_string_value_decorators(self):
         package = "tests.features.unit.dummyfiles.empties"
@@ -71,6 +72,10 @@ class FeatureExtractorTests(unittest.TestCase):
         self.assertTrue("lusid_feature error: Decorator requires a string input parameter." in str(
             context.exception))
 
+    def test_if_returns_correct_codes_with_multiple_decorators(self):
+        package = "tests.features.unit.dummyfiles.multidecorator"
+        expected_features = ["F1", "F2", "F3", "F4"]
 
+        feature_list_from_functions = extract_all_features_from_package(package)
 
-
+        self.assertEqual(set(expected_features), set(feature_list_from_functions))
