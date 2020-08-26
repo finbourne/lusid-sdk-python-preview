@@ -19,7 +19,7 @@ class Valid2Tests(unittest.TestCase):
             ("test2", 2)
         ]
     )
-    def test_dummy_method_2(self, test1, test2):
+    def test_dummy_method_2(cls, test1, test2):
         pass  # Empty for testing purposes
 
     def test_control_method(self):
