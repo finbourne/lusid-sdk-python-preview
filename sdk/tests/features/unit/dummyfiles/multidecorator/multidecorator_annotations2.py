@@ -18,7 +18,7 @@ class Valid2Tests(unittest.TestCase):
             ("test4", 2)
         ]
     )
-    def test_dummy_method_2(self):
+    def test_dummy_method_2(self, test1, test2):
         pass  # Empty for testing purposes
 
     @lusid_feature("F4")
