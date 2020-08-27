@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1835",
+    "version": "0.11.1836",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:43037"
+      "url": "http://localhost:48097"
     }
   ],
   "paths": {
@@ -19083,8 +19083,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-27T15:51:14.0314678+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.0314691+00:00",
+                          "startDate": "2020-08-27T20:25:39.8742942+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8742951+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -19128,8 +19128,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-27T15:51:14.0314779+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.031478+00:00",
+                          "startDate": "2020-08-27T20:25:39.8743014+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8743015+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -19182,8 +19182,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-27T15:51:14.0314678+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.0314691+00:00",
+                          "startDate": "2020-08-27T20:25:39.8742942+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8742951+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -19227,8 +19227,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-27T15:51:14.0314779+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.031478+00:00",
+                          "startDate": "2020-08-27T20:25:39.8743014+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8743015+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -19281,8 +19281,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-27T15:51:14.0314678+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.0314691+00:00",
+                          "startDate": "2020-08-27T20:25:39.8742942+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8742951+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -19326,8 +19326,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-27T15:51:14.0314779+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.031478+00:00",
+                          "startDate": "2020-08-27T20:25:39.8743014+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8743015+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -19380,8 +19380,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 1.5,
-                          "startDate": "2020-08-27T15:51:14.0314678+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.0314691+00:00",
+                          "startDate": "2020-08-27T20:25:39.8742942+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8742951+00:00",
                           "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
@@ -19425,8 +19425,8 @@
                           "fixingDate": "0001-01-01T00:00:00+00:00",
                           "fgnCcy": "GBP",
                           "refSpotRate": 132,
-                          "startDate": "2020-08-27T15:51:14.0314779+00:00",
-                          "maturityDate": "2020-09-26T15:51:14.031478+00:00",
+                          "startDate": "2020-08-27T20:25:39.8743014+00:00",
+                          "maturityDate": "2020-09-26T20:25:39.8743015+00:00",
                           "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
@@ -33602,6 +33602,7 @@
           "Conventions",
           "LegDefinition",
           "IndexConvention",
+          "FuturesContractDetails",
           "OrderId",
           "Order",
           "Quote",
@@ -33674,6 +33675,7 @@
               "Conventions",
               "LegDefinition",
               "IndexConvention",
+              "FuturesContractDetails",
               "OrderId",
               "Order",
               "Quote",
@@ -33681,7 +33683,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "displayOrder": {
             "type": "integer",
@@ -35987,6 +35989,7 @@
               "Conventions",
               "LegDefinition",
               "IndexConvention",
+              "FuturesContractDetails",
               "OrderId",
               "Order",
               "Quote",
@@ -35994,7 +35997,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -36133,6 +36136,7 @@
               "Conventions",
               "LegDefinition",
               "IndexConvention",
+              "FuturesContractDetails",
               "OrderId",
               "Order",
               "Quote",
@@ -36140,7 +36144,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -36274,6 +36278,7 @@
               "Conventions",
               "LegDefinition",
               "IndexConvention",
+              "FuturesContractDetails",
               "OrderId",
               "Order",
               "Quote",
@@ -36281,7 +36286,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "acceptableValues": {
             "type": "array",
@@ -36999,6 +37004,7 @@
           "QuotedSecurity",
           "InterestRateSwap",
           "FxForward",
+          "Future",
           "Exotic",
           "FxOption",
           "CreditDefaultSwap",
@@ -37023,6 +37029,7 @@
               "QuotedSecurity",
               "InterestRateSwap",
               "FxForward",
+              "Future",
               "Exotic",
               "FxOption",
               "CreditDefaultSwap",
@@ -37035,7 +37042,7 @@
               "Unknown"
             ],
             "type": "string",
-            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
           }
         },
         "additionalProperties": false,
@@ -39555,6 +39562,7 @@
               "Conventions",
               "LegDefinition",
               "IndexConvention",
+              "FuturesContractDetails",
               "OrderId",
               "Order",
               "Quote",
@@ -39562,7 +39570,7 @@
               "DateAttributes"
             ],
             "type": "string",
-            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
           },
           "displayName": {
             "type": "string",
@@ -42620,6 +42628,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -42632,7 +42641,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -42760,6 +42769,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -42772,7 +42782,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -42891,6 +42901,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -42903,7 +42914,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -42959,6 +42970,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -42971,7 +42983,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43115,6 +43127,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43127,7 +43140,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43194,6 +43207,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43206,12 +43220,171 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
         "description": "representation of a floating rates leg"
+      },
+      "FuturesContractDetails": {
+        "required": [
+          "contractCode",
+          "contractMonth",
+          "contractSize",
+          "convention",
+          "country",
+          "description",
+          "domCcy",
+          "exchangeCode",
+          "exchangeName",
+          "tickerStep",
+          "unitValue"
+        ],
+        "type": "object",
+        "properties": {
+          "domCcy": {
+            "type": "string",
+            "description": "currency in which the contract is paid."
+          },
+          "contractCode": {
+            "type": "string",
+            "description": "The two letter contract code abbreviation. e.g. CL => Crude Oil."
+          },
+          "contractMonth": {
+            "type": "string",
+            "description": "which month does the contract trade for."
+          },
+          "contractSize": {
+            "type": "number",
+            "description": "Size of a single contract. By default this should be set to 1000 if otherwise unknown and is defaulted to such.",
+            "format": "double"
+          },
+          "convention": {
+            "enum": [
+              "Actual360",
+              "Act360",
+              "MoneyMarket",
+              "Actual365",
+              "Act365",
+              "Thirty360",
+              "ThirtyU360",
+              "Bond",
+              "ThirtyE360",
+              "EuroBond",
+              "ActAct",
+              "ActualActual",
+              "ActActIsda",
+              "ActActIsma",
+              "ActActIcma",
+              "Invalid"
+            ],
+            "type": "string",
+            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country (code) for the exchange."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of contract"
+          },
+          "exchangeCode": {
+            "type": "string",
+            "description": "Exchange code for contract"
+          },
+          "exchangeName": {
+            "type": "string",
+            "description": "Exchange name (for when code is not automatically recognized)"
+          },
+          "tickerStep": {
+            "type": "number",
+            "description": "Minimal step size change in ticker",
+            "format": "double"
+          },
+          "unitValue": {
+            "type": "number",
+            "description": "The value in the currency of a 1 unit change in the contract price",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\n            common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
+      },
+      "Future": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          {
+            "required": [
+              "contractDetails",
+              "identifiers",
+              "instrumentType",
+              "maturityDate",
+              "startDate",
+              "underlying"
+            ],
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
+              },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "format": "date-time"
+              },
+              "identifiers": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "external market codes and identifiers for the bond, e.g. ISIN."
+              },
+              "contractDetails": {
+                "$ref": "#/components/schemas/FuturesContractDetails"
+              },
+              "contracts": {
+                "type": "number",
+                "description": "The number of contracts held",
+                "format": "double"
+              },
+              "refSpotPrice": {
+                "type": "number",
+                "description": "The reference spot price for the future at which the contract was entered into.",
+                "format": "double"
+              },
+              "underlying": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "instrumentType": {
+                "enum": [
+                  "QuotedSecurity",
+                  "InterestRateSwap",
+                  "FxForward",
+                  "Future",
+                  "Exotic",
+                  "FxOption",
+                  "CreditDefaultSwap",
+                  "InterestRateSwaption",
+                  "Bond",
+                  "EquityOption",
+                  "FixedRateLeg",
+                  "FloatingRateLeg",
+                  "BespokeCashflowLeg",
+                  "Unknown"
+                ],
+                "type": "string",
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+              }
+            }
+          }
+        ],
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument\r\n            \r\n             A future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a committment to buy a certain number of\r\n             contracts of a certain size at a date in the future."
       },
       "FxForwardInstrument": {
         "allOf": [
@@ -43277,6 +43450,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43289,7 +43463,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43356,6 +43530,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43368,7 +43543,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43391,6 +43566,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43403,7 +43579,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43449,6 +43625,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43461,7 +43638,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43513,6 +43690,7 @@
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
+                  "Future",
                   "Exotic",
                   "FxOption",
                   "CreditDefaultSwap",
@@ -43525,7 +43703,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
