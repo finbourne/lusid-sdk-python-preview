@@ -1,6 +1,6 @@
 # lusid.RelationDefinitionsApi
 
-All URIs are relative to *http://localhost:34282*
+All URIs are relative to *http://localhost:43814*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:34282
-configuration.host = "http://localhost:34282"
+# Defining host is optional and default to http://localhost:43814
+configuration.host = "http://localhost:43814"
 # Create an instance of the API class
 api_instance = lusid.RelationDefinitionsApi(lusid.ApiClient(configuration))
 create_relation_definition_request = {"scope":"PortfolioManagementTeam","code":"Traders","sourceEntityDomain":"Portfolio","targetEntityDomain":"Person","displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with","lifeTime":"TimeVariant","constraintStyle":"Collection"} # CreateRelationDefinitionRequest | The definition of the new relation.
@@ -90,8 +90,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:34282
-configuration.host = "http://localhost:34282"
+# Defining host is optional and default to http://localhost:43814
+configuration.host = "http://localhost:43814"
 # Create an instance of the API class
 api_instance = lusid.RelationDefinitionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the specified relation.
