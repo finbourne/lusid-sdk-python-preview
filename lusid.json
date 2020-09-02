@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1849",
+    "version": "0.11.1850",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:57722"
+      "url": "http://localhost:64263"
     }
   ],
   "paths": {
@@ -18536,15 +18536,15 @@
                     "quantity": 10000,
                     "holdingIdentifier": "my-holding-on-some-date",
                     "instrument": {
-                      "domAmount": 100,
-                      "fgnAmount": -150,
-                      "isNdf": false,
-                      "fixingDate": "0001-01-01T00:00:00+00:00",
-                      "fgnCcy": "GBP",
-                      "refSpotRate": 1.5,
                       "startDate": "2018-03-05T00:00:00+00:00",
                       "maturityDate": "2018-04-04T00:00:00+00:00",
-                      "domCcy": "USD",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00+00:00",
                       "instrumentType": "FxForward"
                     }
                   }
@@ -18583,15 +18583,15 @@
                     "quantity": 10000,
                     "holdingIdentifier": "my-holding-on-some-date",
                     "instrument": {
-                      "domAmount": 100,
-                      "fgnAmount": -150,
-                      "isNdf": false,
-                      "fixingDate": "0001-01-01T00:00:00+00:00",
-                      "fgnCcy": "GBP",
-                      "refSpotRate": 1.5,
                       "startDate": "2018-03-05T00:00:00+00:00",
                       "maturityDate": "2018-04-04T00:00:00+00:00",
-                      "domCcy": "USD",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00+00:00",
                       "instrumentType": "FxForward"
                     }
                   }
@@ -18630,15 +18630,15 @@
                     "quantity": 10000,
                     "holdingIdentifier": "my-holding-on-some-date",
                     "instrument": {
-                      "domAmount": 100,
-                      "fgnAmount": -150,
-                      "isNdf": false,
-                      "fixingDate": "0001-01-01T00:00:00+00:00",
-                      "fgnCcy": "GBP",
-                      "refSpotRate": 1.5,
                       "startDate": "2018-03-05T00:00:00+00:00",
                       "maturityDate": "2018-04-04T00:00:00+00:00",
-                      "domCcy": "USD",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00+00:00",
                       "instrumentType": "FxForward"
                     }
                   }
@@ -18677,15 +18677,15 @@
                     "quantity": 10000,
                     "holdingIdentifier": "my-holding-on-some-date",
                     "instrument": {
-                      "domAmount": 100,
-                      "fgnAmount": -150,
-                      "isNdf": false,
-                      "fixingDate": "0001-01-01T00:00:00+00:00",
-                      "fgnCcy": "GBP",
-                      "refSpotRate": 1.5,
                       "startDate": "2018-03-05T00:00:00+00:00",
                       "maturityDate": "2018-04-04T00:00:00+00:00",
-                      "domCcy": "USD",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00+00:00",
                       "instrumentType": "FxForward"
                     }
                   }
@@ -19077,15 +19077,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170232+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.3170241+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "USD",
+                          "refSpotRate": 1.5,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 1.5,
-                          "startDate": "2020-09-02T08:43:19.1186416+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186428+00:00",
-                          "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19122,15 +19122,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170319+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.317032+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "JPY",
+                          "refSpotRate": 132,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 132,
-                          "startDate": "2020-09-02T08:43:19.1186497+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186498+00:00",
-                          "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19176,15 +19176,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170232+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.3170241+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "USD",
+                          "refSpotRate": 1.5,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 1.5,
-                          "startDate": "2020-09-02T08:43:19.1186416+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186428+00:00",
-                          "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19221,15 +19221,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170319+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.317032+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "JPY",
+                          "refSpotRate": 132,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 132,
-                          "startDate": "2020-09-02T08:43:19.1186497+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186498+00:00",
-                          "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19275,15 +19275,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170232+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.3170241+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "USD",
+                          "refSpotRate": 1.5,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 1.5,
-                          "startDate": "2020-09-02T08:43:19.1186416+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186428+00:00",
-                          "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19320,15 +19320,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170319+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.317032+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "JPY",
+                          "refSpotRate": 132,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 132,
-                          "startDate": "2020-09-02T08:43:19.1186497+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186498+00:00",
-                          "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19374,15 +19374,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170232+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.3170241+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "USD",
+                          "refSpotRate": 1.5,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 1.5,
-                          "startDate": "2020-09-02T08:43:19.1186416+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186428+00:00",
-                          "domCcy": "USD",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -19419,15 +19419,15 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
+                          "startDate": "2020-09-02T09:10:30.3170319+00:00",
+                          "maturityDate": "2020-10-02T09:10:30.317032+00:00",
                           "domAmount": 100,
+                          "domCcy": "GBP",
                           "fgnAmount": -150,
+                          "fgnCcy": "JPY",
+                          "refSpotRate": 132,
                           "isNdf": false,
                           "fixingDate": "0001-01-01T00:00:00+00:00",
-                          "fgnCcy": "GBP",
-                          "refSpotRate": 132,
-                          "startDate": "2020-09-02T08:43:19.1186497+00:00",
-                          "maturityDate": "2020-10-02T08:43:19.1186498+00:00",
-                          "domCcy": "JPY",
                           "instrumentType": "FxForward"
                         }
                       }
@@ -33550,7 +33550,9 @@
           "Order",
           "Quote",
           "WeekendMask",
-          "DateAttributes"
+          "DateAttributes",
+          "CashFlowLeg",
+          "InstrumentDefinitionFormat"
         ],
         "type": "string",
         "description": "A list of types, familiar to the Ui, that define the expected input or output types on a piece of data"
@@ -33623,10 +33625,12 @@
               "Order",
               "Quote",
               "WeekendMask",
-              "DateAttributes"
+              "DateAttributes",
+              "CashFlowLeg",
+              "InstrumentDefinitionFormat"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes, CashFlowLeg, InstrumentDefinitionFormat"
           },
           "displayOrder": {
             "type": "integer",
@@ -35948,10 +35952,12 @@
               "Order",
               "Quote",
               "WeekendMask",
-              "DateAttributes"
+              "DateAttributes",
+              "CashFlowLeg",
+              "InstrumentDefinitionFormat"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes, CashFlowLeg, InstrumentDefinitionFormat"
           },
           "acceptableValues": {
             "type": "array",
@@ -36095,10 +36101,12 @@
               "Order",
               "Quote",
               "WeekendMask",
-              "DateAttributes"
+              "DateAttributes",
+              "CashFlowLeg",
+              "InstrumentDefinitionFormat"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes, CashFlowLeg, InstrumentDefinitionFormat"
           },
           "acceptableValues": {
             "type": "array",
@@ -36237,10 +36245,12 @@
               "Order",
               "Quote",
               "WeekendMask",
-              "DateAttributes"
+              "DateAttributes",
+              "CashFlowLeg",
+              "InstrumentDefinitionFormat"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes, CashFlowLeg, InstrumentDefinitionFormat"
           },
           "acceptableValues": {
             "type": "array",
@@ -36959,7 +36969,7 @@
           "InterestRateSwap",
           "FxForward",
           "Future",
-          "Exotic",
+          "ExoticInstrument",
           "FxOption",
           "CreditDefaultSwap",
           "InterestRateSwaption",
@@ -36984,7 +36994,7 @@
               "InterestRateSwap",
               "FxForward",
               "Future",
-              "Exotic",
+              "ExoticInstrument",
               "FxOption",
               "CreditDefaultSwap",
               "InterestRateSwaption",
@@ -36996,7 +37006,7 @@
               "Unknown"
             ],
             "type": "string",
-            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
           }
         },
         "additionalProperties": false,
@@ -39521,10 +39531,12 @@
               "Order",
               "Quote",
               "WeekendMask",
-              "DateAttributes"
+              "DateAttributes",
+              "CashFlowLeg",
+              "InstrumentDefinitionFormat"
             ],
             "type": "string",
-            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes"
+            "description": "The type of values that can be associated with this property. This is defined by the property's data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, BenchmarkType, Code, Id, Uri, ArrayOfIds, ArrayOfTransactionAliases, ArrayofTransactionMovements, ArrayofUnits, StringArray, CurrencyAndAmount, TradePrice, UnitCreation, Currency, UserId, MetricValue, QuoteId, QuoteSeriesId, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, Transition, StructuredData, StructuredDataId, ConfigurationRecipe, ConfigurationRecipeSnippet, StructuredResultDataId, StructuredResultData, DataMapping, LusidInstrument, WeightedInstrument, Tenor, CdsProtectionDetailSpecification, FlowConventions, CdsFlowConventions, Conventions, LegDefinition, IndexConvention, FuturesContractDetails, OrderId, Order, Quote, WeekendMask, DateAttributes, CashFlowLeg, InstrumentDefinitionFormat"
           },
           "displayName": {
             "type": "string",
@@ -42528,7 +42540,7 @@
         },
         "additionalProperties": false
       },
-      "BondInstrument": {
+      "Bond": {
         "allOf": [
           {
             "$ref": "#/components/schemas/LusidInstrument"
@@ -42547,34 +42559,37 @@
             "properties": {
               "startDate": {
                 "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
               },
               "maturityDate": {
                 "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
               },
               "domCcy": {
-                "type": "string"
+                "type": "string",
+                "description": "The domestic currency of the instrument."
               },
-              "couponRate": {
-                "type": "number",
-                "description": "simple coupon rate.",
-                "format": "double"
+              "flowConventions": {
+                "$ref": "#/components/schemas/FlowConventions"
               },
               "principal": {
                 "type": "number",
                 "description": "The face-value or principal for the bond at outset.\r\n            This might be reduced through its lifetime in the event of amortization or similar.",
                 "format": "double"
               },
-              "flowConventions": {
-                "$ref": "#/components/schemas/FlowConventions"
+              "couponRate": {
+                "type": "number",
+                "description": "simple coupon rate.",
+                "format": "double"
               },
               "identifiers": {
                 "type": "object",
                 "additionalProperties": {
                   "type": "string"
                 },
-                "description": "set of market identifiers along with their types, e.g. ISIN, CUSIP, SEDOL.",
+                "description": "external market codes and identifiers for the bond, e.g. ISIN.",
                 "nullable": true
               },
               "instrumentType": {
@@ -42583,7 +42598,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -42595,7 +42610,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -42671,7 +42686,7 @@
         "additionalProperties": false,
         "description": "CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.\r\nThis class gathers a number of common features which may deviate. These will default to the market standard when\r\nno overrides are provided"
       },
-      "CdsInstrument": {
+      "CreditDefaultSwap": {
         "allOf": [
           {
             "$ref": "#/components/schemas/LusidInstrument"
@@ -42679,7 +42694,6 @@
           {
             "required": [
               "couponRate",
-              "domCcy",
               "flowConventions",
               "instrumentType",
               "maturityDate",
@@ -42693,30 +42707,26 @@
                 "type": "string",
                 "description": "A ticker to uniquely specify then entity against which the cds is written"
               },
+              "startDate": {
+                "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
+              },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "format": "date-time"
+              },
               "flowConventions": {
                 "$ref": "#/components/schemas/CdsFlowConventions"
               },
               "couponRate": {
                 "type": "number",
-                "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\nFor a standard corporate CDS (North American) this must be either 100bps or 500bps.",
+                "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\n            For a standard corporate CDS (North American) this must be either 100bps or 500bps.",
                 "format": "double"
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
-              },
-              "startDate": {
-                "type": "string",
-                "description": "Starting date of the credit default swap",
-                "format": "date-time"
-              },
-              "maturityDate": {
-                "type": "string",
-                "description": "Maturity date of the credit default swap",
-                "format": "date-time"
-              },
-              "domCcy": {
-                "type": "string",
-                "description": "Domestic currency of the credit default swap"
               },
               "instrumentType": {
                 "enum": [
@@ -42724,7 +42734,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -42736,25 +42746,25 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
         "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
       },
+      "DeliveryType": {
+        "enum": [
+          "Cash",
+          "Physical"
+        ],
+        "type": "string"
+      },
       "OptionType": {
         "enum": [
           "None",
           "Call",
           "Put"
-        ],
-        "type": "string"
-      },
-      "DeliveryType": {
-        "enum": [
-          "Cash",
-          "Physical"
         ],
         "type": "string"
       },
@@ -42791,14 +42801,10 @@
             ],
             "type": "object",
             "properties": {
-              "code": {
+              "startDate": {
                 "type": "string",
-                "description": "The reset code of the option."
-              },
-              "strike": {
-                "type": "number",
-                "description": "The strike of the option.",
-                "format": "double"
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
               },
               "optionMaturityDate": {
                 "type": "string",
@@ -42810,10 +42816,13 @@
                 "description": "The settlement date of the option.",
                 "format": "date-time"
               },
-              "startDate": {
+              "deliveryType": {
+                "enum": [
+                  "Cash",
+                  "Physical"
+                ],
                 "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
-                "format": "date-time"
+                "description": "The available values are: Cash, Physical"
               },
               "optionType": {
                 "enum": [
@@ -42824,13 +42833,14 @@
                 "type": "string",
                 "description": "The available values are: None, Call, Put"
               },
-              "deliveryType": {
-                "enum": [
-                  "Cash",
-                  "Physical"
-                ],
+              "strike": {
+                "type": "number",
+                "description": "The strike of the option.",
+                "format": "double"
+              },
+              "domCcy": {
                 "type": "string",
-                "description": "The available values are: Cash, Physical"
+                "description": "The domestic currency of the instrument."
               },
               "underlyingIdentifier": {
                 "enum": [
@@ -42846,9 +42856,9 @@
                 "type": "string",
                 "description": "The available values are: LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId"
               },
-              "domCcy": {
+              "code": {
                 "type": "string",
-                "description": "The domestic currency of the instrument."
+                "description": "The reset code of the option."
               },
               "instrumentType": {
                 "enum": [
@@ -42856,7 +42866,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -42868,7 +42878,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -42912,12 +42922,12 @@
             ],
             "type": "object",
             "properties": {
+              "instrumentFormat": {
+                "$ref": "#/components/schemas/InstrumentDefinitionFormat"
+              },
               "content": {
                 "type": "string",
                 "description": "The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other\r\n            interface is supported it is possible to fall back onto this.\r\n            For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system."
-              },
-              "instrumentFormat": {
-                "$ref": "#/components/schemas/InstrumentDefinitionFormat"
               },
               "instrumentType": {
                 "enum": [
@@ -42925,7 +42935,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -42937,7 +42947,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43036,23 +43046,22 @@
             ],
             "type": "object",
             "properties": {
-              "notional": {
-                "type": "number",
-                "description": "scaling factor to apply to leg quantities.",
-                "format": "double"
+              "startDate": {
+                "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
               },
               "maturityDate": {
                 "type": "string",
                 "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
               },
-              "startDate": {
-                "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
-                "format": "date-time"
-              },
               "legDefinition": {
                 "$ref": "#/components/schemas/LegDefinition"
+              },
+              "notional": {
+                "type": "number",
+                "format": "double"
               },
               "overrides": {
                 "type": "object",
@@ -43082,7 +43091,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43094,7 +43103,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43116,23 +43125,21 @@
             ],
             "type": "object",
             "properties": {
-              "notional": {
-                "type": "number",
-                "description": "scaling factor to apply to leg quantities.",
-                "format": "double"
+              "startDate": {
+                "type": "string",
+                "format": "date-time"
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
-                "format": "date-time"
-              },
-              "startDate": {
-                "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
               },
               "legDefinition": {
                 "$ref": "#/components/schemas/LegDefinition"
+              },
+              "notional": {
+                "type": "number",
+                "description": "scaling factor to apply to leg quantities.",
+                "format": "double"
               },
               "overrides": {
                 "type": "object",
@@ -43162,7 +43169,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43174,7 +43181,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43321,7 +43328,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43333,14 +43340,14 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
         "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument\r\n            \r\n             A future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a committment to buy a certain number of\r\n             contracts of a certain size at a date in the future."
       },
-      "FxForwardInstrument": {
+      "FxForward": {
         "allOf": [
           {
             "$ref": "#/components/schemas/LusidInstrument"
@@ -43357,34 +43364,6 @@
             ],
             "type": "object",
             "properties": {
-              "domAmount": {
-                "type": "number",
-                "description": "The amount that is to be paid in the domestic currency on the maturity date.",
-                "format": "double"
-              },
-              "fgnAmount": {
-                "type": "number",
-                "description": "The amount that is to be paid in the foreign currency on the maturity date",
-                "format": "double"
-              },
-              "isNdf": {
-                "type": "boolean",
-                "description": "Is the contract an Fx-Forward of \"Non-Deliverable\" type, meaning a single payment in the domestic currency based on\r\nthe change in fx-rate vs\r\na reference rate is used."
-              },
-              "fixingDate": {
-                "type": "string",
-                "description": "The fixing date. Its presence determines the NDF status of the instrument.",
-                "format": "date-time"
-              },
-              "fgnCcy": {
-                "type": "string",
-                "description": "The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.\r\nFor the outright forward, currencies are exchanged. By domestic is then that of the portfolio."
-              },
-              "refSpotRate": {
-                "type": "number",
-                "description": "The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time).",
-                "format": "double"
-              },
               "startDate": {
                 "type": "string",
                 "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
@@ -43392,12 +43371,40 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
+              },
+              "domAmount": {
+                "type": "number",
+                "description": "The amount that is to be paid in the domestic currency on the maturity date.",
+                "format": "double"
               },
               "domCcy": {
                 "type": "string",
                 "description": "The domestic currency of the instrument."
+              },
+              "fgnAmount": {
+                "type": "number",
+                "description": "The amount that is to be paid in the foreign currency on the maturity date",
+                "format": "double"
+              },
+              "fgnCcy": {
+                "type": "string",
+                "description": "The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.\r\n            For the outright forward, currencies are exchanged. By domestic is then that of the portfolio."
+              },
+              "refSpotRate": {
+                "type": "number",
+                "description": "The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time).",
+                "format": "double"
+              },
+              "isNdf": {
+                "type": "boolean",
+                "description": "Is the contract an Fx-Forward of \"Non-Deliverable\" type, meaning a single payment in the domestic currency based on the change in fx-rate vs\r\n            a reference rate is used."
+              },
+              "fixingDate": {
+                "type": "string",
+                "description": "The fixing date .",
+                "format": "date-time"
               },
               "instrumentType": {
                 "enum": [
@@ -43405,7 +43412,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43417,12 +43424,12 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
-        "description": "Lusid-ibor internal representation of a Fx Forward instrument"
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument"
       },
       "FxOption": {
         "allOf": [
@@ -43445,7 +43452,7 @@
             "properties": {
               "startDate": {
                 "type": "string",
-                "description": "The start date of the option.",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
               },
               "optionMaturityDate": {
@@ -43473,7 +43480,7 @@
               },
               "domCcy": {
                 "type": "string",
-                "description": "The domestic currency of the FX."
+                "description": "The domestic currency of the instrument."
               },
               "fgnCcy": {
                 "type": "string",
@@ -43485,7 +43492,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43497,12 +43504,12 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
-        "description": "Lusid-ibor DTO representation of a plain vanilla FX Option instrument."
+        "description": "Lusid-ibor internal representation of a plain vanilla FX Option instrument."
       },
       "InstrumentLeg": {
         "allOf": [
@@ -43521,7 +43528,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43533,7 +43540,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
@@ -43543,7 +43550,7 @@
           "propertyName": "instrumentType"
         }
       },
-      "SwapInstrument": {
+      "InterestRateSwap": {
         "allOf": [
           {
             "$ref": "#/components/schemas/LusidInstrument"
@@ -43557,14 +43564,14 @@
             ],
             "type": "object",
             "properties": {
-              "maturityDate": {
-                "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
-                "format": "date-time"
-              },
               "startDate": {
                 "type": "string",
                 "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
+              },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
               },
               "legs": {
@@ -43580,7 +43587,7 @@
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43592,14 +43599,14 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
         ],
         "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\n            \r\n             A swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\n             These may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\n             payment currency, payment frequency and so on they can be used to match sets of future obligations"
       },
-      "Swaption": {
+      "InterestRateSwaption": {
         "allOf": [
           {
             "$ref": "#/components/schemas/LusidInstrument"
@@ -43619,9 +43626,6 @@
                 "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
               },
-              "swap": {
-                "$ref": "#/components/schemas/SwapInstrument"
-              },
               "payOrReceiveFixed": {
                 "enum": [
                   "NotDefined",
@@ -43639,13 +43643,16 @@
                 "type": "string",
                 "description": "The available values are: Cash, Physical"
               },
+              "swap": {
+                "$ref": "#/components/schemas/InterestRateSwap"
+              },
               "instrumentType": {
                 "enum": [
                   "QuotedSecurity",
                   "InterestRateSwap",
                   "FxForward",
                   "Future",
-                  "Exotic",
+                  "ExoticInstrument",
                   "FxOption",
                   "CreditDefaultSwap",
                   "InterestRateSwaption",
@@ -43657,7 +43664,7 @@
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, Exotic, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedRateLeg, FloatingRateLeg, BespokeCashflowLeg, Unknown"
               }
             }
           }
