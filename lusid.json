@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1895",
+    "version": "0.11.1896",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:64193"
+      "url": "http://localhost:45089"
     }
   ],
   "paths": {
@@ -18615,8 +18615,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841118+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841122+00:00",
+                          "startDate": "2020-09-08T23:57:24.4406985+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4406992+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18660,8 +18660,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841184+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841184+00:00",
+                          "startDate": "2020-09-08T23:57:24.4407063+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4407063+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18714,8 +18714,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841118+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841122+00:00",
+                          "startDate": "2020-09-08T23:57:24.4406985+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4406992+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18759,8 +18759,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841184+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841184+00:00",
+                          "startDate": "2020-09-08T23:57:24.4407063+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4407063+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18813,8 +18813,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841118+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841122+00:00",
+                          "startDate": "2020-09-08T23:57:24.4406985+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4406992+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18858,8 +18858,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841184+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841184+00:00",
+                          "startDate": "2020-09-08T23:57:24.4407063+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4407063+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18912,8 +18912,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPUSD",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841118+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841122+00:00",
+                          "startDate": "2020-09-08T23:57:24.4406985+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4406992+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
@@ -18957,8 +18957,8 @@
                         "quantity": 10000,
                         "holdingIdentifier": "fx-fwd-GBPJPY",
                         "instrument": {
-                          "startDate": "2020-09-08T23:06:21.5841184+00:00",
-                          "maturityDate": "2020-10-08T23:06:21.5841184+00:00",
+                          "startDate": "2020-09-08T23:57:24.4407063+00:00",
+                          "maturityDate": "2020-10-08T23:57:24.4407063+00:00",
                           "domAmount": 100,
                           "domCcy": "GBP",
                           "fgnAmount": -150,
