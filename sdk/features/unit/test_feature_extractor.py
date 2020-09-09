@@ -5,7 +5,7 @@ from features.feature_extractor import extract_all_features_from_package
 
 class FeatureExtractorTests(unittest.TestCase):
     def test_get_valid_decorators(self):
-        package = "tests.features.unit.dummyfiles.valid"
+        package = "features.unit.dummyfiles.valid"
         expected_features = ["F4", "F3", "F1", "F2"]
 
         feature_list_from_function = extract_all_features_from_package(package)
@@ -16,7 +16,7 @@ class FeatureExtractorTests(unittest.TestCase):
         self.assertEqual(expected_set, actual_set)
 
     def test_if_throws_error_on_duplicate_decorators(self):
-        package = "tests.features.unit.dummyfiles.duplicates"
+        package = "features.unit.dummyfiles.duplicates"
         expected_duplicate = "F1"
 
         with self.assertRaises(Exception) as context:
@@ -27,7 +27,7 @@ class FeatureExtractorTests(unittest.TestCase):
                         'decorator is on top of any other decorators for that function/method.' in str(context.exception))
 
     def test_if_throws_error_on_empty_string_value_decorators(self):
-        package = "tests.features.unit.dummyfiles.empties"
+        package = "features.unit.dummyfiles.empties"
 
         with self.assertRaises(Exception) as context:
             extract_all_features_from_package(package)
@@ -37,7 +37,7 @@ class FeatureExtractorTests(unittest.TestCase):
             context.exception))
 
     def test_if_throws_error_on_no_input_decorators(self):
-        package = "tests.features.unit.dummyfiles.noinput"
+        package = "features.unit.dummyfiles.noinput"
 
         with self.assertRaises(Exception) as context:
             extract_all_features_from_package(package)
@@ -46,7 +46,7 @@ class FeatureExtractorTests(unittest.TestCase):
             context.exception))
 
     def test_if_returns_empty_list_with_no_annotations(self):
-        package = "tests.features.unit.dummyfiles.notannotated"
+        package = "features.unit.dummyfiles.notannotated"
         expected_features = []
 
         feature_list_from_function = extract_all_features_from_package(package)
@@ -55,7 +55,7 @@ class FeatureExtractorTests(unittest.TestCase):
         self.assertEqual(feature_list_from_function, expected_features)
 
     def test_if_functions_get_annotated(self):
-        package = "tests.features.unit.dummyfiles.functions"
+        package = "features.unit.dummyfiles.functions"
         expected_features = ["F1", "F2", "F3"]
 
         feature_list_from_functions = extract_all_features_from_package(package)
@@ -64,7 +64,7 @@ class FeatureExtractorTests(unittest.TestCase):
         self.assertEqual(set(expected_features), set(feature_list_from_functions))
 
     def test_if_throws_error_on_no_decorator_brackets(self):
-        package = "tests.features.unit.dummyfiles.nobrackets"
+        package = "features.unit.dummyfiles.nobrackets"
 
         with self.assertRaises(Exception) as context:
             extract_all_features_from_package(package)
@@ -73,7 +73,7 @@ class FeatureExtractorTests(unittest.TestCase):
             context.exception))
 
     def test_if_returns_correct_codes_with_multiple_decorators(self):
-        package = "tests.features.unit.dummyfiles.multidecorator"
+        package = "features.unit.dummyfiles.multidecorator"
         expected_features = ["F1", "F2", "F3", "F4"]
 
         feature_list_from_functions = extract_all_features_from_package(package)
