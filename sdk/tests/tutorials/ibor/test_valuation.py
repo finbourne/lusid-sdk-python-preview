@@ -5,6 +5,7 @@ import pytz
 
 import lusid
 import lusid.models as models
+from features.lusid_feature import lusid_feature
 from utilities import InstrumentLoader
 from utilities import TestDataUtilities
 
@@ -25,6 +26,7 @@ class Valuation(unittest.TestCase):
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
 
+    @lusid_feature("F20")
     def test_portfolio_aggregation(self):
 
         effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
