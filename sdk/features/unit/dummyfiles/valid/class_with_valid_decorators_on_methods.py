@@ -3,12 +3,16 @@ import unittest
 from features.lusid_feature import lusid_feature
 
 
-class Noinput2Test(unittest.TestCase):
+class ClassWithValidDecoratorsOnMethos(unittest.TestCase):
 
-    @lusid_feature()
+    @lusid_feature("F4")
     def test_dummy_method_1(self):
         pass  # Empty for testing purposes
 
-    @lusid_feature("F5")
+    @lusid_feature("F3")
+    def test_dummy_method_2(self):
+        pass  # Empty for testing purposes
+
     def test_control_method(self):
         pass  # Empty for testing purposes
+

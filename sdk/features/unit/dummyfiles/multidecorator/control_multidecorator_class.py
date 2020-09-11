@@ -5,7 +5,7 @@ from parameterized import parameterized
 from features.lusid_feature import lusid_feature
 
 
-class Valid2Tests(unittest.TestCase):
+class ControlMultidecoratorClass(unittest.TestCase):
 
     def test_dummy_method_1(self):
         pass  # Empty for testing purposes
