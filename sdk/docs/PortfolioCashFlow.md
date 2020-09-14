@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sequence_number** | **int** |  | 
-**sub_holdings** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) |  | [optional] 
+**sub_holding_keys** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) |  | [optional] 
 **type** | **str** |  | 
 **movement_name** | **str** |  | 
 **cashflow** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
