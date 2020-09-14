@@ -2,7 +2,7 @@ import unittest
 
 import lusid
 import lusid.models as models
-from features.lusid_feature import lusid_feature
+from lusidfeatures.lusid_feature import lusid_feature
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from utilities.credentials_source import CredentialsSource
 from utilities.test_data_utilities import TestDataUtilities

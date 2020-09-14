@@ -5,7 +5,7 @@ import pytz as pytz
 
 import lusid
 import lusid.models as models
-from features.lusid_feature import lusid_feature
+from lusidfeatures.lusid_feature import lusid_feature
 from utilities import TestDataUtilities
 
 

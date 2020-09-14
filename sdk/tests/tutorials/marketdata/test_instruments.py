@@ -2,7 +2,7 @@ import unittest
 
 import lusid
 import lusid.models as models
-from features.lusid_feature import lusid_feature
+from lusidfeatures.lusid_feature import lusid_feature
 from lusid.exceptions import ApiException
 from utilities import TestDataUtilities
 
