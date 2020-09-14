@@ -1,6 +1,6 @@
 import sys
 
-from lusidfeature.entrypoint import extract_features_to_file
+from lusidfeature.reporter import extract_features_to_file
 
 
 def main(argv):
