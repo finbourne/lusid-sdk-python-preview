@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1970",
+    "version": "0.11.1971",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:45409"
+      "url": "http://localhost:39106"
     }
   ],
   "paths": {
@@ -38818,7 +38818,8 @@
           "FixedLeg",
           "FloatingLeg",
           "BespokeCashflowLeg",
-          "Unknown"
+          "Unknown",
+          "TermDeposit"
         ],
         "type": "string"
       },
@@ -38843,10 +38844,11 @@
               "FixedLeg",
               "FloatingLeg",
               "BespokeCashflowLeg",
-              "Unknown"
+              "Unknown",
+              "TermDeposit"
             ],
             "type": "string",
-            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
           }
         },
         "additionalProperties": false,
@@ -44807,10 +44809,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -44943,10 +44946,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45075,10 +45079,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45144,10 +45149,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45300,10 +45306,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45378,10 +45385,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45537,10 +45545,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45621,10 +45630,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45701,10 +45711,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45737,10 +45748,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45796,10 +45808,11 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
@@ -45861,15 +45874,81 @@
                   "FixedLeg",
                   "FloatingLeg",
                   "BespokeCashflowLeg",
-                  "Unknown"
+                  "Unknown",
+                  "TermDeposit"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
               }
             }
           }
         ],
         "description": "A swaption, an option to enter into an interest rate swap."
+      },
+      "TermDeposit": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          {
+            "required": [
+              "contractSize",
+              "flowConvention",
+              "instrumentType",
+              "maturityDate",
+              "rate",
+              "startDate"
+            ],
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
+              },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "format": "date-time"
+              },
+              "contractSize": {
+                "type": "number",
+                "description": "With an OTC we have the problem of multiple ways of booking a quantity.\r\n            e.g.\r\n            If buying a swap do you have a holding of size 1 of 100,000,000 notional swap or a holding of 100,000,000 size of 1 notional swap, or any combination that multiplies to 10^8.\r\n            When you get for a price for a 'unit swap' what do you mean? The definition must be consistent across all quotes. This includes bonds which have a face value and\r\n            fx-forwards which often trade in standard contract sizes. When we look up a price, and there are no units, we are assuming it is a price for a contract size of 1.\r\n            The logical effect of this is that\r\n            instrument clean price = contract size * quoted unit price\r\n            holding clean price    = holding quantity * instrument clean price = holding quantity * contract size * quoted unit price\r\n            In calculating accrued interest the same should hold.\r\n            NB: The real problem is that people store \"prices\" without complete units. Everything should really be \"x ccy for n units\". Where the n is implicit the above has to hold.",
+                "format": "double"
+              },
+              "flowConvention": {
+                "$ref": "#/components/schemas/FlowConventions"
+              },
+              "rate": {
+                "type": "number",
+                "description": "The fixed rate for the term deposit. Specified as a decimal, e.g 0.03 is meant to be 3% interest",
+                "format": "double"
+              },
+              "instrumentType": {
+                "enum": [
+                  "QuotedSecurity",
+                  "InterestRateSwap",
+                  "FxForward",
+                  "Future",
+                  "ExoticInstrument",
+                  "FxOption",
+                  "CreditDefaultSwap",
+                  "InterestRateSwaption",
+                  "Bond",
+                  "EquityOption",
+                  "FixedLeg",
+                  "FloatingLeg",
+                  "BespokeCashflowLeg",
+                  "Unknown",
+                  "TermDeposit"
+                ],
+                "type": "string",
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit"
+              }
+            }
+          }
+        ],
+        "description": "Lusid internal representation of a term deposit"
       }
     },
     "securitySchemes": {
