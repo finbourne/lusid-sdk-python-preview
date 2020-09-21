@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *http://localhost:47344*
+All URIs are relative to *http://localhost:60609*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_aggregation_of_weighted_instruments**](AggregationApi.md#get_aggregation_of_weighted_instruments) | **POST** /api/portfolios/{scope}/$aggregateinlined | [EXPERIMENTAL] Aggregate data in an inlined portfolio
 [**get_nested_aggregation**](AggregationApi.md#get_nested_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested
 [**get_queryable_keys**](AggregationApi.md#get_queryable_keys) | **GET** /api/results/queryable/keys | [EXPERIMENTAL] Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
+[**get_valuation**](AggregationApi.md#get_valuation) | **POST** /api/aggregation/$valuation | [EXPERIMENTAL] Perform valuation for a list of portfolios and/or portfolio groups
 
 
 # **generate_configuration_recipe**
@@ -32,8 +33,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -98,8 +99,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -170,8 +171,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Result data set
@@ -242,8 +243,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the instruments should that be required
@@ -312,8 +313,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -378,8 +379,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47344
-configuration.host = "http://localhost:47344"
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 page = 'page_example' # str | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional)
@@ -415,6 +416,68 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_valuation**
+> ListAggregationResponse get_valuation(valuation_request=valuation_request)
+
+[EXPERIMENTAL] Perform valuation for a list of portfolios and/or portfolio groups
+
+Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:60609
+configuration.host = "http://localhost:60609"
+# Create an instance of the API class
+api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
+valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}} # ValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
+
+try:
+    # [EXPERIMENTAL] Perform valuation for a list of portfolios and/or portfolio groups
+    api_response = api_instance.get_valuation(valuation_request=valuation_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AggregationApi->get_valuation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **valuation_request** | [**ValuationRequest**](ValuationRequest.md)| The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics | [optional] 
+
+### Return type
+
+[**ListAggregationResponse**](ListAggregationResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.1977",
+    "version": "0.11.1978",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:47344"
+      "url": "http://localhost:60609"
     }
   ],
   "paths": {
@@ -587,6 +587,263 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ConfigurationRecipe"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/aggregation/$valuation": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Perform valuation for a list of portfolios and/or portfolio groups",
+        "description": "Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.",
+        "operationId": "GetValuation",
+        "requestBody": {
+          "description": "The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValuationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyRecipeScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Instrument/default/Name",
+                    "op": "Value"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Value"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "reportCurrency": "USD",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "PortfolioScope1",
+                    "code": "MyPortfolioAbC",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "PortfolioScope2",
+                    "code": "MyPortfolioDeF",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "valuationSchedule": {
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
+                  "tenor": "1D",
+                  "rollConvention": "F",
+                  "holidayCalendars": [],
+                  "valuationDateTimes": []
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValuationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyRecipeScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Instrument/default/Name",
+                    "op": "Value"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Value"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "reportCurrency": "USD",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "PortfolioScope1",
+                    "code": "MyPortfolioAbC",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "PortfolioScope2",
+                    "code": "MyPortfolioDeF",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "valuationSchedule": {
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
+                  "tenor": "1D",
+                  "rollConvention": "F",
+                  "holidayCalendars": [],
+                  "valuationDateTimes": []
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValuationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyRecipeScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Instrument/default/Name",
+                    "op": "Value"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Value"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "reportCurrency": "USD",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "PortfolioScope1",
+                    "code": "MyPortfolioAbC",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "PortfolioScope2",
+                    "code": "MyPortfolioDeF",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "valuationSchedule": {
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
+                  "tenor": "1D",
+                  "rollConvention": "F",
+                  "holidayCalendars": [],
+                  "valuationDateTimes": []
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValuationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyRecipeScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00+00:00",
+                "metrics": [
+                  {
+                    "key": "Instrument/default/Name",
+                    "op": "Value"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Value"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "reportCurrency": "USD",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "PortfolioScope1",
+                    "code": "MyPortfolioAbC",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "PortfolioScope2",
+                    "code": "MyPortfolioDeF",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "valuationSchedule": {
+                  "effectiveFrom": "2018-03-05T00:00:00+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00+00:00",
+                  "tenor": "1D",
+                  "rollConvention": "F",
+                  "holidayCalendars": [],
+                  "valuationDateTimes": []
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
                 }
               }
             }
@@ -36581,6 +36838,142 @@
         },
         "additionalProperties": false,
         "description": "Specification class to request for the creation/supplementing of a configuration recipe"
+      },
+      "PortfolioEntityId": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope within which the portfolio or portfolio group lives.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "Portfolio name or code.",
+            "nullable": true
+          },
+          "portfolioEntityType": {
+            "type": "string",
+            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\". If not specified will assume it is a single portfolio.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification of a portfolio or portfolio group id, its scope and which it is."
+      },
+      "ValuationSchedule": {
+        "required": [
+          "effectiveAt"
+        ],
+        "type": "object",
+        "properties": {
+          "effectiveFrom": {
+            "type": "string",
+            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
+            "format": "dateorcutlabel"
+          },
+          "tenor": {
+            "type": "string",
+            "description": "Tenor, e.g \"1D\", \"1M\" to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.",
+            "nullable": true
+          },
+          "rollConvention": {
+            "type": "string",
+            "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" ends up hitting non business days around month end. In that case,\r\nwhat convention, e.g. modified following \"MF\" should be applied to determine the next GBD.",
+            "nullable": true
+          },
+          "holidayCalendars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "What holiday calendars should be considered effective in determining the date schedule. Note that where these are not available, perhaps because the user\r\nhas insufficient permissions, a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available\r\nshould simply be ignored.",
+            "nullable": true
+          },
+          "valuationDateTimes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "If given, the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the valuation schedule, how do we determine which days we wish to perform a valuation upon."
+      },
+      "ValuationRequest": {
+        "required": [
+          "metrics"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt date to use",
+            "format": "date-time",
+            "nullable": true
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregateSpec"
+            },
+            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
+          },
+          "groupBy": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies a queryable address in Lusid."
+            },
+            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyFilter"
+            },
+            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
+            "nullable": true
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderBySpec"
+            },
+            "description": "A (possibly empty/null) set of specifications for how to order the results.",
+            "nullable": true
+          },
+          "reportCurrency": {
+            "type": "string",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
+            "nullable": true
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolio or portfolio group identifiers that state what is to be valued.",
+            "nullable": true
+          },
+          "valuationSchedule": {
+            "$ref": "#/components/schemas/ValuationSchedule"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the parameters of a valuation"
       },
       "Version": {
         "required": [
