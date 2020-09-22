@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *http://localhost:60200*
+All URIs are relative to *http://localhost:63609*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,8 +33,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -99,8 +99,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -171,8 +171,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Result data set
@@ -243,8 +243,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the instruments should that be required
@@ -313,8 +313,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio or portfolio group
@@ -379,8 +379,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 page = 'page_example' # str | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional)
@@ -447,8 +447,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:60200
-configuration.host = "http://localhost:60200"
+# Defining host is optional and default to http://localhost:63609
+configuration.host = "http://localhost:63609"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00+00:00","effectiveAt":"2018-03-05T00:00:00+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}} # ValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
