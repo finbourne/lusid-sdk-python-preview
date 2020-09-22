@@ -1,6 +1,6 @@
 # lusid.RelationsApi
 
-All URIs are relative to *http://localhost:49995*
+All URIs are relative to *http://localhost:51414*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,8 +27,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:49995
-configuration.host = "http://localhost:49995"
+# Defining host is optional and default to http://localhost:51414
+configuration.host = "http://localhost:51414"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the relation to create.
