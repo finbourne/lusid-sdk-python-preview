@@ -1,6 +1,6 @@
 # lusid.PortfolioGroupsApi
 
-All URIs are relative to *http://localhost:39836*
+All URIs are relative to *http://localhost:40358*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -47,8 +47,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio to.
@@ -115,8 +115,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to add a portfolio group to.
@@ -183,8 +183,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group.
@@ -255,8 +255,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope that the portfolio group will be created in.
@@ -319,8 +319,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the group to delete properties from.
@@ -387,8 +387,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Group
@@ -455,8 +455,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to remove the portfolio from.
@@ -525,8 +525,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to delete.
@@ -589,8 +589,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to remove the sub group from.
@@ -659,8 +659,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the group to list the properties for.
@@ -727,8 +727,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group.
@@ -801,8 +801,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to retrieve the definition for.
@@ -869,8 +869,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Group
@@ -939,8 +939,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to retrieve the commands for.
@@ -1009,8 +1009,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to expand.
@@ -1079,8 +1079,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Group
@@ -1147,8 +1147,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group.
@@ -1221,8 +1221,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to list the portfolio groups in.
@@ -1289,8 +1289,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio group to update the definition for.
@@ -1357,8 +1357,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the group to update or insert the properties onto.
@@ -1423,8 +1423,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:39836
-configuration.host = "http://localhost:39836"
+# Defining host is optional and default to http://localhost:40358
+configuration.host = "http://localhost:40358"
 # Create an instance of the API class
 api_instance = lusid.PortfolioGroupsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Group
