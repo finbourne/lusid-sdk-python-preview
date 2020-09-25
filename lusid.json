@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2030",
+    "version": "0.11.2033",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -33905,7 +33905,7 @@
           },
           "field": {
             "type": "string",
-            "description": "The conceptual qualification for the field, such as bid, mid, or ask. \r\nThe field must be one of a defined set for the given supplier, in the same way as it\r\nis for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId"
+            "description": "The conceptual qualification for the field, such as bid, mid, or ask.\r\nThe field must be one of a defined set for the given supplier, in the same way as it\r\nis for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId"
           },
           "quoteInterval": {
             "type": "string",
@@ -33921,6 +33921,11 @@
           "priceSource": {
             "type": "string",
             "description": "The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote",
+            "nullable": true
+          },
+          "mask": {
+            "type": "string",
+            "description": "Allows for partial or complete override of the market asset resolved for a dependency\r\nEither a named override or a dot separated string (A.B.C.D.*).\r\ne.g. for Rates curve 'EUR.*' will replace the resolve MarketAsset 'GBP/12M', 'GBP/3M' with the EUR equivalent, if there\r\nare no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule.",
             "nullable": true
           }
         },
