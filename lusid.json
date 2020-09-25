@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2024",
+    "version": "0.11.2025",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:40739"
+      "url": "http://localhost:40865"
     }
   ],
   "paths": {
@@ -21747,7 +21747,7 @@
                   "scope": "system",
                   "code": "string"
                 },
-                "derivation": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
+                "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
             "application/json": {
@@ -21763,7 +21763,7 @@
                   "scope": "system",
                   "code": "string"
                 },
-                "derivation": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
+                "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
             "text/json": {
@@ -21779,7 +21779,7 @@
                   "scope": "system",
                   "code": "string"
                 },
-                "derivation": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
+                "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
             "application/*+json": {
@@ -21795,7 +21795,7 @@
                   "scope": "system",
                   "code": "string"
                 },
-                "derivation": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
+                "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             }
           },
@@ -40517,6 +40517,11 @@
             "description": "A brief description of what a property of this property definition contains.",
             "nullable": true
           },
+          "derivationFormula": {
+            "type": "string",
+            "description": "The rule that defines how data is composed for a derived property.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -40624,9 +40629,9 @@
           "dataTypeId": {
             "$ref": "#/components/schemas/ResourceId"
           },
-          "derivation": {
+          "derivationFormula": {
             "type": "string",
-            "description": "The string that contains the rule for the derived property.",
+            "description": "The rule that defines how data is composed for a derived property.",
             "nullable": true
           }
         },
