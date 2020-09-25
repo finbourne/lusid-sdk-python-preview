@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **code** | **str** | The code of the property. Together with the domain and scope this uniquely identifies the property. | 
 **display_name** | **str** | The display name of the property. | 
 **data_type_id** | [**ResourceId**](ResourceId.md) |  | 
-**derivation_formula** | **str** | The rule that defines how data is composed for a derived property. | [optional] 
+**derivation** | **str** | The string that contains the rule for the derived property. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
