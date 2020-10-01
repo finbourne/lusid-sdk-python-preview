@@ -43,7 +43,7 @@ class ComplexInstrumentTests(unittest.TestCase):
             instrument_type='FxForward'
         )
 
-        # Assert that it was created
+        # Assert instrument was created
         self.assertIsNotNone(fx_forward)
 
         # Upsert to LUSID with unique ID and 
@@ -61,3 +61,45 @@ class ComplexInstrumentTests(unittest.TestCase):
         self.assertEqual(saved_fx_forward.fgn_amount, fx_forward.fgn_amount)
         self.assertEqual(saved_fx_forward.dom_ccy, fx_forward.dom_ccy)
         self.assertEqual(saved_fx_forward.fgn_ccy, fx_forward.fgn_ccy)
+
+
+    def test_create_fx_option(self):
+        fx_option = lusid.FxOption(
+            strike=100,
+            dom_ccy='USD',
+            fgn_ccy='JPY',
+            start_date=datetime(2020, 2, 7, 00, tzinfo=pytz.utc),
+            option_maturity_date=datetime(2020, 12, 18, 00, tzinfo=pytz.utc),
+            option_settlement_date=datetime(2020, 12, 21, 00, tzinfo=pytz.utc),
+            is_call_not_put= True,
+            is_delivery_not_cash= True,
+            instrument_type='FxOption'
+        )
+
+        # Assert instrument was created
+        self.assertIsNotNone(fx_option)
+
+        # Upsert to LUSID with unique ID and
+        unique_id = 'id-fxopt-1'
+        self.upsert_otc_to_lusid(fx_option, "some-name-for-this-fxoption", unique_id)
+
+        # Can now query from LUSID and run tests
+        response = self.query_otc_from_lusid(unique_id)
+        self.assertIsNotNone(response)
+        self.assertGreater(len(response.values), 0, 'Response.values = 0')
+        saved_fx_option = response.values[unique_id].instrument_definition
+
+        self.assertEqual(saved_fx_option.instrument_type, lusid.InstrumentType.FXOPTION)
+        self.assertEqual(saved_fx_option.dom_ccy, fx_option.dom_ccy)
+        self.assertEqual(saved_fx_option.fgn_ccy, fx_option.fgn_ccy)
+        self.assertEqual(saved_fx_option.start_date, fx_option.start_date)
+        self.assertEqual(saved_fx_option.option_maturity_date, fx_option.option_maturity_date)
+        self.assertEqual(saved_fx_option.option_settlement_date, fx_option.option_settlement_date)
+        self.assertEqual(saved_fx_option.is_call_not_put, fx_option.is_call_not_put)
+        self.assertEqual(saved_fx_option.is_delivery_not_cash, fx_option.is_delivery_not_cash)
+
+
+
+
+
+
