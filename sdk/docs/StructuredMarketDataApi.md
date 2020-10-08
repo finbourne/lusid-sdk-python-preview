@@ -1,6 +1,6 @@
 # lusid.StructuredMarketDataApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:44158*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,12 +29,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:44158
+configuration.host = "http://localhost:44158"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to delete.
-request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The structured market data Ids to delete, each keyed by a unique correlation id.
+request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The structured market data Ids to delete, each keyed by a unique correlation id.
 
 try:
     # [EXPERIMENTAL] Delete one or more items of structured market data, assuming they are present.
@@ -93,12 +93,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:44158
+configuration.host = "http://localhost:44158"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured market data to retrieve.
-request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
+request_body = {"someCorrelationId1":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVol","marketAsset":"USDJPY"}} # dict(str, StructuredMarketDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 effective_at = 'effective_at_example' # str | The effective datetime at which to retrieve the structured market data. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured market data. Defaults to return the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured market data item must exist to be retrieved. (optional)
@@ -163,12 +163,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:44158
+configuration.host = "http://localhost:44158"
 # Create an instance of the API class
 api_instance = lusid.StructuredMarketDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured market data.
-request_body = {"first-item":{"marketDataId":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketElementType":"FxVolSurface","marketAsset":"USDJPY"},"marketData":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"marketDataId":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketElementType":"IrVolCube","marketAsset":"RBS"},"marketData":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 1","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredMarketDataRequest) | The set of structured market data items to update or insert keyed by a unique correlation id.
+request_body = {"first-item":{"marketDataId":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"FxVolSurface","marketAsset":"USDJPY"},"marketData":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"marketDataId":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00+00:00","marketElementType":"IrVolCube","marketAsset":"RBS"},"marketData":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 1","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredMarketDataRequest) | The set of structured market data items to update or insert keyed by a unique correlation id.
 
 try:
     # [EXPERIMENTAL] Upsert a set of structured market data items. This creates or updates the data in Lusid.
