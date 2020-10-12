@@ -4,11 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** |  | [optional] 
-**calendar_identifier** | [**ResourceId**](ResourceId.md) |  | 
 **date_identifier** | **str** |  | 
 **from_utc** | **datetime** |  | 
 **to_utc** | **datetime** |  | 
-**local_date** | **str** |  | 
+**local_start_date** | **str** |  | 
 **timezone** | **str** |  | 
 **description** | **str** |  | 
 **type** | **str** |  | 
