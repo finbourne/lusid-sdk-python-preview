@@ -1,17 +1,17 @@
 # lusid.CalendarsApi
 
-All URIs are relative to *http://localhost:50714*
+All URIs are relative to *http://localhost:33283*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **POST** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Add a date to a calendar
+[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Add a date to a calendar
 [**create_calendar**](CalendarsApi.md#create_calendar) | **POST** /api/calendars/generic | [EXPERIMENTAL] Create a calendar in its generic form
 [**delete_calendar**](CalendarsApi.md#delete_calendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Delete a calendar
 [**delete_date_from_calendar**](CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [EXPERIMENTAL] Remove a date from a calendar
 [**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Get a calendar in its generic form
 [**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Get dates for a specific calendar
 [**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [EXPERIMENTAL] Check whether a DateTime is a \&quot;Business DateTime\&quot;
-[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [EXPERIMENTAL] List all calenders
+[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic/{scope} | [EXPERIMENTAL] List all calenders in a specified scope
 [**update_calendar**](CalendarsApi.md#update_calendar) | **PUT** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Update a calendar
 
 
@@ -35,8 +35,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -101,8 +101,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne Calendar Service","properties":[{"key":"Calendar/default/Center","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
@@ -163,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -227,8 +227,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -293,8 +293,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar identifier
@@ -359,8 +359,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Check whether a DateTime is a \"Business DateTime\"
 
-A Business DateTime is defined as a point in time that: <br />      * Does not represent a day that overlaps with the calendars WeekendMask <br />      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar <br />      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar <br />                All dates specified must be UTC and the upper bound of a calendar is not inclusive <br />  e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00 <br />  IsBusinessDay(2020-12-26-00-00-00) == false
+A Business DateTime is defined as a point in time that:      * Does not represent a day that overlaps with the calendars WeekendMask      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar                All dates specified must be UTC and the upper bound of a calendar is not inclusive   e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00  IsBusinessDay(2020-12-26-00-00-00) == false
 
 ### Example
 
@@ -431,8 +431,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
@@ -480,9 +480,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calendars**
-> PagedResourceListOfCalendar list_calendars(scope=scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+> PagedResourceListOfCalendar list_calendars(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] List all calenders
+[EXPERIMENTAL] List all calenders in a specified scope
 
 List calendars within a specific scope and a specific window of effective time, at a point in AsAt time.
 
@@ -499,11 +499,11 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendars (optional)
+scope = 'scope_example' # str | Scope of the calendars
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendars (optional)
 page = 'page_example' # str | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
@@ -511,8 +511,8 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
 try:
-    # [EXPERIMENTAL] List all calenders
-    api_response = api_instance.list_calendars(scope=scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+    # [EXPERIMENTAL] List all calenders in a specified scope
+    api_response = api_instance.list_calendars(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
@@ -522,7 +522,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the calendars | [optional] 
+ **scope** | **str**| Scope of the calendars | 
  **as_at** | **datetime**| The AsAt datetime at which to retrieve the calendars | [optional] 
  **page** | **str**| The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Get calendars |  -  |
+**200** | Calendars in the requested scope |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -571,8 +571,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:50714
-configuration.host = "http://localhost:50714"
+# Defining host is optional and default to http://localhost:33283
+configuration.host = "http://localhost:33283"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the request
