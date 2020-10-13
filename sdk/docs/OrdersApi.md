@@ -1,6 +1,6 @@
 # lusid.OrdersApi
 
-All URIs are relative to *http://localhost:31674*
+All URIs are relative to *http://localhost:32655*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:31674
-configuration.host = "http://localhost:31674"
+# Defining host is optional and default to http://localhost:32655
+configuration.host = "http://localhost:32655"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the order belongs.
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:31674
-configuration.host = "http://localhost:31674"
+# Defining host is optional and default to http://localhost:32655
+configuration.host = "http://localhost:32655"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
@@ -166,8 +166,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:31674
-configuration.host = "http://localhost:31674"
+# Defining host is optional and default to http://localhost:32655
+configuration.host = "http://localhost:32655"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the orders belong.
@@ -228,8 +228,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:31674
-configuration.host = "http://localhost:31674"
+# Defining host is optional and default to http://localhost:32655
+configuration.host = "http://localhost:32655"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 order_set_request = {"orderRequests":[{"properties":{"order/MyScope/SomeOrderProperty":{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","orderBookId":{"scope":"MyScope","code":"UKEQ Orders"},"portfolioId":{"scope":"MyScope","code":"UK Equity"},"id":{"scope":"MyScope","code":"ORD00000123"}}]} # OrderSetRequest | The collection of order requests. (optional)
