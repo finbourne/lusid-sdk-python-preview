@@ -1,13 +1,12 @@
-# CorporateActionSource
+# PagedResourceListOfCorporateActionSource
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**next_page** | **str** |  | [optional] 
+**previous_page** | **str** |  | [optional] 
+**values** | [**list[CorporateActionSource]**](CorporateActionSource.md) |  | 
 **href** | **str** |  | [optional] 
-**id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**version** | [**Version**](Version.md) |  | [optional] 
-**display_name** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
 **links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
