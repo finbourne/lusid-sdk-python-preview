@@ -8,29 +8,31 @@ import lusid.models as models
 from utilities import InstrumentLoader
 from utilities import TestDataUtilities
 
+# setup logging configuration
+logging.basicConfig(level=logging.INFO)
+
 
 class DerivedPropertyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # create a configured API client
         api_client = TestDataUtilities.api_client()
-        cls.scopes_api = lusid.ScopesApi(api_client)
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         # load instruments from InstrumentLoader
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
-        # setup logging configuration
-        logging.basicConfig(level=logging.INFO)
 
     def create_ratings_property(self, *ratings):
 
         ratings = [*ratings]
+        global scope
+        scope = "Derived"
 
         for rating in ratings:
             property_definition = models.CreatePropertyDefinitionRequest(
                 domain="Instrument",
-                scope="Test-Demo",
+                scope=scope,
                 code=f"{rating}Rating",
                 display_name=f"{rating}Rating",
                 data_type_id=lusid.ResourceId(scope="system", code="number"),
@@ -43,14 +45,15 @@ class DerivedPropertyTests(unittest.TestCase):
                 )
             except lusid.ApiException as e:
                 if json.loads(e.body)["name"] == "PropertyAlreadyExists":
-                    logging.info(f"Property {rating} already exists")
-                    pass
+                    logging.info(
+                        f"Property {property_definition.domain}/{property_definition.scope}/{property_definition.display_name} already exists"
+                    )
 
     def upsert_ratings_property(self, figi, fitch_value=None, moodys_value=None):
 
         properties = {
-            "Instrument/Test-Demo/FitchRating": fitch_value,
-            "Instrument/Test-Demo/MoodysRating": moodys_value,
+            f"Instrument/{scope}/FitchRating": fitch_value,
+            f"Instrument/{scope}/MoodysRating": moodys_value,
         }
 
         # upsert property definition
@@ -77,19 +80,14 @@ class DerivedPropertyTests(unittest.TestCase):
                     upsert_instrument_property_request=property_request
                 )
 
-    def get_instruments_with_derived_prop(self, Figi):
-        response = self.instruments_api.list_instruments(
-            instrument_property_keys=["Instrument/Test-Demo/TestDerivedRating"],
-            filter=f"Identifiers[Figi] eq '{Figi}'",
-        )
-
-        return response.values[0].properties[0].value.metric_value.value
-
-    def get_instruments_func(self, Figi):
+    def get_instruments_with_derived_prop(self, figi):
         response = self.instruments_api.get_instruments(
-            identifier_type="Figi", request_body=[Figi]
+            identifier_type="Figi",
+            request_body=[figi],
+            property_keys=[f"Instrument/{scope}/DerivedRating"],
         )
-        return response
+
+        return response.values[figi].properties[0].value.metric_value.value
 
     def test_derived_property(self):
 
@@ -102,14 +100,15 @@ class DerivedPropertyTests(unittest.TestCase):
         self.upsert_ratings_property("BBG000BDWPY0", fitch_value=10)
 
         # create derived property using the 'Coalesce' derivation formula
-        derivation_formula = "Coalesce(Properties[Instrument/Test-Demo/MoodysRating], Properties[Instrument/Test-Demo/FitchRating],0)"
+        code = "DerivedRating"
+        derivation_formula = f"Coalesce(Properties[Instrument/{scope}/MoodysRating], Properties[Instrument/{scope}/FitchRating],0)"
 
         # create derived property request
         derived_prop_definition_req = models.CreateDerivedPropertyDefinitionRequest(
             domain="Instrument",
-            scope="Test-Demo",
-            code="TestDerivedRating",
-            display_name="TestDerivedRating",
+            scope=scope,
+            code=code,
+            display_name=code,
             data_type_id=lusid.ResourceId(scope="system", code="number"),
             derivation_formula=derivation_formula,
         )
@@ -121,18 +120,19 @@ class DerivedPropertyTests(unittest.TestCase):
             )
         except lusid.ApiException as e:
             if json.loads(e.body)["name"] == "PropertyAlreadyExists":
-                logging.info("Property 'derived' already exists")
-                pass
+                logging.info(
+                    f"Property {derived_prop_definition_req.domain}{derived_prop_definition_req.scope}/{derived_prop_definition_req.display_name} already exists"
+                )
 
         # test case for derived property with both ratings
-        both_ratings = self.get_instruments_with_derived_prop("BBG000FD8G46")
-        self.assertEqual(both_ratings, 5.0)
+        moodys_then_fitch = self.get_instruments_with_derived_prop("BBG000FD8G46")
+        self.assertEqual(moodys_then_fitch, 5.0)
 
         # test case for derived property with no ratings
         no_ratings = self.get_instruments_with_derived_prop("BBG000DW76R4")
         self.assertEqual(no_ratings, 0.0)
 
-        # test case for derived property with fitch only
+        # # test case for derived property with fitch only
         fitch_only = self.get_instruments_with_derived_prop("BBG000BDWPY0")
         self.assertEqual(fitch_only, 10.0)
 
