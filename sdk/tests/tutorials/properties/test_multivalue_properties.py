@@ -29,7 +29,7 @@ class MultiLabelPropertyTests(unittest.TestCase):
         # Details of property to be created
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
         scope = "MultiValueProperties"
-        code = "CallSchedule"
+        code = "MorningstarQuartertlyRating"
         portfolio_code = "Portfolio-MVP"
 
         multi_value_property_definition = models.CreatePropertyDefinitionRequest(
@@ -53,9 +53,10 @@ class MultiLabelPropertyTests(unittest.TestCase):
                 )
 
         schedule = [
-            '{"date1": "1-jan-2020"}',
-            '{"date2": "1-jan-2021"}',
-            '{"date3": "1-jan-2022"}',
+            '{ "2019-12-31" : "5"}',
+            '{ "2020-03-31" : "4"}',
+            '{ "2020-06-30" : "3"}',
+            '{ "2020-09-30" : "3"}',
         ]
 
         # Details of new portfolio to be created
