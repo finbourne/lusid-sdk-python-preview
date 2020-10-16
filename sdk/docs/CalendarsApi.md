@@ -1,6 +1,6 @@
 # lusid.CalendarsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:63736*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,13 +35,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
-create_date_request = {"dateId":"TestDate","fromUtc":"2020-02-12T12:00:00.0000000+00:00","toUtc":"2020-02-13T12:00:00.0000000+00:00","timeZone":"CET","description":"Chinese New year","type":"Holiday","sourceData":{}} # CreateDateRequest | Add date to calendar request
+create_date_request = {"dateId":"TestDate","fromUtc":"2020-02-12T12:00:00+00:00","toUtc":"2020-02-13T12:00:00+00:00","timeZone":"CET","description":"Chinese New year","type":"Holiday","sourceData":{}} # CreateDateRequest | Add date to calendar request
 
 try:
     # [EXPERIMENTAL] Add a date to a calendar
@@ -101,8 +101,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne Calendar Service","properties":[{"key":"Calendar/default/Center","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
@@ -163,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -227,8 +227,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -293,8 +293,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar identifier
@@ -359,8 +359,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -431,8 +431,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
@@ -499,8 +499,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendars
@@ -571,8 +571,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:63736
+configuration.host = "http://localhost:63736"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the request
