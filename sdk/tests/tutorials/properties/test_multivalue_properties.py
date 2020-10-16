@@ -23,13 +23,12 @@ class MultiLabelPropertyTests(unittest.TestCase):
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.portfolios_api = lusid.PortfoliosApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.portfolios_api = lusid.PortfoliosApi(api_client)
 
     def test_create_portfolio_with_mv_property(self):
         # Details of property to be created
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
         scope = "MultiValueProperties"
-        code = "MorningstarQuartertlyRating"
+        code = "MorningstarQuarterlyRating"
         portfolio_code = "Portfolio-MVP"
 
         multi_value_property_definition = models.CreatePropertyDefinitionRequest(
