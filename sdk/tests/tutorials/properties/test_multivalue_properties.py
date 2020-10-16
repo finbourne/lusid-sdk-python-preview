@@ -97,7 +97,7 @@ class MultiLabelPropertyTests(unittest.TestCase):
             scope=scope, code=portfolio_code
         ).properties
         label_value_set = portfolio_properties[
-            "Portfolio/MultiValueProperties/CallSchedule"
+            f"Portfolio/MultiValueProperties/{code}"
         ].value.label_value_set.values
         self.assertCountEqual(label_value_set, schedule)
 
