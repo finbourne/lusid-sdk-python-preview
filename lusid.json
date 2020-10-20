@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2175",
+    "version": "0.11.2176",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:47859"
+      "url": "http://localhost:32468"
     }
   ],
   "paths": {
@@ -5055,11 +5055,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Optional. When paginating, limit the number of returned results to this many",
+            "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 100 is used.",
             "schema": {
               "type": "integer",
-              "description": "Optional. When paginating, limit the number of returned results to this many",
+              "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 100 is used.",
               "format": "int32",
+              "default": 100,
               "nullable": true
             },
             "x-nullable": true
@@ -5067,20 +5068,20 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Optional. Expression to filter the result set.\r\n                For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n                Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
               "type": "string",
-              "description": "Optional. Expression to filter the result set.\r\n                For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n                Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
             }
           },
           {
             "name": "page",
             "in": "query",
-            "description": "the page or whatever",
+            "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, the filter, asAt, and limit must not\r\nbe modified.",
             "schema": {
               "type": "string",
-              "description": "the page or whatever",
+              "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, the filter, asAt, and limit must not\r\nbe modified.",
               "nullable": true
             }
           }
@@ -17534,10 +17535,10 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Expression to filter the result set. \r\n            For example, to filter on the Type, use \"type eq 'Transaction'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "description": "Expression to filter the result set.\r\n            For example, to filter on the Type, use \"type eq 'Transaction'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
               "type": "string",
-              "description": "Expression to filter the result set. \r\n            For example, to filter on the Type, use \"type eq 'Transaction'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "description": "Expression to filter the result set.\r\n            For example, to filter on the Type, use \"type eq 'Transaction'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
             }
           },

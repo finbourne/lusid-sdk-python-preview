@@ -1,6 +1,6 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://localhost:47859*
+All URIs are relative to *http://localhost:32468*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47859
-configuration.host = "http://localhost:47859"
+# Defining host is optional and default to http://localhost:32468
+configuration.host = "http://localhost:32468"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of corporate action source
@@ -97,8 +97,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47859
-configuration.host = "http://localhost:47859"
+# Defining host is optional and default to http://localhost:32468
+configuration.host = "http://localhost:32468"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 create_corporate_action_source_request = {"scope":"ExampleScope","code":"ExampleCode","displayName":"ExampleDisplayName","description":"Example Description"} # CreateCorporateActionSourceRequest | The corporate action source definition
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47859
-configuration.host = "http://localhost:47859"
+# Defining host is optional and default to http://localhost:32468
+configuration.host = "http://localhost:32468"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The Scope of the Corporate Action Source to be deleted
@@ -223,8 +223,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47859
-configuration.host = "http://localhost:47859"
+# Defining host is optional and default to http://localhost:32468
+configuration.host = "http://localhost:32468"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source
@@ -299,15 +299,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:47859
-configuration.host = "http://localhost:47859"
+# Defining host is optional and default to http://localhost:32468
+configuration.host = "http://localhost:32468"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
-limit = 56 # int | Optional. When paginating, limit the number of returned results to this many (optional)
-filter = 'filter_example' # str | Optional. Expression to filter the result set.                  For example, to filter on the Display Name, use \"displayName eq 'string'\"                  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-page = 'page_example' # str | the page or whatever (optional)
+limit = 100 # int | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional) (default to 100)
+filter = 'filter_example' # str | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \"displayName eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
+page = 'page_example' # str | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)
 
 try:
     # [BETA] List corporate action sources
@@ -323,9 +323,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **as_at** | **datetime**| Optional. The AsAt date of the data | [optional] 
  **sort_by** | [**list[str]**](str.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **limit** | **int**| Optional. When paginating, limit the number of returned results to this many | [optional] 
- **filter** | **str**| Optional. Expression to filter the result set.                  For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;                  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **page** | **str**| the page or whatever | [optional] 
+ **limit** | **int**| Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. | [optional] [default to 100]
+ **filter** | **str**| Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **page** | **str**| Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. | [optional] 
 
 ### Return type
 
