@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2184",
+    "version": "0.11.2185",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:37452"
+      "url": "http://localhost:40851"
     }
   ],
   "paths": {
@@ -13563,6 +13563,208 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/persons/{idTypeScope}/{idTypeCode}/{code}/relations": {
+      "get": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "[EXPERIMENTAL] Get Relations for Person",
+        "description": "Get relations for the specified Person",
+        "operationId": "GetPersonRelations",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the person identifier type.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the person identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the person identifier type.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the person identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the person.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the person.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the person's relations. Defaults to return the latest LUSID AsAt time if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the person's relations. Defaults to return the latest LUSID AsAt time if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifierTypes",
+            "in": "query",
+            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The relations for the specific person.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "scope": "UkPortfolio",
+                        "code": "PortfolioId-148176"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00+00:00"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "scope": "UkPortfolio",
+                        "code": "PortfolioId-148176"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00+00:00"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "scope": "UkPortfolio",
+                        "code": "PortfolioId-148176"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00+00:00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/portfoliogroups/{scope}": {
       "post": {
         "tags": [
@@ -24027,7 +24229,7 @@
                 "targetEntityDomain": "Person",
                 "displayName": "Authorised traders to trade for specific portfolio ",
                 "outwardDescription": "can be traded by",
-                "inwardDescription": "can trade with",
+                "inwardDescription": "can trade with portfolio",
                 "lifeTime": "TimeVariant",
                 "constraintStyle": "Collection"
               }
@@ -24043,7 +24245,7 @@
                 "targetEntityDomain": "Person",
                 "displayName": "Authorised traders to trade for specific portfolio ",
                 "outwardDescription": "can be traded by",
-                "inwardDescription": "can trade with",
+                "inwardDescription": "can trade with portfolio",
                 "lifeTime": "TimeVariant",
                 "constraintStyle": "Collection"
               }
@@ -24059,7 +24261,7 @@
                 "targetEntityDomain": "Person",
                 "displayName": "Authorised traders to trade for specific portfolio ",
                 "outwardDescription": "can be traded by",
-                "inwardDescription": "can trade with",
+                "inwardDescription": "can trade with portfolio",
                 "lifeTime": "TimeVariant",
                 "constraintStyle": "Collection"
               }
@@ -24075,7 +24277,7 @@
                 "targetEntityDomain": "Person",
                 "displayName": "Authorised traders to trade for specific portfolio ",
                 "outwardDescription": "can be traded by",
-                "inwardDescription": "can trade with",
+                "inwardDescription": "can trade with portfolio",
                 "lifeTime": "TimeVariant",
                 "constraintStyle": "Collection"
               }
@@ -24299,8 +24501,9 @@
               },
               "example": {
                 "sourceEntityId": {
-                  "scope": "UkPortfolio",
-                  "code": "PortfolioId-148176"
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
                 },
                 "targetEntityId": {
                   "idTypeScope": "HrSystem1",
@@ -24315,8 +24518,9 @@
               },
               "example": {
                 "sourceEntityId": {
-                  "scope": "UkPortfolio",
-                  "code": "PortfolioId-148176"
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
                 },
                 "targetEntityId": {
                   "idTypeScope": "HrSystem1",
@@ -24331,8 +24535,9 @@
               },
               "example": {
                 "sourceEntityId": {
-                  "scope": "UkPortfolio",
-                  "code": "PortfolioId-148176"
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
                 },
                 "targetEntityId": {
                   "idTypeScope": "HrSystem1",
@@ -24347,8 +24552,9 @@
               },
               "example": {
                 "sourceEntityId": {
-                  "scope": "UkPortfolio",
-                  "code": "PortfolioId-148176"
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
                 },
                 "targetEntityId": {
                   "idTypeScope": "HrSystem1",
@@ -24366,7 +24572,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Relation"
+                  "$ref": "#/components/schemas/CompleteRelation"
                 },
                 "example": {
                   "relationDefinitionId": {
@@ -24382,13 +24588,14 @@
                     "idTypeCode": "InternalId",
                     "code": "XY10001111"
                   },
-                  "description": "UkPortfolio/PortfolioId-148176 can be traded by Person/HrSystem1/InternalId/XY10001111",
+                  "outwardDescription": "can be traded by",
+                  "inwardDescription": "can trade with portfolio",
                   "effectiveFrom": "2019-01-01T12:00:00+00:00"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Relation"
+                  "$ref": "#/components/schemas/CompleteRelation"
                 },
                 "example": {
                   "relationDefinitionId": {
@@ -24404,13 +24611,14 @@
                     "idTypeCode": "InternalId",
                     "code": "XY10001111"
                   },
-                  "description": "UkPortfolio/PortfolioId-148176 can be traded by Person/HrSystem1/InternalId/XY10001111",
+                  "outwardDescription": "can be traded by",
+                  "inwardDescription": "can trade with portfolio",
                   "effectiveFrom": "2019-01-01T12:00:00+00:00"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Relation"
+                  "$ref": "#/components/schemas/CompleteRelation"
                 },
                 "example": {
                   "relationDefinitionId": {
@@ -24426,7 +24634,8 @@
                     "idTypeCode": "InternalId",
                     "code": "XY10001111"
                   },
-                  "description": "UkPortfolio/PortfolioId-148176 can be traded by Person/HrSystem1/InternalId/XY10001111",
+                  "outwardDescription": "can be traded by",
+                  "inwardDescription": "can trade with portfolio",
                   "effectiveFrom": "2019-01-01T12:00:00+00:00"
                 }
               }
@@ -38904,6 +39113,68 @@
         },
         "additionalProperties": false
       },
+      "Relation": {
+        "required": [
+          "relatedEntityId",
+          "relationDefinitionId",
+          "traversalDescription",
+          "traversalDirection"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "relationDefinitionId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "relatedEntityId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "traversalDirection": {
+            "type": "string"
+          },
+          "traversalDescription": {
+            "type": "string"
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of a Relation between a requested entity with the stated entity as RelationedEntityId"
+      },
+      "ResourceListOfRelation": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relation"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreatePortfolioGroupRequest": {
         "required": [
           "code",
@@ -41368,9 +41639,10 @@
         },
         "additionalProperties": false
       },
-      "Relation": {
+      "CompleteRelation": {
         "required": [
-          "description",
+          "inwardDescription",
+          "outwardDescription",
           "relationDefinitionId",
           "sourceEntityId",
           "targetEntityId"
@@ -41400,7 +41672,10 @@
               "type": "string"
             }
           },
-          "description": {
+          "outwardDescription": {
+            "type": "string"
+          },
+          "inwardDescription": {
             "type": "string"
           },
           "effectiveFrom": {
@@ -41408,7 +41683,8 @@
             "format": "date-time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Representation of a relation containing details of source and target entities, and both outward and inward descriptions."
       },
       "AggregationType": {
         "enum": [
