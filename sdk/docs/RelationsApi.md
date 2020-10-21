@@ -1,6 +1,6 @@
 # lusid.RelationsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:45739*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **create_relation**
-> Relation create_relation(scope, code, create_relation_request, effective_at=effective_at)
+> CompleteRelation create_relation(scope, code, create_relation_request, effective_at=effective_at)
 
 [EXPERIMENTAL] Create Relation
 
@@ -27,13 +27,13 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:45739
+configuration.host = "http://localhost:45739"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the relation to create.
 code = 'code_example' # str | Code of the relation to create.
-create_relation_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationRequest | The details of the relation to create.
+create_relation_request = {"sourceEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationRequest | The details of the relation to create.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
 try:
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Relation**](Relation.md)
+[**CompleteRelation**](CompleteRelation.md)
 
 ### Authorization
 
