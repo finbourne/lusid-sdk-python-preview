@@ -1,18 +1,20 @@
 # lusid.AllocationsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:31061*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_allocation**](AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EXPERIMENTAL] Fetch a given allocation.
-[**list_allocations**](AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
-[**upsert_allocations**](AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.
+[**get_allocation**](AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EXPERIMENTAL] Get Allocation
+[**list_allocations**](AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EXPERIMENTAL] List Allocations
+[**upsert_allocations**](AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EXPERIMENTAL] Upsert Allocations
 
 
 # **get_allocation**
 > Allocation get_allocation(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Fetch a given allocation.
+[EXPERIMENTAL] Get Allocation
+
+Fetch an Allocation matching the provided identifier
 
 ### Example
 
@@ -27,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the allocation belongs.
@@ -37,7 +39,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Allocations\" domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] Fetch a given allocation.
+    # [EXPERIMENTAL] Get Allocation
     api_response = api_instance.get_allocation(scope, code, as_at=as_at, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -78,7 +80,9 @@ Name | Type | Description  | Notes
 # **list_allocations**
 > PagedResourceListOfAllocation list_allocations(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+[EXPERIMENTAL] List Allocations
+
+Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
 
 ### Example
 
@@ -93,8 +97,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
@@ -106,7 +110,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Allocations\" domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+    # [EXPERIMENTAL] List Allocations
     api_response = api_instance.list_allocations(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -141,7 +145,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Allocations in scope. |  -  |
+**200** | Allocations. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -150,7 +154,9 @@ Name | Type | Description  | Notes
 # **upsert_allocations**
 > ResourceListOfAllocation upsert_allocations(allocation_set_request=allocation_set_request)
 
-[EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.
+[EXPERIMENTAL] Upsert Allocations
+
+Upsert; update existing allocations with given ids, or create new allocations otherwise.
 
 ### Example
 
@@ -165,14 +171,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 allocation_set_request = {"allocationRequests":[{"properties":{"allocation/MyScope/SomeAllocationProperty":{"key":"Allocation/MyScope/SomeAllocationProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"portfolioId":{"scope":"MyScope","code":"UK Equity"},"allocatedOrderId":{"scope":"MyScope","code":"ORD00000123"},"id":{"scope":"MyScope","code":"ALLOC00000123"}}]} # AllocationSetRequest | The collection of allocation requests. (optional)
 
 try:
-    # [EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.
+    # [EXPERIMENTAL] Upsert Allocations
     api_response = api_instance.upsert_allocations(allocation_set_request=allocation_set_request)
     pprint(api_response)
 except ApiException as e:

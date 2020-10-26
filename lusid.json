@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2211",
+    "version": "0.11.2212",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:31061"
     }
   ],
   "paths": {
@@ -1173,7 +1173,8 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).",
+        "summary": "[EXPERIMENTAL] List Allocations",
+        "description": "Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).",
         "operationId": "ListAllocations",
         "parameters": [
           {
@@ -1267,7 +1268,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Allocations in scope.",
+            "description": "Allocations.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1328,7 +1329,8 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Upsert; update existing allocations with given ids, or create new allocations otherwise.",
+        "summary": "[EXPERIMENTAL] Upsert Allocations",
+        "description": "Upsert; update existing allocations with given ids, or create new allocations otherwise.",
         "operationId": "UpsertAllocations",
         "requestBody": {
           "description": "The collection of allocation requests.",
@@ -1642,7 +1644,8 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Fetch a given allocation.",
+        "summary": "[EXPERIMENTAL] Get Allocation",
+        "description": "Fetch an Allocation matching the provided identifier",
         "operationId": "GetAllocation",
         "parameters": [
           {
@@ -9909,7 +9912,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).",
+        "summary": "[EXPERIMENTAL] List Orders",
+        "description": "Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).",
         "operationId": "ListOrders",
         "parameters": [
           {
@@ -10064,7 +10068,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.",
+        "summary": "[EXPERIMENTAL] Upsert Order",
+        "description": "Upsert; update existing orders with given ids, or create new orders otherwise.",
         "operationId": "UpsertOrders",
         "requestBody": {
           "description": "The collection of order requests.",
@@ -10385,7 +10390,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Fetch a given order.",
+        "summary": "[EXPERIMENTAL] Get Order",
+        "description": "Fetch an Order that matches the specified identifier",
         "operationId": "GetOrder",
         "parameters": [
           {
@@ -10596,7 +10602,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.",
+        "summary": "[EXPERIMENTAL] Upsert Order Properties",
+        "description": "Upsert; update properties on existing Orders with given ids.",
         "operationId": "UpsertOrderProperties",
         "parameters": [
           {
@@ -45261,7 +45268,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

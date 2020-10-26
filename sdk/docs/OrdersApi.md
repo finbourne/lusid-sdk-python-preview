@@ -1,19 +1,21 @@
 # lusid.OrdersApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:31061*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_order**](OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EXPERIMENTAL] Fetch a given order.
-[**list_orders**](OrdersApi.md#list_orders) | **GET** /api/orders | [EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
-[**upsert_order_properties**](OrdersApi.md#upsert_order_properties) | **POST** /api/orders/{scope}/properties | [EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.
-[**upsert_orders**](OrdersApi.md#upsert_orders) | **POST** /api/orders | [EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.
+[**get_order**](OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EXPERIMENTAL] Get Order
+[**list_orders**](OrdersApi.md#list_orders) | **GET** /api/orders | [EXPERIMENTAL] List Orders
+[**upsert_order_properties**](OrdersApi.md#upsert_order_properties) | **POST** /api/orders/{scope}/properties | [EXPERIMENTAL] Upsert Order Properties
+[**upsert_orders**](OrdersApi.md#upsert_orders) | **POST** /api/orders | [EXPERIMENTAL] Upsert Order
 
 
 # **get_order**
 > Order get_order(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Fetch a given order.
+[EXPERIMENTAL] Get Order
+
+Fetch an Order that matches the specified identifier
 
 ### Example
 
@@ -28,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the order belongs.
@@ -38,7 +40,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto the order.              These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] Fetch a given order.
+    # [EXPERIMENTAL] Get Order
     api_response = api_instance.get_order(scope, code, as_at=as_at, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -79,7 +81,9 @@ Name | Type | Description  | Notes
 # **list_orders**
 > PagedResourceListOfOrder list_orders(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+[EXPERIMENTAL] List Orders
+
+Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
 
 ### Example
 
@@ -94,8 +98,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
@@ -107,7 +111,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+    # [EXPERIMENTAL] List Orders
     api_response = api_instance.list_orders(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -151,7 +155,9 @@ Name | Type | Description  | Notes
 # **upsert_order_properties**
 > UpsertOrderPropertiesResponse upsert_order_properties(scope, upsert_order_properties_request=upsert_order_properties_request)
 
-[EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.
+[EXPERIMENTAL] Upsert Order Properties
+
+Upsert; update properties on existing Orders with given ids.
 
 ### Example
 
@@ -166,15 +172,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the orders belong.
 upsert_order_properties_request = {"properties":[{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}],"id":"ORD00000123"} # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
 
 try:
-    # [EXPERIMENTAL] Upsert; update properties on existing Orders with given ids.
+    # [EXPERIMENTAL] Upsert Order Properties
     api_response = api_instance.upsert_order_properties(scope, upsert_order_properties_request=upsert_order_properties_request)
     pprint(api_response)
 except ApiException as e:
@@ -213,7 +219,9 @@ Name | Type | Description  | Notes
 # **upsert_orders**
 > ResourceListOfOrder upsert_orders(order_set_request=order_set_request)
 
-[EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.
+[EXPERIMENTAL] Upsert Order
+
+Upsert; update existing orders with given ids, or create new orders otherwise.
 
 ### Example
 
@@ -228,14 +236,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:31061
+configuration.host = "http://localhost:31061"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 order_set_request = {"orderRequests":[{"properties":{"order/MyScope/SomeOrderProperty":{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","orderBookId":{"scope":"MyScope","code":"UKEQ Orders"},"portfolioId":{"scope":"MyScope","code":"UK Equity"},"id":{"scope":"MyScope","code":"ORD00000123"}}]} # OrderSetRequest | The collection of order requests. (optional)
 
 try:
-    # [EXPERIMENTAL] Upsert; update existing orders with given ids, or create new orders otherwise.
+    # [EXPERIMENTAL] Upsert Order
     api_response = api_instance.upsert_orders(order_set_request=order_set_request)
     pprint(api_response)
 except ApiException as e:
