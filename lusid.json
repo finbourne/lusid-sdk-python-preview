@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2217",
+    "version": "0.11.2218",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:39848"
+      "url": "http://localhost:42265"
     }
   ],
   "paths": {
@@ -35020,228 +35020,6 @@
         },
         "additionalProperties": false
       },
-      "QuoteInstrumentIdType": {
-        "enum": [
-          "LusidInstrumentId",
-          "Figi",
-          "RIC",
-          "QuotePermId",
-          "Isin",
-          "CurrencyPair"
-        ],
-        "type": "string"
-      },
-      "QuoteSeriesId": {
-        "required": [
-          "field",
-          "instrumentId",
-          "instrumentIdType",
-          "provider",
-          "quoteType"
-        ],
-        "type": "object",
-        "properties": {
-          "provider": {
-            "type": "string",
-            "description": "The platform or vendor that provided the quote, e.g. 'DataScope', 'LUSID' etc."
-          },
-          "priceSource": {
-            "type": "string",
-            "description": "The source or originator of the quote, e.g. a bank or financial institution.",
-            "nullable": true
-          },
-          "instrumentId": {
-            "type": "string",
-            "description": "The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. 'BBG00JX0P539'."
-          },
-          "instrumentIdType": {
-            "enum": [
-              "LusidInstrumentId",
-              "Figi",
-              "RIC",
-              "QuotePermId",
-              "Isin",
-              "CurrencyPair"
-            ],
-            "type": "string",
-            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair",
-            "nullable": true
-          },
-          "quoteType": {
-            "enum": [
-              "Price",
-              "Spread",
-              "Rate",
-              "LogNormalVol",
-              "NormalVol",
-              "ParSpread",
-              "IsdaSpread",
-              "Upfront"
-            ],
-            "type": "string",
-            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront",
-            "nullable": true
-          },
-          "field": {
-            "type": "string",
-            "description": "The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this\r\nuniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes."
-      },
-      "QuoteId": {
-        "required": [
-          "effectiveAt",
-          "quoteSeriesId"
-        ],
-        "type": "object",
-        "properties": {
-          "quoteSeriesId": {
-            "$ref": "#/components/schemas/QuoteSeriesId"
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The effective datetime or cut label at which the quote is valid from.",
-            "format": "dateorcutlabel"
-          }
-        },
-        "additionalProperties": false,
-        "description": "The unique identifier of the quote."
-      },
-      "MetricValue": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "The numerical value of the property.",
-            "format": "double"
-          },
-          "unit": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Quote": {
-        "required": [
-          "asAt",
-          "quoteId",
-          "uploadedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "quoteId": {
-            "$ref": "#/components/schemas/QuoteId"
-          },
-          "metricValue": {
-            "$ref": "#/components/schemas/MetricValue"
-          },
-          "lineage": {
-            "type": "string",
-            "description": "Description of the quote's lineage e.g. 'FundAccountant_GreenQuality'.",
-            "nullable": true
-          },
-          "cutLabel": {
-            "type": "string",
-            "description": "The cut label that this quote was updated or inserted with.",
-            "nullable": true
-          },
-          "uploadedBy": {
-            "type": "string",
-            "description": "The unique id of the user that updated or inserted the quote."
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt datetime at which the quote was committed to LUSID.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false,
-        "description": "The quote id, value and lineage of the quotes all keyed by a unique correlation id."
-      },
-      "MarketDataManifestQuote": {
-        "type": "object",
-        "properties": {
-          "dependency": {
-            "type": "string",
-            "nullable": true
-          },
-          "rule": {
-            "$ref": "#/components/schemas/MarketDataKeyRule"
-          },
-          "quote": {
-            "$ref": "#/components/schemas/Quote"
-          }
-        },
-        "additionalProperties": false
-      },
-      "StructuredMarketData": {
-        "required": [
-          "document",
-          "documentFormat"
-        ],
-        "type": "object",
-        "properties": {
-          "documentFormat": {
-            "type": "string",
-            "description": "The format of the accompanying document."
-          },
-          "version": {
-            "type": "string",
-            "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name or description for the document",
-            "nullable": true
-          },
-          "document": {
-            "type": "string",
-            "description": "The document that will be stored (or retrieved) and which describes a structured market data entity such as a credit or interest rate curve"
-          }
-        },
-        "additionalProperties": false,
-        "description": "An item of structured market data that is to be inserted into Lusid. This will typically be a Json or Xml document that\r\ncontains a set of market quotes (tradables) that can be used to construct a composite view of a market property such as the\r\ninterest rates over time; commonly referred to as an interest rate, projection or discount curve. Other examples include\r\nvolatility surfaces and credit spread curves."
-      },
-      "MarketDataManifestStructuredData": {
-        "type": "object",
-        "properties": {
-          "dependency": {
-            "type": "string",
-            "nullable": true
-          },
-          "rule": {
-            "$ref": "#/components/schemas/MarketDataKeyRule"
-          },
-          "data": {
-            "$ref": "#/components/schemas/StructuredMarketData"
-          }
-        },
-        "additionalProperties": false
-      },
-      "MarketDataManifest": {
-        "type": "object",
-        "properties": {
-          "quotes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketDataManifestQuote"
-            },
-            "nullable": true
-          },
-          "structuredMarketData": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketDataManifestStructuredData"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Link": {
         "required": [
           "href",
@@ -35305,13 +35083,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
-            },
-            "nullable": true
-          },
-          "manifests": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketDataManifest"
             },
             "nullable": true
           },
@@ -35511,13 +35282,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
-            },
-            "nullable": true
-          },
-          "manifests": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketDataManifest"
             },
             "nullable": true
           },
@@ -35863,6 +35627,21 @@
         },
         "additionalProperties": false,
         "description": "The version metadata."
+      },
+      "MetricValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "description": "The numerical value of the property.",
+            "format": "double"
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LabelValueSet": {
         "type": "object",
@@ -41130,6 +40909,95 @@
         },
         "additionalProperties": false
       },
+      "QuoteInstrumentIdType": {
+        "enum": [
+          "LusidInstrumentId",
+          "Figi",
+          "RIC",
+          "QuotePermId",
+          "Isin",
+          "CurrencyPair"
+        ],
+        "type": "string"
+      },
+      "QuoteSeriesId": {
+        "required": [
+          "field",
+          "instrumentId",
+          "instrumentIdType",
+          "provider",
+          "quoteType"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "The platform or vendor that provided the quote, e.g. 'DataScope', 'LUSID' etc."
+          },
+          "priceSource": {
+            "type": "string",
+            "description": "The source or originator of the quote, e.g. a bank or financial institution.",
+            "nullable": true
+          },
+          "instrumentId": {
+            "type": "string",
+            "description": "The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. 'BBG00JX0P539'."
+          },
+          "instrumentIdType": {
+            "enum": [
+              "LusidInstrumentId",
+              "Figi",
+              "RIC",
+              "QuotePermId",
+              "Isin",
+              "CurrencyPair"
+            ],
+            "type": "string",
+            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair",
+            "nullable": true
+          },
+          "quoteType": {
+            "enum": [
+              "Price",
+              "Spread",
+              "Rate",
+              "LogNormalVol",
+              "NormalVol",
+              "ParSpread",
+              "IsdaSpread",
+              "Upfront"
+            ],
+            "type": "string",
+            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront",
+            "nullable": true
+          },
+          "field": {
+            "type": "string",
+            "description": "The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this\r\nuniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes."
+      },
+      "QuoteId": {
+        "required": [
+          "effectiveAt",
+          "quoteSeriesId"
+        ],
+        "type": "object",
+        "properties": {
+          "quoteSeriesId": {
+            "$ref": "#/components/schemas/QuoteSeriesId"
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective datetime or cut label at which the quote is valid from.",
+            "format": "dateorcutlabel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The unique identifier of the quote."
+      },
       "UpsertQuoteRequest": {
         "required": [
           "quoteId"
@@ -41150,6 +41018,43 @@
         },
         "additionalProperties": false,
         "description": "The details of the quote including its unique identifier, value and lineage."
+      },
+      "Quote": {
+        "required": [
+          "asAt",
+          "quoteId",
+          "uploadedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "quoteId": {
+            "$ref": "#/components/schemas/QuoteId"
+          },
+          "metricValue": {
+            "$ref": "#/components/schemas/MetricValue"
+          },
+          "lineage": {
+            "type": "string",
+            "description": "Description of the quote's lineage e.g. 'FundAccountant_GreenQuality'.",
+            "nullable": true
+          },
+          "cutLabel": {
+            "type": "string",
+            "description": "The cut label that this quote was updated or inserted with.",
+            "nullable": true
+          },
+          "uploadedBy": {
+            "type": "string",
+            "description": "The unique id of the user that updated or inserted the quote."
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt datetime at which the quote was committed to LUSID.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The quote id, value and lineage of the quotes all keyed by a unique correlation id."
       },
       "UpsertQuotesResponse": {
         "type": "object",
@@ -42421,6 +42326,35 @@
         },
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of structured market data such as an interest rate curve or volatility surface."
+      },
+      "StructuredMarketData": {
+        "required": [
+          "document",
+          "documentFormat"
+        ],
+        "type": "object",
+        "properties": {
+          "documentFormat": {
+            "type": "string",
+            "description": "The format of the accompanying document."
+          },
+          "version": {
+            "type": "string",
+            "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name or description for the document",
+            "nullable": true
+          },
+          "document": {
+            "type": "string",
+            "description": "The document that will be stored (or retrieved) and which describes a structured market data entity such as a credit or interest rate curve"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An item of structured market data that is to be inserted into Lusid. This will typically be a Json or Xml document that\r\ncontains a set of market quotes (tradables) that can be used to construct a composite view of a market property such as the\r\ninterest rates over time; commonly referred to as an interest rate, projection or discount curve. Other examples include\r\nvolatility surfaces and credit spread curves."
       },
       "UpsertStructuredMarketDataRequest": {
         "required": [
