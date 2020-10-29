@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2220",
+    "version": "0.11.2221",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:59399"
     }
   ],
   "paths": {
@@ -25704,10 +25704,12 @@
                 },
                 "description": "A collection of instrument properties to search for. LUSID will return instruments for any matched\r\n            properties."
               },
-              "example": {
-                "key": "Instrument/default/Isin",
-                "value": "US0378331005"
-              }
+              "example": [
+                {
+                  "key": "Instrument/default/Isin",
+                  "value": "US0378331005"
+                }
+              ]
             },
             "application/json": {
               "schema": {
@@ -25717,10 +25719,12 @@
                 },
                 "description": "A collection of instrument properties to search for. LUSID will return instruments for any matched\r\n            properties."
               },
-              "example": {
-                "key": "Instrument/default/Isin",
-                "value": "US0378331005"
-              }
+              "example": [
+                {
+                  "key": "Instrument/default/Isin",
+                  "value": "US0378331005"
+                }
+              ]
             },
             "text/json": {
               "schema": {
@@ -25730,10 +25734,12 @@
                 },
                 "description": "A collection of instrument properties to search for. LUSID will return instruments for any matched\r\n            properties."
               },
-              "example": {
-                "key": "Instrument/default/Isin",
-                "value": "US0378331005"
-              }
+              "example": [
+                {
+                  "key": "Instrument/default/Isin",
+                  "value": "US0378331005"
+                }
+              ]
             },
             "application/*+json": {
               "schema": {
@@ -25743,10 +25749,12 @@
                 },
                 "description": "A collection of instrument properties to search for. LUSID will return instruments for any matched\r\n            properties."
               },
-              "example": {
-                "key": "Instrument/default/Isin",
-                "value": "US0378331005"
-              }
+              "example": [
+                {
+                  "key": "Instrument/default/Isin",
+                  "value": "US0378331005"
+                }
+              ]
             }
           },
           "required": true
@@ -45202,7 +45210,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
