@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2233",
+    "version": "0.11.2235",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:41693"
     }
   ],
   "paths": {
@@ -23627,8 +23627,7 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false,
-                      "manifestLevelOfDetail": "None"
+                      "attemptToInferMissingFx": false
                     }
                   },
                   "pricing": {
@@ -23684,8 +23683,7 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false,
-                      "manifestLevelOfDetail": "None"
+                      "attemptToInferMissingFx": false
                     }
                   },
                   "pricing": {
@@ -23741,8 +23739,7 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false,
-                      "manifestLevelOfDetail": "None"
+                      "attemptToInferMissingFx": false
                     }
                   },
                   "pricing": {
@@ -23798,8 +23795,7 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false,
-                      "manifestLevelOfDetail": "None"
+                      "attemptToInferMissingFx": false
                     }
                   },
                   "pricing": {
@@ -34941,13 +34937,6 @@
         "additionalProperties": false,
         "description": "A market data key rule describes a mapping for satisfying a particular market dependency. The supplier, scope, quote type and price side\r\ninformation define the quote in the market and which Vendor for market data would be used to perform the lookup.\r\nThe market data key defines what dependency this satisfies. The key is a rule that describes the asset class, its identifier and any other\r\nspecifics required to uniquely describe a specific economic entity (e.g. an Fx currency pair, equity name or credit curve)."
       },
-      "MarketManifestLevelOfDetail": {
-        "enum": [
-          "None",
-          "Full"
-        ],
-        "type": "string"
-      },
       "MarketOptions": {
         "type": "object",
         "properties": {
@@ -34969,14 +34958,6 @@
           "attemptToInferMissingFx": {
             "type": "boolean",
             "description": "if true will calculate a missing Fx pair (e.g. THBJPY) from the inverse JPYTHB or from standardised pairs against USD, e.g. THBUSD and JPYUSD"
-          },
-          "manifestLevelOfDetail": {
-            "enum": [
-              "None",
-              "Full"
-            ],
-            "type": "string",
-            "description": "The available values are: None, Full"
           }
         },
         "additionalProperties": false,
@@ -45795,7 +45776,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
