@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2240",
+    "version": "0.11.2241",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:31772"
     }
   ],
   "paths": {
@@ -8815,6 +8815,7 @@
             "description": "Scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the legal entity identifier type.",
               "nullable": true
@@ -8826,6 +8827,7 @@
             "description": "Code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity identifier type.",
               "nullable": true
@@ -9089,6 +9091,7 @@
             "description": "The scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the legal entity identifier type."
             }
@@ -9099,6 +9102,7 @@
             "description": "The code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the legal entity identifier type."
             }
@@ -9134,6 +9138,220 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations": {
+      "get": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Get Relations for Legal Entity",
+        "description": "Get relations for the specified Legal Entity",
+        "operationId": "GetLegalEntityRelations",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifierTypes",
+            "in": "query",
+            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The relations for the specific legal entity.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "Person",
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "is legal representative for",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "https://example.com"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "Person",
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "is legal representative for",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "https://example.com"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "Person",
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "is legal representative for",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "https://example.com"
                 }
               }
             }
@@ -38875,6 +39093,68 @@
         "additionalProperties": false,
         "description": "Representation of Legal Entity on LUSID API"
       },
+      "Relation": {
+        "required": [
+          "relatedEntityId",
+          "relationDefinitionId",
+          "traversalDescription",
+          "traversalDirection"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "relationDefinitionId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "relatedEntityId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "traversalDirection": {
+            "type": "string"
+          },
+          "traversalDescription": {
+            "type": "string"
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of a Relation between a requested entity with the stated entity as RelationedEntityId"
+      },
+      "ResourceListOfRelation": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relation"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ActionId": {
         "required": [
           "activity",
@@ -39671,68 +39951,6 @@
               }
             },
             "description": "Properties to set for a Person. All time-variant properties must have same EffectiveFrom date. Properties not included in the request will not be amended.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Relation": {
-        "required": [
-          "relatedEntityId",
-          "relationDefinitionId",
-          "traversalDescription",
-          "traversalDirection"
-        ],
-        "type": "object",
-        "properties": {
-          "version": {
-            "$ref": "#/components/schemas/Version"
-          },
-          "relationDefinitionId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "relatedEntityId": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "traversalDirection": {
-            "type": "string"
-          },
-          "traversalDescription": {
-            "type": "string"
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Representation of a Relation between a requested entity with the stated entity as RelationedEntityId"
-      },
-      "ResourceListOfRelation": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Relation"
-            }
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
             "nullable": true
           }
         },
@@ -45776,7 +45994,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
