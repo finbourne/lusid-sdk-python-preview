@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2248",
+    "version": "0.11.2249",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:31870"
+      "url": "http://localhost:58676"
     }
   ],
   "paths": {
@@ -14070,14 +14070,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
               "nullable": true
             },
             "x-nullable": true
@@ -16865,14 +16865,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
               "nullable": true
             },
             "x-nullable": true
@@ -20263,6 +20263,248 @@
           }
         ],
         "x-fbn-apistatus": "Stable"
+      }
+    },
+    "/api/portfolios/{scope}/{code}/relations": {
+      "get": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get Relations for Portfolio",
+        "description": "Get relations for the specified Portfolio",
+        "operationId": "GetPortfolioRelations",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio. Together with the scope this uniquely identifies\r\n            the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio. Together with the scope this uniquely identifies\r\n            the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifierTypes",
+            "in": "query",
+            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The relations for the specific person.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "can be traded by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "PortfolioGroup",
+                        "scope": "PortfolioGroupEmea",
+                        "code": "PortfolioGroupId-867312"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "can be traded by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "PortfolioGroup",
+                        "scope": "PortfolioGroupEmea",
+                        "code": "PortfolioGroupId-867312"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelation"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "idTypeScope": "HrSystem1",
+                        "idTypeCode": "InternalId",
+                        "code": "XY10001111"
+                      },
+                      "traversalDirection": "Out",
+                      "traversalDescription": "can be traded by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "relationDefinitionId": {
+                        "scope": "PortfolioManagementTeam",
+                        "code": "Traders"
+                      },
+                      "relatedEntityId": {
+                        "entityType": "PortfolioGroup",
+                        "scope": "PortfolioGroupEmea",
+                        "code": "PortfolioGroupId-867312"
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "can trade with portfolio",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/$aggregateinlined": {
