@@ -1,6 +1,6 @@
 # lusid.PersonsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://localhost:51793*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,8 +39,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
@@ -105,8 +105,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -175,8 +175,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -245,8 +245,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -315,8 +315,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -385,8 +385,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -457,8 +457,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -529,8 +529,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -539,7 +539,7 @@ code = 'code_example' # str | Code of the person under specified identifier type
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the person's relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)
-identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
+identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
 
 try:
     # [EXPERIMENTAL] Get Relations for Person
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
  **effective_at** | **str**| The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. | [optional] 
  **filter** | **str**| Expression to filter the relations. Users should provide null or empty string for this field until further notice. | [optional] 
- **identifier_types** | [**list[str]**](str.md)| Identifiers types (as property keys) used for referencing Persons or Legal Entities in relations. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. | [optional] 
+ **identifier_types** | [**list[str]**](str.md)| Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. | [optional] 
 
 ### Return type
 
@@ -603,8 +603,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -681,8 +681,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -749,8 +749,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -817,8 +817,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":[{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}}],"person/CompanyDetails/Role":[{"key":"Person/CompanyDetails/Role","value":{"labelValue":"SalesRepresentative"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},{"key":"Person/CompanyDetails/Role","value":{"labelValue":"CustomerServiceRepresentative"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}]}} # UpsertPersonRequest | Request to create or update a person.
@@ -879,8 +879,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://localhost:51793
+configuration.host = "http://localhost:51793"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
