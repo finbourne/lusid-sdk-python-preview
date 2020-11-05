@@ -14,6 +14,3 @@ $ pip install lusid-sdk-preview
 ```
 
 For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-python-preview/wiki).
-
-
-![build](https://github.com/finbourne/lusid-sdk-python-preview/workflows/lusid-sdk-python-preview-test/badge.svg)
