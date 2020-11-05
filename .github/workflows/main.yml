@@ -39,8 +39,11 @@ jobs:
           docker-compose up --abort-on-container-exit
           echo "Tests COMPLETED"
 
+      # Run the tests for 1) A commit directly to develop
+      # or 2) A PR to develop
+      
       - name: Run tests on DEVELOP branch
-        if: ${{ github.base_ref == 'develop' }}
+        if: ${{ github.base_ref == 'develop' || github.ref == 'refs/heads/develop'}}
         env: 
           FBN_TOKEN_URL: ${{ secrets.DEVELOP_FBN_TOKEN_URL }}
           FBN_USERNAME: ${{ secrets.DEVELOP_FBN_USERNAME }}
