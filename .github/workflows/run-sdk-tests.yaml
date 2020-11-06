@@ -52,7 +52,6 @@ jobs:
           FBN_CLIENT_SECRET: ${{ secrets.DEVELOP_FBN_CLIENT_SECRET }}
           FBN_LUSID_API_URL: ${{ secrets.DEVELOP_FBN_LUSID_API_URL }}
           FBN_APP_NAME: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
-          FBN_TEST: "test-value-se"
         run: |
           echo "env variables for DEVELOP have been set"
           echo "Changing directory into sdk directory"
