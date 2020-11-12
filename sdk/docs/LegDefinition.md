@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**convention_name** | [**FlowConventionName**](FlowConventionName.md) |  | 
-**conventions** | [**FlowConventions**](FlowConventions.md) |  | 
-**index_convention** | [**IndexConvention**](IndexConvention.md) |  | 
-**index_convention_name** | [**FlowConventionName**](FlowConventionName.md) |  | 
+**convention_name** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
+**conventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
+**index_convention** | [**IndexConvention**](IndexConvention.md) |  | [optional] 
+**index_convention_name** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
 **notional_exchange_type** | **str** | what type of notional exchange does the leg have  Supported string (enumeration) values are: [None, Initial, Final, Both]. | 
 **pay_receive** | **str** | Is the leg to be paid or received  Supported string (enumeration) values are: [NotDefined, Pay, Receive]. | 
 **rate_or_spread** | **float** | Is there either a fixed rate (non-zero) or spread to be paid over the value of the leg. | 
