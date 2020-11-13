@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2284",
+    "version": "0.11.2285",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:46639"
     }
   ],
   "paths": {
@@ -45361,7 +45361,6 @@
       "FlowConventionName": {
         "required": [
           "currency",
-          "indexName",
           "tenor"
         ],
         "type": "object",
@@ -45372,7 +45371,8 @@
           },
           "indexName": {
             "type": "string",
-            "description": "The index, if present, that is required. e.g. \"IBOR\", \"OIS\" or \"SONIA\"."
+            "description": "The index, if present, that is required. e.g. \"IBOR\", \"OIS\" or \"SONIA\".",
+            "nullable": true
           },
           "tenor": {
             "type": "string",
@@ -46178,7 +46178,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
