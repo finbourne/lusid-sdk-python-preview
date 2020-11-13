@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2283",
+    "version": "0.11.2284",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:48305"
     }
   ],
   "paths": {
@@ -37673,27 +37673,6 @@
         "additionalProperties": false,
         "description": "Flow conventions that is to be stored in the convention data store.\r\nOnly one of these must be present."
       },
-      "DayCountConvention": {
-        "enum": [
-          "Actual360",
-          "Act360",
-          "MoneyMarket",
-          "Actual365",
-          "Act365",
-          "Thirty360",
-          "ThirtyU360",
-          "Bond",
-          "ThirtyE360",
-          "EuroBond",
-          "ActAct",
-          "ActualActual",
-          "ActActIsda",
-          "ActActIsma",
-          "ActActIcma",
-          "Invalid"
-        ],
-        "type": "string"
-      },
       "IndexConvention": {
         "required": [
           "currency",
@@ -37718,26 +37697,8 @@
             "description": "The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year."
           },
           "dayCountConvention": {
-            "enum": [
-              "Actual360",
-              "Act360",
-              "MoneyMarket",
-              "Actual365",
-              "Act365",
-              "Thirty360",
-              "ThirtyU360",
-              "Bond",
-              "ThirtyE360",
-              "EuroBond",
-              "ActAct",
-              "ActualActual",
-              "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
-              "Invalid"
-            ],
             "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\n            and difference between them."
           },
           "currency": {
             "type": "string",
@@ -45627,6 +45588,27 @@
         ],
         "description": "representation of a floating rates leg"
       },
+      "DayCountConvention": {
+        "enum": [
+          "Actual360",
+          "Act360",
+          "MoneyMarket",
+          "Actual365",
+          "Act365",
+          "Thirty360",
+          "ThirtyU360",
+          "Bond",
+          "ThirtyE360",
+          "EuroBond",
+          "ActAct",
+          "ActualActual",
+          "ActActIsda",
+          "ActActIsma",
+          "ActActIcma",
+          "Invalid"
+        ],
+        "type": "string"
+      },
       "FuturesContractDetails": {
         "required": [
           "contractCode",
@@ -46196,7 +46178,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
