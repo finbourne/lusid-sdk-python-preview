@@ -32,7 +32,7 @@ class CredentialsSource:
         credentials = cls.secrets_path()
 
         # Get all the required variables available as environment variables
-        vars = {
+        env_vars = {
             "token_url": os.getenv("FBN_TOKEN_URL", None),
             "username": os.getenv("FBN_USERNAME", None),
             "password": os.getenv("FBN_PASSWORD", None),
@@ -56,11 +56,11 @@ class CredentialsSource:
                 }
 
             # Enrich the values from the environment variables with the secrets file
-            for key, value in vars.items():
+            for key, value in env_vars.items():
                 if value is None:
-                    vars[key] = config_vars[key]
+                    env_vars[key] = config_vars[key]
 
-        if None in vars.values():
+        if None in env_vars.values():
             assert False, "Source test configuration missing values from both secrets file and environment variables"
 
         vars_optional = {
@@ -89,5 +89,5 @@ class CredentialsSource:
                 if value is None:
                     vars_optional[key] = config_vars_optional[key]
 
-        vars.update(vars_optional)
-        return vars
+        env_vars.update(vars_optional)
+        return env_vars
