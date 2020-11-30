@@ -12,12 +12,14 @@ Method | HTTP request | Description
 [**get_portfolio_metadata**](PortfoliosApi.md#get_portfolio_metadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EXPERIMENTAL] Get access metadata rules for a portfolio
 [**get_portfolio_properties**](PortfoliosApi.md#get_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
 [**get_portfolio_relations**](PortfoliosApi.md#get_portfolio_relations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] Get Relations for Portfolio
+[**get_portfolio_returns**](PortfoliosApi.md#get_portfolio_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EXPERIMENTAL] Get Returns
 [**get_portfolios_access_metadata_by_key**](PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Get an entry identified by a metadataKey in the access metadata object
 [**list_portfolios**](PortfoliosApi.md#list_portfolios) | **GET** /api/portfolios | List portfolios
 [**list_portfolios_for_scope**](PortfoliosApi.md#list_portfolios_for_scope) | **GET** /api/portfolios/{scope} | List portfolios for scope
 [**update_portfolio**](PortfoliosApi.md#update_portfolio) | **PUT** /api/portfolios/{scope}/{code} | Update portfolio
 [**upsert_portfolio_access_metadata**](PortfoliosApi.md#upsert_portfolio_access_metadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
 [**upsert_portfolio_properties**](PortfoliosApi.md#upsert_portfolio_properties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
+[**upsert_portfolio_returns**](PortfoliosApi.md#upsert_portfolio_returns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EXPERIMENTAL] Upsert Returns
 
 
 # **delete_key_from_portfolio_access_metadata**
@@ -568,6 +570,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_portfolio_returns**
+> ResourceListOfReturn get_portfolio_returns(scope, code, return_scope, return_code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, period=period, as_at=as_at)
+
+[EXPERIMENTAL] Get Returns
+
+Get Returns which are on the specified portfolio.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
+# Create an instance of the API class
+api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio.
+code = 'code_example' # str | The code of the  Portfolio.
+return_scope = 'return_scope_example' # str | The scope of the Returns.
+return_code = 'return_code_example' # str | The code of the Returns.
+from_effective_at = 'from_effective_at_example' # str | The start date from which to delete the Returns. (optional)
+to_effective_at = 'to_effective_at_example' # str | The end date from which to delete the Returns (optional)
+period = 'period_example' # str | Show the Returns on a Daily or Monthly period. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional)
+
+try:
+    # [EXPERIMENTAL] Get Returns
+    api_response = api_instance.get_portfolio_returns(scope, code, return_scope, return_code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, period=period, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfoliosApi->get_portfolio_returns: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio. | 
+ **code** | **str**| The code of the  Portfolio. | 
+ **return_scope** | **str**| The scope of the Returns. | 
+ **return_code** | **str**| The code of the Returns. | 
+ **from_effective_at** | **str**| The start date from which to delete the Returns. | [optional] 
+ **to_effective_at** | **str**| The end date from which to delete the Returns | [optional] 
+ **period** | **str**| Show the Returns on a Daily or Monthly period. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
+
+### Return type
+
+[**ResourceListOfReturn**](ResourceListOfReturn.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The Returns on the given time period. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_portfolios_access_metadata_by_key**
 > list[AccessMetadataValue] get_portfolios_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
 
@@ -989,6 +1067,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The updated or inserted properties |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_portfolio_returns**
+> UpsertReturnsResponse upsert_portfolio_returns(scope, code, return_scope, return_code, model_return)
+
+[EXPERIMENTAL] Upsert Returns
+
+Update or insert returns into the specified portfolio.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
+# Create an instance of the API class
+api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio.
+code = 'code_example' # str | The code of the  Portfolio.
+return_scope = 'return_scope_example' # str | The scope of the Returns.
+return_code = 'return_code_example' # str | The code of the Returns.
+model_return = [{"effectiveAt":"2019-11-28T00:00:00.0000000+00:00","returnValue":10,"marketValue":5,"period":"Daily"},{"effectiveAt":"2019-11-29T00:00:00.0000000+00:00","returnValue":100,"marketValue":15,"period":"Daily"}] # list[ModelReturn] | This contains the Returns which need to be upsert.
+
+try:
+    # [EXPERIMENTAL] Upsert Returns
+    api_response = api_instance.upsert_portfolio_returns(scope, code, return_scope, return_code, model_return)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfoliosApi->upsert_portfolio_returns: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio. | 
+ **code** | **str**| The code of the  Portfolio. | 
+ **return_scope** | **str**| The scope of the Returns. | 
+ **return_code** | **str**| The code of the Returns. | 
+ **model_return** | [**list[ModelReturn]**](ModelReturn.md)| This contains the Returns which need to be upsert. | 
+
+### Return type
+
+[**UpsertReturnsResponse**](UpsertReturnsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The version of the portfolio that contains the newly updated or inserted Returns. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
