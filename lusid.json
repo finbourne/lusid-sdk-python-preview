@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2338",
+    "version": "0.11.2339",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://localhost:42904"
     }
   ],
   "paths": {
@@ -30228,6 +30228,168 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/cashstatements": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get CashStatements for the given portfolio.",
+        "description": "Get CashStatements for the given portfolio.",
+        "operationId": "GetPortfolioCashStatements",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio to retrieve the CashStatements for.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio to retrieve the CashStatements for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio to retrieve the CashStatements for. Together with the scope this\r\n            uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio to retrieve the CashStatements for. Together with the scope this\r\n            uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n            of each transaction if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n            of each transaction if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. \r\n            For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set. \r\n            For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdScope",
+            "in": "query",
+            "description": "The scope of the given recipeId",
+            "schema": {
+              "type": "string",
+              "description": "The scope of the given recipeId",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdCode",
+            "in": "query",
+            "description": "The code of the given recipeID",
+            "schema": {
+              "type": "string",
+              "description": "The code of the given recipeID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested portfolio cash flow data",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashFlow"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashFlow"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashFlow"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/details": {
       "get": {
         "tags": [
@@ -45844,7 +46006,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid-fbn-ci.okta.com/oauth2/aus49h9b8rQPvouCH2p7/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
