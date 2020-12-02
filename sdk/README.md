@@ -10,7 +10,7 @@ For more information, please visit [https://www.finbourne.com](https://www.finbo
 
 ## Requirements.
 
-Python 2.7 and 3.4+
+Python 3.6+
 
 ## Installation & Usage
 ### pip install
