@@ -105,30 +105,38 @@ class TransactionProperty(unittest.TestCase):
 
     def test_transaction_property(self):
         # Value for our property
-        transaction_tax_details = '{"Tax": 1.0, "Rate": 0.01, "Schedule": "A"}'
+        transaction_tax_data = {"Tax": 1.0, "Rate": 0.01, "Schedule": "A"}
+        # Convert property to string representation
+        transaction_tax_string = json.dumps(transaction_tax_data)
 
         # Setup property and portfolio
         self.create_transaction_property()
         self.create_portfolio()
 
         # Setup transaction with txn tax details as the property value
-        response = self.create_txn_with_property(
-            "BBG000FD8G46", transaction_tax_details
-        )
+        response = self.create_txn_with_property("BBG000FD8G46", transaction_tax_string)
         self.assertIsNotNone(response)
 
         # Get transaction with property
         txn_response = self.get_transaction(scope=self.scope, code=self.code)
         self.assertIsNotNone(txn_response)
 
-        # Parse property value from txn and assert is equal to original object
-        queried_property_value = (
+        # Parse property value from transaction and assert is equal to original string object
+        queried_property_string = (
             txn_response.values[0]
             .properties[f"Transaction/{self.scope}/{self.code}"]
             .value.label_value
         )
-        self.assertIsNotNone(queried_property_value)
-        self.assertEqual(queried_property_value, transaction_tax_details)
+        self.assertIsNotNone(queried_property_string)
+        self.assertEqual(queried_property_string, transaction_tax_string)
+
+        # Test individual key-value pairs against original data
+        queried_property_dict = json.loads(queried_property_string)
+        self.assertEqual(transaction_tax_data["Tax"], queried_property_dict["Tax"])
+        self.assertEqual(transaction_tax_data["Rate"], queried_property_dict["Rate"])
+        self.assertEqual(
+            transaction_tax_data["Schedule"], queried_property_dict["Schedule"]
+        )
 
 
 if __name__ == "__main__":
