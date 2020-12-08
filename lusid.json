@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2364",
+    "version": "0.11.2362",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:58030"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -35727,8 +35727,7 @@
           "SimpleStatic",
           "Discounting",
           "VendorDefault",
-          "BlackScholes",
-          "ConstantTimeValueOfMoney"
+          "BlackScholes"
         ],
         "type": "string"
       },
@@ -35755,11 +35754,10 @@
               "SimpleStatic",
               "Discounting",
               "VendorDefault",
-              "BlackScholes",
-              "ConstantTimeValueOfMoney"
+              "BlackScholes"
             ],
             "type": "string",
-            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney"
+            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes"
           }
         },
         "additionalProperties": false,
@@ -46484,7 +46482,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
