@@ -42,5 +42,9 @@
   "proxy_password": {
       "env": "FBN_PROXY_PASSWORD",
       "config": "password"
+  },
+  "api_token": {
+    "env": "FBN_API_TOKEN",
+    "config": "apiToken"
   }
 }

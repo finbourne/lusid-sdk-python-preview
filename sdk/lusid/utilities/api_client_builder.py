@@ -28,14 +28,17 @@ class ApiClientBuilder:
         :return: None
         """
         # Check for fields which have a value of None
-        missing_fields = [field for field in fields if getattr(object_to_check, field) is None]
+        missing_fields = [
+            field for field in fields if getattr(object_to_check, field) is None
+        ]
 
         # Raise an error if any fields have a value of None
         if len(missing_fields) > 0:
             raise ValueError(
                 f"The fields {str(missing_fields)} on the {object_to_check.__class__.__name__} are set to None, "
                 f"please ensure that you have provided them directly, via a secrets file or environment "
-                f"variables")
+                f"variables"
+            )
 
     @staticmethod
     def __generate_access_token(configuration, okta_response_handler):
@@ -53,11 +56,16 @@ class ApiClientBuilder:
         encoded_client_secret = pathname2url(configuration.client_secret)
 
         # Prepare our authentication request
-        token_request_body = f"grant_type=password&username={configuration.username}" \
-            f"&password={encoded_password}&scope=openid client groups offline_access" \
+        token_request_body = (
+            f"grant_type=password&username={configuration.username}"
+            f"&password={encoded_password}&scope=openid client groups offline_access"
             f"&client_id={encoded_client_id}&client_secret={encoded_client_secret}"
+        )
 
-        headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
+        }
 
         # extra request args
         kwargs = {"headers": headers}
@@ -70,7 +78,9 @@ class ApiClientBuilder:
             kwargs["verify"] = configuration.certificate_filename
 
         # make request to Okta to get an authentication token
-        okta_response = requests.post(configuration.token_url, data=token_request_body, **kwargs)
+        okta_response = requests.post(
+            configuration.token_url, data=token_request_body, **kwargs
+        )
 
         if okta_response_handler is not None:
             okta_response_handler(okta_response)
@@ -83,19 +93,28 @@ class ApiClientBuilder:
         okta_json = okta_response.json()
 
         # Retrieve our api token from the authentication response
-        api_token = RefreshingToken(token_url=configuration.token_url,
-                                    client_id=encoded_client_id,
-                                    client_secret=encoded_client_secret,
-                                    initial_access_token=okta_json["access_token"],
-                                    initial_token_expiry=okta_json["expires_in"],
-                                    refresh_token=okta_json["refresh_token"],
-                                    proxies=kwargs.get("proxies", None),
-                                    certificate_filename=kwargs.get("verify", None))
+        api_token = RefreshingToken(
+            token_url=configuration.token_url,
+            client_id=encoded_client_id,
+            client_secret=encoded_client_secret,
+            initial_access_token=okta_json["access_token"],
+            initial_token_expiry=okta_json["expires_in"],
+            refresh_token=okta_json["refresh_token"],
+            proxies=kwargs.get("proxies", None),
+            certificate_filename=kwargs.get("verify", None),
+        )
 
         return api_token
 
     @classmethod
-    def build(cls, api_secrets_filename=None, okta_response_handler=None, api_configuration=None, token=None, correlation_id=None):
+    def build(
+        cls,
+        api_secrets_filename=None,
+        okta_response_handler=None,
+        api_configuration=None,
+        token=None,
+        correlation_id=None,
+    ):
         """
         :param str api_secrets_filename: The full path to the JSON file containing the API credentials and optional proxy details
         :param typing.callable okta_response_handler: An optional function to handle the Okta response
@@ -120,21 +139,29 @@ class ApiClientBuilder:
             # Check that there is an api_url available
             cls.__check_required_fields(configuration, ["api_url"])
             api_token = token
+        # Or check if access token provided as environment variable in config
+        elif configuration.api_token is not None:
+            # Check that there is an api_url available
+            cls.__check_required_fields(configuration, ["api_url"])
+            api_token = configuration.api_token
         # Otherwise generate an access token from Okta and use a RefreshingToken going forward
         else:
             # Check that all the required fields for generating a token exist
-            cls.__check_required_fields(configuration, [
-                "api_url",
-                "password",
-                "username",
-                "client_id",
-                "client_secret",
-                "token_url"])
+            cls.__check_required_fields(
+                configuration,
+                [
+                    "api_url",
+                    "password",
+                    "username",
+                    "client_id",
+                    "client_secret",
+                    "token_url",
+                ],
+            )
 
             # Generate an access token
             api_token = cls.__generate_access_token(
-                configuration=configuration,
-                okta_response_handler=okta_response_handler
+                configuration=configuration, okta_response_handler=okta_response_handler
             )
 
         # Initialise the API client using the token so that it can be included in all future requests
@@ -148,7 +175,10 @@ class ApiClientBuilder:
         # Set the proxy for LUSID if needed
         if configuration.proxy_config is not None:
             config.proxy = configuration.proxy_config.address
-            if configuration.proxy_config.username is not None and configuration.proxy_config.password is not None:
+            if (
+                configuration.proxy_config.username is not None
+                and configuration.proxy_config.password is not None
+            ):
                 config.proxy_headers = make_headers(
                     proxy_basic_auth=f"{configuration.proxy_config.username}:{configuration.proxy_config.password}"
                 )
