@@ -38,7 +38,8 @@ class CredentialsSource:
             "password": os.getenv("FBN_PASSWORD", None),
             "client_id": os.getenv("FBN_CLIENT_ID", None),
             "client_secret": os.getenv("FBN_CLIENT_SECRET", None),
-            "api_url": os.getenv("FBN_LUSID_API_URL", None)
+            "api_url": os.getenv("FBN_LUSID_API_URL", None),
+            "api_token": os.getenv("FBN_API_TOKEN", None)
         }
 
         # If there is a secrets file get the required variables from here too
@@ -53,6 +54,7 @@ class CredentialsSource:
                     "client_id": secrets["api"].get("clientId", None),
                     "client_secret": secrets["api"].get("clientSecret", None),
                     "api_url": secrets["api"].get("apiUrl", None),
+                    "api_token": secrets["api"].get("apiToken", None)
                 }
 
             # Enrich the values from the environment variables with the secrets file
@@ -60,8 +62,10 @@ class CredentialsSource:
                 if value is None:
                     vars[key] = config_vars[key]
 
-        if None in vars.values():
-            assert False, "Source test configuration missing values from both secrets file and environment variables"
+            # Check minimum vars provided, either api_token with api_url or okta config
+            null_vals = [i for i in vars.values() if i is None]
+            if len(null_vals) > 2:
+                assert False, "Source test configuration missing values from both secrets file and environment variables"
 
         vars_optional = {
             "app_name": os.getenv("FBN_APP_NAME", None),

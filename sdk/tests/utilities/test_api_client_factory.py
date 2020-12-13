@@ -227,3 +227,10 @@ class ApiFactory(unittest.TestCase):
             self.validate_api(api)
             self.assertTrue("CorrelationId" in api.api_client.default_headers, msg="CorrelationId not found in headers")
             self.assertEquals(api.api_client.default_headers["CorrelationId"], "param-correlation-id")
+
+    def test_get_pat_api_token_as_env_var(self):
+        with patch.dict('os.environ', {"FBN_LUSID_API_URL": source_config_details["api_url"],"FBN_API_TOKEN": source_config_details["api_token"] }, clear=True):
+            factory = ApiClientFactory()
+        api = factory.build(InstrumentsApi)
+        self.assertIsInstance(api, InstrumentsApi)
+        self.validate_api(api)
