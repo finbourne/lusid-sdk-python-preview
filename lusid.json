@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2397",
+    "version": "0.11.2398",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:58523"
+      "url": "http://localhost:39097"
     }
   ],
   "paths": {
@@ -677,6 +677,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -723,6 +724,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -769,6 +771,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -815,6 +818,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -934,6 +938,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -986,6 +991,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -1038,6 +1044,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -1090,6 +1097,7 @@
                   "Instrument/default/Name"
                 ],
                 "reportCurrency": "USD",
+                "equipWithSubtotals": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -36699,6 +36707,10 @@
             "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
             "nullable": true
           },
+          "equipWithSubtotals": {
+            "type": "boolean",
+            "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
+          },
           "portfolioEntityIds": {
             "type": "array",
             "items": {
@@ -36840,6 +36852,10 @@
             "type": "string",
             "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
             "nullable": true
+          },
+          "equipWithSubtotals": {
+            "type": "boolean",
+            "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
           },
           "valuationSchedule": {
             "$ref": "#/components/schemas/ValuationSchedule"
