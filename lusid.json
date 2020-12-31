@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2431",
+    "version": "0.11.2432",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:39183"
+      "url": "http://localhost:62772"
     }
   ],
   "paths": {
@@ -1831,6 +1831,100 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Allocations"
+        ],
+        "summary": "[EXPERIMENTAL] Delete allocation",
+        "description": "Delete an allocation. Deletion will be valid from the allocation's creation datetime.\r\nThis means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.",
+        "operationId": "DeleteAllocation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The allocation scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The allocation scope."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The response from deleting an allocation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
@@ -10995,6 +11089,100 @@
                     "scope": "MyScope",
                     "code": "ORD00000123"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "[EXPERIMENTAL] Delete order",
+        "description": "Delete an order. Deletion will be valid from the order's creation datetime.\r\nThis means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.",
+        "operationId": "DeleteOrder",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The order scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The order scope."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The order's code. This, together with the scope uniquely identifies the order to delete.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The order's code. This, together with the scope uniquely identifies the order to delete."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The response from deleting an order.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
@@ -37137,6 +37325,39 @@
         },
         "additionalProperties": false
       },
+      "DeletedEntityResponse": {
+        "required": [
+          "asAt"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "description": "The effective datetime at which the deletion became valid. May be null in the case where multiple date times are applicable.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt datetime at which the deletion was committed to LUSID.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "IsBusinessDayResponse": {
         "required": [
           "isBusinessDay",
@@ -38077,39 +38298,6 @@
             "type": "string",
             "format": "uri",
             "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeletedEntityResponse": {
-        "required": [
-          "asAt"
-        ],
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string",
-            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
-            "format": "uri",
-            "nullable": true
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "description": "The effective datetime at which the deletion became valid. May be null in the case where multiple date times are applicable.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt datetime at which the deletion was committed to LUSID.",
-            "format": "date-time"
           },
           "links": {
             "type": "array",
