@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2433",
+    "version": "0.11.2434",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:59361"
+      "url": "http://localhost:59789"
     }
   ],
   "paths": {
@@ -21036,6 +21036,198 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated": {
+      "get": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate Returns",
+        "description": "Aggregate Returns which are on the specified portfolio.",
+        "operationId": "GetPortfolioAggregateReturns",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Portfolio.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the  Portfolio.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the  Portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnScope",
+            "in": "path",
+            "description": "The scope of the Returns.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Returns.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnCode",
+            "in": "path",
+            "description": "The code of the Returns.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the Returns.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The start date from which to delete the Returns.",
+            "schema": {
+              "type": "string",
+              "description": "The start date from which to delete the Returns.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The end date from which to delete the Returns",
+            "schema": {
+              "type": "string",
+              "description": "The end date from which to delete the Returns",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "compositeMethod",
+            "in": "query",
+            "description": "The method used to calculate the Portfolio performance:\r\n            Equal/Asset.",
+            "schema": {
+              "type": "string",
+              "description": "The method used to calculate the Portfolio performance:\r\n            Equal/Asset.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "the type of the returns used to calculate the aggregation result.",
+            "schema": {
+              "type": "string",
+              "description": "the type of the returns used to calculate the aggregation result.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "outputFrequency",
+            "in": "query",
+            "description": "The type of calculated output.",
+            "schema": {
+              "type": "string",
+              "description": "The type of calculated output.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "metrics",
+            "in": "query",
+            "description": "The period time to calculate the aggregate return.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The period time to calculate the aggregate return.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Returns. Defaults to the latest.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the Returns. Defaults to the latest.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The aggregated returns.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/portfolios/{scope}/$aggregateinlined": {
       "post": {
         "tags": [
@@ -41609,6 +41801,68 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Return"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AggregatedReturn": {
+        "required": [
+          "effectiveAt",
+          "marketValue",
+          "metricsValue"
+        ],
+        "type": "object",
+        "properties": {
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effectiveAt for the return.",
+            "format": "date-time"
+          },
+          "marketValue": {
+            "type": "number",
+            "description": "The market value.",
+            "format": "double"
+          },
+          "metricsValue": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "The value for the specified metric."
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Show the aggregated output returns on a Daily or Monthly period.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A list of Aggregated Returns."
+      },
+      "ResourceListOfAggregatedReturn": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregatedReturn"
             }
           },
           "href": {

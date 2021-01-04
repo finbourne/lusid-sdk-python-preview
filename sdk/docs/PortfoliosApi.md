@@ -1,6 +1,6 @@
 # lusid.PortfoliosApi
 
-All URIs are relative to *http://localhost:59361*
+All URIs are relative to *http://localhost:59789*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_portfolio**](PortfoliosApi.md#delete_portfolio) | **DELETE** /api/portfolios/{scope}/{code} | Delete portfolio
 [**delete_portfolio_properties**](PortfoliosApi.md#delete_portfolio_properties) | **DELETE** /api/portfolios/{scope}/{code}/properties | Delete portfolio properties
 [**get_portfolio**](PortfoliosApi.md#get_portfolio) | **GET** /api/portfolios/{scope}/{code} | Get portfolio
+[**get_portfolio_aggregate_returns**](PortfoliosApi.md#get_portfolio_aggregate_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [EXPERIMENTAL] Aggregate Returns
 [**get_portfolio_commands**](PortfoliosApi.md#get_portfolio_commands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio commands
 [**get_portfolio_metadata**](PortfoliosApi.md#get_portfolio_metadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EXPERIMENTAL] Get access metadata rules for a portfolio
 [**get_portfolio_properties**](PortfoliosApi.md#get_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
@@ -42,8 +43,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -110,8 +111,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio.
@@ -174,8 +175,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to delete properties from.
@@ -242,8 +243,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to retrieve the definition for.
@@ -292,6 +293,88 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_portfolio_aggregate_returns**
+> ResourceListOfAggregatedReturn get_portfolio_aggregate_returns(scope, code, return_scope, return_code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, composite_method=composite_method, period=period, output_frequency=output_frequency, metrics=metrics, as_at=as_at)
+
+[EXPERIMENTAL] Aggregate Returns
+
+Aggregate Returns which are on the specified portfolio.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
+# Create an instance of the API class
+api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Portfolio.
+code = 'code_example' # str | The code of the  Portfolio.
+return_scope = 'return_scope_example' # str | The scope of the Returns.
+return_code = 'return_code_example' # str | The code of the Returns.
+from_effective_at = 'from_effective_at_example' # str | The start date from which to delete the Returns. (optional)
+to_effective_at = 'to_effective_at_example' # str | The end date from which to delete the Returns (optional)
+composite_method = 'composite_method_example' # str | The method used to calculate the Portfolio performance:              Equal/Asset. (optional)
+period = 'period_example' # str | the type of the returns used to calculate the aggregation result. (optional)
+output_frequency = 'output_frequency_example' # str | The type of calculated output. (optional)
+metrics = ['metrics_example'] # list[str] | The period time to calculate the aggregate return. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional)
+
+try:
+    # [EXPERIMENTAL] Aggregate Returns
+    api_response = api_instance.get_portfolio_aggregate_returns(scope, code, return_scope, return_code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, composite_method=composite_method, period=period, output_frequency=output_frequency, metrics=metrics, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfoliosApi->get_portfolio_aggregate_returns: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Portfolio. | 
+ **code** | **str**| The code of the  Portfolio. | 
+ **return_scope** | **str**| The scope of the Returns. | 
+ **return_code** | **str**| The code of the Returns. | 
+ **from_effective_at** | **str**| The start date from which to delete the Returns. | [optional] 
+ **to_effective_at** | **str**| The end date from which to delete the Returns | [optional] 
+ **composite_method** | **str**| The method used to calculate the Portfolio performance:              Equal/Asset. | [optional] 
+ **period** | **str**| the type of the returns used to calculate the aggregation result. | [optional] 
+ **output_frequency** | **str**| The type of calculated output. | [optional] 
+ **metrics** | [**list[str]**](str.md)| The period time to calculate the aggregate return. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
+
+### Return type
+
+[**ResourceListOfAggregatedReturn**](ResourceListOfAggregatedReturn.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The aggregated returns. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_portfolio_commands**
 > ResourceListOfProcessedCommand get_portfolio_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
 
@@ -312,8 +395,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to retrieve the commands for.
@@ -382,8 +465,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Access Metadata Rule to retrieve.
@@ -450,8 +533,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to list the properties for.
@@ -518,8 +601,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio.
@@ -590,8 +673,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio.
@@ -666,8 +749,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio Access Metadata Rule to retrieve.
@@ -736,8 +819,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)
@@ -812,8 +895,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolios.
@@ -888,8 +971,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to update the definition for.
@@ -956,8 +1039,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Portfolio Access Metadata Rule.
@@ -1026,8 +1109,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio to update or insert the properties onto.
@@ -1092,8 +1175,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://localhost:59361
-configuration.host = "http://localhost:59361"
+# Defining host is optional and default to http://localhost:59789
+configuration.host = "http://localhost:59789"
 # Create an instance of the API class
 api_instance = lusid.PortfoliosApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Portfolio.
