@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2456",
+    "version": "0.11.2457",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:56761"
+      "url": "http://local-unit-test-server.lusid.com:49963"
     }
   ],
   "paths": {
@@ -1537,7 +1537,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -1576,7 +1577,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -1615,7 +1617,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -3380,7 +3383,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -3404,7 +3408,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -3428,7 +3433,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -9450,7 +9456,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -9475,7 +9482,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -9500,7 +9508,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               }
             }
@@ -10790,7 +10799,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -10830,7 +10840,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -10870,7 +10881,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -14348,7 +14360,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -14370,7 +14383,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -14392,7 +14406,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -15502,7 +15517,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -15529,7 +15545,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -15556,7 +15573,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -17064,7 +17082,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -17088,7 +17107,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -17112,7 +17132,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -17593,7 +17614,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -17649,7 +17671,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -17705,7 +17728,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -18091,7 +18115,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -18307,7 +18332,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -18523,7 +18549,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -20550,7 +20577,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -20587,7 +20615,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -20624,7 +20653,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -32663,7 +32693,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -32690,7 +32721,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -32717,7 +32749,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -33303,7 +33336,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -33358,7 +33392,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -33413,7 +33448,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -33611,7 +33647,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -33667,7 +33704,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -33723,7 +33761,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -34833,7 +34872,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -35049,7 +35089,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -35265,7 +35306,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -37403,14 +37445,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -37420,6 +37454,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -37505,6 +37547,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -37702,14 +37752,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -37719,6 +37761,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -37877,6 +37927,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -38089,6 +38147,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -38273,6 +38339,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -38385,6 +38459,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -38471,14 +38553,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -38488,6 +38562,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -38739,6 +38821,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -39015,6 +39105,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -39115,6 +39213,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -39354,6 +39460,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -39532,14 +39646,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -39549,6 +39655,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -39756,6 +39870,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -39883,6 +40005,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -40081,6 +40211,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -40242,6 +40380,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -40369,14 +40515,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -40386,6 +40524,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -40476,6 +40622,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -40600,14 +40754,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -40617,6 +40763,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -40675,6 +40829,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -40833,6 +40995,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -40917,6 +41087,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -41264,6 +41442,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -41339,6 +41525,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -41608,6 +41802,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -41633,6 +41835,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -41807,6 +42017,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -41867,6 +42085,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -42024,6 +42250,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -42532,6 +42766,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -42818,6 +43060,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -43004,6 +43254,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -43323,6 +43581,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -43592,6 +43858,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -43617,6 +43891,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -43700,6 +43982,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -43739,6 +44029,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -43798,14 +44096,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -43815,6 +44105,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -43906,14 +44204,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -43923,6 +44213,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -43952,6 +44250,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -43968,14 +44274,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -43985,6 +44283,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -44282,14 +44588,6 @@
         ],
         "type": "object",
         "properties": {
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
           "values": {
             "type": "array",
             "items": {
@@ -44299,6 +44597,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -44976,6 +45282,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -45279,6 +45593,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
