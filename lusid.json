@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2461",
+    "version": "0.11.2462",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:32025"
     }
   ],
   "paths": {
@@ -7022,7 +7022,7 @@
         "tags": [
           "Entities"
         ],
-        "summary": "[BETA] Get the next change to each portfolio in a scope.",
+        "summary": "[EARLY ACCESS] Get the next change to each portfolio in a scope.",
         "description": "Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.\r\nIncludes changes from parent portfolios in different scopes.\r\nExcludes changes from subcriptions (e.g corporate actions).",
         "operationId": "GetPortfolioChanges",
         "parameters": [
@@ -7120,7 +7120,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instruments": {
@@ -23770,7 +23770,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[BETA] Upsert quotes",
+        "summary": "[EARLY ACCESS] Upsert quotes",
         "description": "Update or insert one or more quotes in a single scope. A quote will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.\n\nThe maximum number of quotes that this method can upsert per request is 2,000.",
         "operationId": "UpsertQuotes",
         "parameters": [
@@ -24039,13 +24039,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Quotes"
         ],
-        "summary": "[BETA] List quotes for scope",
+        "summary": "[EARLY ACCESS] List quotes for scope",
         "description": "List all the quotes from a single scope at the specified date/time",
         "operationId": "ListQuotesForScope",
         "parameters": [
@@ -24174,7 +24174,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/quotes/{scope}/$delete": {
@@ -24182,7 +24182,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[BETA] Delete quotes",
+        "summary": "[EARLY ACCESS] Delete quotes",
         "description": "Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about\r\nthe type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteQuotes",
         "parameters": [
@@ -24355,7 +24355,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/quotes/{scope}/$deprecated": {
@@ -24500,7 +24500,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[BETA] Get quotes",
+        "summary": "[EARLY ACCESS] Get quotes",
         "description": "Get one or more quotes from a single scope.\r\n            \r\nEach quote can be identified by its time invariant quote series id.\r\n            \r\nFor each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime. \r\n            \r\nAn optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.\r\nLUSID will return the most recent quote within this window.\r\n            \r\nIn the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved quotes. Two, those that had a\r\nvalid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.\r\n\r\nFor the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.\n\nThe maximum number of quotes that this method can get per request is 2,000.",
         "operationId": "GetQuotes",
         "parameters": [
@@ -24695,7 +24695,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/recipes": {
@@ -46943,7 +46943,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

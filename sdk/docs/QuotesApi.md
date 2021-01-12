@@ -1,18 +1,18 @@
 # lusid.QuotesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_quote_accces_metadata_rule**](QuotesApi.md#delete_quote_accces_metadata_rule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Delete a Quote Access Metadata Rule
-[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [BETA] Delete quotes
-[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [BETA] Get quotes
+[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] Delete quotes
+[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] Get quotes
 [**get_quotes_access_metadata_rule**](QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] Get a quote access metadata rule
 [**list_quotes**](QuotesApi.md#list_quotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] List quotes
 [**list_quotes_access_metadata_rules**](QuotesApi.md#list_quotes_access_metadata_rules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] List all quote access metadata rules in a scope
-[**list_quotes_for_scope**](QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | [BETA] List quotes for scope
+[**list_quotes_for_scope**](QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] List quotes for scope
 [**upsert_quote_access_metadata_rule**](QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
-[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [BETA] Upsert quotes
+[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] Upsert quotes
 
 
 # **delete_quote_accces_metadata_rule**
@@ -35,8 +35,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **delete_quotes**
 > AnnulQuotesResponse delete_quotes(scope, request_body=request_body)
 
-[BETA] Delete quotes
+[EARLY ACCESS] Delete quotes
 
 Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
 
@@ -111,15 +111,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to delete.
 request_body = {"dS-VOD-PRICE-MID":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"}} # dict(str, QuoteId) | The quotes to delete keyed by a unique correlation id. (optional)
 
 try:
-    # [BETA] Delete quotes
+    # [EARLY ACCESS] Delete quotes
     api_response = api_instance.delete_quotes(scope, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 # **get_quotes**
 > GetQuotesResponse get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
 
-[BETA] Get quotes
+[EARLY ACCESS] Get quotes
 
 Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
 
@@ -175,8 +175,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to retrieve.
@@ -186,7 +186,7 @@ max_age = 'max_age_example' # str | The duration of the look back window in an I
 request_body = {"dS-VOD-PRICE-MID":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"}} # dict(str, QuoteSeriesId) | The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)
 
 try:
-    # [BETA] Get quotes
+    # [EARLY ACCESS] Get quotes
     api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
@@ -245,8 +245,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -323,8 +323,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to list.
@@ -395,8 +395,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 # **list_quotes_for_scope**
 > ResourceListOfQuote list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
-[BETA] List quotes for scope
+[EARLY ACCESS] List quotes for scope
 
 List all the quotes from a single scope at the specified date/time
 
@@ -459,8 +459,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to list.
@@ -471,7 +471,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
 try:
-    # [BETA] List quotes for scope
+    # [EARLY ACCESS] List quotes for scope
     api_response = api_instance.list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
@@ -531,8 +531,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 # **upsert_quotes**
 > UpsertQuotesResponse upsert_quotes(scope, request_body=request_body)
 
-[BETA] Upsert quotes
+[EARLY ACCESS] Upsert quotes
 
 Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
 
@@ -597,15 +597,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32025
+configuration.host = "http://local-unit-test-server.lusid.com:32025"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the quotes.
 request_body = {"dS-VOD-PRICE-MID":{"quoteId":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1460,"unit":"CNY"}},"o-C-EURUSD-PRICE-BID":{"quoteId":{"quoteSeriesId":{"provider":"Oanda","priceSource":"Citi","instrumentId":"EUR/USD","instrumentIdType":"CurrencyPair","quoteType":"Price","field":"bid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1.367,"unit":"EUR/USD"},"lineage":"Oanda/FxRates_2018-10-22T00:00:00.0000000+00:00.csv"}} # dict(str, UpsertQuoteRequest) | The quotes to update or insert keyed by a unique correlation id. (optional)
 
 try:
-    # [BETA] Upsert quotes
+    # [EARLY ACCESS] Upsert quotes
     api_response = api_instance.upsert_quotes(scope, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
