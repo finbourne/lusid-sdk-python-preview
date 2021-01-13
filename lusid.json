@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2466",
+    "version": "0.11.2467",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:52736"
     }
   ],
   "paths": {
@@ -1537,7 +1537,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -1576,7 +1577,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -1615,7 +1617,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -3380,7 +3383,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -3404,7 +3408,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -3428,7 +3433,8 @@
                       "type": "Holiday",
                       "sourceData": {}
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -9450,7 +9456,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -9475,7 +9482,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -9500,7 +9508,8 @@
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
                   ],
-                  "href": "https://example.com"
+                  "href": "https://example.com",
+                  "links": []
                 }
               }
             }
@@ -10790,7 +10799,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -10830,7 +10840,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -10870,7 +10881,8 @@
                         "code": "ORD00000123"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -14348,7 +14360,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -14370,7 +14383,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -14392,7 +14406,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -15502,7 +15517,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -15529,7 +15545,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -15556,7 +15573,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -17064,7 +17082,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -17088,7 +17107,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -17112,7 +17132,8 @@
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -17593,7 +17614,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -17649,7 +17671,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -17705,7 +17728,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -18091,7 +18115,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -18307,7 +18332,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -18523,7 +18549,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -20550,7 +20577,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -20587,7 +20615,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -20624,7 +20653,8 @@
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -32663,7 +32693,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -32690,7 +32721,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -32717,7 +32749,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -33303,7 +33336,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "application/json": {
@@ -33358,7 +33392,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               },
               "text/json": {
@@ -33413,7 +33448,8 @@
                         "currency": "GBP"
                       }
                     }
-                  ]
+                  ],
+                  "links": []
                 }
               }
             }
@@ -33611,7 +33647,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -33667,7 +33704,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -33723,7 +33761,8 @@
                       "source": ""
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -34833,7 +34872,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "application/json": {
@@ -35049,7 +35089,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               },
               "text/json": {
@@ -35265,7 +35306,8 @@
                       ]
                     }
                   ],
-                  "href": "http://example.com"
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }
@@ -37513,6 +37555,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -37885,6 +37935,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -38095,6 +38153,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -38279,6 +38345,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -38390,6 +38464,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -38747,6 +38829,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -39021,6 +39111,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -39122,6 +39220,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -39359,6 +39465,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -39762,6 +39876,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -39890,6 +40012,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -40087,6 +40217,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -40247,6 +40385,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -40484,6 +40630,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -40683,6 +40837,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -40839,6 +41001,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -40924,6 +41094,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -41264,6 +41442,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -41339,6 +41525,14 @@
           "href": {
             "type": "string",
             "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           },
           "links": {
@@ -41608,6 +41802,14 @@
             "format": "uri",
             "nullable": true
           },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -41640,6 +41842,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -41813,6 +42023,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -41874,6 +42092,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -42031,6 +42257,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -42538,6 +42772,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -42824,6 +43066,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43011,6 +43261,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -43329,6 +43587,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43598,6 +43864,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43624,6 +43898,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -43706,6 +43988,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43746,6 +44036,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -43957,6 +44255,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -44982,6 +45288,14 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -45286,6 +45600,14 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -46943,7 +47265,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
