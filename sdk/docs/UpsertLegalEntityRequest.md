@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** | The display name of the Legal Entity | [optional] 
-**description** | **str** | The description of the Legal Entity | [optional] 
 **identifiers** | [**dict(str, ModelProperty)**](ModelProperty.md) | The identifiers the legal entity will be created with. | [optional] 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | A set of properties associated to the Legal Entity. | [optional] 
 

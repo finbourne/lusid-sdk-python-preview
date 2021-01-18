@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2485",
+    "version": "0.11.2486",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:46723"
+      "url": "http://local-unit-test-server.lusid.com:34696"
     }
   ],
   "paths": {
@@ -8593,8 +8593,6 @@
                 "$ref": "#/components/schemas/UpsertLegalEntityRequest"
               },
               "example": {
-                "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description",
                 "identifiers": {
                   "legalEntity/ExternalIdentifier/LEI": {
                     "key": "LegalEntity/ExternalIdentifier/LEI",
@@ -8638,8 +8636,6 @@
                 "$ref": "#/components/schemas/UpsertLegalEntityRequest"
               },
               "example": {
-                "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description",
                 "identifiers": {
                   "legalEntity/ExternalIdentifier/LEI": {
                     "key": "LegalEntity/ExternalIdentifier/LEI",
@@ -8683,8 +8679,6 @@
                 "$ref": "#/components/schemas/UpsertLegalEntityRequest"
               },
               "example": {
-                "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description",
                 "identifiers": {
                   "legalEntity/ExternalIdentifier/LEI": {
                     "key": "LegalEntity/ExternalIdentifier/LEI",
@@ -8728,8 +8722,6 @@
                 "$ref": "#/components/schemas/UpsertLegalEntityRequest"
               },
               "example": {
-                "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description",
                 "identifiers": {
                   "legalEntity/ExternalIdentifier/LEI": {
                     "key": "LegalEntity/ExternalIdentifier/LEI",
@@ -8780,8 +8772,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -8831,8 +8821,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -8882,8 +8870,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -9064,8 +9050,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -9115,8 +9099,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -9166,8 +9148,6 @@
                   "$ref": "#/components/schemas/LegalEntity"
                 },
                 "example": {
-                  "displayName": "LegalEntity1DisplayName",
-                  "description": "LegalEntity1Description",
                   "href": "https://example.com",
                   "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
                   "identifiers": {
@@ -11683,8 +11663,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -11744,8 +11722,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -11805,8 +11781,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -12029,8 +12003,6 @@
                 "example": {
                   "values": [
                     {
-                      "displayName": "Person1DisplayName",
-                      "description": "Person1Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId1",
                       "identifiers": {
@@ -12085,8 +12057,6 @@
                       }
                     },
                     {
-                      "displayName": "Person2DisplayName",
-                      "description": "Person2Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId2",
                       "identifiers": {
@@ -12153,8 +12123,6 @@
                 "example": {
                   "values": [
                     {
-                      "displayName": "Person1DisplayName",
-                      "description": "Person1Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId1",
                       "identifiers": {
@@ -12209,8 +12177,6 @@
                       }
                     },
                     {
-                      "displayName": "Person2DisplayName",
-                      "description": "Person2Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId2",
                       "identifiers": {
@@ -12277,8 +12243,6 @@
                 "example": {
                   "values": [
                     {
-                      "displayName": "Person1DisplayName",
-                      "description": "Person1Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId1",
                       "identifiers": {
@@ -12333,8 +12297,6 @@
                       }
                     },
                     {
-                      "displayName": "Person2DisplayName",
-                      "description": "Person2Description",
                       "href": "https://example.com",
                       "lusidPersonId": "UniqueLusidPersonId2",
                       "identifiers": {
@@ -12528,8 +12490,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -12589,8 +12549,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -12650,8 +12608,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -12969,8 +12925,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -13015,8 +12969,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -13061,8 +13013,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1DisplayName",
-                  "description": "Person1Description",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -13996,8 +13946,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1Description",
-                  "description": "Person1DisplayName",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -14042,8 +13990,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1Description",
-                  "description": "Person1DisplayName",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -14088,8 +14034,6 @@
                   "$ref": "#/components/schemas/Person"
                 },
                 "example": {
-                  "displayName": "Person1Description",
-                  "description": "Person1DisplayName",
                   "href": "https://example.com",
                   "lusidPersonId": "UniqueLusidPersonId1",
                   "identifiers": {
@@ -39949,20 +39893,6 @@
       "UpsertLegalEntityRequest": {
         "type": "object",
         "properties": {
-          "displayName": {
-            "maxLength": 512,
-            "minLength": 0,
-            "type": "string",
-            "description": "The display name of the Legal Entity",
-            "nullable": true
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 0,
-            "type": "string",
-            "description": "The description of the Legal Entity",
-            "nullable": true
-          },
           "identifiers": {
             "type": "object",
             "additionalProperties": {
@@ -39986,16 +39916,6 @@
       "LegalEntity": {
         "type": "object",
         "properties": {
-          "displayName": {
-            "type": "string",
-            "description": "The display name of the Legal Entity",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "description": "The description of the Legal Entity",
-            "nullable": true
-          },
           "href": {
             "type": "string",
             "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
@@ -40769,20 +40689,6 @@
       "UpsertPersonRequest": {
         "type": "object",
         "properties": {
-          "displayName": {
-            "maxLength": 512,
-            "minLength": 0,
-            "type": "string",
-            "description": "The display name of the Person",
-            "nullable": true
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 0,
-            "type": "string",
-            "description": "The description of the Person",
-            "nullable": true
-          },
           "identifiers": {
             "type": "object",
             "additionalProperties": {
@@ -40808,16 +40714,6 @@
       "Person": {
         "type": "object",
         "properties": {
-          "displayName": {
-            "type": "string",
-            "description": "The display name of the Person",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "description": "The description of the Person",
-            "nullable": true
-          },
           "href": {
             "type": "string",
             "description": "The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",

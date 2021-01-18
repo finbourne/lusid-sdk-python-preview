@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** | The display name of the Person | [optional] 
-**description** | **str** | The description of the Person | [optional] 
 **identifiers** | [**dict(str, ModelProperty)**](ModelProperty.md) | The identifiers the person will be created with. | [optional] 
 **properties** | **dict(str, list[ModelProperty])** | A set of properties associated to the Person. There can be multiple properties associated with a property key. | [optional] 
 
