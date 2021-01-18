@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**display_name** | **str** | The display name of the Legal Entity | [optional] 
+**description** | **str** | The description of the Legal Entity | [optional] 
 **href** | **str** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **lusid_legal_entity_id** | **str** | The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity. | [optional] 
 **identifiers** | [**dict(str, ModelProperty)**](ModelProperty.md) | Unique client-defined identifiers of the Legal Entity. | [optional] 
