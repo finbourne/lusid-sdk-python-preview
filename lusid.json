@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2493",
+    "version": "0.11.2494",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:41378"
+      "url": "http://local-unit-test-server.lusid.com:40081"
     }
   ],
   "paths": {
@@ -8016,6 +8016,187 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/instruments/{identifierType}/{identifier}/properties": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] Get instrument properties",
+        "description": "List all the properties of a single instrument.",
+        "operationId": "GetInstrumentProperties",
+        "parameters": [
+          {
+            "name": "identifierType",
+            "in": "path",
+            "description": "The identifier being supplied e.g. \"Figi\".",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The identifier being supplied e.g. \"Figi\".",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The value of the identifier for the requested instrument.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The value of the identifier for the requested instrument.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The properties of the specified instrument",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentProperties"
+                },
+                "example": {
+                  "properties": {
+                    "instrument/MyScope/SomeInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    "instrument/MyScope/SomeOtherInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  },
+                  "version": {
+                    "effectiveFrom": "2015-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T12:00:00.0000000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentProperties"
+                },
+                "example": {
+                  "properties": {
+                    "instrument/MyScope/SomeInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    "instrument/MyScope/SomeOtherInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  },
+                  "version": {
+                    "effectiveFrom": "2015-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T12:00:00.0000000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentProperties"
+                },
+                "example": {
+                  "properties": {
+                    "instrument/MyScope/SomeInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    "instrument/MyScope/SomeOtherInstrumentProperty": {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  },
+                  "version": {
+                    "effectiveFrom": "2015-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T12:00:00.0000000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/instruments/{identifierType}/{identifier}/properties/$delete": {
@@ -40397,6 +40578,36 @@
             "type": "string",
             "description": "The asAt datetime at which the instrument was deleted.",
             "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstrumentProperties": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The instrument properties. These will be from the 'Instrument' domain.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
           },
           "links": {
             "type": "array",

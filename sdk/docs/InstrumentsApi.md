@@ -1,6 +1,6 @@
 # lusid.InstrumentsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:41378*
+All URIs are relative to *http://local-unit-test-server.lusid.com:40081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_instrument_properties**](InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] Delete properties from an instrument
 [**get_instrument**](InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | Get instrument
 [**get_instrument_identifier_types**](InstrumentsApi.md#get_instrument_identifier_types) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] Get instrument identifier types
+[**get_instrument_properties**](InstrumentsApi.md#get_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EXPERIMENTAL] Get instrument properties
 [**get_instruments**](InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | Get instruments
 [**list_instruments**](InstrumentsApi.md#list_instruments) | **GET** /api/instruments | [EARLY ACCESS] List instruments
 [**update_instrument_identifier**](InstrumentsApi.md#update_instrument_identifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
@@ -35,8 +36,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -99,8 +100,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
@@ -167,8 +168,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -237,8 +238,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 
@@ -274,6 +275,74 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_instrument_properties**
+> InstrumentProperties get_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at)
+
+[EXPERIMENTAL] Get instrument properties
+
+List all the properties of a single instrument.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
+# Create an instance of the API class
+api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
+identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
+identifier = 'identifier_example' # str | The value of the identifier for the requested instrument.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] Get instrument properties
+    api_response = api_instance.get_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling InstrumentsApi->get_instrument_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier_type** | **str**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
+ **identifier** | **str**| The value of the identifier for the requested instrument. | 
+ **effective_at** | **str**| The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. | [optional] 
+
+### Return type
+
+[**InstrumentProperties**](InstrumentProperties.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The properties of the specified instrument |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_instruments**
 > GetInstrumentsResponse get_instruments(identifier_type, request_body, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
 
@@ -294,8 +363,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
@@ -364,8 +433,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. (optional)
@@ -440,8 +509,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier to use to resolve the instrument e.g. \"Figi\".
@@ -506,8 +575,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 request_body = {"request_id_1":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"},"figi":{"value":"some-figi-code","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"}},"properties":[{"key":"Instrument/default/Isin","value":{"labelValue":"US0378331005"},"effectiveFrom":"2018-06-18T09:00:00.0000000+00:00"}],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":{"sourceSystem":"systemA","vendor":"Unknown","version":"1.0.0"},"content":"{\"some-key\": \"some-value\"}","instrumentType":"ExoticInstrument"}},"request_id_2":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier-2","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"},"figi":{"value":"some-figi-code-2","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"}},"properties":[],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":{"sourceSystem":"systemA","vendor":"Unknown","version":"1.0.0"},"content":"{\"some-key\": \"some-value\"}","instrumentType":"ExoticInstrument"}}} # dict(str, InstrumentDefinition) | The definitions of the instruments to update or insert.
@@ -568,8 +637,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:41378
-configuration.host = "http://local-unit-test-server.lusid.com:41378"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40081
+configuration.host = "http://local-unit-test-server.lusid.com:40081"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 upsert_instrument_property_request = [{"identifierType":"LusidInstrumentId","identifier":"LUID_00000000","properties":[{"key":"Instrument/MyScope/MyPropertyName","value":{"labelValue":"MyValue"},"effectiveFrom":"2018-03-05T12:00:00.0000000+00:00"}]}] # list[UpsertInstrumentPropertyRequest] | A collection of instruments and associated instrument properties to update or insert.
