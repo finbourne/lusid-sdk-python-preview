@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**display_name** | **str** | The display name of the Person | [optional] 
+**description** | **str** | The description of the Person | [optional] 
 **href** | **str** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **lusid_person_id** | **str** | The unique LUSID Person Identifier (LUPID) of the Person. | [optional] 
 **identifiers** | [**dict(str, ModelProperty)**](ModelProperty.md) | Unique client-defined identifiers of the Person. | [optional] 
