@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2490",
+    "version": "0.11.2492",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:41272"
     }
   ],
   "paths": {
@@ -9299,6 +9299,630 @@
         "responses": {
           "200": {
             "description": "The response from deleting legal entity.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata": {
+      "get": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Get Access Metadata rules for a Legal Entity",
+        "description": "Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata",
+        "operationId": "GetAllLegalEntityAccessMetadata",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the Legal Entity under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effectiveAt datetime at which to retrieve the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The effectiveAt datetime at which to retrieve the Access Metadata",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the Access Metadata",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The access metadata for the Legal Entity or any failure.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}": {
+      "put": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "description": "Update or insert one Legal Entity Access Metadata entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Legal Entity Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
+        "operationId": "UpsertLegalEntityAccessMetadata",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the Legal Entity under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "metadataKey",
+            "in": "path",
+            "description": "Key of the metadata entry to retrieve",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Key of the metadata entry to retrieve"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Legal Entity Access Metadata entry to upsert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertLegalEntityAccessMetadataRequest"
+              },
+              "example": {
+                "metadata": [
+                  {
+                    "value": "SilverLicence",
+                    "provider": "TestDataProvider"
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertLegalEntityAccessMetadataRequest"
+              },
+              "example": {
+                "metadata": [
+                  {
+                    "value": "SilverLicence",
+                    "provider": "TestDataProvider"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertLegalEntityAccessMetadataRequest"
+              },
+              "example": {
+                "metadata": [
+                  {
+                    "value": "SilverLicence",
+                    "provider": "TestDataProvider"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertLegalEntityAccessMetadataRequest"
+              },
+              "example": {
+                "metadata": [
+                  {
+                    "value": "SilverLicence",
+                    "provider": "TestDataProvider"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully updated or inserted item or any failure.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAccessMetadataValueOf"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAccessMetadataValueOf"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfAccessMetadataValueOf"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity",
+        "description": "Get a specific Legal Entity Access Metadata by specifying the corresponding identifier parts and Legal Entity code\r\n            \r\nNo matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry",
+        "operationId": "GetLegalEntityAccessMetadataByKey",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the Legal Entity under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "metadataKey",
+            "in": "path",
+            "description": "Key of the metadata entry to retrieve",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Key of the metadata entry to retrieve"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effectiveAt datetime at which to retrieve the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The effectiveAt datetime at which to retrieve the Access Metadata",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the Access Metadata",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved Legal Entity access metadata filtered by metadataKey or any failure.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessMetadataValue"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessMetadataValue"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessMetadataValue"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Delete a Legal Entity Access Metadata entry",
+        "description": "Deletes the Legal Entity Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
+        "operationId": "DeleteLegalEntityAccessMetadata",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the Legal Entity under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "metadataKey",
+            "in": "path",
+            "description": "Key of the metadata entry to retrieve",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Key of the metadata entry to retrieve"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective date to delete at, if this is not supplied, it will delete all data found",
+            "schema": {
+              "type": "string",
+              "description": "The effective date to delete at, if this is not supplied, it will delete all data found",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Access Metadata with the given metadataKey has been deleted",
             "content": {
               "text/plain": {
                 "schema": {
@@ -40037,6 +40661,75 @@
         "additionalProperties": false,
         "description": "Representation of Legal Entity on LUSID API"
       },
+      "AccessMetadataValue": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An access control value. Provider should only be used if you are a service provide licensing data. In that case\r\nthe provider value must match your domain."
+      },
+      "UpsertLegalEntityAccessMetadataRequest": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessMetadataValue"
+            },
+            "description": "The access control metadata to assign to a Legal Entity that matches the identifier",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceListOfAccessMetadataValueOf": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AccessMetadataValue"
+              }
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Relation": {
         "required": [
           "relatedEntityId",
@@ -40404,23 +41097,6 @@
         },
         "additionalProperties": false,
         "description": "An identifier that uniquely identifies a set of Quote access control metadata."
-      },
-      "AccessMetadataValue": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          },
-          "provider": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "An access control value. Provider should only be used if you are a service provide licensing data. In that case\r\nthe provider value must match your domain."
       },
       "QuoteAccessMetadataRule": {
         "required": [
@@ -40912,44 +41588,6 @@
               "$ref": "#/components/schemas/AccessMetadataValue"
             },
             "description": "The access control metadata to assign to a Person that matches the identifier",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResourceListOfAccessMetadataValueOf": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/AccessMetadataValue"
-              }
-            }
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
             "nullable": true
           }
         },
@@ -42974,7 +43612,8 @@
           "RIC",
           "QuotePermId",
           "Isin",
-          "CurrencyPair"
+          "CurrencyPair",
+          "ClientInternal"
         ],
         "type": "string"
       },
@@ -43008,10 +43647,11 @@
               "RIC",
               "QuotePermId",
               "Isin",
-              "CurrencyPair"
+              "CurrencyPair",
+              "ClientInternal"
             ],
             "type": "string",
-            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair",
+            "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'. The available values are: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair, ClientInternal",
             "nullable": true
           },
           "quoteType": {
@@ -47460,7 +48100,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -47521,7 +48161,7 @@
     },
     {
       "name": "Legal Entities",
-      "description": "Methods for interacting with Legal Entities."
+      "description": "Endpoints for interacting with Legal Entities."
     },
     {
       "name": "Login",
