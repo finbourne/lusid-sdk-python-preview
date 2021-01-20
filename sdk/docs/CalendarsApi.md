@@ -1,6 +1,6 @@
 # lusid.CalendarsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:58608*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57277*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Get a calendar in its generic form
 [**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EXPERIMENTAL] Get dates for a specific calendar
 [**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [EXPERIMENTAL] Check whether a DateTime is a \&quot;Business DateTime\&quot;
-[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [EXPERIMENTAL] List Calenders
-[**list_calendars_in_scope**](CalendarsApi.md#list_calendars_in_scope) | **GET** /api/calendars/generic/{scope} | [EXPERIMENTAL] List all calenders in a specified scope
-[**update_calendar**](CalendarsApi.md#update_calendar) | **POST** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Update a calendar
+[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic/{scope} | [EXPERIMENTAL] List all calenders in a specified scope
+[**update_calendar**](CalendarsApi.md#update_calendar) | **PUT** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Update a calendar
 
 
 # **add_date_to_calendar**
@@ -36,8 +35,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -102,8 +101,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne Calendar Service","properties":[{"key":"Calendar/default/Center","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
@@ -164,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -228,8 +227,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -294,8 +293,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar identifier
@@ -360,8 +359,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendar
@@ -432,8 +431,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
@@ -481,79 +480,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calendars**
-> PagedResourceListOfCalendar list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
-
-[EXPERIMENTAL] List Calenders
-
-List calendars at a point in AsAt time.
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-configuration = lusid.Configuration()
-# Configure OAuth2 access token for authorization: oauth2
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendars (optional)
-page = 'page_example' # str | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
-filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-
-try:
-    # [EXPERIMENTAL] List Calenders
-    api_response = api_instance.list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **as_at** | **datetime**| The AsAt datetime at which to retrieve the calendars | [optional] 
- **page** | **str**| The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
-
-### Return type
-
-[**PagedResourceListOfCalendar**](PagedResourceListOfCalendar.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List Calendars |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_calendars_in_scope**
-> PagedResourceListOfCalendar list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+> PagedResourceListOfCalendar list_calendars(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
 [EXPERIMENTAL] List all calenders in a specified scope
 
-List calendars at a point in AsAt time.
+List calendars within a specific scope and a specific window of effective time, at a point in AsAt time.
 
 ### Example
 
@@ -568,8 +499,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the calendars
@@ -581,10 +512,10 @@ filter = 'filter_example' # str | Expression to filter the result set. Read more
 
 try:
     # [EXPERIMENTAL] List all calenders in a specified scope
-    api_response = api_instance.list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+    api_response = api_instance.list_calendars(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CalendarsApi->list_calendars_in_scope: %s\n" % e)
+    print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
 ```
 
 ### Parameters
@@ -640,8 +571,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58608
-configuration.host = "http://local-unit-test-server.lusid.com:58608"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:57277
+configuration.host = "http://local-unit-test-server.lusid.com:57277"
 # Create an instance of the API class
 api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the request

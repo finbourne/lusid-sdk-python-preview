@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2498",
+    "version": "0.11.2499",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:58608"
+      "url": "http://local-unit-test-server.lusid.com:57277"
     }
   ],
   "paths": {
@@ -2104,282 +2104,6 @@
       }
     },
     "/api/calendars/generic": {
-      "get": {
-        "tags": [
-          "Calendars"
-        ],
-        "summary": "[EXPERIMENTAL] List Calenders",
-        "description": "List calendars at a point in AsAt time.",
-        "operationId": "ListCalendars",
-        "parameters": [
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The AsAt datetime at which to retrieve the calendars",
-            "schema": {
-              "type": "string",
-              "description": "The AsAt datetime at which to retrieve the calendars",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "type": "string",
-              "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List Calendars",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfCalendar"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode2"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/calendar/testscope",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfCalendar"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode2"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/calendar/testscope",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfCalendar"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode2"
-                      },
-                      "type": "Holiday",
-                      "weekendMask": {
-                        "days": [
-                          "Saturday",
-                          "Sunday"
-                        ],
-                        "timeZone": "UTC"
-                      },
-                      "sourceProvider": "Finbourne Calendar Service",
-                      "properties": [
-                        {
-                          "key": "Calendar/default/Center",
-                          "value": {
-                            "labelValue": "CBTR"
-                          }
-                        }
-                      ]
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/calendar/testscope",
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
       "post": {
         "tags": [
           "Calendars"
@@ -2643,8 +2367,8 @@
           "Calendars"
         ],
         "summary": "[EXPERIMENTAL] List all calenders in a specified scope",
-        "description": "List calendars at a point in AsAt time.",
-        "operationId": "ListCalendarsInScope",
+        "description": "List calendars within a specific scope and a specific window of effective time, at a point in AsAt time.",
+        "operationId": "ListCalendars",
         "parameters": [
           {
             "name": "scope",
@@ -3119,7 +2843,7 @@
         ],
         "x-fbn-apistatus": "Experimental"
       },
-      "post": {
+      "put": {
         "tags": [
           "Calendars"
         ],
@@ -3646,6 +3370,10 @@
                   "values": [
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/dates",
+                      "calendarIdentifier": {
+                        "scope": "TestScope",
+                        "code": "TestCalendar"
+                      },
                       "dateIdentifier": "TestDate",
                       "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                       "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3667,6 +3395,10 @@
                   "values": [
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/dates",
+                      "calendarIdentifier": {
+                        "scope": "TestScope",
+                        "code": "TestCalendar"
+                      },
                       "dateIdentifier": "TestDate",
                       "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                       "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3688,6 +3420,10 @@
                   "values": [
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/dates",
+                      "calendarIdentifier": {
+                        "scope": "TestScope",
+                        "code": "TestCalendar"
+                      },
                       "dateIdentifier": "TestDate",
                       "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                       "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3848,6 +3584,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3864,6 +3604,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3880,6 +3624,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -3987,6 +3735,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -4003,6 +3755,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -4019,6 +3775,10 @@
                 },
                 "example": {
                   "href": "https://myco.lusid.com/api/api/calendar/dates",
+                  "calendarIdentifier": {
+                    "scope": "TestScope",
+                    "code": "TestCalendar"
+                  },
                   "dateIdentifier": "TestDate",
                   "fromUtc": "2020-02-12T12:00:00.0000000+00:00",
                   "toUtc": "2020-02-13T12:00:00.0000000+00:00",
@@ -38780,6 +38540,39 @@
         },
         "additionalProperties": false
       },
+      "CreateCalendarRequest": {
+        "required": [
+          "calendarId",
+          "calendarType",
+          "sourceProvider",
+          "weekendMask"
+        ],
+        "type": "object",
+        "properties": {
+          "calendarId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "calendarType": {
+            "type": "string"
+          },
+          "weekendMask": {
+            "$ref": "#/components/schemas/WeekendMask"
+          },
+          "sourceProvider": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Calendar": {
         "required": [
           "id",
@@ -38845,39 +38638,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCalendarRequest": {
-        "required": [
-          "calendarId",
-          "calendarType",
-          "sourceProvider",
-          "weekendMask"
-        ],
-        "type": "object",
-        "properties": {
-          "calendarId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "calendarType": {
-            "type": "string"
-          },
-          "weekendMask": {
-            "$ref": "#/components/schemas/WeekendMask"
-          },
-          "sourceProvider": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
-          },
-          "properties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Property"
             },
             "nullable": true
           }
@@ -38960,6 +38720,7 @@
       "CalendarDate": {
         "required": [
           "attributes",
+          "calendarIdentifier",
           "dateIdentifier",
           "description",
           "fromUtc",
@@ -38975,6 +38736,9 @@
             "type": "string",
             "format": "uri",
             "nullable": true
+          },
+          "calendarIdentifier": {
+            "$ref": "#/components/schemas/ResourceId"
           },
           "dateIdentifier": {
             "type": "string"
