@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2518",
+    "version": "0.11.2519",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:49443"
     }
   ],
   "paths": {
@@ -27339,6 +27339,193 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/relations/{scope}/{code}/$delete": {
+      "post": {
+        "tags": [
+          "Relations"
+        ],
+        "summary": "[EXPERIMENTAL] Delete a relation",
+        "description": "Delete a relation between two entity objects represented by their identifiers",
+        "operationId": "DeleteRelation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope of the relation to delete.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the relation to delete.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the relation to delete.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the relation to delete.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The details of the relation to delete.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRelationRequest"
+              },
+              "example": {
+                "sourceEntityId": {
+                  "entityType": "PortfolioGroup",
+                  "scope": "UkPortfolio",
+                  "code": "PortfolioId-148176"
+                },
+                "targetEntityId": {
+                  "entityType": "Person",
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRelationRequest"
+              },
+              "example": {
+                "sourceEntityId": {
+                  "entityType": "PortfolioGroup",
+                  "scope": "UkPortfolio",
+                  "code": "PortfolioId-148176"
+                },
+                "targetEntityId": {
+                  "entityType": "Person",
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRelationRequest"
+              },
+              "example": {
+                "sourceEntityId": {
+                  "entityType": "PortfolioGroup",
+                  "scope": "UkPortfolio",
+                  "code": "PortfolioId-148176"
+                },
+                "targetEntityId": {
+                  "entityType": "Person",
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRelationRequest"
+              },
+              "example": {
+                "sourceEntityId": {
+                  "entityType": "PortfolioGroup",
+                  "scope": "UkPortfolio",
+                  "code": "PortfolioId-148176"
+                },
+                "targetEntityId": {
+                  "entityType": "Person",
+                  "idTypeScope": "HrSystem1",
+                  "idTypeCode": "InternalId",
+                  "code": "XY10001111"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The datetime that the relation is deleted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/results/{scope}/{resultsKey}/$aggregate": {
       "post": {
         "tags": [
@@ -44734,6 +44921,30 @@
         "additionalProperties": false,
         "description": "Representation of a relation containing details of source and target entities, and both outward and inward descriptions."
       },
+      "DeleteRelationRequest": {
+        "required": [
+          "sourceEntityId",
+          "targetEntityId"
+        ],
+        "type": "object",
+        "properties": {
+          "sourceEntityId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The identifier of the source entity of the relation to be deleted."
+          },
+          "targetEntityId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The identifier of the target entity of the relation to be deleted."
+          }
+        },
+        "additionalProperties": false
+      },
       "AggregationType": {
         "enum": [
           "String",
@@ -48311,7 +48522,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

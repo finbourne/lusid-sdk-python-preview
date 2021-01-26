@@ -1,10 +1,11 @@
 # lusid.RelationsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:49443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_relation**](RelationsApi.md#create_relation) | **POST** /api/relations/{scope}/{code} | [EXPERIMENTAL] Create Relation
+[**delete_relation**](RelationsApi.md#delete_relation) | **POST** /api/relations/{scope}/{code}/$delete | [EXPERIMENTAL] Delete a relation
 
 
 # **create_relation**
@@ -27,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49443
+configuration.host = "http://local-unit-test-server.lusid.com:49443"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the relation to create.
@@ -70,6 +71,74 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The newly created relation. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_relation**
+> DeletedEntityResponse delete_relation(scope, code, delete_relation_request, effective_at=effective_at)
+
+[EXPERIMENTAL] Delete a relation
+
+Delete a relation between two entity objects represented by their identifiers
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49443
+configuration.host = "http://local-unit-test-server.lusid.com:49443"
+# Create an instance of the API class
+api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | Scope of the relation to delete.
+code = 'code_example' # str | Code of the relation to delete.
+delete_relation_request = {"sourceEntityId":{"entityType":"PortfolioGroup","scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"entityType":"Person","idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # DeleteRelationRequest | The details of the relation to delete.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
+
+try:
+    # [EXPERIMENTAL] Delete a relation
+    api_response = api_instance.delete_relation(scope, code, delete_relation_request, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling RelationsApi->delete_relation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| Scope of the relation to delete. | 
+ **code** | **str**| Code of the relation to delete. | 
+ **delete_relation_request** | [**DeleteRelationRequest**](DeleteRelationRequest.md)| The details of the relation to delete. | 
+ **effective_at** | **str**| The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. | [optional] 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the relation is deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
