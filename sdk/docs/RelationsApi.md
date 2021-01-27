@@ -1,6 +1,6 @@
 # lusid.RelationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:60267*
+All URIs are relative to *http://local-unit-test-server.lusid.com:34689*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:60267
-configuration.host = "http://local-unit-test-server.lusid.com:60267"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:34689
+configuration.host = "http://local-unit-test-server.lusid.com:34689"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the relation to create.
@@ -96,8 +96,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:60267
-configuration.host = "http://local-unit-test-server.lusid.com:60267"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:34689
+configuration.host = "http://local-unit-test-server.lusid.com:34689"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope of the relation to delete.
