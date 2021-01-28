@@ -5,10 +5,10 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**generate_configuration_recipe**](AggregationApi.md#generate_configuration_recipe) | **POST** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
-[**get_aggregation**](AggregationApi.md#get_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group
+[**get_aggregation**](AggregationApi.md#get_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregate | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group  Deprecated: Please use the GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.  Aggregation will shortly be modified to include experimental features such as Simulation and XVA
 [**get_aggregation_by_result_set**](AggregationApi.md#get_aggregation_by_result_set) | **POST** /api/results/{scope}/{resultsKey}/$aggregate | [EXPERIMENTAL] Aggregate using result data
 [**get_aggregation_of_weighted_instruments**](AggregationApi.md#get_aggregation_of_weighted_instruments) | **POST** /api/portfolios/{scope}/$aggregateinlined | [EXPERIMENTAL] Aggregate data in an inlined portfolio
-[**get_nested_aggregation**](AggregationApi.md#get_nested_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested
+[**get_nested_aggregation**](AggregationApi.md#get_nested_aggregation) | **POST** /api/aggregation/{scope}/{code}/$aggregatenested | [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested                Deprecated: Endpoint is being retired. The nested functionality is supported on the valuation endpoint through use of an &#39;include subtotals&#39; flag.
 [**get_queryable_keys**](AggregationApi.md#get_queryable_keys) | **GET** /api/results/queryable/keys | [EXPERIMENTAL] Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
 [**get_valuation**](AggregationApi.md#get_valuation) | **POST** /api/aggregation/$valuation | [EXPERIMENTAL] Perform valuation for a list of portfolios and/or portfolio groups
 [**get_valuation_of_weighted_instruments**](AggregationApi.md#get_valuation_of_weighted_instruments) | **POST** /api/aggregation/$valuationinlined | [EXPERIMENTAL] Perform valuation for an inlined portfolio
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 # **get_aggregation**
 > ListAggregationResponse get_aggregation(scope, code, sort_by=sort_by, start=start, limit=limit, aggregation_request=aggregation_request)
 
-[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group
+[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group  Deprecated: Please use the GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.  Aggregation will shortly be modified to include experimental features such as Simulation and XVA
 
 Aggregate data sourced from the specified portfolio or portfolio group
 
@@ -112,7 +112,7 @@ limit = 56 # int | Optional. When paginating, limit the number of returned resul
 aggregation_request = {"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"} # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group
+    # [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group  Deprecated: Please use the GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.  Aggregation will shortly be modified to include experimental features such as Simulation and XVA
     api_response = api_instance.get_aggregation(scope, code, sort_by=sort_by, start=start, limit=limit, aggregation_request=aggregation_request)
     pprint(api_response)
 except ApiException as e:
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Aggregate data in an inlined portfolio
 
-Aggregate data sourced from the portfolio that is defined by the weighted set of instruments passed to the request.
+Aggregate data sourced from the portfolio that is defined by the weighted set of instruments passed to the request.  Deprecated: Please use the (inline) GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.  Aggregation will shortly be modified to include experimental features such as Simulation and XVA
 
 ### Example
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 # **get_nested_aggregation**
 > NestedAggregationResponse get_nested_aggregation(scope, code, aggregation_request=aggregation_request)
 
-[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested
+[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested                Deprecated: Endpoint is being retired. The nested functionality is supported on the valuation endpoint through use of an 'include subtotals' flag.
 
 Aggregate data sourced from the specified portfolio or portfolio group into a nested structure. Data is nested following the group-by specifications.
 
@@ -323,7 +323,7 @@ code = 'code_example' # str | The code of the portfolio or portfolio group
 aggregation_request = {"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Holding/default/PV","op":"Proportion"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"portfolioIdentifierCode":"SinglePortfolio"} # AggregationRequest | The request specifying the parameters of the aggregation (optional)
 
 try:
-    # [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested
+    # [EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested                Deprecated: Endpoint is being retired. The nested functionality is supported on the valuation endpoint through use of an 'include subtotals' flag.
     api_response = api_instance.get_nested_aggregation(scope, code, aggregation_request=aggregation_request)
     pprint(api_response)
 except ApiException as e:

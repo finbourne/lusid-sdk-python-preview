@@ -4,24 +4,24 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_cds_flow_conventions**](ConventionsApi.md#delete_cds_flow_conventions) | **DELETE** /api/conventions/credit/conventions/{scope}/{code} | [EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
-[**delete_flow_conventions**](ConventionsApi.md#delete_flow_conventions) | **DELETE** /api/conventions/rates/flowconventions/{scope}/{code} | [EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
-[**delete_index_convention**](ConventionsApi.md#delete_index_convention) | **DELETE** /api/conventions/rates/indexconventions/{scope}/{code} | [EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
-[**get_cds_flow_conventions**](ConventionsApi.md#get_cds_flow_conventions) | **GET** /api/conventions/credit/conventions/{scope}/{code} | [EXPERIMENTAL] Get CDS Flow Conventions
-[**get_flow_conventions**](ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/rates/flowconventions/{scope}/{code} | [EXPERIMENTAL] Get Flow Conventions
-[**get_index_convention**](ConventionsApi.md#get_index_convention) | **GET** /api/conventions/rates/indexconventions/{scope}/{code} | [EXPERIMENTAL] Get Index Convention
-[**list_cds_flow_conventions**](ConventionsApi.md#list_cds_flow_conventions) | **GET** /api/conventions/credit/conventions | [EXPERIMENTAL] List the set of CDS Flow Conventions
-[**list_flow_conventions**](ConventionsApi.md#list_flow_conventions) | **GET** /api/conventions/rates/flowconventions | [EXPERIMENTAL] List the set of Flow Conventions
-[**list_index_convention**](ConventionsApi.md#list_index_convention) | **GET** /api/conventions/rates/indexconventions | [EXPERIMENTAL] List the set of Index Conventions
-[**upsert_cds_flow_conventions**](ConventionsApi.md#upsert_cds_flow_conventions) | **POST** /api/conventions/credit/conventions | [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
-[**upsert_flow_conventions**](ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
-[**upsert_index_convention**](ConventionsApi.md#upsert_index_convention) | **POST** /api/conventions/rates/indexconventions | [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+[**delete_cds_flow_conventions**](ConventionsApi.md#delete_cds_flow_conventions) | **DELETE** /api/conventions/credit/conventions/{scope}/{code} | [BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+[**delete_flow_conventions**](ConventionsApi.md#delete_flow_conventions) | **DELETE** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.
+[**delete_index_convention**](ConventionsApi.md#delete_index_convention) | **DELETE** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] Delete the Index Convention of given scope and code, assuming that it is present.
+[**get_cds_flow_conventions**](ConventionsApi.md#get_cds_flow_conventions) | **GET** /api/conventions/credit/conventions/{scope}/{code} | [BETA] Get CDS Flow Conventions
+[**get_flow_conventions**](ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] Get Flow Conventions
+[**get_index_convention**](ConventionsApi.md#get_index_convention) | **GET** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] Get Index Convention
+[**list_cds_flow_conventions**](ConventionsApi.md#list_cds_flow_conventions) | **GET** /api/conventions/credit/conventions | [BETA] List the set of CDS Flow Conventions
+[**list_flow_conventions**](ConventionsApi.md#list_flow_conventions) | **GET** /api/conventions/rates/flowconventions | [BETA] List the set of Flow Conventions
+[**list_index_convention**](ConventionsApi.md#list_index_convention) | **GET** /api/conventions/rates/indexconventions | [BETA] List the set of Index Conventions
+[**upsert_cds_flow_conventions**](ConventionsApi.md#upsert_cds_flow_conventions) | **POST** /api/conventions/credit/conventions | [BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+[**upsert_flow_conventions**](ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.
+[**upsert_index_convention**](ConventionsApi.md#upsert_index_convention) | **POST** /api/conventions/rates/indexconventions | [BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
 
 # **delete_cds_flow_conventions**
 > AnnulSingleStructuredDataResponse delete_cds_flow_conventions(scope, code)
 
-[EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+[BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
 
 Delete the specified CDS Flow Conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
 
@@ -46,7 +46,7 @@ scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
 code = 'code_example' # str | The CDS Flow Conventions to delete.
 
 try:
-    # [EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+    # [BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
     api_response = api_instance.delete_cds_flow_conventions(scope, code)
     pprint(api_response)
 except ApiException as e:
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 # **delete_flow_conventions**
 > AnnulSingleStructuredDataResponse delete_flow_conventions(scope, code)
 
-[EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
+[BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.
 
 Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
 
@@ -110,7 +110,7 @@ scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
 code = 'code_example' # str | The Flow Conventions to delete.
 
 try:
-    # [EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.
+    # [BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.
     api_response = api_instance.delete_flow_conventions(scope, code)
     pprint(api_response)
 except ApiException as e:
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 # **delete_index_convention**
 > AnnulSingleStructuredDataResponse delete_index_convention(scope, code)
 
-[EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
+[BETA] Delete the Index Convention of given scope and code, assuming that it is present.
 
 Delete the specified Index Convention from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
 
@@ -174,7 +174,7 @@ scope = 'scope_example' # str | The scope of the Index Convention to delete.
 code = 'code_example' # str | The Index Convention to delete.
 
 try:
-    # [EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.
+    # [BETA] Delete the Index Convention of given scope and code, assuming that it is present.
     api_response = api_instance.delete_index_convention(scope, code)
     pprint(api_response)
 except ApiException as e:
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 # **get_cds_flow_conventions**
 > GetCdsFlowConventionsResponse get_cds_flow_conventions(scope, code, as_at=as_at)
 
-[EXPERIMENTAL] Get CDS Flow Conventions
+[BETA] Get CDS Flow Conventions
 
 Get a CDS Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
 
@@ -239,7 +239,7 @@ code = 'code_example' # str | The name of the CDS Flow Conventions to retrieve t
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] Get CDS Flow Conventions
+    # [BETA] Get CDS Flow Conventions
     api_response = api_instance.get_cds_flow_conventions(scope, code, as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 # **get_flow_conventions**
 > GetFlowConventionsResponse get_flow_conventions(scope, code, as_at=as_at)
 
-[EXPERIMENTAL] Get Flow Conventions
+[BETA] Get Flow Conventions
 
 Get a Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
 
@@ -305,7 +305,7 @@ code = 'code_example' # str | The name of the Flow Conventions to retrieve the d
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] Get Flow Conventions
+    # [BETA] Get Flow Conventions
     api_response = api_instance.get_flow_conventions(scope, code, as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 # **get_index_convention**
 > GetIndexConventionResponse get_index_convention(scope, code, as_at=as_at)
 
-[EXPERIMENTAL] Get Index Convention
+[BETA] Get Index Convention
 
 Get a Index Convention from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
 
@@ -371,7 +371,7 @@ code = 'code_example' # str | The name of the Index Convention to retrieve the d
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] Get Index Convention
+    # [BETA] Get Index Convention
     api_response = api_instance.get_index_convention(scope, code, as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 # **list_cds_flow_conventions**
 > ResourceListOfGetCdsFlowConventionsResponse list_cds_flow_conventions(as_at=as_at)
 
-[EXPERIMENTAL] List the set of CDS Flow Conventions
+[BETA] List the set of CDS Flow Conventions
 
 List the set of CDS Flow Conventions at the specified date/time
 
@@ -435,7 +435,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] List the set of CDS Flow Conventions
+    # [BETA] List the set of CDS Flow Conventions
     api_response = api_instance.list_cds_flow_conventions(as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 # **list_flow_conventions**
 > ResourceListOfGetFlowConventionsResponse list_flow_conventions(as_at=as_at)
 
-[EXPERIMENTAL] List the set of Flow Conventions
+[BETA] List the set of Flow Conventions
 
 List the set of Flow Conventions at the specified date/time
 
@@ -497,7 +497,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] List the set of Flow Conventions
+    # [BETA] List the set of Flow Conventions
     api_response = api_instance.list_flow_conventions(as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 # **list_index_convention**
 > ResourceListOfGetIndexConventionResponse list_index_convention(as_at=as_at)
 
-[EXPERIMENTAL] List the set of Index Conventions
+[BETA] List the set of Index Conventions
 
 List the set of Index Conventions at the specified date/time
 
@@ -559,7 +559,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
 try:
-    # [EXPERIMENTAL] List the set of Index Conventions
+    # [BETA] List the set of Index Conventions
     api_response = api_instance.list_index_convention(as_at=as_at)
     pprint(api_response)
 except ApiException as e:
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 # **upsert_cds_flow_conventions**
 > UpsertSingleStructuredDataResponse upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
 
-[EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+[BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
 
 Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
@@ -621,7 +621,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
 
 try:
-    # [EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+    # [BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
     api_response = api_instance.upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
     pprint(api_response)
 except ApiException as e:
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 # **upsert_flow_conventions**
 > UpsertSingleStructuredDataResponse upsert_flow_conventions(upsert_flow_conventions_request)
 
-[EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
+[BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.
 
 Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
@@ -683,7 +683,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
 try:
-    # [EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.
+    # [BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.
     api_response = api_instance.upsert_flow_conventions(upsert_flow_conventions_request)
     pprint(api_response)
 except ApiException as e:
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 # **upsert_index_convention**
 > UpsertSingleStructuredDataResponse upsert_index_convention(upsert_index_convention_request)
 
-[EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+[BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
 Update or insert Index Convention in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
@@ -745,7 +745,7 @@ api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_index_convention_request = {"indexConvention":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertIndexConventionRequest | The Index Conventions to update or insert
 
 try:
-    # [EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+    # [BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.
     api_response = api_instance.upsert_index_convention(upsert_index_convention_request)
     pprint(api_response)
 except ApiException as e:
