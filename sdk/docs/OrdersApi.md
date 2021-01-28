@@ -1,6 +1,6 @@
 # lusid.OrdersApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:45915*
+All URIs are relative to *http://local-unit-test-server.lusid.com:45842*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45915
-configuration.host = "http://local-unit-test-server.lusid.com:45915"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:45842
+configuration.host = "http://local-unit-test-server.lusid.com:45842"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The order scope.
@@ -95,8 +95,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45915
-configuration.host = "http://local-unit-test-server.lusid.com:45915"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:45842
+configuration.host = "http://local-unit-test-server.lusid.com:45842"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the order belongs.
@@ -163,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45915
-configuration.host = "http://local-unit-test-server.lusid.com:45915"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:45842
+configuration.host = "http://local-unit-test-server.lusid.com:45842"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Upsert Order Properties
 
-Upsert; update properties on existing Orders with given ids.
+Update or insert one or more order properties for existing orders with given ids. Each order property will be updated  if it already exists and inserted if it does not. If any properties fail to be updated or inserted, none will be updated or inserted and  the reason for the failure will be returned.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 
@@ -237,12 +237,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45915
-configuration.host = "http://local-unit-test-server.lusid.com:45915"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:45842
+configuration.host = "http://local-unit-test-server.lusid.com:45842"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the orders belong.
-upsert_order_properties_request = [{"properties":[{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}],"id":"ORD00000123"}] # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
+upsert_order_properties_request = [{"properties":[{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}},{"key":"Order/MyScope/AnotherOrderProperty","value":{"labelValue":"XYZ000056748"},"effectiveFrom":"2018-05-10T12:00:00.0000000+00:00","effectiveUntil":"2019-07-12T12:00:00.0000000+00:00"},{"key":"Order/MyScope/AdditionalOrderProperty","value":{"labelValue":"XYZ000099134"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}],"id":"ORD00000123"}] # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
 
 try:
     # [EXPERIMENTAL] Upsert Order Properties
@@ -301,8 +301,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45915
-configuration.host = "http://local-unit-test-server.lusid.com:45915"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:45842
+configuration.host = "http://local-unit-test-server.lusid.com:45842"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 order_set_request = {"orderRequests":[{"properties":{"order/MyScope/SomeOrderProperty":{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","orderBookId":{"scope":"MyScope","code":"UKEQ Orders"},"portfolioId":{"scope":"MyScope","code":"UK Equity"},"id":{"scope":"MyScope","code":"ORD00000123"}}]} # OrderSetRequest | The collection of order requests. (optional)
