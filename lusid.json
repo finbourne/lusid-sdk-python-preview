@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2531",
+    "version": "0.11.2532",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58425"
     }
   ],
   "paths": {
@@ -26,7 +26,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group",
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group\r\nDeprecated: Please use the GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.\r\nAggregation will shortly be modified to include experimental features such as Simulation and XVA",
         "description": "Aggregate data sourced from the specified portfolio or portfolio group",
         "operationId": "GetAggregation",
         "parameters": [
@@ -269,7 +269,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested",
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested\r\n            \r\nDeprecated: Endpoint is being retired. The nested functionality is supported on the valuation endpoint through use of an 'include subtotals' flag.",
         "description": "Aggregate data sourced from the specified portfolio or portfolio group into a nested structure. Data is nested following the group-by specifications.",
         "operationId": "GetNestedAggregation",
         "parameters": [
@@ -3835,7 +3835,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] List the set of CDS Flow Conventions",
+        "summary": "[BETA] List the set of CDS Flow Conventions",
         "description": "List the set of CDS Flow Conventions at the specified date/time",
         "operationId": "ListCdsFlowConventions",
         "parameters": [
@@ -3909,13 +3909,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "post": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.",
+        "summary": "[BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.",
         "description": "Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCdsFlowConventions",
         "requestBody": {
@@ -4077,7 +4077,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/conventions/credit/conventions/{scope}/{code}": {
@@ -4085,7 +4085,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Get CDS Flow Conventions",
+        "summary": "[BETA] Get CDS Flow Conventions",
         "description": "Get a CDS Flow Conventions from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCdsFlowConventions",
         "parameters": [
@@ -4185,13 +4185,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "delete": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.",
+        "summary": "[BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.",
         "description": "Delete the specified CDS Flow Conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCdsFlowConventions",
         "parameters": [
@@ -4279,7 +4279,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/conventions/rates/flowconventions": {
@@ -4287,7 +4287,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Flow Conventions",
+        "summary": "[BETA] List the set of Flow Conventions",
         "description": "List the set of Flow Conventions at the specified date/time",
         "operationId": "ListFlowConventions",
         "parameters": [
@@ -4361,13 +4361,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "post": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Flow Conventions. This creates or updates the data in Lusid.",
+        "summary": "[BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.",
         "description": "Update or insert Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertFlowConventions",
         "requestBody": {
@@ -4525,7 +4525,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/conventions/rates/flowconventions/{scope}/{code}": {
@@ -4533,7 +4533,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Get Flow Conventions",
+        "summary": "[BETA] Get Flow Conventions",
         "description": "Get a Flow Conventions from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetFlowConventions",
         "parameters": [
@@ -4633,13 +4633,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "delete": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Delete the Flow Conventions of given scope and code, assuming that it is present.",
+        "summary": "[BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.",
         "description": "Delete the specified conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteFlowConventions",
         "parameters": [
@@ -4727,7 +4727,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/conventions/rates/indexconventions": {
@@ -4735,7 +4735,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Index Conventions",
+        "summary": "[BETA] List the set of Index Conventions",
         "description": "List the set of Index Conventions at the specified date/time",
         "operationId": "ListIndexConvention",
         "parameters": [
@@ -4809,13 +4809,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "post": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a set of Index Convention. This creates or updates the data in Lusid.",
+        "summary": "[BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.",
         "description": "Update or insert Index Convention in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Index Convention or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertIndexConvention",
         "requestBody": {
@@ -4945,7 +4945,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/conventions/rates/indexconventions/{scope}/{code}": {
@@ -4953,7 +4953,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Get Index Convention",
+        "summary": "[BETA] Get Index Convention",
         "description": "Get a Index Convention from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetIndexConvention",
         "parameters": [
@@ -5053,13 +5053,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "delete": {
         "tags": [
           "Conventions"
         ],
-        "summary": "[EXPERIMENTAL] Delete the Index Convention of given scope and code, assuming that it is present.",
+        "summary": "[BETA] Delete the Index Convention of given scope and code, assuming that it is present.",
         "description": "Delete the specified Index Convention from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteIndexConvention",
         "parameters": [
@@ -5147,7 +5147,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/corporateactionsources": {
@@ -22509,7 +22509,7 @@
           "Aggregation"
         ],
         "summary": "[EXPERIMENTAL] Aggregate data in an inlined portfolio",
-        "description": "Aggregate data sourced from the portfolio that is defined by the weighted set of instruments passed to the request.",
+        "description": "Aggregate data sourced from the portfolio that is defined by the weighted set of instruments passed to the request.\r\nDeprecated: Please use the (inline) GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.\r\nAggregation will shortly be modified to include experimental features such as Simulation and XVA",
         "operationId": "GetAggregationOfWeightedInstruments",
         "parameters": [
           {
@@ -48906,7 +48906,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
