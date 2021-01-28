@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Upsert Order Properties
 
-Upsert; update properties on existing Orders with given ids.
+Update or insert one or more order properties for existing orders with given ids. Each order property will be updated  if it already exists and inserted if it does not. If any properties fail to be updated or inserted, none will be updated or inserted and  the reason for the failure will be returned.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 
@@ -242,7 +242,7 @@ configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the orders belong.
-upsert_order_properties_request = [{"properties":[{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}],"id":"ORD00000123"}] # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
+upsert_order_properties_request = [{"properties":[{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}},{"key":"Order/MyScope/AnotherOrderProperty","value":{"labelValue":"XYZ000056748"},"effectiveFrom":"2018-05-10T12:00:00.0000000+00:00","effectiveUntil":"2019-07-12T12:00:00.0000000+00:00"},{"key":"Order/MyScope/AdditionalOrderProperty","value":{"labelValue":"XYZ000099134"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}],"id":"ORD00000123"}] # list[UpsertOrderPropertiesRequest] | A collection of order property upsert requests. (optional)
 
 try:
     # [EXPERIMENTAL] Upsert Order Properties
