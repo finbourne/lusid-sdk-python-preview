@@ -1,5 +1,6 @@
 from utilities.credentials_source import CredentialsSource
 from utilities.instrument_loader import InstrumentLoader
+from utilities.portfolio_loader import PortfolioLoader
 from utilities.test_data_utilities import TestDataUtilities
 from utilities.token_utilities import TokenUtilities
 from utilities.temp_file_manager import TempFileManager
