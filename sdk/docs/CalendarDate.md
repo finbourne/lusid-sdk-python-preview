@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** |  | [optional] 
-**calendar_identifier** | [**ResourceId**](ResourceId.md) |  | 
 **date_identifier** | **str** |  | 
 **from_utc** | **datetime** |  | 
 **to_utc** | **datetime** |  | 
