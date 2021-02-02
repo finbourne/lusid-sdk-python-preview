@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2541",
+    "version": "0.11.2542",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:44963"
     }
   ],
   "paths": {
@@ -47902,8 +47902,8 @@
             "required": [
               "code",
               "instrumentType",
+              "maturityDate",
               "payCcy",
-              "referenceDate",
               "referenceRate",
               "startDate",
               "underlyingCcy",
@@ -47916,6 +47916,11 @@
                 "description": "The start date of the CFD.",
                 "format": "date-time"
               },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "format": "date-time"
+              },
               "code": {
                 "type": "string",
                 "description": "The code of the underlying."
@@ -47924,14 +47929,9 @@
                 "type": "string",
                 "description": "The currency that this CFD pays out, this can be different to the UnderlyingCcy."
               },
-              "referenceDate": {
-                "type": "string",
-                "description": "The reference date of the CFD.",
-                "format": "date-time"
-              },
               "referenceRate": {
                 "type": "number",
-                "description": "The reference rate of the CFD.",
+                "description": "The reference rate of the CFD, this can be set to 0 but not negative values.",
                 "format": "double"
               },
               "underlyingCcy": {
@@ -49141,7 +49141,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
