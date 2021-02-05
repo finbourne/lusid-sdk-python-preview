@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2561",
+    "version": "0.11.2562",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42208"
+      "url": "http://local-unit-test-server.lusid.com:48413"
     }
   ],
   "paths": {
@@ -48191,11 +48191,13 @@
           {
             "required": [
               "code",
+              "contractSize",
               "instrumentType",
               "maturityDate",
               "payCcy",
               "referenceRate",
               "startDate",
+              "type",
               "underlyingCcy",
               "underlyingIdentifier"
             ],
@@ -48215,6 +48217,11 @@
                 "type": "string",
                 "description": "The code of the underlying."
               },
+              "contractSize": {
+                "type": "number",
+                "description": "With an OTC we have the problem of multiple ways of booking a quantity.\r\ne.g.\r\nIf buying a swap do you have a holding of size 1 of 100,000,000 notional swap or a holding of 100,000,000 size of 1 notional swap, or any combination that multiplies to 10^8.\r\nWhen you get for a price for a 'unit swap' what do you mean? The definition must be consistent across all quotes. This includes bonds which have a face value and\r\nfx-forwards which often trade in standard contract sizes. When we look up a price, and there are no units, we are assuming it is a price for a contract size of 1.\r\nThe logical effect of this is that\r\ninstrument clean price = contract size * quoted unit price\r\nholding clean price    = holding quantity * instrument clean price = holding quantity * contract size * quoted unit price\r\nIn calculating accrued interest the same should hold.\r\nNB: The real problem is that people store \"prices\" without complete units. Everything should really be \"x ccy for n units\". Where the n is implicit the above has to hold.",
+                "format": "double"
+              },
               "payCcy": {
                 "type": "string",
                 "description": "The currency that this CFD pays out, this can be different to the UnderlyingCcy."
@@ -48223,6 +48230,10 @@
                 "type": "number",
                 "description": "The reference rate of the CFD, this can be set to 0 but not negative values.",
                 "format": "double"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of CFD.\r\nSupported string (enumeration) values are: [Cash, Futures]."
               },
               "underlyingCcy": {
                 "type": "string",
