@@ -10,6 +10,7 @@ from lusid.api.calendars_api import CalendarsApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
 from lusid.api.conventions_api import ConventionsApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
+from lusid.api.counterparty_api import CounterpartyApi
 from lusid.api.cut_label_definitions_api import CutLabelDefinitionsApi
 from lusid.api.data_types_api import DataTypesApi
 from lusid.api.derived_transaction_portfolios_api import DerivedTransactionPortfoliosApi
