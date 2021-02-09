@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2571",
+    "version": "0.11.2572",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:44649"
     }
   ],
   "paths": {
@@ -33436,202 +33436,40 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/transactionportfolios/{scope}/{code}/cashflows": {
+    "/api/transactionportfolios/{scope}/{code}/cashstatement": {
       "get": {
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get the set of cash flows that occur in a window for the given portfolio instruments.",
-        "description": "Get the set of cash flows that occur in a window for the given portfolio instruments.\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.",
-        "operationId": "GetPortfolioCashFlows",
+        "summary": "[EXPERIMENTAL] Get CashStatement for the given portfolio.",
+        "description": "Get CashStatement for the given portfolio.",
+        "operationId": "GetPortfolioCashStatement",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the portfolio to retrieve the cashflow for.",
+            "description": "The scope of the portfolio to retrieve the CashStatement for.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the portfolio to retrieve the cashflow for.",
+              "description": "The scope of the portfolio to retrieve the CashStatement for.",
               "nullable": true
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The code of the portfolio to retrieve the cashflow for. Together with the scope this\r\n             uniquely identifies the portfolio.",
+            "description": "The code of the portfolio to retrieve the CashStatement for. Together with the scope this\r\n            uniquely identifies the portfolio.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code of the portfolio to retrieve the cashflow for. Together with the scope this\r\n             uniquely identifies the portfolio.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "fromEffectiveAt",
-            "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
-              "format": "dateorcutlabel"
-            }
-          },
-          {
-            "name": "toEffectiveAt",
-            "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
-              "format": "dateorcutlabel"
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n             of each transaction if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n             of each transaction if not specified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. \r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set. \r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "recipeIdScope",
-            "in": "query",
-            "description": "The scope of the given recipeId",
-            "schema": {
-              "type": "string",
-              "description": "The scope of the given recipeId",
-              "nullable": true
-            }
-          },
-          {
-            "name": "recipeIdCode",
-            "in": "query",
-            "description": "The code of the given recipeID",
-            "schema": {
-              "type": "string",
-              "description": "The code of the given recipeID",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested portfolio instruments' cash flow data",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/transactionportfolios/{scope}/{code}/cashstatements": {
-      "get": {
-        "tags": [
-          "Transaction Portfolios"
-        ],
-        "summary": "[EXPERIMENTAL] Get CashStatements for the given portfolio.",
-        "description": "Get CashStatements for the given portfolio.",
-        "operationId": "GetPortfolioCashStatements",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope of the portfolio to retrieve the CashStatements for.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope of the portfolio to retrieve the CashStatements for.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The code of the portfolio to retrieve the CashStatements for. Together with the scope this\r\n            uniquely identifies the portfolio.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code of the portfolio to retrieve the CashStatements for. Together with the scope this\r\n            uniquely identifies the portfolio.",
+              "description": "The code of the portfolio to retrieve the CashStatement for. Together with the scope this\r\n            uniquely identifies the portfolio.",
               "nullable": true
             }
           },
@@ -33717,6 +33555,168 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfPortfolioCashFlow"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/cashstatements": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get the set of cash flows that occur in a window for the given portfolio instruments.",
+        "description": "Get the set of cash flows that occur in a window for the given portfolio instruments.\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.",
+        "operationId": "GetPortfolioCashStatements",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio to retrieve the cashStatements for.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio to retrieve the cashStatements for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio to retrieve the cashStatements for. Together with the scope this\r\n             uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio to retrieve the cashStatements for. Together with the scope this\r\n             uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n             of each transaction if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n             of each transaction if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. \r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set. \r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdScope",
+            "in": "query",
+            "description": "The scope of the given recipeId",
+            "schema": {
+              "type": "string",
+              "description": "The scope of the given recipeId",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdCode",
+            "in": "query",
+            "description": "The code of the given recipeID",
+            "schema": {
+              "type": "string",
+              "description": "The code of the given recipeID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested portfolio instruments' cash flow data",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
                 }
               }
             }
@@ -37941,7 +37941,7 @@
           "Transaction Portfolios"
         ],
         "summary": "[EXPERIMENTAL] Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).",
-        "description": "Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.\r\n            \r\nIn essence this is identical to the 'GetCashFlows' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.\r\nThere are a couple of important points:\r\n(1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.\r\n    These are therefore defaulted to a sensible option; the user will likely need to change these.\r\n(2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.\r\n(3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.",
+        "description": "Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.\r\n            \r\nIn essence this is identical to the 'GetPortfolioCashStatement' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.\r\nThere are a couple of important points:\r\n(1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.\r\n    These are therefore defaulted to a sensible option; the user will likely need to change these.\r\n(2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.\r\n(3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.",
         "operationId": "GetUpsertablePortfolioCashFlows",
         "parameters": [
           {
@@ -48373,92 +48373,6 @@
         },
         "additionalProperties": false
       },
-      "InstrumentCashFlow": {
-        "required": [
-          "currency",
-          "diagnostics",
-          "paymentDate",
-          "sourceInstrumentId",
-          "sourceTransactionId"
-        ],
-        "type": "object",
-        "properties": {
-          "paymentDate": {
-            "type": "string",
-            "description": "The date at which the given cash flow is due to be paid (SettlementDate is used somewhat interchangeably with PaymentDate.)",
-            "format": "date-time"
-          },
-          "amount": {
-            "type": "number",
-            "description": "The quantity (amount) that will be paid. Note that this can be empty if the payment is in the future and a model is used that cannot estimate it.",
-            "format": "double",
-            "nullable": true
-          },
-          "currency": {
-            "type": "string",
-            "description": "The payment currency of the cash flow."
-          },
-          "sourceTransactionId": {
-            "type": "string",
-            "description": "The identifier for the parent transaction on the instrument that will pay/receive this cash flow."
-          },
-          "sourceInstrumentId": {
-            "type": "string",
-            "description": "The unqiue Lusid Instrument Id (LUID) of the instrument that the holding is in."
-          },
-          "diagnostics": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "Whilst a cash flow is defined by an (amount,ccy) pair and the date it is paid on there is additional information required for diagnostics. This includes a range of information and can be empty in the case of a simple cash quantity or where further information is not available. Typical information includes items such as reset dates, RIC, accrual start/end, number of days and curve data."
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "The details for the cashflow associated with an instrument from a given portfolio."
-      },
-      "ResourceListOfInstrumentCashFlow": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InstrumentCashFlow"
-            }
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PortfolioCashFlow": {
         "required": [
           "balance",
@@ -48553,6 +48467,92 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PortfolioCashFlow"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstrumentCashFlow": {
+        "required": [
+          "currency",
+          "diagnostics",
+          "paymentDate",
+          "sourceInstrumentId",
+          "sourceTransactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentDate": {
+            "type": "string",
+            "description": "The date at which the given cash flow is due to be paid (SettlementDate is used somewhat interchangeably with PaymentDate.)",
+            "format": "date-time"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The quantity (amount) that will be paid. Note that this can be empty if the payment is in the future and a model is used that cannot estimate it.",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "description": "The payment currency of the cash flow."
+          },
+          "sourceTransactionId": {
+            "type": "string",
+            "description": "The identifier for the parent transaction on the instrument that will pay/receive this cash flow."
+          },
+          "sourceInstrumentId": {
+            "type": "string",
+            "description": "The unqiue Lusid Instrument Id (LUID) of the instrument that the holding is in."
+          },
+          "diagnostics": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Whilst a cash flow is defined by an (amount,ccy) pair and the date it is paid on there is additional information required for diagnostics. This includes a range of information and can be empty in the case of a simple cash quantity or where further information is not available. Typical information includes items such as reset dates, RIC, accrual start/end, number of days and curve data."
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The details for the cashflow associated with an instrument from a given portfolio."
+      },
+      "ResourceListOfInstrumentCashFlow": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentCashFlow"
             }
           },
           "href": {
@@ -50783,7 +50783,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
