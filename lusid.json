@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2581",
+    "version": "0.11.2583",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -2676,6 +2676,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -2712,6 +2715,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -3590,6 +3596,9 @@
             "in": "query",
             "description": "Where the effective window of dates should begin from",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "Where the effective window of dates should begin from",
               "format": "dateorcutlabel",
@@ -3601,6 +3610,9 @@
             "in": "query",
             "description": "Where the effective window of dates should end",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "Where the effective window of dates should end",
               "format": "dateorcutlabel",
@@ -3972,6 +3984,9 @@
             "description": "Identifier of the date to be removed",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Identifier of the date to be removed"
             }
@@ -5559,6 +5574,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -5569,6 +5587,9 @@
             "in": "query",
             "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, the filter, asAt, and limit must not\r\nbe modified.",
             "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, the filter, asAt, and limit must not\r\nbe modified.",
               "nullable": true
@@ -6036,6 +6057,9 @@
             "in": "query",
             "description": "Optional. The start effective date of the data range",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "Optional. The start effective date of the data range",
               "format": "dateorcutlabel",
@@ -6047,6 +6071,9 @@
             "in": "query",
             "description": "Optional. The end effective date of the data range",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "Optional. The end effective date of the data range",
               "format": "dateorcutlabel",
@@ -6096,6 +6123,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7286,6 +7316,9 @@
             "description": "The requested scope of the data types",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The requested scope of the data types",
               "nullable": true
@@ -7357,6 +7390,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7806,6 +7842,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Schema, use \"schema eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Schema, use \"schema eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7899,6 +7938,9 @@
             "description": "The scope into which to create the new derived portfolio",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope into which to create the new derived portfolio",
               "nullable": true
@@ -8108,6 +8150,9 @@
             "in": "query",
             "description": "The effective date of the change",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective date of the change",
               "format": "dateorcutlabel",
@@ -8203,6 +8248,9 @@
             "description": "The effective date of the origin.",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective date of the origin.",
               "format": "dateorcutlabel"
@@ -27932,6 +27980,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -29967,6 +30018,9 @@
             "description": "The name of a valid entity",
             "required": true,
             "schema": {
+              "maxLength": 6000,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The name of a valid entity",
               "nullable": true
@@ -30252,6 +30306,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to filter on the Scope, use \"scope eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Scope, use \"scope eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -31895,6 +31952,9 @@
             "in": "query",
             "description": "The effective datetime at which to retrieve the structured market data. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime at which to retrieve the structured market data. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -39577,10 +39637,16 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope used when updating or inserting the Configuration Recipe."
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "User given string name (code) to identify the recipe."
           },
@@ -39602,6 +39668,9 @@
             "nullable": true
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "User can assign a description to understand more humanly the recipe.",
             "nullable": true
@@ -40882,6 +40951,9 @@
             }
           },
           "timeZone": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           }
         },
@@ -40999,6 +41071,9 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "calendarType": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "weekendMask": {
@@ -41007,6 +41082,7 @@
           "sourceProvider": {
             "maxLength": 50,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "properties": {
@@ -41031,6 +41107,9 @@
             "$ref": "#/components/schemas/WeekendMask"
           },
           "sourceProvider": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "properties": {
@@ -41067,26 +41146,31 @@
           "activity": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "firstOpen": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "lastOpen": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "firstClose": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "lastClose": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           }
         },
@@ -41192,6 +41276,9 @@
         "type": "object",
         "properties": {
           "dateId": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "fromUtc": {
@@ -41205,16 +41292,19 @@
           "timeZone": {
             "maxLength": 5,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "description": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string"
           },
           "type": {
             "maxLength": 10,
             "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "nullable": true
           },
@@ -41730,18 +41820,30 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": ""
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": ""
           },
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": ""
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "",
             "nullable": true
@@ -41873,10 +41975,16 @@
         "type": "object",
         "properties": {
           "corporateActionCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": ""
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "",
             "nullable": true
@@ -42812,15 +42920,24 @@
         "type": "object",
         "properties": {
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": ""
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "",
             "nullable": true
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": ""
           },
@@ -46853,10 +46970,16 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope used when updating or inserting the Configuration Recipe snippet"
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "User given string name (code) to identify the recipe."
           },
