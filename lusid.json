@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2603",
+    "version": "0.11.2604",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:45483"
+      "url": "http://local-unit-test-server.lusid.com:49159"
     }
   ],
   "paths": {
@@ -33799,7 +33799,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Resolve Instrument",
+        "summary": "[EARLY ACCESS] Resolve Instrument",
         "description": "Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  \r\nperiod of time. Also update the instrument identifiers with the given instrument identifiers collection.",
         "operationId": "ResolveInstrument",
         "parameters": [
@@ -33978,7 +33978,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/cashflows": {
