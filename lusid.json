@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2608",
+    "version": "0.11.2609",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62171"
+      "url": "http://local-unit-test-server.lusid.com:54308"
     }
   ],
   "paths": {
@@ -30767,7 +30767,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroup"
+                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroupSearchResult"
                 },
                 "example": {
                   "values": [
@@ -30800,7 +30800,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroup"
+                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroupSearchResult"
                 },
                 "example": {
                   "values": [
@@ -30833,7 +30833,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroup"
+                  "$ref": "#/components/schemas/PagedResourceListOfPortfolioGroupSearchResult"
                 },
                 "example": {
                   "values": [
@@ -48318,7 +48318,66 @@
         "additionalProperties": false,
         "description": "A collection of instrument search results"
       },
-      "PagedResourceListOfPortfolioGroup": {
+      "PortfolioGroupSearchResult": {
+        "required": [
+          "displayName",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The name of the portfolio group."
+          },
+          "description": {
+            "type": "string",
+            "description": "The long form description of the portfolio group.",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "description": "The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date.",
+            "format": "date-time"
+          },
+          "portfolios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The collection of resource identifiers for the portfolios contained in the portfolio group.",
+            "nullable": true
+          },
+          "subGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagedResourceListOfPortfolioGroupSearchResult": {
         "required": [
           "values"
         ],
@@ -48335,7 +48394,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PortfolioGroup"
+              "$ref": "#/components/schemas/PortfolioGroupSearchResult"
             }
           },
           "href": {
