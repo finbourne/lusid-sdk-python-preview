@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2617",
+    "version": "0.11.2618",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:61162"
     }
   ],
   "paths": {
@@ -1214,6 +1214,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 300,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -1264,6 +1267,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "default": "",
@@ -1677,9 +1683,9 @@
             "description": "The scope to which the allocation belongs.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The scope to which the allocation belongs.",
               "nullable": true
@@ -1691,9 +1697,9 @@
             "description": "The allocation's unique identifier.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The allocation's unique identifier.",
               "nullable": true
@@ -1890,9 +1896,9 @@
             "description": "The allocation scope.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The allocation scope."
             }
@@ -1903,9 +1909,9 @@
             "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete."
             }
@@ -12162,6 +12168,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -12185,6 +12194,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -13247,6 +13259,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 300,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -13297,6 +13312,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "default": "",
@@ -13717,9 +13735,9 @@
             "description": "The scope to which the order belongs.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The scope to which the order belongs.",
               "nullable": true
@@ -13731,9 +13749,9 @@
             "description": "The order's unique identifier.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The order's unique identifier.",
               "nullable": true
@@ -13933,9 +13951,9 @@
             "description": "The order scope.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The order scope."
             }
@@ -13946,9 +13964,9 @@
             "description": "The order's code. This, together with the scope uniquely identifies the order to delete.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The order's code. This, together with the scope uniquely identifies the order to delete."
             }
@@ -14029,9 +14047,9 @@
             "description": "The scope to which the orders belong.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 256,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
               "type": "string",
               "description": "The scope to which the orders belong.",
               "nullable": true
@@ -14733,6 +14751,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -14744,6 +14765,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -14754,6 +14778,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to list the people. Defaults to the current LUSID\r\n            system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to list the people. Defaults to the current LUSID\r\n            system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -14777,6 +14804,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing portfolios from a previous call to list portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 300,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing portfolios from a previous call to list portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -14813,6 +14843,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\n            For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the result set. \r\n            For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -15266,6 +15299,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -15277,6 +15313,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -15316,6 +15355,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -15576,6 +15618,9 @@
             "description": "The scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the person identifier type."
             }
@@ -15586,6 +15631,9 @@
             "description": "The code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the person identifier type."
             }
@@ -15679,6 +15727,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -15690,6 +15741,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -15972,6 +16026,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -15983,6 +16040,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -16021,6 +16081,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of identifiers are perpetual.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of identifiers are perpetual.",
               "format": "dateorcutlabel",
@@ -16694,6 +16757,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -16705,6 +16771,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -16999,6 +17068,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -17010,6 +17082,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -17048,6 +17123,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
               "format": "dateorcutlabel",
@@ -17130,6 +17208,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -17141,6 +17222,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -17188,6 +17272,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -39391,6 +39478,9 @@
             "in": "query",
             "description": "The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -44009,6 +44099,7 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The display name of the Legal Entity",
             "nullable": true
@@ -44016,6 +44107,7 @@
           "description": {
             "maxLength": 512,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The description of the Legal Entity",
             "nullable": true
@@ -44786,6 +44878,9 @@
             "format": "int32"
           },
           "side": {
+            "maxLength": 512,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The client's representation of the order's side (buy, sell, short, etc)"
           },
@@ -44867,6 +44962,9 @@
             "description": "Client-defined properties associated with this order."
           },
           "id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9@/+-_*#;,^&.?€£$¥ ]+$",
             "type": "string",
             "description": "Uniquely identifies this order."
           }
@@ -44919,6 +45017,7 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The display name of the Person",
             "nullable": true
@@ -44926,6 +45025,7 @@
           "description": {
             "maxLength": 512,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The description of the Person",
             "nullable": true
@@ -47816,39 +47916,66 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope that the relation exists in."
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The code of the relation. Together with the scope this uniquely defines the relation."
           },
           "sourceEntityDomain": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The entity domain of the source entity object must be, allowed values are \"Portfolio\" and \"Person\""
           },
           "targetEntityDomain": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The entity domain of the target entity object must be, allowed values are \"Portfolio\" and \"Person\""
           },
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The display name of the relation."
           },
           "outwardDescription": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The description to relate source entity object and target entity object."
           },
           "inwardDescription": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The description to relate target entity object and source entity object."
           },
           "lifeTime": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "Describes how the relations can change over time, allowed values are \"Perpetual\" and \"TimeVariant\"",
             "nullable": true
           },
           "constraintStyle": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "Describes the uniqueness and cardinality for relations with a specific source entity object and relations under this definition. Allowed values are \"Property\" and \"Collection\", defaults to \"Collection\" if not specified.",
             "nullable": true
@@ -50272,11 +50399,17 @@
             "description": "The platform or vendor that provided the structured result data, e.g. 'client'. This is primarily of interest when data could have been sourced from multiple sources"
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The identifier for the entity that this id describes. It could be an index, instrument or other form of structured data",
             "nullable": true
           },
           "effectiveAt": {
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
             "type": "string",
             "description": "The effectiveAt or cut label that this item of structured market data is/was updated/inserted with.",
             "format": "dateorcutlabel",
@@ -50332,11 +50465,17 @@
             "nullable": true
           },
           "version": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version\r\nof the mappings that the client assigns it.",
             "nullable": true
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "A unique name to semantically identify the mapping set.",
             "nullable": true
@@ -50360,15 +50499,24 @@
         "type": "object",
         "properties": {
           "documentFormat": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The format of the accompanying document."
           },
           "version": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
             "nullable": true
           },
           "name": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The name or description for the document",
             "nullable": true
@@ -51878,7 +52026,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
