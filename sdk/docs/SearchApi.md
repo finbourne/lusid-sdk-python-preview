@@ -1,6 +1,6 @@
 # lusid.SearchApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:58021*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**portfolio_groups_search**](SearchApi.md#portfolio_groups_search) | **POST** /api/search/portfoliogroups | [DEPRECATED] Portfolio groups search
 [**portfolios_search**](SearchApi.md#portfolios_search) | **POST** /api/search/portfolios | [DEPRECATED] Portfolios search
 [**properties_search**](SearchApi.md#properties_search) | **POST** /api/search/propertydefinitions | [DEPRECATED] Search property definitions
-[**search_portfolio_groups**](SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | [EXPERIMENTAL] Search Portfolio Groups
+[**search_portfolio_groups**](SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] Search Portfolio Groups
 [**search_portfolios**](SearchApi.md#search_portfolios) | **GET** /api/search/portfolios | [EXPERIMENTAL] Search Portfolios
 [**search_properties**](SearchApi.md#search_properties) | **GET** /api/search/propertydefinitions | [EXPERIMENTAL] Search Property Definitions
 
@@ -33,8 +33,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 instrument_search_property = [{"key":"Instrument/default/Isin","value":"US0378331005"}] # list[InstrumentSearchProperty] | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
@@ -99,8 +99,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 body = None # object | The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.
@@ -163,8 +163,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 body = None # object | The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.
@@ -227,8 +227,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 body = None # object | The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 # **search_portfolio_groups**
 > PagedResourceListOfPortfolioGroupSearchResult search_portfolio_groups(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
 
-[EXPERIMENTAL] Search Portfolio Groups
+[EARLY ACCESS] Search Portfolio Groups
 
 Search through all portfolio groups
 
@@ -291,8 +291,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 search = 'search_example' # str | A parameter used for searching any portfolio group field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
@@ -302,7 +302,7 @@ limit = 56 # int | When paginating, only return this number of records (optional
 page = 'page_example' # str | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortby and search fields should not be supplied. (optional)
 
 try:
-    # [EXPERIMENTAL] Search Portfolio Groups
+    # [EARLY ACCESS] Search Portfolio Groups
     api_response = api_instance.search_portfolio_groups(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
     pprint(api_response)
 except ApiException as e:
@@ -361,8 +361,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 search = 'search_example' # str | A parameter used for searching any portfolio field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
@@ -431,8 +431,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58021
+configuration.host = "http://local-unit-test-server.lusid.com:58021"
 # Create an instance of the API class
 api_instance = lusid.SearchApi(lusid.ApiClient(configuration))
 search = 'search_example' # str | A parameter used for searching any field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
