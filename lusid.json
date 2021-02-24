@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2637",
+    "version": "0.11.2638",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:59375"
+      "url": "http://local-unit-test-server.lusid.com:31624"
     }
   ],
   "paths": {
@@ -23629,7 +23629,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The relations for the specific person.",
+            "description": "The relations for the specified portfolio.",
             "content": {
               "text/plain": {
                 "schema": {
