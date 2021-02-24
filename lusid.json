@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2632",
+    "version": "0.11.2633",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:36609"
     }
   ],
   "paths": {
@@ -31022,7 +31022,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "[EXPERIMENTAL] Search Portfolios",
+        "summary": "[EARLY ACCESS] Search Portfolios",
         "description": "Search through all portfolios",
         "operationId": "SearchPortfolios",
         "parameters": [
@@ -31231,7 +31231,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
@@ -52027,7 +52027,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
