@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2644",
+    "version": "0.11.2645",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:56661"
+      "url": "http://local-unit-test-server.lusid.com:51891"
     }
   ],
   "paths": {
@@ -29338,28 +29338,28 @@
           {
             "name": "scope",
             "in": "path",
-            "description": "Scope of the relation to create.",
+            "description": "The scope of the relation definition",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Scope of the relation to create.",
+              "description": "The scope of the relation definition",
               "nullable": true
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "Code of the relation to create.",
+            "description": "The code of the relation definition",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Code of the relation to create.",
+              "description": "The code of the relation definition",
               "nullable": true
             }
           },
@@ -29581,28 +29581,28 @@
           {
             "name": "scope",
             "in": "path",
-            "description": "Scope of the relation to delete.",
+            "description": "The scope of the relation definition",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Scope of the relation to delete.",
+              "description": "The scope of the relation definition",
               "nullable": true
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "Code of the relation to delete.",
+            "description": "The code of the relation definition",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Code of the relation to delete.",
+              "description": "The code of the relation definition",
               "nullable": true
             }
           },

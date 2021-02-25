@@ -1,6 +1,6 @@
 # lusid.RelationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:56661*
+All URIs are relative to *http://local-unit-test-server.lusid.com:51891*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,12 +28,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:56661
-configuration.host = "http://local-unit-test-server.lusid.com:56661"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:51891
+configuration.host = "http://local-unit-test-server.lusid.com:51891"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the relation to create.
-code = 'code_example' # str | Code of the relation to create.
+scope = 'scope_example' # str | The scope of the relation definition
+code = 'code_example' # str | The code of the relation definition
 create_relation_request = {"sourceEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationRequest | The details of the relation to create.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
@@ -49,8 +49,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the relation to create. | 
- **code** | **str**| Code of the relation to create. | 
+ **scope** | **str**| The scope of the relation definition | 
+ **code** | **str**| The code of the relation definition | 
  **create_relation_request** | [**CreateRelationRequest**](CreateRelationRequest.md)| The details of the relation to create. | 
  **effective_at** | **str**| The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
@@ -96,12 +96,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:56661
-configuration.host = "http://local-unit-test-server.lusid.com:56661"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:51891
+configuration.host = "http://local-unit-test-server.lusid.com:51891"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the relation to delete.
-code = 'code_example' # str | Code of the relation to delete.
+scope = 'scope_example' # str | The scope of the relation definition
+code = 'code_example' # str | The code of the relation definition
 delete_relation_request = {"sourceEntityId":{"entityType":"PortfolioGroup","scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"entityType":"Person","idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # DeleteRelationRequest | The details of the relation to delete.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
@@ -117,8 +117,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the relation to delete. | 
- **code** | **str**| Code of the relation to delete. | 
+ **scope** | **str**| The scope of the relation definition | 
+ **code** | **str**| The code of the relation definition | 
  **delete_relation_request** | [**DeleteRelationRequest**](DeleteRelationRequest.md)| The details of the relation to delete. | 
  **effective_at** | **str**| The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
