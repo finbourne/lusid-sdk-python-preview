@@ -1,12 +1,13 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:40537*
+All URIs are relative to *http://local-unit-test-server.lusid.com:61132*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**batch_upsert_corporate_actions**](CorporateActionSourcesApi.md#batch_upsert_corporate_actions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] Upsert corporate actions
 [**create_corporate_action_source**](CorporateActionSourcesApi.md#create_corporate_action_source) | **POST** /api/corporateactionsources | [BETA] Create Corporate Action Source
 [**delete_corporate_action_source**](CorporateActionSourcesApi.md#delete_corporate_action_source) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] Delete a corporate action source
+[**delete_corporate_actions**](CorporateActionSourcesApi.md#delete_corporate_actions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EXPERIMENTAL] Delete one or more corporate actions
 [**get_corporate_actions**](CorporateActionSourcesApi.md#get_corporate_actions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] Get corporate actions
 [**list_corporate_action_sources**](CorporateActionSourcesApi.md#list_corporate_action_sources) | **GET** /api/corporateactionsources | [BETA] List corporate action sources
 
@@ -31,8 +32,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:40537
-configuration.host = "http://local-unit-test-server.lusid.com:40537"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of corporate action source
@@ -97,8 +98,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:40537
-configuration.host = "http://local-unit-test-server.lusid.com:40537"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 create_corporate_action_source_request = {"scope":"ExampleScope","code":"ExampleCode","displayName":"ExampleDisplayName","description":"Example Description"} # CreateCorporateActionSourceRequest | The corporate action source definition
@@ -159,8 +160,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:40537
-configuration.host = "http://local-unit-test-server.lusid.com:40537"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The Scope of the Corporate Action Source to be deleted
@@ -203,6 +204,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_corporate_actions**
+> DeletedEntityResponse delete_corporate_actions(scope, code, corporate_action_ids)
+
+[EXPERIMENTAL] Delete one or more corporate actions
+
+Deletes one or more corporate actions from the specified corporate action source
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
+# Create an instance of the API class
+api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the corporate action source
+code = 'code_example' # str | The code of the corporate action source
+corporate_action_ids = ['corporate_action_ids_example'] # list[str] | The ids of the corporate actions to delete
+
+try:
+    # [EXPERIMENTAL] Delete one or more corporate actions
+    api_response = api_instance.delete_corporate_actions(scope, code, corporate_action_ids)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CorporateActionSourcesApi->delete_corporate_actions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the corporate action source | 
+ **code** | **str**| The code of the corporate action source | 
+ **corporate_action_ids** | [**list[str]**](str.md)| The ids of the corporate actions to delete | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Corporate Actions Deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_corporate_actions**
 > ResourceListOfCorporateAction get_corporate_actions(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, sort_by=sort_by, limit=limit, filter=filter)
 
@@ -223,8 +290,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:40537
-configuration.host = "http://local-unit-test-server.lusid.com:40537"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source
@@ -299,8 +366,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:40537
-configuration.host = "http://local-unit-test-server.lusid.com:40537"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:61132
+configuration.host = "http://local-unit-test-server.lusid.com:61132"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
