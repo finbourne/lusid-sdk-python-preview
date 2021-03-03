@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2679",
+    "version": "0.11.2680",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:31200"
+      "url": "http://local-unit-test-server.lusid.com:39510"
     }
   ],
   "paths": {
@@ -18496,8 +18496,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -18525,8 +18524,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -18554,8 +18552,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -37711,8 +37708,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -37758,8 +37754,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -37805,8 +37800,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -37852,8 +37846,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             }
@@ -38026,8 +38019,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -38073,8 +38065,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -38120,8 +38111,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             },
@@ -38167,8 +38157,7 @@
                       "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
                       "settlementDate": "2018-03-08T00:00:00.0000000+00:00"
                     }
-                  ],
-                  "currency": "GBP"
+                  ]
                 }
               ]
             }
@@ -38460,8 +38449,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -38489,8 +38477,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -38518,8 +38505,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -38792,8 +38778,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       },
                       {
                         "instrumentIdentifiers": {
@@ -38810,8 +38795,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       }
                     ]
                   }
@@ -38845,8 +38829,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       },
                       {
                         "instrumentIdentifiers": {
@@ -38863,8 +38846,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       }
                     ]
                   }
@@ -38898,8 +38880,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       },
                       {
                         "instrumentIdentifiers": {
@@ -38916,8 +38897,7 @@
                               "currency": "GBP"
                             }
                           }
-                        ],
-                        "currency": "ZZZ"
+                        ]
                       }
                     ]
                   }
@@ -39084,8 +39064,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "LUID_XH4GNUEX",
@@ -39099,8 +39078,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "GBP",
@@ -39114,8 +39092,7 @@
                       "costPortfolioCcy": {
                         "amount": 1,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -39143,8 +39120,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "LUID_XH4GNUEX",
@@ -39158,8 +39134,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "GBP",
@@ -39173,8 +39148,7 @@
                       "costPortfolioCcy": {
                         "amount": 1,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -39202,8 +39176,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "LUID_XH4GNUEX",
@@ -39217,8 +39190,7 @@
                       "costPortfolioCcy": {
                         "amount": 2.5,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     },
                     {
                       "instrumentUid": "GBP",
@@ -39232,8 +39204,7 @@
                       "costPortfolioCcy": {
                         "amount": 1,
                         "currency": "GBP"
-                      },
-                      "currency": "ZZZ"
+                      }
                     }
                   ],
                   "links": []
@@ -47950,11 +47921,6 @@
           },
           "transaction": {
             "$ref": "#/components/schemas/Transaction"
-          },
-          "currency": {
-            "type": "string",
-            "description": "The holding currency.",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -52370,11 +52336,6 @@
               "$ref": "#/components/schemas/TargetTaxLotRequest"
             },
             "description": "The tax-lots that together make up the target holding."
-          },
-          "currency": {
-            "type": "string",
-            "description": "The Holding currency. This needs to be equal with the one on the TaxLot -> cost if one is specified",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -52566,11 +52527,6 @@
               "$ref": "#/components/schemas/TargetTaxLot"
             },
             "description": "The tax-lots that together make up the target holding."
-          },
-          "currency": {
-            "type": "string",
-            "description": "The Holding currency.",
-            "nullable": true
           }
         },
         "additionalProperties": false,
