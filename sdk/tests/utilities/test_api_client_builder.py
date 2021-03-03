@@ -92,9 +92,9 @@ class ApiClientBuilderTests(unittest.TestCase):
                 api_configuration=api_configuration)
 
             TempFileManager.delete_temp_file(secrets_file)
+            self.assertEqual(client.configuration.access_token, "mock_access_token")
 
         self.assertEqual(client.configuration.host, source_config_details["api_url"])
-        self.assertEqual(client.configuration.access_token, "mock_access_token")
         self.assertIsInstance(client, ApiClient)
 
     def test_build_client_no_token_provided_file_only(self):
@@ -128,9 +128,9 @@ class ApiClientBuilderTests(unittest.TestCase):
                 api_configuration=api_configuration)
 
             TempFileManager.delete_temp_file(secrets_file)
+            self.assertEqual(client.configuration.access_token, "mock_access_token")
 
         self.assertEqual(client.configuration.host, source_config_details["api_url"])
-        self.assertEqual(client.configuration.access_token, "mock_access_token")
         self.assertIsInstance(client, ApiClient)
 
     @parameterized.expand(
@@ -201,9 +201,12 @@ class ApiClientBuilderTests(unittest.TestCase):
                 "expires_in": 60
             }
 
-            ApiClientBuilder.build(
+            client = ApiClientBuilder.build(
                 api_configuration=api_configuration,
-                okta_response_handler=response_handler)
+                id_provider_response_handler=response_handler)
+
+            # Force evaluation of the access token so that it is retrieved
+            repr(client.configuration.access_token)
 
     def test_set_correlation_id_from_env_var(self):
 
