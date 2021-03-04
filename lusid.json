@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2689",
+    "version": "0.11.2691",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -9712,11 +9712,11 @@
           {
             "name": "identifier",
             "in": "path",
-            "description": "The identifier of the instrument to delete properties from.",
+            "description": "The value of the identifier for the requested instrument.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The identifier of the instrument to delete properties from.",
+              "description": "The value of the identifier for the requested instrument.",
               "nullable": true
             }
           },
@@ -9733,10 +9733,10 @@
           {
             "name": "identifierEffectiveAt",
             "in": "query",
-            "description": "The effective datetime of the instrument identifier. The property history of a property belonging to the associated instrument is listed. Defaults to the current LUSID system datetime if not specified.",
+            "description": "The effective datetime used to resolve the instrument from the provided identifier. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime of the instrument identifier. The property history of a property belonging to the associated instrument is listed. Defaults to the current LUSID system datetime if not specified.",
+              "description": "The effective datetime used to resolve the instrument from the provided identifier. Defaults to the current LUSID system datetime if not specified.",
               "nullable": true
             }
           },
@@ -46261,6 +46261,7 @@
         "required": [
           "asAtRange",
           "effectiveRange",
+          "status",
           "value"
         ],
         "type": "object",
@@ -46273,6 +46274,10 @@
           },
           "asAtRange": {
             "$ref": "#/components/schemas/DateRange"
+          },
+          "status": {
+            "type": "string",
+            "description": "Indicates whether the value is part of the prevailing effective date timeline for the requested asAt date, or whether it has been superseded by correctional activity"
           }
         },
         "additionalProperties": false

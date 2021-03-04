@@ -369,9 +369,9 @@ configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The identifier type of the instrument, e.g., \"Figi\"
-identifier = 'identifier_example' # str | The identifier of the instrument to delete properties from.
+identifier = 'identifier_example' # str | The value of the identifier for the requested instrument.
 property_key = 'property_key_example' # str | The property key of the property that will have its history shown. (optional)
-identifier_effective_at = 'identifier_effective_at_example' # str | The effective datetime of the instrument identifier. The property history of a property belonging to the associated instrument is listed. Defaults to the current LUSID system datetime if not specified. (optional)
+identifier_effective_at = 'identifier_effective_at_example' # str | The effective datetime used to resolve the instrument from the provided identifier. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instrument's property history. Defaults to return the current datetime if not supplied. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)
@@ -390,9 +390,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier_type** | **str**| The identifier type of the instrument, e.g., \&quot;Figi\&quot; | 
- **identifier** | **str**| The identifier of the instrument to delete properties from. | 
+ **identifier** | **str**| The value of the identifier for the requested instrument. | 
  **property_key** | **str**| The property key of the property that will have its history shown. | [optional] 
- **identifier_effective_at** | **str**| The effective datetime of the instrument identifier. The property history of a property belonging to the associated instrument is listed. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **identifier_effective_at** | **str**| The effective datetime used to resolve the instrument from the provided identifier. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the instrument&#39;s property history. Defaults to return the current datetime if not supplied. | [optional] 
  **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
  **page** | **str**| The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional] 
