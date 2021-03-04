@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2681",
+    "version": "0.11.2682",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:35840"
     }
   ],
   "paths": {
@@ -41860,17 +41860,6 @@
             }
           },
           {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
             "name": "asAt",
             "in": "query",
             "description": "The asAt datetime at which to retrieve the structured result data. Defaults to return the latest version if not specified.",
@@ -54500,7 +54489,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

@@ -1,6 +1,6 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:35840*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35840
+configuration.host = "http://local-unit-test-server.lusid.com:35840"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to delete.
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_structured_result_data**
-> GetStructuredResultDataResponse get_structured_result_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
+> GetStructuredResultDataResponse get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
 
 [EXPERIMENTAL] Get structured result data
 
@@ -93,19 +93,18 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35840
+configuration.host = "http://local-unit-test-server.lusid.com:35840"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to retrieve.
 request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
-effective_at = 'effective_at_example' # str | The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to return the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured result data item must exist to be retrieved. (optional)
 
 try:
     # [EXPERIMENTAL] Get structured result data
-    api_response = api_instance.get_structured_result_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
+    api_response = api_instance.get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
@@ -117,7 +116,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the structured result data to retrieve. | 
  **request_body** | [**dict(str, StructuredResultDataId)**](StructuredResultDataId.md)| The time invariant set of structured data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
- **effective_at** | **str**| The effective datetime at which to retrieve the structured result data. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the structured result data. Defaults to return the latest version if not specified. | [optional] 
  **max_age** | **str**| The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a structured result data item must exist to be retrieved. | [optional] 
 
@@ -163,8 +161,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35840
+configuration.host = "http://local-unit-test-server.lusid.com:35840"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured result data.
