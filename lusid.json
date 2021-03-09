@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2711",
+    "version": "0.11.2710",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32979"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -14080,6 +14080,256 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/orders/{scope}/properties": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert Order Properties",
+        "description": "Update or insert one or more order properties for existing orders with given ids. Each order property will be updated\r\nif it already exists and inserted if it does not. If any properties fail to be updated or inserted, none will be updated or inserted and\r\nthe reason for the failure will be returned.\r\n            \r\nProperties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
+        "operationId": "UpsertOrderProperties",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope to which the orders belong.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope to which the orders belong.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A collection of order property upsert requests.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesRequest"
+                },
+                "description": "A collection of order property upsert requests.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "properties": [
+                    {
+                      "key": "Order/MyScope/SomeOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      }
+                    },
+                    {
+                      "key": "Order/MyScope/AnotherOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000056748"
+                      },
+                      "effectiveFrom": "2018-05-10T12:00:00.0000000+00:00",
+                      "effectiveUntil": "2019-07-12T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Order/MyScope/AdditionalOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000099134"
+                      },
+                      "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    }
+                  ],
+                  "id": "ORD00000123"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesRequest"
+                },
+                "description": "A collection of order property upsert requests.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "properties": [
+                    {
+                      "key": "Order/MyScope/SomeOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      }
+                    },
+                    {
+                      "key": "Order/MyScope/AnotherOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000056748"
+                      },
+                      "effectiveFrom": "2018-05-10T12:00:00.0000000+00:00",
+                      "effectiveUntil": "2019-07-12T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Order/MyScope/AdditionalOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000099134"
+                      },
+                      "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    }
+                  ],
+                  "id": "ORD00000123"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesRequest"
+                },
+                "description": "A collection of order property upsert requests.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "properties": [
+                    {
+                      "key": "Order/MyScope/SomeOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      }
+                    },
+                    {
+                      "key": "Order/MyScope/AnotherOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000056748"
+                      },
+                      "effectiveFrom": "2018-05-10T12:00:00.0000000+00:00",
+                      "effectiveUntil": "2019-07-12T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Order/MyScope/AdditionalOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000099134"
+                      },
+                      "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    }
+                  ],
+                  "id": "ORD00000123"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesRequest"
+                },
+                "description": "A collection of order property upsert requests.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "properties": [
+                    {
+                      "key": "Order/MyScope/SomeOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      }
+                    },
+                    {
+                      "key": "Order/MyScope/AnotherOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000056748"
+                      },
+                      "effectiveFrom": "2018-05-10T12:00:00.0000000+00:00",
+                      "effectiveUntil": "2019-07-12T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Order/MyScope/AdditionalOrderProperty",
+                      "value": {
+                        "labelValue": "XYZ000099134"
+                      },
+                      "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    }
+                  ],
+                  "id": "ORD00000123"
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "An upsert order properties response.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
+                },
+                "example": {
+                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
+                },
+                "example": {
+                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertOrderPropertiesResponse"
+                },
+                "example": {
+                  "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
                 }
               }
             }
@@ -47270,6 +47520,48 @@
         },
         "additionalProperties": false
       },
+      "UpsertOrderPropertiesRequest": {
+        "required": [
+          "id",
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Client-defined properties associated with this order."
+          },
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies this order."
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertOrderPropertiesResponse": {
+        "required": [
+          "asAtDate"
+        ],
+        "type": "object",
+        "properties": {
+          "asAtDate": {
+            "type": "string",
+            "description": "The asAt datetime that the order was added to LUSID.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpsertPersonRequest": {
         "type": "object",
         "properties": {
@@ -54746,7 +55038,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
