@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2716",
+    "version": "0.11.2719",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:45108"
     }
   ],
   "paths": {
@@ -1387,6 +1387,34 @@
                       "code": "ALLOC00000123"
                     }
                   }
+                ],
+                "requests": [
+                  {
+                    "properties": {
+                      "allocation/MyScope/SomeAllocationProperty": {
+                        "key": "Allocation/MyScope/SomeAllocationProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "allocatedOrderId": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ALLOC00000123"
+                    }
+                  }
                 ]
               }
             },
@@ -1396,6 +1424,34 @@
               },
               "example": {
                 "allocationRequests": [
+                  {
+                    "properties": {
+                      "allocation/MyScope/SomeAllocationProperty": {
+                        "key": "Allocation/MyScope/SomeAllocationProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "allocatedOrderId": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ALLOC00000123"
+                    }
+                  }
+                ],
+                "requests": [
                   {
                     "properties": {
                       "allocation/MyScope/SomeAllocationProperty": {
@@ -1457,6 +1513,34 @@
                       "code": "ALLOC00000123"
                     }
                   }
+                ],
+                "requests": [
+                  {
+                    "properties": {
+                      "allocation/MyScope/SomeAllocationProperty": {
+                        "key": "Allocation/MyScope/SomeAllocationProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "allocatedOrderId": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ALLOC00000123"
+                    }
+                  }
                 ]
               }
             },
@@ -1466,6 +1550,34 @@
               },
               "example": {
                 "allocationRequests": [
+                  {
+                    "properties": {
+                      "allocation/MyScope/SomeAllocationProperty": {
+                        "key": "Allocation/MyScope/SomeAllocationProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "allocatedOrderId": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ALLOC00000123"
+                    }
+                  }
+                ],
+                "requests": [
                   {
                     "properties": {
                       "allocation/MyScope/SomeAllocationProperty": {
@@ -13530,6 +13642,35 @@
                       "code": "ORD00000123"
                     }
                   }
+                ],
+                "requests": [
+                  {
+                    "properties": {
+                      "order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "orderBookId": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Orders"
+                    },
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    }
+                  }
                 ]
               }
             },
@@ -13539,6 +13680,35 @@
               },
               "example": {
                 "orderRequests": [
+                  {
+                    "properties": {
+                      "order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "orderBookId": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Orders"
+                    },
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    }
+                  }
+                ],
+                "requests": [
                   {
                     "properties": {
                       "order/MyScope/SomeOrderProperty": {
@@ -13602,6 +13772,35 @@
                       "code": "ORD00000123"
                     }
                   }
+                ],
+                "requests": [
+                  {
+                    "properties": {
+                      "order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "orderBookId": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Orders"
+                    },
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    }
+                  }
                 ]
               }
             },
@@ -13611,6 +13810,35 @@
               },
               "example": {
                 "orderRequests": [
+                  {
+                    "properties": {
+                      "order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "orderBookId": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Orders"
+                    },
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "UK Equity"
+                    },
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "ORD00000123"
+                    }
+                  }
+                ],
+                "requests": [
                   {
                     "properties": {
                       "order/MyScope/SomeOrderProperty": {
@@ -43565,6 +43793,14 @@
             "items": {
               "$ref": "#/components/schemas/AllocationRequest"
             },
+            "description": "A collection of AllocationRequests. This is a legacy property provided for backward compatibility. Please switch to using Requests instead for consistency with other Order-related entities.",
+            "nullable": true
+          },
+          "requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AllocationRequest"
+            },
             "description": "A collection of AllocationRequests.",
             "nullable": true
           }
@@ -47228,6 +47464,14 @@
             "items": {
               "$ref": "#/components/schemas/OrderRequest"
             },
+            "description": "A collection of OrderRequests. This is a legacy property provided for backward compatibility. Please switch to using Requests instead for consistency with other Order-related entities.",
+            "nullable": true
+          },
+          "requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderRequest"
+            },
             "description": "A collection of OrderRequests.",
             "nullable": true
           }
@@ -49153,7 +49397,7 @@
             "nullable": true
           },
           "propertyDescription": {
-            "maxLength": 100,
+            "maxLength": 512,
             "type": "string",
             "description": "Describes the property",
             "nullable": true
@@ -49372,7 +49616,7 @@
             "description": "The display name of the property."
           },
           "propertyDescription": {
-            "maxLength": 100,
+            "maxLength": 512,
             "type": "string",
             "description": "Describes the property",
             "nullable": true
@@ -54746,7 +54990,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
