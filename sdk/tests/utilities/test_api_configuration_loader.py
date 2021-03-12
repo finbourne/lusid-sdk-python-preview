@@ -9,14 +9,19 @@ from lusid.utilities.proxy_config import ProxyConfig
 from utilities import CredentialsSource
 from utilities.temp_file_manager import TempFileManager
 
-source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
-
 
 class ApiConfigurationLoaderTests(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.source_config_details = CredentialsSource.fetch_credentials()
+        cls.config_keys = CredentialsSource.fetch_config_keys()
+
     """
     These test ensure that the ApiConfigurationLoader works as expected
 
     """
+
     def assert_config_values(self, config, secrets):
         """
         Not a test. This is used to test the values of the ApiConfiguration.
@@ -47,17 +52,18 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
         """
 
         secrets = {
-                "api": {
-                    config_keys[key]["config"]: value for key, value in source_config_details.items() if
-                    value is not None and "proxy" not in key
-                },
-                "proxy": {
-                    config_keys[key]["config"]: value for key, value in source_config_details.items() if
-                    value is not None and "proxy" in key
-                }
+            "api": {
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
+                value is not None and "proxy" not in key
+            },
+            "proxy": {
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
+                value is not None and "proxy" in key
             }
+        }
 
-        env_vars = {config_keys[key]["env"]: "DUMMYVALUE" for key, value in source_config_details.items() if value is not None}
+        env_vars = {self.config_keys[key]["env"]: "DUMMYVALUE" for key, value in self.source_config_details.items() if
+                    value is not None}
 
         # Set the environment variables as desired
         with patch.dict('os.environ', env_vars, clear=True):
@@ -68,7 +74,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
-            self.assert_config_values(config, source_config_details)
+            self.assert_config_values(config, self.source_config_details)
 
     def test_missing_env_vars_uses_config_file(self):
         """
@@ -79,12 +85,12 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
 
         secrets = {
             "api": {
-                config_keys["token_url"]["config"]: source_config_details["token_url"]
+                self.config_keys["token_url"]["config"]: self.source_config_details["token_url"]
             }
         }
 
-        env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if
-         value is not None and "token_url" not in key}
+        env_vars = {self.config_keys[key]["env"]: value for key, value in self.source_config_details.items() if
+                    value is not None and "token_url" not in key}
 
         # Set the environment variables as desired
         with patch.dict('os.environ', env_vars, clear=True):
@@ -95,7 +101,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
-            self.assert_config_values(config, source_config_details)
+            self.assert_config_values(config, self.source_config_details)
 
     def test_missing_config_file_vars_uses_env_vars(self):
         """
@@ -106,16 +112,16 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
 
         secrets = {
             "api": {
-                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
                 value is not None and "proxy" not in key
             },
             "proxy": {
-                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
                 value is not None and "proxy" in key and "token_url" not in key
             }
         }
 
-        env_vars = {config_keys["token_url"]["env"]: source_config_details["token_url"]}
+        env_vars = {self.config_keys["token_url"]["env"]: self.source_config_details["token_url"]}
 
         # Set the environment variables as desired
         with patch.dict('os.environ', env_vars, clear=True):
@@ -126,7 +132,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
-            self.assert_config_values(config, source_config_details)
+            self.assert_config_values(config, self.source_config_details)
 
     def test_load_from_config_file_only(self):
         """
@@ -137,11 +143,11 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
 
         secrets = {
             "api": {
-                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
                 value is not None and "proxy" not in key
             },
             "proxy": {
-                config_keys[key]["config"]: value for key, value in source_config_details.items() if
+                self.config_keys[key]["config"]: value for key, value in self.source_config_details.items() if
                 value is not None and "proxy" in key
             }
         }
@@ -157,7 +163,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
-            self.assert_config_values(config, source_config_details)
+            self.assert_config_values(config, self.source_config_details)
 
     def test_load_from_environment_vars_only(self):
         """
@@ -165,12 +171,27 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
 
         :return: None
         """
+
+        env_vars = {
+            "FBN_CLIENT_CERTIFICATE": "cert_file.pem",
+            "FBN_PROXY_ADDRESS": "https://proxy.address",
+            "FBN_PROXY_USERNAME": "proxy_username",
+            "FBN_PROXY_PASSWORD": "proxy_password"
+        }
+
+        with patch.dict('os.environ', env_vars):
+            credentials = CredentialsSource.fetch_credentials()
+
         # Set all the environment variables
-        env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if value is not None}
+        env_vars = {
+            **env_vars,
+            **{self.config_keys[key]["env"]: value for key, value in credentials.items() if value is not None}
+        }
+
         with patch.dict('os.environ', env_vars, clear=True):
             config = ApiConfigurationLoader.load()
 
-        self.assert_config_values(config, source_config_details)
+        self.assert_config_values(config, credentials)
 
     @unittest.skip("Logging a warning instead of raising an exception")
     def test_specify_config_file_not_exist(self):
@@ -184,9 +205,10 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
         with self.assertRaises(ValueError) as ex:
             ApiConfigurationLoader.load(non_existent_secrets_file)
 
-        self.assertEqual(ex.exception.args[0], f"Provided secrets file of {non_existent_secrets_file} can not be found, please ensure you "
-                             f"have correctly specified the full path to the file or don't provide a secrets file to use "
-                             f"environment variables instead.")
+        self.assertEqual(ex.exception.args[0],
+                         f"Provided secrets file of {non_existent_secrets_file} can not be found, please ensure you "
+                         f"have correctly specified the full path to the file or don't provide a secrets file to use "
+                         f"environment variables instead.")
 
     def test_config_keys_aligned(self):
         """
@@ -204,8 +226,8 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
         """
 
         # Get the set of keys for proxy settings and api credentials
-        proxy_config_key_set = set([key.replace("proxy_", "") for key in config_keys.keys() if "proxy" in key])
-        api_config_key_set = set([key for key in config_keys.keys() if "proxy" not in key])
+        proxy_config_key_set = set([key.replace("proxy_", "") for key in self.config_keys.keys() if "proxy" in key])
+        api_config_key_set = set([key for key in self.config_keys.keys() if "proxy" not in key])
 
         # Get the attributes on the ProxyConfig and ApiConfiguration Classes
         api_config_attributes = set([attribute[0] for attribute in inspect.getmembers(ApiConfiguration)])
