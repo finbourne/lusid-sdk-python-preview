@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2749",
+    "version": "0.11.2750",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:36765"
     }
   ],
   "paths": {
@@ -10843,14 +10843,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\". Defaults to include all properties if not specified.",
+            "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\". Defaults to include all properties if not specified.",
+              "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -14680,14 +14680,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified.",
+            "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified.",
+              "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -54746,7 +54746,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
