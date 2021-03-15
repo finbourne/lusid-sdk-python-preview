@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2752",
+    "version": "0.11.2753",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:38852"
     }
   ],
   "paths": {
@@ -20617,7 +20617,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -20674,7 +20675,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -20731,7 +20733,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -34733,7 +34736,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -34792,7 +34796,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -34851,7 +34856,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -34910,7 +34916,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -34969,7 +34976,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35028,7 +35036,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35087,7 +35096,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35226,7 +35236,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35285,7 +35296,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35514,7 +35526,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35573,7 +35586,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35632,7 +35646,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35691,7 +35706,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35750,7 +35766,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35809,7 +35826,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -35868,7 +35886,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36007,7 +36026,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36066,7 +36086,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36295,7 +36316,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36354,7 +36376,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36413,7 +36436,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36472,7 +36496,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36531,7 +36556,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36590,7 +36616,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36649,7 +36676,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36788,7 +36816,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -36847,7 +36876,8 @@
                           "currency": "USD"
                         },
                         "properties": {},
-                        "source": ""
+                        "source": "",
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                       }
                     },
                     {
@@ -39509,7 +39539,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -39566,7 +39597,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -39623,7 +39655,8 @@
                           }
                         }
                       },
-                      "source": ""
+                      "source": "",
+                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -47932,6 +47965,11 @@
             "type": "string",
             "description": "The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration.",
             "nullable": true
+          },
+          "entryDateTime": {
+            "type": "string",
+            "description": "The asAt datetime that the transaction was added to LUSID.",
+            "format": "date-time"
           }
         },
         "additionalProperties": false,
@@ -54748,7 +54786,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
