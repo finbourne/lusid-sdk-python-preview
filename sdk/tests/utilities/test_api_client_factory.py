@@ -3,12 +3,13 @@ from collections import UserString
 from datetime import datetime
 from unittest.mock import patch
 from parameterized import parameterized
-
+from threading import Thread
 from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor
 from lusid.utilities import ApiClientFactory
 
 from utilities import TokenUtilities as tu, CredentialsSource
 from utilities.temp_file_manager import TempFileManager
+from utilities import MockApiResponse
 
 
 class UnknownApi:
@@ -227,3 +228,41 @@ class ApiFactory(unittest.TestCase):
             self.validate_api(api)
             self.assertTrue("CorrelationId" in api.api_client.default_headers, msg="CorrelationId not found in headers")
             self.assertEquals(api.api_client.default_headers["CorrelationId"], "param-correlation-id")
+
+    def test_use_apifactory_multiple_threads(self):
+
+        access_token = str(ApiClientFactory(
+            api_secrets_filename=CredentialsSource.secrets_path()
+        ).api_client.configuration.access_token)
+
+        api_factory = ApiClientFactory(
+            api_secrets_filename=CredentialsSource.secrets_path()
+        )
+
+        def get_identifier_types(factory):
+            return factory.build(InstrumentsApi).get_instrument_identifier_types()
+
+        thread1 = Thread(target=get_identifier_types, args=[api_factory])
+        thread2 = Thread(target=get_identifier_types, args=[api_factory])
+        thread3 = Thread(target=get_identifier_types, args=[api_factory])
+
+        with patch("requests.post") as identity_mock:
+            identity_mock.side_effect = lambda *args, **kwargs: MockApiResponse(
+                json_data={
+                    "access_token": f"{access_token}",
+                    "refresh_token": "mock_refresh_token",
+                    "expires_in": 3600
+                },
+                status_code=200
+            )
+
+            thread1.start()
+            thread2.start()
+            thread3.start()
+
+            thread1.join()
+            thread2.join()
+            thread3.join()
+
+            # Ensure that we only got an access token once
+            self.assertEqual(1, identity_mock.call_count)
