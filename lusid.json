@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2756",
+    "version": "0.11.2757",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:39987"
+      "url": "http://local-unit-test-server.lusid.com:64133"
     }
   ],
   "paths": {
@@ -53299,9 +53299,7 @@
               "code",
               "contractSize",
               "instrumentType",
-              "maturityDate",
               "payCcy",
-              "referenceRate",
               "startDate",
               "type",
               "underlyingCcy",
@@ -53316,7 +53314,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying\r\nfuture. If CFDType is Cash, this should not be set.",
                 "format": "date-time"
               },
               "code": {
@@ -53325,7 +53323,7 @@
               },
               "contractSize": {
                 "type": "number",
-                "description": "With an OTC we have the problem of multiple ways of booking a quantity.\r\ne.g.\r\nIf buying a swap do you have a holding of size 1 of 100,000,000 notional swap or a holding of 100,000,000 size of 1 notional swap, or any combination that multiplies to 10^8.\r\nWhen you get for a price for a 'unit swap' what do you mean? The definition must be consistent across all quotes. This includes bonds which have a face value and\r\nfx-forwards which often trade in standard contract sizes. When we look up a price, and there are no units, we are assuming it is a price for a contract size of 1.\r\nThe logical effect of this is that\r\ninstrument clean price = contract size * quoted unit price\r\nholding clean price    = holding quantity * instrument clean price = holding quantity * contract size * quoted unit price\r\nIn calculating accrued interest the same should hold.\r\nNB: The real problem is that people store \"prices\" without complete units. Everything should really be \"x ccy for n units\". Where the n is implicit the above has to hold.",
+                "description": "The size of the CFD contract, this should represent the total number of stocks that the CFD represents.",
                 "format": "double"
               },
               "payCcy": {
@@ -53334,7 +53332,7 @@
               },
               "referenceRate": {
                 "type": "number",
-                "description": "The reference rate of the CFD, this can be set to 0 but not negative values.",
+                "description": "The reference rate of the CFD, this can be set to 0 but not negative values.\r\nThis field is optional, if not set it will default to 0.",
                 "format": "double"
               },
               "type": {
