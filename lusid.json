@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2758",
+    "version": "0.11.2759",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:31433"
+      "url": "http://local-unit-test-server.lusid.com:47965"
     }
   ],
   "paths": {
@@ -20570,7 +20570,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -20628,7 +20628,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -20686,7 +20686,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -39444,7 +39444,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -39502,7 +39502,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
@@ -39560,7 +39560,7 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
                     }
                   ],
                   "href": "http://example.com",
