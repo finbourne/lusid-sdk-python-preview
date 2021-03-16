@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2755",
+    "version": "0.11.2756",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:39987"
     }
   ],
   "paths": {
@@ -19540,51 +19540,39 @@
                 "description": "The properties to be updated or inserted onto the group. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".",
                 "nullable": true
               },
-              "example": [
-                {
+              "example": {
+                "portfolioGroup/MyScope/FundManagerName": {
                   "key": "PortfolioGroup/MyScope/FundManagerName",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/SomeProperty": {
                   "key": "PortfolioGroup/MyScope/SomeProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "PortfolioGroup/MyScope/SomeProperty",
+                "portfolioGroup/MyScope/AnotherProperty": {
+                  "key": "PortfolioGroup/MyScope/AnotherProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "application/json": {
               "schema": {
@@ -19595,51 +19583,39 @@
                 "description": "The properties to be updated or inserted onto the group. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".",
                 "nullable": true
               },
-              "example": [
-                {
+              "example": {
+                "portfolioGroup/MyScope/FundManagerName": {
                   "key": "PortfolioGroup/MyScope/FundManagerName",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/SomeProperty": {
                   "key": "PortfolioGroup/MyScope/SomeProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "PortfolioGroup/MyScope/SomeProperty",
+                "portfolioGroup/MyScope/AnotherProperty": {
+                  "key": "PortfolioGroup/MyScope/AnotherProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "text/json": {
               "schema": {
@@ -19650,51 +19626,39 @@
                 "description": "The properties to be updated or inserted onto the group. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".",
                 "nullable": true
               },
-              "example": [
-                {
+              "example": {
+                "portfolioGroup/MyScope/FundManagerName": {
                   "key": "PortfolioGroup/MyScope/FundManagerName",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/SomeProperty": {
                   "key": "PortfolioGroup/MyScope/SomeProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "PortfolioGroup/MyScope/SomeProperty",
+                "portfolioGroup/MyScope/AnotherProperty": {
+                  "key": "PortfolioGroup/MyScope/AnotherProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "application/*+json": {
               "schema": {
@@ -19705,51 +19669,39 @@
                 "description": "The properties to be updated or inserted onto the group. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".",
                 "nullable": true
               },
-              "example": [
-                {
+              "example": {
+                "portfolioGroup/MyScope/FundManagerName": {
                   "key": "PortfolioGroup/MyScope/FundManagerName",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/SomeProperty": {
                   "key": "PortfolioGroup/MyScope/SomeProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "PortfolioGroup/MyScope/SomeProperty",
+                "portfolioGroup/MyScope/AnotherProperty": {
+                  "key": "PortfolioGroup/MyScope/AnotherProperty",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolioGroup/MyScope/ReBalanceInterval": {
                   "key": "PortfolioGroup/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "PortfolioGroup/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             }
           }
         },
@@ -23299,51 +23251,39 @@
                 },
                 "description": "The properties to be updated or inserted onto the portfolio. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\"."
               },
-              "example": [
-                {
+              "example": {
+                "portfolio/MyScope/FundManagerName": {
                   "key": "Portfolio/MyScope/FundManagerName",
                   "value": {
-                    "key": "Portfolio/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/SomeProperty": {
                   "key": "Portfolio/MyScope/SomeProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "Portfolio/MyScope/SomeProperty",
+                "portfolio/MyScope/AnotherProperty": {
+                  "key": "Portfolio/MyScope/AnotherProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/ReBalanceInterval": {
                   "key": "Portfolio/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "Portfolio/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "application/json": {
               "schema": {
@@ -23353,51 +23293,39 @@
                 },
                 "description": "The properties to be updated or inserted onto the portfolio. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\"."
               },
-              "example": [
-                {
+              "example": {
+                "portfolio/MyScope/FundManagerName": {
                   "key": "Portfolio/MyScope/FundManagerName",
                   "value": {
-                    "key": "Portfolio/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/SomeProperty": {
                   "key": "Portfolio/MyScope/SomeProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "Portfolio/MyScope/SomeProperty",
+                "portfolio/MyScope/AnotherProperty": {
+                  "key": "Portfolio/MyScope/AnotherProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/ReBalanceInterval": {
                   "key": "Portfolio/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "Portfolio/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "text/json": {
               "schema": {
@@ -23407,51 +23335,39 @@
                 },
                 "description": "The properties to be updated or inserted onto the portfolio. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\"."
               },
-              "example": [
-                {
+              "example": {
+                "portfolio/MyScope/FundManagerName": {
                   "key": "Portfolio/MyScope/FundManagerName",
                   "value": {
-                    "key": "Portfolio/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/SomeProperty": {
                   "key": "Portfolio/MyScope/SomeProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "Portfolio/MyScope/SomeProperty",
+                "portfolio/MyScope/AnotherProperty": {
+                  "key": "Portfolio/MyScope/AnotherProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/ReBalanceInterval": {
                   "key": "Portfolio/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "Portfolio/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             },
             "application/*+json": {
               "schema": {
@@ -23461,51 +23377,39 @@
                 },
                 "description": "The properties to be updated or inserted onto the portfolio. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\"."
               },
-              "example": [
-                {
+              "example": {
+                "portfolio/MyScope/FundManagerName": {
                   "key": "Portfolio/MyScope/FundManagerName",
                   "value": {
-                    "key": "Portfolio/MyScope/FundManagerName",
-                    "value": {
-                      "labelValue": "Smith"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/SomeProperty": {
                   "key": "Portfolio/MyScope/SomeProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "SomeValue"
-                    },
-                    "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
                 },
-                {
-                  "key": "Portfolio/MyScope/SomeProperty",
+                "portfolio/MyScope/AnotherProperty": {
+                  "key": "Portfolio/MyScope/AnotherProperty",
                   "value": {
-                    "key": "Portfolio/MyScope/SomeProperty",
-                    "value": {
-                      "labelValue": "AnotherValue"
-                    },
-                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
-                    "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
-                  }
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
                 },
-                {
+                "portfolio/MyScope/ReBalanceInterval": {
                   "key": "Portfolio/MyScope/ReBalanceInterval",
                   "value": {
-                    "key": "Portfolio/MyScope/ReBalanceInterval",
-                    "value": {
-                      "metricValue": {
-                        "value": 30,
-                        "unit": "Days"
-                      }
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
                     }
                   }
                 }
-              ]
+              }
             }
           },
           "required": true
@@ -54786,7 +54690,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
