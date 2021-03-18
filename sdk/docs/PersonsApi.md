@@ -1,6 +1,6 @@
 # lusid.PersonsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:57124*
+All URIs are relative to *http://local-unit-test-server.lusid.com:38004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_all_person_access_metadata**](PersonsApi.md#get_all_person_access_metadata) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EXPERIMENTAL] Get Access Metadata rules for a Person
 [**get_person**](PersonsApi.md#get_person) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] Get Person
 [**get_person_access_metadata_by_key**](PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person
+[**get_person_property_time_series**](PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] Get Person Property Time Series
 [**get_person_relations**](PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] Get Relations for Person
 [**list_persons**](PersonsApi.md#list_persons) | **GET** /api/persons/{idTypeScope}/{idTypeCode} | [EXPERIMENTAL] List Persons
 [**set_person_identifiers**](PersonsApi.md#set_person_identifiers) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] Set Person Identifiers
@@ -39,8 +40,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
@@ -105,8 +106,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -160,7 +161,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Delete Person Identifiers
 
-Delete identifiers belong to the given property keys of the person
+Delete identifiers that belong to the given property keys of the person.
 
 ### Example
 
@@ -175,8 +176,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -230,7 +231,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Delete Person Properties
 
-Delete all properties belong to the given property keys of the person
+Delete all properties that belong to the given property keys of the person.
 
 ### Example
 
@@ -245,8 +246,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -315,8 +316,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -385,8 +386,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -457,8 +458,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -509,12 +510,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_person_relations**
-> ResourceListOfRelation get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
+# **get_person_property_time_series**
+> ResourceListOfPropertyInterval get_person_property_time_series(id_type_scope, id_type_code, code, property_key=property_key, as_at=as_at, filter=filter, page=page, limit=limit)
 
-[EXPERIMENTAL] Get Relations for Person
+[EXPERIMENTAL] Get Person Property Time Series
 
-Get relations for the specified Person
+List the complete time series of a person property.
 
 ### Example
 
@@ -529,8 +530,84 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
+code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the person.
+property_key = 'property_key_example' # str | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".              Each property must be from the \"Person\" domain. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied. (optional)
+filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
+
+try:
+    # [EXPERIMENTAL] Get Person Property Time Series
+    api_response = api_instance.get_person_property_time_series(id_type_scope, id_type_code, code, property_key=property_key, as_at=as_at, filter=filter, page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person_property_time_series: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_type_scope** | **str**| Scope of the person identifier type. | 
+ **id_type_code** | **str**| Code of the person identifier type. | 
+ **code** | **str**| Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person. | 
+ **property_key** | **str**| The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. | [optional] 
+ **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
+
+### Return type
+
+[**ResourceListOfPropertyInterval**](ResourceListOfPropertyInterval.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The time series of the property |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_person_relations**
+> ResourceListOfRelation get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
+
+[EXPERIMENTAL] Get Relations for Person
+
+Get relations for the specified person.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -588,7 +665,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] List Persons
 
-List persons which has identifier of specific identifier type's scope and code, and satisfies filter criteria.
+List persons which have identifiers of a specific identifier type's scope and code, and satisfies filter criteria.
 
 ### Example
 
@@ -603,8 +680,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -666,7 +743,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Set Person Identifiers
 
-Set identifiers of the person
+Set identifiers of the person.
 
 ### Example
 
@@ -681,8 +758,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -734,7 +811,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Set Person Properties
 
-Set properties of the person
+Set properties of the person.
 
 ### Example
 
@@ -749,8 +826,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -802,7 +879,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] Upsert Person
 
-Create or update new person under specified scope
+Create or update a new person under the specified scope.
 
 ### Example
 
@@ -817,8 +894,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":[{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}}],"person/CompanyDetails/Role":[{"key":"Person/CompanyDetails/Role","value":{"labelValue":"SalesRepresentative"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},{"key":"Person/CompanyDetails/Role","value":{"labelValue":"CustomerServiceRepresentative"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}]}} # UpsertPersonRequest | Request to create or update a person.
@@ -879,8 +956,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:57124
-configuration.host = "http://local-unit-test-server.lusid.com:57124"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:38004
+configuration.host = "http://local-unit-test-server.lusid.com:38004"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
