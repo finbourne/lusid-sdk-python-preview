@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2771",
+    "version": "0.11.2772",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -14129,7 +14129,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Upsert Person",
-        "description": "Create or update new person under specified scope",
+        "description": "Create or update a new person under the specified scope.",
         "operationId": "UpsertPerson",
         "requestBody": {
           "description": "Request to create or update a person.",
@@ -14583,7 +14583,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] List Persons",
-        "description": "List persons which has identifier of specific identifier type's scope and code, and satisfies filter criteria.",
+        "description": "List persons which have identifiers of a specific identifier type's scope and code, and satisfies filter criteria.",
         "operationId": "ListPersons",
         "parameters": [
           {
@@ -15529,7 +15529,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Set Person Identifiers",
-        "description": "Set identifiers of the person",
+        "description": "Set identifiers of the person.",
         "operationId": "SetPersonIdentifiers",
         "parameters": [
           {
@@ -15822,7 +15822,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Delete Person Identifiers",
-        "description": "Delete identifiers belong to the given property keys of the person",
+        "description": "Delete identifiers that belong to the given property keys of the person.",
         "operationId": "DeletePersonIdentifiers",
         "parameters": [
           {
@@ -16544,7 +16544,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Set Person Properties",
-        "description": "Set properties of the person",
+        "description": "Set properties of the person.",
         "operationId": "SetPersonProperties",
         "parameters": [
           {
@@ -16849,7 +16849,7 @@
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Delete Person Properties",
-        "description": "Delete all properties belong to the given property keys of the person",
+        "description": "Delete all properties that belong to the given property keys of the person.",
         "operationId": "DeletePersonProperties",
         "parameters": [
           {
@@ -16974,13 +16974,175 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series": {
+      "get": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "[EXPERIMENTAL] Get Person Property Time Series",
+        "description": "List the complete time series of a person property.",
+        "operationId": "GetPersonPropertyTimeSeries",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the person identifier type.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the person identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the person identifier type.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the person identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the person.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the person.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "propertyKey",
+            "in": "query",
+            "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".\r\n            Each property must be from the \"Person\" domain.",
+            "schema": {
+              "type": "string",
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
+            "schema": {
+              "type": "string",
+              "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The time series of the property",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/persons/{idTypeScope}/{idTypeCode}/{code}/relations": {
       "get": {
         "tags": [
           "Persons"
         ],
         "summary": "[EXPERIMENTAL] Get Relations for Person",
-        "description": "Get relations for the specified Person",
+        "description": "Get relations for the specified person.",
         "operationId": "GetPersonRelations",
         "parameters": [
           {
