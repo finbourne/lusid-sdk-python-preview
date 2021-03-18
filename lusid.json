@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2768",
+    "version": "0.11.2767",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:57781"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -42116,9 +42116,7 @@
           "ConstantTimeValueOfMoney",
           "Bachelier",
           "ForwardWithPoints",
-          "ForwardWithPointsUndiscounted",
-          "ForwardSpecifiedRate",
-          "ForwardSpecifiedRateUndiscounted"
+          "ForwardWithPointsUndiscounted"
         ],
         "type": "string"
       },
@@ -42149,12 +42147,10 @@
               "ConstantTimeValueOfMoney",
               "Bachelier",
               "ForwardWithPoints",
-              "ForwardWithPointsUndiscounted",
-              "ForwardSpecifiedRate",
-              "ForwardSpecifiedRateUndiscounted"
+              "ForwardWithPointsUndiscounted"
             ],
             "type": "string",
-            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted"
+            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted"
           }
         },
         "additionalProperties": false,
@@ -54692,7 +54688,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
