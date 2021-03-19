@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2776",
+    "version": "0.11.2777",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:38898"
+      "url": "http://local-unit-test-server.lusid.com:45599"
     }
   ],
   "paths": {
@@ -10338,8 +10338,8 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Legal Entity",
-        "description": "Create or update new legal entity under specified scope",
+        "summary": "[EARLY ACCESS] Upsert Legal Entity",
+        "description": "Create or update a legal entity",
         "operationId": "UpsertLegalEntity",
         "requestBody": {
           "description": "Request to create or update a legal entity.",
@@ -10722,7 +10722,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}": {
@@ -10730,7 +10730,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] List Legal Entities",
+        "summary": "[EARLY ACCESS] List Legal Entities",
         "description": "List legal entities which has identifier of specific identifier type's scope and code, and satisfies filter criteria.",
         "operationId": "ListLegalEntities",
         "parameters": [
@@ -10791,27 +10791,15 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing legal entities from a previous call to list legal entities. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing legal entities from a previous call to list legal entities. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 300,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
-              "description": "The pagination token to use to continue listing legal entities from a previous call to list legal entities. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+              "description": "The pagination token to use to continue listing legal entities from a previous call to list legal entities. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request.",
               "nullable": true
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "description": "When paginating, skip this number of results.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -10843,14 +10831,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -10858,7 +10846,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Legal Entities in specified scope",
+            "description": "Legal Entities with specified identifier type",
             "content": {
               "text/plain": {
                 "schema": {
@@ -11207,7 +11195,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}": {
@@ -11215,7 +11203,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get Legal Entity",
+        "summary": "[EARLY ACCESS] Get Legal Entity",
         "description": "Retrieve the definition of a legal entity.",
         "operationId": "GetLegalEntity",
         "parameters": [
@@ -11225,6 +11213,8 @@
             "description": "Scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the legal entity identifier type.",
@@ -11237,6 +11227,8 @@
             "description": "Code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity identifier type.",
@@ -11246,28 +11238,28 @@
           {
             "name": "code",
             "in": "path",
-            "description": "Code of the legal entity under specified scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Code of the legal entity under specified scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
             }
           },
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\". Defaults to include all properties if not specified.",
+            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"LegalEntity\" domain to decorate onto each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\". Defaults to include all properties if not specified.",
+              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -11277,6 +11269,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -11298,7 +11293,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested legal entity definition",
+            "description": "The requested legal entity",
             "content": {
               "text/plain": {
                 "schema": {
@@ -11491,13 +11486,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Delete legal entity",
+        "summary": "[EARLY ACCESS] Delete legal entity",
         "description": "Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.\r\nThis means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteLegalEntity",
         "parameters": [
@@ -11507,6 +11502,8 @@
             "description": "The scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the legal entity identifier type."
@@ -11518,6 +11515,8 @@
             "description": "The code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the legal entity identifier type."
@@ -11526,14 +11525,14 @@
           {
             "name": "code",
             "in": "path",
-            "description": "Code of the legal entity under specified identifier type scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete.",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "Code of the legal entity under specified identifier type scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete."
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete."
             }
           }
         ],
@@ -11594,7 +11593,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata": {
@@ -12236,6 +12235,8 @@
             "description": "Scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the legal entity identifier type.",
@@ -12248,6 +12249,8 @@
             "description": "Code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity identifier type.",
@@ -12260,6 +12263,8 @@
             "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
@@ -12271,6 +12276,9 @@
             "in": "query",
             "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
               "description": "The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
@@ -12294,6 +12302,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 2147483647,
+              "minLength": 0,
+              "pattern": "(?s).*",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -14184,7 +14195,9 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   ]
-                }
+                },
+                "displayName": "Person1DisplayName",
+                "description": "Person1Description"
               }
             },
             "application/json": {
@@ -14237,7 +14250,9 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   ]
-                }
+                },
+                "displayName": "Person1DisplayName",
+                "description": "Person1Description"
               }
             },
             "text/json": {
@@ -14290,7 +14305,9 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   ]
-                }
+                },
+                "displayName": "Person1DisplayName",
+                "description": "Person1Description"
               }
             },
             "application/*+json": {
@@ -14343,7 +14360,9 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   ]
-                }
+                },
+                "displayName": "Person1DisplayName",
+                "description": "Person1Description"
               }
             }
           },
@@ -46511,6 +46530,10 @@
         "additionalProperties": false
       },
       "UpsertLegalEntityRequest": {
+        "required": [
+          "displayName",
+          "identifiers"
+        ],
         "type": "object",
         "properties": {
           "identifiers": {
@@ -46518,8 +46541,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/Property"
             },
-            "description": "The identifiers the legal entity will be created with.",
-            "nullable": true
+            "description": "The identifiers the legal entity will be upserted with.The provided keys should be idTypeScope, idTypeCode, code"
           },
           "properties": {
             "type": "object",
@@ -46531,14 +46553,15 @@
           },
           "displayName": {
             "maxLength": 512,
-            "minLength": 0,
+            "minLength": 1,
+            "pattern": "(?s).*",
             "type": "string",
-            "description": "The display name of the Legal Entity",
-            "nullable": true
+            "description": "The display name of the Legal Entity"
           },
           "description": {
             "maxLength": 512,
             "minLength": 0,
+            "pattern": "(?s).*",
             "type": "string",
             "description": "The description of the Legal Entity",
             "nullable": true
@@ -46568,7 +46591,7 @@
           },
           "lusidLegalEntityId": {
             "type": "string",
-            "description": "The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity.",
+            "description": "The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity. This field is not populated until further notice.",
             "nullable": true
           },
           "identifiers": {
@@ -47376,6 +47399,10 @@
         "additionalProperties": false
       },
       "UpsertPersonRequest": {
+        "required": [
+          "displayName",
+          "identifiers"
+        ],
         "type": "object",
         "properties": {
           "identifiers": {
@@ -47383,8 +47410,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/Property"
             },
-            "description": "The identifiers the person will be created with.",
-            "nullable": true
+            "description": "The identifiers the person will be upserted with.The provided keys should be idTypeScope, idTypeCode, code"
           },
           "properties": {
             "type": "object",
@@ -47399,10 +47425,9 @@
           },
           "displayName": {
             "maxLength": 512,
-            "minLength": 0,
+            "minLength": 1,
             "type": "string",
-            "description": "The display name of the Person",
-            "nullable": true
+            "description": "The display name of the Person"
           },
           "description": {
             "maxLength": 512,
