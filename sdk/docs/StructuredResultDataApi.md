@@ -1,13 +1,79 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:62494*
+All URIs are relative to *http://local-unit-test-server.lusid.com:35817*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_data_map**](StructuredResultDataApi.md#create_data_map) | **POST** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] Upsert a set of structured result address definition maps. This creates or updates the data in Lusid.
 [**delete_structured_result_data**](StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] Delete one or more items of structured result data, assuming they are present.
+[**get_data_map**](StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] Get the result address definition maps from the store
 [**get_structured_result_data**](StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] Get structured result data
 [**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [EXPERIMENTAL] Upsert a set of structured result data items. This creates or updates the data in Lusid.
 
+
+# **create_data_map**
+> UpsertStructuredDataResponse create_data_map(scope, request_body)
+
+[EXPERIMENTAL] Upsert a set of structured result address definition maps. This creates or updates the data in Lusid.
+
+Create one or more structured result address definition map items in a single scope. These are immutable and cannot be changed once inserted                In the request each data map item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each structured result data in the response.                The response will return both the collection of successfully updated or inserted data maps, as well as those that failed.  For the failures a reason will be provided explaining why the item could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35817
+configuration.host = "http://local-unit-test-server.lusid.com:35817"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | Scope in which to upsert the result address definition maps
+request_body = {} # dict(str, CreateDataMapRequest) | Individual result address definition map creation requests
+
+try:
+    # [EXPERIMENTAL] Upsert a set of structured result address definition maps. This creates or updates the data in Lusid.
+    api_response = api_instance.create_data_map(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->create_data_map: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| Scope in which to upsert the result address definition maps | 
+ **request_body** | [**dict(str, CreateDataMapRequest)**](CreateDataMapRequest.md)| Individual result address definition map creation requests | 
+
+### Return type
+
+[**UpsertStructuredDataResponse**](UpsertStructuredDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully created data maps along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_structured_result_data**
 > AnnulStructuredDataResponse delete_structured_result_data(scope, request_body)
@@ -29,8 +95,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:62494
-configuration.host = "http://local-unit-test-server.lusid.com:62494"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35817
+configuration.host = "http://local-unit-test-server.lusid.com:35817"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to delete.
@@ -73,6 +139,70 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_data_map**
+> GetDataMapResponse get_data_map(scope, request_body)
+
+[EXPERIMENTAL] Get the result address definition maps from the store
+
+Get one or more result address definition map from a single scope.                Each item can be identified by its invariant Data Map key, which can be thought of as a permanent URL.                For each id LUSID will return the most recent matched item.                In the request each structured result data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each item in the response.                The response will return three collections. One, the successfully retrieved structured result data. Two, those that had a  valid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.                For the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.                It is important to always check the failed and not found sets for any unsuccessful results.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35817
+configuration.host = "http://local-unit-test-server.lusid.com:35817"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the result address definition map keys
+request_body = {} # dict(str, DataMapKey) | The result address definition map keys to lookup
+
+try:
+    # [EXPERIMENTAL] Get the result address definition maps from the store
+    api_response = api_instance.get_data_map(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->get_data_map: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the result address definition map keys | 
+ **request_body** | [**dict(str, DataMapKey)**](DataMapKey.md)| The result address definition map keys to lookup | 
+
+### Return type
+
+[**GetDataMapResponse**](GetDataMapResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved data maps along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_structured_result_data**
 > GetStructuredResultDataResponse get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
 
@@ -93,8 +223,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:62494
-configuration.host = "http://local-unit-test-server.lusid.com:62494"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35817
+configuration.host = "http://local-unit-test-server.lusid.com:35817"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to retrieve.
@@ -161,8 +291,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:62494
-configuration.host = "http://local-unit-test-server.lusid.com:62494"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:35817
+configuration.host = "http://local-unit-test-server.lusid.com:35817"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured result data.

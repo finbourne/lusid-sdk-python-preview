@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2782",
+    "version": "0.11.2783",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62494"
+      "url": "http://local-unit-test-server.lusid.com:35817"
     }
   ],
   "paths": {
@@ -42077,6 +42077,264 @@
         ],
         "x-fbn-apistatus": "Experimental"
       }
+    },
+    "/api/unitresults/datamap/{scope}": {
+      "post": {
+        "tags": [
+          "Structured Result Data"
+        ],
+        "summary": "[EXPERIMENTAL] Upsert a set of structured result address definition maps. This creates or updates the data in Lusid.",
+        "description": "Create one or more structured result address definition map items in a single scope. These are immutable and cannot be changed once inserted\r\n            \r\nIn the request each data map item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each structured result data in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted data maps, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the item could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
+        "operationId": "CreateDataMap",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope in which to upsert the result address definition maps",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope in which to upsert the result address definition maps"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Individual result address definition map creation requests",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CreateDataMapRequest"
+                },
+                "description": "Individual result address definition map creation requests"
+              },
+              "example": {}
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CreateDataMapRequest"
+                },
+                "description": "Individual result address definition map creation requests"
+              },
+              "example": {}
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CreateDataMapRequest"
+                },
+                "description": "Individual result address definition map creation requests"
+              },
+              "example": {}
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CreateDataMapRequest"
+                },
+                "description": "Individual result address definition map creation requests"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully created data maps along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/unitresults/datamap/{scope}/$get": {
+      "post": {
+        "tags": [
+          "Structured Result Data"
+        ],
+        "summary": "[EXPERIMENTAL] Get the result address definition maps from the store",
+        "description": "Get one or more result address definition map from a single scope.\r\n            \r\nEach item can be identified by its invariant Data Map key, which can be thought of as a permanent URL.\r\n            \r\nFor each id LUSID will return the most recent matched item.\r\n            \r\nIn the request each structured result data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each item in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved structured result data. Two, those that had a\r\nvalid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.\r\n            \r\nFor the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.",
+        "operationId": "GetDataMap",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the result address definition map keys",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the result address definition map keys"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The result address definition map keys to lookup",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DataMapKey"
+                },
+                "description": "The result address definition map keys to lookup"
+              },
+              "example": {}
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DataMapKey"
+                },
+                "description": "The result address definition map keys to lookup"
+              },
+              "example": {}
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DataMapKey"
+                },
+                "description": "The result address definition map keys to lookup"
+              },
+              "example": {}
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DataMapKey"
+                },
+                "description": "The result address definition map keys to lookup"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved data maps along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDataMapResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDataMapResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDataMapResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
     }
   },
   "components": {
@@ -52982,46 +53240,9 @@
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of structured result data such as the risk to an interest curve or a set of yields or analytics on an index."
       },
-      "DataDefinition": {
+      "DataMapKey": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the data item. This is the name that will appear",
-            "nullable": true
-          },
-          "dataType": {
-            "type": "string",
-            "description": "A member of the set of possible data types, that all data passed under that key is expected to be of.\r\nCurrently limited to one of [string, integer, decimal].",
-            "nullable": true
-          },
-          "keyType": {
-            "type": "string",
-            "description": "Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual 'row' within the list of dictionaries,\r\nor a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf]",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "When importing data from an external data source, in order for it to be reliable queryable, LUSID needs to know something about it.\r\nA data definition tells LUSID, what a given external data item is, what type it is and whether it in some way identifies items of data.\r\nConsider presenting LUSID with a list of dictionaries where each dictionary contains the same set of keys (names). Each data item pointed to by\r\na key would be expected to be of the same type (integer, string, decimal etc.). To identify a particular dictionary from the list, a tuple of\r\none or more of the items in the dictionary would make it unique. If only a single item is required then the"
-      },
-      "DataMapping": {
-        "type": "object",
-        "properties": {
-          "dataFieldNameMappings": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DataDefinition"
-            },
-            "description": "A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores.",
-            "nullable": true
-          },
           "version": {
             "type": "string",
             "description": "The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version\r\nof the mappings that the client assigns it.",
@@ -53031,17 +53252,9 @@
             "type": "string",
             "description": "A unique name to semantically identify the mapping set.",
             "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
           }
         },
-        "additionalProperties": false,
-        "description": "When importing data from an external source there are essentially three levels of interaction with LUSID.\r\n(1) The data is a raw document that LUSID does not understand. You can store and retrieve it but it does not full interact with other documents inside LUSID\r\n(2) The data has a map from fields and paths to 'properties' in LUSID. In essence, LUSID can then treat the data as weakly typed (decimal, string) data that can be returned through queries\r\n    and where various aggregation requests will then work.\r\n(3) The data is fully translatable into LUSID and understood, in some sense, natively. This means that it can be used for context sensitive calculations such as pricing or risk calculations.\r\nThe data map object is designed to allow data to transition from step 1 to 2 and in some cases as an alternative for step 2 to 3."
+        "additionalProperties": false
       },
       "StructuredResultData": {
         "required": [
@@ -53068,8 +53281,8 @@
             "type": "string",
             "description": "The document that will be stored (or retrieved) and which describes a unit result data entity such as a set of prices or yields"
           },
-          "dataMap": {
-            "$ref": "#/components/schemas/DataMapping"
+          "dataMapKey": {
+            "$ref": "#/components/schemas/DataMapKey"
           }
         },
         "additionalProperties": false,
@@ -53114,6 +53327,99 @@
               "$ref": "#/components/schemas/ErrorDetail"
             },
             "description": "The set of values that could not be retrieved due along with a reason for this, e.g badly formed request.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataDefinition": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the data item. This is the name that will appear",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "A member of the set of possible data types, that all data passed under that key is expected to be of.\r\nCurrently limited to one of [string, integer, decimal].",
+            "nullable": true
+          },
+          "keyType": {
+            "type": "string",
+            "description": "Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual 'row' within the list of dictionaries,\r\nor a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf]",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "When importing data from an external data source, in order for it to be reliable queryable, LUSID needs to know something about it.\r\nA data definition tells LUSID, what a given external data item is, what type it is and whether it in some way identifies items of data.\r\nConsider presenting LUSID with a list of dictionaries where each dictionary contains the same set of keys (names). Each data item pointed to by\r\na key would be expected to be of the same type (integer, string, decimal etc.). To identify a particular dictionary from the list, a tuple of\r\none or more of the items in the dictionary would make it unique. If only a single item is required then the"
+      },
+      "DataMapping": {
+        "type": "object",
+        "properties": {
+          "dataDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataDefinition"
+            },
+            "description": "A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "When importing data from an external source there are essentially three levels of interaction with LUSID.\r\n(1) The data is a raw document that LUSID does not understand. You can store and retrieve it but it does not full interact with other documents inside LUSID\r\n(2) The data has a map from fields and paths to 'properties' in LUSID. In essence, LUSID can then treat the data as weakly typed (decimal, string) data that can be returned through queries\r\n    and where various aggregation requests will then work.\r\n(3) The data is fully translatable into LUSID and understood, in some sense, natively. This means that it can be used for context sensitive calculations such as pricing or risk calculations.\r\nThe data map object is designed to allow data to transition from step 1 to 2 and in some cases as an alternative for step 2 to 3."
+      },
+      "CreateDataMapRequest": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/DataMapKey"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DataMapping"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to create a new data map"
+      },
+      "GetDataMapResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DataMapping"
+            },
+            "description": "TODO",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "TODO",
             "nullable": true
           },
           "links": {
