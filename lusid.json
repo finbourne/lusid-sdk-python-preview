@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2786",
+    "version": "0.11.2785",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33720"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -9694,7 +9694,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] Get the time series of an instrument property",
+        "summary": "[EXPERIMENTAL] Get the time series of an instrument property",
         "description": "List the complete time series of an instrument property.",
         "operationId": "GetInstrumentPropertyTimeSeries",
         "parameters": [
@@ -9844,7 +9844,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/instruments/$get": {
@@ -55189,7 +55189,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
