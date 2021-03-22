@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2786",
+    "version": "0.11.2787",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -53711,9 +53711,7 @@
           {
             "required": [
               "basket",
-              "conventionName",
               "couponRate",
-              "flowConventions",
               "identifiers",
               "instrumentType",
               "maturityDate",
@@ -53957,7 +53955,6 @@
           {
             "required": [
               "couponRate",
-              "flowConventions",
               "instrumentType",
               "maturityDate",
               "protectionDetailSpecification",
@@ -53987,6 +53984,9 @@
                 "type": "number",
                 "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\n            For a standard corporate CDS (North American) this must be either 100bps or 500bps.",
                 "format": "double"
+              },
+              "conventionName": {
+                "$ref": "#/components/schemas/FlowConventionName"
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
