@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2787",
+    "version": "0.11.2786",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53633"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -53711,7 +53711,9 @@
           {
             "required": [
               "basket",
+              "conventionName",
               "couponRate",
+              "flowConventions",
               "identifiers",
               "instrumentType",
               "maturityDate",
@@ -53955,6 +53957,7 @@
           {
             "required": [
               "couponRate",
+              "flowConventions",
               "instrumentType",
               "maturityDate",
               "protectionDetailSpecification",
@@ -53984,9 +53987,6 @@
                 "type": "number",
                 "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\n            For a standard corporate CDS (North American) this must be either 100bps or 500bps.",
                 "format": "double"
-              },
-              "conventionName": {
-                "$ref": "#/components/schemas/FlowConventionName"
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
@@ -55189,7 +55189,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
