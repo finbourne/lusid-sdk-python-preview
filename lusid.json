@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2788",
+    "version": "0.11.2789",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:47992"
     }
   ],
   "paths": {
@@ -9723,7 +9723,7 @@
           {
             "name": "propertyKey",
             "in": "query",
-            "description": "The property key of the property that will have its history shown.",
+            "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".\r\n            Each property must be from the \"Instrument\" domain.",
             "schema": {
               "type": "string",
               "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
@@ -11492,7 +11492,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EARLY ACCESS] Delete legal entity",
+        "summary": "[EARLY ACCESS] Delete Legal Entity",
         "description": "Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.\r\nThis means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteLegalEntity",
         "parameters": [
@@ -12177,6 +12177,168 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties/time-series": {
+      "get": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] Get Legal Entity Property Time Series",
+        "description": "List the complete time series of a legal entity property.",
+        "operationId": "GetLegalEntityPropertyTimeSeries",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "propertyKey",
+            "in": "query",
+            "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".\r\n            Each property must be from the \"LegalEntity\" domain.",
+            "schema": {
+              "type": "string",
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
+            "schema": {
+              "type": "string",
+              "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The time series of the property",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPropertyInterval"
                 }
               }
             }
@@ -17073,10 +17235,10 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
+            "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "type": "string",
-              "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
+              "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
               "nullable": true
             }
           },
@@ -19986,7 +20148,7 @@
           {
             "name": "propertyKey",
             "in": "query",
-            "description": "The property key of the property that will have its history shown.",
+            "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".\r\n            Each property must be from the \"PortfolioGroup\" domain.",
             "schema": {
               "type": "string",
               "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
@@ -23695,7 +23857,7 @@
           {
             "name": "propertyKey",
             "in": "query",
-            "description": "The property key of the property that will have its history shown.",
+            "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\".\r\n            Each property must be from the \"Portfolio\" domain.",
             "schema": {
               "type": "string",
               "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
@@ -55189,7 +55351,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

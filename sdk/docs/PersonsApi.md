@@ -1,6 +1,6 @@
 # lusid.PersonsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:47992*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,8 +40,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
@@ -106,8 +106,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -176,8 +176,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -246,8 +246,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -316,8 +316,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -386,8 +386,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -458,8 +458,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
@@ -530,8 +530,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -540,7 +540,7 @@ code = 'code_example' # str | Code of the person under specified identifier type
 property_key = 'property_key_example' # str | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".              Each property must be from the \"Person\" domain. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-page = 'page_example' # str | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 
 try:
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
  **property_key** | **str**| The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. | [optional] 
  **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **page** | **str**| The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
 
 ### Return type
@@ -606,8 +606,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -680,8 +680,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -758,8 +758,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -826,8 +826,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
@@ -894,8 +894,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":[{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}}],"person/CompanyDetails/Role":[{"key":"Person/CompanyDetails/Role","value":{"labelValue":"SalesRepresentative"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},{"key":"Person/CompanyDetails/Role","value":{"labelValue":"CustomerServiceRepresentative"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}]},"displayName":"Person1DisplayName","description":"Person1Description"} # UpsertPersonRequest | Request to create or update a person.
@@ -956,8 +956,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:47992
+configuration.host = "http://local-unit-test-server.lusid.com:47992"
 # Create an instance of the API class
 api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
