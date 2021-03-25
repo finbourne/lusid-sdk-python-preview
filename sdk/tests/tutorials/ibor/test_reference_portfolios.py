@@ -15,8 +15,9 @@ class ReferencePortfolio(unittest.TestCase):
         # Create API client
         api_client = TestDataUtilities.api_client()
 
-        # Instantiate portfolios API
+        # Instantiate reference portfolio and portfolios API
         cls.reference_portfolio_api = lusid.ReferencePortfolioApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
 
     @lusid_feature("F39")
     def test_create_reference_portfolio(self):
@@ -36,3 +37,8 @@ class ReferencePortfolio(unittest.TestCase):
         )
 
         self.assertEqual(result.id.code, request.code)
+
+        # Delete the portfolio once test complete
+        self.portfolios_api.delete_portfolio(
+            scope=TestDataUtilities.tutorials_scope, code=result.id.code
+        )
