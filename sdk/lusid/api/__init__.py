@@ -28,6 +28,8 @@ from lusid.api.reconciliations_api import ReconciliationsApi
 from lusid.api.reference_portfolio_api import ReferencePortfolioApi
 from lusid.api.relation_definitions_api import RelationDefinitionsApi
 from lusid.api.relations_api import RelationsApi
+from lusid.api.relationship_definitions_api import RelationshipDefinitionsApi
+from lusid.api.relationships_api import RelationshipsApi
 from lusid.api.schemas_api import SchemasApi
 from lusid.api.scopes_api import ScopesApi
 from lusid.api.search_api import SearchApi
