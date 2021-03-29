@@ -33,23 +33,16 @@ class ReferencePortfolio(unittest.TestCase):
         cls.instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = cls.instrument_loader.load_instruments()
 
-        cls.reference_portfolio_name = "Test Reference Portfolio name"
-        cls.reference_portfolio_code = "TestReferencePortfolioCode"
-
-    def tearDown(self):
-
-        # Delete the test portfolio once each test is complete
-        self.portfolios_api.delete_portfolio(
-            scope=TestDataUtilities.tutorials_scope, code=self.reference_portfolio_code
-        )
-
     @lusid_feature("F39")
     def test_create_reference_portfolio(self):
 
+        F39_reference_portfolio_code = "F39_ReferencePortfolioCode"
+        F39_reference_portfolio_name = "F39_Reference Portfolio Name"
+
         # Details of the new reference portfolio to be created
         request = models.CreateReferencePortfolioRequest(
-            display_name=self.reference_portfolio_name,
-            code=self.reference_portfolio_code,
+            display_name=F39_reference_portfolio_name,
+            code=F39_reference_portfolio_code,
         )
 
         # Create the reference portfolio in LUSID in the tutorials scope
@@ -60,23 +53,35 @@ class ReferencePortfolio(unittest.TestCase):
 
         self.assertEqual(result.id.code, request.code)
 
+        # Delete portfolio once the test is complete
+        self.portfolios_api.delete_portfolio(
+            scope=TestDataUtilities.tutorials_scope, code=F39_reference_portfolio_code
+        )
+
     @lusid_feature("F40")
     def test_upsert_reference_portfolio_constituents(self):
 
         constituent_weights = [10, 20, 30, 15, 25]
         effective_date = datetime(year=2021, month=3, day=29, tzinfo=pytz.UTC)
 
+        F40_reference_portfolio_code = "F40_ReferencePortfolioCode"
+        F40_reference_portfolio_name = "F40_Reference Portfolio Name"
+
+
         # Create a new reference portfolio
         request = models.CreateReferencePortfolioRequest(
-            display_name=self.reference_portfolio_name,
-            code=self.reference_portfolio_code,
+            display_name=F40_reference_portfolio_name,
+            code=F40_reference_portfolio_code,
             created=effective_date,
         )
 
-        _ = self.reference_portfolio_api.create_reference_portfolio(
+        self.reference_portfolio_api.create_reference_portfolio(
             scope=TestDataUtilities.tutorials_scope,
             create_reference_portfolio_request=request,
         )
+
+        # Check that all instruments were created successfully
+        self.assertEqual(len(constituent_weights), len(self.instrument_ids))
 
         # Create the constituent requests
         individual_constituent_requests = [
@@ -100,9 +105,9 @@ class ReferencePortfolio(unittest.TestCase):
         )
 
         # Make the upsert request via the reference portfolio API
-        _ = self.reference_portfolio_api.upsert_reference_portfolio_constituents(
+        self.reference_portfolio_api.upsert_reference_portfolio_constituents(
             scope=TestDataUtilities.tutorials_scope,
-            code=self.reference_portfolio_code,
+            code=F40_reference_portfolio_code,
             upsert_reference_portfolio_constituents_request=bulk_constituent_request,
         )
 
@@ -110,7 +115,7 @@ class ReferencePortfolio(unittest.TestCase):
         constituent_holdings = (
             self.reference_portfolio_api.get_reference_portfolio_constituents(
                 scope=TestDataUtilities.tutorials_scope,
-                code=self.reference_portfolio_code,
+                code=F40_reference_portfolio_code,
             )
         )
 
@@ -128,3 +133,8 @@ class ReferencePortfolio(unittest.TestCase):
             constituent_holdings.constituents, constituent_weights
         ):
             self.assertEqual(constituent.weight, weight)
+
+        # Delete portfolio once the test is complete
+        self.portfolios_api.delete_portfolio(
+            scope=TestDataUtilities.tutorials_scope, code=F40_reference_portfolio_code
+        )
