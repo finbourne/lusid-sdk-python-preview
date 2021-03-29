@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2804",
+    "version": "0.11.2805",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:38080"
+      "url": "http://local-unit-test-server.lusid.com:34840"
     }
   ],
   "paths": {
@@ -676,6 +676,12 @@
                 "groupBy": [
                   "Instrument/default/Name"
                 ],
+                "sort": [
+                  {
+                    "key": "Instrument/default/RIC",
+                    "sortOrder": "Ascending"
+                  }
+                ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "portfolioEntityIds": [
@@ -722,6 +728,12 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
+                ],
+                "sort": [
+                  {
+                    "key": "Instrument/default/RIC",
+                    "sortOrder": "Ascending"
+                  }
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
@@ -770,6 +782,12 @@
                 "groupBy": [
                   "Instrument/default/Name"
                 ],
+                "sort": [
+                  {
+                    "key": "Instrument/default/RIC",
+                    "sortOrder": "Ascending"
+                  }
+                ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "portfolioEntityIds": [
@@ -816,6 +834,12 @@
                 ],
                 "groupBy": [
                   "Instrument/default/Name"
+                ],
+                "sort": [
+                  {
+                    "key": "Instrument/default/RIC",
+                    "sortOrder": "Ascending"
+                  }
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
