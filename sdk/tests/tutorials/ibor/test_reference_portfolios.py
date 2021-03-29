@@ -73,7 +73,7 @@ class ReferencePortfolio(unittest.TestCase):
             created=effective_date,
         )
 
-        result = self.reference_portfolio_api.create_reference_portfolio(
+        _ = self.reference_portfolio_api.create_reference_portfolio(
             scope=TestDataUtilities.tutorials_scope,
             create_reference_portfolio_request=request,
         )
@@ -100,7 +100,7 @@ class ReferencePortfolio(unittest.TestCase):
         )
 
         # Make the upsert request via the reference portfolio API
-        result = self.reference_portfolio_api.upsert_reference_portfolio_constituents(
+        _ = self.reference_portfolio_api.upsert_reference_portfolio_constituents(
             scope=TestDataUtilities.tutorials_scope,
             code=self.reference_portfolio_code,
             upsert_reference_portfolio_constituents_request=bulk_constituent_request,
