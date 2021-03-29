@@ -21,6 +21,7 @@ class Orders(unittest.TestCase):
         # creates random alphanumeric code
         return str(uuid.uuid4())[:12]
 
+    @lusid_feature("F4")
     def test_upsert_simple_order(self):
         """Test makes a request for a single order."""
 
