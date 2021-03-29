@@ -12,6 +12,7 @@ from utilities import TestDataUtilities
 
 
 class Orders(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         # create a configured API client
@@ -21,18 +22,18 @@ class Orders(unittest.TestCase):
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
-    @lusid_feature("F4")
+   @lusid_feature("F4")
     def test_upsert_simple_order(self):
         """Makes a request for a single order."""
 
         orders_scope = "Orders-SimpleUpsert-TestScope"
         # Create unique order id
-        order = str(uuid.uuid4())
-        # Create ResourceId for order
+        order_id = str(uuid.uuid4())
 
         # Construct order arguments
         instrument_identifiers = {TestDataUtilities.lusid_luid_identifier: self.instrument_ids[0]}
-        order_id = models.ResourceId(orders_scope, order)
+        ##Create ResourceId for order
+        order_resource_id = models.ResourceId(orders_scope, order_id)
         portfolio_id = ResourceId(orders_scope, "OrdersTestPortfolio")
         properties = {f"Order/{orders_scope}/TIF": PerpetualProperty(f"Order/{orders_scope}/TIF", PropertyValue("GTC")),
                       f"Order/{orders_scope}/OrderBook":
@@ -51,14 +52,15 @@ class Orders(unittest.TestCase):
                                      instrument_identifiers=instrument_identifiers,
                                      quantity=quantity, side='buy',
                                      order_book_id=order_book_id,
-                                     portfolio_id=portfolio_id, id=order_id)
+                                     portfolio_id=portfolio_id, id=order_resource_id)
 
-        order_req = OrderSetRequest(order_requests=[order_request])
+        order_set_request = OrderSetRequest(order_requests=[order_request])
 
-        upsert_result = self.orders_api.upsert_orders(order_set_request=order_req)
+        upsert_result = self.orders_api.upsert_orders(order_set_request=order_set_request)
 
         self.assertEqual(len(upsert_result.values),1)
-        self.assertEqual(upsert_result.values[0].to_dict()['id']['code'], order)
-        self.assertEqual(upsert_result.values[0].to_dict()['lusid_instrument_id'], self.instrument_ids[0])
-        self.assertEqual(upsert_result.values[0].to_dict()['quantity'], 100)
-        self.assertEqual(upsert_result.values[0].to_dict()['properties'][f"Order/{orders_scope}/TIF"]['key'] , f"Order/{orders_scope}/TIF")
+        response=upsert_result.values[0].to_dict()
+        self.assertEqual(response['id']['code'], order_id)
+        self.assertEqual(response['lusid_instrument_id'], self.instrument_ids[0])
+        self.assertEqual(response['quantity'], 100)
+        self.assertEqual(response['properties'][f"Order/{orders_scope}/TIF"]['key'] , f"Order/{orders_scope}/TIF")
