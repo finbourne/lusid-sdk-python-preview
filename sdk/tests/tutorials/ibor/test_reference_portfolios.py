@@ -87,7 +87,7 @@ class ReferencePortfolio(unittest.TestCase):
         individual_constituent_requests = [
             models.ReferencePortfolioConstituentRequest(
                 instrument_identifiers={
-                    "Instrument/default/LusidInstrumentId": instrument_id
+                    TestDataUtilities.lusid_luid_identifier: instrument_id
                 },
                 weight=constituent_weight,
                 currency="GBP",
