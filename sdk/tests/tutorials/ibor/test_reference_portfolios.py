@@ -36,8 +36,8 @@ class ReferencePortfolio(unittest.TestCase):
     @lusid_feature("F39")
     def test_create_reference_portfolio(self):
 
-        f39_reference_portfolio_code = "F39_ReferencePortfolioCode"
-        f39_reference_portfolio_name = "F39_Reference Portfolio Name"
+        f39_reference_portfolio_code = "F39p_ReferencePortfolioCode"
+        f39_reference_portfolio_name = "F39p_Reference Portfolio Name"
 
         # Details of the new reference portfolio to be created
         request = models.CreateReferencePortfolioRequest(
@@ -64,8 +64,8 @@ class ReferencePortfolio(unittest.TestCase):
         constituent_weights = [10, 20, 30, 15, 25]
         effective_date = datetime(year=2021, month=3, day=29, tzinfo=pytz.UTC)
 
-        f39_reference_portfolio_code = "F40_ReferencePortfolioCode"
-        f39_reference_portfolio_name = "F40_Reference Portfolio Name"
+        f39_reference_portfolio_code = "F40p_ReferencePortfolioCode"
+        f39_reference_portfolio_name = "F40p_Reference Portfolio Name"
 
 
         # Create a new reference portfolio
