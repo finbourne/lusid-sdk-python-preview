@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2807",
+    "version": "0.11.2808",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:44140"
     }
   ],
   "paths": {
@@ -28211,6 +28211,7 @@
                   "scope": "system",
                   "code": "string"
                 },
+                "propertyDescription": "My Property Description",
                 "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
@@ -28227,6 +28228,7 @@
                   "scope": "system",
                   "code": "string"
                 },
+                "propertyDescription": "My Property Description",
                 "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
@@ -28243,6 +28245,7 @@
                   "scope": "system",
                   "code": "string"
                 },
+                "propertyDescription": "My Property Description",
                 "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             },
@@ -28259,6 +28262,7 @@
                   "scope": "system",
                   "code": "string"
                 },
+                "propertyDescription": "My Property Description",
                 "derivationFormula": "(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"
               }
             }
@@ -52087,6 +52091,12 @@
           "dataTypeId": {
             "$ref": "#/components/schemas/ResourceId"
           },
+          "propertyDescription": {
+            "maxLength": 512,
+            "type": "string",
+            "description": "Describes the property",
+            "nullable": true
+          },
           "derivationFormula": {
             "type": "string",
             "description": "The rule that defines how data is composed for a derived property.",
@@ -57708,7 +57718,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
