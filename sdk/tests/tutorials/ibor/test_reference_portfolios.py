@@ -64,14 +64,14 @@ class ReferencePortfolio(unittest.TestCase):
         constituent_weights = [10, 20, 30, 15, 25]
         effective_date = datetime(year=2021, month=3, day=29, tzinfo=pytz.UTC)
 
-        f39_reference_portfolio_code = "F40p_ReferencePortfolioCode"
-        f39_reference_portfolio_name = "F40p_Reference Portfolio Name"
+        f40_reference_portfolio_code = "F40p_ReferencePortfolioCode"
+        f40_reference_portfolio_name = "F40p_Reference Portfolio Name"
 
 
         # Create a new reference portfolio
         request = models.CreateReferencePortfolioRequest(
-            display_name=f39_reference_portfolio_name,
-            code=f39_reference_portfolio_code,
+            display_name=f40_reference_portfolio_name,
+            code=f40_reference_portfolio_code,
             created=effective_date,
         )
 
@@ -107,7 +107,7 @@ class ReferencePortfolio(unittest.TestCase):
         # Make the upsert request via the reference portfolio API
         self.reference_portfolio_api.upsert_reference_portfolio_constituents(
             scope=TestDataUtilities.tutorials_scope,
-            code=f39_reference_portfolio_code,
+            code=f40_reference_portfolio_code,
             upsert_reference_portfolio_constituents_request=bulk_constituent_request,
         )
 
@@ -115,7 +115,7 @@ class ReferencePortfolio(unittest.TestCase):
         constituent_holdings = (
             self.reference_portfolio_api.get_reference_portfolio_constituents(
                 scope=TestDataUtilities.tutorials_scope,
-                code=f39_reference_portfolio_code,
+                code=f40_reference_portfolio_code,
             )
         )
 
@@ -136,5 +136,5 @@ class ReferencePortfolio(unittest.TestCase):
 
         # Delete portfolio once the test is complete
         self.portfolios_api.delete_portfolio(
-            scope=TestDataUtilities.tutorials_scope, code=f39_reference_portfolio_code
+            scope=TestDataUtilities.tutorials_scope, code=f40_reference_portfolio_code
         )
