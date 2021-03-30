@@ -7,6 +7,7 @@ from lusid import OrderSetRequest
 from lusid import PerpetualProperty
 from lusid import PropertyValue
 from lusid import ResourceId
+from lusidfeature import lusid_feature
 from utilities import InstrumentLoader
 from utilities import TestDataUtilities
 
@@ -22,7 +23,7 @@ class Orders(unittest.TestCase):
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
-   @lusid_feature("F4")
+    @lusid_feature("F4")
     def test_upsert_simple_order(self):
         """Makes a request for a single order."""
 
