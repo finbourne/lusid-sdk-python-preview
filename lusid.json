@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2810",
+    "version": "0.11.2812",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:63010"
     }
   ],
   "paths": {
@@ -57132,27 +57132,6 @@
         ],
         "description": "representation of a floating rates leg"
       },
-      "DayCountConvention": {
-        "enum": [
-          "Actual360",
-          "Act360",
-          "MoneyMarket",
-          "Actual365",
-          "Act365",
-          "Thirty360",
-          "ThirtyU360",
-          "Bond",
-          "ThirtyE360",
-          "EuroBond",
-          "ActAct",
-          "ActualActual",
-          "ActActIsda",
-          "ActActIsma",
-          "ActActIcma",
-          "Invalid"
-        ],
-        "type": "string"
-      },
       "FuturesContractDetails": {
         "required": [
           "contractCode",
@@ -57187,26 +57166,8 @@
             "format": "double"
           },
           "convention": {
-            "enum": [
-              "Actual360",
-              "Act360",
-              "MoneyMarket",
-              "Actual365",
-              "Act365",
-              "Thirty360",
-              "ThirtyU360",
-              "Bond",
-              "ThirtyE360",
-              "EuroBond",
-              "ActAct",
-              "ActualActual",
-              "ActActIsda",
-              "ActActIsma",
-              "ActActIcma",
-              "Invalid"
-            ],
             "type": "string",
-            "description": "The available values are: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid"
+            "description": "If appropriate, the day count convention method used in pricing (rates futures)"
           },
           "country": {
             "type": "string",
@@ -57718,7 +57679,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
