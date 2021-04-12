@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2842",
+    "version": "0.11.2843",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,10 +17,464 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32329"
+      "url": "http://local-unit-test-server.lusid.com:61725"
     }
   ],
   "paths": {
+    "/api/aggregation/{scope}/{code}/$aggregate": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group\r\nDeprecated: Please use the GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.\r\nAggregation will shortly be modified to include experimental features such as Simulation and XVA",
+        "description": "Aggregate data sourced from the specified portfolio or portfolio group",
+        "operationId": "GetAggregation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Optional. When paginating, skip this number of results",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, skip this number of results",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The request specifying the parameters of the aggregation",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/aggregation/{scope}/{code}/$aggregatenested": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate data in a portfolio or portfolio group, as nested\r\n            \r\nDeprecated: Endpoint is being retired. The nested functionality is supported on the valuation endpoint through use of an 'include subtotals' flag.",
+        "description": "Aggregate data sourced from the specified portfolio or portfolio group into a nested structure. Data is nested following the group-by specifications.",
+        "operationId": "GetNestedAggregation",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio or portfolio group",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio or portfolio group",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio or portfolio group",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request specifying the parameters of the aggregation",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AggregationRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "MyScope",
+                  "code": "default"
+                },
+                "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                "metrics": [
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Proportion"
+                  },
+                  {
+                    "key": "Holding/default/PV",
+                    "op": "Sum"
+                  }
+                ],
+                "groupBy": [
+                  "Instrument/default/Name"
+                ],
+                "portfolioIdentifierCode": "SinglePortfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NestedAggregationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/aggregation/{scope}/{code}/$generateconfigurationrecipe": {
       "post": {
         "tags": [
@@ -25334,6 +25788,318 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/portfolios/{scope}/$aggregateinlined": {
+      "post": {
+        "tags": [
+          "Aggregation"
+        ],
+        "summary": "[EXPERIMENTAL] Aggregate data in an inlined portfolio",
+        "description": "Aggregate data sourced from the portfolio that is defined by the weighted set of instruments passed to the request.\r\nDeprecated: Please use the (inline) GetValuation endpoint. It is aimed at a simpler set of requirements now deemed stable.\r\nAggregation will shortly be modified to include experimental features such as Simulation and XVA",
+        "operationId": "GetAggregationOfWeightedInstruments",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the instruments should that be required",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the instruments should that be required",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Optional. When paginating, skip this number of results",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, skip this number of results",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The request specifying the parameters of the aggregation and the inlined set of instruments to aggregate over.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InlineAggregationRequest"
+              },
+              "example": {
+                "request": {
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Proportion"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
+                },
+                "instruments": [
+                  {
+                    "quantity": 10000,
+                    "holdingIdentifier": "my-holding-on-some-date",
+                    "instrument": {
+                      "startDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "maturityDate": "2018-04-04T00:00:00.0000000+00:00",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InlineAggregationRequest"
+              },
+              "example": {
+                "request": {
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Proportion"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
+                },
+                "instruments": [
+                  {
+                    "quantity": 10000,
+                    "holdingIdentifier": "my-holding-on-some-date",
+                    "instrument": {
+                      "startDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "maturityDate": "2018-04-04T00:00:00.0000000+00:00",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    }
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InlineAggregationRequest"
+              },
+              "example": {
+                "request": {
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Proportion"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
+                },
+                "instruments": [
+                  {
+                    "quantity": 10000,
+                    "holdingIdentifier": "my-holding-on-some-date",
+                    "instrument": {
+                      "startDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "maturityDate": "2018-04-04T00:00:00.0000000+00:00",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InlineAggregationRequest"
+              },
+              "example": {
+                "request": {
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Proportion"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "portfolioIdentifierCode": "SinglePortfolio"
+                },
+                "instruments": [
+                  {
+                    "quantity": 10000,
+                    "holdingIdentifier": "my-holding-on-some-date",
+                    "instrument": {
+                      "startDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "maturityDate": "2018-04-04T00:00:00.0000000+00:00",
+                      "domAmount": 100,
+                      "domCcy": "GBP",
+                      "fgnAmount": -150,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAggregationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/portfolios/$reconcileholdings": {
       "post": {
         "tags": [
@@ -31473,6 +32239,18 @@
             "x-nullable": true
           },
           {
+            "name": "start",
+            "in": "query",
+            "description": "Optional. When paginating, skip this number of results",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, skip this number of results",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Optional. When paginating, limit the number of returned results to this many.",
@@ -31676,6 +32454,18 @@
               "description": "The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.\r\n            This value is returned from the previous call.",
               "nullable": true
             }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "When paginating, skip this number of results.",
+            "schema": {
+              "type": "integer",
+              "description": "When paginating, skip this number of results.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
           },
           {
             "name": "limit",
@@ -44159,165 +44949,6 @@
         "additionalProperties": false,
         "description": "The Configuration or Calculation Recipe controls how LUSID processes a given request.\r\nThis can be used to change where market data used in pricing is loaded from and in what order, or which model is used to\r\nprice a given instrument as well as how aggregation will process the produced results."
       },
-      "CreateRecipeRequest": {
-        "required": [
-          "effectiveAt",
-          "recipeCreationMarketDataScopes"
-        ],
-        "type": "object",
-        "properties": {
-          "recipeCreationMarketDataScopes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The scopes in which the recipe creation would look for quotes/data."
-          },
-          "recipeId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "inlineRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt date to use",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the recipe generated will look for rules with this effectiveAt.",
-            "format": "dateorcutlabel"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification class to request for the creation/supplementing of a configuration recipe"
-      },
-      "LusidValidationProblemDetails": {
-        "required": [
-          "code",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "errorDetails": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "nullable": true
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LusidProblemDetails": {
-        "required": [
-          "code",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "errorDetails": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "nullable": true
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "AggregationOp": {
         "enum": [
           "Sum",
@@ -44442,77 +45073,9 @@
         },
         "additionalProperties": false
       },
-      "PortfolioEntityId": {
-        "type": "object",
-        "properties": {
-          "scope": {
-            "type": "string",
-            "description": "The scope within which the portfolio or portfolio group lives.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "Portfolio name or code.",
-            "nullable": true
-          },
-          "portfolioEntityType": {
-            "type": "string",
-            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\". If not specified, it is assumed to be a single portfolio.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification of a portfolio or portfolio group id, its scope and which it is."
-      },
-      "ValuationSchedule": {
+      "AggregationRequest": {
         "required": [
-          "effectiveAt"
-        ],
-        "type": "object",
-        "properties": {
-          "effectiveFrom": {
-            "type": "string",
-            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each business day in the given range.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the time to run the valuation request effective of.",
-            "format": "dateorcutlabel"
-          },
-          "tenor": {
-            "type": "string",
-            "description": "Tenor, e.g \"1D\", \"1M\" to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.",
-            "nullable": true
-          },
-          "rollConvention": {
-            "type": "string",
-            "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.\r\nIn that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.",
-            "nullable": true
-          },
-          "holidayCalendars": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The holiday calendar(s) that should be used in determining the date schedule.\r\nHoliday calendar(s) are supplied by their names, for example, \"CoppClarke\". \r\nNote that when the calendars are not available (e.g. when the user has insufficient permissions), \r\na recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.",
-            "nullable": true
-          },
-          "valuationDateTimes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification object for the valuation schedule, how do we determine which days we wish to perform a valuation upon."
-      },
-      "ValuationRequest": {
-        "required": [
+          "effectiveAt",
           "metrics"
         ],
         "type": "object",
@@ -44520,18 +45083,32 @@
           "recipeId": {
             "$ref": "#/components/schemas/ResourceId"
           },
+          "inlineRecipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          },
           "asAt": {
             "type": "string",
             "description": "The asAt date to use",
             "format": "date-time",
             "nullable": true
           },
+          "effectiveFrom": {
+            "type": "string",
+            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
+            "format": "dateorcutlabel"
+          },
           "metrics": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AggregateSpec"
             },
-            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Holding/default/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
+            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
           },
           "groupBy": {
             "type": "array",
@@ -44550,6 +45127,12 @@
             "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
             "nullable": true
           },
+          "limit": {
+            "type": "integer",
+            "description": "limit the results to a particular number of values.",
+            "format": "int32",
+            "nullable": true
+          },
           "sort": {
             "type": "array",
             "items": {
@@ -44558,29 +45141,19 @@
             "description": "A (possibly empty/null) set of specifications for how to order the results.",
             "nullable": true
           },
-          "reportCurrency": {
+          "reportCcy": {
             "type": "string",
-            "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
             "nullable": true
           },
-          "equipWithSubtotals": {
-            "type": "boolean",
-            "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
-          },
-          "portfolioEntityIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PortfolioEntityId"
-            },
-            "description": "The set of portfolio or portfolio group identifier(s) that is to be valued.",
+          "portfolioIdentifierCode": {
+            "type": "string",
+            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
             "nullable": true
-          },
-          "valuationSchedule": {
-            "$ref": "#/components/schemas/ValuationSchedule"
           }
         },
         "additionalProperties": false,
-        "description": "Specification object for the parameters of a valuation"
+        "description": "Specification object for the parameters of an aggregation"
       },
       "ValueType": {
         "enum": [
@@ -44776,6 +45349,380 @@
           }
         },
         "additionalProperties": false
+      },
+      "LusidValidationProblemDetails": {
+        "required": [
+          "code",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "errorDetails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LusidProblemDetails": {
+        "required": [
+          "code",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "errorDetails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AggregationResponseNode": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "$ref": "#/components/schemas/AggregateSpec"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "depth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationResponseNode"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NestedAggregationResponse": {
+        "type": "object",
+        "properties": {
+          "aggregationEffectiveAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aggregationAsAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AggregationResponseNode"
+          },
+          "aggregationCurrency": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSchema": {
+            "$ref": "#/components/schemas/ResultDataSchema"
+          },
+          "aggregationFailures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationMeasureFailureDetail"
+            },
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRecipeRequest": {
+        "required": [
+          "effectiveAt",
+          "recipeCreationMarketDataScopes"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeCreationMarketDataScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The scopes in which the recipe creation would look for quotes/data."
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "inlineRecipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt date to use",
+            "format": "date-time",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the recipe generated will look for rules with this effectiveAt.",
+            "format": "dateorcutlabel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification class to request for the creation/supplementing of a configuration recipe"
+      },
+      "PortfolioEntityId": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope within which the portfolio or portfolio group lives.",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "Portfolio name or code.",
+            "nullable": true
+          },
+          "portfolioEntityType": {
+            "type": "string",
+            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\". If not specified, it is assumed to be a single portfolio.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification of a portfolio or portfolio group id, its scope and which it is."
+      },
+      "ValuationSchedule": {
+        "required": [
+          "effectiveAt"
+        ],
+        "type": "object",
+        "properties": {
+          "effectiveFrom": {
+            "type": "string",
+            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each business day in the given range.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the time to run the valuation request effective of.",
+            "format": "dateorcutlabel"
+          },
+          "tenor": {
+            "type": "string",
+            "description": "Tenor, e.g \"1D\", \"1M\" to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.",
+            "nullable": true
+          },
+          "rollConvention": {
+            "type": "string",
+            "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.\r\nIn that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.",
+            "nullable": true
+          },
+          "holidayCalendars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The holiday calendar(s) that should be used in determining the date schedule.\r\nHoliday calendar(s) are supplied by their names, for example, \"CoppClarke\". \r\nNote that when the calendars are not available (e.g. when the user has insufficient permissions), \r\na recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.",
+            "nullable": true
+          },
+          "valuationDateTimes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the valuation schedule, how do we determine which days we wish to perform a valuation upon."
+      },
+      "ValuationRequest": {
+        "required": [
+          "metrics"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt date to use",
+            "format": "date-time",
+            "nullable": true
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregateSpec"
+            },
+            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Holding/default/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
+          },
+          "groupBy": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies a queryable address in Lusid."
+            },
+            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyFilter"
+            },
+            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
+            "nullable": true
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderBySpec"
+            },
+            "description": "A (possibly empty/null) set of specifications for how to order the results.",
+            "nullable": true
+          },
+          "reportCurrency": {
+            "type": "string",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
+            "nullable": true
+          },
+          "equipWithSubtotals": {
+            "type": "boolean",
+            "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolio or portfolio group identifier(s) that is to be valued.",
+            "nullable": true
+          },
+          "valuationSchedule": {
+            "$ref": "#/components/schemas/ValuationSchedule"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the parameters of a valuation"
       },
       "InstrumentType": {
         "enum": [
@@ -50396,6 +51343,27 @@
         },
         "additionalProperties": false
       },
+      "InlineAggregationRequest": {
+        "required": [
+          "instruments",
+          "request"
+        ],
+        "type": "object",
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/AggregationRequest"
+          },
+          "instruments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeightedInstrument"
+            },
+            "description": "The set of instruments, weighted by the quantities held that are required.\r\nIt is identified by an identifier tag that can be used to identify it externally.\r\nFor a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or\r\na composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument\r\nsuch as purchase of shares on multiple dates where tax implications are different this would not be the case."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification for an inline aggregation request consisting of an aggregation request and an inlined portfolio on which it is to be performed"
+      },
       "PortfolioReconciliationRequest": {
         "required": [
           "effectiveAt",
@@ -50539,109 +51507,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "AggregationRequest": {
-        "required": [
-          "effectiveAt",
-          "metrics"
-        ],
-        "type": "object",
-        "properties": {
-          "recipeId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "inlineRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt date to use",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
-            "format": "dateorcutlabel"
-          },
-          "metrics": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregateSpec"
-            },
-            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
-          },
-          "groupBy": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "The key that uniquely identifies a queryable address in Lusid."
-            },
-            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
-            "nullable": true
-          },
-          "filters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyFilter"
-            },
-            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
-            "nullable": true
-          },
-          "limit": {
-            "type": "integer",
-            "description": "limit the results to a particular number of values.",
-            "format": "int32",
-            "nullable": true
-          },
-          "sort": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderBySpec"
-            },
-            "description": "A (possibly empty/null) set of specifications for how to order the results.",
-            "nullable": true
-          },
-          "reportCcy": {
-            "type": "string",
-            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
-            "nullable": true
-          },
-          "portfolioIdentifierCode": {
-            "type": "string",
-            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification object for the parameters of an aggregation"
-      },
-      "InlineAggregationRequest": {
-        "required": [
-          "instruments",
-          "request"
-        ],
-        "type": "object",
-        "properties": {
-          "request": {
-            "$ref": "#/components/schemas/AggregationRequest"
-          },
-          "instruments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WeightedInstrument"
-            },
-            "description": "The set of instruments, weighted by the quantities held that are required.\r\nIt is identified by an identifier tag that can be used to identify it externally.\r\nFor a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or\r\na composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument\r\nsuch as purchase of shares on multiple dates where tax implications are different this would not be the case."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification for an inline aggregation request consisting of an aggregation request and an inlined portfolio on which it is to be performed"
       },
       "InlineValuationReconciliationRequest": {
         "required": [
