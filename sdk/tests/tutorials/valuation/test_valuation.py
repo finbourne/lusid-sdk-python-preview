@@ -153,45 +153,8 @@ class Valuation(unittest.TestCase):
         upsert_recipe_request = models.UpsertRecipeRequest(configuration_recipe)
         self.recipes_api.upsert_configuration_recipe(upsert_recipe_request)
 
-    def create_aggregation_request(
-        self, inline_recipe=None, recipe_scope=None, recipe_code=None
-    ) -> lusid.models.AggregationRequest:
-        """
-        Creates an aggregation request that aggregates valuation results based on
-        provided inline recipe or recipe identifiers when using an upserted one
-        :param ConfigurationRecipe inline_recipe: A configured recipe to be used inline
-        :param str recipe_scope: The scope for an already upserted recipe
-        :param str recipe_code: The code for an already upserted recipe
-        :return: AggregationRequest
-        """
-
-        if recipe_scope:
-            in_line_recipe = self.create_configuration_recipe(recipe_scope, recipe_code)
-            self.upsert_recipe_request(in_line_recipe)
-            recipe_id = models.ResourceId(scope=recipe_scope, code=recipe_code)
-        else:
-            recipe_id = None
-
-        return models.AggregationRequest(
-            recipe_id=recipe_id,
-            inline_recipe=inline_recipe,
-            metrics=[
-                models.AggregateSpec("Instrument/default/Name", "Value"),
-                models.AggregateSpec("Holding/default/PV", "Proportion"),
-                models.AggregateSpec("Holding/default/PV", "Sum"),
-            ],
-            group_by=["Instrument/default/Name"],
-            effective_at=self.effective_date,
-        )
-
     @parameterized.expand(
         [
-            [
-                "Test valuation with an aggregation request containing a recipe inline",
-                create_configuration_recipe("self", "TestRecipes", "SimpleQuotes"),
-                None,
-                None,
-            ],
             [
                 "Test valuation with an aggregation request using an already upserted recipe",
                 None,
@@ -204,19 +167,34 @@ class Valuation(unittest.TestCase):
         """
         General valuation/aggregation test
         """
+        # create recipe (provides model parameters, locations to use in resolving market data etc.
+        # and push it into LUSID. Only needs to happen once each time when updated, or first time run to create.
+        recipe = self.create_configuration_recipe(recipe_scope, recipe_code)
+        self.upsert_recipe_request(recipe)
+
         # Set valuation result key
         valuation_key = "Sum(Holding/default/PV)"
 
-        # Call aggregation with recipe identifiers
-        aggregation_request = self.create_aggregation_request(
-            in_line_recipe, recipe_scope, recipe_code
+        # create valuation request
+        valuation_request = models.ValuationRequest(
+            recipe_id=models.ResourceId(scope=recipe_scope, code=recipe_code),
+            metrics=[
+                models.AggregateSpec("Instrument/default/Name", "Value"),
+                models.AggregateSpec("Holding/default/PV", "Proportion"),
+                models.AggregateSpec("Holding/default/PV", "Sum"),
+            ],
+            group_by=["Instrument/default/Name"],
+            effective_at=self.effective_date,
+            portfolio_entity_ids=[
+                models.PortfolioEntityId(
+                    scope=TestDataUtilities.tutorials_scope,
+                    code=self.portfolio_code)
+            ]
         )
 
         # Complete aggregation
-        aggregation = self.aggregation_api.get_aggregation(
-            scope=TestDataUtilities.tutorials_scope,
-            code=self.portfolio_code,
-            aggregation_request=aggregation_request,
+        aggregation = self.aggregation_api.get_valuation(
+            valuation_request=valuation_request
         )
 
         # Asserts
