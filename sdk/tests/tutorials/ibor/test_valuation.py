@@ -19,6 +19,7 @@ class Valuation(unittest.TestCase):
 
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
+        cls.recipes_api = lusid.ConfigurationRecipeApi(api_client)
         cls.aggregation_api = lusid.AggregationApi(api_client)
         cls.quotes_api = lusid.QuotesApi(api_client)
         instrument_loader = InstrumentLoader(cls.instruments_api)
@@ -88,9 +89,11 @@ class Valuation(unittest.TestCase):
                                       request_body={"quote" + str(request_number): requests[request_number]
                                               for request_number in range(len(requests))})
 
-        inline_recipe = models.ConfigurationRecipe(
-            scope='default',
-            code='quotes_recipe',
+        recipe_scope = 'cs-tutorials'
+        recipe_code = 'quotes_recipe'
+        demo_recipe = models.ConfigurationRecipe(
+            scope=recipe_scope,
+            code=recipe_code,
             market=models.MarketContext(
                 market_rules=[],
                 suppliers=models.MarketContextSuppliers(
@@ -102,22 +105,25 @@ class Valuation(unittest.TestCase):
                     default_scope=TestDataUtilities.tutorials_scope)
             )
         )
+        upsert_recipe_request = models.UpsertRecipeRequest(demo_recipe)
+        self.recipes_api.upsert_configuration_recipe(upsert_recipe_request)
 
-        aggregation_request = models.AggregationRequest(
-            inline_recipe=inline_recipe,
+        valuation_request = models.ValuationRequest(
+            recipe_id=models.ResourceId(scope=recipe_scope,code=recipe_code),
             metrics=[
                 models.AggregateSpec("Instrument/default/Name", "Value"),
                 models.AggregateSpec("Holding/default/PV", "Proportion"),
                 models.AggregateSpec("Holding/default/PV", "Sum")
             ],
             group_by=["Instrument/default/Name"],
-            effective_at=effective_date
+            portfolio_entity_ids = [
+                models.PortfolioEntityId(scope = TestDataUtilities.tutorials_scope, code = portfolio_code)
+            ],
+            valuation_schedule=models.ValuationSchedule(effective_at=effective_date)
         )
 
         #   do the aggregation
-        aggregation = self.aggregation_api.get_aggregation(scope=TestDataUtilities.tutorials_scope,
-                                                                        code=portfolio_code,
-                                                                        aggregation_request=aggregation_request)
+        aggregation = self.aggregation_api.get_valuation(valuation_request=valuation_request)
 
         for item in aggregation.data:
             print("\t{}\t{}\t{}".format(item["Instrument/default/Name"], item["Proportion(Holding/default/PV)"],
