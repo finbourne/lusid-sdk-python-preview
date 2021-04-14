@@ -123,9 +123,7 @@ class Valuation(unittest.TestCase):
         )
 
         #   do the aggregation
-        aggregation = self.aggregation_api.get_valuation(scope=TestDataUtilities.tutorials_scope,
-                                                                        code=portfolio_code,
-                                                                        valuation_request=valuation_request)
+        aggregation = self.aggregation_api.get_valuation(valuation_request=valuation_request)
 
         for item in aggregation.data:
             print("\t{}\t{}\t{}".format(item["Instrument/default/Name"], item["Proportion(Holding/default/PV)"],
