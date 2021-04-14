@@ -184,7 +184,7 @@ class Valuation(unittest.TestCase):
                 models.AggregateSpec("Holding/default/PV", "Sum"),
             ],
             group_by=["Instrument/default/Name"],
-            effective_at=self.effective_date,
+            valuation_schedule=models.ValuationSchedule(effective_at=self.effective_date),
             portfolio_entity_ids=[
                 models.PortfolioEntityId(
                     scope=TestDataUtilities.tutorials_scope,
