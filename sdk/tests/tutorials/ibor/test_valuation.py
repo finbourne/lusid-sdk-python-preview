@@ -89,7 +89,7 @@ class Valuation(unittest.TestCase):
                                       request_body={"quote" + str(request_number): requests[request_number]
                                               for request_number in range(len(requests))})
 
-        recipe_scope = 'default'
+        recipe_scope = 'cs-tutorials'
         recipe_code = 'quotes_recipe'
         demo_recipe = models.ConfigurationRecipe(
             scope=recipe_scope,
