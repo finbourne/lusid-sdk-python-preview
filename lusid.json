@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2849",
+    "version": "0.11.2850",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:57098"
     }
   ],
   "paths": {
@@ -24835,21 +24835,21 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Return"
+                  "$ref": "#/components/schemas/PerformanceReturn"
                 },
                 "description": "This contains the Returns which need to be upsert."
               },
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "returnValue": 10,
-                  "marketValue": 5,
+                  "roR": 10,
+                  "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "returnValue": 100,
-                  "marketValue": 15,
+                  "roR": 100,
+                  "openingMarketValue": 15,
                   "period": "Daily"
                 }
               ]
@@ -24858,21 +24858,21 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Return"
+                  "$ref": "#/components/schemas/PerformanceReturn"
                 },
                 "description": "This contains the Returns which need to be upsert."
               },
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "returnValue": 10,
-                  "marketValue": 5,
+                  "roR": 10,
+                  "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "returnValue": 100,
-                  "marketValue": 15,
+                  "roR": 100,
+                  "openingMarketValue": 15,
                   "period": "Daily"
                 }
               ]
@@ -24881,21 +24881,21 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Return"
+                  "$ref": "#/components/schemas/PerformanceReturn"
                 },
                 "description": "This contains the Returns which need to be upsert."
               },
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "returnValue": 10,
-                  "marketValue": 5,
+                  "roR": 10,
+                  "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "returnValue": 100,
-                  "marketValue": 15,
+                  "roR": 100,
+                  "openingMarketValue": 15,
                   "period": "Daily"
                 }
               ]
@@ -24904,21 +24904,21 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Return"
+                  "$ref": "#/components/schemas/PerformanceReturn"
                 },
                 "description": "This contains the Returns which need to be upsert."
               },
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "returnValue": 10,
-                  "marketValue": 5,
+                  "roR": 10,
+                  "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "returnValue": 100,
-                  "marketValue": 15,
+                  "roR": 100,
+                  "openingMarketValue": 15,
                   "period": "Daily"
                 }
               ]
@@ -25088,17 +25088,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReturn"
+                  "$ref": "#/components/schemas/ResourceListOfPerformanceReturn"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReturn"
+                  "$ref": "#/components/schemas/ResourceListOfPerformanceReturn"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReturn"
+                  "$ref": "#/components/schemas/ResourceListOfPerformanceReturn"
                 }
               }
             }
@@ -50210,11 +50210,11 @@
         },
         "additionalProperties": false
       },
-      "Return": {
+      "PerformanceReturn": {
         "required": [
           "effectiveAt",
-          "marketValue",
-          "returnValue"
+          "openingMarketValue",
+          "roR"
         ],
         "type": "object",
         "properties": {
@@ -50223,14 +50223,14 @@
             "description": "The effectiveAt for the return.",
             "format": "date-time"
           },
-          "returnValue": {
+          "roR": {
             "type": "number",
             "description": "The return number.",
             "format": "double"
           },
-          "marketValue": {
+          "openingMarketValue": {
             "type": "number",
-            "description": "The market value.",
+            "description": "The opening market value.",
             "format": "double"
           },
           "period": {
@@ -50291,7 +50291,7 @@
         "additionalProperties": false,
         "description": "Response from upserting Returns"
       },
-      "ResourceListOfReturn": {
+      "ResourceListOfPerformanceReturn": {
         "required": [
           "values"
         ],
@@ -50300,7 +50300,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Return"
+              "$ref": "#/components/schemas/PerformanceReturn"
             }
           },
           "href": {
@@ -50329,8 +50329,8 @@
       "AggregatedReturn": {
         "required": [
           "effectiveAt",
-          "marketValue",
-          "metricsValue"
+          "metricsValue",
+          "openingMarketValue"
         ],
         "type": "object",
         "properties": {
@@ -50339,9 +50339,9 @@
             "description": "The effectiveAt for the return.",
             "format": "date-time"
           },
-          "marketValue": {
+          "openingMarketValue": {
             "type": "number",
-            "description": "The market value.",
+            "description": "The opening market value.",
             "format": "double"
           },
           "metricsValue": {
@@ -56820,7 +56820,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
