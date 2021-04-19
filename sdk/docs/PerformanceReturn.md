@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **effective_at** | **datetime** | The effectiveAt for the return. | 
-**ro_r** | **float** | The return number. | 
+**rate_of_return** | **float** | The return number. | 
 **opening_market_value** | **float** | The opening market value. | 
 **period** | **str** | Show the returns on a Daily or Monthly period. | [optional] 
 

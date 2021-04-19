@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2866",
+    "version": "0.11.2868",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:34253"
+      "url": "http://local-unit-test-server.lusid.com:48607"
     }
   ],
   "paths": {
@@ -24842,13 +24842,13 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "roR": 10,
+                  "rateOfReturn": 10,
                   "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "roR": 100,
+                  "rateOfReturn": 100,
                   "openingMarketValue": 15,
                   "period": "Daily"
                 }
@@ -24865,13 +24865,13 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "roR": 10,
+                  "rateOfReturn": 10,
                   "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "roR": 100,
+                  "rateOfReturn": 100,
                   "openingMarketValue": 15,
                   "period": "Daily"
                 }
@@ -24888,13 +24888,13 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "roR": 10,
+                  "rateOfReturn": 10,
                   "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "roR": 100,
+                  "rateOfReturn": 100,
                   "openingMarketValue": 15,
                   "period": "Daily"
                 }
@@ -24911,13 +24911,13 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "roR": 10,
+                  "rateOfReturn": 10,
                   "openingMarketValue": 5,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "roR": 100,
+                  "rateOfReturn": 100,
                   "openingMarketValue": 15,
                   "period": "Daily"
                 }
@@ -50220,7 +50220,7 @@
         "required": [
           "effectiveAt",
           "openingMarketValue",
-          "roR"
+          "rateOfReturn"
         ],
         "type": "object",
         "properties": {
@@ -50229,7 +50229,7 @@
             "description": "The effectiveAt for the return.",
             "format": "date-time"
           },
-          "roR": {
+          "rateOfReturn": {
             "type": "number",
             "description": "The return number.",
             "format": "double"
