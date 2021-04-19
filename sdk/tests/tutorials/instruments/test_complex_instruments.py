@@ -3,7 +3,7 @@ import pytz
 import lusid
 import lusid.models as models
 from datetime import datetime
-#from utilities import TestDataUtilities
+from utilities import TestDataUtilities
 
 
 class ComplexInstrumentTests(unittest.TestCase):
@@ -107,30 +107,36 @@ class ComplexInstrumentTests(unittest.TestCase):
             saved_fx_option.is_delivery_not_cash, fx_option.is_delivery_not_cash
         )
 
-        # to be inserted here
     def test_create_term_deposit(self):
 
-        term_deposit = lusid.TermDeposit(
-            startDate=datetime(2020, 2, 5, 00, tzinfo=pytz.utc),
-            maturityDate=datetime(2020, 2, 8, 00, tzinfo=pytz.utc),
-            contractSize=1000000,
-            flowConvention=lusid.FlowConventions(
+        term_deposit = models.TermDeposit(
+            start_date=datetime(2020, 2, 5, 00, tzinfo=pytz.utc),
+            maturity_date=datetime(2020, 2, 8, 00, tzinfo=pytz.utc),
+            contract_size=1000000,
+            flow_convention=models.FlowConventions(
                 scope=None,
                 code=None,
                 currency="GBP",
-                paymentFrequency="6M",
-                rollConvention="MF",
-                dayCountConvention="Act365",
-                paymentCalendars=[],
-                resetCalendars=[],
-                settleDays=1,
-                resetDays=0
+                payment_frequency="6M",
+                roll_convention="MF",
+                day_count_convention="Act365",
+                payment_calendars=[],
+                reset_calendars=[],
+                settle_days=1,
+                reset_days=0
                 ),
             rate=0.03,
             instrument_type="TermDeposit"
         )
-
+        upsert_term_deposit = self.instruments_api.upsert_instruments(request_body={
+        "upsert_request_001": models.InstrumentDefinition(
+            name="Term Deposit Test3%",
+            identifiers={"ClientInternal": models.InstrumentIdValue("test_td")},
+            definition=term_deposit
+        )
+    })
         # Assert instrument was created
-        self.assertIsNotNone(term_deposit)
+        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].instrument_definition)
+        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].lusid_instrument_id)
 
 
