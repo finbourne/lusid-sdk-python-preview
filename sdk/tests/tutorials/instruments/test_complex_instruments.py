@@ -3,7 +3,7 @@ import pytz
 import lusid
 import lusid.models as models
 from datetime import datetime
-from utilities import TestDataUtilities
+#from utilities import TestDataUtilities
 
 
 class ComplexInstrumentTests(unittest.TestCase):
@@ -107,4 +107,30 @@ class ComplexInstrumentTests(unittest.TestCase):
             saved_fx_option.is_delivery_not_cash, fx_option.is_delivery_not_cash
         )
 
-        # to be inserted here 
+        # to be inserted here
+    def test_create_term_deposit(self):
+
+        term_deposit = lusid.TermDeposit(
+            startDate=datetime(2020, 2, 5, 00, tzinfo=pytz.utc),
+            maturityDate=datetime(2020, 2, 8, 00, tzinfo=pytz.utc),
+            contractSize=1000000,
+            flowConvention=lusid.FlowConventions(
+                scope=None,
+                code=None,
+                currency="GBP",
+                paymentFrequency="6M",
+                rollConvention="MF",
+                dayCountConvention="Act365",
+                paymentCalendars=[],
+                resetCalendars=[],
+                settleDays=1,
+                resetDays=0
+                ),
+            rate=0.03,
+            instrument_type="TermDeposit"
+        )
+
+        # Assert instrument was created
+        self.assertIsNotNone(term_deposit)
+
+
