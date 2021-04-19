@@ -106,3 +106,5 @@ class ComplexInstrumentTests(unittest.TestCase):
         self.assertEqual(
             saved_fx_option.is_delivery_not_cash, fx_option.is_delivery_not_cash
         )
+
+        # to be inserted here 
