@@ -139,4 +139,37 @@ class ComplexInstrumentTests(unittest.TestCase):
         self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].instrument_definition)
         self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].lusid_instrument_id)
 
+    def test_create_zero_coupon_bond(self):
 
+        zero_coupon_bond = models.Bond(
+            start_date=datetime(2020, 2, 7, 00, tzinfo=pytz.utc),
+            maturity_date=datetime(2020, 9, 18, 00, tzinfo=pytz.utc),
+            dom_ccy="GBP",
+            principal=100000,
+            coupon_rate=0,
+            flow_conventions=models.FlowConventions(
+                scope=None,
+                code=None,
+                currency="GBP",
+                payment_frequency="0Invalid",
+                roll_convention="None",
+                day_count_convention="Invalid",
+                payment_calendars=[],
+                reset_calendars=[],
+                settle_days=2,
+                reset_days=2
+                ),
+            identifiers={},
+            instrument_type="Bond"
+        )
+
+        upsert_zero_coupon_bond = self.instruments_api.upsert_instruments(request_body={
+            "upsert_request_001": models.InstrumentDefinition(
+                name="Zero Coupon Test",
+                identifiers={"ClientInternal": models.InstrumentIdValue("test_zc")},
+                definition=zero_coupon_bond
+            )
+        })
+        # Assert instrument was created
+        self.assertIsNotNone(upsert_zero_coupon_bond.values["upsert_request_001"].instrument_definition)
+        self.assertIsNotNone(upsert_zero_coupon_bond.values["upsert_request_001"].lusid_instrument_id)
