@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2879",
+    "version": "0.11.2882",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58694"
     }
   ],
   "paths": {
@@ -31015,20 +31015,6 @@
               "description": "The code of the relationship",
               "nullable": true
             }
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which the relationship should be effective from. Defaults to the current LUSID system datetime if not specified.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 0,
-              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
-              "type": "string",
-              "description": "The effective datetime or cut label at which the relationship should be effective from. Defaults to the current LUSID system datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
           }
         ],
         "requestBody": {
@@ -31279,20 +31265,6 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the relationship",
-              "nullable": true
-            }
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which the relationship should the deletion be effective from. Defaults to the current LUSID system datetime if not specified.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 0,
-              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
-              "type": "string",
-              "description": "The effective datetime or cut label at which the relationship should the deletion be effective from. Defaults to the current LUSID system datetime if not specified.",
-              "format": "dateorcutlabel",
               "nullable": true
             }
           }
@@ -52394,6 +52366,15 @@
               "type": "string"
             },
             "description": "The identifier of the target entity."
+          },
+          "effectiveFrom": {
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+            "type": "string",
+            "description": "The effective date of the relationship to be created",
+            "format": "dateorcutlabel",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -52463,6 +52444,15 @@
               "type": "string"
             },
             "description": "The identifier of the target entity of the relationship to be deleted."
+          },
+          "effectiveFrom": {
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+            "type": "string",
+            "description": "The effective date of the relationship to be deleted",
+            "format": "dateorcutlabel",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -56909,7 +56899,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
