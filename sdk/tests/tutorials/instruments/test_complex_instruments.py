@@ -128,16 +128,18 @@ class ComplexInstrumentTests(unittest.TestCase):
             rate=0.03,
             instrument_type="TermDeposit"
         )
+
+        request_id = "upsert_request_001"
         upsert_term_deposit = self.instruments_api.upsert_instruments(request_body={
-        "upsert_request_001": models.InstrumentDefinition(
-            name="Term Deposit Test3%",
-            identifiers={"ClientInternal": models.InstrumentIdValue("test_td")},
+        request_id: models.InstrumentDefinition(
+            name="Term Deposit Example",
+            identifiers={"ClientInternal": models.InstrumentIdValue("TermDepositInstrument")},
             definition=term_deposit
         )
     })
         # Assert instrument was created
-        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].instrument_definition)
-        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].lusid_instrument_id)
+        self.assertIsNotNone(upsert_term_deposit.values[request_id].instrument_definition)
+        self.assertIsNotNone(upsert_term_deposit.values[request_id].lusid_instrument_id)
 
     def test_create_zero_coupon_bond(self):
 
@@ -163,13 +165,14 @@ class ComplexInstrumentTests(unittest.TestCase):
             instrument_type="Bond"
         )
 
+        request_id = "upsert_request_001"
         upsert_zero_coupon_bond = self.instruments_api.upsert_instruments(request_body={
-            "upsert_request_001": models.InstrumentDefinition(
-                name="Zero Coupon Test",
-                identifiers={"ClientInternal": models.InstrumentIdValue("test_zc")},
+            request_id: models.InstrumentDefinition(
+                name="Zero Coupon Bond Example",
+                identifiers={"ClientInternal": models.InstrumentIdValue("ZeroCouponBondInstrument")},
                 definition=zero_coupon_bond
             )
         })
         # Assert instrument was created
-        self.assertIsNotNone(upsert_zero_coupon_bond.values["upsert_request_001"].instrument_definition)
-        self.assertIsNotNone(upsert_zero_coupon_bond.values["upsert_request_001"].lusid_instrument_id)
+        self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].instrument_definition)
+        self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].lusid_instrument_id)
