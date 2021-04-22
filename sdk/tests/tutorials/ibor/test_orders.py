@@ -70,13 +70,11 @@ class Orders(unittest.TestCase):
                       f"Order/{orders_scope}/Strategy":
                           PerpetualProperty(f"Order/{orders_scope}/Strategy", PropertyValue("RiskArb"))}
 
-        order_book_id = ResourceId(orders_scope, "OrdersTestBook")
         quantity = 100
         # Construct request
         order_request = OrderRequest(properties=properties,
                                      instrument_identifiers=instrument_identifiers,
                                      quantity=quantity, side='buy',
-                                     order_book_id=order_book_id,
                                      portfolio_id=portfolio_id, id=order_resource_id)
 
         order_set_request = OrderSetRequest(order_requests=[order_request])
