@@ -174,7 +174,7 @@ class ComplexInstrumentTests(unittest.TestCase):
         upsert_zero_coupon_bond = self.instruments_api.upsert_instruments(request_body={
             request_id: models.InstrumentDefinition(
                 name="Zero Coupon Bond Example",
-                identifiers={"ClientInternal": models.InstrumentIdValue("ZeroCouponBondInstrument")},
+                identifiers={"ClientInternal": models.InstrumentIdValue(zero_coupon_bond_identifier)},
                 definition=zero_coupon_bond
             )
         })
