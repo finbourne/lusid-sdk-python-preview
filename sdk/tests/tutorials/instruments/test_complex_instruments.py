@@ -130,16 +130,20 @@ class ComplexInstrumentTests(unittest.TestCase):
         )
 
         request_id = "upsert_request_001"
+        term_deposit_identifier = "TermDepositInstrument"
         upsert_term_deposit = self.instruments_api.upsert_instruments(request_body={
         request_id: models.InstrumentDefinition(
             name="Term Deposit Example",
-            identifiers={"ClientInternal": models.InstrumentIdValue("TermDepositInstrument")},
+            identifiers={"ClientInternal": models.InstrumentIdValue(term_deposit_identifier)},
             definition=term_deposit
         )
     })
         # Assert instrument was created
         self.assertIsNotNone(upsert_term_deposit.values[request_id].instrument_definition)
         self.assertIsNotNone(upsert_term_deposit.values[request_id].lusid_instrument_id)
+
+        # Remove the test instrument
+        self.instruments_api.delete_instrument("ClientInternal",term_deposit_identifier)
 
     def test_create_zero_coupon_bond(self):
 
@@ -166,6 +170,7 @@ class ComplexInstrumentTests(unittest.TestCase):
         )
 
         request_id = "upsert_request_001"
+        zero_coupon_bond_identifier = "ZeroCouponBondInstrument"
         upsert_zero_coupon_bond = self.instruments_api.upsert_instruments(request_body={
             request_id: models.InstrumentDefinition(
                 name="Zero Coupon Bond Example",
@@ -176,3 +181,6 @@ class ComplexInstrumentTests(unittest.TestCase):
         # Assert instrument was created
         self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].instrument_definition)
         self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].lusid_instrument_id)
+
+        # Remove the test instrument
+        self.instruments_api.delete_instrument("ClientInternal", zero_coupon_bond_identifier)
