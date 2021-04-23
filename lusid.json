@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2899",
+    "version": "0.11.2898",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:47961"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -1460,6 +1460,9 @@
             "description": "The allocation scope.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The allocation scope."
             }
@@ -1470,6 +1473,9 @@
             "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete."
             }
@@ -14020,6 +14026,9 @@
             "description": "The order scope.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The order scope."
             }
@@ -14030,6 +14039,9 @@
             "description": "The order's code. This, together with the scope uniquely identifies the order to delete.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The order's code. This, together with the scope uniquely identifies the order to delete."
             }
@@ -56885,7 +56897,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
