@@ -128,15 +128,60 @@ class ComplexInstrumentTests(unittest.TestCase):
             rate=0.03,
             instrument_type="TermDeposit"
         )
+
+        request_id = "upsert_request_001"
+        term_deposit_identifier = "TermDepositInstrument"
         upsert_term_deposit = self.instruments_api.upsert_instruments(request_body={
-        "upsert_request_001": models.InstrumentDefinition(
-            name="Term Deposit Test3%",
-            identifiers={"ClientInternal": models.InstrumentIdValue("test_td")},
+        request_id: models.InstrumentDefinition(
+            name="Term Deposit Example",
+            identifiers={"ClientInternal": models.InstrumentIdValue(term_deposit_identifier)},
             definition=term_deposit
         )
     })
         # Assert instrument was created
-        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].instrument_definition)
-        self.assertIsNotNone(upsert_term_deposit.values["upsert_request_001"].lusid_instrument_id)
+        self.assertIsNotNone(upsert_term_deposit.values[request_id].instrument_definition)
+        self.assertIsNotNone(upsert_term_deposit.values[request_id].lusid_instrument_id)
 
+        # Remove the test instrument
+        self.instruments_api.delete_instrument("ClientInternal",term_deposit_identifier)
+
+    def test_create_zero_coupon_bond(self):
+
+        zero_coupon_bond = models.Bond(
+            start_date=datetime(2020, 2, 7, 00, tzinfo=pytz.utc),
+            maturity_date=datetime(2020, 9, 18, 00, tzinfo=pytz.utc),
+            dom_ccy="GBP",
+            principal=100000,
+            coupon_rate=0,
+            flow_conventions=models.FlowConventions(
+                scope=None,
+                code=None,
+                currency="GBP",
+                payment_frequency="0Invalid",
+                roll_convention="None",
+                day_count_convention="Invalid",
+                payment_calendars=[],
+                reset_calendars=[],
+                settle_days=2,
+                reset_days=2
+                ),
+            identifiers={},
+            instrument_type="Bond"
+        )
+
+        request_id = "upsert_request_001"
+        zero_coupon_bond_identifier = "ZeroCouponBondInstrument"
+        upsert_zero_coupon_bond = self.instruments_api.upsert_instruments(request_body={
+            request_id: models.InstrumentDefinition(
+                name="Zero Coupon Bond Example",
+                identifiers={"ClientInternal": models.InstrumentIdValue(zero_coupon_bond_identifier)},
+                definition=zero_coupon_bond
+            )
+        })
+        # Assert instrument was created
+        self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].instrument_definition)
+        self.assertIsNotNone(upsert_zero_coupon_bond.values[request_id].lusid_instrument_id)
+
+        # Remove the test instrument
+        self.instruments_api.delete_instrument("ClientInternal", zero_coupon_bond_identifier)
 
