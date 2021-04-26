@@ -184,3 +184,4 @@ class ComplexInstrumentTests(unittest.TestCase):
 
         # Remove the test instrument
         self.instruments_api.delete_instrument("ClientInternal", zero_coupon_bond_identifier)
+

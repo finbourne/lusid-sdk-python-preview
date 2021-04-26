@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **create_relationship**
-> CompleteRelationship create_relationship(scope, code, create_relationship_request, effective_at=effective_at)
+> CompleteRelationship create_relationship(scope, code, create_relationship_request)
 
 [EXPERIMENTAL] Create Relationship
 
@@ -35,11 +35,10 @@ api_instance = lusid.RelationshipsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relationship
 code = 'code_example' # str | The code of the relationship
 create_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationshipRequest | The details of the relationship to create.
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relationship should be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
 try:
     # [EXPERIMENTAL] Create Relationship
-    api_response = api_instance.create_relationship(scope, code, create_relationship_request, effective_at=effective_at)
+    api_response = api_instance.create_relationship(scope, code, create_relationship_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RelationshipsApi->create_relationship: %s\n" % e)
@@ -52,7 +51,6 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the relationship | 
  **code** | **str**| The code of the relationship | 
  **create_relationship_request** | [**CreateRelationshipRequest**](CreateRelationshipRequest.md)| The details of the relationship to create. | 
- **effective_at** | **str**| The effective datetime or cut label at which the relationship should be effective from. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -77,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_relationship**
-> DeletedEntityResponse delete_relationship(scope, code, delete_relationship_request, effective_at=effective_at)
+> DeletedEntityResponse delete_relationship(scope, code, delete_relationship_request)
 
 [EXPERIMENTAL] Delete Relationship
 
@@ -103,11 +101,10 @@ api_instance = lusid.RelationshipsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relationship
 code = 'code_example' # str | The code of the relationship
 delete_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # DeleteRelationshipRequest | The details of the relationship to delete.
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relationship should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
 try:
     # [EXPERIMENTAL] Delete Relationship
-    api_response = api_instance.delete_relationship(scope, code, delete_relationship_request, effective_at=effective_at)
+    api_response = api_instance.delete_relationship(scope, code, delete_relationship_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RelationshipsApi->delete_relationship: %s\n" % e)
@@ -120,7 +117,6 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the relationship | 
  **code** | **str**| The code of the relationship | 
  **delete_relationship_request** | [**DeleteRelationshipRequest**](DeleteRelationshipRequest.md)| The details of the relationship to delete. | 
- **effective_at** | **str**| The effective datetime or cut label at which the relationship should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 

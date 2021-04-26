@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**get_portfolio_metadata**](PortfoliosApi.md#get_portfolio_metadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EXPERIMENTAL] Get access metadata rules for a portfolio
 [**get_portfolio_properties**](PortfoliosApi.md#get_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
 [**get_portfolio_property_time_series**](PortfoliosApi.md#get_portfolio_property_time_series) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EXPERIMENTAL] Get the time series of a portfolio property
-[**get_portfolio_relations**](PortfoliosApi.md#get_portfolio_relations) | **GET** /api/portfolios/{scope}/{code}/relations | [DEPRECATED] Get Relations for Portfolio
+[**get_portfolio_relations**](PortfoliosApi.md#get_portfolio_relations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] Get Relations for Portfolio
 [**get_portfolio_relationships**](PortfoliosApi.md#get_portfolio_relationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EXPERIMENTAL] Get Relationships for Portfolio
 [**get_portfolio_returns**](PortfoliosApi.md#get_portfolio_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EXPERIMENTAL] Get Returns
 [**get_portfolios_access_metadata_by_key**](PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Get an entry identified by a metadataKey in the access metadata object
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_relations**
 > ResourceListOfRelation get_portfolio_relations(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[DEPRECATED] Get Relations for Portfolio
+[EXPERIMENTAL] Get Relations for Portfolio
 
 Get relations for the specified Portfolio
 
@@ -691,7 +691,7 @@ filter = 'filter_example' # str | Expression to filter the relations. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
 
 try:
-    # [DEPRECATED] Get Relations for Portfolio
+    # [EXPERIMENTAL] Get Relations for Portfolio
     api_response = api_instance.get_portfolio_relations(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
     pprint(api_response)
 except ApiException as e:
@@ -1333,7 +1333,7 @@ scope = 'scope_example' # str | The scope of the Portfolio.
 code = 'code_example' # str | The code of the  Portfolio.
 return_scope = 'return_scope_example' # str | The scope of the Returns.
 return_code = 'return_code_example' # str | The code of the Returns.
-performance_return = [{"effectiveAt":"2019-11-28T00:00:00.0000000+00:00","roR":10,"openingMarketValue":5,"period":"Daily"},{"effectiveAt":"2019-11-29T00:00:00.0000000+00:00","roR":100,"openingMarketValue":15,"period":"Daily"}] # list[PerformanceReturn] | This contains the Returns which need to be upsert.
+performance_return = [{"effectiveAt":"2019-11-28T00:00:00.0000000+00:00","rateOfReturn":10,"openingMarketValue":5,"period":"Daily"},{"effectiveAt":"2019-11-29T00:00:00.0000000+00:00","rateOfReturn":100,"openingMarketValue":15,"period":"Daily"}] # list[PerformanceReturn] | This contains the Returns which need to be upsert.
 
 try:
     # [EXPERIMENTAL] Upsert Returns

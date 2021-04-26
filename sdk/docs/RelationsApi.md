@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relation**](RelationsApi.md#create_relation) | **POST** /api/relations/{scope}/{code} | [DEPRECATED] Create Relation
-[**delete_relation**](RelationsApi.md#delete_relation) | **POST** /api/relations/{scope}/{code}/$delete | [DEPRECATED] Delete a relation
+[**create_relation**](RelationsApi.md#create_relation) | **POST** /api/relations/{scope}/{code} | [EXPERIMENTAL] Create Relation
+[**delete_relation**](RelationsApi.md#delete_relation) | **POST** /api/relations/{scope}/{code}/$delete | [EXPERIMENTAL] Delete a relation
 
 
 # **create_relation**
 > CompleteRelation create_relation(scope, code, create_relation_request, effective_at=effective_at)
 
-[DEPRECATED] Create Relation
+[EXPERIMENTAL] Create Relation
 
 Create a relation between two entity objects by their identifiers
 
@@ -38,7 +38,7 @@ create_relation_request = {"sourceEntityId":{"idTypeScope":"HrSystem1","idTypeCo
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
 try:
-    # [DEPRECATED] Create Relation
+    # [EXPERIMENTAL] Create Relation
     api_response = api_instance.create_relation(scope, code, create_relation_request, effective_at=effective_at)
     pprint(api_response)
 except ApiException as e:
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 # **delete_relation**
 > DeletedEntityResponse delete_relation(scope, code, delete_relation_request, effective_at=effective_at)
 
-[DEPRECATED] Delete a relation
+[EXPERIMENTAL] Delete a relation
 
 Delete a relation between two entity objects represented by their identifiers
 
@@ -106,7 +106,7 @@ delete_relation_request = {"sourceEntityId":{"entityType":"PortfolioGroup","scop
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. (optional)
 
 try:
-    # [DEPRECATED] Delete a relation
+    # [EXPERIMENTAL] Delete a relation
     api_response = api_instance.delete_relation(scope, code, delete_relation_request, effective_at=effective_at)
     pprint(api_response)
 except ApiException as e:
