@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2922",
+    "version": "0.11.2923",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:49184"
+      "url": "http://local-unit-test-server.lusid.com:42815"
     }
   ],
   "paths": {
@@ -25230,20 +25230,20 @@
           {
             "name": "period",
             "in": "query",
-            "description": "the type of the returns used to calculate the aggregation result.",
+            "description": "The type of the returns used to calculate the aggregation result: Daily/Monthly.",
             "schema": {
               "type": "string",
-              "description": "the type of the returns used to calculate the aggregation result.",
+              "description": "The type of the returns used to calculate the aggregation result: Daily/Monthly.",
               "nullable": true
             }
           },
           {
             "name": "outputFrequency",
             "in": "query",
-            "description": "The type of calculated output.",
+            "description": "The type of calculated output: Daily/Monthly/Yearly.",
             "schema": {
               "type": "string",
-              "description": "The type of calculated output.",
+              "description": "The type of calculated output: Daily/Monthly/Yearly.",
               "nullable": true
             }
           },
