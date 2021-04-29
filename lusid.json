@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2928",
+    "version": "0.11.2929",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50735"
+      "url": "http://local-unit-test-server.lusid.com:63334"
     }
   ],
   "paths": {
@@ -11074,7 +11074,7 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "The scope of the legal entity identifier type."
             }
@@ -11087,7 +11087,7 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "The code of the legal entity identifier type."
             }
@@ -11100,7 +11100,7 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete."
             }
@@ -15427,6 +15427,9 @@
             "description": "The scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "The scope of the person identifier type."
             }
@@ -15437,6 +15440,9 @@
             "description": "The code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "The code of the person identifier type."
             }
@@ -15449,7 +15455,7 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "Code of the person under specified identifier type scope and code. This together with defined\r\n            identifier type uniquely identifies the person to delete."
             }
@@ -15823,6 +15829,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -15834,6 +15843,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
@@ -16850,6 +16862,9 @@
             "description": "Scope of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the person identifier type.",
               "nullable": true
@@ -16861,6 +16876,9 @@
             "description": "Code of the person identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the person identifier type.",
               "nullable": true
