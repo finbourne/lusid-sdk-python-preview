@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2930",
+    "version": "0.11.2931",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:63472"
+      "url": "http://local-unit-test-server.lusid.com:63728"
     }
   ],
   "paths": {
@@ -42893,7 +42893,7 @@
                 "first-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-1",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -42907,7 +42907,7 @@
                 "second-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-2",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -42932,7 +42932,7 @@
                 "first-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-1",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -42946,7 +42946,7 @@
                 "second-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-2",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -42971,7 +42971,7 @@
                 "first-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-1",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -42985,7 +42985,7 @@
                 "second-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-2",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -43010,7 +43010,7 @@
                 "first-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-1",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },
@@ -43024,7 +43024,7 @@
                 "second-item": {
                   "id": {
                     "source": "Client",
-                    "code": "MyUploadedRiskResults",
+                    "code": "MyUploadedRiskResults-2",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "resultType": "Risk"
                   },

@@ -1,6 +1,6 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:63472*
+All URIs are relative to *http://local-unit-test-server.lusid.com:63728*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:63472
-configuration.host = "http://local-unit-test-server.lusid.com:63472"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:63728
+configuration.host = "http://local-unit-test-server.lusid.com:63728"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | Scope in which to upsert the result address definition maps
@@ -95,8 +95,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:63472
-configuration.host = "http://local-unit-test-server.lusid.com:63472"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:63728
+configuration.host = "http://local-unit-test-server.lusid.com:63728"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to delete.
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:63472
-configuration.host = "http://local-unit-test-server.lusid.com:63472"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:63728
+configuration.host = "http://local-unit-test-server.lusid.com:63728"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the result address definition map keys
@@ -223,8 +223,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:63472
-configuration.host = "http://local-unit-test-server.lusid.com:63472"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:63728
+configuration.host = "http://local-unit-test-server.lusid.com:63728"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the structured result data to retrieve.
@@ -291,12 +291,12 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:63472
-configuration.host = "http://local-unit-test-server.lusid.com:63472"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:63728
+configuration.host = "http://local-unit-test-server.lusid.com:63728"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the structured result data.
-request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of structured result data items to update or insert keyed by a unique correlation id.
+request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of structured result data items to update or insert keyed by a unique correlation id.
 
 try:
     # [EXPERIMENTAL] Upsert a set of structured result data items. This creates or updates the data in Lusid.
