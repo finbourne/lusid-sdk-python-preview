@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2942",
+    "version": "0.11.2943",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:58960"
+      "url": "http://local-unit-test-server.lusid.com:40420"
     }
   ],
   "paths": {
@@ -22585,56 +22585,6 @@
         "summary": "[EXPERIMENTAL] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of inline instruments using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileInline",
-        "parameters": [
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, skip this number of results",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Optional. When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
         "requestBody": {
           "description": "The specifications of the inputs to the reconciliation",
           "content": {
@@ -22644,94 +22594,100 @@
               },
               "example": {
                 "left": {
-                  "scope": "MySourceScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPUSD",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "USD",
-                          "refSpotRate": 1.5,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPUSD",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "USD",
+                        "refSpotRate": 1.5,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "right": {
-                  "scope": "MyTargetScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPJPY",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "JPY",
-                          "refSpotRate": 132,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPJPY",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "JPY",
+                        "refSpotRate": 132,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "leftToRightMapping": [],
                 "preserveKeys": []
@@ -22743,94 +22699,100 @@
               },
               "example": {
                 "left": {
-                  "scope": "MySourceScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPUSD",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "USD",
-                          "refSpotRate": 1.5,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPUSD",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "USD",
+                        "refSpotRate": 1.5,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "right": {
-                  "scope": "MyTargetScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPJPY",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "JPY",
-                          "refSpotRate": 132,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPJPY",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "JPY",
+                        "refSpotRate": 132,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "leftToRightMapping": [],
                 "preserveKeys": []
@@ -22842,94 +22804,100 @@
               },
               "example": {
                 "left": {
-                  "scope": "MySourceScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPUSD",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "USD",
-                          "refSpotRate": 1.5,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPUSD",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "USD",
+                        "refSpotRate": 1.5,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "right": {
-                  "scope": "MyTargetScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPJPY",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "JPY",
-                          "refSpotRate": 132,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPJPY",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "JPY",
+                        "refSpotRate": 132,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "leftToRightMapping": [],
                 "preserveKeys": []
@@ -22941,94 +22909,100 @@
               },
               "example": {
                 "left": {
-                  "scope": "MySourceScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPUSD",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "USD",
-                          "refSpotRate": 1.5,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPUSD",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "USD",
+                        "refSpotRate": 1.5,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "right": {
-                  "scope": "MyTargetScope",
-                  "aggregation": {
-                    "request": {
-                      "recipeId": {
-                        "scope": "MyScope",
-                        "code": "default"
-                      },
-                      "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                      "metrics": [
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Proportion"
-                        },
-                        {
-                          "key": "Holding/default/PV",
-                          "op": "Sum"
-                        }
-                      ],
-                      "groupBy": [
-                        "Instrument/default/Name"
-                      ],
-                      "portfolioIdentifierCode": "SinglePortfolio"
+                  "recipeId": {
+                    "scope": "MyScope",
+                    "code": "default"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "instruments": [
-                      {
-                        "quantity": 10000,
-                        "holdingIdentifier": "fx-fwd-GBPJPY",
-                        "instrument": {
-                          "startDate": "2018-03-01T00:00:00.0000000+00:00",
-                          "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
-                          "domAmount": 100,
-                          "domCcy": "GBP",
-                          "fgnAmount": -150,
-                          "fgnCcy": "JPY",
-                          "refSpotRate": 132,
-                          "isNdf": false,
-                          "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
-                          "instrumentType": "FxForward"
-                        }
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Value"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  },
+                  "instruments": [
+                    {
+                      "quantity": 10000,
+                      "holdingIdentifier": "fx-fwd-GBPJPY",
+                      "instrument": {
+                        "startDate": "2018-03-01T00:00:00.0000000+00:00",
+                        "maturityDate": "2018-03-30T00:00:00.0000000+00:00",
+                        "domAmount": 100,
+                        "domCcy": "GBP",
+                        "fgnAmount": -150,
+                        "fgnCcy": "JPY",
+                        "refSpotRate": 132,
+                        "isNdf": false,
+                        "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "instrumentType": "FxForward"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 },
                 "leftToRightMapping": [],
                 "preserveKeys": []
@@ -23104,56 +23078,6 @@
         "summary": "[EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileValuation",
-        "parameters": [
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, skip this number of results",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Optional. When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
         "requestBody": {
           "description": "The specifications of the inputs to the reconciliation",
           "content": {
@@ -23163,63 +23087,95 @@
               },
               "example": {
                 "left": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MySourceScope",
                     "code": "MySourcePortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "right": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MyTargetScope",
                     "code": "MyTargetPortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "leftToRightMapping": [],
-                "preserveKeys": []
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
               }
             },
             "application/json": {
@@ -23228,63 +23184,95 @@
               },
               "example": {
                 "left": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MySourceScope",
                     "code": "MySourcePortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "right": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MyTargetScope",
                     "code": "MyTargetPortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "leftToRightMapping": [],
-                "preserveKeys": []
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
               }
             },
             "text/json": {
@@ -23293,63 +23281,95 @@
               },
               "example": {
                 "left": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MySourceScope",
                     "code": "MySourcePortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "right": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MyTargetScope",
                     "code": "MyTargetPortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "leftToRightMapping": [],
-                "preserveKeys": []
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
               }
             },
             "application/*+json": {
@@ -23358,63 +23378,95 @@
               },
               "example": {
                 "left": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MySourceScope",
                     "code": "MySourcePortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "right": {
-                  "portfolioId": {
+                  "recipeId": {
                     "scope": "MyTargetScope",
                     "code": "MyTargetPortfolioCode"
                   },
-                  "aggregation": {
-                    "recipeId": {
-                      "scope": "MyScope",
-                      "code": "default"
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
                     },
-                    "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                    "metrics": [
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Proportion"
-                      },
-                      {
-                        "key": "Holding/default/PV",
-                        "op": "Sum"
-                      }
-                    ],
-                    "groupBy": [
-                      "Instrument/default/Name"
-                    ],
-                    "portfolioIdentifierCode": "SinglePortfolio"
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
                   }
                 },
                 "leftToRightMapping": [],
-                "preserveKeys": []
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
               }
             }
           }
@@ -50536,127 +50588,6 @@
         },
         "additionalProperties": false
       },
-      "AggregationRequest": {
-        "required": [
-          "effectiveAt",
-          "metrics"
-        ],
-        "type": "object",
-        "properties": {
-          "recipeId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "inlineRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt date to use",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
-            "format": "dateorcutlabel"
-          },
-          "metrics": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregateSpec"
-            },
-            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
-          },
-          "groupBy": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "The key that uniquely identifies a queryable address in Lusid."
-            },
-            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
-            "nullable": true
-          },
-          "filters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyFilter"
-            },
-            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
-            "nullable": true
-          },
-          "limit": {
-            "type": "integer",
-            "description": "limit the results to a particular number of values.",
-            "format": "int32",
-            "nullable": true
-          },
-          "sort": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderBySpec"
-            },
-            "description": "A (possibly empty/null) set of specifications for how to order the results.",
-            "nullable": true
-          },
-          "reportCcy": {
-            "type": "string",
-            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
-            "nullable": true
-          },
-          "portfolioIdentifierCode": {
-            "type": "string",
-            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification object for the parameters of an aggregation"
-      },
-      "InlineAggregationRequest": {
-        "required": [
-          "instruments",
-          "request"
-        ],
-        "type": "object",
-        "properties": {
-          "request": {
-            "$ref": "#/components/schemas/AggregationRequest"
-          },
-          "instruments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WeightedInstrument"
-            },
-            "description": "The set of instruments, weighted by the quantities held that are required.\r\nIt is identified by an identifier tag that can be used to identify it externally.\r\nFor a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or\r\na composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument\r\nsuch as purchase of shares on multiple dates where tax implications are different this would not be the case."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification for an inline aggregation request consisting of an aggregation request and an inlined portfolio on which it is to be performed"
-      },
-      "InlineValuationReconciliationRequest": {
-        "required": [
-          "aggregation",
-          "scope"
-        ],
-        "type": "object",
-        "properties": {
-          "scope": {
-            "type": "string",
-            "description": "The id of the portfolio on which to run the aggregation request"
-          },
-          "aggregation": {
-            "$ref": "#/components/schemas/InlineAggregationRequest"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification for the parameters that define how to perform a reconciliation between two sets of instruments. This defines\r\nthe specification for one half of that request, namely how to find and perform an aggregation request on one of the sets."
-      },
       "ReconciliationLeftRightAddressKeyPair": {
         "required": [
           "left",
@@ -50683,10 +50614,10 @@
         "type": "object",
         "properties": {
           "left": {
-            "$ref": "#/components/schemas/InlineValuationReconciliationRequest"
+            "$ref": "#/components/schemas/InlineValuationRequest"
           },
           "right": {
-            "$ref": "#/components/schemas/InlineValuationReconciliationRequest"
+            "$ref": "#/components/schemas/InlineValuationRequest"
           },
           "leftToRightMapping": {
             "type": "array",
@@ -50735,23 +50666,6 @@
         },
         "additionalProperties": false
       },
-      "ValuationReconciliationRequest": {
-        "required": [
-          "aggregation",
-          "portfolioId"
-        ],
-        "type": "object",
-        "properties": {
-          "portfolioId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "aggregation": {
-            "$ref": "#/components/schemas/AggregationRequest"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification for the parameters that define how to perform a reconciliation between two portfolios. This defines\r\nthe specification for one half of that request, namely how to find and perform an aggregation request on one of the portfolios."
-      },
       "ValuationsReconciliationRequest": {
         "required": [
           "left",
@@ -50760,10 +50674,10 @@
         "type": "object",
         "properties": {
           "left": {
-            "$ref": "#/components/schemas/ValuationReconciliationRequest"
+            "$ref": "#/components/schemas/ValuationRequest"
           },
           "right": {
-            "$ref": "#/components/schemas/ValuationReconciliationRequest"
+            "$ref": "#/components/schemas/ValuationRequest"
           },
           "leftToRightMapping": {
             "type": "array",
@@ -52472,6 +52386,88 @@
           }
         },
         "additionalProperties": false
+      },
+      "AggregationRequest": {
+        "required": [
+          "effectiveAt",
+          "metrics"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "inlineRecipe": {
+            "$ref": "#/components/schemas/ConfigurationRecipe"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt date to use",
+            "format": "date-time",
+            "nullable": true
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
+            "format": "dateorcutlabel"
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregateSpec"
+            },
+            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
+          },
+          "groupBy": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies a queryable address in Lusid."
+            },
+            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyFilter"
+            },
+            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
+            "nullable": true
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit the results to a particular number of values.",
+            "format": "int32",
+            "nullable": true
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderBySpec"
+            },
+            "description": "A (possibly empty/null) set of specifications for how to order the results.",
+            "nullable": true
+          },
+          "reportCcy": {
+            "type": "string",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
+            "nullable": true
+          },
+          "portfolioIdentifierCode": {
+            "type": "string",
+            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification object for the parameters of an aggregation"
       },
       "AggregationType": {
         "enum": [
