@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2944",
+    "version": "0.11.2945",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58284"
     }
   ],
   "paths": {
@@ -31571,237 +31571,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/results/{scope}/{resultsKey}/$aggregate": {
-      "post": {
-        "tags": [
-          "Aggregation"
-        ],
-        "summary": "[EXPERIMENTAL] Aggregate using result data",
-        "description": "Aggregate data from a previously-run Result data set into a flat row of results",
-        "operationId": "GetAggregationByResultSet",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope of the Result data set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The scope of the Result data set",
-              "nullable": true
-            }
-          },
-          {
-            "name": "resultsKey",
-            "in": "path",
-            "description": "The key of the Result data set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The key of the Result data set",
-              "nullable": true
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Optional. When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "requestBody": {
-          "description": "The request specifying the parameters of the aggregation",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AggregationRequest"
-              },
-              "example": {
-                "recipeId": {
-                  "scope": "MyScope",
-                  "code": "default"
-                },
-                "asAt": "2018-03-05T00:00:00.0000000+00:00",
-                "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                "metrics": [
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Proportion"
-                  },
-                  {
-                    "key": "Holding/default/PV",
-                    "op": "Sum"
-                  }
-                ],
-                "groupBy": [
-                  "Instrument/default/Name"
-                ],
-                "portfolioIdentifierCode": "SinglePortfolio"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListAggregationResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListAggregationResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListAggregationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/schemas/entities": {
       "get": {
         "tags": [
@@ -52387,88 +52156,6 @@
         },
         "additionalProperties": false
       },
-      "AggregationRequest": {
-        "required": [
-          "effectiveAt",
-          "metrics"
-        ],
-        "type": "object",
-        "properties": {
-          "recipeId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "inlineRecipe": {
-            "$ref": "#/components/schemas/ConfigurationRecipe"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The asAt date to use",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "description": "If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.\r\nIn this case, valuation is calculated for the portfolio(s) for each date that is a business day in the given range.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The market data time, i.e. the time to run the aggregation request effective of.",
-            "format": "dateorcutlabel"
-          },
-          "metrics": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregateSpec"
-            },
-            "description": "The set of specifications for items to calculate or retrieve during the aggregation and present in the results.\r\nThis is logically equivalent to the set of operations in a Sql select statement\r\nselect [operation1(field1), operation2(field2), ... ] from results"
-          },
-          "groupBy": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "The key that uniquely identifies a queryable address in Lusid."
-            },
-            "description": "The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping\r\nthat reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.",
-            "nullable": true
-          },
-          "filters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyFilter"
-            },
-            "description": "A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...' part of a Sql select statement.\r\nFor example, filter a set of values within a given range or matching a particular value.",
-            "nullable": true
-          },
-          "limit": {
-            "type": "integer",
-            "description": "limit the results to a particular number of values.",
-            "format": "int32",
-            "nullable": true
-          },
-          "sort": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderBySpec"
-            },
-            "description": "A (possibly empty/null) set of specifications for how to order the results.",
-            "nullable": true
-          },
-          "reportCcy": {
-            "type": "string",
-            "description": "Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.\r\nIf not present then the currency of the relevant portfolio will be used in its place where relevant.",
-            "nullable": true
-          },
-          "portfolioIdentifierCode": {
-            "type": "string",
-            "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\"",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Specification object for the parameters of an aggregation"
-      },
       "AggregationType": {
         "enum": [
           "String",
@@ -56911,7 +56598,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
