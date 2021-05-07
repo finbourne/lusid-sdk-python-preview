@@ -1,6 +1,5 @@
 import unittest
 from datetime import datetime
-
 import pytz
 
 import lusid
@@ -9,11 +8,13 @@ from utilities import InstrumentLoader
 from utilities import TestDataUtilities
 
 
-class Valuation(unittest.TestCase):
-    """This is an example of conducting a simple valution in LUSID,
-    illustrating how to create a portfolio, add transactions and up-
-    sert market data for pricing. Finally, a valuation_request is
-    carried out on the constructed portfolio
+class ScalingFactor(unittest.TestCase):
+    """This is an example of using the scale_factor in an
+    upsert_quotes request, which is applicable to instruments
+    where the price requires scaling, such as bonds. For a bond
+    with quotes as a percentage of par of 100, adding this value
+    as the scaling factor will account for the transformation when
+    running a valuation
     """
 
     @classmethod
@@ -67,23 +68,7 @@ class Valuation(unittest.TestCase):
             cls.test_data_utilities.build_transaction_request(
                 instrument_id=cls.instrument_ids[0],
                 units=100,
-                price=101,
-                currency="GBP",
-                trade_date=effective_date,
-                transaction_type="StockIn",
-            ),
-            cls.test_data_utilities.build_transaction_request(
-                instrument_id=cls.instrument_ids[1],
-                units=100,
-                price=102,
-                currency="GBP",
-                trade_date=effective_date,
-                transaction_type="StockIn",
-            ),
-            cls.test_data_utilities.build_transaction_request(
-                instrument_id=cls.instrument_ids[2],
-                units=100,
-                price=103,
+                price=1,
                 currency="GBP",
                 trade_date=effective_date,
                 transaction_type="StockIn",
@@ -96,10 +81,17 @@ class Valuation(unittest.TestCase):
             transaction_request=transactions,
         )
 
+    def upsert_quotes(self, scale_factor) -> None:
+        """
+        Upserts quotes using a scaling factor paramater, that can be
+        used to for non-standard quotes such as bond prices that are
+        quotes as percentage as par (i.e. 'scaling_factor=100').
+        :param float scale_factor: scale factor for non-standard quotes
+        :return: None
+        """
+        # Add prices as a percentage of par
         prices = [
-            (cls.instrument_ids[0], 100),
-            (cls.instrument_ids[1], 200),
-            (cls.instrument_ids[2], 300),
+            (self.instrument_ids[0], 100),
         ]
 
         requests = [
@@ -112,14 +104,16 @@ class Valuation(unittest.TestCase):
                         quote_type="Price",
                         field="mid",
                     ),
-                    effective_at=effective_date,
+                    effective_at=self.effective_date,
                 ),
                 metric_value=models.MetricValue(value=price[1], unit="GBP"),
+                # Set a scaling factor for the par value
+                scale_factor=scale_factor,
             )
             for price in prices
         ]
 
-        cls.quotes_api.upsert_quotes(
+        self.quotes_api.upsert_quotes(
             TestDataUtilities.tutorials_scope,
             request_body={
                 "quote" + str(request_number): requests[request_number]
@@ -131,8 +125,7 @@ class Valuation(unittest.TestCase):
         self, recipe_scope, recipe_code
     ) -> lusid.models.ConfigurationRecipe:
         """
-        Creates a simple configuration recipe that can be upserted and
-        and referenced in valuation. Sets a simple lookup based recipe.
+        Creates a configuration recipe that can be used inline or upserted
         :param str recipe_scope: The scope for the configuration recipe
         :param str recipe_code: The code of the the configuration recipe
         :return: ConfigurationRecipe
@@ -151,16 +144,6 @@ class Valuation(unittest.TestCase):
                 ),
             ),
         )
-
-    def upsert_recipe_request(self, configuration_recipe) -> None:
-        """
-        Structures a recipe request and upserts it into LUSID
-        :param ConfigurationRecipe configuration_recipe: Recipe configuration
-        :return: None
-        """
-
-        upsert_recipe_request = models.UpsertRecipeRequest(configuration_recipe)
-        self.recipes_api.upsert_configuration_recipe(upsert_recipe_request)
 
     def create_valuation_request(
         self, recipe_scope=None, recipe_code=None
@@ -184,8 +167,8 @@ class Valuation(unittest.TestCase):
             recipe_id=recipe_id,
             metrics=[
                 models.AggregateSpec("Instrument/default/Name", "Value"),
-                models.AggregateSpec("Valuation/PvInPortfolioCcy", "Proportion"),
-                models.AggregateSpec("Valuation/PvInPortfolioCcy", "Sum"),
+                models.AggregateSpec("Valuation/PV", "Proportion"),
+                models.AggregateSpec("Valuation/PV", "Sum"),
             ],
             group_by=["Instrument/default/Name"],
             portfolio_entity_ids=[
@@ -200,17 +183,32 @@ class Valuation(unittest.TestCase):
             ),
         )
 
-    def test_valuation(self) -> None:
+    def upsert_recipe_request(self, configuration_recipe) -> None:
         """
-        General valuation test using an upserted recipe
+        Structures a recipe request and upserts it into LUSID
+        :param ConfigurationRecipe configuration_recipe: Recipe configuration
+        :return: None
         """
+
+        upsert_recipe_request = models.UpsertRecipeRequest(configuration_recipe)
+        self.recipes_api.upsert_configuration_recipe(upsert_recipe_request)
+
+    def test_par_scaled_valuation(self) -> None:
+        """
+        Valuation test for a simple instrument using quotes upserted with a
+        scale_factor of 100, this would typically be applicable to bonds or
+        other instruments where the par amount is other than 1.
+        """
+
+        # Upsert quotes with scale_factor of 100
+        self.upsert_quotes(100)
 
         # Upsert recipe
         recipe = self.create_configuration_recipe(self.recipe_scope, self.recipe_code)
         self.upsert_recipe_request(recipe)
 
         # Set valuation result key
-        valuation_key = "Sum(Valuation/PvInPortfolioCcy)"
+        valuation_key = "Sum(Valuation/PV)"
 
         # Call valuation with recipe identifiers
         valuation_request = self.create_valuation_request(
@@ -223,7 +221,9 @@ class Valuation(unittest.TestCase):
         )
 
         # Asserts
-        self.assertEqual(len(valuation.data), 3)
-        self.assertEqual(valuation.data[0][valuation_key], 10000)
-        self.assertEqual(valuation.data[1][valuation_key], 20000)
-        self.assertEqual(valuation.data[2][valuation_key], 30000)
+        self.assertEqual(len(valuation.data), 1)
+        self.assertEqual(valuation.data[0][valuation_key], 100)
+
+
+if __name__ == "__main__":
+    unittest.main()
