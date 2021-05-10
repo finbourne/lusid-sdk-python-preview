@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2979",
+    "version": "0.11.2980",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -1189,6 +1189,140 @@
                     }
                   ],
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/allocations/$delete": {
+      "post": {
+        "tags": [
+          "Allocations"
+        ],
+        "summary": "[EXPERIMENTAL] Delete Allocations.",
+        "description": "Use this method to delete a collection of Allocations, each defined by ResourceId. Each delete will be attempted\r\nindependently, and the method will return lists of successful and failed attempts.",
+        "operationId": "DeleteAllocations",
+        "requestBody": {
+          "description": "The IDs of the allocations to delete.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the allocations to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the allocations to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the allocations to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the allocations to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully deleted Allocations along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
                 }
               }
             }
@@ -13752,6 +13886,140 @@
                     }
                   ],
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/orders/$delete": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "[EXPERIMENTAL] Delete Orders.",
+        "description": "Use this method to delete a collection of Orders, each defined by ResourceId. Each delete will be attempted\r\nindependently, and the method will return lists of successful and failed attempts.",
+        "operationId": "DeleteOrders",
+        "requestBody": {
+          "description": "The IDs of the orders to delete.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the orders to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the orders to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the orders to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "description": "The IDs of the orders to delete."
+              },
+              "example": [
+                {
+                  "scope": "MyScope",
+                  "code": "ATestEntityId"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully deleted Orders along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
                 }
               }
             }
@@ -48982,6 +49250,53 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValueTupleOfResourceIdToString": {
+        "type": "object",
+        "properties": {
+          "item1": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "item2": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValueTupleOfResourceIdToDeletedEntityResponse": {
+        "type": "object",
+        "properties": {
+          "item1": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "item2": {
+            "$ref": "#/components/schemas/DeletedEntityResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeletedOrdersEntitiesResponse": {
+        "type": "object",
+        "properties": {
+          "failures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValueTupleOfResourceIdToString"
+            },
+            "description": "Failed resource IDs, with their associated failures.",
+            "nullable": true
+          },
+          "deletes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValueTupleOfResourceIdToDeletedEntityResponse"
+            },
+            "description": "Successfully deleted resource IDs, with associated responses.",
             "nullable": true
           }
         },

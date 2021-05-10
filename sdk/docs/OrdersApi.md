@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_order**](OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EXPERIMENTAL] Delete order
+[**delete_orders**](OrdersApi.md#delete_orders) | **POST** /api/orders/$delete | [EXPERIMENTAL] Delete Orders.
 [**get_order**](OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EXPERIMENTAL] Get Order
 [**list_orders**](OrdersApi.md#list_orders) | **GET** /api/orders | [EXPERIMENTAL] List Orders
 [**upsert_orders**](OrdersApi.md#upsert_orders) | **POST** /api/orders | [EXPERIMENTAL] Upsert Order
@@ -69,6 +70,68 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The response from deleting an order. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_orders**
+> DeletedOrdersEntitiesResponse delete_orders(resource_id)
+
+[EXPERIMENTAL] Delete Orders.
+
+Use this method to delete a collection of Orders, each defined by ResourceId. Each delete will be attempted  independently, and the method will return lists of successful and failed attempts.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
+# Create an instance of the API class
+api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
+resource_id = [{"scope":"MyScope","code":"ATestEntityId"}] # list[ResourceId] | The IDs of the orders to delete.
+
+try:
+    # [EXPERIMENTAL] Delete Orders.
+    api_response = api_instance.delete_orders(resource_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrdersApi->delete_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **resource_id** | [**list[ResourceId]**](ResourceId.md)| The IDs of the orders to delete. | 
+
+### Return type
+
+[**DeletedOrdersEntitiesResponse**](DeletedOrdersEntitiesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully deleted Orders along with any failures |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
