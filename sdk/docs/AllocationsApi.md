@@ -1,10 +1,11 @@
 # lusid.AllocationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:31593*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_allocation**](AllocationsApi.md#delete_allocation) | **DELETE** /api/allocations/{scope}/{code} | [EXPERIMENTAL] Delete allocation
+[**delete_allocations**](AllocationsApi.md#delete_allocations) | **POST** /api/allocations/$delete | [EXPERIMENTAL] Delete Allocations.
 [**get_allocation**](AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EXPERIMENTAL] Get Allocation
 [**list_allocations**](AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EXPERIMENTAL] List Allocations
 [**upsert_allocations**](AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EXPERIMENTAL] Upsert Allocations
@@ -30,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:31593
-configuration.host = "http://local-unit-test-server.lusid.com:31593"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The allocation scope.
@@ -74,6 +75,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_allocations**
+> DeletedOrdersEntitiesResponse delete_allocations(resource_id)
+
+[EXPERIMENTAL] Delete Allocations.
+
+Use this method to delete a collection of Allocations, each defined by ResourceId. Each delete will be attempted  independently, and the method will return lists of successful and failed attempts.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
+# Create an instance of the API class
+api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
+resource_id = [{"scope":"MyScope","code":"ATestEntityId"}] # list[ResourceId] | The IDs of the allocations to delete.
+
+try:
+    # [EXPERIMENTAL] Delete Allocations.
+    api_response = api_instance.delete_allocations(resource_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AllocationsApi->delete_allocations: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **resource_id** | [**list[ResourceId]**](ResourceId.md)| The IDs of the allocations to delete. | 
+
+### Return type
+
+[**DeletedOrdersEntitiesResponse**](DeletedOrdersEntitiesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully deleted Allocations along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_allocation**
 > Allocation get_allocation(scope, code, as_at=as_at, property_keys=property_keys)
 
@@ -94,8 +157,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:31593
-configuration.host = "http://local-unit-test-server.lusid.com:31593"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the allocation belongs.
@@ -162,8 +225,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:31593
-configuration.host = "http://local-unit-test-server.lusid.com:31593"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)
@@ -236,8 +299,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:31593
-configuration.host = "http://local-unit-test-server.lusid.com:31593"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.AllocationsApi(lusid.ApiClient(configuration))
 allocation_set_request = {"allocationRequests":[{"properties":{"allocation/MyScope/SomeAllocationProperty":{"key":"Allocation/MyScope/SomeAllocationProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"portfolioId":{"scope":"MyScope","code":"UK Equity"},"allocatedOrderId":{"scope":"MyScope","code":"ORD00000123"},"id":{"scope":"MyScope","code":"ALLOC00000123"}}]} # AllocationSetRequest | The collection of allocation requests. (optional)
