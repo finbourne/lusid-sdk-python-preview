@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.2987",
+    "version": "0.11.2990",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:41224"
     }
   ],
   "paths": {
@@ -1189,140 +1189,6 @@
                     }
                   ],
                   "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/allocations/$delete": {
-      "post": {
-        "tags": [
-          "Allocations"
-        ],
-        "summary": "[EXPERIMENTAL] Delete Allocations.",
-        "description": "Use this method to delete a collection of Allocations, each defined by ResourceId. Each delete will be attempted\r\nindependently, and the method will return lists of successful and failed attempts.",
-        "operationId": "DeleteAllocations",
-        "requestBody": {
-          "description": "The IDs of the allocations to delete.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the allocations to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the allocations to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the allocations to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the allocations to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "The successfully deleted Allocations along with any failures",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
                 }
               }
             }
@@ -13646,6 +13512,22 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
+                    },
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "2023-05-02T00:00:00.0000000+00:00",
+                    "price": {
+                      "amount": 534,
+                      "currency": "USD"
+                    },
+                    "orderInstruction": {
+                      "scope": "MyScope",
+                      "code": "Instruction-06"
+                    },
+                    "package": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13682,6 +13564,22 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
+                    },
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "2023-05-02T00:00:00.0000000+00:00",
+                    "price": {
+                      "amount": 534,
+                      "currency": "USD"
+                    },
+                    "orderInstruction": {
+                      "scope": "MyScope",
+                      "code": "Instruction-06"
+                    },
+                    "package": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13718,6 +13616,22 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
+                    },
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "2023-05-02T00:00:00.0000000+00:00",
+                    "price": {
+                      "amount": 534,
+                      "currency": "USD"
+                    },
+                    "orderInstruction": {
+                      "scope": "MyScope",
+                      "code": "Instruction-06"
+                    },
+                    "package": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13754,6 +13668,22 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
+                    },
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "2023-05-02T00:00:00.0000000+00:00",
+                    "price": {
+                      "amount": 534,
+                      "currency": "USD"
+                    },
+                    "orderInstruction": {
+                      "scope": "MyScope",
+                      "code": "Instruction-06"
+                    },
+                    "package": {
+                      "scope": "MyScope",
+                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13800,6 +13730,22 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
+                      },
+                      "state": "New",
+                      "type": "Limit",
+                      "timeInForce": "GoodTilCancel",
+                      "date": "1999-06-05T00:00:00.0000000+00:00",
+                      "price": {
+                        "amount": 534,
+                        "currency": "USD"
+                      },
+                      "orderInstructionId": {
+                        "scope": "MyScope",
+                        "code": "Instruction-06"
+                      },
+                      "packageId": {
+                        "scope": "MyScope",
+                        "code": "UKEQ Package"
                       }
                     }
                   ],
@@ -13841,6 +13787,22 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
+                      },
+                      "state": "New",
+                      "type": "Limit",
+                      "timeInForce": "GoodTilCancel",
+                      "date": "1999-06-05T00:00:00.0000000+00:00",
+                      "price": {
+                        "amount": 534,
+                        "currency": "USD"
+                      },
+                      "orderInstructionId": {
+                        "scope": "MyScope",
+                        "code": "Instruction-06"
+                      },
+                      "packageId": {
+                        "scope": "MyScope",
+                        "code": "UKEQ Package"
                       }
                     }
                   ],
@@ -13882,144 +13844,26 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
+                      },
+                      "state": "New",
+                      "type": "Limit",
+                      "timeInForce": "GoodTilCancel",
+                      "date": "1999-06-05T00:00:00.0000000+00:00",
+                      "price": {
+                        "amount": 534,
+                        "currency": "USD"
+                      },
+                      "orderInstructionId": {
+                        "scope": "MyScope",
+                        "code": "Instruction-06"
+                      },
+                      "packageId": {
+                        "scope": "MyScope",
+                        "code": "UKEQ Package"
                       }
                     }
                   ],
                   "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/orders/$delete": {
-      "post": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "[EXPERIMENTAL] Delete Orders.",
-        "description": "Use this method to delete a collection of Orders, each defined by ResourceId. Each delete will be attempted\r\nindependently, and the method will return lists of successful and failed attempts.",
-        "operationId": "DeleteOrders",
-        "requestBody": {
-          "description": "The IDs of the orders to delete.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the orders to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the orders to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the orders to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceId"
-                },
-                "description": "The IDs of the orders to delete."
-              },
-              "example": [
-                {
-                  "scope": "MyScope",
-                  "code": "ATestEntityId"
-                }
-              ]
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "The successfully deleted Orders along with any failures",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedOrdersEntitiesResponse"
                 }
               }
             }
@@ -14165,6 +14009,22 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
+                  },
+                  "state": "New",
+                  "type": "Limit",
+                  "timeInForce": "GoodTilCancel",
+                  "date": "1999-06-05T00:00:00.0000000+00:00",
+                  "price": {
+                    "amount": 534,
+                    "currency": "USD"
+                  },
+                  "orderInstructionId": {
+                    "scope": "MyScope",
+                    "code": "Instruction-06"
+                  },
+                  "packageId": {
+                    "scope": "MyScope",
+                    "code": "UKEQ Package"
                   }
                 }
               },
@@ -14201,6 +14061,22 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
+                  },
+                  "state": "New",
+                  "type": "Limit",
+                  "timeInForce": "GoodTilCancel",
+                  "date": "1999-06-05T00:00:00.0000000+00:00",
+                  "price": {
+                    "amount": 534,
+                    "currency": "USD"
+                  },
+                  "orderInstructionId": {
+                    "scope": "MyScope",
+                    "code": "Instruction-06"
+                  },
+                  "packageId": {
+                    "scope": "MyScope",
+                    "code": "UKEQ Package"
                   }
                 }
               },
@@ -14237,6 +14113,22 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
+                  },
+                  "state": "New",
+                  "type": "Limit",
+                  "timeInForce": "GoodTilCancel",
+                  "date": "1999-06-05T00:00:00.0000000+00:00",
+                  "price": {
+                    "amount": 534,
+                    "currency": "USD"
+                  },
+                  "orderInstructionId": {
+                    "scope": "MyScope",
+                    "code": "Instruction-06"
+                  },
+                  "packageId": {
+                    "scope": "MyScope",
+                    "code": "UKEQ Package"
                   }
                 }
               }
@@ -49255,53 +49147,6 @@
         },
         "additionalProperties": false
       },
-      "ValueTupleOfResourceIdToString": {
-        "type": "object",
-        "properties": {
-          "item1": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "item2": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ValueTupleOfResourceIdToDeletedEntityResponse": {
-        "type": "object",
-        "properties": {
-          "item1": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "item2": {
-            "$ref": "#/components/schemas/DeletedEntityResponse"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeletedOrdersEntitiesResponse": {
-        "type": "object",
-        "properties": {
-          "failures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ValueTupleOfResourceIdToString"
-            },
-            "description": "Failed resource IDs, with their associated failures.",
-            "nullable": true
-          },
-          "deletes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ValueTupleOfResourceIdToDeletedEntityResponse"
-            },
-            "description": "Successfully deleted resource IDs, with associated responses.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "IsBusinessDayResponse": {
         "required": [
           "isBusinessDay",
@@ -52845,6 +52690,21 @@
         },
         "additionalProperties": false
       },
+      "CurrencyAndAmount": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An amount of a specific currency, specifying a value and an associated unit"
+      },
       "Order": {
         "required": [
           "id",
@@ -52895,6 +52755,35 @@
           "lusidInstrumentId": {
             "type": "string",
             "description": "The LUSID instrument id for the instrument ordered."
+          },
+          "state": {
+            "type": "string",
+            "description": "The order's state (examples: New, PartiallyFilled, ...)",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The order's type (examples: Limit, Market, ...)",
+            "nullable": true
+          },
+          "timeInForce": {
+            "type": "string",
+            "description": "The order's time in force (examples: Day, GoodTilCancel, ...)",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "description": "The date on which the order was made",
+            "format": "date-time"
+          },
+          "price": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "orderInstructionId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "packageId": {
+            "$ref": "#/components/schemas/ResourceId"
           },
           "links": {
             "type": "array",
@@ -52983,6 +52872,35 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "state": {
+            "type": "string",
+            "description": "The order's state (examples: New, PartiallyFilled, ...)",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The order's type (examples: Limit, Market, ...)",
+            "nullable": true
+          },
+          "timeInForce": {
+            "type": "string",
+            "description": "The order's time in force (examples: Day, GoodTilCancel, ...)",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "description": "The date on which the order was made",
+            "format": "date-time"
+          },
+          "price": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "orderInstruction": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "package": {
             "$ref": "#/components/schemas/ResourceId"
           }
         },
@@ -53577,21 +53495,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "CurrencyAndAmount": {
-        "type": "object",
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "currency": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "An amount of a specific currency, specifying a value and an associated unit"
       },
       "TransactionPriceType": {
         "enum": [
@@ -60935,7 +60838,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
