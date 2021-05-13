@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3010",
+    "version": "0.11.3009",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:64447"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -24468,30 +24468,6 @@
               "description": "Expression to filter the result set.\r\n            For example, to filter on the User ID, use \"userId.id eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
             }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.",
-            "schema": {
-              "type": "string",
-              "description": "The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
           }
         ],
         "responses": {
@@ -39470,35 +39446,24 @@
             }
           },
           {
-            "name": "effectiveAt",
+            "name": "fromEffectiveAt",
             "in": "query",
-            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
               "format": "dateorcutlabel"
             }
           },
           {
-            "name": "windowStart",
+            "name": "toEffectiveAt",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
-              "format": "dateorcutlabel"
-            }
-          },
-          {
-            "name": "windowEnd",
-            "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
               "format": "dateorcutlabel"
             }
           },
@@ -46517,35 +46482,24 @@
             }
           },
           {
-            "name": "effectiveAt",
+            "name": "fromEffectiveAt",
             "in": "query",
-            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
               "format": "dateorcutlabel"
             }
           },
           {
-            "name": "windowStart",
+            "name": "toEffectiveAt",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
-              "format": "dateorcutlabel"
-            }
-          },
-          {
-            "name": "windowEnd",
-            "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
               "format": "dateorcutlabel"
             }
           },
@@ -60666,7 +60620,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
