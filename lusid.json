@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3007",
+    "version": "0.11.3008",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54952"
+      "url": "http://local-unit-test-server.lusid.com:32672"
     }
   ],
   "paths": {
@@ -39470,24 +39470,35 @@
             }
           },
           {
-            "name": "fromEffectiveAt",
+            "name": "effectiveAt",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+              "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
               "format": "dateorcutlabel"
             }
           },
           {
-            "name": "toEffectiveAt",
+            "name": "windowStart",
             "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "windowEnd",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
               "format": "dateorcutlabel"
             }
           },
@@ -46506,24 +46517,35 @@
             }
           },
           {
-            "name": "fromEffectiveAt",
+            "name": "effectiveAt",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             There is no lower bound if this is not specified.",
+              "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
               "format": "dateorcutlabel"
             }
           },
           {
-            "name": "toEffectiveAt",
+            "name": "windowStart",
             "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "windowEnd",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
               "format": "dateorcutlabel"
             }
           },
