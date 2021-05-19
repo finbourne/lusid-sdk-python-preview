@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3035",
+    "version": "0.11.3036",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:38990"
+      "url": "http://local-unit-test-server.lusid.com:50712"
     }
   ],
   "paths": {
@@ -48584,7 +48584,7 @@
           "EquityOption",
           "FixedLeg",
           "FloatingLeg",
-          "BespokeCashflowLeg",
+          "BespokeCashFlowsLeg",
           "Unknown",
           "TermDeposit",
           "ContractForDifference",
@@ -48617,7 +48617,7 @@
               "EquityOption",
               "FixedLeg",
               "FloatingLeg",
-              "BespokeCashflowLeg",
+              "BespokeCashFlowsLeg",
               "Unknown",
               "TermDeposit",
               "ContractForDifference",
@@ -48629,7 +48629,7 @@
               "FundingLeg"
             ],
             "type": "string",
-            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
           }
         },
         "additionalProperties": false,
@@ -58952,7 +58952,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -58964,7 +58964,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59037,7 +59037,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59049,7 +59049,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59098,7 +59098,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59110,7 +59110,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59208,7 +59208,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59220,7 +59220,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59299,7 +59299,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59311,7 +59311,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59445,7 +59445,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59457,7 +59457,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59591,7 +59591,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59603,7 +59603,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59635,7 +59635,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59647,7 +59647,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59734,7 +59734,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59746,7 +59746,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59811,7 +59811,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59823,7 +59823,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -59945,7 +59945,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -59957,7 +59957,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60031,7 +60031,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60043,7 +60043,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60094,7 +60094,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60106,7 +60106,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60243,7 +60243,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60255,7 +60255,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60335,7 +60335,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60347,7 +60347,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60423,7 +60423,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60435,7 +60435,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60487,7 +60487,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60499,7 +60499,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60568,7 +60568,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60580,7 +60580,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
@@ -60640,7 +60640,7 @@
                   "EquityOption",
                   "FixedLeg",
                   "FloatingLeg",
-                  "BespokeCashflowLeg",
+                  "BespokeCashFlowsLeg",
                   "Unknown",
                   "TermDeposit",
                   "ContractForDifference",
@@ -60652,7 +60652,7 @@
                   "FundingLeg"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashflowLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg"
               }
             }
           }
