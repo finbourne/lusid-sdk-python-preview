@@ -28,6 +28,12 @@ class CorporateActions(unittest.TestCase):
 
     @lusid_feature("F12-4")
     def test_name_change_corporate_action(self):
+        """The code below shows how to process a corporate action name change in LUSID:
+             Create two instruments, the original and the updated instrument.
+             Create a portfolio and add a transaction to it for the original instrument.
+             Create a corporate action source, and a corporate action comprising a transition.
+             Upsert the corporate action, then check that the holding instrument was changed.
+         """
         # Define details for the corporate action.
         instrument_name = "instrument-name"
         instrument_original_figi = "FR0123456789"
@@ -113,8 +119,7 @@ class CorporateActions(unittest.TestCase):
             ),
         )
 
-        # Create a transition which
-        #   applies to the original instrument above
+        # Create a transition which applies to the original instrument above
         transition_in = models.CorporateActionTransitionComponentRequest(
             instrument_identifiers={
                 TestDataUtilities.lusid_figi_identifier: instrument_original_figi
@@ -123,7 +128,7 @@ class CorporateActions(unittest.TestCase):
             units_factor=1,
         )
 
-        #   and has the effect of changing its FIGI to the updated FIGI
+        # and has the effect of changing its FIGI to the updated FIGI
         rename_figi_transition = models.CorporateActionTransitionComponentRequest(
             instrument_identifiers={
                 TestDataUtilities.lusid_figi_identifier: instrument_updated_figi
@@ -164,7 +169,7 @@ class CorporateActions(unittest.TestCase):
         )
 
         # Make the request through the CorporateActionSourcesApi.
-        response = self.corporate_actions_sources_api.batch_upsert_corporate_actions(
+        upsert_corp_act_response = self.corporate_actions_sources_api.batch_upsert_corporate_actions(
             scope=TestDataUtilities.tutorials_scope,
             code=corporate_action_source_code,
             upsert_corporate_action_request=[corporate_action_request],
