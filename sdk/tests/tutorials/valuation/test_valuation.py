@@ -6,8 +6,8 @@ import pytz
 
 import lusid
 import lusid.models as models
-from utilities import InstrumentLoader
-from utilities import TestDataUtilities
+from tests.utilities import InstrumentLoader
+from tests.utilities import TestDataUtilities
 
 
 class Valuation(unittest.TestCase):
@@ -26,7 +26,7 @@ class Valuation(unittest.TestCase):
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
-        # Setup test data from utilities
+        # Setup test data from tests.utilities
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
 
         # Set test parameters

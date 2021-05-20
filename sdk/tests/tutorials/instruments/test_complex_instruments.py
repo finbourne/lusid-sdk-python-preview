@@ -3,7 +3,7 @@ import pytz
 import lusid
 import lusid.models as models
 from datetime import datetime
-from utilities import TestDataUtilities
+from tests.utilities import TestDataUtilities
 
 
 class ComplexInstrumentTests(unittest.TestCase):

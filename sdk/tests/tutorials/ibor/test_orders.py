@@ -8,8 +8,8 @@ from lusid import PerpetualProperty
 from lusid import PropertyValue
 from lusid import ResourceId
 from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
-from utilities import TestDataUtilities
+from tests.utilities import InstrumentLoader
+from tests.utilities import TestDataUtilities
 import json
 
 

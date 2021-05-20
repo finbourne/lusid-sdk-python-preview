@@ -8,7 +8,7 @@ from datetime import datetime
 # import lusid specific packages
 import lusid
 import lusid.models as models
-from utilities import TestDataUtilities
+from tests.utilities import TestDataUtilities
 
 # setup logging configuration
 logging.basicConfig(level=logging.INFO)

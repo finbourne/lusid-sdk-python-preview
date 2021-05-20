@@ -4,7 +4,7 @@ import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
 from lusid.exceptions import ApiException
-from utilities import TestDataUtilities
+from tests.utilities import TestDataUtilities
 
 
 class Instruments(unittest.TestCase):

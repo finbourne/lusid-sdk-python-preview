@@ -7,10 +7,10 @@ from lusid.utilities import ApiConfigurationLoader
 from lusid.utilities.proxy_config import ProxyConfig
 from lusid.utilities import RefreshingToken
 
-from utilities import CredentialsSource
+from tests.utilities import CredentialsSource
 from unittest.mock import patch
-from utilities.temp_file_manager import TempFileManager
-from utilities import MockApiResponse
+from tests.utilities.temp_file_manager import TempFileManager
+from tests.utilities import MockApiResponse
 
 source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
 

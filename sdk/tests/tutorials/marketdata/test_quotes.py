@@ -6,7 +6,7 @@ import pytz as pytz
 import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
-from utilities import TestDataUtilities
+from tests.utilities import TestDataUtilities
 
 
 class Quotes(unittest.TestCase):

@@ -1,5 +1,7 @@
 # DataTypeValueRange
 
+This class indicates what the range of data acceptable by a data type
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
