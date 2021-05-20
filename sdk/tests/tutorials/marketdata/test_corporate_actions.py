@@ -1,7 +1,7 @@
 import unittest
 import uuid
 import pytz
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import lusid
 import lusid.models as models
@@ -28,17 +28,17 @@ class CorporateActions(unittest.TestCase):
 
     @lusid_feature("F12-4")
     def test_name_change_corporate_action(self):
-
         # Define details for the corporate action.
         instrument_name = "instrument-name"
         instrument_original_figi = "FR0123456789"
         instrument_updated_figi = "FR5555555555"
-        portfolio_code = "corpact-portfolio"
+        portfolio_code = "corporate-actions-portfolio"
         effective_at_date = datetime(2021, 1, 1, tzinfo=pytz.utc)
         corporate_action_source_code = "name-change-corporate-actions-source"
         corporate_action_code = "name-change-corporate-action"
 
-        # Create an instrument.
+        # Create two instruments: an "original" instrument which
+        # will be renamed and the instrument it will be renamed to.
         self.instruments_api.upsert_instruments(
             request_body={
                 instrument_original_figi: models.InstrumentDefinition(
@@ -47,12 +47,7 @@ class CorporateActions(unittest.TestCase):
                         "Figi": models.InstrumentIdValue(value=instrument_original_figi)
                     },
                 ),
-            }
-        )
-
-        self.instruments_api.upsert_instruments(
-            request_body={
-                instrument_original_figi: models.InstrumentDefinition(
+                instrument_updated_figi: models.InstrumentDefinition(
                     name=instrument_name,
                     identifiers={
                         "Figi": models.InstrumentIdValue(value=instrument_updated_figi)
@@ -61,7 +56,7 @@ class CorporateActions(unittest.TestCase):
             }
         )
 
-        # Create a transaction portfolio to hold the instrument.
+        # Create a transaction portfolio to hold the original instrument.
         self.transaction_portfolios_api.create_portfolio(
             scope=TestDataUtilities.tutorials_scope,
             create_transaction_portfolio_request=models.CreateTransactionPortfolioRequest(
@@ -72,7 +67,7 @@ class CorporateActions(unittest.TestCase):
             ),
         )
 
-        # Add a transaction against the original instrument.
+        # Add a transaction for the original instrument.
         self.transaction_portfolios_api.upsert_transactions(
             scope=TestDataUtilities.tutorials_scope,
             code=portfolio_code,
@@ -119,7 +114,7 @@ class CorporateActions(unittest.TestCase):
         )
 
         # Create a transition which
-        #   applies to the instrument above
+        #   applies to the original instrument above
         transition_in = models.CorporateActionTransitionComponentRequest(
             instrument_identifiers={
                 TestDataUtilities.lusid_figi_identifier: instrument_original_figi
@@ -128,8 +123,8 @@ class CorporateActions(unittest.TestCase):
             units_factor=1,
         )
 
-        #   has the effect of changing its FIGI.
-        transition_out = models.CorporateActionTransitionComponentRequest(
+        #   and has the effect of changing its FIGI to the updated FIGI
+        rename_figi_transition = models.CorporateActionTransitionComponentRequest(
             instrument_identifiers={
                 TestDataUtilities.lusid_figi_identifier: instrument_updated_figi
             },
@@ -137,17 +132,34 @@ class CorporateActions(unittest.TestCase):
             units_factor=1,
         )
 
-        transition = models.CorporateActionTransitionRequest(
-            input_transition=transition_in, output_transitions=[transition_out]
+        #   while zeroing the original instrument's position.
+        zero_previous_position_transition = (
+            models.CorporateActionTransitionComponentRequest(
+                instrument_identifiers={
+                    TestDataUtilities.lusid_figi_identifier: instrument_original_figi
+                },
+                cost_factor=0,
+                units_factor=0,
+            )
         )
 
-        # Create an upsert request.
+        # The effect of the corporate action is the transition which
+        # combines the input transition and the output transitions.
+        transition = models.CorporateActionTransitionRequest(
+            input_transition=transition_in,
+            output_transitions=[
+                rename_figi_transition,
+                zero_previous_position_transition,
+            ],
+        )
+
+        # Create a request to upsert a corporate action with the transition above.
         corporate_action_request = models.UpsertCorporateActionRequest(
             corporate_action_code=corporate_action_code,
-            announcement_date=effective_at_date,
-            ex_date=effective_at_date,
-            record_date=effective_at_date,
-            payment_date=effective_at_date,
+            announcement_date=effective_at_date + timedelta(days=1),
+            ex_date=effective_at_date + timedelta(days=1),
+            record_date=effective_at_date + timedelta(days=1),
+            payment_date=effective_at_date + timedelta(days=1),
             transitions=[transition],
         )
 
@@ -158,15 +170,22 @@ class CorporateActions(unittest.TestCase):
             upsert_corporate_action_request=[corporate_action_request],
         )
 
-        # Fetch transactions in portfolio and assert on the response
-        # that the transaction is against the new instrument FIGI.
-        print(
-            self.transaction_portfolios_api.get_transactions(
-                scope=TestDataUtilities.tutorials_scope,
-                code=portfolio_code,
-            )
+        # Fetch holdings in portfolio once corporate action is applied.
+        holdings = self.transaction_portfolios_api.get_holdings(
+            scope=TestDataUtilities.tutorials_scope,
+            code=portfolio_code,
+            property_keys=["Instrument/default/Figi"],
         )
 
+        # The holding for the original instrument is now against the new instrument's FIGI.
+        self.assertEqual(
+            holdings.values[0]
+            .properties[TestDataUtilities.lusid_figi_identifier]
+            .value.label_value,
+            instrument_updated_figi,
+        )
+
+        # Remove all data that was created for the test.
         # Delete the two instruments.
         self.instruments_api.delete_instrument("Figi", instrument_original_figi)
 
@@ -175,6 +194,11 @@ class CorporateActions(unittest.TestCase):
         # Delete the portfolio.
         self.portfolios_api.delete_portfolio(
             TestDataUtilities.tutorials_scope, portfolio_code
+        )
+
+        # Delete the corporate action source.
+        self.corporate_actions_sources_api.delete_corporate_action_source(
+            TestDataUtilities.tutorials_scope, corporate_action_source_code
         )
 
     @lusid_feature("F33")
