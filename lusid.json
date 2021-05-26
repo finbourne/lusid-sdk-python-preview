@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3068",
+    "version": "0.11.3069",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:31245"
+      "url": "http://local-unit-test-server.lusid.com:40682"
     }
   ],
   "paths": {
@@ -39605,6 +39605,501 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/cashladder": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get portfolio cash ladder",
+        "description": "Get a cash ladder for a transaction portfolio.",
+        "operationId": "GetPortfolioCashLadder",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the transaction portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this\r\n            uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the transaction portfolio. Together with the scope this\r\n            uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The as-at datetime at which to retrieve the portfolio. Defaults to returning the latest version\r\n            of each transaction if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The as-at datetime at which to retrieve the portfolio. Defaults to returning the latest version\r\n            of each transaction if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. \r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set. \r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdScope",
+            "in": "query",
+            "description": "The scope of the given recipeId",
+            "schema": {
+              "type": "string",
+              "description": "The scope of the given recipeId",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdCode",
+            "in": "query",
+            "description": "The code of the given recipeID",
+            "schema": {
+              "type": "string",
+              "description": "The code of the given recipeID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested portfolio cash-ladder",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashLadder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "currency": "USD",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "ABC"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": 25000,
+                          "activities": {
+                            "trades to settle": -8200,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 18300
+                        },
+                        {
+                          "effectiveDate": "2021-02-14T01:02:03.0040000+00:00",
+                          "open": 18300,
+                          "activities": {
+                            "trades to settle": -19850,
+                            "dividend": 0,
+                            "estimated funding": -500
+                          },
+                          "close": -2050
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": -2050,
+                          "activities": {
+                            "trades to settle": -5000,
+                            "dividend": 560,
+                            "estimated funding": 5000
+                          },
+                          "close": 8510
+                        },
+                        {
+                          "effectiveDate": "2021-02-16T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -2000,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 5010
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -1200,
+                            "dividend": 0,
+                            "estimated funding": 6700
+                          },
+                          "close": 10510
+                        }
+                      ]
+                    },
+                    {
+                      "currency": "EUR",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "CBA"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": -150000,
+                          "activities": {
+                            "trades to settle": -15000,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 135000
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": 135000,
+                          "activities": {
+                            "trades to settle": 25500,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 160500
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 160500,
+                          "activities": {
+                            "trades to settle": 0,
+                            "dividend": 5400,
+                            "estimated funding": 0
+                          },
+                          "close": 165900
+                        }
+                      ]
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashLadder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "currency": "USD",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "ABC"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": 25000,
+                          "activities": {
+                            "trades to settle": -8200,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 18300
+                        },
+                        {
+                          "effectiveDate": "2021-02-14T01:02:03.0040000+00:00",
+                          "open": 18300,
+                          "activities": {
+                            "trades to settle": -19850,
+                            "dividend": 0,
+                            "estimated funding": -500
+                          },
+                          "close": -2050
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": -2050,
+                          "activities": {
+                            "trades to settle": -5000,
+                            "dividend": 560,
+                            "estimated funding": 5000
+                          },
+                          "close": 8510
+                        },
+                        {
+                          "effectiveDate": "2021-02-16T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -2000,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 5010
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -1200,
+                            "dividend": 0,
+                            "estimated funding": 6700
+                          },
+                          "close": 10510
+                        }
+                      ]
+                    },
+                    {
+                      "currency": "EUR",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "CBA"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": -150000,
+                          "activities": {
+                            "trades to settle": -15000,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 135000
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": 135000,
+                          "activities": {
+                            "trades to settle": 25500,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 160500
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 160500,
+                          "activities": {
+                            "trades to settle": 0,
+                            "dividend": 5400,
+                            "estimated funding": 0
+                          },
+                          "close": 165900
+                        }
+                      ]
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioCashLadder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "currency": "USD",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "ABC"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": 25000,
+                          "activities": {
+                            "trades to settle": -8200,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 18300
+                        },
+                        {
+                          "effectiveDate": "2021-02-14T01:02:03.0040000+00:00",
+                          "open": 18300,
+                          "activities": {
+                            "trades to settle": -19850,
+                            "dividend": 0,
+                            "estimated funding": -500
+                          },
+                          "close": -2050
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": -2050,
+                          "activities": {
+                            "trades to settle": -5000,
+                            "dividend": 560,
+                            "estimated funding": 5000
+                          },
+                          "close": 8510
+                        },
+                        {
+                          "effectiveDate": "2021-02-16T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -2000,
+                            "dividend": 0,
+                            "estimated funding": 1500
+                          },
+                          "close": 5010
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 8510,
+                          "activities": {
+                            "trades to settle": -1200,
+                            "dividend": 0,
+                            "estimated funding": 6700
+                          },
+                          "close": 10510
+                        }
+                      ]
+                    },
+                    {
+                      "currency": "EUR",
+                      "subHoldingKeys": {
+                        "instrument/default/Strategy": {
+                          "key": "Instrument/default/Strategy",
+                          "value": {
+                            "labelValue": "CBA"
+                          }
+                        }
+                      },
+                      "records": [
+                        {
+                          "effectiveDate": "2021-02-13T01:02:03.0040000+00:00",
+                          "open": -150000,
+                          "activities": {
+                            "trades to settle": -15000,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 135000
+                        },
+                        {
+                          "effectiveDate": "2021-02-15T01:02:03.0040000+00:00",
+                          "open": 135000,
+                          "activities": {
+                            "trades to settle": 25500,
+                            "dividend": 0,
+                            "estimated funding": 0
+                          },
+                          "close": 160500
+                        },
+                        {
+                          "effectiveDate": "2021-02-17T01:02:03.0040000+00:00",
+                          "open": 160500,
+                          "activities": {
+                            "trades to settle": 0,
+                            "dividend": 5400,
+                            "estimated funding": 0
+                          },
+                          "close": 165900
+                        }
+                      ]
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/cashstatement": {
       "get": {
         "tags": [
@@ -57903,6 +58398,105 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/InstrumentCashFlow"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CashLadderRecord": {
+        "required": [
+          "activities",
+          "close",
+          "open"
+        ],
+        "type": "object",
+        "properties": {
+          "effectiveDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "open": {
+            "type": "number",
+            "format": "double"
+          },
+          "activities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "close": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PortfolioCashLadder": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "The currency of the cash-flows.",
+            "nullable": true
+          },
+          "subHoldingKeys": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "The sub-holding properties which identify the holding. Each property will be from the 'Transaction' domain. These are configured when a transaction portfolio is created.",
+            "nullable": true
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CashLadderRecord"
+            },
+            "description": "A record of cash flows on a specific date.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceListOfPortfolioCashLadder": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioCashLadder"
             }
           },
           "href": {
