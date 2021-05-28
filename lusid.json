@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3080",
+    "version": "0.11.3078",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:57282"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -13512,22 +13512,6 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
-                    },
-                    "state": "New",
-                    "type": "Limit",
-                    "timeInForce": "GoodTilCancel",
-                    "date": "2023-05-02T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 534,
-                      "currency": "USD"
-                    },
-                    "orderInstruction": {
-                      "scope": "MyScope",
-                      "code": "Instruction-06"
-                    },
-                    "package": {
-                      "scope": "MyScope",
-                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13564,22 +13548,6 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
-                    },
-                    "state": "New",
-                    "type": "Limit",
-                    "timeInForce": "GoodTilCancel",
-                    "date": "2023-05-02T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 534,
-                      "currency": "USD"
-                    },
-                    "orderInstruction": {
-                      "scope": "MyScope",
-                      "code": "Instruction-06"
-                    },
-                    "package": {
-                      "scope": "MyScope",
-                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13616,22 +13584,6 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
-                    },
-                    "state": "New",
-                    "type": "Limit",
-                    "timeInForce": "GoodTilCancel",
-                    "date": "2023-05-02T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 534,
-                      "currency": "USD"
-                    },
-                    "orderInstruction": {
-                      "scope": "MyScope",
-                      "code": "Instruction-06"
-                    },
-                    "package": {
-                      "scope": "MyScope",
-                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13668,22 +13620,6 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ORD00000123"
-                    },
-                    "state": "New",
-                    "type": "Limit",
-                    "timeInForce": "GoodTilCancel",
-                    "date": "2023-05-02T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 534,
-                      "currency": "USD"
-                    },
-                    "orderInstruction": {
-                      "scope": "MyScope",
-                      "code": "Instruction-06"
-                    },
-                    "package": {
-                      "scope": "MyScope",
-                      "code": "UKEQ Package"
                     }
                   }
                 ]
@@ -13730,22 +13666,6 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
-                      },
-                      "state": "New",
-                      "type": "Limit",
-                      "timeInForce": "GoodTilCancel",
-                      "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 534,
-                        "currency": "USD"
-                      },
-                      "orderInstructionId": {
-                        "scope": "MyScope",
-                        "code": "Instruction-06"
-                      },
-                      "packageId": {
-                        "scope": "MyScope",
-                        "code": "UKEQ Package"
                       }
                     }
                   ],
@@ -13787,22 +13707,6 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
-                      },
-                      "state": "New",
-                      "type": "Limit",
-                      "timeInForce": "GoodTilCancel",
-                      "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 534,
-                        "currency": "USD"
-                      },
-                      "orderInstructionId": {
-                        "scope": "MyScope",
-                        "code": "Instruction-06"
-                      },
-                      "packageId": {
-                        "scope": "MyScope",
-                        "code": "UKEQ Package"
                       }
                     }
                   ],
@@ -13844,22 +13748,6 @@
                       "id": {
                         "scope": "MyScope",
                         "code": "ORD00000123"
-                      },
-                      "state": "New",
-                      "type": "Limit",
-                      "timeInForce": "GoodTilCancel",
-                      "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 534,
-                        "currency": "USD"
-                      },
-                      "orderInstructionId": {
-                        "scope": "MyScope",
-                        "code": "Instruction-06"
-                      },
-                      "packageId": {
-                        "scope": "MyScope",
-                        "code": "UKEQ Package"
                       }
                     }
                   ],
@@ -14009,22 +13897,6 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
-                  },
-                  "state": "New",
-                  "type": "Limit",
-                  "timeInForce": "GoodTilCancel",
-                  "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 534,
-                    "currency": "USD"
-                  },
-                  "orderInstructionId": {
-                    "scope": "MyScope",
-                    "code": "Instruction-06"
-                  },
-                  "packageId": {
-                    "scope": "MyScope",
-                    "code": "UKEQ Package"
                   }
                 }
               },
@@ -14061,22 +13933,6 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
-                  },
-                  "state": "New",
-                  "type": "Limit",
-                  "timeInForce": "GoodTilCancel",
-                  "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 534,
-                    "currency": "USD"
-                  },
-                  "orderInstructionId": {
-                    "scope": "MyScope",
-                    "code": "Instruction-06"
-                  },
-                  "packageId": {
-                    "scope": "MyScope",
-                    "code": "UKEQ Package"
                   }
                 }
               },
@@ -14113,22 +13969,6 @@
                   "id": {
                     "scope": "MyScope",
                     "code": "ORD00000123"
-                  },
-                  "state": "New",
-                  "type": "Limit",
-                  "timeInForce": "GoodTilCancel",
-                  "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 534,
-                    "currency": "USD"
-                  },
-                  "orderInstructionId": {
-                    "scope": "MyScope",
-                    "code": "Instruction-06"
-                  },
-                  "packageId": {
-                    "scope": "MyScope",
-                    "code": "UKEQ Package"
                   }
                 }
               }
@@ -53231,21 +53071,6 @@
         },
         "additionalProperties": false
       },
-      "CurrencyAndAmount": {
-        "type": "object",
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "currency": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "An amount of a specific currency, specifying a value and an associated unit"
-      },
       "Order": {
         "required": [
           "id",
@@ -53296,35 +53121,6 @@
           "lusidInstrumentId": {
             "type": "string",
             "description": "The LUSID instrument id for the instrument ordered."
-          },
-          "state": {
-            "type": "string",
-            "description": "The order's state (examples: New, PartiallyFilled, ...)",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The order's type (examples: Limit, Market, ...)",
-            "nullable": true
-          },
-          "timeInForce": {
-            "type": "string",
-            "description": "The order's time in force (examples: Day, GoodTilCancel, ...)",
-            "nullable": true
-          },
-          "date": {
-            "type": "string",
-            "description": "The date on which the order was made",
-            "format": "date-time"
-          },
-          "price": {
-            "$ref": "#/components/schemas/CurrencyAndAmount"
-          },
-          "orderInstructionId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "packageId": {
-            "$ref": "#/components/schemas/ResourceId"
           },
           "links": {
             "type": "array",
@@ -53413,35 +53209,6 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "id": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "state": {
-            "type": "string",
-            "description": "The order's state (examples: New, PartiallyFilled, ...)",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The order's type (examples: Limit, Market, ...)",
-            "nullable": true
-          },
-          "timeInForce": {
-            "type": "string",
-            "description": "The order's time in force (examples: Day, GoodTilCancel, ...)",
-            "nullable": true
-          },
-          "date": {
-            "type": "string",
-            "description": "The date on which the order was made",
-            "format": "date-time"
-          },
-          "price": {
-            "$ref": "#/components/schemas/CurrencyAndAmount"
-          },
-          "orderInstruction": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "package": {
             "$ref": "#/components/schemas/ResourceId"
           }
         },
@@ -54036,6 +53803,21 @@
           }
         },
         "additionalProperties": false
+      },
+      "CurrencyAndAmount": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An amount of a specific currency, specifying a value and an associated unit"
       },
       "TransactionPriceType": {
         "enum": [
@@ -61478,7 +61260,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
