@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3084",
+    "version": "0.11.3085",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33259"
+      "url": "http://local-unit-test-server.lusid.com:48692"
     }
   ],
   "paths": {
@@ -35658,6 +35658,7 @@
                 "example": {
                   "values": [
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_EUR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -35746,6 +35747,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_GBP",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -35804,6 +35806,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_USD",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -35872,6 +35875,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_ZAR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -35943,6 +35947,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DF10C5QL",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36061,6 +36066,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DHBQ1SFH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36156,6 +36162,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_GMJL7YDH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36274,6 +36281,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_HPHFXRXM",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36387,6 +36395,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_LD560F1M",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36468,6 +36477,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QH2V2O68",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36568,6 +36578,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QTKKFOKC",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36686,6 +36697,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_T6YOHML7",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36767,6 +36779,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_VYWV6V8Y",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36867,6 +36880,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_X8R9444V",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -36958,6 +36972,7 @@
                 "example": {
                   "values": [
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_EUR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37046,6 +37061,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_GBP",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37104,6 +37120,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_USD",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37172,6 +37189,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_ZAR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37243,6 +37261,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DF10C5QL",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37361,6 +37380,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DHBQ1SFH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37456,6 +37476,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_GMJL7YDH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37574,6 +37595,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_HPHFXRXM",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37687,6 +37709,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_LD560F1M",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37768,6 +37791,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QH2V2O68",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37868,6 +37892,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QTKKFOKC",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -37986,6 +38011,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_T6YOHML7",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38067,6 +38093,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_VYWV6V8Y",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38167,6 +38194,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_X8R9444V",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38258,6 +38286,7 @@
                 "example": {
                   "values": [
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_EUR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38346,6 +38375,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_GBP",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38404,6 +38434,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_USD",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38472,6 +38503,7 @@
                       }
                     },
                     {
+                      "holdingType": "B",
                       "instrumentUid": "CCY_ZAR",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38543,6 +38575,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DF10C5QL",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38661,6 +38694,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_DHBQ1SFH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38756,6 +38790,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_GMJL7YDH",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38874,6 +38909,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_HPHFXRXM",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -38987,6 +39023,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_LD560F1M",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39068,6 +39105,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QH2V2O68",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39168,6 +39206,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_QTKKFOKC",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39286,6 +39325,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_T6YOHML7",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39367,6 +39407,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_VYWV6V8Y",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39467,6 +39508,7 @@
                       }
                     },
                     {
+                      "holdingType": "P",
                       "instrumentUid": "LUID_X8R9444V",
                       "subHoldingKeys": {
                         "transaction/Algo/Name": {
@@ -39543,6 +39585,726 @@
                           "key": "Instrument/default/ClientInternal",
                           "value": {
                             "labelValue": "SAMPLE08"
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/a2bmovements": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get an A2B report at the movement level for the given portfolio.",
+        "description": "Get an A2B report at the movement level for the given portfolio.",
+        "operationId": "GetA2BMovements",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio to retrieve the A2B movement report for.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio to retrieve the A2B movement report for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio to retrieve the A2B movement report for. Together with the scope this\r\n            uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio to retrieve the A2B movement report for. Together with the scope this\r\n            uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no lower bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.\r\n            There is no upper bound if this is not specified.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n            of each transaction if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version\r\n            of each transaction if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "recipeIdScope",
+            "in": "query",
+            "description": "The scope of the given recipeId",
+            "schema": {
+              "type": "string",
+              "description": "The scope of the given recipeId",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeIdCode",
+            "in": "query",
+            "description": "The code of the given recipeId",
+            "schema": {
+              "type": "string",
+              "description": "The code of the given recipeId",
+              "nullable": true
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the \"Instrument\" domain to decorate onto\r\n            the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from the \"Instrument\" domain to decorate onto\r\n            the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested portfolio A2B movement data",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfA2BMovementRecord"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-10-31T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "start": {
+                        "holdingCurrency": {
+                          "total": 4696,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -104
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3334.16,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -73.84,
+                            "currencyGain": -62.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "transactionId": "T24",
+                      "movementName": "Side1",
+                      "effectiveDate": "2020-11-16T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "flows": {
+                        "holdingCurrency": {
+                          "total": -25,
+                          "currency": "USD",
+                          "components": {
+                            "out": -25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": -17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "out": -17.82
+                          }
+                        }
+                      },
+                      "carry": {
+                        "holdingCurrency": {
+                          "total": 25,
+                          "currency": "USD",
+                          "components": {
+                            "dividend": 25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "dividend": 17.82
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-11-30T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "gains": {
+                        "holdingCurrency": {
+                          "total": -21,
+                          "currency": "USD",
+                          "components": {
+                            "deltaMarketGain": -21
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 31.84,
+                          "currency": "GBP",
+                          "components": {
+                            "deltaMarketGain": -16.16,
+                            "deltaCurrencyGain": 48
+                          }
+                        }
+                      },
+                      "end": {
+                        "holdingCurrency": {
+                          "total": 4675,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -125
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3366,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -90,
+                            "currencyGain": -14.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfA2BMovementRecord"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-10-31T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "start": {
+                        "holdingCurrency": {
+                          "total": 4696,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -104
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3334.16,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -73.84,
+                            "currencyGain": -62.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "transactionId": "T24",
+                      "movementName": "Side1",
+                      "effectiveDate": "2020-11-16T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "flows": {
+                        "holdingCurrency": {
+                          "total": -25,
+                          "currency": "USD",
+                          "components": {
+                            "out": -25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": -17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "out": -17.82
+                          }
+                        }
+                      },
+                      "carry": {
+                        "holdingCurrency": {
+                          "total": 25,
+                          "currency": "USD",
+                          "components": {
+                            "dividend": 25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "dividend": 17.82
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-11-30T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "gains": {
+                        "holdingCurrency": {
+                          "total": -21,
+                          "currency": "USD",
+                          "components": {
+                            "deltaMarketGain": -21
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 31.84,
+                          "currency": "GBP",
+                          "components": {
+                            "deltaMarketGain": -16.16,
+                            "deltaCurrencyGain": 48
+                          }
+                        }
+                      },
+                      "end": {
+                        "holdingCurrency": {
+                          "total": 4675,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -125
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3366,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -90,
+                            "currencyGain": -14.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfA2BMovementRecord"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-10-31T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "start": {
+                        "holdingCurrency": {
+                          "total": 4696,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -104
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3334.16,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -73.84,
+                            "currencyGain": -62.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "transactionId": "T24",
+                      "movementName": "Side1",
+                      "effectiveDate": "2020-11-16T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "flows": {
+                        "holdingCurrency": {
+                          "total": -25,
+                          "currency": "USD",
+                          "components": {
+                            "out": -25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": -17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "out": -17.82
+                          }
+                        }
+                      },
+                      "carry": {
+                        "holdingCurrency": {
+                          "total": 25,
+                          "currency": "USD",
+                          "components": {
+                            "dividend": 25
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 17.82,
+                          "currency": "GBP",
+                          "components": {
+                            "dividend": 17.82
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "holdingType": "P",
+                      "instrumentUid": "LUID_1ACMRHTC",
+                      "subHoldingKeys": {
+                        "transaction/Algo/Name": {
+                          "key": "Transaction/Algo/Name",
+                          "value": {
+                            "labelValue": "Algo1"
+                          }
+                        }
+                      },
+                      "currency": "USD",
+                      "effectiveDate": "2020-11-30T00:00:00.0000000+00:00",
+                      "units": 100,
+                      "gains": {
+                        "holdingCurrency": {
+                          "total": -21,
+                          "currency": "USD",
+                          "components": {
+                            "deltaMarketGain": -21
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 31.84,
+                          "currency": "GBP",
+                          "components": {
+                            "deltaMarketGain": -16.16,
+                            "deltaCurrencyGain": 48
+                          }
+                        }
+                      },
+                      "end": {
+                        "holdingCurrency": {
+                          "total": 4675,
+                          "currency": "USD",
+                          "components": {
+                            "cost": 4800,
+                            "marketGain": -125
+                          }
+                        },
+                        "portfolioCurrency": {
+                          "total": 3366,
+                          "currency": "GBP",
+                          "components": {
+                            "cost": 3470.4,
+                            "marketGain": -90,
+                            "currencyGain": -14.4
+                          }
+                        }
+                      },
+                      "properties": {
+                        "instrument/default/Name": {
+                          "key": "Instrument/default/Name",
+                          "value": {
+                            "labelValue": "Usd Equity #2"
+                          }
+                        },
+                        "instrument/default/ClientInternal": {
+                          "key": "Instrument/default/ClientInternal",
+                          "value": {
+                            "labelValue": "SAMPLE10"
                           }
                         }
                       }
@@ -54168,7 +54930,7 @@
         "properties": {
           "instrumentUid": {
             "type": "string",
-            "description": "The unqiue Lusid Instrument Id (LUID) of the instrument that the holding is in."
+            "description": "The unique Lusid Instrument Id (LUID) of the instrument that the holding is in."
           },
           "subHoldingKeys": {
             "type": "object",
@@ -58470,9 +59232,14 @@
       "A2BDataRecord": {
         "type": "object",
         "properties": {
+          "holdingType": {
+            "type": "string",
+            "description": "The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "nullable": true
+          },
           "instrumentUid": {
             "type": "string",
-            "description": "The unqiue Lusid Instrument Id (LUID) of the instrument that the holding is in.",
+            "description": "The unique Lusid Instrument Id (LUID) of the instrument that the holding is in.",
             "nullable": true
           },
           "subHoldingKeys": {
@@ -58530,6 +59297,114 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/A2BDataRecord"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "A2BMovementRecord": {
+        "type": "object",
+        "properties": {
+          "holdingType": {
+            "type": "string",
+            "description": "The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "nullable": true
+          },
+          "instrumentUid": {
+            "type": "string",
+            "description": "The unique Lusid Instrument Id (LUID) of the instrument that the holding is in.",
+            "nullable": true
+          },
+          "subHoldingKeys": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "The sub-holding properties which identify the holding. Each property will be from the 'Transaction' domain. These are configured when a transaction portfolio is created.",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "description": "The holding currency.",
+            "nullable": true
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "The unique identifier for the transaction.",
+            "nullable": true
+          },
+          "movementName": {
+            "type": "string",
+            "description": "The name of the movement.",
+            "nullable": true
+          },
+          "effectiveDate": {
+            "type": "string",
+            "description": "The date of the movement.",
+            "format": "date-time"
+          },
+          "units": {
+            "type": "number",
+            "description": "The number of units of the instrument that are affected by the movement.",
+            "format": "double"
+          },
+          "start": {
+            "$ref": "#/components/schemas/A2BCategory"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/A2BCategory"
+          },
+          "gains": {
+            "$ref": "#/components/schemas/A2BCategory"
+          },
+          "carry": {
+            "$ref": "#/components/schemas/A2BCategory"
+          },
+          "end": {
+            "$ref": "#/components/schemas/A2BCategory"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The properties which have been requested to be decorated onto the holding. These will be from the 'Instrument' domain.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A2B Movement Record - shows A2B category based changes relating to a specific movement"
+      },
+      "ResourceListOfA2BMovementRecord": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/A2BMovementRecord"
             }
           },
           "href": {
