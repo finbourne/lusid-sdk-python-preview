@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3090",
+    "version": "0.11.3091",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:56232"
     }
   ],
   "paths": {
@@ -2287,7 +2287,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -5146,7 +5146,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -5695,7 +5695,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7071,7 +7071,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7523,7 +7523,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Schema, use \"schema eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -10392,7 +10392,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -12036,7 +12036,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -12265,7 +12265,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -17598,7 +17598,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -20823,7 +20823,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -26267,7 +26267,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the relationships. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -29125,7 +29125,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -32159,7 +32159,7 @@
             "schema": {
               "maxLength": 2147483647,
               "minLength": 0,
-              "pattern": "(?s).*",
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Scope, use \"scope eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -49360,7 +49360,7 @@
           "description": {
             "maxLength": 1024,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "User can assign a description to understand more humanly the recipe.",
             "nullable": true
@@ -50841,7 +50841,7 @@
           "description": {
             "maxLength": 100,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "type": {
@@ -51379,14 +51379,14 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": ""
           },
           "description": {
             "maxLength": 1024,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "",
             "nullable": true
@@ -51527,7 +51527,7 @@
           "description": {
             "maxLength": 1024,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "",
             "nullable": true
@@ -52465,14 +52465,14 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": ""
           },
           "description": {
             "maxLength": 1024,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "",
             "nullable": true
@@ -53240,14 +53240,14 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the Legal Entity"
           },
           "description": {
             "maxLength": 512,
             "minLength": 0,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description of the Legal Entity",
             "nullable": true
@@ -57367,21 +57367,21 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the relationship definition."
           },
           "outwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate source entity object and target entity object."
           },
           "inwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate target entity object and source entity object."
           },
@@ -57428,21 +57428,21 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the relationship."
           },
           "outwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate source entity object and target entity object"
           },
           "inwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate target entity object and source entity object"
           },
@@ -57475,21 +57475,21 @@
           "displayName": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the relation."
           },
           "outwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate source entity object and target entity object."
           },
           "inwardDescription": {
             "maxLength": 512,
             "minLength": 1,
-            "pattern": "(?s).*",
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate target entity object and source entity object."
           }
@@ -62353,7 +62353,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
