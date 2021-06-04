@@ -1,6 +1,5 @@
 # DeleteRelationshipRequest
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # DeleteInstrumentPropertiesResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

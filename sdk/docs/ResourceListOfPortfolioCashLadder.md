@@ -1,6 +1,5 @@
 # ResourceListOfPortfolioCashLadder
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

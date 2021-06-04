@@ -1,6 +1,5 @@
 # QuoteAccessMetadataRule
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

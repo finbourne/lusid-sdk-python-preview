@@ -1,6 +1,5 @@
 # ResourceListOfGetCdsFlowConventionsResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
