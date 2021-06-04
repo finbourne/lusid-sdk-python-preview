@@ -1,7 +1,5 @@
 # CorporateAction
 
-A corporate action
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

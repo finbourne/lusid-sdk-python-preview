@@ -1,7 +1,5 @@
 # IndustryClassificationScheme
 
-Various schemes exist to classify the business sector within which a company operates.  They divide it into various categories around business, economic and sub-sectors (e.g. coal within energy)  These commonly include  ICB https://en.wikipedia.org/wiki/Industry_Classification_Benchmark  TRBC https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification  GICS https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard.  These links are not intended as a complete reference but are freely available as a starting point.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

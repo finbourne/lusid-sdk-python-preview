@@ -1,7 +1,5 @@
 # AggregatedReturn
 
-A list of Aggregated Returns.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

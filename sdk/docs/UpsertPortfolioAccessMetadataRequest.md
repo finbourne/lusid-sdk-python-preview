@@ -1,6 +1,5 @@
 # UpsertPortfolioAccessMetadataRequest
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

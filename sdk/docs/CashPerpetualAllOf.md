@@ -1,6 +1,5 @@
 # CashPerpetualAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

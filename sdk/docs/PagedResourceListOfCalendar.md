@@ -1,6 +1,5 @@
 # PagedResourceListOfCalendar
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
