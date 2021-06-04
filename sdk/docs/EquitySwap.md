@@ -1,5 +1,7 @@
 # EquitySwap
 
+Lusid-ibor internal representation of an Equity Swap instrument.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # ResourceListOfAllocation
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

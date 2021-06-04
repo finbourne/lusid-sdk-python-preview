@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,24 +43,32 @@ class PortfoliosApi(object):
         Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_key_from_portfolio_access_metadata(scope, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str code: Portfolio code (required)
-        :param str metadata_key: The metadataKey identifying the access metadata entry to delete (required)
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param metadata_key: The metadataKey identifying the access metadata entry to delete (required)
+        :type metadata_key: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_key_from_portfolio_access_metadata_with_http_info(scope, code, metadata_key, **kwargs)  # noqa: E501
@@ -71,35 +79,58 @@ class PortfoliosApi(object):
         Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_key_from_portfolio_access_metadata_with_http_info(scope, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str code: Portfolio code (required)
-        :param str metadata_key: The metadataKey identifying the access metadata entry to delete (required)
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param metadata_key: The metadataKey identifying the access metadata entry to delete (required)
+        :type metadata_key: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'metadata_key', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'metadata_key',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -110,33 +141,33 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_key_from_portfolio_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_key_from_portfolio_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `delete_key_from_portfolio_access_metadata`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_key_from_portfolio_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_key_from_portfolio_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_key_from_portfolio_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_key_from_portfolio_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_key_from_portfolio_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_key_from_portfolio_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -149,7 +180,7 @@ class PortfoliosApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -162,13 +193,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/metadata/{metadataKey}', 'DELETE',
@@ -178,13 +209,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_portfolio(self, scope, code, **kwargs):  # noqa: E501
         """Delete portfolio  # noqa: E501
@@ -192,22 +224,28 @@ class PortfoliosApi(object):
         Delete a portfolio.                The deletion will take effect from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime, from the as-at datetime of deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_portfolio(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_portfolio_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -218,33 +256,52 @@ class PortfoliosApi(object):
         Delete a portfolio.                The deletion will take effect from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime, from the as-at datetime of deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_portfolio_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -255,21 +312,21 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -291,13 +348,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}', 'DELETE',
@@ -307,13 +364,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_portfolio_properties(self, scope, code, property_keys, **kwargs):  # noqa: E501
         """Delete portfolio properties  # noqa: E501
@@ -321,24 +379,32 @@ class PortfoliosApi(object):
         Delete one or more properties from a single portfolio. If the properties are time variant then an effective date time from which the properties  will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_portfolio_properties(scope, code, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param list[str] property_keys: The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain. (required)
-        :param str effective_at: The effective datetime or cut label at which to delete the properties.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param property_keys: The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain. (required)
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to delete the properties.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_portfolio_properties_with_http_info(scope, code, property_keys, **kwargs)  # noqa: E501
@@ -349,35 +415,58 @@ class PortfoliosApi(object):
         Delete one or more properties from a single portfolio. If the properties are time variant then an effective date time from which the properties  will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_portfolio_properties_with_http_info(scope, code, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param list[str] property_keys: The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain. (required)
-        :param str effective_at: The effective datetime or cut label at which to delete the properties.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param property_keys: The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain. (required)
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to delete the properties.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'property_keys', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'property_keys',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -388,25 +477,25 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'property_keys' is set
-        if ('property_keys' not in local_var_params or
-                local_var_params['property_keys'] is None):
+        if self.api_client.client_side_validation and ('property_keys' not in local_var_params or  # noqa: E501
+                                                        local_var_params['property_keys'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `property_keys` when calling `delete_portfolio_properties`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -417,9 +506,9 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -433,13 +522,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/properties', 'DELETE',
@@ -449,13 +538,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio(self, scope, code, **kwargs):  # noqa: E501
         """Get portfolio  # noqa: E501
@@ -463,25 +553,34 @@ class PortfoliosApi(object):
         Retrieve the definition of a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified.
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified.
+        :type as_at: datetime
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Portfolio
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Portfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -492,36 +591,61 @@ class PortfoliosApi(object):
         Retrieve the definition of a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified.
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified.
+        :type as_at: datetime
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at', 'property_keys']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at',
+            'property_keys'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -532,21 +656,21 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -557,11 +681,11 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -575,13 +699,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "Portfolio",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}', 'GET',
@@ -591,13 +715,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Portfolio',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_aggregate_returns(self, scope, code, return_scope, return_code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Aggregate Returns  # noqa: E501
@@ -605,31 +730,46 @@ class PortfoliosApi(object):
         Aggregate Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_aggregate_returns(scope, code, return_scope, return_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param str from_effective_at: The start date from which to delete the Returns.
-        :param str to_effective_at: The end date from which to delete the Returns
-        :param str composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
-        :param str period: The type of the returns used to calculate the aggregation result: Daily/Monthly.
-        :param str output_frequency: The type of calculated output: Daily/Monthly/Yearly.
-        :param list[str] metrics: The period time to calculate the aggregate return.
-        :param datetime as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param from_effective_at: The start date from which to delete the Returns.
+        :type from_effective_at: str
+        :param to_effective_at: The end date from which to delete the Returns
+        :type to_effective_at: str
+        :param composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
+        :type composite_method: str
+        :param period: The type of the returns used to calculate the aggregation result: Daily/Monthly.
+        :type period: str
+        :param output_frequency: The type of calculated output: Daily/Monthly/Yearly.
+        :type output_frequency: str
+        :param metrics: The period time to calculate the aggregate return.
+        :type metrics: list[str]
+        :param as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfAggregatedReturn
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfAggregatedReturn
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_aggregate_returns_with_http_info(scope, code, return_scope, return_code, **kwargs)  # noqa: E501
@@ -640,42 +780,79 @@ class PortfoliosApi(object):
         Aggregate Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_aggregate_returns_with_http_info(scope, code, return_scope, return_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param str from_effective_at: The start date from which to delete the Returns.
-        :param str to_effective_at: The end date from which to delete the Returns
-        :param str composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
-        :param str period: The type of the returns used to calculate the aggregation result: Daily/Monthly.
-        :param str output_frequency: The type of calculated output: Daily/Monthly/Yearly.
-        :param list[str] metrics: The period time to calculate the aggregate return.
-        :param datetime as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param from_effective_at: The start date from which to delete the Returns.
+        :type from_effective_at: str
+        :param to_effective_at: The end date from which to delete the Returns
+        :type to_effective_at: str
+        :param composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
+        :type composite_method: str
+        :param period: The type of the returns used to calculate the aggregation result: Daily/Monthly.
+        :type period: str
+        :param output_frequency: The type of calculated output: Daily/Monthly/Yearly.
+        :type output_frequency: str
+        :param metrics: The period time to calculate the aggregate return.
+        :type metrics: list[str]
+        :param as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfAggregatedReturn, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfAggregatedReturn, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'return_scope', 'return_code', 'from_effective_at', 'to_effective_at', 'composite_method', 'period', 'output_frequency', 'metrics', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'return_scope',
+            'return_code',
+            'from_effective_at',
+            'to_effective_at',
+            'composite_method',
+            'period',
+            'output_frequency',
+            'metrics',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -699,20 +876,20 @@ class PortfoliosApi(object):
             path_params['returnCode'] = local_var_params['return_code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'composite_method' in local_var_params:
+        if 'composite_method' in local_var_params and local_var_params['composite_method'] is not None:  # noqa: E501
             query_params.append(('compositeMethod', local_var_params['composite_method']))  # noqa: E501
-        if 'period' in local_var_params:
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
             query_params.append(('period', local_var_params['period']))  # noqa: E501
-        if 'output_frequency' in local_var_params:
+        if 'output_frequency' in local_var_params and local_var_params['output_frequency'] is not None:  # noqa: E501
             query_params.append(('outputFrequency', local_var_params['output_frequency']))  # noqa: E501
-        if 'metrics' in local_var_params:
+        if 'metrics' in local_var_params and local_var_params['metrics'] is not None:  # noqa: E501
             query_params.append(('metrics', local_var_params['metrics']))  # noqa: E501
             collection_formats['metrics'] = 'multi'  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -725,13 +902,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfAggregatedReturn",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated', 'GET',
@@ -741,13 +918,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfAggregatedReturn',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_commands(self, scope, code, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Get portfolio commands  # noqa: E501
@@ -755,27 +933,38 @@ class PortfoliosApi(object):
         Get all the commands that modified a portfolio, including any input transactions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_commands(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param datetime from_as_at: The lower bound as-at datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified.
-        :param datetime to_as_at: The upper bound as-at datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_as_at: The lower bound as-at datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified.
+        :type from_as_at: datetime
+        :param to_as_at: The upper bound as-at datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified.
+        :type to_as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfProcessedCommand
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfProcessedCommand
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_commands_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -786,38 +975,67 @@ class PortfoliosApi(object):
         Get all the commands that modified a portfolio, including any input transactions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_commands_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param datetime from_as_at: The lower bound as-at datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified.
-        :param datetime to_as_at: The upper bound as-at datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_as_at: The lower bound as-at datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified.
+        :type from_as_at: datetime
+        :param to_as_at: The upper bound as-at datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified.
+        :type to_as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing commands from a previous call to GetPortfolioCommands.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfProcessedCommand, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfProcessedCommand, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_as_at', 'to_as_at', 'filter', 'page', 'limit']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_as_at',
+            'to_as_at',
+            'filter',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -828,25 +1046,25 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_commands`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_commands`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_commands`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_commands`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_commands`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_commands`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_portfolio_commands`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_portfolio_commands`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
@@ -857,15 +1075,15 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_as_at' in local_var_params:
+        if 'from_as_at' in local_var_params and local_var_params['from_as_at'] is not None:  # noqa: E501
             query_params.append(('fromAsAt', local_var_params['from_as_at']))  # noqa: E501
-        if 'to_as_at' in local_var_params:
+        if 'to_as_at' in local_var_params and local_var_params['to_as_at'] is not None:  # noqa: E501
             query_params.append(('toAsAt', local_var_params['to_as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -878,13 +1096,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfProcessedCommand",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/commands', 'GET',
@@ -894,13 +1112,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfProcessedCommand',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_metadata(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get access metadata rules for a portfolio  # noqa: E501
@@ -908,24 +1127,32 @@ class PortfoliosApi(object):
         Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_metadata(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
-        :param str code: Portfolio code (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the access metadata rule.
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :param scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the access metadata rule.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: dict(str, list[AccessMetadataValue])
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: dict(str, list[AccessMetadataValue])
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_metadata_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -936,35 +1163,58 @@ class PortfoliosApi(object):
         Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_metadata_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
-        :param str code: Portfolio code (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the access metadata rule.
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :param scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the access metadata rule.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(dict(str, list[AccessMetadataValue]), status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(dict(str, list[AccessMetadataValue]), status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -975,29 +1225,29 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_portfolio_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_portfolio_metadata`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1008,9 +1258,9 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1023,13 +1273,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "dict(str, list[AccessMetadataValue])",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/metadata', 'GET',
@@ -1039,13 +1289,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, list[AccessMetadataValue])',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_properties(self, scope, code, **kwargs):  # noqa: E501
         """Get portfolio properties  # noqa: E501
@@ -1053,24 +1304,32 @@ class PortfoliosApi(object):
         List all the properties of a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_properties(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PortfolioProperties
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PortfolioProperties
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_properties_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1081,35 +1340,58 @@ class PortfoliosApi(object):
         List all the properties of a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_properties_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PortfolioProperties, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PortfolioProperties, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1120,21 +1402,21 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1145,9 +1427,9 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1160,13 +1442,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "PortfolioProperties",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/properties', 'GET',
@@ -1176,13 +1458,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PortfolioProperties',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_property_time_series(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get portfolio property time series  # noqa: E501
@@ -1190,28 +1473,40 @@ class PortfoliosApi(object):
         List the complete time series of a portfolio property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_property_time_series(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str property_key: The property key of the property that will have its history shown.              These must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
-        :param str portfolio_effective_at: The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolio's property history. Defaults to return the current datetime if not supplied.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param property_key: The property key of the property that will have its history shown.              These must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_key: str
+        :param portfolio_effective_at: The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type portfolio_effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolio's property history. Defaults to return the current datetime if not supplied.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPropertyInterval
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPropertyInterval
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_property_time_series_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1222,39 +1517,70 @@ class PortfoliosApi(object):
         List the complete time series of a portfolio property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_property_time_series_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str property_key: The property key of the property that will have its history shown.              These must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
-        :param str portfolio_effective_at: The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolio's property history. Defaults to return the current datetime if not supplied.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param property_key: The property key of the property that will have its history shown.              These must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_key: str
+        :param portfolio_effective_at: The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type portfolio_effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolio's property history. Defaults to return the current datetime if not supplied.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields              must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPropertyInterval, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPropertyInterval, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'property_key', 'portfolio_effective_at', 'as_at', 'filter', 'page', 'limit']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'property_key',
+            'portfolio_effective_at',
+            'as_at',
+            'filter',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1265,25 +1591,25 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_property_time_series`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_property_time_series`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_property_time_series`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_property_time_series`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_property_time_series`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_property_time_series`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_portfolio_property_time_series`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_portfolio_property_time_series`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
@@ -1294,17 +1620,17 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'property_key' in local_var_params:
+        if 'property_key' in local_var_params and local_var_params['property_key'] is not None:  # noqa: E501
             query_params.append(('propertyKey', local_var_params['property_key']))  # noqa: E501
-        if 'portfolio_effective_at' in local_var_params:
+        if 'portfolio_effective_at' in local_var_params and local_var_params['portfolio_effective_at'] is not None:  # noqa: E501
             query_params.append(('portfolioEffectiveAt', local_var_params['portfolio_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -1317,13 +1643,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfPropertyInterval",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/properties/time-series', 'GET',
@@ -1333,13 +1659,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPropertyInterval',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_relations(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get portfolio relations  # noqa: E501
@@ -1347,26 +1674,36 @@ class PortfoliosApi(object):
         Get relations for a portfolio .  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_relations(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfRelation
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfRelation
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_relations_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1377,37 +1714,64 @@ class PortfoliosApi(object):
         Get relations for a portfolio .  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_relations_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to retrieve relations. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfRelation, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfRelation, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at', 'filter', 'identifier_types']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'identifier_types'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1418,21 +1782,21 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relations`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relations`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relations`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relations`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1443,13 +1807,13 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'identifier_types' in local_var_params:
+        if 'identifier_types' in local_var_params and local_var_params['identifier_types'] is not None:  # noqa: E501
             query_params.append(('identifierTypes', local_var_params['identifier_types']))  # noqa: E501
             collection_formats['identifierTypes'] = 'multi'  # noqa: E501
 
@@ -1463,13 +1827,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfRelation",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/relations', 'GET',
@@ -1479,13 +1843,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfRelation',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_relationships(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get portfolio relationships  # noqa: E501
@@ -1493,26 +1858,36 @@ class PortfoliosApi(object):
         Get relationships for a portfolio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_relationships(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relationships. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relationships. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfRelationship
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfRelationship
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_relationships_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1523,37 +1898,64 @@ class PortfoliosApi(object):
         Get relationships for a portfolio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_relationships_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relationships. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relationships. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and take the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfRelationship, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfRelationship, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at', 'filter', 'identifier_types']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'identifier_types'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1564,37 +1966,37 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relationships`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relationships`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relationships`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relationships`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) > 256):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_portfolio_relationships`, length must be less than or equal to `256`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) < 0):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_portfolio_relationships`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_portfolio_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) > 2147483647):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 2147483647):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_portfolio_relationships`, length must be less than or equal to `2147483647`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) < 0):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_portfolio_relationships`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_portfolio_relationships`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1605,13 +2007,13 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'identifier_types' in local_var_params:
+        if 'identifier_types' in local_var_params and local_var_params['identifier_types'] is not None:  # noqa: E501
             query_params.append(('identifierTypes', local_var_params['identifier_types']))  # noqa: E501
             collection_formats['identifierTypes'] = 'multi'  # noqa: E501
 
@@ -1625,13 +2027,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfRelationship",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/relationships', 'GET',
@@ -1641,13 +2043,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfRelationship',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_returns(self, scope, code, return_scope, return_code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Returns  # noqa: E501
@@ -1655,28 +2058,40 @@ class PortfoliosApi(object):
         Get Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_returns(scope, code, return_scope, return_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param str from_effective_at: The start date from which to delete the Returns.
-        :param str to_effective_at: The end date from which to delete the Returns
-        :param str period: Show the Returns on a Daily or Monthly period.
-        :param datetime as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param from_effective_at: The start date from which to delete the Returns.
+        :type from_effective_at: str
+        :param to_effective_at: The end date from which to delete the Returns
+        :type to_effective_at: str
+        :param period: Show the Returns on a Daily or Monthly period.
+        :type period: str
+        :param as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPerformanceReturn
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPerformanceReturn
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_returns_with_http_info(scope, code, return_scope, return_code, **kwargs)  # noqa: E501
@@ -1687,39 +2102,70 @@ class PortfoliosApi(object):
         Get Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_returns_with_http_info(scope, code, return_scope, return_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param str from_effective_at: The start date from which to delete the Returns.
-        :param str to_effective_at: The end date from which to delete the Returns
-        :param str period: Show the Returns on a Daily or Monthly period.
-        :param datetime as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param from_effective_at: The start date from which to delete the Returns.
+        :type from_effective_at: str
+        :param to_effective_at: The end date from which to delete the Returns
+        :type to_effective_at: str
+        :param period: Show the Returns on a Daily or Monthly period.
+        :type period: str
+        :param as_at: The asAt datetime at which to retrieve the Returns. Defaults to the latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPerformanceReturn, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPerformanceReturn, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'return_scope', 'return_code', 'from_effective_at', 'to_effective_at', 'period', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'return_scope',
+            'return_code',
+            'from_effective_at',
+            'to_effective_at',
+            'period',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1743,13 +2189,13 @@ class PortfoliosApi(object):
             path_params['returnCode'] = local_var_params['return_code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'period' in local_var_params:
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
             query_params.append(('period', local_var_params['period']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1762,13 +2208,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfPerformanceReturn",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}', 'GET',
@@ -1778,13 +2224,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPerformanceReturn',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolios_access_metadata_by_key(self, scope, code, metadata_key, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get an entry identified by a metadataKey in the access metadata object  # noqa: E501
@@ -1792,25 +2239,34 @@ class PortfoliosApi(object):
         Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolios_access_metadata_by_key(scope, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
-        :param str code: The code of the portfolio (required)
-        :param str metadata_key: Key of the metadata to retrieve (required)
-        :param str effective_at: The effective date of the rule
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :param scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: The code of the portfolio (required)
+        :type code: str
+        :param metadata_key: Key of the metadata to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effective date of the rule
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[AccessMetadataValue]
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: list[AccessMetadataValue]
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolios_access_metadata_by_key_with_http_info(scope, code, metadata_key, **kwargs)  # noqa: E501
@@ -1821,36 +2277,61 @@ class PortfoliosApi(object):
         Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolios_access_metadata_by_key_with_http_info(scope, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
-        :param str code: The code of the portfolio (required)
-        :param str metadata_key: Key of the metadata to retrieve (required)
-        :param str effective_at: The effective date of the rule
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :param scope: The scope of the Portfolio Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param code: The code of the portfolio (required)
+        :type code: str
+        :param metadata_key: Key of the metadata to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effective date of the rule
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio access metadata.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[AccessMetadataValue], status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(list[AccessMetadataValue], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'metadata_key', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'metadata_key',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1861,33 +2342,33 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_portfolios_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_portfolios_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `get_portfolios_access_metadata_by_key`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolios_access_metadata_by_key`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolios_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolios_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolios_access_metadata_by_key`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolios_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolios_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1900,9 +2381,9 @@ class PortfoliosApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1915,13 +2396,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "list[AccessMetadataValue]",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/metadata/{metadataKey}', 'GET',
@@ -1931,13 +2412,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[AccessMetadataValue]',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_portfolios(self, **kwargs):  # noqa: E501
         """List portfolios  # noqa: E501
@@ -1945,28 +2427,40 @@ class PortfoliosApi(object):
         List all the portfolios matching particular criteria.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_portfolios(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
-        :param str page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.              For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
+        :type query: str
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPortfolio
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPortfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.list_portfolios_with_http_info(**kwargs)  # noqa: E501
@@ -1977,39 +2471,70 @@ class PortfoliosApi(object):
         List all the portfolios matching particular criteria.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_portfolios_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
-        :param str page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.              For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
+        :type query: str
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPortfolio, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPortfolio, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['effective_at', 'as_at', 'page', 'start', 'limit', 'filter', 'query', 'property_keys']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'effective_at',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter',
+            'query',
+            'property_keys'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2020,30 +2545,30 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_portfolios`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_portfolios`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'query' in local_var_params:
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
             query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -2057,13 +2582,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfPortfolio",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios', 'GET',
@@ -2073,13 +2598,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPortfolio',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_portfolios_for_scope(self, scope, **kwargs):  # noqa: E501
         """List portfolios for scope  # noqa: E501
@@ -2087,28 +2613,40 @@ class PortfoliosApi(object):
         List all the portfolios in a scope.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_portfolios_for_scope(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolios. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
-        :param str page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param scope: The scope of the portfolios. (required)
+        :type scope: str
+        :param effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPortfolio
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPortfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.list_portfolios_for_scope_with_http_info(scope, **kwargs)  # noqa: E501
@@ -2119,39 +2657,70 @@ class PortfoliosApi(object):
         List all the portfolios in a scope.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_portfolios_for_scope_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolios. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
-        :param str page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :param scope: The scope of the portfolios. (required)
+        :type scope: str
+        :param effective_at: The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The as-at datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.              These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPortfolio, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPortfolio, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'effective_at', 'as_at', 'page', 'start', 'limit', 'filter', 'property_keys']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'effective_at',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter',
+            'property_keys'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2162,17 +2731,17 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_portfolios_for_scope`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_portfolios_for_scope`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_portfolios_for_scope`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_portfolios_for_scope`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_portfolios_for_scope`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
@@ -2181,19 +2750,19 @@ class PortfoliosApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -2207,13 +2776,13 @@ class PortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+        
+        response_types_map = {
+            200: "ResourceListOfPortfolio",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}', 'GET',
@@ -2223,13 +2792,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPortfolio',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def update_portfolio(self, scope, code, update_portfolio_request, **kwargs):  # noqa: E501
         """Update portfolio  # noqa: E501
@@ -2237,24 +2807,32 @@ class PortfoliosApi(object):
         Update the definition of a portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored against the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_portfolio(scope, code, update_portfolio_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param UpdatePortfolioRequest update_portfolio_request: The updated portfolio definition. (required)
-        :param str effective_at: The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param update_portfolio_request: The updated portfolio definition. (required)
+        :type update_portfolio_request: UpdatePortfolioRequest
+        :param effective_at: The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Portfolio
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Portfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.update_portfolio_with_http_info(scope, code, update_portfolio_request, **kwargs)  # noqa: E501
@@ -2265,35 +2843,58 @@ class PortfoliosApi(object):
         Update the definition of a portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored against the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_portfolio_with_http_info(scope, code, update_portfolio_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param UpdatePortfolioRequest update_portfolio_request: The updated portfolio definition. (required)
-        :param str effective_at: The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified.
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param update_portfolio_request: The updated portfolio definition. (required)
+        :type update_portfolio_request: UpdatePortfolioRequest
+        :param effective_at: The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'update_portfolio_request', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'update_portfolio_request',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2304,25 +2905,25 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'update_portfolio_request' is set
-        if ('update_portfolio_request' not in local_var_params or
-                local_var_params['update_portfolio_request'] is None):
+        if self.api_client.client_side_validation and ('update_portfolio_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_portfolio_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `update_portfolio_request` when calling `update_portfolio`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_portfolio`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_portfolio`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_portfolio`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2333,7 +2934,7 @@ class PortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -2352,12 +2953,17 @@ class PortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "Portfolio",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}', 'PUT',
@@ -2367,13 +2973,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Portfolio',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_portfolio_access_metadata(self, scope, code, metadata_key, upsert_portfolio_access_metadata_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.  # noqa: E501
@@ -2381,25 +2988,34 @@ class PortfoliosApi(object):
         Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_access_metadata(scope, code, metadata_key, upsert_portfolio_access_metadata_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the Portfolio Access Metadata Rule. (required)
-        :param str code: Portfolio code (required)
-        :param str metadata_key: Key of the access metadata to upsert (required)
-        :param UpsertPortfolioAccessMetadataRequest upsert_portfolio_access_metadata_request: The Portfolio Access Metadata Rule to update or insert (required)
-        :param str effective_at: The date this rule will effective from
+        :param scope: The scope to use when updating or inserting the Portfolio Access Metadata Rule. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param metadata_key: Key of the access metadata to upsert (required)
+        :type metadata_key: str
+        :param upsert_portfolio_access_metadata_request: The Portfolio Access Metadata Rule to update or insert (required)
+        :type upsert_portfolio_access_metadata_request: UpsertPortfolioAccessMetadataRequest
+        :param effective_at: The date this rule will effective from
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfAccessMetadataValueOf
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfAccessMetadataValueOf
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_portfolio_access_metadata_with_http_info(scope, code, metadata_key, upsert_portfolio_access_metadata_request, **kwargs)  # noqa: E501
@@ -2410,36 +3026,61 @@ class PortfoliosApi(object):
         Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_access_metadata_with_http_info(scope, code, metadata_key, upsert_portfolio_access_metadata_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the Portfolio Access Metadata Rule. (required)
-        :param str code: Portfolio code (required)
-        :param str metadata_key: Key of the access metadata to upsert (required)
-        :param UpsertPortfolioAccessMetadataRequest upsert_portfolio_access_metadata_request: The Portfolio Access Metadata Rule to update or insert (required)
-        :param str effective_at: The date this rule will effective from
+        :param scope: The scope to use when updating or inserting the Portfolio Access Metadata Rule. (required)
+        :type scope: str
+        :param code: Portfolio code (required)
+        :type code: str
+        :param metadata_key: Key of the access metadata to upsert (required)
+        :type metadata_key: str
+        :param upsert_portfolio_access_metadata_request: The Portfolio Access Metadata Rule to update or insert (required)
+        :type upsert_portfolio_access_metadata_request: UpsertPortfolioAccessMetadataRequest
+        :param effective_at: The date this rule will effective from
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfAccessMetadataValueOf, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfAccessMetadataValueOf, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'metadata_key', 'upsert_portfolio_access_metadata_request', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'metadata_key',
+            'upsert_portfolio_access_metadata_request',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2450,37 +3091,37 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `upsert_portfolio_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `upsert_portfolio_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `upsert_portfolio_access_metadata`")  # noqa: E501
         # verify the required parameter 'upsert_portfolio_access_metadata_request' is set
-        if ('upsert_portfolio_access_metadata_request' not in local_var_params or
-                local_var_params['upsert_portfolio_access_metadata_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_portfolio_access_metadata_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_portfolio_access_metadata_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_portfolio_access_metadata_request` when calling `upsert_portfolio_access_metadata`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2493,7 +3134,7 @@ class PortfoliosApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -2512,12 +3153,17 @@ class PortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "ResourceListOfAccessMetadataValueOf",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/metadata/{metadataKey}', 'PUT',
@@ -2527,13 +3173,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfAccessMetadataValueOf',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_portfolio_properties(self, scope, code, request_body, **kwargs):  # noqa: E501
         """Upsert portfolio properties  # noqa: E501
@@ -2541,23 +3188,30 @@ class PortfoliosApi(object):
         Update or insert one or more properties onto a single portfolio. A property will be updated if it  already exists and inserted if it does not. All properties must be from the 'Portfolio' domain.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_properties(scope, code, request_body, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param dict(str, ModelProperty) request_body: The properties to be updated or inserted onto the portfolio. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'. (required)
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param request_body: The properties to be updated or inserted onto the portfolio. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'. (required)
+        :type request_body: dict(str, ModelProperty)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PortfolioProperties
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PortfolioProperties
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_portfolio_properties_with_http_info(scope, code, request_body, **kwargs)  # noqa: E501
@@ -2568,34 +3222,55 @@ class PortfoliosApi(object):
         Update or insert one or more properties onto a single portfolio. A property will be updated if it  already exists and inserted if it does not. All properties must be from the 'Portfolio' domain.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_properties_with_http_info(scope, code, request_body, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio. (required)
-        :param str code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
-        :param dict(str, ModelProperty) request_body: The properties to be updated or inserted onto the portfolio. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'. (required)
+        :param scope: The scope of the portfolio. (required)
+        :type scope: str
+        :param code: The code of the portfolio. Together with the scope this uniquely identifies the portfolio. (required)
+        :type code: str
+        :param request_body: The properties to be updated or inserted onto the portfolio. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'. (required)
+        :type request_body: dict(str, ModelProperty)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PortfolioProperties, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PortfolioProperties, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2606,25 +3281,25 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request_body' is set
-        if ('request_body' not in local_var_params or
-                local_var_params['request_body'] is None):
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `request_body` when calling `upsert_portfolio_properties`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2652,12 +3327,17 @@ class PortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "PortfolioProperties",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/properties', 'POST',
@@ -2667,13 +3347,14 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PortfolioProperties',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_portfolio_returns(self, scope, code, return_scope, return_code, performance_return, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert Returns  # noqa: E501
@@ -2681,25 +3362,34 @@ class PortfoliosApi(object):
         Update or insert returns into the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_returns(scope, code, return_scope, return_code, performance_return, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param list[PerformanceReturn] performance_return: This contains the Returns which need to be upsert. (required)
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param performance_return: This contains the Returns which need to be upsert. (required)
+        :type performance_return: list[PerformanceReturn]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertReturnsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertReturnsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_portfolio_returns_with_http_info(scope, code, return_scope, return_code, performance_return, **kwargs)  # noqa: E501
@@ -2710,36 +3400,61 @@ class PortfoliosApi(object):
         Update or insert returns into the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_returns_with_http_info(scope, code, return_scope, return_code, performance_return, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Portfolio. (required)
-        :param str code: The code of the  Portfolio. (required)
-        :param str return_scope: The scope of the Returns. (required)
-        :param str return_code: The code of the Returns. (required)
-        :param list[PerformanceReturn] performance_return: This contains the Returns which need to be upsert. (required)
+        :param scope: The scope of the Portfolio. (required)
+        :type scope: str
+        :param code: The code of the  Portfolio. (required)
+        :type code: str
+        :param return_scope: The scope of the Returns. (required)
+        :type return_scope: str
+        :param return_code: The code of the Returns. (required)
+        :type return_code: str
+        :param performance_return: This contains the Returns which need to be upsert. (required)
+        :type performance_return: list[PerformanceReturn]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertReturnsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertReturnsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'return_scope', 'return_code', 'performance_return']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'return_scope',
+            'return_code',
+            'performance_return'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2750,8 +3465,8 @@ class PortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'performance_return' is set
-        if ('performance_return' not in local_var_params or
-                local_var_params['performance_return'] is None):
+        if self.api_client.client_side_validation and ('performance_return' not in local_var_params or  # noqa: E501
+                                                        local_var_params['performance_return'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `performance_return` when calling `upsert_portfolio_returns`")  # noqa: E501
 
         collection_formats = {}
@@ -2784,12 +3499,17 @@ class PortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3104'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertReturnsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}', 'POST',
@@ -2799,10 +3519,11 @@ class PortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertReturnsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

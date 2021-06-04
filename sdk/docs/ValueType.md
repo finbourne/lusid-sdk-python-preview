@@ -1,5 +1,7 @@
 # ValueType
 
+A list of types, familiar to the Ui, that define the expected input or output types on a piece of data
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

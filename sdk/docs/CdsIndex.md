@@ -1,5 +1,7 @@
 # CdsIndex
 
+IL CDS Index Instrument; Lusid-ibor internal representation of a Credit Default Swap Index instrument  Calculation information and reference data can be obtained from Markit, e.g. https://www.markit.com/Documentation/Product/ITraxx
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
