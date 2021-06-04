@@ -1,5 +1,7 @@
 # FuturesContractDetails
 
+Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for              common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

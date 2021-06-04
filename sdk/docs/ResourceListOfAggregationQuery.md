@@ -1,5 +1,6 @@
 # ResourceListOfAggregationQuery
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
