@@ -1,7 +1,5 @@
 # CompleteRelation
 
-Representation of a relation containing details of source and target entities, and both outward and inward descriptions.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

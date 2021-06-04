@@ -1,6 +1,5 @@
 # MarketIdentifier
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

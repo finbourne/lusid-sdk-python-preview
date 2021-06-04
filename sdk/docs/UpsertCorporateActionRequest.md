@@ -1,6 +1,5 @@
 # UpsertCorporateActionRequest
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

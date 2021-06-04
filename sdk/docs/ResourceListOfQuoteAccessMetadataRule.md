@@ -1,6 +1,5 @@
 # ResourceListOfQuoteAccessMetadataRule
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

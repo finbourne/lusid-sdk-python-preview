@@ -1,6 +1,5 @@
 # ResourceListOfTransaction
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

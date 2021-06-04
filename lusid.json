@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3106",
+    "version": "0.11.3107",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62780"
+      "url": "http://local-unit-test-server.lusid.com:56961"
     }
   ],
   "paths": {
@@ -48069,6 +48069,156 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/translation/instrumentdefinitions": {
+      "post": {
+        "tags": [
+          "Translation"
+        ],
+        "summary": "[EXPERIMENTAL] Translate instruments",
+        "description": "Translates one or more instruments into the given target dialect.\r\n            \r\nIn the request each instrument definition should be keyed by a unique correlation id. This id is ephemeral\r\nand is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.\r\n            \r\nAny instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.\r\n            \r\nThe response will return both the collection of successfully translated instruments in the target dialect,\r\nas well as those that failed.\r\nFor the failures a reason will be provided explaining why the instrument could not be updated or inserted.",
+        "operationId": "TranslateInstrumentDefinitions",
+        "requestBody": {
+          "description": "The definitions of the instruments to translate along with the target dialect.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateInstrumentDefinitionsRequest"
+              },
+              "example": {
+                "instruments": {
+                  "myFavouriteInstrument": {
+                    "instrumentFormat": {
+                      "sourceSystem": "someSource",
+                      "vendor": "someVendor",
+                      "version": "someVersion"
+                    },
+                    "content": "InstrumentGoesInHereAsAString",
+                    "instrumentType": "ExoticInstrument"
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateInstrumentDefinitionsRequest"
+              },
+              "example": {
+                "instruments": {
+                  "myFavouriteInstrument": {
+                    "instrumentFormat": {
+                      "sourceSystem": "someSource",
+                      "vendor": "someVendor",
+                      "version": "someVersion"
+                    },
+                    "content": "InstrumentGoesInHereAsAString",
+                    "instrumentType": "ExoticInstrument"
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateInstrumentDefinitionsRequest"
+              },
+              "example": {
+                "instruments": {
+                  "myFavouriteInstrument": {
+                    "instrumentFormat": {
+                      "sourceSystem": "someSource",
+                      "vendor": "someVendor",
+                      "version": "someVersion"
+                    },
+                    "content": "InstrumentGoesInHereAsAString",
+                    "instrumentType": "ExoticInstrument"
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateInstrumentDefinitionsRequest"
+              },
+              "example": {
+                "instruments": {
+                  "myFavouriteInstrument": {
+                    "instrumentFormat": {
+                      "sourceSystem": "someSource",
+                      "vendor": "someVendor",
+                      "version": "someVersion"
+                    },
+                    "content": "InstrumentGoesInHereAsAString",
+                    "instrumentType": "ExoticInstrument"
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully translated instruments along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateInstrumentDefinitionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateInstrumentDefinitionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateInstrumentDefinitionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/unitresults/datamap/{scope}": {
       "post": {
         "tags": [
@@ -60334,6 +60484,67 @@
         },
         "additionalProperties": false
       },
+      "TranslateInstrumentDefinitionsRequest": {
+        "required": [
+          "dialect",
+          "instruments"
+        ],
+        "type": "object",
+        "properties": {
+          "instruments": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/LusidInstrument"
+            },
+            "description": "The collection of instruments to translate.\r\n            \r\nEach instrument definition should be keyed by a unique correlation id. This id is ephemeral\r\nand is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.\r\n            \r\nAny instrument that is not already in the LUSID dialect should be given as an ExoticInstrument."
+          },
+          "dialect": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z]*$",
+            "type": "string",
+            "description": "The target dialect that the given instruments should be translated to."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of instruments to translate, along with the target dialect to translate into."
+      },
+      "TranslateInstrumentDefinitionsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/LusidInstrument"
+            },
+            "description": "The instruments which have been successfully translated.",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The instruments that could not be translated along with a reason for their failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A response from a request to translate a collection of instruments to a given target dialect."
+      },
       "StructuredResultDataId": {
         "required": [
           "source"
@@ -62585,6 +62796,10 @@
     {
       "name": "Transaction Portfolios",
       "description": "A transaction portfolio stores transactions and calculates instrument holdings and cash balances, enabling valuation, analytic, profit & loss, risk assessment and other operations to be performed. Note that a transaction portfolio is a type of portfolio, so endpoints in the Portfolios API can also be called. For more information, see https://support.lusid.com/knowledgebase/article/KA-01851."
+    },
+    {
+      "name": "Translation",
+      "description": "Methods for translating between dialects."
     }
   ],
   "x-tagGroups": {
@@ -62623,7 +62838,8 @@
       "Structured Market Data",
       "Structured Result Data",
       "System Configuration",
-      "Transaction Portfolios"
+      "Transaction Portfolios",
+      "Translation"
     ]
   }
 }

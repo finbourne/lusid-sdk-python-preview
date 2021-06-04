@@ -1,6 +1,5 @@
 # VendorLibrary
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

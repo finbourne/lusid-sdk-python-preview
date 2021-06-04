@@ -1,6 +1,5 @@
 # PagedResourceListOfCorporateActionSource
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
