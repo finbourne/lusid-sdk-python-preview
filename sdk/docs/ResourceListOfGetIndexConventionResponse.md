@@ -1,5 +1,6 @@
 # ResourceListOfGetIndexConventionResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
