@@ -1,7 +1,5 @@
 # CreditRating
 
-Entity describing a credit rating, that is an assessment of the stability and credit worthiness of a given counterparty  and hence of its likelihood of defaulting on any outstanding obligations (typically debt) that it has.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

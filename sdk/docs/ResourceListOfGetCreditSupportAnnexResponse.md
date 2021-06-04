@@ -1,6 +1,5 @@
 # ResourceListOfGetCreditSupportAnnexResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

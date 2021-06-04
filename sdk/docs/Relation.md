@@ -1,7 +1,5 @@
 # Relation
 
-Representation of a Relation between a requested entity with the stated entity as RelationedEntityId
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

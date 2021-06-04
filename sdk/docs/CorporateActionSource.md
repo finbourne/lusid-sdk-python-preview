@@ -1,6 +1,5 @@
 # CorporateActionSource
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

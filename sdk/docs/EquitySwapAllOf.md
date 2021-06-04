@@ -1,6 +1,5 @@
 # EquitySwapAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

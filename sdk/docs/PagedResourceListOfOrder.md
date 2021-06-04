@@ -1,6 +1,5 @@
 # PagedResourceListOfOrder
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
