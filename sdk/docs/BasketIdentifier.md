@@ -1,5 +1,7 @@
 # BasketIdentifier
 
+Descriptive information that describes a particular basket of instruments. Most commonly required with a CDS Index or similarly defined instrument.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

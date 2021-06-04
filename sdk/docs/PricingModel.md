@@ -1,5 +1,6 @@
 # PricingModel
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
