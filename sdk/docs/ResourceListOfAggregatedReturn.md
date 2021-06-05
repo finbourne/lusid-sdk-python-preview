@@ -1,5 +1,6 @@
 # ResourceListOfAggregatedReturn
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

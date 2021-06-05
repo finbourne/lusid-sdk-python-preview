@@ -1,5 +1,7 @@
 # Counterparty
 
+The information that describes a counterparty to a transaction (or trade). This information allows one to identify the unique legal entity with whom a transaction  takes place along with key information that would link it to any Credit Support Annex or related information that allows trades to be netted together for  the purposes of determining such calculations as Credit-Valuation-Adjustments, Debit-Valuation-Adjustments (CVA, DVA, XVA etc.). It would also help in the identification  of appropriate credit curves for the purposes of such calculations and any other relevant legal document, trade coverage, contacts and similar information.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
