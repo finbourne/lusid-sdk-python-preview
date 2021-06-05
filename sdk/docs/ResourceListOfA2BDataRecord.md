@@ -1,6 +1,5 @@
 # ResourceListOfA2BDataRecord
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

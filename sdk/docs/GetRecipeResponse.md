@@ -1,6 +1,5 @@
 # GetRecipeResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

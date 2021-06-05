@@ -1,7 +1,5 @@
 # CreditDefaultSwap
 
-IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

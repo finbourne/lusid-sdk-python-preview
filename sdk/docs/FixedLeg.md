@@ -1,7 +1,5 @@
 # FixedLeg
 
-representation of a fixed rates leg
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
