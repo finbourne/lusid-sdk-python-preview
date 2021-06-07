@@ -1,6 +1,6 @@
 # lusid.CounterpartyApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:63946*
+All URIs are relative to *http://local-unit-test-server.lusid.com:31381*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,36 +30,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    scope = 'scope_example' # str | The scope of the Counterparty to delete.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Counterparty to delete.
 code = 'code_example' # str | The Counterparty to delete.
 
-    try:
-        # [EXPERIMENTAL] Delete the Counterparty of given scope and code, assuming that it is present.
-        api_response = api_instance.delete_counterparty(scope, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->delete_counterparty: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete the Counterparty of given scope and code, assuming that it is present.
+    api_response = api_instance.delete_counterparty(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->delete_counterparty: %s\n" % e)
 ```
 
 ### Parameters
@@ -107,36 +94,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    scope = 'scope_example' # str | The scope of the CSA to delete.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the CSA to delete.
 code = 'code_example' # str | The CSA to delete.
 
-    try:
-        # [EXPERIMENTAL] Delete the CSA of given scope and code, assuming that it is present.
-        api_response = api_instance.delete_credit_support_annex(scope, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->delete_credit_support_annex: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete the CSA of given scope and code, assuming that it is present.
+    api_response = api_instance.delete_credit_support_annex(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->delete_credit_support_annex: %s\n" % e)
 ```
 
 ### Parameters
@@ -184,37 +158,24 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    scope = 'scope_example' # str | The scope of the Counterparty to retrieve.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the Counterparty to retrieve.
 code = 'code_example' # str | The name of the Counterparty to retrieve the data for.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the counterparty. Defaults to return the latest version if not specified. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Counterparty
-        api_response = api_instance.get_counterparty(scope, code, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->get_counterparty: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Counterparty
+    api_response = api_instance.get_counterparty(scope, code, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->get_counterparty: %s\n" % e)
 ```
 
 ### Parameters
@@ -263,37 +224,24 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    scope = 'scope_example' # str | The scope of the CSA to retrieve.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope of the CSA to retrieve.
 code = 'code_example' # str | The name of the CSA to retrieve the data for.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the CSA. Defaults to return the latest version if not specified. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get CSA
-        api_response = api_instance.get_credit_support_annex(scope, code, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->get_credit_support_annex: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get CSA
+    api_response = api_instance.get_credit_support_annex(scope, code, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->get_credit_support_annex: %s\n" % e)
 ```
 
 ### Parameters
@@ -342,35 +290,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the counterparty. Defaults to latest if not specified. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the counterparty. Defaults to latest if not specified. (optional)
 
-    try:
-        # [EXPERIMENTAL] List the set of Counterparties
-        api_response = api_instance.list_counterparties(as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->list_counterparties: %s\n" % e)
+try:
+    # [EXPERIMENTAL] List the set of Counterparties
+    api_response = api_instance.list_counterparties(as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->list_counterparties: %s\n" % e)
 ```
 
 ### Parameters
@@ -417,35 +352,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the CSAs. Defaults to latest if not specified. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the CSAs. Defaults to latest if not specified. (optional)
 
-    try:
-        # [EXPERIMENTAL] List the set of CSAs
-        api_response = api_instance.list_credit_support_annexes(as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->list_credit_support_annexes: %s\n" % e)
+try:
+    # [EXPERIMENTAL] List the set of CSAs
+    api_response = api_instance.list_credit_support_annexes(as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->list_credit_support_annexes: %s\n" % e)
 ```
 
 ### Parameters
@@ -492,35 +414,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    upsert_counterparty_request = {"counterparty":{"counterpartyId":"12345","counterpartyName":"some-bank-of-somewhere","countryOfRisk":"United States","issuerRatings":[{"ratingSource":"S&P","rating":"BB"}],"industryScheme":{"schemeName":"TRCS","schemeId":"5010201010","economicSector":"Energy","businessSector":"Energy - Fossil Fuels","industry":"Oil & Gas","industryActivity":"Integrated Oil & Gas"},"scope":"some-scope","code":"some-code"}} # UpsertCounterpartyRequest | The Counterparty to update or insert
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+upsert_counterparty_request = {"counterparty":{"counterpartyId":"12345","counterpartyName":"some-bank-of-somewhere","countryOfRisk":"United States","issuerRatings":[{"ratingSource":"S&P","rating":"BB"}],"industryScheme":{"schemeName":"TRCS","schemeId":"5010201010","economicSector":"Energy","businessSector":"Energy - Fossil Fuels","industry":"Oil & Gas","industryActivity":"Integrated Oil & Gas"},"scope":"some-scope","code":"some-code"}} # UpsertCounterpartyRequest | The Counterparty to update or insert
 
-    try:
-        # [EXPERIMENTAL] Upsert Counterparty. This creates or updates the data in Lusid.
-        api_response = api_instance.upsert_counterparty(upsert_counterparty_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->upsert_counterparty: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert Counterparty. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_counterparty(upsert_counterparty_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->upsert_counterparty: %s\n" % e)
 ```
 
 ### Parameters
@@ -567,35 +476,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:63946
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:63946"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.CounterpartyApi(api_client)
-    upsert_credit_support_annex_request = {"creditSupportAnnex":{"referenceCurrency":"GBP","collateralCurrencies":["GBP"],"isdaAgreementVersion":"ISDA2002","marginCallFrequency":"1W","valuationAgent":"Institution","thresholdAmount":0,"roundingDecimalPlaces":2,"initialMarginAmount":100000,"minimumTransferAmount":10000,"scope":"some-scope","code":"some-code"}} # UpsertCreditSupportAnnexRequest | The CSA to update or insert
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31381
+configuration.host = "http://local-unit-test-server.lusid.com:31381"
+# Create an instance of the API class
+api_instance = lusid.CounterpartyApi(lusid.ApiClient(configuration))
+upsert_credit_support_annex_request = {"creditSupportAnnex":{"referenceCurrency":"GBP","collateralCurrencies":["GBP"],"isdaAgreementVersion":"ISDA2002","marginCallFrequency":"1W","valuationAgent":"Institution","thresholdAmount":0,"roundingDecimalPlaces":2,"initialMarginAmount":100000,"minimumTransferAmount":10000,"scope":"some-scope","code":"some-code"}} # UpsertCreditSupportAnnexRequest | The CSA to update or insert
 
-    try:
-        # [EXPERIMENTAL] Upsert CSA. This creates or updates the data in Lusid.
-        api_response = api_instance.upsert_credit_support_annex(upsert_credit_support_annex_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CounterpartyApi->upsert_credit_support_annex: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert CSA. This creates or updates the data in Lusid.
+    api_response = api_instance.upsert_credit_support_annex(upsert_credit_support_annex_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterpartyApi->upsert_credit_support_annex: %s\n" % e)
 ```
 
 ### Parameters

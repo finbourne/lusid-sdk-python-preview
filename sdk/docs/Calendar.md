@@ -1,6 +1,5 @@
 # Calendar
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

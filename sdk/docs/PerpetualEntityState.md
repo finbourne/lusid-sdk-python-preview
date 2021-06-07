@@ -1,6 +1,5 @@
 # PerpetualEntityState
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

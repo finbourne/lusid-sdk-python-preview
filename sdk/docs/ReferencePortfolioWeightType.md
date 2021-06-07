@@ -1,6 +1,5 @@
 # ReferencePortfolioWeightType
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
