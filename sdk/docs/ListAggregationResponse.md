@@ -1,5 +1,6 @@
 # ListAggregationResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

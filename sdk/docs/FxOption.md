@@ -1,5 +1,7 @@
 # FxOption
 
+Lusid-ibor internal representation of a plain vanilla FX Option instrument.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # InterestRateSwapAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,7 @@
 # A2BBreakdown
 
+A2B Breakdown - Shows the total, and each sub-element within an A2B Category
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
