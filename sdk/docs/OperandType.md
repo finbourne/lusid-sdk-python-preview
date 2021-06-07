@@ -1,5 +1,6 @@
 # OperandType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

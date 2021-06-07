@@ -1,5 +1,7 @@
 # Bond
 
+IL Bond Instrument; Lusid-ibor internal representation of a Bond instrument
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

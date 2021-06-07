@@ -1,5 +1,7 @@
 # LegDefinition
 
+Definition of the set of flow and index conventions along with other miscellaneous information required to generate an instrument leg.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

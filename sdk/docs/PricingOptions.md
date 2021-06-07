@@ -1,5 +1,7 @@
 # PricingOptions
 
+Options for controlling the default aspects and behaviour of the pricing engine.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
