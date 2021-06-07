@@ -1,7 +1,5 @@
 # ValuationRequest
 
-Specification object for the parameters of a valuation
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

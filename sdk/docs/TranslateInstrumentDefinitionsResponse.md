@@ -1,7 +1,5 @@
 # TranslateInstrumentDefinitionsResponse
 
-A response from a request to translate a collection of instruments to a given target dialect.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

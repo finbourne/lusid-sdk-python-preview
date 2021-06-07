@@ -1,7 +1,5 @@
 # AggregationType
 
-A list of types, that define the expected output types found from an aggregation request in its result.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

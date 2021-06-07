@@ -1,7 +1,5 @@
 # CdsProtectionDetailSpecification
 
-CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.  This class gathers a number of common features which may deviate. These will default to the market standard when  no overrides are provided
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # ResourceListOfPerformanceReturn
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # ResourceListOfA2BMovementRecord
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
