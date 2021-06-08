@@ -1,11 +1,12 @@
 # lusid.LegalEntitiesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62063*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_legal_entity**](LegalEntitiesApi.md#delete_legal_entity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] Delete Legal Entity
 [**delete_legal_entity_access_metadata**](LegalEntitiesApi.md#delete_legal_entity_access_metadata) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Delete a Legal Entity Access Metadata entry
+[**delete_legal_entity_properties**](LegalEntitiesApi.md#delete_legal_entity_properties) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] Delete Legal Entity Properties
 [**get_all_legal_entity_access_metadata**](LegalEntitiesApi.md#get_all_legal_entity_access_metadata) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | [EXPERIMENTAL] Get Access Metadata rules for a Legal Entity
 [**get_legal_entity**](LegalEntitiesApi.md#get_legal_entity) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] Get Legal Entity
 [**get_legal_entity_access_metadata_by_key**](LegalEntitiesApi.md#get_legal_entity_access_metadata_by_key) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity
@@ -37,8 +38,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | The scope of the legal entity identifier type.
@@ -103,8 +104,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the Legal Entity identifier.
@@ -153,6 +154,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_legal_entity_properties**
+> DeletedEntityResponse delete_legal_entity_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
+
+[EXPERIMENTAL] Delete Legal Entity Properties
+
+Delete all properties that belong to the given property keys of the legal entity.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+configuration = lusid.Configuration()
+# Configure OAuth2 access token for authorization: oauth2
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
+# Create an instance of the API class
+api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity identifier type.
+id_type_code = 'id_type_code_example' # str | Code of the legal entity identifier type.
+code = 'code_example' # str | Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity.
+property_keys = ['property_keys_example'] # list[str] | The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"LegalEntity/CompanyDetails/Role\". Each property must be from the \"LegalEntity\" domain. Properties or identifiers not specified in request will not be changed.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual. (optional)
+
+try:
+    # [EXPERIMENTAL] Delete Legal Entity Properties
+    api_response = api_instance.delete_legal_entity_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling LegalEntitiesApi->delete_legal_entity_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_type_scope** | **str**| Scope of the legal entity identifier type. | 
+ **id_type_code** | **str**| Code of the legal entity identifier type. | 
+ **code** | **str**| Code of the legal entity under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the legal entity. | 
+ **property_keys** | [**list[str]**](str.md)| The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;LegalEntity/CompanyDetails/Role\&quot;. Each property must be from the \&quot;LegalEntity\&quot; domain. Properties or identifiers not specified in request will not be changed. | 
+ **effective_at** | **str**| The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual. | [optional] 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the properties were deleted from the specified legal entity |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_all_legal_entity_access_metadata**
 > dict(str, list[AccessMetadataValue]) get_all_legal_entity_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
 
@@ -173,8 +244,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the Legal Entity identifier.
@@ -243,8 +314,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity identifier type.
@@ -315,8 +386,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the Legal Entity identifier.
@@ -387,8 +458,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity identifier type.
@@ -463,8 +534,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity identifier type.
@@ -537,8 +608,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity's identifier type.
@@ -611,8 +682,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the legal entity identifier type.
@@ -687,8 +758,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 upsert_legal_entity_request = {"identifiers":{"legalEntity/ExternalIdentifier/LEI":{"key":"LegalEntity/ExternalIdentifier/LEI","value":{"labelValue":"LEI_12345678"}},"legalEntity/InternalIdentifier/InternalLeiId":{"key":"LegalEntity/InternalIdentifier/InternalLeiId","value":{"labelValue":"Internal_XHSP2038"}}},"properties":{"legalEntity/Details/Name":{"key":"LegalEntity/Details/Name","value":{"labelValue":"Legal Entity Inc."}},"legalEntity/Details/Country":{"key":"LegalEntity/Details/Country","value":{"labelValue":"United Kingdom"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},"legalEntity/Status/Active":{"key":"LegalEntity/Status/Active","value":{"labelValue":"Active"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}},"displayName":"LegalEntity1DisplayName","description":"LegalEntity1Description"} # UpsertLegalEntityRequest | Request to create or update a legal entity.
@@ -749,8 +820,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62063
+configuration.host = "http://local-unit-test-server.lusid.com:62063"
 # Create an instance of the API class
 api_instance = lusid.LegalEntitiesApi(lusid.ApiClient(configuration))
 id_type_scope = 'id_type_scope_example' # str | Scope of the Legal Entity identifier.
