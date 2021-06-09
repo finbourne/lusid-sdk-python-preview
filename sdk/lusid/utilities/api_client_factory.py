@@ -55,6 +55,9 @@ class ApiClientFactory:
         # add the correlation id if specified
         builder_kwargs["correlation_id"] = kwargs.get("correlation_id", None)
 
+        # add the id provider response handler if specified
+        builder_kwargs["id_provider_response_handler"] = kwargs.get("id_provider_response_handler", None)
+
         # Call the client builder, this will result in using either a token, secrets file or environment variables
         self.api_client = ApiClientBuilder.build(**builder_kwargs)
 
