@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3124",
+    "version": "0.11.3125",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:39123"
     }
   ],
   "paths": {
@@ -35881,7 +35881,8 @@
                             "labelValue": "EUR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp1"
                     },
                     {
                       "holdingType": "B",
@@ -35940,7 +35941,8 @@
                             "labelValue": "GBP"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp2"
                     },
                     {
                       "holdingType": "B",
@@ -36009,7 +36011,8 @@
                             "labelValue": "USD"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp3"
                     },
                     {
                       "holdingType": "B",
@@ -36081,7 +36084,8 @@
                             "labelValue": "ZAR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp4"
                     },
                     {
                       "holdingType": "P",
@@ -36200,7 +36204,8 @@
                             "labelValue": "SAMPLE03"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp5"
                     },
                     {
                       "holdingType": "P",
@@ -36296,7 +36301,8 @@
                             "labelValue": "SAMPLE05"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp6"
                     },
                     {
                       "holdingType": "P",
@@ -36415,7 +36421,8 @@
                             "labelValue": "SAMPLE01"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp7"
                     },
                     {
                       "holdingType": "P",
@@ -36529,7 +36536,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp8"
                     },
                     {
                       "holdingType": "P",
@@ -36611,7 +36619,8 @@
                             "labelValue": "SAMPLE09"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp9"
                     },
                     {
                       "holdingType": "P",
@@ -36712,7 +36721,8 @@
                             "labelValue": "SAMPLE04"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp10"
                     },
                     {
                       "holdingType": "P",
@@ -36831,7 +36841,8 @@
                             "labelValue": "SAMPLE02"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp11"
                     },
                     {
                       "holdingType": "P",
@@ -36913,7 +36924,8 @@
                             "labelValue": "SAMPLE07"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp12"
                     },
                     {
                       "holdingType": "P",
@@ -37014,7 +37026,8 @@
                             "labelValue": "SAMPLE06"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp13"
                     },
                     {
                       "holdingType": "P",
@@ -37096,7 +37109,8 @@
                             "labelValue": "SAMPLE08"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp14"
                     }
                   ],
                   "links": []
@@ -37195,7 +37209,8 @@
                             "labelValue": "EUR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp1"
                     },
                     {
                       "holdingType": "B",
@@ -37254,7 +37269,8 @@
                             "labelValue": "GBP"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp2"
                     },
                     {
                       "holdingType": "B",
@@ -37323,7 +37339,8 @@
                             "labelValue": "USD"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp3"
                     },
                     {
                       "holdingType": "B",
@@ -37395,7 +37412,8 @@
                             "labelValue": "ZAR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp4"
                     },
                     {
                       "holdingType": "P",
@@ -37514,7 +37532,8 @@
                             "labelValue": "SAMPLE03"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp5"
                     },
                     {
                       "holdingType": "P",
@@ -37610,7 +37629,8 @@
                             "labelValue": "SAMPLE05"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp6"
                     },
                     {
                       "holdingType": "P",
@@ -37729,7 +37749,8 @@
                             "labelValue": "SAMPLE01"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp7"
                     },
                     {
                       "holdingType": "P",
@@ -37843,7 +37864,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp8"
                     },
                     {
                       "holdingType": "P",
@@ -37925,7 +37947,8 @@
                             "labelValue": "SAMPLE09"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp9"
                     },
                     {
                       "holdingType": "P",
@@ -38026,7 +38049,8 @@
                             "labelValue": "SAMPLE04"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp10"
                     },
                     {
                       "holdingType": "P",
@@ -38145,7 +38169,8 @@
                             "labelValue": "SAMPLE02"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp11"
                     },
                     {
                       "holdingType": "P",
@@ -38227,7 +38252,8 @@
                             "labelValue": "SAMPLE07"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp12"
                     },
                     {
                       "holdingType": "P",
@@ -38328,7 +38354,8 @@
                             "labelValue": "SAMPLE06"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp13"
                     },
                     {
                       "holdingType": "P",
@@ -38410,7 +38437,8 @@
                             "labelValue": "SAMPLE08"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp14"
                     }
                   ],
                   "links": []
@@ -38509,7 +38537,8 @@
                             "labelValue": "EUR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp1"
                     },
                     {
                       "holdingType": "B",
@@ -38568,7 +38597,8 @@
                             "labelValue": "GBP"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp2"
                     },
                     {
                       "holdingType": "B",
@@ -38637,7 +38667,8 @@
                             "labelValue": "USD"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp3"
                     },
                     {
                       "holdingType": "B",
@@ -38709,7 +38740,8 @@
                             "labelValue": "ZAR"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp4"
                     },
                     {
                       "holdingType": "P",
@@ -38828,7 +38860,8 @@
                             "labelValue": "SAMPLE03"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp5"
                     },
                     {
                       "holdingType": "P",
@@ -38924,7 +38957,8 @@
                             "labelValue": "SAMPLE05"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp6"
                     },
                     {
                       "holdingType": "P",
@@ -39043,7 +39077,8 @@
                             "labelValue": "SAMPLE01"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp7"
                     },
                     {
                       "holdingType": "P",
@@ -39157,7 +39192,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp8"
                     },
                     {
                       "holdingType": "P",
@@ -39239,7 +39275,8 @@
                             "labelValue": "SAMPLE09"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp9"
                     },
                     {
                       "holdingType": "P",
@@ -39340,7 +39377,8 @@
                             "labelValue": "SAMPLE04"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp10"
                     },
                     {
                       "holdingType": "P",
@@ -39459,7 +39497,8 @@
                             "labelValue": "SAMPLE02"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp11"
                     },
                     {
                       "holdingType": "P",
@@ -39541,7 +39580,8 @@
                             "labelValue": "SAMPLE07"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp12"
                     },
                     {
                       "holdingType": "P",
@@ -39642,7 +39682,8 @@
                             "labelValue": "SAMPLE06"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp13"
                     },
                     {
                       "holdingType": "P",
@@ -39724,7 +39765,8 @@
                             "labelValue": "SAMPLE08"
                           }
                         }
-                      }
+                      },
+                      "groupId": "Grp14"
                     }
                   ],
                   "links": []
@@ -39944,7 +39986,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40007,7 +40050,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40072,7 +40116,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     }
                   ],
                   "links": []
@@ -40130,7 +40175,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40193,7 +40239,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40258,7 +40305,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     }
                   ],
                   "links": []
@@ -40316,7 +40364,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40379,7 +40428,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     },
                     {
                       "holdingType": "P",
@@ -40444,7 +40494,8 @@
                             "labelValue": "SAMPLE10"
                           }
                         }
-                      }
+                      },
+                      "groupId": "g1"
                     }
                   ],
                   "links": []
@@ -59573,6 +59624,11 @@
             },
             "description": "The properties which have been requested to be decorated onto the holding. These will be from the 'Instrument' domain.",
             "nullable": true
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -59680,6 +59736,11 @@
               "$ref": "#/components/schemas/Property"
             },
             "description": "The properties which have been requested to be decorated onto the holding. These will be from the 'Instrument' domain.",
+            "nullable": true
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon.",
             "nullable": true
           }
         },
@@ -62863,7 +62924,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
