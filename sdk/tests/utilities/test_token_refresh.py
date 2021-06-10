@@ -203,28 +203,30 @@ class TokenRefresh(unittest.TestCase):
 
         refreshing_token = RefreshingToken(api_configuration=self.config)
 
-        with patch("requests.post", side_effect=[
-            # Return a 429 on the first attempt
-            MockApiResponse(
-                json_data={
-                    "error": "rate_limit",
-                    "error_description": "API rate limit exceeded."
-                },
-                status_code=429
-            ),
-            # Return a 200 on the second attempt
-            MockApiResponse(
-                json_data={
-                    "access_token": "mock_access_token",
-                    "refresh_token": "mock_refresh_token",
-                    "expires_in": 60
-                },
-                status_code=200
-            ),
-        ]):
+        with patch("requests.post") as identity_mock:
+            identity_mock.side_effect = [
+                # Return a 429 on the first attempt
+                MockApiResponse(
+                    json_data={
+                        "error": "rate_limit",
+                        "error_description": "API rate limit exceeded."
+                    },
+                    status_code=429
+                ),
+                # Return a 200 on the second attempt
+                MockApiResponse(
+                    json_data={
+                        "access_token": "mock_access_token",
+                        "refresh_token": "mock_refresh_token",
+                        "expires_in": 60
+                    },
+                    status_code=200
+                ),
+            ]
 
             # Ensure that we were able to get the token, if not retrying this would be impossible
             self.assertEqual(f"{refreshing_token}", "mock_access_token")
+            self.assertEqual(identity_mock.call_count, 2)
 
     def test_retries_on_429_status_code_using_refresh_token(self):
         """
@@ -233,34 +235,37 @@ class TokenRefresh(unittest.TestCase):
         """
         refreshing_token = RefreshingToken(api_configuration=self.config)
 
-        with patch("requests.post", side_effect=[
-            # Get initial access token
-            MockApiResponse(
-                json_data={
-                    "access_token": "mock_access_token",
-                    "refresh_token": "mock_refresh_token",
-                    "expires_in": 1  # Expires almost immediately
-                },
-                status_code=200
-            ),
-            # Return a 429 on the second attempt
-            MockApiResponse(
-                json_data={
-                    "error": "rate_limit",
-                    "error_description": "API rate limit exceeded."
-                },
-                status_code=429
-            ),
-            # Return a 200 on the third attempt
-            MockApiResponse(
-                json_data={
-                    "access_token": "mock_access_token_2",
-                    "refresh_token": "mock_refresh_token",
-                    "expires_in": 60
-                },
-                status_code=200
-            ),
-        ]):
+        with patch("requests.post") as identity_mock:
+
+            identity_mock.side_effect=[
+                # Get initial access token
+                MockApiResponse(
+                    json_data={
+                        "access_token": "mock_access_token",
+                        "refresh_token": "mock_refresh_token",
+                        "expires_in": 1  # Expires almost immediately
+                    },
+                    status_code=200
+                ),
+                # Return a 429 on the second attempt
+                MockApiResponse(
+                    json_data={
+                        "error": "rate_limit",
+                        "error_description": "API rate limit exceeded."
+                    },
+                    status_code=429
+                ),
+                # Return a 200 on the third attempt
+                MockApiResponse(
+                    json_data={
+                        "access_token": "mock_access_token_2",
+                        "refresh_token": "mock_refresh_token",
+                        "expires_in": 60
+                    },
+                    status_code=200
+                ),
+            ]
+
             # Ensure that we were able to get the first access token
             self.assertEqual(f"{refreshing_token}", "mock_access_token")
 
@@ -268,6 +273,7 @@ class TokenRefresh(unittest.TestCase):
 
             # Try and get access token again forcing refresh, if we can get it then retry was called
             self.assertEqual(f"{refreshing_token}", "mock_access_token_2")
+            self.assertEqual(identity_mock.call_count, 3)
 
     def test_does_not_retry_on_4xx_status_code_other_than_429(self):
         """
@@ -275,29 +281,24 @@ class TokenRefresh(unittest.TestCase):
         """
         refreshing_token = RefreshingToken(api_configuration=self.config)
 
-        with patch("requests.post", side_effect=[
-            # Return a 429 on the first attempt
-            MockApiResponse(
-                json_data={
-                    "error": "rate_limit",
-                    "error_description": "API rate limit exceeded."
-                },
-                status_code=429,
-                headers={}
-            ),
-            # Return a 400 on the second attempt
-            MockApiResponse(
-                json_data={
-                    "error": "invalid_grant",
-                    "error_description": "The refresh token is invalid or expired."
-                },
-                status_code=400
-            ),
-        ]):
+        with patch("requests.post") as identity_mock:
+            identity_mock.side_effect = [
+                # Return a 400
+                MockApiResponse(
+                    json_data={
+                        "error": "invalid_grant",
+                        "error_description": "The refresh token is invalid or expired."
+                    },
+                    status_code=400
+                ),
+            ]
 
             # Ensure that a 400 is raised as an error and not retried
-            with self.assertRaises(ValueError):
+            with self.assertRaises(ValueError) as bad_request_exception:
                 self.force_refresh(refreshing_token)
+
+            self.assertEqual(identity_mock.call_count, 1)  # No retrying
+            self.assertIn("invalid_grant", str(bad_request_exception.exception))
 
     def test_retries_on_429s_up_till_retry_limit(self):
         """
@@ -322,8 +323,10 @@ class TokenRefresh(unittest.TestCase):
             ] * expected_requests  # Return a 429 every time up until expected number of attempts
 
             # Ensure that a an error is raised once reaching the retry limit
-            with self.assertRaises(ValueError):
+            with self.assertRaises(ValueError) as retry_limit_error:
                 self.force_refresh(refreshing_token)
+
+            self.assertIn("Max retry limit", str(retry_limit_error.exception))
 
             # Ensure that we only tried as many times as expected
             self.assertEqual(expected_requests, identity_mock.call_count)
