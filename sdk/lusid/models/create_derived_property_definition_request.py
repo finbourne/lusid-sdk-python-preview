@@ -66,7 +66,7 @@ class CreateDerivedPropertyDefinitionRequest(object):
         """
         CreateDerivedPropertyDefinitionRequest - a model defined in OpenAPI
 
-        :param domain:  The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction (required)
+        :param domain:  The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity (required)
         :type domain: str
         :param scope:  The scope that the property exists in. (required)
         :type scope: str
@@ -104,7 +104,7 @@ class CreateDerivedPropertyDefinitionRequest(object):
     def domain(self):
         """Gets the domain of this CreateDerivedPropertyDefinitionRequest.  # noqa: E501
 
-        The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction  # noqa: E501
+        The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity  # noqa: E501
 
         :return: The domain of this CreateDerivedPropertyDefinitionRequest.  # noqa: E501
         :rtype: str
@@ -115,14 +115,14 @@ class CreateDerivedPropertyDefinitionRequest(object):
     def domain(self, domain):
         """Sets the domain of this CreateDerivedPropertyDefinitionRequest.
 
-        The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction  # noqa: E501
+        The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity  # noqa: E501
 
         :param domain: The domain of this CreateDerivedPropertyDefinitionRequest.  # noqa: E501
         :type: str
         """
         if domain is None:
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
-        allowed_values = ["NotDefined", "Transaction", "Portfolio", "Holding", "ReferenceHolding", "TransactionConfiguration", "Instrument", "CutLabelDefinition", "Analytic", "PortfolioGroup", "Person", "AccessMetadata", "Order", "UnitResult", "MarketData", "ConfigurationRecipe", "Allocation", "Calendar", "LegalEntity", "Placement", "Execution", "Block", "Participation", "Package", "OrderInstruction"]  # noqa: E501
+        allowed_values = ["NotDefined", "Transaction", "Portfolio", "Holding", "ReferenceHolding", "TransactionConfiguration", "Instrument", "CutLabelDefinition", "Analytic", "PortfolioGroup", "Person", "AccessMetadata", "Order", "UnitResult", "MarketData", "ConfigurationRecipe", "Allocation", "Calendar", "LegalEntity"]  # noqa: E501
         if domain not in allowed_values:
             raise ValueError(
                 "Invalid value for `domain` ({0}), must be one of {1}"  # noqa: E501

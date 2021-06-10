@@ -613,8 +613,6 @@ class PortfoliosApi(object):
         :param str code: The code of the  Portfolio. (required)
         :param str return_scope: The scope of the Returns. (required)
         :param str return_code: The code of the Returns. (required)
-        :param str recipe_id_scope: The Recipe Scope for getting the fx rates
-        :param str recipe_id_code: The Recipe Code for getting the fx rates
         :param str from_effective_at: The start date from which to delete the Returns.
         :param str to_effective_at: The end date from which to delete the Returns
         :param str composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
@@ -650,8 +648,6 @@ class PortfoliosApi(object):
         :param str code: The code of the  Portfolio. (required)
         :param str return_scope: The scope of the Returns. (required)
         :param str return_code: The code of the Returns. (required)
-        :param str recipe_id_scope: The Recipe Scope for getting the fx rates
-        :param str recipe_id_code: The Recipe Code for getting the fx rates
         :param str from_effective_at: The start date from which to delete the Returns.
         :param str to_effective_at: The end date from which to delete the Returns
         :param str composite_method: The method used to calculate the Portfolio performance:              Equal/Asset.
@@ -675,7 +671,7 @@ class PortfoliosApi(object):
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'return_scope', 'return_code', 'recipe_id_scope', 'recipe_id_code', 'from_effective_at', 'to_effective_at', 'composite_method', 'period', 'output_frequency', 'metrics', 'as_at']  # noqa: E501
+        all_params = ['scope', 'code', 'return_scope', 'return_code', 'from_effective_at', 'to_effective_at', 'composite_method', 'period', 'output_frequency', 'metrics', 'as_at']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -703,10 +699,6 @@ class PortfoliosApi(object):
             path_params['returnCode'] = local_var_params['return_code']  # noqa: E501
 
         query_params = []
-        if 'recipe_id_scope' in local_var_params:
-            query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
-            query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
         if 'from_effective_at' in local_var_params:
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
         if 'to_effective_at' in local_var_params:

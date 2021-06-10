@@ -56,8 +56,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48881
-configuration.host = "http://local-unit-test-server.lusid.com:48881"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the portfolio
@@ -75,7 +75,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:48881*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -100,9 +100,6 @@ Class | Method | HTTP request | Description
 *CalendarsApi* | [**list_calendars**](docs/CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [EXPERIMENTAL] List Calenders
 *CalendarsApi* | [**list_calendars_in_scope**](docs/CalendarsApi.md#list_calendars_in_scope) | **GET** /api/calendars/generic/{scope} | [EXPERIMENTAL] List all calenders in a specified scope
 *CalendarsApi* | [**update_calendar**](docs/CalendarsApi.md#update_calendar) | **POST** /api/calendars/generic/{scope}/{code} | [EXPERIMENTAL] Update a calendar
-*ComplexMarketDataApi* | [**delete_complex_market_data**](docs/ComplexMarketDataApi.md#delete_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$delete | [EXPERIMENTAL] Delete one or more items of complex market data, assuming they are present.
-*ComplexMarketDataApi* | [**get_complex_market_data**](docs/ComplexMarketDataApi.md#get_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$get | [EXPERIMENTAL] Get complex market data
-*ComplexMarketDataApi* | [**upsert_complex_market_data**](docs/ComplexMarketDataApi.md#upsert_complex_market_data) | **POST** /api/complexmarketdata/{scope} | [EXPERIMENTAL] Upsert a set of complex market data items. This creates or updates the data in Lusid.
 *ConfigurationRecipeApi* | [**delete_configuration_recipe**](docs/ConfigurationRecipeApi.md#delete_configuration_recipe) | **DELETE** /api/recipes/{scope}/{code} | [EXPERIMENTAL] Delete a Configuration Recipe, assuming that it is present.
 *ConfigurationRecipeApi* | [**get_configuration_recipe**](docs/ConfigurationRecipeApi.md#get_configuration_recipe) | **GET** /api/recipes/{scope}/{code} | [EXPERIMENTAL] Get Configuration Recipe
 *ConfigurationRecipeApi* | [**list_configuration_recipes**](docs/ConfigurationRecipeApi.md#list_configuration_recipes) | **GET** /api/recipes | [EXPERIMENTAL] List the set of Configuration Recipes
@@ -360,8 +357,6 @@ Class | Method | HTTP request | Description
  - [CompletePortfolio](docs/CompletePortfolio.md)
  - [CompleteRelation](docs/CompleteRelation.md)
  - [CompleteRelationship](docs/CompleteRelationship.md)
- - [ComplexMarketData](docs/ComplexMarketData.md)
- - [ComplexMarketDataId](docs/ComplexMarketDataId.md)
  - [ConfigurationRecipe](docs/ConfigurationRecipe.md)
  - [ConfigurationRecipeSnippet](docs/ConfigurationRecipeSnippet.md)
  - [ConstituentsAdjustmentHeader](docs/ConstituentsAdjustmentHeader.md)
@@ -446,7 +441,6 @@ Class | Method | HTTP request | Description
  - [FxSwap](docs/FxSwap.md)
  - [FxSwapAllOf](docs/FxSwapAllOf.md)
  - [GetCdsFlowConventionsResponse](docs/GetCdsFlowConventionsResponse.md)
- - [GetComplexMarketDataResponse](docs/GetComplexMarketDataResponse.md)
  - [GetCounterpartyResponse](docs/GetCounterpartyResponse.md)
  - [GetCreditSupportAnnexResponse](docs/GetCreditSupportAnnexResponse.md)
  - [GetDataMapResponse](docs/GetDataMapResponse.md)
@@ -497,7 +491,6 @@ Class | Method | HTTP request | Description
  - [MarketContext](docs/MarketContext.md)
  - [MarketContextSuppliers](docs/MarketContextSuppliers.md)
  - [MarketDataKeyRule](docs/MarketDataKeyRule.md)
- - [MarketDataType](docs/MarketDataType.md)
  - [MarketIdentifier](docs/MarketIdentifier.md)
  - [MarketOptions](docs/MarketOptions.md)
  - [MetricValue](docs/MetricValue.md)
@@ -667,7 +660,6 @@ Class | Method | HTTP request | Description
  - [UpdatePropertyDefinitionRequest](docs/UpdatePropertyDefinitionRequest.md)
  - [UpdateRelationshipDefinitionRequest](docs/UpdateRelationshipDefinitionRequest.md)
  - [UpsertCdsFlowConventionsRequest](docs/UpsertCdsFlowConventionsRequest.md)
- - [UpsertComplexMarketDataRequest](docs/UpsertComplexMarketDataRequest.md)
  - [UpsertCorporateActionRequest](docs/UpsertCorporateActionRequest.md)
  - [UpsertCorporateActionsResponse](docs/UpsertCorporateActionsResponse.md)
  - [UpsertCounterpartyRequest](docs/UpsertCounterpartyRequest.md)
@@ -721,7 +713,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://dummyurl.lusid.com/
+- **Authorization URL**: https://lusid.okta.com/oauth2/default/v1/authorize
 - **Scopes**: N/A
 
 
