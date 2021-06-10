@@ -229,6 +229,27 @@ class ApiFactory(unittest.TestCase):
             self.assertTrue("CorrelationId" in api.api_client.default_headers, msg="CorrelationId not found in headers")
             self.assertEquals(api.api_client.default_headers["CorrelationId"], "param-correlation-id")
 
+    def test_use_apifactory_with_id_provider_response_handler(self):
+        """
+        Ensures that an id_provider_response handler that is passed to the ApiClientFactory can be used during
+        communication with the id provider (if appropriate).
+        """
+        responses = []
+
+        def record_response(id_provider_response):
+            nonlocal responses
+            responses.append(id_provider_response.status_code)
+
+        api_factory = ApiClientFactory(
+            api_secrets_filename=CredentialsSource.secrets_path(),
+            id_provider_response_handler=record_response
+        )
+
+        api = api_factory.build(InstrumentsApi)
+        self.validate_api(api)
+
+        self.assertGreater(len(responses), 0)
+
     def test_use_apifactory_multiple_threads(self):
 
         access_token = str(ApiClientFactory(
