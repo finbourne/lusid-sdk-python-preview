@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3130",
+    "version": "0.11.3131",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:47725"
+      "url": "http://local-unit-test-server.lusid.com:31692"
     }
   ],
   "paths": {
@@ -955,25 +955,7 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ALLOC00000123"
-                    },
-                    "placementIds": [
-                      {
-                        "scope": "MyScope",
-                        "code": "A placement"
-                      }
-                    ],
-                    "state": "New",
-                    "side": "Buy",
-                    "type": "Limit",
-                    "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                    "date": "2006-04-11T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 12413.33,
-                      "currency": "USD"
-                    },
-                    "settlementCurrency": "USD",
-                    "settlementCurrencyFxRate": 1,
-                    "counterparty": "SomeCounterparty"
+                    }
                   }
                 ]
               }
@@ -1008,25 +990,7 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ALLOC00000123"
-                    },
-                    "placementIds": [
-                      {
-                        "scope": "MyScope",
-                        "code": "A placement"
-                      }
-                    ],
-                    "state": "New",
-                    "side": "Buy",
-                    "type": "Limit",
-                    "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                    "date": "2006-04-11T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 12413.33,
-                      "currency": "USD"
-                    },
-                    "settlementCurrency": "USD",
-                    "settlementCurrencyFxRate": 1,
-                    "counterparty": "SomeCounterparty"
+                    }
                   }
                 ]
               }
@@ -1061,25 +1025,7 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ALLOC00000123"
-                    },
-                    "placementIds": [
-                      {
-                        "scope": "MyScope",
-                        "code": "A placement"
-                      }
-                    ],
-                    "state": "New",
-                    "side": "Buy",
-                    "type": "Limit",
-                    "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                    "date": "2006-04-11T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 12413.33,
-                      "currency": "USD"
-                    },
-                    "settlementCurrency": "USD",
-                    "settlementCurrencyFxRate": 1,
-                    "counterparty": "SomeCounterparty"
+                    }
                   }
                 ]
               }
@@ -1114,25 +1060,7 @@
                     "id": {
                       "scope": "MyScope",
                       "code": "ALLOC00000123"
-                    },
-                    "placementIds": [
-                      {
-                        "scope": "MyScope",
-                        "code": "A placement"
-                      }
-                    ],
-                    "state": "New",
-                    "side": "Buy",
-                    "type": "Limit",
-                    "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                    "date": "2006-04-11T00:00:00.0000000+00:00",
-                    "price": {
-                      "amount": 12413.33,
-                      "currency": "USD"
-                    },
-                    "settlementCurrency": "USD",
-                    "settlementCurrencyFxRate": 1,
-                    "counterparty": "SomeCounterparty"
+                    }
                   }
                 ]
               }
@@ -1177,25 +1105,7 @@
                             "labelValue": "XYZ000034567"
                           }
                         }
-                      },
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "A placement"
-                        }
-                      ],
-                      "state": "New",
-                      "side": "Buy",
-                      "type": "Limit",
-                      "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                      "date": "2006-04-11T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 12413.33,
-                        "currency": "USD"
-                      },
-                      "settlementCurrency": "USD",
-                      "settlementCurrencyFxRate": 1,
-                      "counterparty": "SomeCounterparty"
+                      }
                     }
                   ],
                   "links": []
@@ -1235,25 +1145,7 @@
                             "labelValue": "XYZ000034567"
                           }
                         }
-                      },
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "A placement"
-                        }
-                      ],
-                      "state": "New",
-                      "side": "Buy",
-                      "type": "Limit",
-                      "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                      "date": "2006-04-11T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 12413.33,
-                        "currency": "USD"
-                      },
-                      "settlementCurrency": "USD",
-                      "settlementCurrencyFxRate": 1,
-                      "counterparty": "SomeCounterparty"
+                      }
                     }
                   ],
                   "links": []
@@ -1293,25 +1185,7 @@
                             "labelValue": "XYZ000034567"
                           }
                         }
-                      },
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "A placement"
-                        }
-                      ],
-                      "state": "New",
-                      "side": "Buy",
-                      "type": "Limit",
-                      "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                      "date": "2006-04-11T00:00:00.0000000+00:00",
-                      "price": {
-                        "amount": 12413.33,
-                        "currency": "USD"
-                      },
-                      "settlementCurrency": "USD",
-                      "settlementCurrencyFxRate": 1,
-                      "counterparty": "SomeCounterparty"
+                      }
                     }
                   ],
                   "links": []
@@ -1459,25 +1333,7 @@
                         "labelValue": "XYZ000034567"
                       }
                     }
-                  },
-                  "placementIds": [
-                    {
-                      "scope": "MyScope",
-                      "code": "A placement"
-                    }
-                  ],
-                  "state": "New",
-                  "side": "Buy",
-                  "type": "Limit",
-                  "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                  "date": "2006-04-11T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 12413.33,
-                    "currency": "USD"
-                  },
-                  "settlementCurrency": "USD",
-                  "settlementCurrencyFxRate": 1,
-                  "counterparty": "SomeCounterparty"
+                  }
                 }
               },
               "application/json": {
@@ -1512,25 +1368,7 @@
                         "labelValue": "XYZ000034567"
                       }
                     }
-                  },
-                  "placementIds": [
-                    {
-                      "scope": "MyScope",
-                      "code": "A placement"
-                    }
-                  ],
-                  "state": "New",
-                  "side": "Buy",
-                  "type": "Limit",
-                  "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                  "date": "2006-04-11T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 12413.33,
-                    "currency": "USD"
-                  },
-                  "settlementCurrency": "USD",
-                  "settlementCurrencyFxRate": 1,
-                  "counterparty": "SomeCounterparty"
+                  }
                 }
               },
               "text/json": {
@@ -1565,25 +1403,7 @@
                         "labelValue": "XYZ000034567"
                       }
                     }
-                  },
-                  "placementIds": [
-                    {
-                      "scope": "MyScope",
-                      "code": "A placement"
-                    }
-                  ],
-                  "state": "New",
-                  "side": "Buy",
-                  "type": "Limit",
-                  "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
-                  "date": "2006-04-11T00:00:00.0000000+00:00",
-                  "price": {
-                    "amount": 12413.33,
-                    "currency": "USD"
-                  },
-                  "settlementCurrency": "USD",
-                  "settlementCurrencyFxRate": 1,
-                  "counterparty": "SomeCounterparty"
+                  }
                 }
               }
             }
@@ -51499,21 +51319,6 @@
         },
         "additionalProperties": false
       },
-      "CurrencyAndAmount": {
-        "type": "object",
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "currency": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "An amount of a specific currency, specifying a value and an associated unit"
-      },
       "Allocation": {
         "required": [
           "allocatedOrderId",
@@ -51560,57 +51365,6 @@
           "lusidInstrumentId": {
             "type": "string",
             "description": "The LUSID instrument id for the instrument allocated."
-          },
-          "placementIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "A placement - also known as an order placed in the market - associated with this allocation.",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "description": "The state of this allocation.",
-            "nullable": true
-          },
-          "side": {
-            "type": "string",
-            "description": "The side of this allocation (examples: Buy, Sell, ...).",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of order associated with this allocation (examples: Limit, Market, ...).",
-            "nullable": true
-          },
-          "settlementDate": {
-            "type": "string",
-            "description": "The settlement date for this allocation.",
-            "format": "date-time"
-          },
-          "date": {
-            "type": "string",
-            "description": "The date of this allocation.",
-            "format": "date-time"
-          },
-          "price": {
-            "$ref": "#/components/schemas/CurrencyAndAmount"
-          },
-          "settlementCurrency": {
-            "type": "string",
-            "description": "The settlement currency of this allocation.",
-            "nullable": true
-          },
-          "settlementCurrencyFxRate": {
-            "type": "number",
-            "description": "The settlement currency to allocation currency FX rate.",
-            "format": "double"
-          },
-          "counterparty": {
-            "type": "string",
-            "description": "The counterparty for this allocation.",
-            "nullable": true
           },
           "links": {
             "type": "array",
@@ -51696,57 +51450,6 @@
           },
           "id": {
             "$ref": "#/components/schemas/ResourceId"
-          },
-          "placementIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "A placement - also known as an order placed in the market - associated with this allocation.",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "description": "The state of this allocation.",
-            "nullable": true
-          },
-          "side": {
-            "type": "string",
-            "description": "The side of this allocation (examples: Buy, Sell, ...).",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of order associated with this allocation (examples: Limit, Market, ...).",
-            "nullable": true
-          },
-          "settlementDate": {
-            "type": "string",
-            "description": "The settlement date for this allocation.",
-            "format": "date-time"
-          },
-          "date": {
-            "type": "string",
-            "description": "The date of this allocation.",
-            "format": "date-time"
-          },
-          "price": {
-            "$ref": "#/components/schemas/CurrencyAndAmount"
-          },
-          "settlementCurrency": {
-            "type": "string",
-            "description": "The settlement currency of this allocation.",
-            "nullable": true
-          },
-          "settlementCurrencyFxRate": {
-            "type": "number",
-            "description": "The settlement currency to allocation currency FX rate.",
-            "format": "double"
-          },
-          "counterparty": {
-            "type": "string",
-            "description": "The counterparty for this allocation.",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -55577,6 +55280,21 @@
           }
         },
         "additionalProperties": false
+      },
+      "CurrencyAndAmount": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An amount of a specific currency, specifying a value and an associated unit"
       },
       "Order": {
         "required": [
