@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3135",
+    "version": "0.11.3136",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:56566"
+      "url": "http://local-unit-test-server.lusid.com:31580"
     }
   ],
   "paths": {
@@ -47051,28 +47051,6 @@
             }
           },
           {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
-            "schema": {
-              "type": "string",
-              "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
-            "schema": {
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
             "name": "propertyKeys",
             "in": "query",
             "description": "A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto\r\n            transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or\r\n            'Transaction/strategy/quantsignal'.",
@@ -49052,8 +49030,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-11T09:28:49.1773091+00:00",
-                    "maturityDate": "2022-06-11T09:28:49.1773098+00:00",
+                    "startDate": "2021-06-11T09:57:37.9010970+00:00",
+                    "maturityDate": "2022-06-11T09:57:37.9010977+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49083,8 +49061,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-11T09:28:49.1773091+00:00",
-                    "maturityDate": "2022-06-11T09:28:49.1773098+00:00",
+                    "startDate": "2021-06-11T09:57:37.9010970+00:00",
+                    "maturityDate": "2022-06-11T09:57:37.9010977+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49114,8 +49092,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-11T09:28:49.1773091+00:00",
-                    "maturityDate": "2022-06-11T09:28:49.1773098+00:00",
+                    "startDate": "2021-06-11T09:57:37.9010970+00:00",
+                    "maturityDate": "2022-06-11T09:57:37.9010977+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49145,8 +49123,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-11T09:28:49.1773091+00:00",
-                    "maturityDate": "2022-06-11T09:28:49.1773098+00:00",
+                    "startDate": "2021-06-11T09:57:37.9010970+00:00",
+                    "maturityDate": "2022-06-11T09:57:37.9010977+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
