@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3136",
+    "version": "0.11.3140",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:63802"
     }
   ],
   "paths": {
@@ -49026,8 +49026,20 @@
                       "vendor": "someVendor",
                       "version": "someVersion"
                     },
-                    "content": "InstrumentGoesInHereAsAString",
+                    "content": "{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}",
                     "instrumentType": "ExoticInstrument"
+                  },
+                  "myFavouriteLusidInstrument": {
+                    "startDate": "2021-06-11T12:24:47.2653751+00:00",
+                    "maturityDate": "2022-06-11T12:24:47.2653757+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
                   }
                 },
                 "dialect": "targetDialect"
@@ -49045,8 +49057,20 @@
                       "vendor": "someVendor",
                       "version": "someVersion"
                     },
-                    "content": "InstrumentGoesInHereAsAString",
+                    "content": "{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}",
                     "instrumentType": "ExoticInstrument"
+                  },
+                  "myFavouriteLusidInstrument": {
+                    "startDate": "2021-06-11T12:24:47.2653751+00:00",
+                    "maturityDate": "2022-06-11T12:24:47.2653757+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
                   }
                 },
                 "dialect": "targetDialect"
@@ -49064,8 +49088,20 @@
                       "vendor": "someVendor",
                       "version": "someVersion"
                     },
-                    "content": "InstrumentGoesInHereAsAString",
+                    "content": "{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}",
                     "instrumentType": "ExoticInstrument"
+                  },
+                  "myFavouriteLusidInstrument": {
+                    "startDate": "2021-06-11T12:24:47.2653751+00:00",
+                    "maturityDate": "2022-06-11T12:24:47.2653757+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
                   }
                 },
                 "dialect": "targetDialect"
@@ -49083,8 +49119,20 @@
                       "vendor": "someVendor",
                       "version": "someVersion"
                     },
-                    "content": "InstrumentGoesInHereAsAString",
+                    "content": "{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}",
                     "instrumentType": "ExoticInstrument"
+                  },
+                  "myFavouriteLusidInstrument": {
+                    "startDate": "2021-06-11T12:24:47.2653751+00:00",
+                    "maturityDate": "2022-06-11T12:24:47.2653757+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
                   }
                 },
                 "dialect": "targetDialect"
@@ -63826,7 +63874,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
