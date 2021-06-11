@@ -2408,8 +2408,6 @@ class TransactionPortfoliosApi(object):
         :param datetime as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
         :param str filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :param list[str] property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2441,8 +2439,6 @@ class TransactionPortfoliosApi(object):
         :param datetime as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
         :param str filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :param list[str] property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2459,7 +2455,7 @@ class TransactionPortfoliosApi(object):
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_transaction_date', 'to_transaction_date', 'as_at', 'filter', 'property_keys', 'page', 'limit']  # noqa: E501
+        all_params = ['scope', 'code', 'from_transaction_date', 'to_transaction_date', 'as_at', 'filter', 'property_keys']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2510,10 +2506,6 @@ class TransactionPortfoliosApi(object):
         if 'property_keys' in local_var_params:
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'page' in local_var_params:
-            query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
 
