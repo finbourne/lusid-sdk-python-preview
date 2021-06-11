@@ -1,6 +1,6 @@
 # lusid.TranslationApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:45793*
+All URIs are relative to *http://local-unit-test-server.lusid.com:34065*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,11 +27,11 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:45793
-configuration.host = "http://local-unit-test-server.lusid.com:45793"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:34065
+configuration.host = "http://local-unit-test-server.lusid.com:34065"
 # Create an instance of the API class
 api_instance = lusid.TranslationApi(lusid.ApiClient(configuration))
-translate_instrument_definitions_request = {"instruments":{"myFavouriteInstrument":{"instrumentFormat":{"sourceSystem":"someSource","vendor":"someVendor","version":"someVersion"},"content":"{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}","instrumentType":"ExoticInstrument"},"myFavouriteLusidInstrument":{"startDate":"2021-06-11T14:01:47.8982414+00:00","maturityDate":"2022-06-11T14:01:47.8982419+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}},"dialect":"targetDialect"} # TranslateInstrumentDefinitionsRequest | The definitions of the instruments to translate along with the target dialect.
+translate_instrument_definitions_request = {"instruments":{"myFavouriteInstrument":{"instrumentFormat":{"sourceSystem":"someSource","vendor":"someVendor","version":"someVersion"},"content":"{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}","instrumentType":"ExoticInstrument"},"myFavouriteLusidInstrument":{"startDate":"2021-06-11T14:31:19.1497604+00:00","maturityDate":"2022-06-11T14:31:19.1497617+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}},"dialect":"targetDialect"} # TranslateInstrumentDefinitionsRequest | The definitions of the instruments to translate along with the target dialect.
 
 try:
     # [EXPERIMENTAL] Translate instruments
