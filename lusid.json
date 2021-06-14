@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3144",
+    "version": "0.11.3145",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60251"
+      "url": "http://local-unit-test-server.lusid.com:48790"
     }
   ],
   "paths": {
@@ -49232,8 +49232,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-13T14:20:07.9891224+00:00",
-                    "maturityDate": "2022-06-13T14:20:07.9891232+00:00",
+                    "startDate": "2021-06-14T07:38:20.9312749+00:00",
+                    "maturityDate": "2022-06-14T07:38:20.9312755+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49263,8 +49263,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-13T14:20:07.9891224+00:00",
-                    "maturityDate": "2022-06-13T14:20:07.9891232+00:00",
+                    "startDate": "2021-06-14T07:38:20.9312749+00:00",
+                    "maturityDate": "2022-06-14T07:38:20.9312755+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49294,8 +49294,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-13T14:20:07.9891224+00:00",
-                    "maturityDate": "2022-06-13T14:20:07.9891232+00:00",
+                    "startDate": "2021-06-14T07:38:20.9312749+00:00",
+                    "maturityDate": "2022-06-14T07:38:20.9312755+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49325,8 +49325,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2021-06-13T14:20:07.9891224+00:00",
-                    "maturityDate": "2022-06-13T14:20:07.9891232+00:00",
+                    "startDate": "2021-06-14T07:38:20.9312749+00:00",
+                    "maturityDate": "2022-06-14T07:38:20.9312755+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
