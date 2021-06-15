@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3157",
+    "version": "0.11.3156",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:31862"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -49232,8 +49232,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
-                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "startDate": "2021-06-15T15:53:42.6754678+00:00",
+                    "maturityDate": "2022-06-15T15:53:42.6754682+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49263,8 +49263,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
-                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "startDate": "2021-06-15T15:53:42.6754678+00:00",
+                    "maturityDate": "2022-06-15T15:53:42.6754682+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49294,8 +49294,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
-                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "startDate": "2021-06-15T15:53:42.6754678+00:00",
+                    "maturityDate": "2022-06-15T15:53:42.6754682+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -49325,8 +49325,8 @@
                     "instrumentType": "ExoticInstrument"
                   },
                   "myFavouriteLusidInstrument": {
-                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
-                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "startDate": "2021-06-15T15:53:42.6754678+00:00",
+                    "maturityDate": "2022-06-15T15:53:42.6754682+00:00",
                     "domAmount": 1,
                     "domCcy": "GBP",
                     "fgnAmount": -1.5,
@@ -64178,7 +64178,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
