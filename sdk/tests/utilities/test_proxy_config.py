@@ -1,6 +1,6 @@
 import unittest
 
-from lusid.utilities import ProxyConfig
+from fbnsdkutilities import ProxyConfig
 
 
 class ProxyConfigTests(unittest.TestCase):

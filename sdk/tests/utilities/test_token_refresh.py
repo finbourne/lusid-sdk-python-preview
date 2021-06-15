@@ -4,9 +4,10 @@ from time import sleep, time
 from threading import Thread
 from datetime import datetime, timedelta
 
-from lusid.utilities import ApiConfigurationLoader
-from lusid.utilities.proxy_config import ProxyConfig
-from lusid.utilities import RefreshingToken
+import lusid
+from fbnsdkutilities import ApiConfigurationLoader
+from fbnsdkutilities import ProxyConfig
+from fbnsdkutilities import RefreshingToken
 from parameterized import parameterized
 
 from utilities import CredentialsSource
@@ -21,7 +22,7 @@ class TokenRefresh(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
+        cls.config = ApiConfigurationLoader.load(lusid, CredentialsSource.secrets_path())
 
     def test_get_token(self):
 

@@ -1,8 +1,9 @@
 import unittest
 
 import lusid.api
+import lusid
 from lusid import ApiException
-from lusid.utilities import ApiClientFactory
+from fbnsdkutilities import ApiClientFactoryBase
 
 from utilities import CredentialsSource
 
@@ -66,7 +67,7 @@ class RetryTests(unittest.TestCase):
     def setUpClass(cls):
         # add mock to the module
         lusid.api.MockApi = MockApi
-        cls.factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
+        cls.factory = ApiClientFactoryBase(lusid, api_secrets_filename=CredentialsSource.secrets_path())
 
     def test_non_retryable_is_not_retried(self):
         api = self.factory.build(MockApi)
@@ -118,7 +119,7 @@ class RetryTests(unittest.TestCase):
         api = self.factory.build(MockApi)
 
         with self.assertRaises(ApiException) as ex:
-            api.execute_failing_retryable("Portfolio", name="Portfolio", lusid_retries=10)
+            api.execute_failing_retryable("Portfolio", name="Portfolio", retries=10)
 
         self.assertEqual(ex.exception.status, 404)
         self.assertEqual(api.invocations, 10)

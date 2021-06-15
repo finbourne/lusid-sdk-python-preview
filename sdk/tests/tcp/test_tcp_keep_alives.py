@@ -1,6 +1,6 @@
 import unittest
 
-from lusid.tcp.tcp_keep_alive_probes import TCPKeepAliveValidationMethods
+from fbnsdkutilities.tcp.tcp_keep_alive_probes import TCPKeepAliveValidationMethods
 
 
 class MockSocket:

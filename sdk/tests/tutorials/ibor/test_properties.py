@@ -8,7 +8,7 @@ import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
 
-from lusid.utilities.api_client_builder import ApiClientBuilder
+from fbnsdkutilities import ApiClientBuilder
 from utilities.instrument_loader import InstrumentLoader
 from utilities.test_data_utilities import TestDataUtilities
 from utilities.credentials_source import CredentialsSource
@@ -19,7 +19,7 @@ class Properties(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+        api_client = ApiClientBuilder().build(lusid, CredentialsSource.secrets_path())
 
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
