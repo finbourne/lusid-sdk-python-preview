@@ -96,3 +96,4 @@ class ApiConfiguration:
     @proxy_config.setter
     def proxy_config(self, value):
         self.__proxy_config = value
+

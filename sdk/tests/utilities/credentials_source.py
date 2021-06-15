@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 import os
+from lusid.utilities.personal_access_token import PersonalAccessTokenLoader
 
 
 class CredentialsSource:
@@ -52,7 +53,7 @@ class CredentialsSource:
                     "password": secrets["api"].get("password", None),
                     "client_id": secrets["api"].get("clientId", None),
                     "client_secret": secrets["api"].get("clientSecret", None),
-                    "api_url": secrets["api"].get("apiUrl", None),
+                    "api_url": secrets["api"].get("apiUrl", None)
                 }
 
             # Enrich the values from the environment variables with the secrets file
@@ -91,3 +92,8 @@ class CredentialsSource:
 
         vars.update(vars_optional)
         return vars
+
+    @classmethod
+    def fetch_pat(cls):
+        pat = PersonalAccessTokenLoader(cls.config_keys_path()).pat
+        return pat

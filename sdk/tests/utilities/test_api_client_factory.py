@@ -22,6 +22,8 @@ class UnknownImpl:
 
 source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
 
+pat = CredentialsSource.fetch_pat()
+
 
 class RefreshingToken(UserString):
 
@@ -111,6 +113,20 @@ class ApiFactory(unittest.TestCase):
         api = factory.build(InstrumentsApi)
         self.assertIsInstance(api, InstrumentsApi)
         self.validate_api(api)
+
+    def test_get_api_with_pat_env_var(self):
+        factory = ApiClientFactory(api_url=source_config_details["api_url"])
+        api = factory.build(InstrumentsApi)
+        self.assertIsInstance(api, InstrumentsApi)
+        self.validate_api(api)
+        self.assertEqual(factory.auth_method, "PersonalAccessTokenFromEnv")
+
+    def test_get_api_with_pat_as_param(self):
+        factory = ApiClientFactory(token=pat, api_url=source_config_details["api_url"])
+        api = factory.build(InstrumentsApi)
+        self.assertIsInstance(api, InstrumentsApi)
+        self.validate_api(api)
+        self.assertEqual(factory.auth_method, "TokenFromParams")
 
     def test_get_api_with_info(self):
         factory = ApiClientFactory(

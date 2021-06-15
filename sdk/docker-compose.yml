@@ -19,6 +19,7 @@ services:
     container_name: lusid-sdk-python-preview-test
     image: finbourne/lusid-sdk-python-preview-test
     environment:
+      - FBN_LUSID_ACCESS_TOKEN
       - FBN_CLIENT_ID
       - FBN_CLIENT_SECRET
       - FBN_LUSID_API_URL

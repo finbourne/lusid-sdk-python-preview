@@ -27,6 +27,10 @@
       "env": "FBN_APP_NAME",
       "config": "applicationName"
   },
+    "personal_access_token": {
+      "env": "FBN_LUSID_ACCESS_TOKEN",
+      "config": "personalAccessToken"
+  },
   "certificate_filename": {
       "env": "FBN_CLIENT_CERTIFICATE",
       "config": "clientCertificate"

@@ -47,7 +47,7 @@ class ApiConfigurationLoader:
         # Populate the values for the api configuration preferring the secrets file over the environment variables
         populated_api_config_values = {
             key: config.get(api_config_key, {}).get(value["config"], os.getenv(value["env"], None))
-            for key, value in config_keys.items() if "proxy" not in key
+            for key, value in config_keys.items() if "proxy" not in key and "personal_access_token" not in key
         }
 
         # Populate the values for the proxy preferring the secrets file over the environment variables

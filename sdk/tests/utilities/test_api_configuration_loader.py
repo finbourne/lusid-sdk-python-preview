@@ -205,7 +205,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
 
         # Get the set of keys for proxy settings and api credentials
         proxy_config_key_set = set([key.replace("proxy_", "") for key in config_keys.keys() if "proxy" in key])
-        api_config_key_set = set([key for key in config_keys.keys() if "proxy" not in key])
+        api_config_key_set = set([key for key in config_keys.keys() if "proxy" not in key and "personal_access_token" not in key])
 
         # Get the attributes on the ProxyConfig and ApiConfiguration Classes
         api_config_attributes = set([attribute[0] for attribute in inspect.getmembers(ApiConfiguration)])

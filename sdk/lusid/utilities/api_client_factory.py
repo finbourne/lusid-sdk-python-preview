@@ -1,12 +1,14 @@
 import functools
 import importlib
 import inspect
+import os
 
 from lusid import ApiClient
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from lusid.utilities.proxy_config import ProxyConfig
 from lusid.utilities.api_configuration import ApiConfiguration
 from lusid.utilities.lusid_retry import lusidretry
+from lusid.utilities.personal_access_token import PersonalAccessTokenLoader
 
 
 class ApiClientFactory:
@@ -31,26 +33,41 @@ class ApiClientFactory:
         :param str correlation_id: Correlation id for all calls made from the returned LUSID API instances
         """
 
+        self.__auth_method = None
+
         builder_kwargs = {}
 
-        if "token" in kwargs and str(kwargs["token"]) != "None":
-            # If there is a token use it along with the specified proxy details if specified
-            config = ApiConfiguration(
-                api_url=kwargs.get("api_url", None),
-                certificate_filename=kwargs.get("certificate_filename", None),
-                proxy_config=ProxyConfig(
-                    address=kwargs.get("proxy_url", None),
-                    username=kwargs.get("proxy_username", None),
-                    password=kwargs.get("proxy_password", None),
-                ) if kwargs.get("proxy_url", None) is not None else None,
-                app_name=kwargs.get("app_name", None)
-            )
+        config = ApiConfiguration(
+            api_url=kwargs.get("api_url", None),
+            certificate_filename=kwargs.get("certificate_filename", None),
+            proxy_config=ProxyConfig(
+                address=kwargs.get("proxy_url", None),
+                username=kwargs.get("proxy_username", None),
+                password=kwargs.get("proxy_password", None),
+            ) if kwargs.get("proxy_url", None) is not None else None,
+            app_name=kwargs.get("app_name", None)
+        )
 
+        secrets_file = kwargs.get("api_secrets_filename", None)
+        pat = PersonalAccessTokenLoader().pat
+        #pat = os.getenv("FBN_LUSID_ACCESS_TOKEN", None)
+
+        # If there is a token use it along with the specified proxy details if specified
+        if "token" in kwargs and str(kwargs["token"]) != "None":
             builder_kwargs["api_configuration"] = config
             builder_kwargs["token"] = kwargs["token"]
+            self.__auth_method = "TokenFromParams"
 
-        # Otherwise use a secrets file if it exists
-        builder_kwargs["api_secrets_filename"] = kwargs.get("api_secrets_filename", None)
+        # If there is a secrets file, use the values from the secrets file
+        elif secrets_file is not None:
+            builder_kwargs["api_secrets_filename"] = secrets_file
+            self.__auth_method = "SecretsFile"
+
+        # If there is no secrets file or token in the params, check for a pat in the env vars
+        elif secrets_file is None and "token" not in kwargs and pat is not None:
+            builder_kwargs["api_configuration"] = config
+            builder_kwargs["token"] = pat
+            self.__auth_method = "PersonalAccessTokenFromEnv"
 
         # add the correlation id if specified
         builder_kwargs["correlation_id"] = kwargs.get("correlation_id", None)
@@ -60,6 +77,7 @@ class ApiClientFactory:
 
         # Call the client builder, this will result in using either a token, secrets file or environment variables
         self.api_client = ApiClientBuilder.build(**builder_kwargs)
+
 
     def build(self, metaclass):
         """
@@ -126,3 +144,11 @@ class ApiClientFactory:
         setattr(metaclass, "__init__", init_impl)
 
         return api_impl
+
+    @property
+    def auth_method(self):
+        return self.__auth_method
+
+    @auth_method.setter
+    def auth_method(self, value):
+        self.__auth_method = value
