@@ -5,7 +5,7 @@ import uuid
 
 import lusid
 import lusid.models as models
-from lusid.utilities import ApiClientBuilder
+from fbnsdkutilities import ApiClientBuilder
 
 from utilities import CredentialsSource
 
@@ -32,7 +32,7 @@ class TestDataUtilities:
         if not cls._api_client:
             with cls._lock:
                 if not cls._api_client:
-                    cls._api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+                    cls._api_client = ApiClientBuilder().build(lusid, CredentialsSource.secrets_path())
         return cls._api_client
 
     def create_transaction_portfolio(self, scope):

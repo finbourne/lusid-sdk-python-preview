@@ -2,9 +2,10 @@ import unittest
 from unittest.mock import patch
 import inspect
 
-from lusid import ApiConfigurationLoader
-from lusid.utilities.api_configuration import ApiConfiguration
-from lusid.utilities.proxy_config import ProxyConfig
+import lusid
+from fbnsdkutilities import ApiConfigurationLoader
+from fbnsdkutilities import ApiConfiguration
+from fbnsdkutilities import ProxyConfig
 
 from utilities import CredentialsSource
 from utilities.temp_file_manager import TempFileManager
@@ -64,7 +65,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Create a temporary secrets file as desired
             secrets_file = TempFileManager.create_temp_file(secrets)
             # Load the config
-            config = ApiConfigurationLoader.load(secrets_file.name)
+            config = ApiConfigurationLoader.load(lusid, secrets_file.name)
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
@@ -91,7 +92,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Create a temporary secrets file as desired
             secrets_file = TempFileManager.create_temp_file(secrets)
             # Load the config
-            config = ApiConfigurationLoader.load(secrets_file.name)
+            config = ApiConfigurationLoader.load(lusid, secrets_file.name)
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
@@ -122,7 +123,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Create a temporary secrets file as desired
             secrets_file = TempFileManager.create_temp_file(secrets)
             # Load the config
-            config = ApiConfigurationLoader.load(secrets_file.name)
+            config = ApiConfigurationLoader.load(lusid, secrets_file.name)
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
@@ -153,7 +154,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
             # Create a temporary secrets file as desired
             secrets_file = TempFileManager.create_temp_file(secrets)
             # Load the config
-            config = ApiConfigurationLoader.load(secrets_file.name)
+            config = ApiConfigurationLoader.load(lusid, secrets_file.name)
             # Close and thus delete the temporary file
             TempFileManager.delete_temp_file(secrets_file)
             # Ensure that the config is populated as expected
@@ -168,7 +169,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
         # Set all the environment variables
         env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if value is not None}
         with patch.dict('os.environ', env_vars, clear=True):
-            config = ApiConfigurationLoader.load()
+            config = ApiConfigurationLoader.load(lusid)
 
         self.assert_config_values(config, source_config_details)
 
@@ -182,7 +183,7 @@ class ApiConfigurationLoaderTests(unittest.TestCase):
         non_existent_secrets_file = "Thisfiledefinitelydoesnotexist.json"
 
         with self.assertRaises(ValueError) as ex:
-            ApiConfigurationLoader.load(non_existent_secrets_file)
+            ApiConfigurationLoader.load(lusid, non_existent_secrets_file)
 
         self.assertEqual(ex.exception.args[0], f"Provided secrets file of {non_existent_secrets_file} can not be found, please ensure you "
                              f"have correctly specified the full path to the file or don't provide a secrets file to use "

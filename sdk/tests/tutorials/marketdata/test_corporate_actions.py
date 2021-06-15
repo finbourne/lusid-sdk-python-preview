@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
-from lusid.utilities.api_client_builder import ApiClientBuilder
+from fbnsdkutilities import ApiClientBuilder
 from utilities.credentials_source import CredentialsSource
 from utilities.test_data_utilities import TestDataUtilities
 
@@ -15,7 +15,7 @@ class CorporateActions(unittest.TestCase):
     @classmethod
     def setUp(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build(str(CredentialsSource.secrets_path()))
+        api_client = ApiClientBuilder().build(lusid, str(CredentialsSource.secrets_path()))
 
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.portfolios_api = lusid.PortfoliosApi(api_client)

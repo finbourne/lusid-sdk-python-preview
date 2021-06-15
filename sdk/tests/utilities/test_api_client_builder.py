@@ -3,8 +3,9 @@ from unittest.mock import patch
 from parameterized import parameterized
 
 from lusid import ApiClient
-from lusid.utilities import ApiClientBuilder, ApiConfiguration
-from lusid.utilities.proxy_config import ProxyConfig
+import lusid
+from fbnsdkutilities import ApiClientBuilder, ApiConfiguration
+from fbnsdkutilities import ProxyConfig
 
 from utilities import CredentialsSource
 from utilities.temp_file_manager import TempFileManager
@@ -52,7 +53,7 @@ class ApiClientBuilderTests(unittest.TestCase):
 
         # Ensure that there are no environment variables which can be used to fill the missing Api Url
         with patch.dict('os.environ', clear=True), self.assertRaises(ValueError) as ex:
-            ApiClientBuilder.build(api_configuration=api_configuration, token=token)
+            ApiClientBuilder.build(lusid, api_configuration=api_configuration, token=token)
 
         self.assertEqual(
             ex.exception.args[0], f"The fields {str(missing_attributes)} on the ApiConfiguration are set to None, "
@@ -88,6 +89,7 @@ class ApiClientBuilderTests(unittest.TestCase):
 
             secrets_file = TempFileManager.create_temp_file(secrets)
             client = ApiClientBuilder.build(
+                lusid,
                 api_secrets_filename=secrets_file.name,
                 api_configuration=api_configuration)
 
@@ -124,6 +126,7 @@ class ApiClientBuilderTests(unittest.TestCase):
 
             secrets_file = TempFileManager.create_temp_file(secrets)
             client = ApiClientBuilder.build(
+                lusid,
                 api_secrets_filename=secrets_file.name,
                 api_configuration=api_configuration)
 
@@ -170,6 +173,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         with patch.dict('os.environ', env_vars, clear=True):
             secrets_file = TempFileManager.create_temp_file(secrets)
             client = ApiClientBuilder.build(
+                lusid,
                 api_secrets_filename=secrets_file.name,
                 api_configuration=api_configuration,
                 token=token)
@@ -202,6 +206,7 @@ class ApiClientBuilderTests(unittest.TestCase):
             }
 
             client = ApiClientBuilder.build(
+                lusid,
                 api_configuration=api_configuration,
                 id_provider_response_handler=response_handler)
 
@@ -218,7 +223,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         env_vars["FBN_CORRELATION_ID"] = "env-correlation-id"
 
         with patch.dict('os.environ', env_vars, clear=True):
-            client = ApiClientBuilder.build(api_configuration=api_configuration)
+            client = ApiClientBuilder.build(lusid, api_configuration=api_configuration)
 
         self.assertTrue("CorrelationId" in client.default_headers, msg="CorrelationId not found in headers")
         self.assertEquals(client.default_headers["CorrelationId"], "env-correlation-id")
@@ -232,7 +237,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if value is not None}
 
         with patch.dict('os.environ', env_vars, clear=True):
-            client = ApiClientBuilder.build(api_configuration=api_configuration, correlation_id="param-correlation-id")
+            client = ApiClientBuilder.build(lusid, api_configuration=api_configuration, correlation_id="param-correlation-id")
 
         self.assertTrue("CorrelationId" in client.default_headers, msg="CorrelationId not found in headers")
         self.assertEquals(client.default_headers["CorrelationId"], "param-correlation-id")
@@ -246,7 +251,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if value is not None}
 
         with patch.dict('os.environ', env_vars, clear=True):
-            client = ApiClientBuilder.build(api_configuration=api_configuration)
+            client = ApiClientBuilder.build(lusid, api_configuration=api_configuration)
 
         self.assertFalse("CorrelationId" in client.default_headers, msg="Unexpected CorrelationId found in headers")
 
@@ -260,7 +265,7 @@ class ApiClientBuilderTests(unittest.TestCase):
         env_vars["FBN_CORRELATION_ID"] = "env-correlation-id"
 
         with patch.dict('os.environ', env_vars, clear=True):
-            client = ApiClientBuilder.build(api_configuration=api_configuration, correlation_id="param-correlation-id")
+            client = ApiClientBuilder.build(lusid, api_configuration=api_configuration, correlation_id="param-correlation-id")
 
         self.assertTrue("CorrelationId" in client.default_headers, msg="CorrelationId not found in headers")
         self.assertEquals(client.default_headers["CorrelationId"], "param-correlation-id")
