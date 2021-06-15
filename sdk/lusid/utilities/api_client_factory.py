@@ -50,8 +50,7 @@ class ApiClientFactory:
 
         secrets_file = kwargs.get("api_secrets_filename", None)
         pat = PersonalAccessTokenLoader().pat
-        #pat = os.getenv("FBN_LUSID_ACCESS_TOKEN", None)
-
+        
         # If there is a token use it along with the specified proxy details if specified
         if "token" in kwargs and str(kwargs["token"]) != "None":
             builder_kwargs["api_configuration"] = config
