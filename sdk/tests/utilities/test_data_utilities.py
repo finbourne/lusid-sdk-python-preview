@@ -2,14 +2,13 @@ from datetime import datetime
 import pytz
 import threading
 import uuid
+import unittest
 
 import lusid
 import lusid.models as models
-from fbnsdkutilities import ApiClientBuilder
+from lusid.utilities import ApiClientFactory
 
 from utilities import CredentialsSource
-
-import unittest
 
 
 class TestDataUtilities:
@@ -24,16 +23,17 @@ class TestDataUtilities:
         self.transaction_portfolio_api = transaction_portfolio_api
         self.test = self.TestDataUtilitiesTests()
 
-    _api_client = None
+    _api_client_factory = None
     _lock = threading.Lock()
 
     @classmethod
-    def api_client(cls):
-        if not cls._api_client:
+    def api_client_factory(cls):
+
+        if not cls._api_client_factory:
             with cls._lock:
-                if not cls._api_client:
-                    cls._api_client = ApiClientBuilder().build(lusid, CredentialsSource.secrets_path())
-        return cls._api_client
+                if not cls._api_client_factory:
+                    cls._api_client_factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
+        return cls._api_client_factory
 
     def create_transaction_portfolio(self, scope):
         guid = str(uuid.uuid4())

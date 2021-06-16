@@ -21,13 +21,13 @@ class ReferencePortfolio(unittest.TestCase):
         cls.logger = logging.getLogger()
         cls.logger.setLevel(logging.INFO)
 
-        # Create API client
-        api_client = TestDataUtilities.api_client()
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
 
         # Instantiate APIs we will use
-        cls.reference_portfolio_api = lusid.ReferencePortfolioApi(api_client)
-        cls.portfolios_api = lusid.PortfoliosApi(api_client)
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
+        cls.reference_portfolio_api = api_client_factory.build(lusid.ReferencePortfolioApi)
+        cls.portfolios_api = api_client_factory.build(lusid.PortfoliosApi)
+        cls.instruments_api = api_client_factory.build(lusid.InstrumentsApi)
 
         # Load instruments
         cls.instrument_loader = InstrumentLoader(cls.instruments_api)

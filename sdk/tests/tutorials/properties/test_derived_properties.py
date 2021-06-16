@@ -16,10 +16,10 @@ logging.basicConfig(level=logging.INFO)
 class DerivedPropertyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        # create a configured API client
-        api_client = TestDataUtilities.api_client()
-        cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
+        cls.property_definitions_api = api_client_factory.build(lusid.PropertyDefinitionsApi)
+        cls.instruments_api = api_client_factory.build(lusid.InstrumentsApi)
         # load instruments from InstrumentLoader
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()

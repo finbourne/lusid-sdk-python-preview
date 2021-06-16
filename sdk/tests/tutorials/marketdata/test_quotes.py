@@ -14,10 +14,10 @@ class Quotes(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # create a configured API client
-        api_client = TestDataUtilities.api_client()
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
 
-        cls.quotes_api = lusid.QuotesApi(api_client)
+        cls.quotes_api = api_client_factory.build(lusid.QuotesApi)
 
     @lusid_feature("F28")
     def test_add_quote(self):

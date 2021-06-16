@@ -9,8 +9,9 @@ from utilities import TestDataUtilities
 class ComplexInstrumentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        api_client = TestDataUtilities.api_client()
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
+        cls.instruments_api = api_client_factory.build(lusid.InstrumentsApi)
 
     # Define a function to upsert instrument
     def upsert_otc_to_lusid(self, instrument, name, lusid_id):

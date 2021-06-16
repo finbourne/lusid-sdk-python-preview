@@ -15,11 +15,11 @@ class Transactions(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # create a configured API client
-        api_client = TestDataUtilities.api_client()
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
 
-        cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
+        cls.transaction_portfolios_api = api_client_factory.build(lusid.TransactionPortfoliosApi)
+        cls.instruments_api = api_client_factory.build(lusid.InstrumentsApi)
 
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
