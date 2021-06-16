@@ -14,13 +14,13 @@ class Reconciliation(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # create a configured API client
-        api_client = TestDataUtilities.api_client()
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
 
-        cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.reconciliations_api = lusid.ReconciliationsApi(api_client)
+        cls.transaction_portfolios_api = api_client_factory.build(lusid.TransactionPortfoliosApi)
+        cls.reconciliations_api = api_client_factory.build(lusid.ReconciliationsApi)
 
-        instruments_api = lusid.InstrumentsApi(api_client)
+        instruments_api = api_client_factory.build(lusid.InstrumentsApi)
         instrument_loader = InstrumentLoader(instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 

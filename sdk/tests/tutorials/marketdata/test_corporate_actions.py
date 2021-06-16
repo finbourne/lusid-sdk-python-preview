@@ -14,13 +14,13 @@ from utilities.test_data_utilities import TestDataUtilities
 class CorporateActions(unittest.TestCase):
     @classmethod
     def setUp(cls):
-        # create a configured API client
-        api_client = ApiClientBuilder().build(lusid, str(CredentialsSource.secrets_path()))
+        # create a configured API client factory
+        api_client_factory = TestDataUtilities.api_client_factory()
 
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
-        cls.portfolios_api = lusid.PortfoliosApi(api_client)
-        cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.corporate_actions_sources_api = lusid.CorporateActionSourcesApi(api_client)
+        cls.instruments_api = api_client_factory.build(lusid.InstrumentsApi)
+        cls.portfolios_api = api_client_factory.build(lusid.PortfoliosApi)
+        cls.transaction_portfolios_api = api_client_factory.build(lusid.TransactionPortfoliosApi)
+        cls.corporate_actions_sources_api = api_client_factory.build(lusid.CorporateActionSourcesApi)
 
     def get_guid(self):
         # creates random alphanumeric code
