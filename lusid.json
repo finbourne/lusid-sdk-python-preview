@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3179",
+    "version": "0.11.3180",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58696"
     }
   ],
   "paths": {
@@ -51955,7 +51955,10 @@
           }
         },
         "additionalProperties": false,
-        "description": "A base class for any form of market data with structure"
+        "description": "A base class for any form of market data with structure",
+        "discriminator": {
+          "propertyName": "marketDataType"
+        }
       },
       "ComplexMarketDataId": {
         "required": [
@@ -54011,6 +54014,58 @@
         ],
         "type": "string"
       },
+      "DiscountFactorCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "dates",
+              "discountFactors",
+              "marketDataType"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "BaseDate for the Curve",
+                "format": "date-time"
+              },
+              "dates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "description": "Dates for which the discount factors apply"
+              },
+              "discountFactors": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Discount factors to be applied to cashflow on the specified dates"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "A curve containing discount factors and dates to which they apply"
+      },
       "EquityOption": {
         "allOf": [
           {
@@ -54225,6 +54280,56 @@
           }
         ],
         "description": "Lusid-ibor internal representation of an Equity Swap instrument."
+      },
+      "EquityVolSurfaceData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "instruments",
+              "marketDataType",
+              "quotes"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "Base date of the surface",
+                "format": "date-time"
+              },
+              "instruments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidInstrument"
+                },
+                "description": "The set of instruments that define the surface."
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MarketQuote"
+                },
+                "description": "The set of market quotes that define the surface, in NormalVol or LogNormalVol terms."
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Market Data for an equity vol surface, represented by a list of instruments and corresponding market quotes"
       },
       "ErrorDetail": {
         "type": "object",
@@ -55202,6 +55307,56 @@
           }
         ],
         "description": "IL FX Swap Instrument; Lusid-ibor internal representation of an FX Swap instrument"
+      },
+      "FxVolSurfaceData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "instruments",
+              "marketDataType",
+              "quotes"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "Base date of the surface",
+                "format": "date-time"
+              },
+              "instruments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidInstrument"
+                },
+                "description": "The set of instruments that define the surface."
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MarketQuote"
+                },
+                "description": "The set of market quotes that define the surface, in NormalVol or LogNormalVol terms."
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Market Data for an fx vol surface, represented by a list of fx options and corresponding market quotes"
       },
       "GetCdsFlowConventionsResponse": {
         "type": "object",
@@ -56555,6 +56710,56 @@
         ],
         "description": "A swaption, an option to enter into an interest rate swap."
       },
+      "IrVolCubeData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "instruments",
+              "marketDataType",
+              "quotes"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "Base date of the cube - this is the start date of the swaptions on the cube.",
+                "format": "date-time"
+              },
+              "instruments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidInstrument"
+                },
+                "description": "Retrieve the set of instruments that define the cube."
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MarketQuote"
+                },
+                "description": "Access the set of quotes that define the cube."
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Market Data required to build a volatility cube for swaption pricing,  represented by a list of instruments and corresponding market quotes"
+      },
       "IsBusinessDayResponse": {
         "required": [
           "isBusinessDay",
@@ -57151,6 +57356,36 @@
         "additionalProperties": false,
         "description": "The set of options that control miscellaneous and default market resolution behaviour.\r\nThese are aimed at a 'crude' level of control for those who do not wish to fine tune the way that data is resolved.\r\nFor clients who wish to simply match instruments to prices this is quite possibly sufficient. For those wishing to control market data sources\r\naccording to requirements based on accuracy or timeliness it is not. In more advanced cases the options should largely be ignored and rules specified\r\nper source. Be aware that where no specified rule matches the final fallback is on to the logic implied here."
       },
+      "MarketQuote": {
+        "required": [
+          "quoteType",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "quoteType": {
+            "enum": [
+              "Price",
+              "Spread",
+              "Rate",
+              "LogNormalVol",
+              "NormalVol",
+              "ParSpread",
+              "IsdaSpread",
+              "Upfront"
+            ],
+            "type": "string",
+            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront"
+          },
+          "value": {
+            "type": "number",
+            "description": "Numeric value of the quote",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The market quote for an observable which will be used to calibrate the market data,\r\nincluding the format of the quote.\r\ne.g. a volatility quote for a specific strike and expiry\r\nthe par rate of a swap\r\n            \r\nThis is a slimmed down version of a full Quote that can be stored in our QuoteStore to\r\nremove lineage, price source etc. for ease of use when creating complex market data."
+      },
       "MetricValue": {
         "type": "object",
         "properties": {
@@ -57228,6 +57463,49 @@
           "CarryAsPnl"
         ],
         "type": "string"
+      },
+      "OpaqueMarketData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "document",
+              "format",
+              "marketDataType",
+              "name"
+            ],
+            "type": "object",
+            "properties": {
+              "document": {
+                "type": "string",
+                "description": "The document as a string."
+              },
+              "format": {
+                "type": "string",
+                "description": "What format is the document stored in, e.g. Xml.\r\nSupported string (enumeration) values are: [Unknown, Xml, Json, Csv]."
+              },
+              "name": {
+                "type": "string",
+                "description": "Internal name of document. This is not used for search, it is simply a designator that helps identify the document\r\nand could be anything (filename, ftp address or similar)"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "A representation of an un-built piece of complex market data, to allow for passing through\r\nto the vendor library for building.\r\nThe market data will usually be in some standard form such as XML or Json, representing a curve or surface."
       },
       "OperandType": {
         "enum": [
@@ -64173,6 +64451,56 @@
         },
         "additionalProperties": false,
         "description": "Class that models a set of instruments of which each has some quantity and can be identified by a unique label."
+      },
+      "YieldCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "instruments",
+              "marketDataType",
+              "quotes"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "Base date",
+                "format": "date-time"
+              },
+              "instruments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidInstrument"
+                },
+                "description": "The set of instruments that define the curve."
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MarketQuote"
+                },
+                "description": "The market quotes corresponding to the the instruments used to define the curve"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Market data for a yield curve,  represented by a list of instruments and corresponding market quotes"
       }
     },
     "securitySchemes": {
@@ -64181,7 +64509,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
