@@ -100,7 +100,7 @@ configuration.host = "https://fbn-prd.lusid.com/api"
 api_instance = lusid.RelationshipsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relationship
 code = 'code_example' # str | The code of the relationship
-delete_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # DeleteRelationshipRequest | The details of the relationship to delete.
+delete_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"},"effectiveFrom":"2019-01-10T00:00:00.0000000+00:00"} # DeleteRelationshipRequest | The details of the relationship to delete.
 
 try:
     # [EXPERIMENTAL] Delete Relationship
