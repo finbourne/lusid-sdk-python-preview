@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3191",
+    "version": "0.11.3189",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:52123"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -3876,6 +3876,7 @@
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "DiscountFactorCurveData",
                     "marketAsset": "USDOIS"
                   },
                   "marketData": {
@@ -3895,6 +3896,7 @@
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "OpaqueMarketData",
                     "marketAsset": "RBS"
                   },
                   "marketData": {
@@ -3921,6 +3923,7 @@
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "DiscountFactorCurveData",
                     "marketAsset": "USDOIS"
                   },
                   "marketData": {
@@ -3940,6 +3943,7 @@
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "OpaqueMarketData",
                     "marketAsset": "RBS"
                   },
                   "marketData": {
@@ -3966,6 +3970,7 @@
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "DiscountFactorCurveData",
                     "marketAsset": "USDOIS"
                   },
                   "marketData": {
@@ -3985,6 +3990,7 @@
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "OpaqueMarketData",
                     "marketAsset": "RBS"
                   },
                   "marketData": {
@@ -4011,6 +4017,7 @@
                     "priceSource": "Some Bank Plc",
                     "lineage": "Swaps Desk Trader A",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "DiscountFactorCurveData",
                     "marketAsset": "USDOIS"
                   },
                   "marketData": {
@@ -4030,6 +4037,7 @@
                     "priceSource": "AN.Other Bank Plc",
                     "lineage": "Swaps Desk Trader B",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "marketDataType": "OpaqueMarketData",
                     "marketAsset": "RBS"
                   },
                   "marketData": {
@@ -4144,6 +4152,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4151,6 +4160,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4169,6 +4179,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4176,6 +4187,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4194,6 +4206,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4201,6 +4214,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4219,6 +4233,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4226,6 +4241,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4370,6 +4386,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4377,6 +4394,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4395,6 +4413,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4402,6 +4421,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4420,6 +4440,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4427,6 +4448,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -4445,6 +4467,7 @@
                   "priceSource": "Some Bank Plc",
                   "lineage": "Swaps Desk Trader A",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "DiscountFactorCurveData",
                   "marketAsset": "USDOIS"
                 },
                 "second-item": {
@@ -4452,6 +4475,7 @@
                   "priceSource": "AN.Other Bank Plc",
                   "lineage": "Swaps Desk Trader B",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "marketDataType": "OpaqueMarketData",
                   "marketAsset": "RBS"
                 }
               }
@@ -32629,8 +32653,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "application/json": {
@@ -32646,8 +32669,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "text/json": {
@@ -32663,8 +32685,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "application/*+json": {
@@ -32680,8 +32701,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             }
           },
@@ -51966,6 +51986,11 @@
             "format": "dateorcutlabel",
             "nullable": true
           },
+          "marketDataType": {
+            "type": "string",
+            "description": "The type of the market element that the market entity represents, e.g. a vol surface or credit curve",
+            "nullable": true
+          },
           "marketAsset": {
             "type": "string",
             "description": "The name of the market entity that the document represents",
@@ -64484,7 +64509,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
