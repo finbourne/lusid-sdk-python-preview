@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3190",
+    "version": "0.11.3189",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32036"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -32653,8 +32653,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "application/json": {
@@ -32670,8 +32669,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "text/json": {
@@ -32687,8 +32685,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             },
             "application/*+json": {
@@ -32704,8 +32701,7 @@
                   "idTypeScope": "HrSystem1",
                   "idTypeCode": "InternalId",
                   "code": "XY10001111"
-                },
-                "effectiveFrom": "2019-01-10T00:00:00.0000000+00:00"
+                }
               }
             }
           },
@@ -64513,7 +64509,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
