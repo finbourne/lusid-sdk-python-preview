@@ -9,7 +9,7 @@
 
 The PyPi package for the LUSID SDK can installed using the following:
 
-Test ignore.
+Test ignore - 1.
 
 ```
 $ pip install lusid-sdk-preview
