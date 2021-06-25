@@ -7,7 +7,7 @@ name: Build and test
 on:
   push:
     branches: [ develop ]
-  pull_request_target:
+  pull_request:
     branches: [ master, develop ]
 
 jobs:
@@ -28,10 +28,7 @@ jobs:
             echo "BRANCH_FOR_SLACK=${{ github.ref  }}" >> $GITHUB_ENV
           elif ${{ github.event_name == 'pull_request' }}; then
             echo "BRANCH_FOR_SLACK=${{ github.base_ref  }}" >> $GITHUB_ENV
-          elif ${{ github.event_name == 'pull_request_target' }}; then
-            echo "BRANCH_FOR_SLACK=${{ github.base_ref  }}" >> $GITHUB_ENV
           else
-            echo "Event: ${{ github.event_name }}"
             exit 1
           fi
 
