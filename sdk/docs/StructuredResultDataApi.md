@@ -1,6 +1,6 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:56235*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**delete_structured_result_data**](StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] Delete structured result data
 [**get_data_map**](StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] Get data map
 [**get_structured_result_data**](StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] Get structured result data
-[**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [EXPERIMENTAL] Upsert structured result data
+[**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [BETA] Upsert structured result data
 
 
 # **create_data_map**
@@ -31,8 +31,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:56235
+configuration.host = "http://local-unit-test-server.lusid.com:56235"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope in which to create or update data maps.
@@ -95,8 +95,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:56235
+configuration.host = "http://local-unit-test-server.lusid.com:56235"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope from which to delete data items.
@@ -159,8 +159,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:56235
+configuration.host = "http://local-unit-test-server.lusid.com:56235"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope from which to retrieve data maps.
@@ -223,8 +223,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:56235
+configuration.host = "http://local-unit-test-server.lusid.com:56235"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope from which to retrieve data items.
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 # **upsert_structured_result_data**
 > UpsertStructuredDataResponse upsert_structured_result_data(scope, request_body)
 
-[EXPERIMENTAL] Upsert structured result data
+[BETA] Upsert structured result data
 
 Create or update one or more structured result data items in a particular scope. An item is updated if it already exists  and created if it does not.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully created or updated data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
 
@@ -291,15 +291,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:56235
+configuration.host = "http://local-unit-test-server.lusid.com:56235"
 # Create an instance of the API class
 api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope in which to create or update data items.
 request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
 
 try:
-    # [EXPERIMENTAL] Upsert structured result data
+    # [BETA] Upsert structured result data
     api_response = api_instance.upsert_structured_result_data(scope, request_body)
     pprint(api_response)
 except ApiException as e:
