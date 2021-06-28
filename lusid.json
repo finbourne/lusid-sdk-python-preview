@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3204",
+    "version": "0.11.3202",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62596"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -41453,7 +41453,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[BETA] Get portfolio cash flows",
+        "summary": "[EXPERIMENTAL] Get portfolio cash flows",
         "description": "Get the set of cash flows that occur in a window for the transaction portfolio's instruments.\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.",
         "operationId": "GetPortfolioCashFlows",
         "parameters": [
@@ -41618,7 +41618,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/cashladder": {
@@ -49017,7 +49017,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[BETA] Get upsertable portfolio cash flows.",
+        "summary": "[EXPERIMENTAL] Get upsertable portfolio cash flows.",
         "description": "Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.\r\n            \r\nIn essence this is identical to the 'GetCashFlows' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.\r\nThere are a couple of important points:\r\n(1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.\r\n    These are therefore defaulted to a sensible option; the user will likely need to change these.\r\n(2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.\r\n(3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.",
         "operationId": "GetUpsertablePortfolioCashFlows",
         "parameters": [
@@ -49182,7 +49182,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/translation/instrumentdefinitions": {
@@ -49646,7 +49646,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[BETA] Upsert structured result data",
+        "summary": "[EXPERIMENTAL] Upsert structured result data",
         "description": "Create or update one or more structured result data items in a particular scope. An item is updated if it already exists\r\nand created if it does not.\r\n            \r\nIn the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data item in the response.\r\n            \r\nThe response returns both the collection of successfully created or updated data items, as well as those that failed.\r\nFor each failure, a reason is provided.\r\n            \r\nIt is important to check the failed set for any unsuccessful results.",
         "operationId": "UpsertStructuredResultData",
         "parameters": [
@@ -49883,7 +49883,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/unitresults/{scope}/$delete": {
@@ -64484,7 +64484,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
