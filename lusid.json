@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3211",
+    "version": "0.11.3212",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42436"
+      "url": "http://local-unit-test-server.lusid.com:45022"
     }
   ],
   "paths": {
@@ -1726,7 +1726,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Check whether a DateTime is a \"Business DateTime\"",
+        "summary": "[BETA] Check whether a DateTime is a \"Business DateTime\"",
         "description": "A Business DateTime is defined as a point in time that:\r\n    * Does not represent a day that overlaps with the calendars WeekendMask\r\n    * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar\r\n    * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar\r\n            \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive \r\ne.g. From: 2020-12-25-00-00-00 \r\n     To: 2020-12-26-00-00-00\r\nIsBusinessDay(2020-12-26-00-00-00) == false",
         "operationId": "IsBusinessDateTime",
         "parameters": [
@@ -1850,7 +1850,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/calendars/generic": {
@@ -1858,7 +1858,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] List Calenders",
+        "summary": "[BETA] List Calenders",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendars",
         "parameters": [
@@ -2128,13 +2128,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "post": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Create a calendar in its generic form",
+        "summary": "[BETA] Create a calendar in its generic form",
         "description": "Create a calendar in a generic form which can be used to store date events.",
         "operationId": "CreateCalendar",
         "requestBody": {
@@ -2384,7 +2384,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/calendars/generic/{scope}": {
@@ -2392,7 +2392,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] List all calenders in a specified scope",
+        "summary": "[BETA] List all calenders in a specified scope",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendarsInScope",
         "parameters": [
@@ -2693,7 +2693,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/calendars/generic/{scope}/{code}": {
@@ -2701,7 +2701,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Get a calendar in its generic form",
+        "summary": "[BETA] Get a calendar in its generic form",
         "description": "Retrieve a generic calendar by a specific ID at a point in AsAt time",
         "operationId": "GetCalendar",
         "parameters": [
@@ -2873,13 +2873,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "post": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Update a calendar",
+        "summary": "[BETA] Update a calendar",
         "description": "Update the calendars WeekendMask, SourceProvider or Properties",
         "operationId": "UpdateCalendar",
         "parameters": [
@@ -3137,13 +3137,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "delete": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Delete a calendar",
+        "summary": "[BETA] Delete a calendar",
         "description": "Delete a calendar and all of its respective dates",
         "operationId": "DeleteCalendar",
         "parameters": [
@@ -3303,7 +3303,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/calendars/generic/{scope}/{code}/dates": {
@@ -3311,7 +3311,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Get dates for a specific calendar",
+        "summary": "[BETA] Get dates for a specific calendar",
         "description": "Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.\r\nProviding an id filter can further refine the results.",
         "operationId": "GetDates",
         "parameters": [
@@ -3501,13 +3501,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       },
       "put": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Add a date to a calendar",
+        "summary": "[BETA] Add a date to a calendar",
         "description": "Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.\r\nA local date will be calculated by the system and applied to the calendar before processing.",
         "operationId": "AddDateToCalendar",
         "parameters": [
@@ -3690,7 +3690,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/calendars/generic/{scope}/{code}/dates/{dateId}": {
@@ -3698,7 +3698,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Remove a date from a calendar",
+        "summary": "[BETA] Remove a date from a calendar",
         "description": "Remove a date from a calendar.",
         "operationId": "DeleteDateFromCalendar",
         "parameters": [
@@ -3832,7 +3832,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Beta"
       }
     },
     "/api/complexmarketdata/{scope}": {
