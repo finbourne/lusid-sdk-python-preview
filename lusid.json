@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3219",
+    "version": "0.11.3220",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53755"
+      "url": "http://local-unit-test-server.lusid.com:63081"
     }
   ],
   "paths": {
@@ -27544,14 +27544,16 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "rateOfReturn": 10,
-                  "openingMarketValue": 5,
+                  "rateOfReturn": 0.1,
+                  "openingMarketValue": 500,
+                  "closingMarketValue": 550,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "rateOfReturn": 100,
-                  "openingMarketValue": 15,
+                  "rateOfReturn": -0.2,
+                  "openingMarketValue": 550,
+                  "closingMarketValue": 440,
                   "period": "Daily"
                 }
               ]
@@ -27567,14 +27569,16 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "rateOfReturn": 10,
-                  "openingMarketValue": 5,
+                  "rateOfReturn": 0.1,
+                  "openingMarketValue": 500,
+                  "closingMarketValue": 550,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "rateOfReturn": 100,
-                  "openingMarketValue": 15,
+                  "rateOfReturn": -0.2,
+                  "openingMarketValue": 550,
+                  "closingMarketValue": 440,
                   "period": "Daily"
                 }
               ]
@@ -27590,14 +27594,16 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "rateOfReturn": 10,
-                  "openingMarketValue": 5,
+                  "rateOfReturn": 0.1,
+                  "openingMarketValue": 500,
+                  "closingMarketValue": 550,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "rateOfReturn": 100,
-                  "openingMarketValue": 15,
+                  "rateOfReturn": -0.2,
+                  "openingMarketValue": 550,
+                  "closingMarketValue": 440,
                   "period": "Daily"
                 }
               ]
@@ -27613,14 +27619,16 @@
               "example": [
                 {
                   "effectiveAt": "2019-11-28T00:00:00.0000000+00:00",
-                  "rateOfReturn": 10,
-                  "openingMarketValue": 5,
+                  "rateOfReturn": 0.1,
+                  "openingMarketValue": 500,
+                  "closingMarketValue": 550,
                   "period": "Daily"
                 },
                 {
                   "effectiveAt": "2019-11-29T00:00:00.0000000+00:00",
-                  "rateOfReturn": 100,
-                  "openingMarketValue": 15,
+                  "rateOfReturn": -0.2,
+                  "openingMarketValue": 550,
+                  "closingMarketValue": 440,
                   "period": "Daily"
                 }
               ]
@@ -50617,8 +50625,7 @@
       "AggregatedReturn": {
         "required": [
           "effectiveAt",
-          "metricsValue",
-          "openingMarketValue"
+          "metricsValue"
         ],
         "type": "object",
         "properties": {
@@ -50630,7 +50637,14 @@
           "openingMarketValue": {
             "type": "number",
             "description": "The opening market value.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "closingMarketValue": {
+            "type": "number",
+            "description": "The closing market value.",
+            "format": "double",
+            "nullable": true
           },
           "metricsValue": {
             "type": "object",
@@ -58376,7 +58390,6 @@
       "PerformanceReturn": {
         "required": [
           "effectiveAt",
-          "openingMarketValue",
           "rateOfReturn"
         ],
         "type": "object",
@@ -58394,7 +58407,14 @@
           "openingMarketValue": {
             "type": "number",
             "description": "The opening market value.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "closingMarketValue": {
+            "type": "number",
+            "description": "The closing market value.",
+            "format": "double",
+            "nullable": true
           },
           "period": {
             "type": "string",
