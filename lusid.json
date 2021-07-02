@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3223",
+    "version": "0.11.3224",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54003"
+      "url": "http://local-unit-test-server.lusid.com:36497"
     }
   ],
   "paths": {
@@ -763,7 +763,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] List Allocations",
+        "summary": "[EARLY ACCESS] List Allocations",
         "description": "Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).",
         "operationId": "ListAllocations",
         "parameters": [
@@ -913,13 +913,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Allocations",
+        "summary": "[EARLY ACCESS] Upsert Allocations",
         "description": "Upsert; update existing allocations with given ids, or create new allocations otherwise.",
         "operationId": "UpsertAllocations",
         "requestBody": {
@@ -1355,7 +1355,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/allocations/{scope}/{code}": {
@@ -1363,7 +1363,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Get Allocation",
+        "summary": "[EARLY ACCESS] Get Allocation",
         "description": "Fetch an Allocation matching the provided identifier",
         "operationId": "GetAllocation",
         "parameters": [
@@ -1624,13 +1624,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Allocations"
         ],
-        "summary": "[EXPERIMENTAL] Delete allocation",
+        "summary": "[EARLY ACCESS] Delete allocation",
         "description": "Delete an allocation. Deletion will be valid from the allocation's creation datetime.\r\nThis means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteAllocation",
         "parameters": [
@@ -1718,7 +1718,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/businessday/{scope}/{code}": {
@@ -14320,7 +14320,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] List Orders",
+        "summary": "[EARLY ACCESS] List Orders",
         "description": "Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).",
         "operationId": "ListOrders",
         "parameters": [
@@ -14470,13 +14470,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Order",
+        "summary": "[EARLY ACCESS] Upsert Order",
         "description": "Upsert; update existing orders with given ids, or create new orders otherwise.",
         "operationId": "UpsertOrders",
         "requestBody": {
@@ -14905,7 +14905,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/orders/{scope}/{code}": {
@@ -14913,7 +14913,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Get Order",
+        "summary": "[EARLY ACCESS] Get Order",
         "description": "Fetch an Order that matches the specified identifier",
         "operationId": "GetOrder",
         "parameters": [
@@ -15171,13 +15171,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Orders"
         ],
-        "summary": "[EXPERIMENTAL] Delete order",
+        "summary": "[EARLY ACCESS] Delete order",
         "description": "Delete an order. Deletion will be valid from the order's creation datetime.\r\nThis means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteOrder",
         "parameters": [
@@ -15265,7 +15265,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/persons": {

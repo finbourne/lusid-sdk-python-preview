@@ -1,19 +1,19 @@
 # lusid.OrdersApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:54003*
+All URIs are relative to *http://local-unit-test-server.lusid.com:36497*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_order**](OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EXPERIMENTAL] Delete order
-[**get_order**](OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EXPERIMENTAL] Get Order
-[**list_orders**](OrdersApi.md#list_orders) | **GET** /api/orders | [EXPERIMENTAL] List Orders
-[**upsert_orders**](OrdersApi.md#upsert_orders) | **POST** /api/orders | [EXPERIMENTAL] Upsert Order
+[**delete_order**](OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] Delete order
+[**get_order**](OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EARLY ACCESS] Get Order
+[**list_orders**](OrdersApi.md#list_orders) | **GET** /api/orders | [EARLY ACCESS] List Orders
+[**upsert_orders**](OrdersApi.md#upsert_orders) | **POST** /api/orders | [EARLY ACCESS] Upsert Order
 
 
 # **delete_order**
 > DeletedEntityResponse delete_order(scope, code)
 
-[EXPERIMENTAL] Delete order
+[EARLY ACCESS] Delete order
 
 Delete an order. Deletion will be valid from the order's creation datetime.  This means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -30,15 +30,15 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:54003
-configuration.host = "http://local-unit-test-server.lusid.com:54003"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:36497
+configuration.host = "http://local-unit-test-server.lusid.com:36497"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The order scope.
 code = 'code_example' # str | The order's code. This, together with the scope uniquely identifies the order to delete.
 
 try:
-    # [EXPERIMENTAL] Delete order
+    # [EARLY ACCESS] Delete order
     api_response = api_instance.delete_order(scope, code)
     pprint(api_response)
 except ApiException as e:
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 # **get_order**
 > Order get_order(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Get Order
+[EARLY ACCESS] Get Order
 
 Fetch an Order that matches the specified identifier
 
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:54003
-configuration.host = "http://local-unit-test-server.lusid.com:54003"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:36497
+configuration.host = "http://local-unit-test-server.lusid.com:36497"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the order belongs.
@@ -104,7 +104,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto the order.              These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] Get Order
+    # [EARLY ACCESS] Get Order
     api_response = api_instance.get_order(scope, code, as_at=as_at, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 # **list_orders**
 > PagedResourceListOfOrder list_orders(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] List Orders
+[EARLY ACCESS] List Orders
 
 Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
 
@@ -162,8 +162,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:54003
-configuration.host = "http://local-unit-test-server.lusid.com:54003"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:36497
+configuration.host = "http://local-unit-test-server.lusid.com:36497"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)
@@ -175,7 +175,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Orders\" domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional)
 
 try:
-    # [EXPERIMENTAL] List Orders
+    # [EARLY ACCESS] List Orders
     api_response = api_instance.list_orders(as_at=as_at, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, property_keys=property_keys)
     pprint(api_response)
 except ApiException as e:
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 # **upsert_orders**
 > ResourceListOfOrder upsert_orders(order_set_request=order_set_request)
 
-[EXPERIMENTAL] Upsert Order
+[EARLY ACCESS] Upsert Order
 
 Upsert; update existing orders with given ids, or create new orders otherwise.
 
@@ -236,14 +236,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:54003
-configuration.host = "http://local-unit-test-server.lusid.com:54003"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:36497
+configuration.host = "http://local-unit-test-server.lusid.com:36497"
 # Create an instance of the API class
 api_instance = lusid.OrdersApi(lusid.ApiClient(configuration))
 order_set_request = {"orderRequests":[{"properties":{"order/MyScope/SomeOrderProperty":{"key":"Order/MyScope/SomeOrderProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","orderBookId":{"scope":"MyScope","code":"UKEQ Orders"},"portfolioId":{"scope":"MyScope","code":"UK Equity"},"id":{"scope":"MyScope","code":"ORD00000123"},"state":"New","type":"Limit","timeInForce":"GoodTilCancel","date":"2023-05-02T00:00:00.0000000+00:00","price":{"amount":534,"currency":"USD"},"orderInstruction":{"scope":"MyScope","code":"Instruction-06"},"package":{"scope":"MyScope","code":"UKEQ Package"}}]} # OrderSetRequest | The collection of order requests. (optional)
 
 try:
-    # [EXPERIMENTAL] Upsert Order
+    # [EARLY ACCESS] Upsert Order
     api_response = api_instance.upsert_orders(order_set_request=order_set_request)
     pprint(api_response)
 except ApiException as e:
