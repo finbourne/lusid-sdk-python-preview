@@ -536,6 +536,7 @@ class TokenRefresh(unittest.TestCase):
             self.assertGreaterEqual(int(elapsed), time_to_wait-1)
             self.assertLessEqual(int(elapsed), time_to_wait)
 
+    @unittest.skip("Not valid test when using Okta caching proxy")
     def test_retries_against_id_provider_after_hitting_rate_limit(self):
         """
         Integration tests which calls the identity provider specified in the provided credentials (Okta in the
