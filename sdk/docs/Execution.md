@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **settlement_currency_fx_rate** | **float** | The exectuion&#39;s settlement currency rate. | 
 **counterparty** | **str** | The market entity this placement is placed with. | 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
