@@ -1,10 +1,10 @@
 # lusid.PropertyDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:58898*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_derived_property_definition**](PropertyDefinitionsApi.md#create_derived_property_definition) | **POST** /api/propertydefinitions/derived | [EARLY ACCESS] Create derived property definition
+[**create_derived_property_definition**](PropertyDefinitionsApi.md#create_derived_property_definition) | **POST** /api/propertydefinitions/derived | [EXPERIMENTAL] Create derived property definition
 [**create_property_definition**](PropertyDefinitionsApi.md#create_property_definition) | **POST** /api/propertydefinitions | Create property definition
 [**delete_property_definition**](PropertyDefinitionsApi.md#delete_property_definition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete property definition
 [**get_multiple_property_definitions**](PropertyDefinitionsApi.md#get_multiple_property_definitions) | **GET** /api/propertydefinitions | Get multiple property definitions
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 # **create_derived_property_definition**
 > PropertyDefinition create_derived_property_definition(create_derived_property_definition_request)
 
-[EARLY ACCESS] Create derived property definition
+[EXPERIMENTAL] Create derived property definition
 
 Define a new derived property.
 
@@ -32,14 +32,14 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 create_derived_property_definition_request = {"domain":"Instrument","scope":"MyScope","code":"MyDerivedPropertyName","displayName":"My Property Display Name","dataTypeId":{"scope":"system","code":"string"},"propertyDescription":"My Property Description","derivationFormula":"(Properties[Instrument/default/Price] * Properties[Instrument/default/Cost]) / Properties[Instrument/default/Shares]"} # CreateDerivedPropertyDefinitionRequest | The definition of the new derived property.
 
 try:
-    # [EARLY ACCESS] Create derived property definition
+    # [EXPERIMENTAL] Create derived property definition
     api_response = api_instance.create_derived_property_definition(create_derived_property_definition_request)
     pprint(api_response)
 except ApiException as e:
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 create_property_definition_request = {"domain":"Portfolio","scope":"MyScope","code":"MyPropertyName","valueRequired":false,"displayName":"My Property Display Name","dataTypeId":{"scope":"system","code":"string"},"lifeTime":"Perpetual","constraintStyle":"Property","propertyDescription":"Optional property description"} # CreatePropertyDefinitionRequest | The definition of the new property.
@@ -156,8 +156,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 domain = 'domain_example' # str | The domain of the property to be deleted.
@@ -222,8 +222,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 property_keys = ['property_keys_example'] # list[str] | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'.
@@ -288,8 +288,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 domain = 'domain_example' # str | The domain of the specified property.
@@ -356,8 +356,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58898
-configuration.host = "http://local-unit-test-server.lusid.com:58898"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.PropertyDefinitionsApi(lusid.ApiClient(configuration))
 domain = 'domain_example' # str | The domain of the property being updated.
