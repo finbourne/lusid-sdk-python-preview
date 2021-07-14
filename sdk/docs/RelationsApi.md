@@ -1,6 +1,6 @@
 # lusid.RelationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:44007*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32294*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:44007
-configuration.host = "http://local-unit-test-server.lusid.com:44007"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32294
+configuration.host = "http://local-unit-test-server.lusid.com:32294"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relation definition
@@ -96,8 +96,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:44007
-configuration.host = "http://local-unit-test-server.lusid.com:44007"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32294
+configuration.host = "http://local-unit-test-server.lusid.com:32294"
 # Create an instance of the API class
 api_instance = lusid.RelationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relation definition
