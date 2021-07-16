@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**ResourceId**](ResourceId.md) |  | 
 **block_ids** | [**list[ResourceId]**](ResourceId.md) | IDs of Blocks associated with this placement. | 
-**participation_ids** | [**list[ResourceId]**](ResourceId.md) | IDs of Participations associated with this placement. | 
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
 **instrument_identifiers** | **dict(str, str)** | The instrument ordered. | 
 **quantity** | **float** | The quantity of given instrument ordered. | 
