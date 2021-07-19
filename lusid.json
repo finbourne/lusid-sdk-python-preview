@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3286",
+    "version": "0.11.3289",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:31540"
     }
   ],
   "paths": {
@@ -62042,6 +62042,9 @@
                 "type": "string",
                 "description": "The foreign currency of the FX."
               },
+              "premium": {
+                "$ref": "#/components/schemas/Premium"
+              },
               "instrumentType": {
                 "enum": [
                   "QuotedSecurity",
@@ -66672,6 +66675,32 @@
           "DerivedTransaction"
         ],
         "type": "string"
+      },
+      "Premium": {
+        "required": [
+          "amount",
+          "currency",
+          "date"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Premium amount",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Premium currency"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date when premium paid",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class containing information for a given premium payment."
       },
       "PricingContext": {
         "type": "object",
@@ -72645,7 +72674,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
