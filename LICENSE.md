@@ -1,5 +1,3 @@
-# License
-
 MIT License
 
 Copyright &copy; 2018 FINBOURNE TECHNOLOGY LTD
