@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3283",
+    "version": "0.11.3284",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:50236"
     }
   ],
   "paths": {
@@ -57205,6 +57205,8 @@
           "addressKey",
           "description",
           "displayName",
+          "lifeCycleStatus",
+          "removalDate",
           "scalesWithHoldingQuantity",
           "supportedOperations",
           "type"
@@ -57245,6 +57247,15 @@
           "supportedOperations": {
             "type": "string",
             "description": "When performing an aggregation operation, what column type operations can be performed on the data. For example, it makes sense to sum decimals but\r\nnot strings. Either can be counted. With more complex types, e.g. ResultValues, operations may be linked to a semantic meaning such as the currency\r\nof the result. In such cases the operations may be supported but context specific. For example, it makes sense to sum PVs in a single currency but not\r\nwhen the currency is different. In such cases, an error would result (it being assumed that no fx rates for currency conversion were implicit in the context)."
+          },
+          "lifeCycleStatus": {
+            "type": "string",
+            "description": "Within an API where an item can be accessed through an address or property, there is an associated status that determines\r\nwhether the item is stable or likely to change. This status is one of [Experimental, Beta, EAP, Prod,  Deprecated]. If the item is\r\ndeprecated it will be removed on or after the associated DateTime RemovalDate field. That field will not otherwise be set."
+          },
+          "removalDate": {
+            "type": "string",
+            "description": "If the life cycle status is set to deprecated then this will be populated with the date on or after which removal of the address query will happen",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -72634,7 +72645,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
