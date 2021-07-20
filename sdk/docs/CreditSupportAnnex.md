@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **rounding_decimal_places** | **int** | Where a calculation needs to be rounded to a specific number of decimal places,  this states the number that that requires. | 
 **initial_margin_amount** | **float** | The initial margin that is required. In the reference currency | 
 **minimum_transfer_amount** | **float** | The minimum amount, in the reference currency, that must be transferred when required. | 
-**id** | [**ResourceId**](ResourceId.md) |  | 
+**scope** | **str** | The scope used when updating or inserting the convention. | [optional] 
+**code** | **str** | The code of the convention. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
