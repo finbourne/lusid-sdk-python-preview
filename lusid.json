@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3291",
+    "version": "0.11.3293",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:56129"
     }
   ],
   "paths": {
@@ -7456,22 +7456,22 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/counterparties/counterparties/counterparty": {
+    "/api/counterparties/counterpartyagreements": {
       "get": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Counterparties",
-        "description": "List the set of Counterparties at the specified AsAt date/time",
-        "operationId": "ListCounterparties",
+        "summary": "[EXPERIMENTAL] List the set of Counterparty Agreements",
+        "description": "List the set of Counterparty Agreements at the specified AsAt date/time",
+        "operationId": "ListCounterpartyAgreements",
         "parameters": [
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to list the counterparty. Defaults to latest if not specified.",
+            "description": "The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.",
             "schema": {
               "type": "string",
-              "description": "The asAt datetime at which to list the counterparty. Defaults to latest if not specified.",
+              "description": "The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.",
               "format": "date-time",
               "nullable": true
             },
@@ -7480,21 +7480,21 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested counterparties",
+            "description": "The requested Counterparty Agreements",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyResponse"
+                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyAgreementResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyResponse"
+                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyAgreementResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyResponse"
+                  "$ref": "#/components/schemas/ResourceListOfGetCounterpartyAgreementResponse"
                 }
               }
             }
@@ -7539,123 +7539,123 @@
       },
       "post": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Counterparty. This creates or updates the data in Lusid.",
-        "description": "Update or insert Counterparty in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Counterparty or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
-        "operationId": "UpsertCounterparty",
+        "summary": "[EXPERIMENTAL] Upsert Counterparty Agreement",
+        "description": "Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
+        "operationId": "UpsertCounterpartyAgreement",
         "requestBody": {
-          "description": "The Counterparty to update or insert",
+          "description": "The Counterparty Agreement to update or insert",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpsertCounterpartyRequest"
+                "$ref": "#/components/schemas/UpsertCounterpartyAgreementRequest"
               },
               "example": {
-                "counterparty": {
-                  "counterpartyId": "12345",
-                  "counterpartyName": "some-bank-of-somewhere",
-                  "countryOfRisk": "United States",
-                  "issuerRatings": [
-                    {
-                      "ratingSource": "S&P",
-                      "rating": "BB"
+                "counterpartyAgreement": {
+                  "displayName": "display-name",
+                  "agreementType": "type",
+                  "counterpartySignatory": {
+                    "name": "counterparty-signatory-name",
+                    "legalEntityIdentifier": {
+                      "idTypeScope": "legal-identifier-idTypeScope",
+                      "idTypeCode": "legal-identifier-idTypeCode",
+                      "code": "legal-identifier-code"
                     }
-                  ],
-                  "industryScheme": {
-                    "schemeName": "TRCS",
-                    "schemeId": "5010201010",
-                    "economicSector": "Energy",
-                    "businessSector": "Energy - Fossil Fuels",
-                    "industry": "Oil & Gas",
-                    "industryActivity": "Integrated Oil & Gas"
                   },
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "datedAsOf": "2020-01-01T01:00:00.0000000+00:00",
+                  "creditSupportAnnexId": {
+                    "scope": "credit-support-annex-scope",
+                    "code": "credit-support-annex-code"
+                  },
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpsertCounterpartyRequest"
+                "$ref": "#/components/schemas/UpsertCounterpartyAgreementRequest"
               },
               "example": {
-                "counterparty": {
-                  "counterpartyId": "12345",
-                  "counterpartyName": "some-bank-of-somewhere",
-                  "countryOfRisk": "United States",
-                  "issuerRatings": [
-                    {
-                      "ratingSource": "S&P",
-                      "rating": "BB"
+                "counterpartyAgreement": {
+                  "displayName": "display-name",
+                  "agreementType": "type",
+                  "counterpartySignatory": {
+                    "name": "counterparty-signatory-name",
+                    "legalEntityIdentifier": {
+                      "idTypeScope": "legal-identifier-idTypeScope",
+                      "idTypeCode": "legal-identifier-idTypeCode",
+                      "code": "legal-identifier-code"
                     }
-                  ],
-                  "industryScheme": {
-                    "schemeName": "TRCS",
-                    "schemeId": "5010201010",
-                    "economicSector": "Energy",
-                    "businessSector": "Energy - Fossil Fuels",
-                    "industry": "Oil & Gas",
-                    "industryActivity": "Integrated Oil & Gas"
                   },
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "datedAsOf": "2020-01-01T01:00:00.0000000+00:00",
+                  "creditSupportAnnexId": {
+                    "scope": "credit-support-annex-scope",
+                    "code": "credit-support-annex-code"
+                  },
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpsertCounterpartyRequest"
+                "$ref": "#/components/schemas/UpsertCounterpartyAgreementRequest"
               },
               "example": {
-                "counterparty": {
-                  "counterpartyId": "12345",
-                  "counterpartyName": "some-bank-of-somewhere",
-                  "countryOfRisk": "United States",
-                  "issuerRatings": [
-                    {
-                      "ratingSource": "S&P",
-                      "rating": "BB"
+                "counterpartyAgreement": {
+                  "displayName": "display-name",
+                  "agreementType": "type",
+                  "counterpartySignatory": {
+                    "name": "counterparty-signatory-name",
+                    "legalEntityIdentifier": {
+                      "idTypeScope": "legal-identifier-idTypeScope",
+                      "idTypeCode": "legal-identifier-idTypeCode",
+                      "code": "legal-identifier-code"
                     }
-                  ],
-                  "industryScheme": {
-                    "schemeName": "TRCS",
-                    "schemeId": "5010201010",
-                    "economicSector": "Energy",
-                    "businessSector": "Energy - Fossil Fuels",
-                    "industry": "Oil & Gas",
-                    "industryActivity": "Integrated Oil & Gas"
                   },
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "datedAsOf": "2020-01-01T01:00:00.0000000+00:00",
+                  "creditSupportAnnexId": {
+                    "scope": "credit-support-annex-scope",
+                    "code": "credit-support-annex-code"
+                  },
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpsertCounterpartyRequest"
+                "$ref": "#/components/schemas/UpsertCounterpartyAgreementRequest"
               },
               "example": {
-                "counterparty": {
-                  "counterpartyId": "12345",
-                  "counterpartyName": "some-bank-of-somewhere",
-                  "countryOfRisk": "United States",
-                  "issuerRatings": [
-                    {
-                      "ratingSource": "S&P",
-                      "rating": "BB"
+                "counterpartyAgreement": {
+                  "displayName": "display-name",
+                  "agreementType": "type",
+                  "counterpartySignatory": {
+                    "name": "counterparty-signatory-name",
+                    "legalEntityIdentifier": {
+                      "idTypeScope": "legal-identifier-idTypeScope",
+                      "idTypeCode": "legal-identifier-idTypeCode",
+                      "code": "legal-identifier-code"
                     }
-                  ],
-                  "industryScheme": {
-                    "schemeName": "TRCS",
-                    "schemeId": "5010201010",
-                    "economicSector": "Energy",
-                    "businessSector": "Energy - Fossil Fuels",
-                    "industry": "Oil & Gas",
-                    "industryActivity": "Integrated Oil & Gas"
                   },
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "datedAsOf": "2020-01-01T01:00:00.0000000+00:00",
+                  "creditSupportAnnexId": {
+                    "scope": "credit-support-annex-scope",
+                    "code": "credit-support-annex-code"
+                  },
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             }
@@ -7664,7 +7664,7 @@
         },
         "responses": {
           "200": {
-            "description": "The successfully updated or inserted item or any failure",
+            "description": "The successfully updated or inserted Counterparty Agreement or any failure",
             "content": {
               "text/plain": {
                 "schema": {
@@ -7722,48 +7722,48 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/counterparties/counterparties/counterparty/{scope}/{code}": {
+    "/api/counterparties/counterpartyagreements/{scope}/{code}": {
       "get": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Get Counterparty",
-        "description": "Get a Counterparty from a single scope.\r\nThe response will return either the counterparty that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
-        "operationId": "GetCounterparty",
+        "summary": "[EXPERIMENTAL] Get Counterparty Agreement",
+        "description": "Get a Counterparty Agreement from a single scope.\r\nThe response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
+        "operationId": "GetCounterpartyAgreement",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the Counterparty to retrieve.",
+            "description": "The scope of the Counterparty Agreement to retrieve.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the Counterparty to retrieve."
+              "description": "The scope of the Counterparty Agreement to retrieve."
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The name of the Counterparty to retrieve the data for.",
+            "description": "The name of the Counterparty Agreement to retrieve the data for.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The name of the Counterparty to retrieve the data for."
+              "description": "The name of the Counterparty Agreement to retrieve the data for."
             }
           },
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to retrieve the counterparty. Defaults to return the latest version if not specified.",
+            "description": "The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.",
             "schema": {
               "type": "string",
-              "description": "The asAt datetime at which to retrieve the counterparty. Defaults to return the latest version if not specified.",
+              "description": "The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.",
               "format": "date-time",
               "nullable": true
             },
@@ -7772,21 +7772,21 @@
         ],
         "responses": {
           "200": {
-            "description": "The successfully retrieved counterparty or any failure",
+            "description": "The successfully retrieved Counterparty Agreement or any failure",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCounterpartyResponse"
+                  "$ref": "#/components/schemas/GetCounterpartyAgreementResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCounterpartyResponse"
+                  "$ref": "#/components/schemas/GetCounterpartyAgreementResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCounterpartyResponse"
+                  "$ref": "#/components/schemas/GetCounterpartyAgreementResponse"
                 }
               }
             }
@@ -7831,36 +7831,36 @@
       },
       "delete": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Delete the Counterparty of given scope and code, assuming that it is present.",
-        "description": "Delete the specified Counterparty from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
-        "operationId": "DeleteCounterparty",
+        "summary": "[EXPERIMENTAL] Delete the Counterparty Agreement of given scope and code",
+        "description": "Delete the specified Counterparty Agreement from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
+        "operationId": "DeleteCounterpartyAgreement",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the Counterparty to delete.",
+            "description": "The scope of the Counterparty Agreement to delete.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the Counterparty to delete."
+              "description": "The scope of the Counterparty Agreement to delete."
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The Counterparty to delete.",
+            "description": "The Counterparty Agreement to delete.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The Counterparty to delete."
+              "description": "The Counterparty Agreement to delete."
             }
           }
         ],
@@ -7924,22 +7924,22 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/counterparties/counterparties/csa": {
+    "/api/counterparties/creditsupportannexes": {
       "get": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] List the set of CSAs",
-        "description": "List the set of CSAs at the specified AsAt date/time",
+        "summary": "[EXPERIMENTAL] List the set of Credit Support Annexes",
+        "description": "List the set of Credit Support Annexes at the specified AsAt date/time",
         "operationId": "ListCreditSupportAnnexes",
         "parameters": [
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to list the CSAs. Defaults to latest if not specified.",
+            "description": "The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.",
             "schema": {
               "type": "string",
-              "description": "The asAt datetime at which to list the CSAs. Defaults to latest if not specified.",
+              "description": "The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.",
               "format": "date-time",
               "nullable": true
             },
@@ -7948,7 +7948,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested CSAs",
+            "description": "The requested Credit Support Annexes",
             "content": {
               "text/plain": {
                 "schema": {
@@ -8007,13 +8007,13 @@
       },
       "post": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Upsert CSA. This creates or updates the data in Lusid.",
-        "description": "Update or insert CSA in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted CSA or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
+        "summary": "[EXPERIMENTAL] Upsert Credit Support Annex",
+        "description": "Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCreditSupportAnnex",
         "requestBody": {
-          "description": "The CSA to update or insert",
+          "description": "The Credit Support Annex to update or insert",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -8032,8 +8032,10 @@
                   "roundingDecimalPlaces": 2,
                   "initialMarginAmount": 100000,
                   "minimumTransferAmount": 10000,
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
@@ -8054,8 +8056,10 @@
                   "roundingDecimalPlaces": 2,
                   "initialMarginAmount": 100000,
                   "minimumTransferAmount": 10000,
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
@@ -8076,8 +8080,10 @@
                   "roundingDecimalPlaces": 2,
                   "initialMarginAmount": 100000,
                   "minimumTransferAmount": 10000,
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             },
@@ -8098,8 +8104,10 @@
                   "roundingDecimalPlaces": 2,
                   "initialMarginAmount": 100000,
                   "minimumTransferAmount": 10000,
-                  "scope": "some-scope",
-                  "code": "some-code"
+                  "id": {
+                    "scope": "some-scope",
+                    "code": "some-code"
+                  }
                 }
               }
             }
@@ -8166,48 +8174,48 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/counterparties/counterparties/csa/{scope}/{code}": {
+    "/api/counterparties/creditsupportannexes/{scope}/{code}": {
       "get": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Get CSA",
-        "description": "Get a CSA from a single scope.\r\nThe response will return either the CSA that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
+        "summary": "[EXPERIMENTAL] Get Credit Support Annex",
+        "description": "Get a Credit Support Annex from a single scope.\r\nThe response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCreditSupportAnnex",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the CSA to retrieve.",
+            "description": "The scope of the Credit Support Annex to retrieve.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the CSA to retrieve."
+              "description": "The scope of the Credit Support Annex to retrieve."
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The name of the CSA to retrieve the data for.",
+            "description": "The name of the Credit Support Annex to retrieve the data for.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The name of the CSA to retrieve the data for."
+              "description": "The name of the Credit Support Annex to retrieve the data for."
             }
           },
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to retrieve the CSA. Defaults to return the latest version if not specified.",
+            "description": "The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.",
             "schema": {
               "type": "string",
-              "description": "The asAt datetime at which to retrieve the CSA. Defaults to return the latest version if not specified.",
+              "description": "The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.",
               "format": "date-time",
               "nullable": true
             },
@@ -8275,36 +8283,36 @@
       },
       "delete": {
         "tags": [
-          "Counterparty"
+          "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Delete the CSA of given scope and code, assuming that it is present.",
-        "description": "Delete the specified CSA from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
+        "summary": "[EXPERIMENTAL] Delete the Credit Support Annex of given scope and code",
+        "description": "Delete the specified Credit Support Annex from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCreditSupportAnnex",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope of the CSA to delete.",
+            "description": "The scope of the Credit Support Annex to delete.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the CSA to delete."
+              "description": "The scope of the Credit Support Annex to delete."
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The CSA to delete.",
+            "description": "The Credit Support Annex to delete.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The CSA to delete."
+              "description": "The Credit Support Annex to delete."
             }
           }
         ],
@@ -58959,51 +58967,60 @@
         "additionalProperties": false,
         "description": "A 'transition' within a corporate action, representing a set of output movements paired to a single input position"
       },
-      "Counterparty": {
+      "CounterpartyAgreement": {
         "required": [
-          "counterpartyId",
-          "counterpartyName",
-          "countryOfRisk",
-          "industryScheme",
-          "issuerRatings"
+          "agreementType",
+          "counterpartySignatory",
+          "creditSupportAnnexId",
+          "datedAsOf",
+          "displayName",
+          "id"
         ],
         "type": "object",
         "properties": {
-          "counterpartyId": {
+          "displayName": {
             "type": "string",
-            "description": "A unique identifier that determines the identity of the counter-party, disambiguating between related legal entities, particularly necessary in the case of multi-nationals."
+            "description": "A user-defined display label for the Counterparty Agreement."
           },
-          "counterpartyName": {
+          "agreementType": {
             "type": "string",
-            "description": "The legal name of the entity to which this counterparty refers."
+            "description": "A user-defined field to capture the type of agreement this represents. Examples might be \"ISDA 2002 Master Agreement\" or \"ISDA 1992 Master Agreement\"."
           },
-          "countryOfRisk": {
+          "counterpartySignatory": {
+            "$ref": "#/components/schemas/CounterpartySignatory"
+          },
+          "datedAsOf": {
             "type": "string",
-            "description": "To which country would one naturally ascribe risk. Typically this will be synonymous with legal registration entity.\r\nThis can be used to infer funding currency and related market data in the absence of specific overrides or preference."
+            "description": "The date on which the CounterpartyAgreement was signed by both parties.",
+            "format": "date-time"
           },
-          "issuerRatings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreditRating"
-            },
-            "description": "A set of credit ratings for the counterparty fro, e.g. Standard and Poor or Moody's."
+          "creditSupportAnnexId": {
+            "$ref": "#/components/schemas/ResourceId"
           },
-          "industryScheme": {
-            "$ref": "#/components/schemas/IndustryClassificationScheme"
-          },
-          "scope": {
-            "type": "string",
-            "description": "The scope used when updating or inserting the convention.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The code of the convention.",
-            "nullable": true
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false,
-        "description": "The information that describes a counterparty to a transaction (or trade). This information allows one to identify the unique legal entity with whom a transaction\r\ntakes place along with key information that would link it to any Credit Support Annex or related information that allows trades to be netted together for\r\nthe purposes of determining such calculations as Credit-Valuation-Adjustments, Debit-Valuation-Adjustments (CVA, DVA, XVA etc.). It would also help in the identification\r\nof appropriate credit curves for the purposes of such calculations and any other relevant legal document, trade coverage, contacts and similar information."
+        "description": "Represents the legal agreement between two parties engaged in an OTC transaction.\r\nA typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date."
+      },
+      "CounterpartySignatory": {
+        "required": [
+          "legalEntityIdentifier",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A user-defined name or label for the counterparty signatory.  There is no requirement for this to match the \"displayName\" of the legal entity."
+          },
+          "legalEntityIdentifier": {
+            "$ref": "#/components/schemas/TypedResourceId"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The counterpartyAgreement is signed by two parties, one of which is implicitly the LUSID user.\r\nThe CounterpartySignatory represents the 'other side' of the agreement.\r\nIt comprises a name and identifier for a Legal Entity in LUSID."
       },
       "CreateCalendarRequest": {
         "required": [
@@ -59975,28 +59992,10 @@
         ],
         "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
       },
-      "CreditRating": {
-        "required": [
-          "rating",
-          "ratingSource"
-        ],
-        "type": "object",
-        "properties": {
-          "ratingSource": {
-            "type": "string",
-            "description": "Who is providing the rating. This will typically be an agency such as Moody's or Standard and Poor.\r\nThe rating would then expected to be consistent with the expected rating scheme from the agency."
-          },
-          "rating": {
-            "type": "string",
-            "description": "The credit rating provided by the rating source. This would expected to be consistent with the rating\r\nscheme of that agency/source."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Entity describing a credit rating, that is an assessment of the stability and credit worthiness of a given counterparty\r\nand hence of its likelihood of defaulting on any outstanding obligations (typically debt) that it has."
-      },
       "CreditSupportAnnex": {
         "required": [
           "collateralCurrencies",
+          "id",
           "initialMarginAmount",
           "isdaAgreementVersion",
           "marginCallFrequency",
@@ -60051,15 +60050,8 @@
             "description": "The minimum amount, in the reference currency, that must be transferred when required.",
             "format": "double"
           },
-          "scope": {
-            "type": "string",
-            "description": "The scope used when updating or inserting the convention.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The code of the convention.",
-            "nullable": true
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false,
@@ -62253,7 +62245,7 @@
         },
         "additionalProperties": false
       },
-      "GetCounterpartyResponse": {
+      "GetCounterpartyAgreementResponse": {
         "type": "object",
         "properties": {
           "href": {
@@ -62263,14 +62255,14 @@
             "nullable": true
           },
           "value": {
-            "$ref": "#/components/schemas/Counterparty"
+            "$ref": "#/components/schemas/CounterpartyAgreement"
           },
           "failed": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ErrorDetail"
             },
-            "description": "The counterparty that could not be updated or inserted along with a reason for failure.",
+            "description": "The counterparty agreement that could not be retrieved along with a reason for failure.",
             "nullable": true
           },
           "links": {
@@ -62906,45 +62898,6 @@
         },
         "additionalProperties": false,
         "description": "A set of conventions that describe the conventions for calculation of payments made on rates interbank lending and similar.\r\nBased on ISDA 2006 conventions and similar documentation. Please see the knowledge base for further documentation."
-      },
-      "IndustryClassificationScheme": {
-        "required": [
-          "businessSector",
-          "economicSector",
-          "industry",
-          "industryActivity",
-          "schemeId",
-          "schemeName"
-        ],
-        "type": "object",
-        "properties": {
-          "schemeName": {
-            "type": "string",
-            "description": "The type of the industry classification scheme (TRBC, GICs, ICB)"
-          },
-          "schemeId": {
-            "type": "string",
-            "description": "Within the given scheme, the unique id that identifies this particular classification.\r\ne.g. within \"TRCS\", 5010202011 identifies \"Oil Exploration \\amp; Production - Onshore\" within the Energy, fossil-fuels and Oil hierarchy."
-          },
-          "economicSector": {
-            "type": "string",
-            "description": "Various schemes exist to classify the business sector within which a company operates.\r\nThey divide it into various categories around business, economic and sub-sectors (e.g. fossil fuels within energy)\r\nUnder ICB, TRBC, GICS which economic sector is the counterparty assigned to. This is Lvl 1 of that scheme (coarsest)"
-          },
-          "businessSector": {
-            "type": "string",
-            "description": "Various schemes exist to classify the business sector within which a company operates.\r\nThey divide it into various categories around business, economic and sub-sectors (e.g. fossil fuels within energy)\r\nUnder ICB, TRBC, GICS which business sector is the counterparty assigned to. This is Lvl 2 of that scheme (2nd coarsest)\r\ne.g. Fossil Fuels within energy."
-          },
-          "industry": {
-            "type": "string",
-            "description": "Various schemes exist to classify the business sector within which a company operates.\r\nThey divide it into various categories around business, economic and sub-sectors (e.g. coal within energy)\r\nUnder ICB, TRBC, GICS which business sector is the counterparty assigned to. This is Lvl 3 of that scheme (3rd coarsest)\r\ne.g. Coal or Oil within Fossil Fuels."
-          },
-          "industryActivity": {
-            "type": "string",
-            "description": "Various schemes exist to classify the business sector within which a company operates.\r\nThey divide it into various categories around business, economic and sub-sectors (e.g. coal within energy)\r\nUnder ICB, TRBC, GICS which business sector is the counterparty assigned to. This is Lvl 4 of the scheme (finest)\r\ne.g. Petroleum Refining within Oil within Fossil Fuels."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Various schemes exist to classify the business sector within which a company operates.\r\nThey divide it into various categories around business, economic and sub-sectors (e.g. coal within energy)\r\nThese commonly include\r\nICB https://en.wikipedia.org/wiki/Industry_Classification_Benchmark\r\nTRBC https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification\r\nGICS https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard.\r\nThese links are not intended as a complete reference but are freely available as a starting point."
       },
       "InlineValuationRequest": {
         "required": [
@@ -68627,7 +68580,7 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
-      "ResourceListOfGetCounterpartyResponse": {
+      "ResourceListOfGetCounterpartyAgreementResponse": {
         "required": [
           "values"
         ],
@@ -68636,7 +68589,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GetCounterpartyResponse"
+              "$ref": "#/components/schemas/GetCounterpartyAgreementResponse"
             },
             "description": "The resources to list."
           },
@@ -71135,6 +71088,39 @@
         "additionalProperties": false,
         "description": "A response from a request to translate a collection of instruments to a given target dialect."
       },
+      "TypedResourceId": {
+        "required": [
+          "code",
+          "idTypeCode",
+          "idTypeScope"
+        ],
+        "type": "object",
+        "properties": {
+          "idTypeScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope of the identifier's (property) definition."
+          },
+          "idTypeCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The code of identifier's (property) definition. This describes what the identifier represents.\r\nFor a Person this might be a username, nationalInsuranceNumber or similar.\r\nFor a Legal Entity, this might be a registeredCompanyNumber or LEI."
+          },
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The value of the user-defined identifier in respect of the entity."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the user-defined identifier for a Legal Entity or Person.\r\nUsers can define their own, scoped identifiers for Legal Entities and Persons using identifier properties.\r\nFor example,\r\nwhen used to identify a Person, the identifier defined by Person/myScope/username would be represented as\r\n {\r\n   \"idTypeScope\": \"myScope\",\r\n   \"idTypeCode\": \"username\",\r\n   \"code\": \"john_doe_001\"\r\n }"
+      },
       "UnitSchema": {
         "enum": [
           "NoUnits",
@@ -71503,15 +71489,18 @@
         },
         "additionalProperties": false
       },
-      "UpsertCounterpartyRequest": {
+      "UpsertCounterpartyAgreementRequest": {
+        "required": [
+          "counterpartyAgreement"
+        ],
         "type": "object",
         "properties": {
-          "counterparty": {
-            "$ref": "#/components/schemas/Counterparty"
+          "counterpartyAgreement": {
+            "$ref": "#/components/schemas/CounterpartyAgreement"
           }
         },
         "additionalProperties": false,
-        "description": "Flow conventions that is to be stored in the convention data store.\r\nOnly one of these must be present."
+        "description": "Counterparty Agreement that is to be stored in the convention data store.\r\nThere must be only one of these present."
       },
       "UpsertCreditSupportAnnexRequest": {
         "type": "object",
@@ -72674,7 +72663,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -72722,8 +72711,8 @@
       "description": "Methods for storage and retrieval of Corporate Action Sources"
     },
     {
-      "name": "Counterparty",
-      "description": "Methods for the storage and retrieval of counter-party related information; in particular counter-party, CSA and Netting set data."
+      "name": "Counterparties",
+      "description": "Methods for the storage and retrieval of counterparty related information such as Counterparty Agreements, Credit Support Annexes and Netting Set data."
     },
     {
       "name": "Cut Label Definitions",
@@ -72866,7 +72855,7 @@
       "Configuration Recipe",
       "Conventions",
       "Corporate Action Sources",
-      "Counterparty",
+      "Counterparties",
       "Cut Label Definitions",
       "Data Types",
       "Derived Transaction Portfolios",
