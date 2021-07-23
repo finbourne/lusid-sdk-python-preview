@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3304",
+    "version": "0.11.3305",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:36238"
     }
   ],
   "paths": {
@@ -2399,6 +2399,152 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/calendars/businessday/{scope}/add": {
+      "post": {
+        "tags": [
+          "Calendars"
+        ],
+        "summary": "[EXPERIMENTAL] Adds the requested number of Business Days to the provided date.",
+        "description": "A Business day is defined as a point in time that:\r\n    * Does not represent a day in the calendar's weekend\r\n    * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)\r\n             \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive\r\n             \r\ne.g. From: 2020-12-24-00-00-00:\r\n     Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.\r\n     Adding -2 business days returns 2020-12-22 under the same assumptions.\r\n            \r\nIf the provided number of days to add is zero, returns a failure.",
+        "operationId": "AddBusinessDaysToDate",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope within which to search for the calendars",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope within which to search for the calendars"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBusinessDaysToDateRequest"
+              },
+              "example": {
+                "businessDayOffset": 5,
+                "holidayCodes": [
+                  "GBP"
+                ],
+                "startDate": "2020-02-10T00:00:00.0000000+00:00"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBusinessDaysToDateRequest"
+              },
+              "example": {
+                "businessDayOffset": 5,
+                "holidayCodes": [
+                  "GBP"
+                ],
+                "startDate": "2020-02-10T00:00:00.0000000+00:00"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBusinessDaysToDateRequest"
+              },
+              "example": {
+                "businessDayOffset": 5,
+                "holidayCodes": [
+                  "GBP"
+                ],
+                "startDate": "2020-02-10T00:00:00.0000000+00:00"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBusinessDaysToDateRequest"
+              },
+              "example": {
+                "businessDayOffset": 5,
+                "holidayCodes": [
+                  "GBP"
+                ],
+                "startDate": "2020-02-10T00:00:00.0000000+00:00"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The business day that is a number of business days after the given date as determined by the given calendar codes",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddBusinessDaysToDateResponse"
+                },
+                "example": {
+                  "value": "2020-02-18T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddBusinessDaysToDateResponse"
+                },
+                "example": {
+                  "value": "2020-02-18T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddBusinessDaysToDateResponse"
+                },
+                "example": {
+                  "value": "2020-02-18T00:00:00.0000000+00:00"
                 }
               }
             }
@@ -57009,6 +57155,49 @@
         },
         "additionalProperties": false
       },
+      "AddBusinessDaysToDateRequest": {
+        "required": [
+          "businessDayOffset",
+          "holidayCodes"
+        ],
+        "type": "object",
+        "properties": {
+          "businessDayOffset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "holidayCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "asAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddBusinessDaysToDateResponse": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The date that is the requested number of business days after the given start date"
+      },
       "AdjustHolding": {
         "required": [
           "version"
@@ -72784,7 +72973,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
