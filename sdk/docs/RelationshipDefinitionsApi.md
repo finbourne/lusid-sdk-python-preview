@@ -1,6 +1,6 @@
 # lusid.RelationshipDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:58856*
+All URIs are relative to *http://local-unit-test-server.lusid.com:31046*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58856
-configuration.host = "http://local-unit-test-server.lusid.com:58856"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31046
+configuration.host = "http://local-unit-test-server.lusid.com:31046"
 # Create an instance of the API class
 api_instance = lusid.RelationshipDefinitionsApi(lusid.ApiClient(configuration))
 create_relationship_definition_request = {"scope":"PortfolioManagementTeam","code":"Traders","sourceEntityType":"Portfolio","targetEntityType":"Person","displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio","lifeTime":"TimeVariant","relationshipCardinality":"ManyToMany"} # CreateRelationshipDefinitionRequest | The definition of the new relationship.
@@ -91,8 +91,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58856
-configuration.host = "http://local-unit-test-server.lusid.com:58856"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31046
+configuration.host = "http://local-unit-test-server.lusid.com:31046"
 # Create an instance of the API class
 api_instance = lusid.RelationshipDefinitionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the specified relationship definition.
@@ -157,8 +157,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:58856
-configuration.host = "http://local-unit-test-server.lusid.com:58856"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:31046
+configuration.host = "http://local-unit-test-server.lusid.com:31046"
 # Create an instance of the API class
 api_instance = lusid.RelationshipDefinitionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the relationship definition being updated.
