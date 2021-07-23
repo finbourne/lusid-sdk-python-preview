@@ -1,6 +1,6 @@
 # lusid.InstrumentsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:36238*
+All URIs are relative to *http://local-unit-test-server.lusid.com:49840*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -37,8 +37,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to search, for example 'Figi'.
@@ -101,8 +101,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to search, for example 'Figi'.
@@ -169,8 +169,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to use, for example 'Figi'.
@@ -239,8 +239,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 
@@ -296,8 +296,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to search, for example 'Figi'.
@@ -364,8 +364,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to search, for example 'Figi'.
@@ -440,8 +440,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to use, for example 'Figi'.
@@ -510,8 +510,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)
@@ -586,8 +586,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 identifier_type = 'identifier_type_example' # str | The unique identifier type to search, for example 'Figi'.
@@ -652,8 +652,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 request_body = {"request_id_1":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"},"figi":{"value":"some-figi-code","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"},"isin":{"value":"some-isin-code","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"}},"properties":[{"key":"Instrument/someScope/somePropertyName","value":{"labelValue":"some-property-value"},"effectiveFrom":"2018-06-18T09:00:00.0000000+00:00"}],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":{"sourceSystem":"systemA","vendor":"Unknown","version":"1.0.0"},"content":"{\"some-key\": \"some-value\"}","instrumentType":"ExoticInstrument"}},"request_id_2":{"name":"Instrument name","identifiers":{"clientInternal":{"value":"some-identifier-2","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"},"figi":{"value":"some-figi-code-2","effectiveAt":"0001-01-01T00:00:00.0000000+00:00"}},"properties":[],"lookThroughPortfolioId":{"scope":"MyScope","code":"portfolio-code"},"definition":{"instrumentFormat":{"sourceSystem":"systemA","vendor":"Unknown","version":"1.0.0"},"content":"{\"some-key\": \"some-value\"}","instrumentType":"ExoticInstrument"}}} # dict(str, InstrumentDefinition) | The definitions of the instruments to create or update.
@@ -714,8 +714,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:36238
-configuration.host = "http://local-unit-test-server.lusid.com:36238"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:49840
+configuration.host = "http://local-unit-test-server.lusid.com:49840"
 # Create an instance of the API class
 api_instance = lusid.InstrumentsApi(lusid.ApiClient(configuration))
 upsert_instrument_property_request = [{"identifierType":"LusidInstrumentId","identifier":"LUID_00000000","properties":[{"key":"Instrument/MyScope/SomePropertyName","value":{"labelValue":"SomeValue1"},"effectiveFrom":"2016-09-15T12:00:00.0000000+00:00"},{"key":"Instrument/MyScope/SomePropertyName","value":{"labelValue":"SomeValue2"},"effectiveFrom":"2017-08-10T12:00:00.0000000+00:00"},{"key":"Instrument/MyScope/AnotherPropertyName","value":{"labelValue":"AnotherValue1"},"effectiveFrom":"2018-03-05T12:00:00.0000000+00:00","effectiveUntil":"2019-06-01T12:00:00.0000000+00:00"},{"key":"Instrument/MyScope/AnotherPropertyName","value":{"labelValue":"AnotherValue2"},"effectiveFrom":"2020-03-15T12:00:00.0000000+00:00","effectiveUntil":"2021-01-15T12:00:00.0000000+00:00"}]}] # list[UpsertInstrumentPropertyRequest] | A list of instruments and associated instrument properties to create or update.
