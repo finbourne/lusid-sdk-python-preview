@@ -1,7 +1,5 @@
 # SimpleInstrument
 
-IL SimpleInstrument Instrument; Lusid-ibor internal representation of a SimpleInstrument instrument
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

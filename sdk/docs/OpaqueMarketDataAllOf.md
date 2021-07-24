@@ -1,6 +1,5 @@
 # OpaqueMarketDataAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

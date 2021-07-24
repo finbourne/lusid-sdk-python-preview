@@ -1,7 +1,5 @@
 # UpsertSingleStructuredDataResponse
 
-Response from upserting structured data document
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

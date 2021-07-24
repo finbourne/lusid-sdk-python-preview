@@ -1,7 +1,5 @@
 # FloatingLeg
 
-representation of a floating rates leg
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,7 +1,5 @@
 # ExecutionRequest
 
-A request to create or update a Execution.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # CashLadderRecord
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # BasketAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

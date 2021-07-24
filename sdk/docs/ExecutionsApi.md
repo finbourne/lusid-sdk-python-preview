@@ -1,6 +1,6 @@
 # lusid.ExecutionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:32886*
+All URIs are relative to *http://local-unit-test-server.lusid.com:43074*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,36 +26,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ExecutionsApi(api_client)
-    scope = 'scope_example' # str | The execution scope.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:43074
+configuration.host = "http://local-unit-test-server.lusid.com:43074"
+# Create an instance of the API class
+api_instance = lusid.ExecutionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The execution scope.
 code = 'code_example' # str | The execution's code. This, together with the scope uniquely identifies the execution to delete.
 
-    try:
-        # [EXPERIMENTAL] Delete execution
-        api_response = api_instance.delete_execution(scope, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ExecutionsApi->delete_execution: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete execution
+    api_response = api_instance.delete_execution(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExecutionsApi->delete_execution: %s\n" % e)
 ```
 
 ### Parameters
@@ -103,38 +90,25 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ExecutionsApi(api_client)
-    scope = 'scope_example' # str | The scope to which the execution belongs.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:43074
+configuration.host = "http://local-unit-test-server.lusid.com:43074"
+# Create an instance of the API class
+api_instance = lusid.ExecutionsApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope to which the execution belongs.
 code = 'code_example' # str | The execution's unique identifier.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Execution\" domain to decorate onto the execution.              These take the format {domain}/{scope}/{code} e.g. \"Execution/system/Name\". (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Execution
-        api_response = api_instance.get_execution(scope, code, as_at=as_at, property_keys=property_keys)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ExecutionsApi->get_execution: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Execution
+    api_response = api_instance.get_execution(scope, code, as_at=as_at, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExecutionsApi->get_execution: %s\n" % e)
 ```
 
 ### Parameters
@@ -184,40 +158,27 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ExecutionsApi(api_client)
-    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:43074
+configuration.host = "http://local-unit-test-server.lusid.com:43074"
+# Create an instance of the API class
+api_instance = lusid.ExecutionsApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing execution from a previous call to list executions.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)
 sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = '' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) (default to '')
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Execution\" domain to decorate onto each execution.                  These take the format {domain}/{scope}/{code} e.g. \"Execution/system/Name\". (optional)
 
-    try:
-        # [EXPERIMENTAL] List Executions
-        api_response = api_instance.list_executions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ExecutionsApi->list_executions: %s\n" % e)
+try:
+    # [EXPERIMENTAL] List Executions
+    api_response = api_instance.list_executions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExecutionsApi->list_executions: %s\n" % e)
 ```
 
 ### Parameters
@@ -269,35 +230,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:32886"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ExecutionsApi(api_client)
-    execution_set_request = {"requests":[{"id":{"scope":"MyScope","code":"EXEC00000123"},"placementId":{"scope":"MyScope","code":"PLAC00000123"},"properties":{"execution/MyScope/SomeExecutionProperty":{"key":"Execution/MyScope/SomeExecutionProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"state":"New","side":"Buy","type":"Limit","createdDate":"2006-04-11T00:00:00.0000000+00:00","settlementDate":"2006-04-13T00:00:00.0000000+00:00","price":{"amount":12413.33,"currency":"USD"},"settlementCurrency":"GBP","settlementCurrencyFxRate":0.67,"counterparty":"SomeCounterparty"}]} # ExecutionSetRequest | The collection of execution requests. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:43074
+configuration.host = "http://local-unit-test-server.lusid.com:43074"
+# Create an instance of the API class
+api_instance = lusid.ExecutionsApi(lusid.ApiClient(configuration))
+execution_set_request = {"requests":[{"id":{"scope":"MyScope","code":"EXEC00000123"},"placementId":{"scope":"MyScope","code":"PLAC00000123"},"properties":{"execution/MyScope/SomeExecutionProperty":{"key":"Execution/MyScope/SomeExecutionProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"state":"New","side":"Buy","type":"Limit","createdDate":"2006-04-11T00:00:00.0000000+00:00","settlementDate":"2006-04-13T00:00:00.0000000+00:00","price":{"amount":12413.33,"currency":"USD"},"settlementCurrency":"GBP","settlementCurrencyFxRate":0.67,"counterparty":"SomeCounterparty"}]} # ExecutionSetRequest | The collection of execution requests. (optional)
 
-    try:
-        # [EXPERIMENTAL] Upsert Execution
-        api_response = api_instance.upsert_executions(execution_set_request=execution_set_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ExecutionsApi->upsert_executions: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert Execution
+    api_response = api_instance.upsert_executions(execution_set_request=execution_set_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExecutionsApi->upsert_executions: %s\n" % e)
 ```
 
 ### Parameters

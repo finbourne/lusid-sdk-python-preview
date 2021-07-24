@@ -1,7 +1,5 @@
 # FlowConventionName
 
-Representation of an abstract definition of a flow convention set consisting of currency, tenor and an index name (arbitrary string but likely something like \"IBOR\")
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

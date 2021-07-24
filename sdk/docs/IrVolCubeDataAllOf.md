@@ -1,6 +1,5 @@
 # IrVolCubeDataAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

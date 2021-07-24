@@ -1,6 +1,5 @@
 # FxForwardAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

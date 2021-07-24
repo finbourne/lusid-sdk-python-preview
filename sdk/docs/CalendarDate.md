@@ -1,6 +1,5 @@
 # CalendarDate
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

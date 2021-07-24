@@ -1,7 +1,5 @@
 # YieldCurveData
 
-Market data for a yield curve,  represented by a list of instruments and corresponding market quotes
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

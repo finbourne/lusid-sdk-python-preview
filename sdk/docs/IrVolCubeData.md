@@ -1,7 +1,5 @@
 # IrVolCubeData
 
-Market Data required to build a volatility cube for swaption pricing,  represented by a list of instruments and corresponding market quotes
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
