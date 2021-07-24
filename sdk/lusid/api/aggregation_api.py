@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,23 +43,30 @@ class AggregationApi(object):
         Given a set of scopes, a portfolio Id and a basic recipe, this endpoint generates a configuration recipe with relevant rules that can value the instruments in the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.generate_configuration_recipe(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio (required)
-        :param str code: The code of the portfolio (required)
-        :param CreateRecipeRequest create_recipe_request: The request specifying the parameters to generating the recipe
+        :param scope: The scope of the portfolio (required)
+        :type scope: str
+        :param code: The code of the portfolio (required)
+        :type code: str
+        :param create_recipe_request: The request specifying the parameters to generating the recipe
+        :type create_recipe_request: CreateRecipeRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ConfigurationRecipe
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ConfigurationRecipe
         """
         kwargs['_return_http_data_only'] = True
         return self.generate_configuration_recipe_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -70,34 +77,55 @@ class AggregationApi(object):
         Given a set of scopes, a portfolio Id and a basic recipe, this endpoint generates a configuration recipe with relevant rules that can value the instruments in the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.generate_configuration_recipe_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio (required)
-        :param str code: The code of the portfolio (required)
-        :param CreateRecipeRequest create_recipe_request: The request specifying the parameters to generating the recipe
+        :param scope: The scope of the portfolio (required)
+        :type scope: str
+        :param code: The code of the portfolio (required)
+        :type code: str
+        :param create_recipe_request: The request specifying the parameters to generating the recipe
+        :type create_recipe_request: CreateRecipeRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ConfigurationRecipe, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ConfigurationRecipe, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'create_recipe_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'create_recipe_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -108,21 +136,21 @@ class AggregationApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_configuration_recipe`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_configuration_recipe`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_configuration_recipe`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `generate_configuration_recipe`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `generate_configuration_recipe`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `generate_configuration_recipe`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -150,12 +178,17 @@ class AggregationApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "ConfigurationRecipe",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/aggregation/{scope}/{code}/$generateconfigurationrecipe', 'POST',
@@ -165,13 +198,14 @@ class AggregationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ConfigurationRecipe',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_queryable_keys(self, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.  # noqa: E501
@@ -179,23 +213,30 @@ class AggregationApi(object):
         When a request is made for aggregation, the user needs to know what keys can be passed to it for queryable data. This endpoint allows to queries to provide the set of keys,  what they are and what they return.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_queryable_keys(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str page: The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param page: The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfAggregationQuery
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfAggregationQuery
         """
         kwargs['_return_http_data_only'] = True
         return self.get_queryable_keys_with_http_info(**kwargs)  # noqa: E501
@@ -206,34 +247,55 @@ class AggregationApi(object):
         When a request is made for aggregation, the user needs to know what keys can be passed to it for queryable data. This endpoint allows to queries to provide the set of keys,  what they are and what they return.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_queryable_keys_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str page: The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param page: The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfAggregationQuery, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfAggregationQuery, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['page', 'limit', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'page',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -249,11 +311,11 @@ class AggregationApi(object):
         path_params = {}
 
         query_params = []
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -266,13 +328,13 @@ class AggregationApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfAggregationQuery",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/results/queryable/keys', 'GET',
@@ -282,13 +344,14 @@ class AggregationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfAggregationQuery',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_valuation(self, **kwargs):  # noqa: E501
         """[BETA] Perform valuation for a list of portfolios and/or portfolio groups  # noqa: E501
@@ -296,21 +359,26 @@ class AggregationApi(object):
         Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_valuation(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param ValuationRequest valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :param valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :type valuation_request: ValuationRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ListAggregationResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ListAggregationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_valuation_with_http_info(**kwargs)  # noqa: E501
@@ -321,32 +389,49 @@ class AggregationApi(object):
         Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_valuation_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param ValuationRequest valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :param valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :type valuation_request: ValuationRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ListAggregationResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ListAggregationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['valuation_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'valuation_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -379,12 +464,17 @@ class AggregationApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "ListAggregationResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/aggregation/$valuation', 'POST',
@@ -394,13 +484,14 @@ class AggregationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ListAggregationResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_valuation_of_weighted_instruments(self, **kwargs):  # noqa: E501
         """[BETA] Perform valuation for an inlined portfolio  # noqa: E501
@@ -408,21 +499,26 @@ class AggregationApi(object):
         Perform valuation on the portfolio that is defined by the weighted set of instruments passed to the request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_valuation_of_weighted_instruments(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param InlineValuationRequest inline_valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :param inline_valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :type inline_valuation_request: InlineValuationRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ListAggregationResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ListAggregationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_valuation_of_weighted_instruments_with_http_info(**kwargs)  # noqa: E501
@@ -433,32 +529,49 @@ class AggregationApi(object):
         Perform valuation on the portfolio that is defined by the weighted set of instruments passed to the request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_valuation_of_weighted_instruments_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param InlineValuationRequest inline_valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :param inline_valuation_request: The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics
+        :type inline_valuation_request: InlineValuationRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ListAggregationResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ListAggregationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['inline_valuation_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'inline_valuation_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -491,12 +604,17 @@ class AggregationApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "ListAggregationResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/aggregation/$valuationinlined', 'POST',
@@ -506,10 +624,11 @@ class AggregationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ListAggregationResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

@@ -1,5 +1,7 @@
 # FxVolSurfaceData
 
+Market Data for an fx vol surface, represented by a list of fx options and corresponding market quotes
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

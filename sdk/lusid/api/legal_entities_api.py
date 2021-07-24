@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,23 +43,30 @@ class LegalEntitiesApi(object):
         Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: The scope of the legal entity identifier type. (required)
-        :param str id_type_code: The code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the legal entity to delete. (required)
+        :param id_type_scope: The scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: The code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the legal entity to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_legal_entity_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -70,34 +77,55 @@ class LegalEntitiesApi(object):
         Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: The scope of the legal entity identifier type. (required)
-        :param str id_type_code: The code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the legal entity to delete. (required)
+        :param id_type_scope: The scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: The code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the legal entity to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -108,41 +136,41 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if ('id_type_scope' not in local_var_params or
-                local_var_params['id_type_scope'] is None):
+        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `delete_legal_entity`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if ('id_type_code' not in local_var_params or
-                local_var_params['id_type_code'] is None):
+        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `delete_legal_entity`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_legal_entity`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_.]*$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_.]*$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_.]*$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_.]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -166,13 +194,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}', 'DELETE',
@@ -182,13 +210,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_legal_entity_access_metadata(self, id_type_scope, id_type_code, code, metadata_key, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Delete a Legal Entity Access Metadata entry  # noqa: E501
@@ -196,25 +225,34 @@ class LegalEntitiesApi(object):
         Deletes the Legal Entity Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity_access_metadata(id_type_scope, id_type_code, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, metadata_key, **kwargs)  # noqa: E501
@@ -225,36 +263,61 @@ class LegalEntitiesApi(object):
         Deletes the Legal Entity Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'metadata_key', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'metadata_key',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -265,53 +328,53 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if ('id_type_scope' not in local_var_params or
-                local_var_params['id_type_scope'] is None):
+        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `delete_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if ('id_type_code' not in local_var_params or
-                local_var_params['id_type_code'] is None):
+        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `delete_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `delete_legal_entity_access_metadata`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) > 100):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) > 100):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `delete_legal_entity_access_metadata`, length must be less than or equal to `100`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) < 1):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `delete_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
+        if self.api_client.client_side_validation and 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `delete_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -326,7 +389,7 @@ class LegalEntitiesApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -339,13 +402,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}', 'DELETE',
@@ -355,13 +418,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_legal_entity_properties(self, id_type_scope, id_type_code, code, property_keys, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Delete Legal Entity Properties  # noqa: E501
@@ -369,25 +433,34 @@ class LegalEntitiesApi(object):
         Delete all properties that belong to the given property keys of the legal entity.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity_properties(id_type_scope, id_type_code, code, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param list[str] property_keys: The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"LegalEntity/CompanyDetails/Role\". Each property must be from the \"LegalEntity\" domain. Properties or identifiers not specified in request will not be changed. (required)
-        :param str effective_at: The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param property_keys: The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"LegalEntity/CompanyDetails/Role\". Each property must be from the \"LegalEntity\" domain. Properties or identifiers not specified in request will not be changed. (required)
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_legal_entity_properties_with_http_info(id_type_scope, id_type_code, code, property_keys, **kwargs)  # noqa: E501
@@ -398,36 +471,61 @@ class LegalEntitiesApi(object):
         Delete all properties that belong to the given property keys of the legal entity.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_legal_entity_properties_with_http_info(id_type_scope, id_type_code, code, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param list[str] property_keys: The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"LegalEntity/CompanyDetails/Role\". Each property must be from the \"LegalEntity\" domain. Properties or identifiers not specified in request will not be changed. (required)
-        :param str effective_at: The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param property_keys: The property keys of the legal entities properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"LegalEntity/CompanyDetails/Role\". Each property must be from the \"LegalEntity\" domain. Properties or identifiers not specified in request will not be changed. (required)
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'property_keys', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'property_keys',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -438,33 +536,33 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'property_keys' is set
-        if ('property_keys' not in local_var_params or
-                local_var_params['property_keys'] is None):
+        if self.api_client.client_side_validation and ('property_keys' not in local_var_params or  # noqa: E501
+                                                        local_var_params['property_keys'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `property_keys` when calling `delete_legal_entity_properties`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `delete_legal_entity_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `delete_legal_entity_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_legal_entity_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -477,10 +575,10 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -493,13 +591,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties', 'DELETE',
@@ -509,13 +607,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_all_legal_entity_access_metadata(self, id_type_scope, id_type_code, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Access Metadata rules for a Legal Entity  # noqa: E501
@@ -523,25 +622,34 @@ class LegalEntitiesApi(object):
         Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_all_legal_entity_access_metadata(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
-        :param datetime as_at: The asAt datetime at which to retrieve the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the Access Metadata
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: dict(str, list[AccessMetadataValue])
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: dict(str, list[AccessMetadataValue])
         """
         kwargs['_return_http_data_only'] = True
         return self.get_all_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -552,36 +660,61 @@ class LegalEntitiesApi(object):
         Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_all_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
-        :param datetime as_at: The asAt datetime at which to retrieve the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the Access Metadata
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(dict(str, list[AccessMetadataValue]), status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(dict(str, list[AccessMetadataValue]), status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -592,41 +725,41 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if ('id_type_scope' not in local_var_params or
-                local_var_params['id_type_scope'] is None):
+        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `get_all_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if ('id_type_code' not in local_var_params or
-                local_var_params['id_type_code'] is None):
+        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `get_all_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_all_legal_entity_access_metadata`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_all_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_all_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_all_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_all_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_all_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_all_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_all_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_all_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_all_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -639,9 +772,9 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -654,13 +787,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "dict(str, list[AccessMetadataValue])",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata', 'GET',
@@ -670,13 +803,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, list[AccessMetadataValue])',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_legal_entity(self, id_type_scope, id_type_code, code, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Get Legal Entity  # noqa: E501
@@ -684,26 +818,36 @@ class LegalEntitiesApi(object):
         Retrieve the definition of a legal entity.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param list[str] property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
-        :param str effective_at: The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the legal entity. Defaults to return the latest version of the legal entity if not specified.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the legal entity. Defaults to return the latest version of the legal entity if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: LegalEntity
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: LegalEntity
         """
         kwargs['_return_http_data_only'] = True
         return self.get_legal_entity_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -714,37 +858,64 @@ class LegalEntitiesApi(object):
         Retrieve the definition of a legal entity.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param list[str] property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
-        :param str effective_at: The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the legal entity. Defaults to return the latest version of the legal entity if not specified.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :type property_keys: list[str]
+        :param effective_at: The effective datetime or cut label at which to retrieve the legal entity. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the legal entity. Defaults to return the latest version of the legal entity if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(LegalEntity, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(LegalEntity, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'property_keys', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'property_keys',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -755,37 +926,37 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) > 256):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity`, length must be less than or equal to `256`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) < 0):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -798,12 +969,12 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -816,13 +987,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "LegalEntity",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}', 'GET',
@@ -832,13 +1003,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LegalEntity',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_legal_entity_access_metadata_by_key(self, id_type_scope, id_type_code, code, metadata_key, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity  # noqa: E501
@@ -846,26 +1018,36 @@ class LegalEntitiesApi(object):
         Get a specific Legal Entity Access Metadata by specifying the corresponding identifier parts and Legal Entity code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
-        :param datetime as_at: The asAt datetime at which to retrieve the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the Access Metadata
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[AccessMetadataValue]
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: list[AccessMetadataValue]
         """
         kwargs['_return_http_data_only'] = True
         return self.get_legal_entity_access_metadata_by_key_with_http_info(id_type_scope, id_type_code, code, metadata_key, **kwargs)  # noqa: E501
@@ -876,37 +1058,64 @@ class LegalEntitiesApi(object):
         Get a specific Legal Entity Access Metadata by specifying the corresponding identifier parts and Legal Entity code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_access_metadata_by_key_with_http_info(id_type_scope, id_type_code, code, metadata_key, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param str effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
-        :param datetime as_at: The asAt datetime at which to retrieve the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param effective_at: The effectiveAt datetime at which to retrieve the Access Metadata
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the Access Metadata
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[AccessMetadataValue], status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(list[AccessMetadataValue], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'metadata_key', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'metadata_key',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -917,53 +1126,53 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if ('id_type_scope' not in local_var_params or
-                local_var_params['id_type_scope'] is None):
+        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `get_legal_entity_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if ('id_type_code' not in local_var_params or
-                local_var_params['id_type_code'] is None):
+        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `get_legal_entity_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_legal_entity_access_metadata_by_key`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `get_legal_entity_access_metadata_by_key`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_access_metadata_by_key`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_access_metadata_by_key`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_access_metadata_by_key`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) > 100):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) > 100):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `get_legal_entity_access_metadata_by_key`, length must be less than or equal to `100`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) < 1):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `get_legal_entity_access_metadata_by_key`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
+        if self.api_client.client_side_validation and 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `get_legal_entity_access_metadata_by_key`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -978,9 +1187,9 @@ class LegalEntitiesApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -993,13 +1202,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "list[AccessMetadataValue]",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}', 'GET',
@@ -1009,13 +1218,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[AccessMetadataValue]',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_legal_entity_property_time_series(self, id_type_scope, id_type_code, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Legal Entity Property Time Series  # noqa: E501
@@ -1023,28 +1233,40 @@ class LegalEntitiesApi(object):
         List the complete time series of a legal entity property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_property_time_series(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity. (required)
-        :param str property_key: The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".              Each property must be from the \"LegalEntity\" domain.
-        :param datetime as_at: The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity. (required)
+        :type code: str
+        :param property_key: The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".              Each property must be from the \"LegalEntity\" domain.
+        :type property_key: str
+        :param as_at: The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPropertyInterval
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPropertyInterval
         """
         kwargs['_return_http_data_only'] = True
         return self.get_legal_entity_property_time_series_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -1055,39 +1277,70 @@ class LegalEntitiesApi(object):
         List the complete time series of a legal entity property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_property_time_series_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity. (required)
-        :param str property_key: The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".              Each property must be from the \"LegalEntity\" domain.
-        :param datetime as_at: The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param str page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity. (required)
+        :type code: str
+        :param property_key: The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".              Each property must be from the \"LegalEntity\" domain.
+        :type property_key: str
+        :param as_at: The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param page: The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPropertyInterval, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPropertyInterval, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'property_key', 'as_at', 'filter', 'page', 'limit']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'property_key',
+            'as_at',
+            'filter',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1098,15 +1351,15 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_property_time_series`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_property_time_series`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_property_time_series`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_legal_entity_property_time_series`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_legal_entity_property_time_series`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
@@ -1119,15 +1372,15 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'property_key' in local_var_params:
+        if 'property_key' in local_var_params and local_var_params['property_key'] is not None:  # noqa: E501
             query_params.append(('propertyKey', local_var_params['property_key']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -1140,13 +1393,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfPropertyInterval",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties/time-series', 'GET',
@@ -1156,13 +1409,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPropertyInterval',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_legal_entity_relations(self, id_type_scope, id_type_code, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Relations for Legal Entity  # noqa: E501
@@ -1170,27 +1424,38 @@ class LegalEntitiesApi(object):
         Get relations for the specified Legal Entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_relations(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param str effective_at: The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfRelation
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfRelation
         """
         kwargs['_return_http_data_only'] = True
         return self.get_legal_entity_relations_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -1201,38 +1466,67 @@ class LegalEntitiesApi(object):
         Get relations for the specified Legal Entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_relations_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param str effective_at: The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the legal entity's relations. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the relations. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfRelation, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfRelation, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'effective_at', 'as_at', 'filter', 'identifier_types']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'identifier_types'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1243,45 +1537,45 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relations`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relations`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relations`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relations`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relations`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relations`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) > 256):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relations`, length must be less than or equal to `256`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) < 0):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relations`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relations`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) > 2147483647):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 2147483647):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relations`, length must be less than or equal to `2147483647`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) < 0):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relations`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relations`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1294,13 +1588,13 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'identifier_types' in local_var_params:
+        if 'identifier_types' in local_var_params and local_var_params['identifier_types'] is not None:  # noqa: E501
             query_params.append(('identifierTypes', local_var_params['identifier_types']))  # noqa: E501
             collection_formats['identifierTypes'] = 'multi'  # noqa: E501
 
@@ -1314,13 +1608,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfRelation",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations', 'GET',
@@ -1330,13 +1624,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfRelation',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_legal_entity_relationships(self, id_type_scope, id_type_code, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Relationships for Legal Entity  # noqa: E501
@@ -1344,27 +1639,38 @@ class LegalEntitiesApi(object):
         Get Relationships for the specified Legal Entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_relationships(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity's identifier type. (required)
-        :param str id_type_code: Code of the legal entity's identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param str effective_at: The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter relationships. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :param id_type_scope: Scope of the legal entity's identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity's identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter relationships. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfRelationship
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfRelationship
         """
         kwargs['_return_http_data_only'] = True
         return self.get_legal_entity_relationships_with_http_info(id_type_scope, id_type_code, code, **kwargs)  # noqa: E501
@@ -1375,38 +1681,67 @@ class LegalEntitiesApi(object):
         Get Relationships for the specified Legal Entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_legal_entity_relationships_with_http_info(id_type_scope, id_type_code, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity's identifier type. (required)
-        :param str id_type_code: Code of the legal entity's identifier type. (required)
-        :param str code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
-        :param str effective_at: The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
-        :param str filter: Expression to filter relationships. Users should provide null or empty string for this field until further notice.
-        :param list[str] identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :param id_type_scope: Scope of the legal entity's identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity's identifier type. (required)
+        :type id_type_code: str
+        :param code: Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the legal entity. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter relationships. Users should provide null or empty string for this field until further notice.
+        :type filter: str
+        :param identifier_types: Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.
+        :type identifier_types: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfRelationship, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfRelationship, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'effective_at', 'as_at', 'filter', 'identifier_types']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'identifier_types'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1417,45 +1752,45 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relationships`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relationships`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `get_legal_entity_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relationships`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relationships`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `get_legal_entity_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relationships`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relationships`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_legal_entity_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) > 256):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relationships`, length must be less than or equal to `256`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) < 0):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relationships`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `get_legal_entity_relationships`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) > 2147483647):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 2147483647):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relationships`, length must be less than or equal to `2147483647`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) < 0):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relationships`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `get_legal_entity_relationships`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1468,13 +1803,13 @@ class LegalEntitiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'identifier_types' in local_var_params:
+        if 'identifier_types' in local_var_params and local_var_params['identifier_types'] is not None:  # noqa: E501
             query_params.append(('identifierTypes', local_var_params['identifier_types']))  # noqa: E501
             collection_formats['identifierTypes'] = 'multi'  # noqa: E501
 
@@ -1488,13 +1823,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfRelationship",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relationships', 'GET',
@@ -1504,13 +1839,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfRelationship',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_legal_entities(self, id_type_scope, id_type_code, **kwargs):  # noqa: E501
         """[EARLY ACCESS] List Legal Entities  # noqa: E501
@@ -1518,28 +1854,40 @@ class LegalEntitiesApi(object):
         List legal entities which has identifier of specific identifier type's scope and code, and satisfies filter criteria.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_legal_entities(id_type_scope, id_type_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified.
-        :param str page: The pagination token to use to continue listing legal entities from a previous call to list legal entities. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param list[str] property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param effective_at: The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing legal entities from a previous call to list legal entities. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PagedResourceListOfLegalEntity
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PagedResourceListOfLegalEntity
         """
         kwargs['_return_http_data_only'] = True
         return self.list_legal_entities_with_http_info(id_type_scope, id_type_code, **kwargs)  # noqa: E501
@@ -1550,39 +1898,70 @@ class LegalEntitiesApi(object):
         List legal entities which has identifier of specific identifier type's scope and code, and satisfies filter criteria.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_legal_entities_with_http_info(id_type_scope, id_type_code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the legal entity identifier type. (required)
-        :param str id_type_code: Code of the legal entity identifier type. (required)
-        :param str effective_at: The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified.
-        :param str page: The pagination token to use to continue listing legal entities from a previous call to list legal entities. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
-        :param str filter: Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-        :param list[str] property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :param id_type_scope: Scope of the legal entity identifier type. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the legal entity identifier type. (required)
+        :type id_type_code: str
+        :param effective_at: The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing legal entities from a previous call to list legal entities. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param property_keys: A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.              These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PagedResourceListOfLegalEntity, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PagedResourceListOfLegalEntity, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'effective_at', 'as_at', 'page', 'limit', 'filter', 'property_keys']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'effective_at',
+            'as_at',
+            'page',
+            'limit',
+            'filter',
+            'property_keys'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1593,49 +1972,49 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `list_legal_entities`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `list_legal_entities`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `list_legal_entities`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `list_legal_entities`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `list_legal_entities`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `list_legal_entities`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) > 256):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `list_legal_entities`, length must be less than or equal to `256`")  # noqa: E501
-        if ('effective_at' in local_var_params and
-                len(local_var_params['effective_at']) < 0):
+        if self.api_client.client_side_validation and ('effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `list_legal_entities`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `effective_at` when calling `list_legal_entities`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
-        if ('page' in local_var_params and
-                len(local_var_params['page']) > 500):
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) > 500):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_legal_entities`, length must be less than or equal to `500`")  # noqa: E501
-        if ('page' in local_var_params and
-                len(local_var_params['page']) < 1):
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_legal_entities`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_legal_entities`, must conform to the pattern `/^[a-zA-Z0-9\+\/]*={0,3}$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_legal_entities`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_legal_entities`, must be a value greater than or equal to `1`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) > 2147483647):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 2147483647):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_legal_entities`, length must be less than or equal to `2147483647`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) < 0):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_legal_entities`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_legal_entities`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1646,17 +2025,17 @@ class LegalEntitiesApi(object):
             path_params['idTypeCode'] = local_var_params['id_type_code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -1670,13 +2049,13 @@ class LegalEntitiesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "PagedResourceListOfLegalEntity",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}', 'GET',
@@ -1686,13 +2065,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PagedResourceListOfLegalEntity',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_legal_entity(self, upsert_legal_entity_request, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Upsert Legal Entity  # noqa: E501
@@ -1700,21 +2080,26 @@ class LegalEntitiesApi(object):
         Create or update a legal entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_legal_entity(upsert_legal_entity_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertLegalEntityRequest upsert_legal_entity_request: Request to create or update a legal entity. (required)
+        :param upsert_legal_entity_request: Request to create or update a legal entity. (required)
+        :type upsert_legal_entity_request: UpsertLegalEntityRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: LegalEntity
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: LegalEntity
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_legal_entity_with_http_info(upsert_legal_entity_request, **kwargs)  # noqa: E501
@@ -1725,32 +2110,49 @@ class LegalEntitiesApi(object):
         Create or update a legal entity  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_legal_entity_with_http_info(upsert_legal_entity_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertLegalEntityRequest upsert_legal_entity_request: Request to create or update a legal entity. (required)
+        :param upsert_legal_entity_request: Request to create or update a legal entity. (required)
+        :type upsert_legal_entity_request: UpsertLegalEntityRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(LegalEntity, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(LegalEntity, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_legal_entity_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_legal_entity_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1761,8 +2163,8 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_legal_entity_request' is set
-        if ('upsert_legal_entity_request' not in local_var_params or
-                local_var_params['upsert_legal_entity_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_legal_entity_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_legal_entity_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_legal_entity_request` when calling `upsert_legal_entity`")  # noqa: E501
 
         collection_formats = {}
@@ -1787,12 +2189,17 @@ class LegalEntitiesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            201: "LegalEntity",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities', 'POST',
@@ -1802,13 +2209,14 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LegalEntity',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_legal_entity_access_metadata(self, id_type_scope, id_type_code, code, metadata_key, upsert_legal_entity_access_metadata_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.  # noqa: E501
@@ -1816,26 +2224,36 @@ class LegalEntitiesApi(object):
         Update or insert one Legal Entity Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Legal Entity Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_legal_entity_access_metadata(id_type_scope, id_type_code, code, metadata_key, upsert_legal_entity_access_metadata_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param UpsertLegalEntityAccessMetadataRequest upsert_legal_entity_access_metadata_request: The Legal Entity Access Metadata entry to upsert (required)
-        :param str effective_at: The effectiveAt datetime at which to upsert the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param upsert_legal_entity_access_metadata_request: The Legal Entity Access Metadata entry to upsert (required)
+        :type upsert_legal_entity_access_metadata_request: UpsertLegalEntityAccessMetadataRequest
+        :param effective_at: The effectiveAt datetime at which to upsert the Access Metadata
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfAccessMetadataValueOf
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfAccessMetadataValueOf
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, metadata_key, upsert_legal_entity_access_metadata_request, **kwargs)  # noqa: E501
@@ -1846,37 +2264,64 @@ class LegalEntitiesApi(object):
         Update or insert one Legal Entity Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Legal Entity Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_legal_entity_access_metadata_with_http_info(id_type_scope, id_type_code, code, metadata_key, upsert_legal_entity_access_metadata_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str id_type_scope: Scope of the Legal Entity identifier. (required)
-        :param str id_type_code: Code of the Legal Entity identifier. (required)
-        :param str code: Code of the Legal Entity under specified identifier type's scope and code. (required)
-        :param str metadata_key: Key of the metadata entry to retrieve (required)
-        :param UpsertLegalEntityAccessMetadataRequest upsert_legal_entity_access_metadata_request: The Legal Entity Access Metadata entry to upsert (required)
-        :param str effective_at: The effectiveAt datetime at which to upsert the Access Metadata
+        :param id_type_scope: Scope of the Legal Entity identifier. (required)
+        :type id_type_scope: str
+        :param id_type_code: Code of the Legal Entity identifier. (required)
+        :type id_type_code: str
+        :param code: Code of the Legal Entity under specified identifier type's scope and code. (required)
+        :type code: str
+        :param metadata_key: Key of the metadata entry to retrieve (required)
+        :type metadata_key: str
+        :param upsert_legal_entity_access_metadata_request: The Legal Entity Access Metadata entry to upsert (required)
+        :type upsert_legal_entity_access_metadata_request: UpsertLegalEntityAccessMetadataRequest
+        :param effective_at: The effectiveAt datetime at which to upsert the Access Metadata
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfAccessMetadataValueOf, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfAccessMetadataValueOf, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['id_type_scope', 'id_type_code', 'code', 'metadata_key', 'upsert_legal_entity_access_metadata_request', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id_type_scope',
+            'id_type_code',
+            'code',
+            'metadata_key',
+            'upsert_legal_entity_access_metadata_request',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1887,57 +2332,57 @@ class LegalEntitiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id_type_scope' is set
-        if ('id_type_scope' not in local_var_params or
-                local_var_params['id_type_scope'] is None):
+        if self.api_client.client_side_validation and ('id_type_scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_scope` when calling `upsert_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'id_type_code' is set
-        if ('id_type_code' not in local_var_params or
-                local_var_params['id_type_code'] is None):
+        if self.api_client.client_side_validation and ('id_type_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_type_code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id_type_code` when calling `upsert_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `upsert_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'metadata_key' is set
-        if ('metadata_key' not in local_var_params or
-                local_var_params['metadata_key'] is None):
+        if self.api_client.client_side_validation and ('metadata_key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['metadata_key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `metadata_key` when calling `upsert_legal_entity_access_metadata`")  # noqa: E501
         # verify the required parameter 'upsert_legal_entity_access_metadata_request' is set
-        if ('upsert_legal_entity_access_metadata_request' not in local_var_params or
-                local_var_params['upsert_legal_entity_access_metadata_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_legal_entity_access_metadata_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_legal_entity_access_metadata_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_legal_entity_access_metadata_request` when calling `upsert_legal_entity_access_metadata`")  # noqa: E501
 
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) > 64):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `upsert_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_scope' in local_var_params and
-                len(local_var_params['id_type_scope']) < 1):
+        if self.api_client.client_side_validation and ('id_type_scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `upsert_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_scope` when calling `upsert_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) > 64):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `upsert_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('id_type_code' in local_var_params and
-                len(local_var_params['id_type_code']) < 1):
+        if self.api_client.client_side_validation and ('id_type_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['id_type_code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `upsert_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'id_type_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id_type_code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `id_type_code` when calling `upsert_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_legal_entity_access_metadata`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) > 100):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) > 100):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `upsert_legal_entity_access_metadata`, length must be less than or equal to `100`")  # noqa: E501
-        if ('metadata_key' in local_var_params and
-                len(local_var_params['metadata_key']) < 1):
+        if self.api_client.client_side_validation and ('metadata_key' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['metadata_key']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `upsert_legal_entity_access_metadata`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
+        if self.api_client.client_side_validation and 'metadata_key' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['metadata_key']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `metadata_key` when calling `upsert_legal_entity_access_metadata`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1952,7 +2397,7 @@ class LegalEntitiesApi(object):
             path_params['metadataKey'] = local_var_params['metadata_key']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -1971,12 +2416,17 @@ class LegalEntitiesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "ResourceListOfAccessMetadataValueOf",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}', 'PUT',
@@ -1986,10 +2436,11 @@ class LegalEntitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfAccessMetadataValueOf',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

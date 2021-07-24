@@ -1,6 +1,6 @@
 # lusid.AggregationApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32886*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,24 +26,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the portfolio
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AggregationApi(api_client)
+    scope = 'scope_example' # str | The scope of the portfolio
 code = 'code_example' # str | The code of the portfolio
 create_recipe_request = {"recipeCreationMarketDataScopes":["MyScope"],"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00"} # CreateRecipeRequest | The request specifying the parameters to generating the recipe (optional)
 
-try:
-    # [EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
-    api_response = api_instance.generate_configuration_recipe(scope, code, create_recipe_request=create_recipe_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AggregationApi->generate_configuration_recipe: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.
+        api_response = api_instance.generate_configuration_recipe(scope, code, create_recipe_request=create_recipe_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AggregationApi->generate_configuration_recipe: %s\n" % e)
 ```
 
 ### Parameters
@@ -92,24 +105,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
-page = 'page_example' # str | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AggregationApi(api_client)
+    page = 'page_example' # str | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [EXPERIMENTAL] Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
-    api_response = api_instance.get_queryable_keys(page=page, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AggregationApi->get_queryable_keys: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
+        api_response = api_instance.get_queryable_keys(page=page, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AggregationApi->get_queryable_keys: %s\n" % e)
 ```
 
 ### Parameters
@@ -158,22 +184,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
-valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"sort":[{"key":"Instrument/default/RIC","sortOrder":"Ascending"}],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}} # ValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AggregationApi(api_client)
+    valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"sort":[{"key":"Instrument/default/RIC","sortOrder":"Ascending"}],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}} # ValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
 
-try:
-    # [BETA] Perform valuation for a list of portfolios and/or portfolio groups
-    api_response = api_instance.get_valuation(valuation_request=valuation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AggregationApi->get_valuation: %s\n" % e)
+    try:
+        # [BETA] Perform valuation for a list of portfolios and/or portfolio groups
+        api_response = api_instance.get_valuation(valuation_request=valuation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AggregationApi->get_valuation: %s\n" % e)
 ```
 
 ### Parameters
@@ -220,22 +259,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:32886
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:32886"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.AggregationApi(lusid.ApiClient(configuration))
-inline_valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"my-holding-on-some-date","instrument":{"startDate":"2018-03-05T00:00:00.0000000+00:00","maturityDate":"2018-04-04T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]} # InlineValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AggregationApi(api_client)
+    inline_valuation_request = {"recipeId":{"scope":"MyRecipeScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"my-holding-on-some-date","instrument":{"startDate":"2018-03-05T00:00:00.0000000+00:00","maturityDate":"2018-04-04T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]} # InlineValuationRequest | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)
 
-try:
-    # [BETA] Perform valuation for an inlined portfolio
-    api_response = api_instance.get_valuation_of_weighted_instruments(inline_valuation_request=inline_valuation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AggregationApi->get_valuation_of_weighted_instruments: %s\n" % e)
+    try:
+        # [BETA] Perform valuation for an inlined portfolio
+        api_response = api_instance.get_valuation_of_weighted_instruments(inline_valuation_request=inline_valuation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AggregationApi->get_valuation_of_weighted_instruments: %s\n" % e)
 ```
 
 ### Parameters

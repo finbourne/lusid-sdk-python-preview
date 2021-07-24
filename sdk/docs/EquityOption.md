@@ -1,5 +1,7 @@
 # EquityOption
 
+Lusid-ibor internal representation of a plain vanilla equity option instrument.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

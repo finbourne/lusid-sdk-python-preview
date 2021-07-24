@@ -1,5 +1,6 @@
 # UpsertCorporateActionsResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

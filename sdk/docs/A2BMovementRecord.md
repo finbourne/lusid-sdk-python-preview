@@ -1,5 +1,7 @@
 # A2BMovementRecord
 
+A2B Movement Record - shows A2B category based changes relating to a specific movement
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

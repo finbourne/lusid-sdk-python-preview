@@ -1,5 +1,7 @@
 # InterestRateSwaption
 
+A swaption, an option to enter into an interest rate swap.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

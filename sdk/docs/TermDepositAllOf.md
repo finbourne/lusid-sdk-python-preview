@@ -1,5 +1,6 @@
 # TermDepositAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

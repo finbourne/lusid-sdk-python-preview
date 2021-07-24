@@ -1,5 +1,7 @@
 # PropertyType
 
+See https://wiki.finbourne.com/information/domain-model-properties
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # PropertyLifeTime
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

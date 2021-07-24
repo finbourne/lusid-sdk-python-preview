@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,25 +43,34 @@ class TransactionPortfoliosApi(object):
         Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.adjust_holdings(scope, code, effective_at, adjust_holding_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
-        :param list[AdjustHoldingRequest] adjust_holding_request: The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (required)
-        :param list[str] reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
+        :type effective_at: str
+        :param adjust_holding_request: The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (required)
+        :type adjust_holding_request: list[AdjustHoldingRequest]
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AdjustHolding
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AdjustHolding
         """
         kwargs['_return_http_data_only'] = True
         return self.adjust_holdings_with_http_info(scope, code, effective_at, adjust_holding_request, **kwargs)  # noqa: E501
@@ -72,36 +81,61 @@ class TransactionPortfoliosApi(object):
         Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.adjust_holdings_with_http_info(scope, code, effective_at, adjust_holding_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
-        :param list[AdjustHoldingRequest] adjust_holding_request: The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (required)
-        :param list[str] reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
+        :type effective_at: str
+        :param adjust_holding_request: The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (required)
+        :type adjust_holding_request: list[AdjustHoldingRequest]
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AdjustHolding, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AdjustHolding, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'adjust_holding_request', 'reconciliation_methods']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'adjust_holding_request',
+            'reconciliation_methods'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -112,29 +146,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'effective_at' is set
-        if ('effective_at' not in local_var_params or
-                local_var_params['effective_at'] is None):
+        if self.api_client.client_side_validation and ('effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `effective_at` when calling `adjust_holdings`")  # noqa: E501
         # verify the required parameter 'adjust_holding_request' is set
-        if ('adjust_holding_request' not in local_var_params or
-                local_var_params['adjust_holding_request'] is None):
+        if self.api_client.client_side_validation and ('adjust_holding_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['adjust_holding_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `adjust_holding_request` when calling `adjust_holdings`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `adjust_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `adjust_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `adjust_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `adjust_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `adjust_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `adjust_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -145,9 +179,9 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'reconciliation_methods' in local_var_params:
+        if 'reconciliation_methods' in local_var_params and local_var_params['reconciliation_methods'] is not None:  # noqa: E501
             query_params.append(('reconciliationMethods', local_var_params['reconciliation_methods']))  # noqa: E501
             collection_formats['reconciliationMethods'] = 'multi'  # noqa: E501
 
@@ -167,12 +201,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "AdjustHolding",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdings', 'POST',
@@ -182,13 +221,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AdjustHolding',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def build_transactions(self, scope, code, transaction_query_parameters, **kwargs):  # noqa: E501
         """Build transactions  # noqa: E501
@@ -196,28 +236,40 @@ class TransactionPortfoliosApi(object):
         Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effective time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.build_transactions(scope, code, transaction_query_parameters, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param TransactionQueryParameters transaction_query_parameters: The query queryParameters which control how the output transactions are built. (required)
-        :param datetime as_at: The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified.
-        :param str filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\".
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to BuildTransactions.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_query_parameters: The query queryParameters which control how the output transactions are built. (required)
+        :type transaction_query_parameters: TransactionQueryParameters
+        :param as_at: The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\".
+        :type property_keys: list[str]
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :type limit: int
+        :param page: The pagination token to use to continue listing transactions from a previous call to BuildTransactions.
+        :type page: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: VersionedResourceListOfOutputTransaction
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: VersionedResourceListOfOutputTransaction
         """
         kwargs['_return_http_data_only'] = True
         return self.build_transactions_with_http_info(scope, code, transaction_query_parameters, **kwargs)  # noqa: E501
@@ -228,39 +280,70 @@ class TransactionPortfoliosApi(object):
         Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effective time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.build_transactions_with_http_info(scope, code, transaction_query_parameters, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param TransactionQueryParameters transaction_query_parameters: The query queryParameters which control how the output transactions are built. (required)
-        :param datetime as_at: The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified.
-        :param str filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\".
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to BuildTransactions.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_query_parameters: The query queryParameters which control how the output transactions are built. (required)
+        :type transaction_query_parameters: TransactionQueryParameters
+        :param as_at: The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\".
+        :type property_keys: list[str]
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :type limit: int
+        :param page: The pagination token to use to continue listing transactions from a previous call to BuildTransactions.
+        :type page: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(VersionedResourceListOfOutputTransaction, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(VersionedResourceListOfOutputTransaction, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'transaction_query_parameters', 'as_at', 'filter', 'property_keys', 'limit', 'page']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'transaction_query_parameters',
+            'as_at',
+            'filter',
+            'property_keys',
+            'limit',
+            'page'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -271,17 +354,17 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'transaction_query_parameters' is set
-        if ('transaction_query_parameters' not in local_var_params or
-                local_var_params['transaction_query_parameters'] is None):
+        if self.api_client.client_side_validation and ('transaction_query_parameters' not in local_var_params or  # noqa: E501
+                                                        local_var_params['transaction_query_parameters'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `transaction_query_parameters` when calling `build_transactions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `build_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `build_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `build_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -292,16 +375,16 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
 
         header_params = {}
@@ -320,12 +403,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "VersionedResourceListOfOutputTransaction",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions/$build', 'POST',
@@ -335,13 +423,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VersionedResourceListOfOutputTransaction',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def cancel_adjust_holdings(self, scope, code, effective_at, **kwargs):  # noqa: E501
         """Cancel adjust holdings  # noqa: E501
@@ -349,23 +438,30 @@ class TransactionPortfoliosApi(object):
         Cancel all previous holding adjustments made on the specified transaction portfolio for a specified effective  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.cancel_adjust_holdings(scope, code, effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holding adjustments should be undone. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holding adjustments should be undone. (required)
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.cancel_adjust_holdings_with_http_info(scope, code, effective_at, **kwargs)  # noqa: E501
@@ -376,34 +472,55 @@ class TransactionPortfoliosApi(object):
         Cancel all previous holding adjustments made on the specified transaction portfolio for a specified effective  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.cancel_adjust_holdings_with_http_info(scope, code, effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holding adjustments should be undone. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holding adjustments should be undone. (required)
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -414,25 +531,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'effective_at' is set
-        if ('effective_at' not in local_var_params or
-                local_var_params['effective_at'] is None):
+        if self.api_client.client_side_validation and ('effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `effective_at` when calling `cancel_adjust_holdings`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_adjust_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_adjust_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_adjust_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_adjust_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_adjust_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_adjust_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -443,7 +560,7 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -456,13 +573,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdings', 'DELETE',
@@ -472,13 +589,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def cancel_transactions(self, scope, code, transaction_ids, **kwargs):  # noqa: E501
         """Cancel transactions  # noqa: E501
@@ -486,23 +604,30 @@ class TransactionPortfoliosApi(object):
         Cancel one or more transactions from the transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.cancel_transactions(scope, code, transaction_ids, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param list[str] transaction_ids: The IDs of the transactions to cancel. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_ids: The IDs of the transactions to cancel. (required)
+        :type transaction_ids: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.cancel_transactions_with_http_info(scope, code, transaction_ids, **kwargs)  # noqa: E501
@@ -513,34 +638,55 @@ class TransactionPortfoliosApi(object):
         Cancel one or more transactions from the transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.cancel_transactions_with_http_info(scope, code, transaction_ids, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param list[str] transaction_ids: The IDs of the transactions to cancel. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_ids: The IDs of the transactions to cancel. (required)
+        :type transaction_ids: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'transaction_ids']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'transaction_ids'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -551,25 +697,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'transaction_ids' is set
-        if ('transaction_ids' not in local_var_params or
-                local_var_params['transaction_ids'] is None):
+        if self.api_client.client_side_validation and ('transaction_ids' not in local_var_params or  # noqa: E501
+                                                        local_var_params['transaction_ids'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `transaction_ids` when calling `cancel_transactions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `cancel_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `cancel_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -580,7 +726,7 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'transaction_ids' in local_var_params:
+        if 'transaction_ids' in local_var_params and local_var_params['transaction_ids'] is not None:  # noqa: E501
             query_params.append(('transactionIds', local_var_params['transaction_ids']))  # noqa: E501
             collection_formats['transactionIds'] = 'multi'  # noqa: E501
 
@@ -594,13 +740,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions', 'DELETE',
@@ -610,13 +756,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def create_portfolio(self, scope, create_transaction_portfolio_request, **kwargs):  # noqa: E501
         """Create portfolio  # noqa: E501
@@ -624,22 +771,28 @@ class TransactionPortfoliosApi(object):
         Create a transaction portfolio in a particular scope.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_portfolio(scope, create_transaction_portfolio_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope in which to create the transaction portfolio. (required)
-        :param CreateTransactionPortfolioRequest create_transaction_portfolio_request: The definition of the transaction portfolio. (required)
+        :param scope: The scope in which to create the transaction portfolio. (required)
+        :type scope: str
+        :param create_transaction_portfolio_request: The definition of the transaction portfolio. (required)
+        :type create_transaction_portfolio_request: CreateTransactionPortfolioRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Portfolio
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Portfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.create_portfolio_with_http_info(scope, create_transaction_portfolio_request, **kwargs)  # noqa: E501
@@ -650,33 +803,52 @@ class TransactionPortfoliosApi(object):
         Create a transaction portfolio in a particular scope.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_portfolio_with_http_info(scope, create_transaction_portfolio_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope in which to create the transaction portfolio. (required)
-        :param CreateTransactionPortfolioRequest create_transaction_portfolio_request: The definition of the transaction portfolio. (required)
+        :param scope: The scope in which to create the transaction portfolio. (required)
+        :type scope: str
+        :param create_transaction_portfolio_request: The definition of the transaction portfolio. (required)
+        :type create_transaction_portfolio_request: CreateTransactionPortfolioRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Portfolio, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'create_transaction_portfolio_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'create_transaction_portfolio_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -687,8 +859,8 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'create_transaction_portfolio_request' is set
-        if ('create_transaction_portfolio_request' not in local_var_params or
-                local_var_params['create_transaction_portfolio_request'] is None):
+        if self.api_client.client_side_validation and ('create_transaction_portfolio_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_transaction_portfolio_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_transaction_portfolio_request` when calling `create_portfolio`")  # noqa: E501
 
         collection_formats = {}
@@ -715,12 +887,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            201: "Portfolio",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}', 'POST',
@@ -730,13 +907,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Portfolio',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_properties_from_transaction(self, scope, code, transaction_id, property_keys, **kwargs):  # noqa: E501
         """Delete properties from transaction  # noqa: E501
@@ -744,24 +922,32 @@ class TransactionPortfoliosApi(object):
         Delete one or more properties from a single transaction in a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_properties_from_transaction(scope, code, transaction_id, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str transaction_id: The unique ID of the transaction from which to delete properties. (required)
-        :param list[str] property_keys: The property keys of the properties to delete.              These must be from the \"Transaction\" domain and have the format {domain}/{scope}/{code}, for example              \"Transaction/strategy/quantsignal\". (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_id: The unique ID of the transaction from which to delete properties. (required)
+        :type transaction_id: str
+        :param property_keys: The property keys of the properties to delete.              These must be from the \"Transaction\" domain and have the format {domain}/{scope}/{code}, for example              \"Transaction/strategy/quantsignal\". (required)
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: DeletedEntityResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: DeletedEntityResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_properties_from_transaction_with_http_info(scope, code, transaction_id, property_keys, **kwargs)  # noqa: E501
@@ -772,35 +958,58 @@ class TransactionPortfoliosApi(object):
         Delete one or more properties from a single transaction in a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_properties_from_transaction_with_http_info(scope, code, transaction_id, property_keys, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str transaction_id: The unique ID of the transaction from which to delete properties. (required)
-        :param list[str] property_keys: The property keys of the properties to delete.              These must be from the \"Transaction\" domain and have the format {domain}/{scope}/{code}, for example              \"Transaction/strategy/quantsignal\". (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_id: The unique ID of the transaction from which to delete properties. (required)
+        :type transaction_id: str
+        :param property_keys: The property keys of the properties to delete.              These must be from the \"Transaction\" domain and have the format {domain}/{scope}/{code}, for example              \"Transaction/strategy/quantsignal\". (required)
+        :type property_keys: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(DeletedEntityResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'transaction_id', 'property_keys']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'transaction_id',
+            'property_keys'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -811,25 +1020,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'property_keys' is set
-        if ('property_keys' not in local_var_params or
-                local_var_params['property_keys'] is None):
+        if self.api_client.client_side_validation and ('property_keys' not in local_var_params or  # noqa: E501
+                                                        local_var_params['property_keys'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `property_keys` when calling `delete_properties_from_transaction`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_properties_from_transaction`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_properties_from_transaction`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_properties_from_transaction`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_properties_from_transaction`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_properties_from_transaction`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_properties_from_transaction`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -842,7 +1051,7 @@ class TransactionPortfoliosApi(object):
             path_params['transactionId'] = local_var_params['transaction_id']  # noqa: E501
 
         query_params = []
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
 
@@ -856,13 +1065,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties', 'DELETE',
@@ -872,13 +1081,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeletedEntityResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_a2_b_data(self, scope, code, from_effective_at, to_effective_at, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get A2B data  # noqa: E501
@@ -886,29 +1096,42 @@ class TransactionPortfoliosApi(object):
         Get an A2B report for the given portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a2_b_data(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio to retrieve the A2B report for. (required)
-        :param str code: The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeId
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the portfolio to retrieve the A2B report for. (required)
+        :type scope: str
+        :param code: The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeId
+        :type recipe_id_code: str
+        :param property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
+        :type property_keys: list[str]
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfA2BDataRecord
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfA2BDataRecord
         """
         kwargs['_return_http_data_only'] = True
         return self.get_a2_b_data_with_http_info(scope, code, from_effective_at, to_effective_at, **kwargs)  # noqa: E501
@@ -919,40 +1142,73 @@ class TransactionPortfoliosApi(object):
         Get an A2B report for the given portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a2_b_data_with_http_info(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio to retrieve the A2B report for. (required)
-        :param str code: The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeId
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the portfolio to retrieve the A2B report for. (required)
+        :type scope: str
+        :param code: The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeId
+        :type recipe_id_code: str
+        :param property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
+        :type property_keys: list[str]
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfA2BDataRecord, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfA2BDataRecord, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at', 'recipe_id_scope', 'recipe_id_code', 'property_keys', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at',
+            'recipe_id_scope',
+            'recipe_id_code',
+            'property_keys',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -963,29 +1219,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'from_effective_at' is set
-        if ('from_effective_at' not in local_var_params or
-                local_var_params['from_effective_at'] is None):
+        if self.api_client.client_side_validation and ('from_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['from_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `from_effective_at` when calling `get_a2_b_data`")  # noqa: E501
         # verify the required parameter 'to_effective_at' is set
-        if ('to_effective_at' not in local_var_params or
-                local_var_params['to_effective_at'] is None):
+        if self.api_client.client_side_validation and ('to_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['to_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `to_effective_at` when calling `get_a2_b_data`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_data`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_data`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_data`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_data`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_data`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_data`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -996,20 +1252,20 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -1022,13 +1278,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfA2BDataRecord",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/a2b', 'GET',
@@ -1038,13 +1294,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfA2BDataRecord',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_a2_b_movements(self, scope, code, from_effective_at, to_effective_at, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get an A2B report at the movement level for the given portfolio.  # noqa: E501
@@ -1052,29 +1309,42 @@ class TransactionPortfoliosApi(object):
         Get an A2B report at the movement level for the given portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a2_b_movements(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio to retrieve the A2B movement report for. (required)
-        :param str code: The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeId
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the portfolio to retrieve the A2B movement report for. (required)
+        :type scope: str
+        :param code: The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeId
+        :type recipe_id_code: str
+        :param property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
+        :type property_keys: list[str]
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfA2BMovementRecord
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfA2BMovementRecord
         """
         kwargs['_return_http_data_only'] = True
         return self.get_a2_b_movements_with_http_info(scope, code, from_effective_at, to_effective_at, **kwargs)  # noqa: E501
@@ -1085,40 +1355,73 @@ class TransactionPortfoliosApi(object):
         Get an A2B report at the movement level for the given portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a2_b_movements_with_http_info(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the portfolio to retrieve the A2B movement report for. (required)
-        :param str code: The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeId
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the portfolio to retrieve the A2B movement report for. (required)
+        :type scope: str
+        :param code: The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeId
+        :type recipe_id_code: str
+        :param property_keys: A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
+        :type property_keys: list[str]
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfA2BMovementRecord, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfA2BMovementRecord, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at', 'recipe_id_scope', 'recipe_id_code', 'property_keys', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at',
+            'recipe_id_scope',
+            'recipe_id_code',
+            'property_keys',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1129,29 +1432,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'from_effective_at' is set
-        if ('from_effective_at' not in local_var_params or
-                local_var_params['from_effective_at'] is None):
+        if self.api_client.client_side_validation and ('from_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['from_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `from_effective_at` when calling `get_a2_b_movements`")  # noqa: E501
         # verify the required parameter 'to_effective_at' is set
-        if ('to_effective_at' not in local_var_params or
-                local_var_params['to_effective_at'] is None):
+        if self.api_client.client_side_validation and ('to_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['to_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `to_effective_at` when calling `get_a2_b_movements`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_movements`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_movements`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_a2_b_movements`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_movements`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_movements`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_a2_b_movements`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1162,20 +1465,20 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -1188,13 +1491,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfA2BMovementRecord",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/a2bmovements', 'GET',
@@ -1204,13 +1507,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfA2BMovementRecord',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_details(self, scope, code, **kwargs):  # noqa: E501
         """Get details  # noqa: E501
@@ -1218,24 +1522,32 @@ class TransactionPortfoliosApi(object):
         Get certain details associated with a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_details(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PortfolioDetails
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PortfolioDetails
         """
         kwargs['_return_http_data_only'] = True
         return self.get_details_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1246,35 +1558,58 @@ class TransactionPortfoliosApi(object):
         Get certain details associated with a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_details_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PortfolioDetails, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PortfolioDetails, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1285,21 +1620,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_details`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_details`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_details`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_details`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1310,9 +1645,9 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1325,13 +1660,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "PortfolioDetails",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/details', 'GET',
@@ -1341,13 +1676,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PortfolioDetails',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_holdings(self, scope, code, **kwargs):  # noqa: E501
         """Get holdings  # noqa: E501
@@ -1355,27 +1691,38 @@ class TransactionPortfoliosApi(object):
         Calculate holdings for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified.
-        :param str filter: Expression to filter the result set.               For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".
-        :param bool by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".
+        :type property_keys: list[str]
+        :param by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :type by_taxlots: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: VersionedResourceListOfPortfolioHolding
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: VersionedResourceListOfPortfolioHolding
         """
         kwargs['_return_http_data_only'] = True
         return self.get_holdings_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1386,38 +1733,67 @@ class TransactionPortfoliosApi(object):
         Calculate holdings for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified.
-        :param str filter: Expression to filter the result set.               For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".
-        :param bool by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".
+        :type property_keys: list[str]
+        :param by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :type by_taxlots: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(VersionedResourceListOfPortfolioHolding, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(VersionedResourceListOfPortfolioHolding, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at', 'filter', 'property_keys', 'by_taxlots']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'property_keys',
+            'by_taxlots'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1428,13 +1804,13 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1445,16 +1821,16 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'by_taxlots' in local_var_params:
+        if 'by_taxlots' in local_var_params and local_var_params['by_taxlots'] is not None:  # noqa: E501
             query_params.append(('byTaxlots', local_var_params['by_taxlots']))  # noqa: E501
 
         header_params = {}
@@ -1467,13 +1843,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "VersionedResourceListOfPortfolioHolding",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdings', 'GET',
@@ -1483,13 +1859,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VersionedResourceListOfPortfolioHolding',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_holdings_adjustment(self, scope, code, effective_at, **kwargs):  # noqa: E501
         """Get holdings adjustment  # noqa: E501
@@ -1497,24 +1874,32 @@ class TransactionPortfoliosApi(object):
         Get a holdings adjustment made to a transaction portfolio at a specific effective datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effective datetime.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings_adjustment(scope, code, effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label of the holdings adjustment. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label of the holdings adjustment. (required)
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: HoldingsAdjustment
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: HoldingsAdjustment
         """
         kwargs['_return_http_data_only'] = True
         return self.get_holdings_adjustment_with_http_info(scope, code, effective_at, **kwargs)  # noqa: E501
@@ -1525,35 +1910,58 @@ class TransactionPortfoliosApi(object):
         Get a holdings adjustment made to a transaction portfolio at a specific effective datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effective datetime.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings_adjustment_with_http_info(scope, code, effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label of the holdings adjustment. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label of the holdings adjustment. (required)
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(HoldingsAdjustment, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(HoldingsAdjustment, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1564,21 +1972,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_holdings_adjustment`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_holdings_adjustment`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_holdings_adjustment`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_adjustment`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_adjustment`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_adjustment`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1591,7 +1999,7 @@ class TransactionPortfoliosApi(object):
             path_params['effectiveAt'] = local_var_params['effective_at']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1604,13 +2012,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "HoldingsAdjustment",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt}', 'GET',
@@ -1620,13 +2028,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='HoldingsAdjustment',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_holdings_with_orders(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get holdings with orders  # noqa: E501
@@ -1634,27 +2043,38 @@ class TransactionPortfoliosApi(object):
         Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings_with_orders(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".
-        :param bool by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".
+        :type property_keys: list[str]
+        :param by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :type by_taxlots: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: VersionedResourceListOfPortfolioHolding
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: VersionedResourceListOfPortfolioHolding
         """
         kwargs['_return_http_data_only'] = True
         return self.get_holdings_with_orders_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1665,38 +2085,67 @@ class TransactionPortfoliosApi(object):
         Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_holdings_with_orders_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified.
-        :param str filter: Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".
-        :param bool by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".
+        :type property_keys: list[str]
+        :param by_taxlots: Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
+        :type by_taxlots: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(VersionedResourceListOfPortfolioHolding, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(VersionedResourceListOfPortfolioHolding, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'as_at', 'filter', 'property_keys', 'by_taxlots']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'as_at',
+            'filter',
+            'property_keys',
+            'by_taxlots'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1707,13 +2156,13 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_with_orders`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_with_orders`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holdings_with_orders`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1724,16 +2173,16 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'by_taxlots' in local_var_params:
+        if 'by_taxlots' in local_var_params and local_var_params['by_taxlots'] is not None:  # noqa: E501
             query_params.append(('byTaxlots', local_var_params['by_taxlots']))  # noqa: E501
 
         header_params = {}
@@ -1746,13 +2195,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "VersionedResourceListOfPortfolioHolding",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdingsWithOrders', 'GET',
@@ -1762,13 +2211,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VersionedResourceListOfPortfolioHolding',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_cash_flows(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get portfolio cash flows  # noqa: E501
@@ -1776,29 +2226,42 @@ class TransactionPortfoliosApi(object):
         Get the set of cash flows that occur in a window for the transaction portfolio's instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_flows(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
-        :param str effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
-        :param str window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
-        :param str window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
-        :param datetime as_at: The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified.
-        :param str filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
+        :type effective_at: str
+        :param window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
+        :type window_start: str
+        :param window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
+        :type window_end: str
+        :param as_at: The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfInstrumentCashFlow
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfInstrumentCashFlow
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_cash_flows_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1809,40 +2272,73 @@ class TransactionPortfoliosApi(object):
         Get the set of cash flows that occur in a window for the transaction portfolio's instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_flows_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
-        :param str effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
-        :param str window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
-        :param str window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
-        :param datetime as_at: The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified.
-        :param str filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
+        :type effective_at: str
+        :param window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
+        :type window_start: str
+        :param window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
+        :type window_end: str
+        :param as_at: The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfInstrumentCashFlow, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfInstrumentCashFlow, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'window_start', 'window_end', 'as_at', 'filter', 'recipe_id_scope', 'recipe_id_code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'window_start',
+            'window_end',
+            'as_at',
+            'filter',
+            'recipe_id_scope',
+            'recipe_id_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1853,21 +2349,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_flows`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_flows`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_flows`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_flows`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_flows`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_flows`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1878,19 +2374,19 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'window_start' in local_var_params:
+        if 'window_start' in local_var_params and local_var_params['window_start'] is not None:  # noqa: E501
             query_params.append(('windowStart', local_var_params['window_start']))  # noqa: E501
-        if 'window_end' in local_var_params:
+        if 'window_end' in local_var_params and local_var_params['window_end'] is not None:  # noqa: E501
             query_params.append(('windowEnd', local_var_params['window_end']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
 
         header_params = {}
@@ -1903,13 +2399,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfInstrumentCashFlow",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/cashflows', 'GET',
@@ -1919,13 +2415,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfInstrumentCashFlow',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_cash_ladder(self, scope, code, from_effective_at, to_effective_at, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get portfolio cash ladder  # noqa: E501
@@ -1933,28 +2430,40 @@ class TransactionPortfoliosApi(object):
         Get a cash ladder for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_ladder(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPortfolioCashLadder
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPortfolioCashLadder
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_cash_ladder_with_http_info(scope, code, from_effective_at, to_effective_at, **kwargs)  # noqa: E501
@@ -1965,39 +2474,70 @@ class TransactionPortfoliosApi(object):
         Get a cash ladder for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_ladder_with_http_info(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPortfolioCashLadder, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPortfolioCashLadder, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at', 'filter', 'recipe_id_scope', 'recipe_id_code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at',
+            'filter',
+            'recipe_id_scope',
+            'recipe_id_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2008,29 +2548,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'from_effective_at' is set
-        if ('from_effective_at' not in local_var_params or
-                local_var_params['from_effective_at'] is None):
+        if self.api_client.client_side_validation and ('from_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['from_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `from_effective_at` when calling `get_portfolio_cash_ladder`")  # noqa: E501
         # verify the required parameter 'to_effective_at' is set
-        if ('to_effective_at' not in local_var_params or
-                local_var_params['to_effective_at'] is None):
+        if self.api_client.client_side_validation and ('to_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['to_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `to_effective_at` when calling `get_portfolio_cash_ladder`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_ladder`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_ladder`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_ladder`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_ladder`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_ladder`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_ladder`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2041,17 +2581,17 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
 
         header_params = {}
@@ -2064,13 +2604,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfPortfolioCashLadder",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/cashladder', 'GET',
@@ -2080,13 +2620,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPortfolioCashLadder',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_cash_statement(self, scope, code, from_effective_at, to_effective_at, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Get portfolio cash statement  # noqa: E501
@@ -2094,28 +2635,40 @@ class TransactionPortfoliosApi(object):
         Get a cash statement for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_statement(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfPortfolioCashFlow
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfPortfolioCashFlow
         """
         kwargs['_return_http_data_only'] = True
         return self.get_portfolio_cash_statement_with_http_info(scope, code, from_effective_at, to_effective_at, **kwargs)  # noqa: E501
@@ -2126,39 +2679,70 @@ class TransactionPortfoliosApi(object):
         Get a cash statement for a transaction portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_portfolio_cash_statement_with_http_info(scope, code, from_effective_at, to_effective_at, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. (required)
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. (required)
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfPortfolioCashFlow, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfPortfolioCashFlow, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at', 'filter', 'recipe_id_scope', 'recipe_id_code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at',
+            'filter',
+            'recipe_id_scope',
+            'recipe_id_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2169,29 +2753,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'from_effective_at' is set
-        if ('from_effective_at' not in local_var_params or
-                local_var_params['from_effective_at'] is None):
+        if self.api_client.client_side_validation and ('from_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['from_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `from_effective_at` when calling `get_portfolio_cash_statement`")  # noqa: E501
         # verify the required parameter 'to_effective_at' is set
-        if ('to_effective_at' not in local_var_params or
-                local_var_params['to_effective_at'] is None):
+        if self.api_client.client_side_validation and ('to_effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['to_effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `to_effective_at` when calling `get_portfolio_cash_statement`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_statement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_statement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_portfolio_cash_statement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_statement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_statement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_portfolio_cash_statement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2202,17 +2786,17 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
 
         header_params = {}
@@ -2225,13 +2809,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfPortfolioCashFlow",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/cashstatement', 'GET',
@@ -2241,13 +2825,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfPortfolioCashFlow',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_transactions(self, scope, code, **kwargs):  # noqa: E501
         """Get transactions  # noqa: E501
@@ -2255,29 +2840,42 @@ class TransactionPortfoliosApi(object):
         Retrieve all the transactions that occurred during a particular time interval.     If the portfolio is a derived transaction portfolio, the transactions returned are the  union set of all transactions of the parent (and any grandparents, etc.) as well as  those of the derived transaction portfolio itself.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_transactions(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str from_transaction_date: The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified.
-        :param str to_transaction_date: The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param from_transaction_date: The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified.
+        :type from_transaction_date: str
+        :param to_transaction_date: The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified.
+        :type to_transaction_date: str
+        :param as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
+        :type property_keys: list[str]
+        :param page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: VersionedResourceListOfTransaction
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: VersionedResourceListOfTransaction
         """
         kwargs['_return_http_data_only'] = True
         return self.get_transactions_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -2288,40 +2886,73 @@ class TransactionPortfoliosApi(object):
         Retrieve all the transactions that occurred during a particular time interval.     If the portfolio is a derived transaction portfolio, the transactions returned are the  union set of all transactions of the parent (and any grandparents, etc.) as well as  those of the derived transaction portfolio itself.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_transactions_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str from_transaction_date: The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified.
-        :param str to_transaction_date: The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
-        :param str filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param list[str] property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
-        :param str page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
-        :param int limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param from_transaction_date: The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified.
+        :type from_transaction_date: str
+        :param to_transaction_date: The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified.
+        :type to_transaction_date: str
+        :param as_at: The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param property_keys: A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'.
+        :type property_keys: list[str]
+        :param page: The pagination token to use to continue listing transactions from a previous call to GetTransactions.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+        :type limit: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(VersionedResourceListOfTransaction, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(VersionedResourceListOfTransaction, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_transaction_date', 'to_transaction_date', 'as_at', 'filter', 'property_keys', 'page', 'limit']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_transaction_date',
+            'to_transaction_date',
+            'as_at',
+            'filter',
+            'property_keys',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2332,21 +2963,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2357,20 +2988,20 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_transaction_date' in local_var_params:
+        if 'from_transaction_date' in local_var_params and local_var_params['from_transaction_date'] is not None:  # noqa: E501
             query_params.append(('fromTransactionDate', local_var_params['from_transaction_date']))  # noqa: E501
-        if 'to_transaction_date' in local_var_params:
+        if 'to_transaction_date' in local_var_params and local_var_params['to_transaction_date'] is not None:  # noqa: E501
             query_params.append(('toTransactionDate', local_var_params['to_transaction_date']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'property_keys' in local_var_params:
+        if 'property_keys' in local_var_params and local_var_params['property_keys'] is not None:  # noqa: E501
             query_params.append(('propertyKeys', local_var_params['property_keys']))  # noqa: E501
             collection_formats['propertyKeys'] = 'multi'  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
@@ -2383,13 +3014,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "VersionedResourceListOfTransaction",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions', 'GET',
@@ -2399,13 +3030,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VersionedResourceListOfTransaction',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_upsertable_portfolio_cash_flows(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get upsertable portfolio cash flows.  # noqa: E501
@@ -2413,29 +3045,42 @@ class TransactionPortfoliosApi(object):
         Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the 'GetCashFlows' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_upsertable_portfolio_cash_flows(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
-        :param str effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
-        :param str window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
-        :param str window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified.
-        :param str filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
+        :type effective_at: str
+        :param window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
+        :type window_start: str
+        :param window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
+        :type window_end: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfTransaction
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfTransaction
         """
         kwargs['_return_http_data_only'] = True
         return self.get_upsertable_portfolio_cash_flows_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -2446,40 +3091,73 @@ class TransactionPortfoliosApi(object):
         Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the 'GetCashFlows' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_upsertable_portfolio_cash_flows_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
-        :param str effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
-        :param str window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
-        :param str window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
-        :param datetime as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified.
-        :param str filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
-        :param str recipe_id_scope: The scope of the given recipeId
-        :param str recipe_id_code: The code of the given recipeID
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. (required)
+        :type code: str
+        :param effective_at: The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
+        :type effective_at: str
+        :param window_start: The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
+        :type window_start: str
+        :param window_end: The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
+        :type window_end: str
+        :param as_at: The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified.
+        :type as_at: datetime
+        :param filter: Expression to filter the result set.                For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param recipe_id_scope: The scope of the given recipeId
+        :type recipe_id_scope: str
+        :param recipe_id_code: The code of the given recipeID
+        :type recipe_id_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfTransaction, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfTransaction, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'window_start', 'window_end', 'as_at', 'filter', 'recipe_id_scope', 'recipe_id_code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'window_start',
+            'window_end',
+            'as_at',
+            'filter',
+            'recipe_id_scope',
+            'recipe_id_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2490,21 +3168,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_upsertable_portfolio_cash_flows`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_upsertable_portfolio_cash_flows`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_upsertable_portfolio_cash_flows`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_upsertable_portfolio_cash_flows`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_upsertable_portfolio_cash_flows`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_upsertable_portfolio_cash_flows`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2515,19 +3193,19 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'window_start' in local_var_params:
+        if 'window_start' in local_var_params and local_var_params['window_start'] is not None:  # noqa: E501
             query_params.append(('windowStart', local_var_params['window_start']))  # noqa: E501
-        if 'window_end' in local_var_params:
+        if 'window_end' in local_var_params and local_var_params['window_end'] is not None:  # noqa: E501
             query_params.append(('windowEnd', local_var_params['window_end']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
-        if 'recipe_id_scope' in local_var_params:
+        if 'recipe_id_scope' in local_var_params and local_var_params['recipe_id_scope'] is not None:  # noqa: E501
             query_params.append(('recipeIdScope', local_var_params['recipe_id_scope']))  # noqa: E501
-        if 'recipe_id_code' in local_var_params:
+        if 'recipe_id_code' in local_var_params and local_var_params['recipe_id_code'] is not None:  # noqa: E501
             query_params.append(('recipeIdCode', local_var_params['recipe_id_code']))  # noqa: E501
 
         header_params = {}
@@ -2540,13 +3218,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfTransaction",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/upsertablecashflows', 'GET',
@@ -2556,13 +3234,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfTransaction',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_holdings_adjustments(self, scope, code, **kwargs):  # noqa: E501
         """List holdings adjustments  # noqa: E501
@@ -2570,25 +3249,34 @@ class TransactionPortfoliosApi(object):
         List the holdings adjustments made to the specified transaction portfolio over a specified interval of effective time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_holdings_adjustments(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified.
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified.
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified.
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfHoldingsAdjustmentHeader
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfHoldingsAdjustmentHeader
         """
         kwargs['_return_http_data_only'] = True
         return self.list_holdings_adjustments_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -2599,36 +3287,61 @@ class TransactionPortfoliosApi(object):
         List the holdings adjustments made to the specified transaction portfolio over a specified interval of effective time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_holdings_adjustments_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified.
-        :param str to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified.
+        :type from_effective_at: str
+        :param to_effective_at: The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified.
+        :type to_effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfHoldingsAdjustmentHeader, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfHoldingsAdjustmentHeader, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2639,21 +3352,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_holdings_adjustments`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_holdings_adjustments`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_holdings_adjustments`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `list_holdings_adjustments`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `list_holdings_adjustments`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `list_holdings_adjustments`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2664,11 +3377,11 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -2681,13 +3394,13 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfHoldingsAdjustmentHeader",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdingsadjustments', 'GET',
@@ -2697,13 +3410,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfHoldingsAdjustmentHeader',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def resolve_instrument(self, scope, code, instrument_identifier_type, instrument_identifier_value, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Resolve instrument  # noqa: E501
@@ -2711,26 +3425,36 @@ class TransactionPortfoliosApi(object):
         Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified    period of time. Also update the instrument identifiers with the given instrument identifiers collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.resolve_instrument(scope, code, instrument_identifier_type, instrument_identifier_value, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str instrument_identifier_type: The instrument identifier type. (required)
-        :param str instrument_identifier_value: The value for the given instrument identifier. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
-        :param dict(str, str) request_body: The dictionary with the instrument identifiers to be updated on the              transaction and holdings.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param instrument_identifier_type: The instrument identifier type. (required)
+        :type instrument_identifier_type: str
+        :param instrument_identifier_value: The value for the given instrument identifier. (required)
+        :type instrument_identifier_value: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
+        :type from_effective_at: str
+        :param request_body: The dictionary with the instrument identifiers to be updated on the              transaction and holdings.
+        :type request_body: dict(str, str)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertPortfolioTransactionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertPortfolioTransactionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.resolve_instrument_with_http_info(scope, code, instrument_identifier_type, instrument_identifier_value, **kwargs)  # noqa: E501
@@ -2741,37 +3465,64 @@ class TransactionPortfoliosApi(object):
         Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified    period of time. Also update the instrument identifiers with the given instrument identifiers collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.resolve_instrument_with_http_info(scope, code, instrument_identifier_type, instrument_identifier_value, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str instrument_identifier_type: The instrument identifier type. (required)
-        :param str instrument_identifier_value: The value for the given instrument identifier. (required)
-        :param str from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
-        :param dict(str, str) request_body: The dictionary with the instrument identifiers to be updated on the              transaction and holdings.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param instrument_identifier_type: The instrument identifier type. (required)
+        :type instrument_identifier_type: str
+        :param instrument_identifier_value: The value for the given instrument identifier. (required)
+        :type instrument_identifier_value: str
+        :param from_effective_at: The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
+        :type from_effective_at: str
+        :param request_body: The dictionary with the instrument identifiers to be updated on the              transaction and holdings.
+        :type request_body: dict(str, str)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertPortfolioTransactionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertPortfolioTransactionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'instrument_identifier_type', 'instrument_identifier_value', 'from_effective_at', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'instrument_identifier_type',
+            'instrument_identifier_value',
+            'from_effective_at',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2782,21 +3533,21 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'instrument_identifier_type' is set
-        if ('instrument_identifier_type' not in local_var_params or
-                local_var_params['instrument_identifier_type'] is None):
+        if self.api_client.client_side_validation and ('instrument_identifier_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['instrument_identifier_type'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `instrument_identifier_type` when calling `resolve_instrument`")  # noqa: E501
         # verify the required parameter 'instrument_identifier_value' is set
-        if ('instrument_identifier_value' not in local_var_params or
-                local_var_params['instrument_identifier_value'] is None):
+        if self.api_client.client_side_validation and ('instrument_identifier_value' not in local_var_params or  # noqa: E501
+                                                        local_var_params['instrument_identifier_value'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `instrument_identifier_value` when calling `resolve_instrument`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `resolve_instrument`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `resolve_instrument`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `resolve_instrument`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2807,11 +3558,11 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'instrument_identifier_type' in local_var_params:
+        if 'instrument_identifier_type' in local_var_params and local_var_params['instrument_identifier_type'] is not None:  # noqa: E501
             query_params.append(('instrumentIdentifierType', local_var_params['instrument_identifier_type']))  # noqa: E501
-        if 'instrument_identifier_value' in local_var_params:
+        if 'instrument_identifier_value' in local_var_params and local_var_params['instrument_identifier_value'] is not None:  # noqa: E501
             query_params.append(('instrumentIdentifierValue', local_var_params['instrument_identifier_value']))  # noqa: E501
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
 
         header_params = {}
@@ -2830,12 +3581,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertPortfolioTransactionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/$resolve', 'POST',
@@ -2845,13 +3601,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertPortfolioTransactionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def set_holdings(self, scope, code, effective_at, adjust_holding_request, **kwargs):  # noqa: E501
         """Set holdings  # noqa: E501
@@ -2859,25 +3616,34 @@ class TransactionPortfoliosApi(object):
         Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.set_holdings(scope, code, effective_at, adjust_holding_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
-        :param list[AdjustHoldingRequest] adjust_holding_request: The complete set of target holdings for the transaction portfolio. (required)
-        :param list[str] reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
+        :type effective_at: str
+        :param adjust_holding_request: The complete set of target holdings for the transaction portfolio. (required)
+        :type adjust_holding_request: list[AdjustHoldingRequest]
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AdjustHolding
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AdjustHolding
         """
         kwargs['_return_http_data_only'] = True
         return self.set_holdings_with_http_info(scope, code, effective_at, adjust_holding_request, **kwargs)  # noqa: E501
@@ -2888,36 +3654,61 @@ class TransactionPortfoliosApi(object):
         Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.set_holdings_with_http_info(scope, code, effective_at, adjust_holding_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
-        :param list[AdjustHoldingRequest] adjust_holding_request: The complete set of target holdings for the transaction portfolio. (required)
-        :param list[str] reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param effective_at: The effective datetime or cut label at which the holdings should be set to the provided targets. (required)
+        :type effective_at: str
+        :param adjust_holding_request: The complete set of target holdings for the transaction portfolio. (required)
+        :type adjust_holding_request: list[AdjustHoldingRequest]
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AdjustHolding, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AdjustHolding, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'effective_at', 'adjust_holding_request', 'reconciliation_methods']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'effective_at',
+            'adjust_holding_request',
+            'reconciliation_methods'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -2928,29 +3719,29 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'effective_at' is set
-        if ('effective_at' not in local_var_params or
-                local_var_params['effective_at'] is None):
+        if self.api_client.client_side_validation and ('effective_at' not in local_var_params or  # noqa: E501
+                                                        local_var_params['effective_at'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `effective_at` when calling `set_holdings`")  # noqa: E501
         # verify the required parameter 'adjust_holding_request' is set
-        if ('adjust_holding_request' not in local_var_params or
-                local_var_params['adjust_holding_request'] is None):
+        if self.api_client.client_side_validation and ('adjust_holding_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['adjust_holding_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `adjust_holding_request` when calling `set_holdings`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `set_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `set_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `set_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `set_holdings`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `set_holdings`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `set_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -2961,9 +3752,9 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'reconciliation_methods' in local_var_params:
+        if 'reconciliation_methods' in local_var_params and local_var_params['reconciliation_methods'] is not None:  # noqa: E501
             query_params.append(('reconciliationMethods', local_var_params['reconciliation_methods']))  # noqa: E501
             collection_formats['reconciliationMethods'] = 'multi'  # noqa: E501
 
@@ -2983,12 +3774,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "AdjustHolding",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/holdings', 'PUT',
@@ -2998,13 +3794,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AdjustHolding',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_portfolio_details(self, scope, code, create_portfolio_details, **kwargs):  # noqa: E501
         """Upsert portfolio details  # noqa: E501
@@ -3012,24 +3809,32 @@ class TransactionPortfoliosApi(object):
         Create or update certain details for a particular transaction portfolio. The details are updated if they already exist, and inserted if they do not.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_details(scope, code, create_portfolio_details, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. (required)
-        :param CreatePortfolioDetails create_portfolio_details: The details to create or update for the specified transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. (required)
+        :type code: str
+        :param create_portfolio_details: The details to create or update for the specified transaction portfolio. (required)
+        :type create_portfolio_details: CreatePortfolioDetails
+        :param effective_at: The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PortfolioDetails
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PortfolioDetails
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_portfolio_details_with_http_info(scope, code, create_portfolio_details, **kwargs)  # noqa: E501
@@ -3040,35 +3845,58 @@ class TransactionPortfoliosApi(object):
         Create or update certain details for a particular transaction portfolio. The details are updated if they already exist, and inserted if they do not.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_portfolio_details_with_http_info(scope, code, create_portfolio_details, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. (required)
-        :param CreatePortfolioDetails create_portfolio_details: The details to create or update for the specified transaction portfolio. (required)
-        :param str effective_at: The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. (required)
+        :type code: str
+        :param create_portfolio_details: The details to create or update for the specified transaction portfolio. (required)
+        :type create_portfolio_details: CreatePortfolioDetails
+        :param effective_at: The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PortfolioDetails, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PortfolioDetails, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'create_portfolio_details', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'create_portfolio_details',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -3079,25 +3907,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'create_portfolio_details' is set
-        if ('create_portfolio_details' not in local_var_params or
-                local_var_params['create_portfolio_details'] is None):
+        if self.api_client.client_side_validation and ('create_portfolio_details' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_portfolio_details'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_portfolio_details` when calling `upsert_portfolio_details`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_details`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_details`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_portfolio_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_details`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_details`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_portfolio_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -3108,7 +3936,7 @@ class TransactionPortfoliosApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -3127,12 +3955,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "PortfolioDetails",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/details', 'POST',
@@ -3142,13 +3975,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PortfolioDetails',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_transaction_properties(self, scope, code, transaction_id, request_body, **kwargs):  # noqa: E501
         """Upsert transaction properties  # noqa: E501
@@ -3156,24 +3990,32 @@ class TransactionPortfoliosApi(object):
         Create or update one or more transaction properties for a single transaction in the transaction portfolio.  Each property will be updated if it already exists and created if it does not.  Both transaction and portfolio must exist at the time when properties are created or updated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_transaction_properties(scope, code, transaction_id, request_body, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str transaction_id: The unique ID of the transaction to create or update properties for. (required)
-        :param dict(str, PerpetualProperty) request_body: The properties and their associated values to create or update. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_id: The unique ID of the transaction to create or update properties for. (required)
+        :type transaction_id: str
+        :param request_body: The properties and their associated values to create or update. (required)
+        :type request_body: dict(str, PerpetualProperty)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertTransactionPropertiesResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertTransactionPropertiesResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_transaction_properties_with_http_info(scope, code, transaction_id, request_body, **kwargs)  # noqa: E501
@@ -3184,35 +4026,58 @@ class TransactionPortfoliosApi(object):
         Create or update one or more transaction properties for a single transaction in the transaction portfolio.  Each property will be updated if it already exists and created if it does not.  Both transaction and portfolio must exist at the time when properties are created or updated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_transaction_properties_with_http_info(scope, code, transaction_id, request_body, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param str transaction_id: The unique ID of the transaction to create or update properties for. (required)
-        :param dict(str, PerpetualProperty) request_body: The properties and their associated values to create or update. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_id: The unique ID of the transaction to create or update properties for. (required)
+        :type transaction_id: str
+        :param request_body: The properties and their associated values to create or update. (required)
+        :type request_body: dict(str, PerpetualProperty)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertTransactionPropertiesResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertTransactionPropertiesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'transaction_id', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'transaction_id',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -3223,25 +4088,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request_body' is set
-        if ('request_body' not in local_var_params or
-                local_var_params['request_body'] is None):
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `request_body` when calling `upsert_transaction_properties`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transaction_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transaction_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transaction_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transaction_properties`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transaction_properties`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transaction_properties`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -3271,12 +4136,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertTransactionPropertiesResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties', 'POST',
@@ -3286,13 +4156,14 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertTransactionPropertiesResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_transactions(self, scope, code, transaction_request, **kwargs):  # noqa: E501
         """Upsert transactions  # noqa: E501
@@ -3300,23 +4171,30 @@ class TransactionPortfoliosApi(object):
         Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.  The maximum number of transactions that this method can upsert per request is 10,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_transactions(scope, code, transaction_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param list[TransactionRequest] transaction_request: A list of transactions to be created or updated. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_request: A list of transactions to be created or updated. (required)
+        :type transaction_request: list[TransactionRequest]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertPortfolioTransactionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertPortfolioTransactionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_transactions_with_http_info(scope, code, transaction_request, **kwargs)  # noqa: E501
@@ -3327,34 +4205,55 @@ class TransactionPortfoliosApi(object):
         Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.  The maximum number of transactions that this method can upsert per request is 10,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_transactions_with_http_info(scope, code, transaction_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the transaction portfolio. (required)
-        :param str code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
-        :param list[TransactionRequest] transaction_request: A list of transactions to be created or updated. (required)
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. (required)
+        :type code: str
+        :param transaction_request: A list of transactions to be created or updated. (required)
+        :type transaction_request: list[TransactionRequest]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertPortfolioTransactionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertPortfolioTransactionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'transaction_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'transaction_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -3365,25 +4264,25 @@ class TransactionPortfoliosApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'transaction_request' is set
-        if ('transaction_request' not in local_var_params or
-                local_var_params['transaction_request'] is None):
+        if self.api_client.client_side_validation and ('transaction_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['transaction_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `transaction_request` when calling `upsert_transactions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transactions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transactions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `upsert_transactions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -3411,12 +4310,17 @@ class TransactionPortfoliosApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertPortfolioTransactionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/transactions', 'POST',
@@ -3426,10 +4330,11 @@ class TransactionPortfoliosApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertPortfolioTransactionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

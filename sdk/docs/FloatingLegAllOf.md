@@ -1,5 +1,6 @@
 # FloatingLegAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

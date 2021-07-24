@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,28 +43,40 @@ class QuotesApi(object):
         Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_quote_accces_metadata_rule(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str provider: The Provider of the rule
-        :param str price_source: The PriceSource of the rule
-        :param str instrument_id_type: The InstrumentIdType of the rule
-        :param str instrument_id: The InstrumentId of the rule
-        :param str quote_type: The QuoteType of the rule
-        :param str field: The Field of the rule
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param provider: The Provider of the rule
+        :type provider: str
+        :param price_source: The PriceSource of the rule
+        :type price_source: str
+        :param instrument_id_type: The InstrumentIdType of the rule
+        :type instrument_id_type: str
+        :param instrument_id: The InstrumentId of the rule
+        :type instrument_id: str
+        :param quote_type: The QuoteType of the rule
+        :type quote_type: str
+        :param field: The Field of the rule
+        :type field: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: QuoteAccessMetadataRule
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: QuoteAccessMetadataRule
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_quote_accces_metadata_rule_with_http_info(scope, **kwargs)  # noqa: E501
@@ -75,39 +87,70 @@ class QuotesApi(object):
         Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_quote_accces_metadata_rule_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str provider: The Provider of the rule
-        :param str price_source: The PriceSource of the rule
-        :param str instrument_id_type: The InstrumentIdType of the rule
-        :param str instrument_id: The InstrumentId of the rule
-        :param str quote_type: The QuoteType of the rule
-        :param str field: The Field of the rule
-        :param str effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param provider: The Provider of the rule
+        :type provider: str
+        :param price_source: The PriceSource of the rule
+        :type price_source: str
+        :param instrument_id_type: The InstrumentIdType of the rule
+        :type instrument_id_type: str
+        :param instrument_id: The InstrumentId of the rule
+        :type instrument_id: str
+        :param quote_type: The QuoteType of the rule
+        :type quote_type: str
+        :param field: The Field of the rule
+        :type field: str
+        :param effective_at: The effective date to delete at, if this is not supplied, it will delete all data found
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'provider', 'price_source', 'instrument_id_type', 'instrument_id', 'quote_type', 'field', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'provider',
+            'price_source',
+            'instrument_id_type',
+            'instrument_id',
+            'quote_type',
+            'field',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -118,17 +161,17 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_quote_accces_metadata_rule`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quote_accces_metadata_rule`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quote_accces_metadata_rule`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quote_accces_metadata_rule`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -137,19 +180,19 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'provider' in local_var_params:
+        if 'provider' in local_var_params and local_var_params['provider'] is not None:  # noqa: E501
             query_params.append(('provider', local_var_params['provider']))  # noqa: E501
-        if 'price_source' in local_var_params:
+        if 'price_source' in local_var_params and local_var_params['price_source'] is not None:  # noqa: E501
             query_params.append(('priceSource', local_var_params['price_source']))  # noqa: E501
-        if 'instrument_id_type' in local_var_params:
+        if 'instrument_id_type' in local_var_params and local_var_params['instrument_id_type'] is not None:  # noqa: E501
             query_params.append(('instrumentIdType', local_var_params['instrument_id_type']))  # noqa: E501
-        if 'instrument_id' in local_var_params:
+        if 'instrument_id' in local_var_params and local_var_params['instrument_id'] is not None:  # noqa: E501
             query_params.append(('instrumentId', local_var_params['instrument_id']))  # noqa: E501
-        if 'quote_type' in local_var_params:
+        if 'quote_type' in local_var_params and local_var_params['quote_type'] is not None:  # noqa: E501
             query_params.append(('quoteType', local_var_params['quote_type']))  # noqa: E501
-        if 'field' in local_var_params:
+        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -162,13 +205,13 @@ class QuotesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "QuoteAccessMetadataRule",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/metadata/quotes/rules/{scope}', 'DELETE',
@@ -178,13 +221,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuoteAccessMetadataRule',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_quotes(self, scope, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Delete quotes  # noqa: E501
@@ -192,22 +236,28 @@ class QuotesApi(object):
         Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_quotes(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to delete. (required)
-        :param dict(str, QuoteId) request_body: The quotes to delete keyed by a unique correlation id.
+        :param scope: The scope of the quotes to delete. (required)
+        :type scope: str
+        :param request_body: The quotes to delete keyed by a unique correlation id.
+        :type request_body: dict(str, QuoteId)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulQuotesResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulQuotesResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_quotes_with_http_info(scope, **kwargs)  # noqa: E501
@@ -218,33 +268,52 @@ class QuotesApi(object):
         Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_quotes_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to delete. (required)
-        :param dict(str, QuoteId) request_body: The quotes to delete keyed by a unique correlation id.
+        :param scope: The scope of the quotes to delete. (required)
+        :type scope: str
+        :param request_body: The quotes to delete keyed by a unique correlation id.
+        :type request_body: dict(str, QuoteId)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulQuotesResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulQuotesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -255,13 +324,13 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quotes`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quotes`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_quotes`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -287,12 +356,17 @@ class QuotesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "AnnulQuotesResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/quotes/{scope}/$delete', 'POST',
@@ -302,13 +376,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulQuotesResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_quotes(self, scope, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Get quotes  # noqa: E501
@@ -316,25 +391,34 @@ class QuotesApi(object):
         Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_quotes(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to retrieve. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified.
-        :param str max_age: The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved.
-        :param dict(str, QuoteSeriesId) request_body: The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response.
+        :param scope: The scope of the quotes to retrieve. (required)
+        :type scope: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified.
+        :type as_at: datetime
+        :param max_age: The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved.
+        :type max_age: str
+        :param request_body: The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response.
+        :type request_body: dict(str, QuoteSeriesId)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetQuotesResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetQuotesResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_quotes_with_http_info(scope, **kwargs)  # noqa: E501
@@ -345,36 +429,61 @@ class QuotesApi(object):
         Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_quotes_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to retrieve. (required)
-        :param str effective_at: The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified.
-        :param datetime as_at: The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified.
-        :param str max_age: The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved.
-        :param dict(str, QuoteSeriesId) request_body: The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response.
+        :param scope: The scope of the quotes to retrieve. (required)
+        :type scope: str
+        :param effective_at: The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified.
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified.
+        :type as_at: datetime
+        :param max_age: The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved.
+        :type max_age: str
+        :param request_body: The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response.
+        :type request_body: dict(str, QuoteSeriesId)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetQuotesResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetQuotesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'effective_at', 'as_at', 'max_age', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'effective_at',
+            'as_at',
+            'max_age',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -385,13 +494,13 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -400,11 +509,11 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'max_age' in local_var_params:
+        if 'max_age' in local_var_params and local_var_params['max_age'] is not None:  # noqa: E501
             query_params.append(('maxAge', local_var_params['max_age']))  # noqa: E501
 
         header_params = {}
@@ -423,12 +532,17 @@ class QuotesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "GetQuotesResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/quotes/{scope}/$get', 'POST',
@@ -438,13 +552,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetQuotesResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_quotes_access_metadata_rule(self, scope, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get a quote access metadata rule  # noqa: E501
@@ -452,29 +567,42 @@ class QuotesApi(object):
         Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_quotes_access_metadata_rule(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str provider: The Provider of the rule
-        :param str price_source: The PriceSource of the rule
-        :param str instrument_id_type: The InstrumentIdType of the rule
-        :param str instrument_id: The InstrumentId of the rule
-        :param str quote_type: The QuoteType of the rule
-        :param str field: The Field of the rule
-        :param str effective_at: The effective date of the rule
-        :param datetime as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param provider: The Provider of the rule
+        :type provider: str
+        :param price_source: The PriceSource of the rule
+        :type price_source: str
+        :param instrument_id_type: The InstrumentIdType of the rule
+        :type instrument_id_type: str
+        :param instrument_id: The InstrumentId of the rule
+        :type instrument_id: str
+        :param quote_type: The QuoteType of the rule
+        :type quote_type: str
+        :param field: The Field of the rule
+        :type field: str
+        :param effective_at: The effective date of the rule
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: QuoteAccessMetadataRule
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: QuoteAccessMetadataRule
         """
         kwargs['_return_http_data_only'] = True
         return self.get_quotes_access_metadata_rule_with_http_info(scope, **kwargs)  # noqa: E501
@@ -485,40 +613,73 @@ class QuotesApi(object):
         Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_quotes_access_metadata_rule_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param str provider: The Provider of the rule
-        :param str price_source: The PriceSource of the rule
-        :param str instrument_id_type: The InstrumentIdType of the rule
-        :param str instrument_id: The InstrumentId of the rule
-        :param str quote_type: The QuoteType of the rule
-        :param str field: The Field of the rule
-        :param str effective_at: The effective date of the rule
-        :param datetime as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param provider: The Provider of the rule
+        :type provider: str
+        :param price_source: The PriceSource of the rule
+        :type price_source: str
+        :param instrument_id_type: The InstrumentIdType of the rule
+        :type instrument_id_type: str
+        :param instrument_id: The InstrumentId of the rule
+        :type instrument_id: str
+        :param quote_type: The QuoteType of the rule
+        :type quote_type: str
+        :param field: The Field of the rule
+        :type field: str
+        :param effective_at: The effective date of the rule
+        :type effective_at: str
+        :param as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'provider', 'price_source', 'instrument_id_type', 'instrument_id', 'quote_type', 'field', 'effective_at', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'provider',
+            'price_source',
+            'instrument_id_type',
+            'instrument_id',
+            'quote_type',
+            'field',
+            'effective_at',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -529,40 +690,40 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_quotes_access_metadata_rule`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes_access_metadata_rule`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes_access_metadata_rule`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_quotes_access_metadata_rule`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'scope' in local_var_params:
+        if 'scope' in local_var_params and local_var_params['scope'] is not None:  # noqa: E501
             query_params.append(('scope', local_var_params['scope']))  # noqa: E501
-        if 'provider' in local_var_params:
+        if 'provider' in local_var_params and local_var_params['provider'] is not None:  # noqa: E501
             query_params.append(('provider', local_var_params['provider']))  # noqa: E501
-        if 'price_source' in local_var_params:
+        if 'price_source' in local_var_params and local_var_params['price_source'] is not None:  # noqa: E501
             query_params.append(('priceSource', local_var_params['price_source']))  # noqa: E501
-        if 'instrument_id_type' in local_var_params:
+        if 'instrument_id_type' in local_var_params and local_var_params['instrument_id_type'] is not None:  # noqa: E501
             query_params.append(('instrumentIdType', local_var_params['instrument_id_type']))  # noqa: E501
-        if 'instrument_id' in local_var_params:
+        if 'instrument_id' in local_var_params and local_var_params['instrument_id'] is not None:  # noqa: E501
             query_params.append(('instrumentId', local_var_params['instrument_id']))  # noqa: E501
-        if 'quote_type' in local_var_params:
+        if 'quote_type' in local_var_params and local_var_params['quote_type'] is not None:  # noqa: E501
             query_params.append(('quoteType', local_var_params['quote_type']))  # noqa: E501
-        if 'field' in local_var_params:
+        if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -575,13 +736,13 @@ class QuotesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "QuoteAccessMetadataRule",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/metadata/quotes/rules', 'GET',
@@ -591,13 +752,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuoteAccessMetadataRule',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_quotes(self, scope, **kwargs):  # noqa: E501
         """[DEPRECATED] List quotes  # noqa: E501
@@ -605,26 +767,36 @@ class QuotesApi(object):
         List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to list. (required)
-        :param datetime as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
-        :param str page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the quotes to list. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfQuote
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfQuote
         """
         kwargs['_return_http_data_only'] = True
         return self.list_quotes_with_http_info(scope, **kwargs)  # noqa: E501
@@ -635,37 +807,64 @@ class QuotesApi(object):
         List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to list. (required)
-        :param datetime as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
-        :param str page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the quotes to list. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfQuote, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfQuote, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'as_at', 'page', 'start', 'limit', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -683,15 +882,15 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -704,13 +903,13 @@ class QuotesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfQuote",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/quotes/{scope}/$deprecated', 'GET',
@@ -720,13 +919,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfQuote',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_quotes_access_metadata_rules(self, scope, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] List all quote access metadata rules in a scope  # noqa: E501
@@ -734,22 +934,28 @@ class QuotesApi(object):
         Get all the quote access metadata rules in the specified scope  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes_access_metadata_rules(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfQuoteAccessMetadataRule
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfQuoteAccessMetadataRule
         """
         kwargs['_return_http_data_only'] = True
         return self.list_quotes_access_metadata_rules_with_http_info(scope, **kwargs)  # noqa: E501
@@ -760,33 +966,52 @@ class QuotesApi(object):
         Get all the quote access metadata rules in the specified scope  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes_access_metadata_rules_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Quote Access Metadata Rule to retrieve. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfQuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfQuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -797,17 +1022,17 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `list_quotes_access_metadata_rules`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_quotes_access_metadata_rules`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_quotes_access_metadata_rules`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_quotes_access_metadata_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -816,7 +1041,7 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -829,13 +1054,13 @@ class QuotesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfQuoteAccessMetadataRule",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/metadata/quotes/rules/{scope}', 'GET',
@@ -845,13 +1070,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfQuoteAccessMetadataRule',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_quotes_for_scope(self, scope, **kwargs):  # noqa: E501
         """[EARLY ACCESS] List quotes for scope  # noqa: E501
@@ -859,26 +1085,36 @@ class QuotesApi(object):
         List all the quotes from a single scope at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes_for_scope(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to list. (required)
-        :param datetime as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
-        :param str page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the quotes to list. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfQuote
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfQuote
         """
         kwargs['_return_http_data_only'] = True
         return self.list_quotes_for_scope_with_http_info(scope, **kwargs)  # noqa: E501
@@ -889,37 +1125,64 @@ class QuotesApi(object):
         List all the quotes from a single scope at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_quotes_for_scope_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the quotes to list. (required)
-        :param datetime as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
-        :param str page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: The scope of the quotes to list. (required)
+        :type scope: str
+        :param as_at: The asAt datetime at which to list the quotes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfQuote, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfQuote, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'as_at', 'page', 'start', 'limit', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -937,15 +1200,15 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -958,13 +1221,13 @@ class QuotesApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+        
+        response_types_map = {
+            200: "ResourceListOfQuote",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/quotes/{scope}', 'GET',
@@ -974,13 +1237,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfQuote',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_quote_access_metadata_rule(self, scope, upsert_quote_access_metadata_rule_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.  # noqa: E501
@@ -988,23 +1252,30 @@ class QuotesApi(object):
         Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_quote_access_metadata_rule(scope, upsert_quote_access_metadata_rule_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the Quote Access Metadata Rule. (required)
-        :param UpsertQuoteAccessMetadataRuleRequest upsert_quote_access_metadata_rule_request: The Quote Access Metadata Rule to update or insert (required)
-        :param str effective_at: The date this rule will effective from
+        :param scope: The scope to use when updating or inserting the Quote Access Metadata Rule. (required)
+        :type scope: str
+        :param upsert_quote_access_metadata_rule_request: The Quote Access Metadata Rule to update or insert (required)
+        :type upsert_quote_access_metadata_rule_request: UpsertQuoteAccessMetadataRuleRequest
+        :param effective_at: The date this rule will effective from
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: QuoteAccessMetadataRule
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: QuoteAccessMetadataRule
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_quote_access_metadata_rule_with_http_info(scope, upsert_quote_access_metadata_rule_request, **kwargs)  # noqa: E501
@@ -1015,34 +1286,55 @@ class QuotesApi(object):
         Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_quote_access_metadata_rule_with_http_info(scope, upsert_quote_access_metadata_rule_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the Quote Access Metadata Rule. (required)
-        :param UpsertQuoteAccessMetadataRuleRequest upsert_quote_access_metadata_rule_request: The Quote Access Metadata Rule to update or insert (required)
-        :param str effective_at: The date this rule will effective from
+        :param scope: The scope to use when updating or inserting the Quote Access Metadata Rule. (required)
+        :type scope: str
+        :param upsert_quote_access_metadata_rule_request: The Quote Access Metadata Rule to update or insert (required)
+        :type upsert_quote_access_metadata_rule_request: UpsertQuoteAccessMetadataRuleRequest
+        :param effective_at: The date this rule will effective from
+        :type effective_at: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(QuoteAccessMetadataRule, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'upsert_quote_access_metadata_rule_request', 'effective_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'upsert_quote_access_metadata_rule_request',
+            'effective_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1053,21 +1345,21 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `upsert_quote_access_metadata_rule`")  # noqa: E501
         # verify the required parameter 'upsert_quote_access_metadata_rule_request' is set
-        if ('upsert_quote_access_metadata_rule_request' not in local_var_params or
-                local_var_params['upsert_quote_access_metadata_rule_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_quote_access_metadata_rule_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_quote_access_metadata_rule_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_quote_access_metadata_rule_request` when calling `upsert_quote_access_metadata_rule`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quote_access_metadata_rule`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quote_access_metadata_rule`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quote_access_metadata_rule`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1076,7 +1368,7 @@ class QuotesApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'effective_at' in local_var_params:
+        if 'effective_at' in local_var_params and local_var_params['effective_at'] is not None:  # noqa: E501
             query_params.append(('effectiveAt', local_var_params['effective_at']))  # noqa: E501
 
         header_params = {}
@@ -1095,12 +1387,17 @@ class QuotesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "QuoteAccessMetadataRule",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/metadata/quotes/rules/{scope}', 'POST',
@@ -1110,13 +1407,14 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuoteAccessMetadataRule',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_quotes(self, scope, **kwargs):  # noqa: E501
         """[EARLY ACCESS] Upsert quotes  # noqa: E501
@@ -1124,22 +1422,28 @@ class QuotesApi(object):
         Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_quotes(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the quotes. (required)
-        :param dict(str, UpsertQuoteRequest) request_body: The quotes to update or insert keyed by a unique correlation id.
+        :param scope: The scope to use when updating or inserting the quotes. (required)
+        :type scope: str
+        :param request_body: The quotes to update or insert keyed by a unique correlation id.
+        :type request_body: dict(str, UpsertQuoteRequest)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertQuotesResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertQuotesResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_quotes_with_http_info(scope, **kwargs)  # noqa: E501
@@ -1150,33 +1454,52 @@ class QuotesApi(object):
         Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_quotes_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope to use when updating or inserting the quotes. (required)
-        :param dict(str, UpsertQuoteRequest) request_body: The quotes to update or insert keyed by a unique correlation id.
+        :param scope: The scope to use when updating or inserting the quotes. (required)
+        :type scope: str
+        :param request_body: The quotes to update or insert keyed by a unique correlation id.
+        :type request_body: dict(str, UpsertQuoteRequest)
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertQuotesResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertQuotesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'request_body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1187,13 +1510,13 @@ class QuotesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quotes`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quotes`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_quotes`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1219,12 +1542,17 @@ class QuotesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3313'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertQuotesResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/quotes/{scope}', 'POST',
@@ -1234,10 +1562,11 @@ class QuotesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertQuotesResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

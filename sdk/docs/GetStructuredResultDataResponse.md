@@ -1,5 +1,6 @@
 # GetStructuredResultDataResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
