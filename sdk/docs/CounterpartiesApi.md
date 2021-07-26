@@ -1,6 +1,6 @@
 # lusid.CounterpartiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37050*
+All URIs are relative to *http://local-unit-test-server.lusid.com:39433*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,8 +34,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Counterparty Agreement to delete.
@@ -98,8 +98,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Credit Support Annex to delete.
@@ -162,8 +162,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Counterparty Agreement to retrieve.
@@ -228,8 +228,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Credit Support Annex to retrieve.
@@ -294,8 +294,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)
@@ -356,8 +356,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)
@@ -418,8 +418,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 upsert_counterparty_agreement_request = {"counterpartyAgreement":{"displayName":"display-name","agreementType":"type","counterpartySignatory":{"name":"counterparty-signatory-name","legalEntityIdentifier":{"idTypeScope":"legal-identifier-idTypeScope","idTypeCode":"legal-identifier-idTypeCode","code":"legal-identifier-code"}},"datedAsOf":"2020-01-01T01:00:00.0000000+00:00","creditSupportAnnexId":{"scope":"credit-support-annex-scope","code":"credit-support-annex-code"},"id":{"scope":"some-scope","code":"some-code"}}} # UpsertCounterpartyAgreementRequest | The Counterparty Agreement to update or insert
@@ -480,8 +480,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:37050
-configuration.host = "http://local-unit-test-server.lusid.com:37050"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:39433
+configuration.host = "http://local-unit-test-server.lusid.com:39433"
 # Create an instance of the API class
 api_instance = lusid.CounterpartiesApi(lusid.ApiClient(configuration))
 upsert_credit_support_annex_request = {"creditSupportAnnex":{"referenceCurrency":"GBP","collateralCurrencies":["GBP"],"isdaAgreementVersion":"ISDA2002","marginCallFrequency":"1W","valuationAgent":"Institution","thresholdAmount":0,"roundingDecimalPlaces":2,"initialMarginAmount":100000,"minimumTransferAmount":10000,"id":{"scope":"some-scope","code":"some-code"}}} # UpsertCreditSupportAnnexRequest | The Credit Support Annex to update or insert
