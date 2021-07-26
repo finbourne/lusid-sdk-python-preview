@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3316",
+    "version": "0.11.3315",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:39433"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -2800,10 +2800,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -2824,10 +2824,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -2859,10 +2859,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -2883,10 +2883,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -2918,10 +2918,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -2942,10 +2942,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3024,10 +3024,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3052,10 +3052,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3080,10 +3080,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3108,10 +3108,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3144,10 +3144,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3173,10 +3173,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3202,10 +3202,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3365,10 +3365,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3389,10 +3389,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3424,10 +3424,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3448,10 +3448,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3483,10 +3483,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3507,10 +3507,10 @@
                         ],
                         "timeZone": "UTC"
                       },
-                      "sourceProvider": "Finbourne-Calendar-Service",
+                      "sourceProvider": "Finbourne Calendar Service",
                       "properties": [
                         {
-                          "key": "Calendar/HolidayType/Statutory",
+                          "key": "Calendar/default/Center",
                           "value": {
                             "labelValue": "CBTR"
                           }
@@ -3633,10 +3633,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3662,10 +3662,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3691,10 +3691,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3792,10 +3792,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3815,10 +3815,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3838,10 +3838,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3861,10 +3861,10 @@
                   ],
                   "timeZone": "UTC"
                 },
-                "sourceProvider": "Finbourne-Calendar-Service",
+                "sourceProvider": "Finbourne Calendar Service",
                 "properties": [
                   {
-                    "key": "Calendar/HolidayType/Statutory",
+                    "key": "Calendar/default/Center",
                     "value": {
                       "labelValue": "CBTR"
                     }
@@ -3897,10 +3897,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3926,10 +3926,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -3955,10 +3955,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -4063,10 +4063,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -4092,10 +4092,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -4121,10 +4121,10 @@
                     ],
                     "timeZone": "UTC"
                   },
-                  "sourceProvider": "Finbourne-Calendar-Service",
+                  "sourceProvider": "Finbourne Calendar Service",
                   "properties": [
                     {
-                      "key": "Calendar/HolidayType/Statutory",
+                      "key": "Calendar/default/Center",
                       "value": {
                         "labelValue": "CBTR"
                       }
@@ -72995,7 +72995,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
