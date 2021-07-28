@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3332",
+    "version": "0.11.3330",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:51696"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -4700,183 +4700,6 @@
           }
         ],
         "x-fbn-apistatus": "Beta"
-      }
-    },
-    "/api/calendars/schedule/{scope}": {
-      "post": {
-        "tags": [
-          "Calendars"
-        ],
-        "summary": "[EXPERIMENTAL] Generate an ordered schedule of dates.",
-        "description": "Returns an ordered array of dates. The dates will only fall on business\r\ndays as defined by the scope and calendar codes in the valuation schedule.\r\n            \r\nValuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),\r\nevery other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's\r\nrollConvention.",
-        "operationId": "GenerateSchedule",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "Scope of the calendars to use",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Scope of the calendars to use"
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "Optional AsAt for searching the calendar store. Defaults to Latest.",
-            "schema": {
-              "type": "string",
-              "description": "Optional AsAt for searching the calendar store. Defaults to Latest.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "requestBody": {
-          "description": "The ValuationSchedule to generate schedule dates from",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValuationSchedule"
-              },
-              "example": {
-                "effectiveFrom": "2020-01-01",
-                "effectiveAt": "2021-01-01",
-                "tenor": "1M",
-                "rollConvention": "F",
-                "holidayCalendars": [
-                  "GBP",
-                  "USD"
-                ],
-                "valuationDateTimes": []
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValuationSchedule"
-              },
-              "example": {
-                "effectiveFrom": "2020-01-01",
-                "effectiveAt": "2021-01-01",
-                "tenor": "1M",
-                "rollConvention": "F",
-                "holidayCalendars": [
-                  "GBP",
-                  "USD"
-                ],
-                "valuationDateTimes": []
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValuationSchedule"
-              },
-              "example": {
-                "effectiveFrom": "2020-01-01",
-                "effectiveAt": "2021-01-01",
-                "tenor": "1M",
-                "rollConvention": "F",
-                "holidayCalendars": [
-                  "GBP",
-                  "USD"
-                ],
-                "valuationDateTimes": []
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValuationSchedule"
-              },
-              "example": {
-                "effectiveFrom": "2020-01-01",
-                "effectiveAt": "2021-01-01",
-                "tenor": "1M",
-                "rollConvention": "F",
-                "holidayCalendars": [
-                  "GBP",
-                  "USD"
-                ],
-                "valuationDateTimes": []
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "An array of dates in chronological order.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/complexmarketdata/{scope}": {
@@ -73172,7 +72995,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }

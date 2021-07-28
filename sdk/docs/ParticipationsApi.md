@@ -1,6 +1,6 @@
 # lusid.ParticipationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:51696*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:51696
-configuration.host = "http://local-unit-test-server.lusid.com:51696"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ParticipationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The participation scope.
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:51696
-configuration.host = "http://local-unit-test-server.lusid.com:51696"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ParticipationsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the participation belongs.
@@ -162,8 +162,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:51696
-configuration.host = "http://local-unit-test-server.lusid.com:51696"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ParticipationsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. (optional)
@@ -234,8 +234,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:51696
-configuration.host = "http://local-unit-test-server.lusid.com:51696"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ParticipationsApi(lusid.ApiClient(configuration))
 participation_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PART00000123"},"placementId":{"scope":"MyScope","code":"PLAC00000123"},"orderId":{"scope":"MyScope","code":"ORDER00000123"}}]} # ParticipationSetRequest | The collection of participation requests. (optional)
