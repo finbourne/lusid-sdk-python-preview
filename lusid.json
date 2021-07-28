@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3327",
+    "version": "0.11.3328",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:42767"
     }
   ],
   "paths": {
@@ -33640,7 +33640,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Returns",
+        "summary": "[EARLY ACCESS] Upsert Returns",
         "description": "Update or insert returns into the specified portfolio.",
         "operationId": "UpsertPortfolioReturns",
         "parameters": [
@@ -33852,13 +33852,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get Returns",
+        "summary": "[EARLY ACCESS] Get Returns",
         "description": "Get Returns which are on the specified portfolio.",
         "operationId": "GetPortfolioReturns",
         "parameters": [
@@ -34008,7 +34008,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated": {
@@ -72995,7 +72995,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
