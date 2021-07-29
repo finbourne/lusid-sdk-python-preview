@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3332",
+    "version": "0.11.3333",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:62300"
     }
   ],
   "paths": {
@@ -34186,6 +34186,152 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete": {
+      "delete": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Delete Returns",
+        "description": "Cancel one or more Returns which exist into the specified portfolio.",
+        "operationId": "DeletePortfolioReturns",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Portfolio.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the  Portfolio.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the  Portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnScope",
+            "in": "path",
+            "description": "The scope of the Returns.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The scope of the Returns.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnCode",
+            "in": "path",
+            "description": "The code of the Returns.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The code of the Returns.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The start date from which to delete the Returns.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The start date from which to delete the Returns.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The end date from which to delete the Returns",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The end date from which to delete the Returns",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Show the Returns on a Daily or Monthly period.",
+            "schema": {
+              "type": "string",
+              "description": "Show the Returns on a Daily or Monthly period.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successfully deleted Returns data along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated": {
@@ -73172,7 +73318,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
