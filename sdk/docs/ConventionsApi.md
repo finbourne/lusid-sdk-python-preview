@@ -1,6 +1,6 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:48565*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,8 +38,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
@@ -102,8 +102,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
@@ -166,8 +166,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to delete.
@@ -230,8 +230,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
@@ -296,8 +296,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
@@ -362,8 +362,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
@@ -428,8 +428,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
@@ -490,8 +490,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
@@ -552,8 +552,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
@@ -614,8 +614,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
@@ -676,8 +676,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
@@ -738,8 +738,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:48565
-configuration.host = "http://local-unit-test-server.lusid.com:48565"
+# Defining host is optional and default to https://fbn-prd.lusid.com/api
+configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
 upsert_index_convention_request = {"indexConvention":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertIndexConventionRequest | The Index Conventions to update or insert
