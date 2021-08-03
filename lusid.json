@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3349",
+    "version": "0.11.3350",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58901"
     }
   ],
   "paths": {
@@ -49425,6 +49425,17 @@
             }
           },
           {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.\r\nThis determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.\r\nFor example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt\r\nis before the start of the range they are forward looking and will be expectations assuming the model supports that.\r\nThere is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
             "name": "asAt",
             "in": "query",
             "description": "The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version\r\n            of each transaction if not specified.",
@@ -74030,7 +74041,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
