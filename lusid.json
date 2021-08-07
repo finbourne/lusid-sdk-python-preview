@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3369",
+    "version": "0.11.3370",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:48938"
     }
   ],
   "paths": {
@@ -34920,10 +34920,10 @@
           {
             "name": "fromEffectiveAt",
             "in": "query",
-            "description": "The start date from which to delete the Returns.",
+            "description": "The start date from which to calculate the Returns.",
             "schema": {
               "type": "string",
-              "description": "The start date from which to delete the Returns.",
+              "description": "The start date from which to calculate the Returns.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -34931,10 +34931,10 @@
           {
             "name": "toEffectiveAt",
             "in": "query",
-            "description": "The end date from which to delete the Returns",
+            "description": "The end date for which to calculate the Returns.",
             "schema": {
               "type": "string",
-              "description": "The end date from which to delete the Returns",
+              "description": "The end date for which to calculate the Returns.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -34972,13 +34972,13 @@
           {
             "name": "metrics",
             "in": "query",
-            "description": "The period time to calculate the aggregate return.",
+            "description": "Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string"
               },
-              "description": "The period time to calculate the aggregate return.",
+              "description": "Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics.",
               "nullable": true
             },
             "x-nullable": true
@@ -74041,7 +74041,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
