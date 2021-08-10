@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3375",
+    "version": "0.11.3376",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:39321"
+      "url": "http://local-unit-test-server.lusid.com:42840"
     }
   ],
   "paths": {
@@ -58689,7 +58689,7 @@
               },
               "basketType": {
                 "type": "string",
-                "description": "What contents does the basket have. The validation will check that the instrument types contained match those expected.\r\nSupported string (enumeration) values are: [Bonds, Credits, Equities, EquitySwap, Unknown]."
+                "description": "What contents does the basket have. The validation will check that the instrument types contained match those expected.\r\nSupported string (enumeration) values are: [Bonds, Credits, Equities, EquitySwap]."
               },
               "weightedInstruments": {
                 "$ref": "#/components/schemas/WeightedInstruments"
@@ -59157,11 +59157,11 @@
           },
           "dayCountConvention": {
             "type": "string",
-            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid]."
+            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma]."
           },
           "rollConvention": {
             "type": "string",
-            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid]."
+            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
           },
           "paymentCalendars": {
             "type": "array",
@@ -59828,7 +59828,7 @@
               },
               "underlyingIdentifier": {
                 "type": "string",
-                "description": "external market codes and identifiers for the CFD, e.g. RIC.\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId]."
+                "description": "external market codes and identifiers for the CFD, e.g. RIC.\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
               },
               "instrumentType": {
                 "enum": [
@@ -61988,7 +61988,7 @@
               },
               "underlyingIdentifier": {
                 "type": "string",
-                "description": "external market codes and identifiers for the EquitySwap, e.g. RIC.\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId]."
+                "description": "external market codes and identifiers for the EquitySwap, e.g. RIC.\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
               },
               "instrumentType": {
                 "enum": [
@@ -62719,11 +62719,11 @@
           },
           "dayCountConvention": {
             "type": "string",
-            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma, Invalid]."
+            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActAct, ActualActual, ActActIsda, ActActIsma, ActActIcma]."
           },
           "rollConvention": {
             "type": "string",
-            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, Invalid]."
+            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
           },
           "paymentCalendars": {
             "type": "array",
@@ -63028,7 +63028,7 @@
           },
           "contractMonth": {
             "type": "string",
-            "description": "which month does the contract trade for."
+            "description": "which month does the contract trade for.\r\nSupported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]."
           },
           "contractSize": {
             "type": "number",
@@ -63049,7 +63049,7 @@
           },
           "exchangeCode": {
             "type": "string",
-            "description": "Exchange code for contract"
+            "description": "Exchange code for contract\r\nSupported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE]."
           },
           "exchangeName": {
             "type": "string",
@@ -64070,7 +64070,7 @@
           },
           "dayCountConvention": {
             "type": "string",
-            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\n            and difference between them."
+            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\n            and difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]."
           },
           "currency": {
             "type": "string",
@@ -64917,7 +64917,7 @@
           },
           "payReceive": {
             "type": "string",
-            "description": "Is the leg to be paid or received\r\nSupported string (enumeration) values are: [NotDefined, Pay, Receive]."
+            "description": "Is the leg to be paid or received\r\nSupported string (enumeration) values are: [Pay, Receive]."
           },
           "rateOrSpread": {
             "type": "number",
@@ -64931,7 +64931,7 @@
           },
           "stubType": {
             "type": "string",
-            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [Front, Back, Both]."
+            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront]."
           }
         },
         "additionalProperties": false,
@@ -69174,7 +69174,7 @@
               },
               "accrualBasis": {
                 "type": "string",
-                "description": "For calculation of interest, the accrual basis to be used.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, Invalid]."
+                "description": "For calculation of interest, the accrual basis to be used.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]."
               },
               "collateralValue": {
                 "type": "number",
