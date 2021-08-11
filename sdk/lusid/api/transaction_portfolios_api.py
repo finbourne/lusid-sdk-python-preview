@@ -163,6 +163,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
@@ -316,6 +318,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
@@ -456,6 +460,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -594,6 +600,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -710,6 +718,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -855,6 +865,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -1022,6 +1034,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -1188,6 +1202,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -1320,6 +1336,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1460,6 +1478,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -1603,6 +1623,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -1739,6 +1761,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -1881,6 +1905,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -2038,6 +2064,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -2208,6 +2236,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -2369,6 +2399,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -2527,6 +2559,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -2684,6 +2718,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -2824,6 +2860,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
 
         # Authentication setting
@@ -2969,6 +3007,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -3123,6 +3163,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
@@ -3266,6 +3308,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -3411,6 +3455,8 @@ class TransactionPortfoliosApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
 
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
@@ -3550,6 +3596,8 @@ class TransactionPortfoliosApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
