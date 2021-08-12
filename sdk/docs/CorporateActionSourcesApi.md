@@ -1,6 +1,6 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:43454*
+All URIs are relative to *http://local-unit-test-server.lusid.com:48859*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,8 +32,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of corporate action source
@@ -98,8 +98,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 create_corporate_action_source_request = {"scope":"ExampleScope","code":"ExampleCode","displayName":"ExampleDisplayName","description":"Example Description"} # CreateCorporateActionSourceRequest | The corporate action source definition
@@ -160,8 +160,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source to be deleted
@@ -224,8 +224,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source
@@ -290,8 +290,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the corporate action source.
@@ -366,8 +366,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:43454
-configuration.host = "http://local-unit-test-server.lusid.com:43454"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:48859
+configuration.host = "http://local-unit-test-server.lusid.com:48859"
 # Create an instance of the API class
 api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
