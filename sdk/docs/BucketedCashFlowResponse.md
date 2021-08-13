@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** |  | [optional] 
-**data** | [**list[IDataRecord]**](IDataRecord.md) | DataRecord array of BucketedCashFlow | [optional] 
+**data** | **list[dict(str, object)]** | Dictionary of bucketed cashflow results. | [optional] 
 **report_currency** | **str** | Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.  If not present then the currency of the relevant portfolio will be used in its place where relevant. | [optional] 
 **data_schema** | [**ResultDataSchema**](ResultDataSchema.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
