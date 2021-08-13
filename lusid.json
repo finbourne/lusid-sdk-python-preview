@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3387",
+    "version": "0.11.3386",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:30797"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -59173,13 +59173,9 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": false
-              }
+              "$ref": "#/components/schemas/IDataRecord"
             },
-            "description": "Dictionary of bucketed cashflow results.",
+            "description": "DataRecord array of BucketedCashFlow",
             "nullable": true
           },
           "reportCurrency": {
@@ -62145,7 +62141,7 @@
               },
               "code": {
                 "type": "string",
-                "description": "The identifying code for the equity underlying, e.g. 'IBM.N'."
+                "description": "The reset code of the option."
               },
               "instrumentType": {
                 "enum": [
@@ -64223,6 +64219,17 @@
         },
         "additionalProperties": false,
         "description": "A record of holdings adjustments made on the transaction portfolio."
+      },
+      "IDataRecord": {
+        "type": "object",
+        "properties": {
+          "fieldCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "IdentifierPartSchema": {
         "required": [
@@ -74305,7 +74312,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
