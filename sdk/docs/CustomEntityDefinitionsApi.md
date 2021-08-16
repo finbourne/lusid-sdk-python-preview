@@ -1,6 +1,6 @@
 # lusid.CustomEntityDefinitionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:51448*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,8 +28,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:51448
+configuration.host = "http://local-unit-test-server.lusid.com:51448"
 # Create an instance of the API class
 api_instance = lusid.CustomEntityDefinitionsApi(lusid.ApiClient(configuration))
 custom_entity_definition_request = {"customEntityId":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","temporality":"Bitemporal","type":"bool","required":true},{"name":"Status","temporality":"Bitemporal","type":"string","required":true},{"name":"Effort In Days","temporality":"Monotemporal","type":"number","required":false},{"name":"DateCreated","temporality":"Monotemporal","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest (optional)
@@ -90,8 +90,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:51448
+configuration.host = "http://local-unit-test-server.lusid.com:51448"
 # Create an instance of the API class
 api_instance = lusid.CustomEntityDefinitionsApi(lusid.ApiClient(configuration))
 custom_entity_id = 'custom_entity_id_example' # str | Id of the CustomEntityDefinition
