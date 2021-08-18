@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3395",
+    "version": "0.11.3396",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:30473"
     }
   ],
   "paths": {
@@ -13239,7 +13239,22 @@
                   }
                 },
                 "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description"
+                "description": "LegalEntity1Description",
+                "counterpartyRiskInformation": {
+                  "countryOfRisk": "UnitedKingdom",
+                  "creditRatings": [
+                    {
+                      "ratingSource": "StandardAndPoors",
+                      "rating": "AA+"
+                    }
+                  ],
+                  "industryClassifiers": [
+                    {
+                      "classificationSystemName": "GICS2018",
+                      "classificationCode": "10101010"
+                    }
+                  ]
+                }
               }
             },
             "application/json": {
@@ -13284,7 +13299,22 @@
                   }
                 },
                 "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description"
+                "description": "LegalEntity1Description",
+                "counterpartyRiskInformation": {
+                  "countryOfRisk": "UnitedKingdom",
+                  "creditRatings": [
+                    {
+                      "ratingSource": "StandardAndPoors",
+                      "rating": "AA+"
+                    }
+                  ],
+                  "industryClassifiers": [
+                    {
+                      "classificationSystemName": "GICS2018",
+                      "classificationCode": "10101010"
+                    }
+                  ]
+                }
               }
             },
             "text/json": {
@@ -13329,7 +13359,22 @@
                   }
                 },
                 "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description"
+                "description": "LegalEntity1Description",
+                "counterpartyRiskInformation": {
+                  "countryOfRisk": "UnitedKingdom",
+                  "creditRatings": [
+                    {
+                      "ratingSource": "StandardAndPoors",
+                      "rating": "AA+"
+                    }
+                  ],
+                  "industryClassifiers": [
+                    {
+                      "classificationSystemName": "GICS2018",
+                      "classificationCode": "10101010"
+                    }
+                  ]
+                }
               }
             },
             "application/*+json": {
@@ -13374,7 +13419,22 @@
                   }
                 },
                 "displayName": "LegalEntity1DisplayName",
-                "description": "LegalEntity1Description"
+                "description": "LegalEntity1Description",
+                "counterpartyRiskInformation": {
+                  "countryOfRisk": "UnitedKingdom",
+                  "creditRatings": [
+                    {
+                      "ratingSource": "StandardAndPoors",
+                      "rating": "AA+"
+                    }
+                  ],
+                  "industryClassifiers": [
+                    {
+                      "classificationSystemName": "GICS2018",
+                      "classificationCode": "10101010"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -13429,6 +13489,21 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -13480,6 +13555,21 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -13530,6 +13620,21 @@
                       },
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
+                  },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
                   },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
@@ -13748,6 +13853,21 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "counterpartyRiskInformation": {
+                        "countryOfRisk": "UnitedKingdom",
+                        "creditRatings": [
+                          {
+                            "ratingSource": "StandardAndPoors",
+                            "rating": "AA+"
+                          }
+                        ],
+                        "industryClassifiers": [
+                          {
+                            "classificationSystemName": "GICS2018",
+                            "classificationCode": "10101010"
+                          }
+                        ]
+                      },
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -13851,6 +13971,21 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "counterpartyRiskInformation": {
+                        "countryOfRisk": "UnitedKingdom",
+                        "creditRatings": [
+                          {
+                            "ratingSource": "StandardAndPoors",
+                            "rating": "AA+"
+                          }
+                        ],
+                        "industryClassifiers": [
+                          {
+                            "classificationSystemName": "GICS2018",
+                            "classificationCode": "10101010"
+                          }
+                        ]
+                      },
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -13953,6 +14088,21 @@
                           },
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
+                      },
+                      "counterpartyRiskInformation": {
+                        "countryOfRisk": "UnitedKingdom",
+                        "creditRatings": [
+                          {
+                            "ratingSource": "StandardAndPoors",
+                            "rating": "AA+"
+                          }
+                        ],
+                        "industryClassifiers": [
+                          {
+                            "classificationSystemName": "GICS2018",
+                            "classificationCode": "10101010"
+                          }
+                        ]
                       },
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
@@ -14193,6 +14343,21 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -14244,6 +14409,21 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -14294,6 +14474,21 @@
                       },
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
+                  },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
                   },
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
@@ -60339,6 +60534,39 @@
         "additionalProperties": false,
         "description": "Represents the legal agreement between two parties engaged in an OTC transaction.\r\nA typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date."
       },
+      "CounterpartyRiskInformation": {
+        "required": [
+          "countryOfRisk",
+          "creditRatings",
+          "industryClassifiers"
+        ],
+        "type": "object",
+        "properties": {
+          "countryOfRisk": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The country to which one would naturally ascribe risk, typically the legal entity's country of registration. This can be used to infer funding currency and related market data in the absence of a specific preference."
+          },
+          "creditRatings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditRating"
+            },
+            "description": ""
+          },
+          "industryClassifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IndustryClassifier"
+            },
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "description": "In the event that the legal entity is a counterparty to an OTC transaction\r\n(as signatory to a counterparty agreement such as an ISDA 2002 Master Agreement),\r\nthis information would be needed for calculations\r\nsuch as Credit-Valuation-Adjustments and Debit-Valuation-Adjustments (CVA, DVA, XVA etc)."
+      },
       "CounterpartySignatory": {
         "required": [
           "legalEntityIdentifier",
@@ -61328,6 +61556,31 @@
           }
         ],
         "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
+      },
+      "CreditRating": {
+        "required": [
+          "rating",
+          "ratingSource"
+        ],
+        "type": "object",
+        "properties": {
+          "ratingSource": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The provider of the credit rating, which will typically be an agency such as Moody's or Standard and Poor."
+          },
+          "rating": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-+\\/]+$",
+            "type": "string",
+            "description": "The credit rating provided by the rating source. This would expected to be consistent with the rating scheme of that agency/source."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Object describing a credit rating,\r\nwhich assesses the stability and credit worthiness of a legal entity\r\nand hence its likelihood of defaulting on its outstanding obligations (typically debt)."
       },
       "CreditSupportAnnex": {
         "required": [
@@ -64348,6 +64601,28 @@
         "additionalProperties": false,
         "description": "A set of conventions that describe the conventions for calculation of payments made on rates interbank lending and similar.\r\nBased on ISDA 2006 conventions and similar documentation. Please see the knowledge base for further documentation."
       },
+      "IndustryClassifier": {
+        "required": [
+          "classificationCode",
+          "classificationSystemName"
+        ],
+        "type": "object",
+        "properties": {
+          "classificationSystemName": {
+            "type": "string",
+            "description": "The name of the classification system to which the classification code belongs (e.g. GICS)."
+          },
+          "classificationCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The specific industry classification code assigned to the legal entity."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Object describing a particular industry classifier,\r\nwhich comprises a classification code and the name of the classification system to which the code belongs."
+      },
       "InlineValuationRequest": {
         "required": [
           "instruments",
@@ -65132,6 +65407,9 @@
             },
             "description": "A set of properties associated to the Legal Entity.",
             "nullable": true
+          },
+          "counterpartyRiskInformation": {
+            "$ref": "#/components/schemas/CounterpartyRiskInformation"
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -73308,6 +73586,9 @@
             "type": "string",
             "description": "The description of the Legal Entity",
             "nullable": true
+          },
+          "counterpartyRiskInformation": {
+            "$ref": "#/components/schemas/CounterpartyRiskInformation"
           }
         },
         "additionalProperties": false,
@@ -74305,7 +74586,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
