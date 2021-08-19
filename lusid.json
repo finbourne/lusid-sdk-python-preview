@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3403",
+    "version": "0.11.3404",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:34216"
+      "url": "http://local-unit-test-server.lusid.com:53853"
     }
   ],
   "paths": {
@@ -59257,6 +59257,18 @@
                   "type": "string"
                 },
                 "description": "external market codes and identifiers for the bond, e.g. ISIN.",
+                "nullable": true
+              },
+              "exDividendDays": {
+                "type": "integer",
+                "description": "The number of days before the next coupon payment for which the bond goes ex-dividend.",
+                "format": "int32",
+                "nullable": true
+              },
+              "initialCouponDate": {
+                "type": "string",
+                "description": "The initial coupon date which specifies the accrual start period for a fixed coupon bond with ex dividend schedule",
+                "format": "date-time",
                 "nullable": true
               },
               "instrumentType": {
