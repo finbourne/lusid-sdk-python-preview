@@ -1,7 +1,5 @@
 # InlineValuationRequest
 
-Specification object for the parameters of an inline valuation
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

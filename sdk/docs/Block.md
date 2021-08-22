@@ -1,7 +1,5 @@
 # Block
 
-A block of orders for the same instrument, intended to record for example a trader's aggregation  of outstanding orders at a given time.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

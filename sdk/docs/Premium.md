@@ -1,7 +1,5 @@
 # Premium
 
-A class containing information for a given premium payment.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,7 +1,5 @@
 # PlacementRequest
 
-A request to create or update a Placement.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

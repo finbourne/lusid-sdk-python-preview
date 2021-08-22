@@ -1,7 +1,5 @@
 # PagedResourceListOfCalendar
 
-A paginated list of resource that can be returned from a request.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

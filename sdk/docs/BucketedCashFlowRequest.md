@@ -1,7 +1,5 @@
 # BucketedCashFlowRequest
 
-Specification class consisting of parameters for BucketedCashFlow endpoint.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

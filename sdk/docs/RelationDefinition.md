@@ -1,6 +1,5 @@
 # RelationDefinition
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

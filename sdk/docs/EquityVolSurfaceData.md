@@ -1,7 +1,5 @@
 # EquityVolSurfaceData
 
-Market Data for an equity vol surface, represented by a list of instruments and corresponding market quotes
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

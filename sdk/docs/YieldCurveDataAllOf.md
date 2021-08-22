@@ -1,6 +1,5 @@
 # YieldCurveDataAllOf
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

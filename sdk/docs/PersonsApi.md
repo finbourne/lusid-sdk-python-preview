@@ -1,6 +1,6 @@
 # lusid.PersonsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62039*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -37,37 +37,24 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | The scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | The code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.
 
-    try:
-        # [EXPERIMENTAL] Delete person
-        api_response = api_instance.delete_person(id_type_scope, id_type_code, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->delete_person: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete person
+    api_response = api_instance.delete_person(id_type_scope, id_type_code, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->delete_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -116,39 +103,26 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
-    try:
-        # [EXPERIMENTAL] Delete a Person Access Metadata entry
-        api_response = api_instance.delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->delete_person_access_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete a Person Access Metadata entry
+    api_response = api_instance.delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->delete_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -199,39 +173,26 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 property_keys = ['property_keys_example'] # list[str] | The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Identifiers or identifiers not specified in request will not be changed.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of identifiers are perpetual. (optional)
 
-    try:
-        # [EXPERIMENTAL] Delete Person Identifiers
-        api_response = api_instance.delete_person_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->delete_person_identifiers: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete Person Identifiers
+    api_response = api_instance.delete_person_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->delete_person_identifiers: %s\n" % e)
 ```
 
 ### Parameters
@@ -282,39 +243,26 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 property_keys = ['property_keys_example'] # list[str] | The property keys of the person's properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Properties or identifiers not specified in request will not be changed.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime of properties are perpetual. (optional)
 
-    try:
-        # [EXPERIMENTAL] Delete Person Properties
-        api_response = api_instance.delete_person_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->delete_person_properties: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete Person Properties
+    api_response = api_instance.delete_person_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->delete_person_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -365,39 +313,26 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Access Metadata rules for a Person
-        api_response = api_instance.get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_all_person_access_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Access Metadata rules for a Person
+    api_response = api_instance.get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_all_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -448,40 +383,27 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified. (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Person
-        api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_person: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Person
+    api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -533,40 +455,27 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to retrieve the Access Metadata (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
-    try:
-        # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person
-        api_response = api_instance.get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_person_access_metadata_by_key: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person
+    api_response = api_instance.get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person_access_metadata_by_key: %s\n" % e)
 ```
 
 ### Parameters
@@ -618,28 +527,15 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the person.
 property_key = 'property_key_example' # str | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".              Each property must be from the \"Person\" domain. (optional)
@@ -648,12 +544,12 @@ filter = 'filter_example' # str | Expression to filter the result set. Read more
 page = 'page_example' # str | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Person Property Time Series
-        api_response = api_instance.get_person_property_time_series(id_type_scope, id_type_code, code, property_key=property_key, as_at=as_at, filter=filter, page=page, limit=limit)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_person_property_time_series: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Person Property Time Series
+    api_response = api_instance.get_person_property_time_series(id_type_scope, id_type_code, code, property_key=property_key, as_at=as_at, filter=filter, page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person_property_time_series: %s\n" % e)
 ```
 
 ### Parameters
@@ -707,28 +603,15 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)
@@ -736,12 +619,12 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 filter = 'filter_example' # str | Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Relations for Person
-        api_response = api_instance.get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_person_relations: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Relations for Person
+    api_response = api_instance.get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person_relations: %s\n" % e)
 ```
 
 ### Parameters
@@ -794,28 +677,15 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person's identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person's identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person's identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)
@@ -823,12 +693,12 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 filter = 'filter_example' # str | Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Relationships for Person
-        api_response = api_instance.get_person_relationships(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->get_person_relationships: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Relationships for Person
+    api_response = api_instance.get_person_relationships(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->get_person_relationships: %s\n" % e)
 ```
 
 ### Parameters
@@ -881,28 +751,15 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)
@@ -912,12 +769,12 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.               For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
 
-    try:
-        # [EXPERIMENTAL] List Persons
-        api_response = api_instance.list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->list_persons: %s\n" % e)
+try:
+    # [EXPERIMENTAL] List Persons
+    api_response = api_instance.list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->list_persons: %s\n" % e)
 ```
 
 ### Parameters
@@ -972,38 +829,25 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 set_person_identifiers_request = {"identifiers":{"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453333"}}}} # SetPersonIdentifiersRequest | Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.
 
-    try:
-        # [EXPERIMENTAL] Set Person Identifiers
-        api_response = api_instance.set_person_identifiers(id_type_scope, id_type_code, code, set_person_identifiers_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->set_person_identifiers: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Set Person Identifiers
+    api_response = api_instance.set_person_identifiers(id_type_scope, id_type_code, code, set_person_identifiers_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->set_person_identifiers: %s\n" % e)
 ```
 
 ### Parameters
@@ -1053,38 +897,25 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
 set_person_properties_request = {"properties":{"person/ContactDetails/Phone":[{"key":"Person/ContactDetails/Phone","value":{"labelValue":"01156786789"},"effectiveFrom":"2019-07-01T00:00:00.0000000+00:00"}]}} # SetPersonPropertiesRequest | Request containing properties to set for the person. Properties not specified in request will not be changed.
 
-    try:
-        # [EXPERIMENTAL] Set Person Properties
-        api_response = api_instance.set_person_properties(id_type_scope, id_type_code, code, set_person_properties_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->set_person_properties: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Set Person Properties
+    api_response = api_instance.set_person_properties(id_type_scope, id_type_code, code, set_person_properties_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->set_person_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -1134,35 +965,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":[{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}}],"person/CompanyDetails/Role":[{"key":"Person/CompanyDetails/Role","value":{"labelValue":"SalesRepresentative"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},{"key":"Person/CompanyDetails/Role","value":{"labelValue":"CustomerServiceRepresentative"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}]},"displayName":"Person1DisplayName","description":"Person1Description"} # UpsertPersonRequest | Request to create or update a person.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":[{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}}],"person/CompanyDetails/Role":[{"key":"Person/CompanyDetails/Role","value":{"labelValue":"SalesRepresentative"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},{"key":"Person/CompanyDetails/Role","value":{"labelValue":"CustomerServiceRepresentative"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}]},"displayName":"Person1DisplayName","description":"Person1Description"} # UpsertPersonRequest | Request to create or update a person.
 
-    try:
-        # [EXPERIMENTAL] Upsert Person
-        api_response = api_instance.upsert_person(upsert_person_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->upsert_person: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert Person
+    api_response = api_instance.upsert_person(upsert_person_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->upsert_person: %s\n" % e)
 ```
 
 ### Parameters
@@ -1209,40 +1027,27 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PersonsApi(lusid.ApiClient(configuration))
+id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier.
 code = 'code_example' # str | Code of the person under specified identifier type's scope and code.
 metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retrieve
 upsert_person_access_metadata_request = {"metadata":[{"value":"SilverLicence","provider":"TestDataProvider"}]} # UpsertPersonAccessMetadataRequest | The Person Access Metadata entry to upsert
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to upsert the Access Metadata (optional)
 
-    try:
-        # [EXPERIMENTAL] Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-        api_response = api_instance.upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, upsert_person_access_metadata_request, effective_at=effective_at)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->upsert_person_access_metadata: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+    api_response = api_instance.upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, upsert_person_access_metadata_request, effective_at=effective_at)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonsApi->upsert_person_access_metadata: %s\n" % e)
 ```
 
 ### Parameters

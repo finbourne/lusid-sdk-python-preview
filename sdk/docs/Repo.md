@@ -1,7 +1,5 @@
 # Repo
 
-IL Repo Instrument; Lusid-ibor internal representation of a Repo instrument  The repurchase (repo) agreement involves the transfer of instruments (the collateral) from the seller to the buyer.  Ownership is transferred and returns to the seller upon completion of the contract. If the collateral depreciates sharply, it is possible that additional  margin/collateral will be required depending upon the terms of the agreement. The buyer agrees not to sell the securities unless there is some condition of default  in the repo contract.   Repurchase of the securities is at their value plus the agreed upon fixed repo rate.  On the start date, the buyer receives the collateral and pays Cash.  On the maturity date, the buyer returns the collateral and receives Cash.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

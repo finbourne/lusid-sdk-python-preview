@@ -1,6 +1,6 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62039*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,36 +27,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope in which to create or update data maps.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope in which to create or update data maps.
 request_body = {} # dict(str, CreateDataMapRequest) | Individual data map creation requests.
 
-    try:
-        # [EXPERIMENTAL] Create data map
-        api_response = api_instance.create_data_map(scope, request_body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->create_data_map: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Create data map
+    api_response = api_instance.create_data_map(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->create_data_map: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,36 +91,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope from which to delete data items.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope from which to delete data items.
 request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The data IDs to delete, each keyed by a unique, ephemeral correlation ID.
 
-    try:
-        # [EXPERIMENTAL] Delete structured result data
-        api_response = api_instance.delete_structured_result_data(scope, request_body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->delete_structured_result_data: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete structured result data
+    api_response = api_instance.delete_structured_result_data(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->delete_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -181,36 +155,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope from which to retrieve data maps.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope from which to retrieve data maps.
 request_body = {} # dict(str, DataMapKey) | The data map keys to look up, each keyed by a unique, ephemeral correlation ID.
 
-    try:
-        # [EXPERIMENTAL] Get data map
-        api_response = api_instance.get_data_map(scope, request_body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->get_data_map: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get data map
+    api_response = api_instance.get_data_map(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->get_data_map: %s\n" % e)
 ```
 
 ### Parameters
@@ -258,38 +219,25 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope from which to retrieve data items.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope from which to retrieve data items.
 request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look-back window in ISO8601 time interval format, for example 'P1Y2M3DT4H30M' (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)
 
-    try:
-        # [EXPERIMENTAL] Get structured result data
-        api_response = api_instance.get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get structured result data
+    api_response = api_instance.get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -339,36 +287,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.StructuredResultDataApi(api_client)
-    scope = 'scope_example' # str | The scope in which to create or update data items.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.StructuredResultDataApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope in which to create or update data items.
 request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
 
-    try:
-        # [BETA] Upsert structured result data
-        api_response = api_instance.upsert_structured_result_data(scope, request_body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling StructuredResultDataApi->upsert_structured_result_data: %s\n" % e)
+try:
+    # [BETA] Upsert structured result data
+    api_response = api_instance.upsert_structured_result_data(scope, request_body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StructuredResultDataApi->upsert_structured_result_data: %s\n" % e)
 ```
 
 ### Parameters

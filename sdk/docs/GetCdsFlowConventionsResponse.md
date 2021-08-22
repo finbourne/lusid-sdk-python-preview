@@ -1,6 +1,5 @@
 # GetCdsFlowConventionsResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

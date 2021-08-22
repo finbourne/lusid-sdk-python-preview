@@ -1,6 +1,5 @@
 # GetCreditSupportAnnexResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

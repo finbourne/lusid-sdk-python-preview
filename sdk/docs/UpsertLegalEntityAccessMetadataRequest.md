@@ -1,6 +1,5 @@
 # UpsertLegalEntityAccessMetadataRequest
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

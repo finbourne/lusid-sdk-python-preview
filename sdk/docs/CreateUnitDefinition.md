@@ -1,6 +1,5 @@
 # CreateUnitDefinition
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

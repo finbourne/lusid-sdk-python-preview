@@ -1,6 +1,6 @@
 # lusid.PackagesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62039*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,36 +26,23 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PackagesApi(api_client)
-    scope = 'scope_example' # str | The package scope.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PackagesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The package scope.
 code = 'code_example' # str | The package's code. This, together with the scope uniquely identifies the package to delete.
 
-    try:
-        # [EXPERIMENTAL] Delete package
-        api_response = api_instance.delete_package(scope, code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PackagesApi->delete_package: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Delete package
+    api_response = api_instance.delete_package(scope, code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->delete_package: %s\n" % e)
 ```
 
 ### Parameters
@@ -103,38 +90,25 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PackagesApi(api_client)
-    scope = 'scope_example' # str | The scope to which the package belongs.
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PackagesApi(lusid.ApiClient(configuration))
+scope = 'scope_example' # str | The scope to which the package belongs.
 code = 'code_example' # str | The package's unique identifier.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the package. Defaults to return the latest version of the package if not specified. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Package\" domain to decorate onto the package.              These take the format {domain}/{scope}/{code} e.g. \"Package/system/Name\". (optional)
 
-    try:
-        # [EXPERIMENTAL] Get Package
-        api_response = api_instance.get_package(scope, code, as_at=as_at, property_keys=property_keys)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PackagesApi->get_package: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Get Package
+    api_response = api_instance.get_package(scope, code, as_at=as_at, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->get_package: %s\n" % e)
 ```
 
 ### Parameters
@@ -184,40 +158,27 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PackagesApi(api_client)
-    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the package. Defaults to return the latest version of the package if not specified. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PackagesApi(lusid.ApiClient(configuration))
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the package. Defaults to return the latest version of the package if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing packages from a previous call to list packages.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)
 sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = '' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) (default to '')
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Package\" domain to decorate onto each package.                  These take the format {domain}/{scope}/{code} e.g. \"Package/system/Name\". (optional)
 
-    try:
-        # [EXPERIMENTAL] List Packages
-        api_response = api_instance.list_packages(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PackagesApi->list_packages: %s\n" % e)
+try:
+    # [EXPERIMENTAL] List Packages
+    api_response = api_instance.list_packages(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->list_packages: %s\n" % e)
 ```
 
 ### Parameters
@@ -269,35 +230,22 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:39646
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
+configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:39646"
-)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PackagesApi(api_client)
-    package_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PACK00000123"},"orderIds":[{"scope":"MyScope","code":"ORDER00000123"}],"orderInstructionIds":[{"scope":"MyScope","code":"INSTR00000123"}],"properties":{"package/MyScope/SomePackageProperty":{"key":"Package/MyScope/SomePackageProperty","value":{"labelValue":"XYZ000034567"}}}}]} # PackageSetRequest | The collection of package requests. (optional)
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:62039
+configuration.host = "http://local-unit-test-server.lusid.com:62039"
+# Create an instance of the API class
+api_instance = lusid.PackagesApi(lusid.ApiClient(configuration))
+package_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PACK00000123"},"orderIds":[{"scope":"MyScope","code":"ORDER00000123"}],"orderInstructionIds":[{"scope":"MyScope","code":"INSTR00000123"}],"properties":{"package/MyScope/SomePackageProperty":{"key":"Package/MyScope/SomePackageProperty","value":{"labelValue":"XYZ000034567"}}}}]} # PackageSetRequest | The collection of package requests. (optional)
 
-    try:
-        # [EXPERIMENTAL] Upsert Package
-        api_response = api_instance.upsert_packages(package_set_request=package_set_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PackagesApi->upsert_packages: %s\n" % e)
+try:
+    # [EXPERIMENTAL] Upsert Package
+    api_response = api_instance.upsert_packages(package_set_request=package_set_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->upsert_packages: %s\n" % e)
 ```
 
 ### Parameters

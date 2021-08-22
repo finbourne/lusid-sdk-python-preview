@@ -1,7 +1,5 @@
 # ForwardRateAgreement
 
-Forward Rate Agreement
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
