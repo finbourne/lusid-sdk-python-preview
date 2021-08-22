@@ -1,5 +1,6 @@
 # TransactionPriceType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

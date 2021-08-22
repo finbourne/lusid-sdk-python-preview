@@ -1,5 +1,7 @@
 # InstrumentCashFlow
 
+The details for the cashflow associated with an instrument from a given portfolio.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

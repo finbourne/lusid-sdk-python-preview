@@ -1,5 +1,7 @@
 # PackageRequest
 
+A request to create or update a Package.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

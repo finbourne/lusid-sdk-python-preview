@@ -1,5 +1,6 @@
 # QuoteType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

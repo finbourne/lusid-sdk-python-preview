@@ -1,5 +1,7 @@
 # CashPerpetual
 
+Cash Instrument; LUSID representation of a perpetual cash instrument.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

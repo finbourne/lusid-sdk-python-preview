@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,22 +43,28 @@ class CounterpartiesApi(object):
         Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_counterparty_agreement(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Counterparty Agreement to delete. (required)
-        :param str code: The Counterparty Agreement to delete. (required)
+        :param scope: The scope of the Counterparty Agreement to delete. (required)
+        :type scope: str
+        :param code: The Counterparty Agreement to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_counterparty_agreement_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -69,33 +75,52 @@ class CounterpartiesApi(object):
         Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_counterparty_agreement_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Counterparty Agreement to delete. (required)
-        :param str code: The Counterparty Agreement to delete. (required)
+        :param scope: The scope of the Counterparty Agreement to delete. (required)
+        :type scope: str
+        :param code: The Counterparty Agreement to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -106,29 +131,29 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_counterparty_agreement`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_counterparty_agreement`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_counterparty_agreement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_counterparty_agreement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_counterparty_agreement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_counterparty_agreement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_counterparty_agreement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_counterparty_agreement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -152,13 +177,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "AnnulSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/counterpartyagreements/{scope}/{code}', 'DELETE',
@@ -168,13 +193,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_credit_support_annex(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Delete the Credit Support Annex of given scope and code  # noqa: E501
@@ -182,22 +208,28 @@ class CounterpartiesApi(object):
         Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_credit_support_annex(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Credit Support Annex to delete. (required)
-        :param str code: The Credit Support Annex to delete. (required)
+        :param scope: The scope of the Credit Support Annex to delete. (required)
+        :type scope: str
+        :param code: The Credit Support Annex to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_credit_support_annex_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -208,33 +240,52 @@ class CounterpartiesApi(object):
         Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_credit_support_annex_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Credit Support Annex to delete. (required)
-        :param str code: The Credit Support Annex to delete. (required)
+        :param scope: The scope of the Credit Support Annex to delete. (required)
+        :type scope: str
+        :param code: The Credit Support Annex to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -245,29 +296,29 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_credit_support_annex`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_credit_support_annex`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_credit_support_annex`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_credit_support_annex`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_credit_support_annex`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_credit_support_annex`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_credit_support_annex`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_credit_support_annex`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -291,13 +342,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "AnnulSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/creditsupportannexes/{scope}/{code}', 'DELETE',
@@ -307,13 +358,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_counterparty_agreement(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Counterparty Agreement  # noqa: E501
@@ -321,23 +373,30 @@ class CounterpartiesApi(object):
         Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_counterparty_agreement(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Counterparty Agreement to retrieve. (required)
-        :param str code: The name of the Counterparty Agreement to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Counterparty Agreement to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Counterparty Agreement to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetCounterpartyAgreementResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetCounterpartyAgreementResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_counterparty_agreement_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -348,34 +407,55 @@ class CounterpartiesApi(object):
         Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_counterparty_agreement_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Counterparty Agreement to retrieve. (required)
-        :param str code: The name of the Counterparty Agreement to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Counterparty Agreement to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Counterparty Agreement to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetCounterpartyAgreementResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetCounterpartyAgreementResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -386,29 +466,29 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_counterparty_agreement`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_counterparty_agreement`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_counterparty_agreement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_counterparty_agreement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_counterparty_agreement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_counterparty_agreement`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_counterparty_agreement`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_counterparty_agreement`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -419,7 +499,7 @@ class CounterpartiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -434,13 +514,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "GetCounterpartyAgreementResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/counterpartyagreements/{scope}/{code}', 'GET',
@@ -450,13 +530,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetCounterpartyAgreementResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_credit_support_annex(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Get Credit Support Annex  # noqa: E501
@@ -464,23 +545,30 @@ class CounterpartiesApi(object):
         Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_credit_support_annex(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Credit Support Annex to retrieve. (required)
-        :param str code: The name of the Credit Support Annex to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.
+        :param scope: The scope of the Credit Support Annex to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Credit Support Annex to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetCreditSupportAnnexResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetCreditSupportAnnexResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_credit_support_annex_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -491,34 +579,55 @@ class CounterpartiesApi(object):
         Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_credit_support_annex_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Credit Support Annex to retrieve. (required)
-        :param str code: The name of the Credit Support Annex to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.
+        :param scope: The scope of the Credit Support Annex to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Credit Support Annex to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetCreditSupportAnnexResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetCreditSupportAnnexResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -529,29 +638,29 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_credit_support_annex`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_credit_support_annex`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_credit_support_annex`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_credit_support_annex`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_credit_support_annex`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_credit_support_annex`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_credit_support_annex`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_credit_support_annex`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -562,7 +671,7 @@ class CounterpartiesApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -577,13 +686,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "GetCreditSupportAnnexResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/creditsupportannexes/{scope}/{code}', 'GET',
@@ -593,13 +702,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetCreditSupportAnnexResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_counterparty_agreements(self, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] List the set of Counterparty Agreements  # noqa: E501
@@ -607,21 +717,26 @@ class CounterpartiesApi(object):
         List the set of Counterparty Agreements at the specified AsAt date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_counterparty_agreements(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfGetCounterpartyAgreementResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfGetCounterpartyAgreementResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.list_counterparty_agreements_with_http_info(**kwargs)  # noqa: E501
@@ -632,32 +747,49 @@ class CounterpartiesApi(object):
         List the set of Counterparty Agreements at the specified AsAt date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_counterparty_agreements_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfGetCounterpartyAgreementResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfGetCounterpartyAgreementResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -673,7 +805,7 @@ class CounterpartiesApi(object):
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -688,13 +820,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfGetCounterpartyAgreementResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/counterpartyagreements', 'GET',
@@ -704,13 +836,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfGetCounterpartyAgreementResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_credit_support_annexes(self, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] List the set of Credit Support Annexes  # noqa: E501
@@ -718,21 +851,26 @@ class CounterpartiesApi(object):
         List the set of Credit Support Annexes at the specified AsAt date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_credit_support_annexes(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfGetCreditSupportAnnexResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfGetCreditSupportAnnexResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.list_credit_support_annexes_with_http_info(**kwargs)  # noqa: E501
@@ -743,32 +881,49 @@ class CounterpartiesApi(object):
         List the set of Credit Support Annexes at the specified AsAt date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_credit_support_annexes_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfGetCreditSupportAnnexResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfGetCreditSupportAnnexResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -784,7 +939,7 @@ class CounterpartiesApi(object):
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -799,13 +954,13 @@ class CounterpartiesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfGetCreditSupportAnnexResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/creditsupportannexes', 'GET',
@@ -815,13 +970,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfGetCreditSupportAnnexResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_counterparty_agreement(self, upsert_counterparty_agreement_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert Counterparty Agreement  # noqa: E501
@@ -829,21 +985,26 @@ class CounterpartiesApi(object):
         Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_counterparty_agreement(upsert_counterparty_agreement_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCounterpartyAgreementRequest upsert_counterparty_agreement_request: The Counterparty Agreement to update or insert (required)
+        :param upsert_counterparty_agreement_request: The Counterparty Agreement to update or insert (required)
+        :type upsert_counterparty_agreement_request: UpsertCounterpartyAgreementRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_counterparty_agreement_with_http_info(upsert_counterparty_agreement_request, **kwargs)  # noqa: E501
@@ -854,32 +1015,49 @@ class CounterpartiesApi(object):
         Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_counterparty_agreement_with_http_info(upsert_counterparty_agreement_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCounterpartyAgreementRequest upsert_counterparty_agreement_request: The Counterparty Agreement to update or insert (required)
+        :param upsert_counterparty_agreement_request: The Counterparty Agreement to update or insert (required)
+        :type upsert_counterparty_agreement_request: UpsertCounterpartyAgreementRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_counterparty_agreement_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_counterparty_agreement_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -890,8 +1068,8 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_counterparty_agreement_request' is set
-        if ('upsert_counterparty_agreement_request' not in local_var_params or
-                local_var_params['upsert_counterparty_agreement_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_counterparty_agreement_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_counterparty_agreement_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_counterparty_agreement_request` when calling `upsert_counterparty_agreement`")  # noqa: E501
 
         collection_formats = {}
@@ -918,12 +1096,17 @@ class CounterpartiesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/counterpartyagreements', 'POST',
@@ -933,13 +1116,14 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_credit_support_annex(self, upsert_credit_support_annex_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Upsert Credit Support Annex  # noqa: E501
@@ -947,21 +1131,26 @@ class CounterpartiesApi(object):
         Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_credit_support_annex(upsert_credit_support_annex_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCreditSupportAnnexRequest upsert_credit_support_annex_request: The Credit Support Annex to update or insert (required)
+        :param upsert_credit_support_annex_request: The Credit Support Annex to update or insert (required)
+        :type upsert_credit_support_annex_request: UpsertCreditSupportAnnexRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_credit_support_annex_with_http_info(upsert_credit_support_annex_request, **kwargs)  # noqa: E501
@@ -972,32 +1161,49 @@ class CounterpartiesApi(object):
         Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_credit_support_annex_with_http_info(upsert_credit_support_annex_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCreditSupportAnnexRequest upsert_credit_support_annex_request: The Credit Support Annex to update or insert (required)
+        :param upsert_credit_support_annex_request: The Credit Support Annex to update or insert (required)
+        :type upsert_credit_support_annex_request: UpsertCreditSupportAnnexRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_credit_support_annex_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_credit_support_annex_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1008,8 +1214,8 @@ class CounterpartiesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_credit_support_annex_request' is set
-        if ('upsert_credit_support_annex_request' not in local_var_params or
-                local_var_params['upsert_credit_support_annex_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_credit_support_annex_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_credit_support_annex_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_credit_support_annex_request` when calling `upsert_credit_support_annex`")  # noqa: E501
 
         collection_formats = {}
@@ -1036,12 +1242,17 @@ class CounterpartiesApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/counterparties/creditsupportannexes', 'POST',
@@ -1051,10 +1262,11 @@ class CounterpartiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

@@ -1,5 +1,6 @@
 # ForwardRateAgreementAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

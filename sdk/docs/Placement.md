@@ -1,5 +1,7 @@
 # Placement
 
+A street order for a quantity of a single instrument placed with a single market entity.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

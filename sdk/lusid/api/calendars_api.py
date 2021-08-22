@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,22 +43,28 @@ class CalendarsApi(object):
         A Business day is defined as a point in time that:      * Does not represent a day in the calendar's weekend      * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)                 All dates specified must be UTC and the upper bound of a calendar is not inclusive                 e.g. From: 2020-12-24-00-00-00:       Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.       Adding -2 business days returns 2020-12-22 under the same assumptions.                If the provided number of days to add is zero, returns a failure.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.add_business_days_to_date(scope, add_business_days_to_date_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope within which to search for the calendars (required)
-        :param AddBusinessDaysToDateRequest add_business_days_to_date_request: Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store (required)
+        :param scope: Scope within which to search for the calendars (required)
+        :type scope: str
+        :param add_business_days_to_date_request: Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store (required)
+        :type add_business_days_to_date_request: AddBusinessDaysToDateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AddBusinessDaysToDateResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AddBusinessDaysToDateResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.add_business_days_to_date_with_http_info(scope, add_business_days_to_date_request, **kwargs)  # noqa: E501
@@ -69,33 +75,52 @@ class CalendarsApi(object):
         A Business day is defined as a point in time that:      * Does not represent a day in the calendar's weekend      * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)                 All dates specified must be UTC and the upper bound of a calendar is not inclusive                 e.g. From: 2020-12-24-00-00-00:       Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.       Adding -2 business days returns 2020-12-22 under the same assumptions.                If the provided number of days to add is zero, returns a failure.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.add_business_days_to_date_with_http_info(scope, add_business_days_to_date_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope within which to search for the calendars (required)
-        :param AddBusinessDaysToDateRequest add_business_days_to_date_request: Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store (required)
+        :param scope: Scope within which to search for the calendars (required)
+        :type scope: str
+        :param add_business_days_to_date_request: Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store (required)
+        :type add_business_days_to_date_request: AddBusinessDaysToDateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AddBusinessDaysToDateResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AddBusinessDaysToDateResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'add_business_days_to_date_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'add_business_days_to_date_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -106,21 +131,21 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `add_business_days_to_date`")  # noqa: E501
         # verify the required parameter 'add_business_days_to_date_request' is set
-        if ('add_business_days_to_date_request' not in local_var_params or
-                local_var_params['add_business_days_to_date_request'] is None):
+        if self.api_client.client_side_validation and ('add_business_days_to_date_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['add_business_days_to_date_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `add_business_days_to_date_request` when calling `add_business_days_to_date`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_business_days_to_date`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_business_days_to_date`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_business_days_to_date`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -148,12 +173,17 @@ class CalendarsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "AddBusinessDaysToDateResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/businessday/{scope}/add', 'POST',
@@ -163,13 +193,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AddBusinessDaysToDateResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def add_date_to_calendar(self, scope, code, create_date_request, **kwargs):  # noqa: E501
         """[BETA] Add a date to a calendar  # noqa: E501
@@ -177,23 +208,30 @@ class CalendarsApi(object):
         Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.add_date_to_calendar(scope, code, create_date_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param CreateDateRequest create_date_request: Add date to calendar request (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param create_date_request: Add date to calendar request (required)
+        :type create_date_request: CreateDateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: CalendarDate
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: CalendarDate
         """
         kwargs['_return_http_data_only'] = True
         return self.add_date_to_calendar_with_http_info(scope, code, create_date_request, **kwargs)  # noqa: E501
@@ -204,34 +242,55 @@ class CalendarsApi(object):
         Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.add_date_to_calendar_with_http_info(scope, code, create_date_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param CreateDateRequest create_date_request: Add date to calendar request (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param create_date_request: Add date to calendar request (required)
+        :type create_date_request: CreateDateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(CalendarDate, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(CalendarDate, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'create_date_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'create_date_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -242,33 +301,33 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `add_date_to_calendar`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `add_date_to_calendar`")  # noqa: E501
         # verify the required parameter 'create_date_request' is set
-        if ('create_date_request' not in local_var_params or
-                local_var_params['create_date_request'] is None):
+        if self.api_client.client_side_validation and ('create_date_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_date_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_date_request` when calling `add_date_to_calendar`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_date_to_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_date_to_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `add_date_to_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `add_date_to_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `add_date_to_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `add_date_to_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -298,12 +357,17 @@ class CalendarsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "CalendarDate",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}/dates', 'PUT',
@@ -313,13 +377,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CalendarDate',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def create_calendar(self, create_calendar_request, **kwargs):  # noqa: E501
         """[BETA] Create a calendar in its generic form  # noqa: E501
@@ -327,21 +392,26 @@ class CalendarsApi(object):
         Create a calendar in a generic form which can be used to store date events.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_calendar(create_calendar_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param CreateCalendarRequest create_calendar_request: A request to create the calendar (required)
+        :param create_calendar_request: A request to create the calendar (required)
+        :type create_calendar_request: CreateCalendarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Calendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Calendar
         """
         kwargs['_return_http_data_only'] = True
         return self.create_calendar_with_http_info(create_calendar_request, **kwargs)  # noqa: E501
@@ -352,32 +422,49 @@ class CalendarsApi(object):
         Create a calendar in a generic form which can be used to store date events.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_calendar_with_http_info(create_calendar_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param CreateCalendarRequest create_calendar_request: A request to create the calendar (required)
+        :param create_calendar_request: A request to create the calendar (required)
+        :type create_calendar_request: CreateCalendarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['create_calendar_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'create_calendar_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -388,8 +475,8 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'create_calendar_request' is set
-        if ('create_calendar_request' not in local_var_params or
-                local_var_params['create_calendar_request'] is None):
+        if self.api_client.client_side_validation and ('create_calendar_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_calendar_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_calendar_request` when calling `create_calendar`")  # noqa: E501
 
         collection_formats = {}
@@ -416,12 +503,17 @@ class CalendarsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "Calendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic', 'POST',
@@ -431,13 +523,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Calendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_calendar(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Delete a calendar  # noqa: E501
@@ -445,22 +538,28 @@ class CalendarsApi(object):
         Delete a calendar and all of its respective dates  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_calendar(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Calendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Calendar
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_calendar_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -471,33 +570,52 @@ class CalendarsApi(object):
         Delete a calendar and all of its respective dates  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_calendar_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -508,29 +626,29 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_calendar`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_calendar`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -554,13 +672,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "Calendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}', 'DELETE',
@@ -570,13 +688,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Calendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_date_from_calendar(self, scope, code, date_id, **kwargs):  # noqa: E501
         """[BETA] Remove a date from a calendar  # noqa: E501
@@ -584,23 +703,30 @@ class CalendarsApi(object):
         Remove a date from a calendar.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_date_from_calendar(scope, code, date_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param str date_id: Identifier of the date to be removed (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param date_id: Identifier of the date to be removed (required)
+        :type date_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: CalendarDate
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: CalendarDate
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_date_from_calendar_with_http_info(scope, code, date_id, **kwargs)  # noqa: E501
@@ -611,34 +737,55 @@ class CalendarsApi(object):
         Remove a date from a calendar.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_date_from_calendar_with_http_info(scope, code, date_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param str date_id: Identifier of the date to be removed (required)
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param date_id: Identifier of the date to be removed (required)
+        :type date_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(CalendarDate, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(CalendarDate, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'date_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'date_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -649,41 +796,41 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_date_from_calendar`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_date_from_calendar`")  # noqa: E501
         # verify the required parameter 'date_id' is set
-        if ('date_id' not in local_var_params or
-                local_var_params['date_id'] is None):
+        if self.api_client.client_side_validation and ('date_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['date_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `date_id` when calling `delete_date_from_calendar`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_date_from_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_date_from_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_date_from_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_date_from_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_date_from_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_date_from_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('date_id' in local_var_params and
-                len(local_var_params['date_id']) > 64):
+        if self.api_client.client_side_validation and ('date_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['date_id']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `date_id` when calling `delete_date_from_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('date_id' in local_var_params and
-                len(local_var_params['date_id']) < 1):
+        if self.api_client.client_side_validation and ('date_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['date_id']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `date_id` when calling `delete_date_from_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'date_id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['date_id']):  # noqa: E501
+        if self.api_client.client_side_validation and 'date_id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['date_id']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `date_id` when calling `delete_date_from_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -709,13 +856,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "CalendarDate",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}/dates/{dateId}', 'DELETE',
@@ -725,13 +872,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CalendarDate',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def generate_schedule(self, scope, valuation_schedule, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] Generate an ordered schedule of dates.  # noqa: E501
@@ -739,23 +887,30 @@ class CalendarsApi(object):
         Returns an ordered array of dates. The dates will only fall on business  days as defined by the scope and calendar codes in the valuation schedule.                Valuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),  every other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's  rollConvention.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.generate_schedule(scope, valuation_schedule, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendars to use (required)
-        :param ValuationSchedule valuation_schedule: The ValuationSchedule to generate schedule dates from (required)
-        :param datetime as_at: Optional AsAt for searching the calendar store. Defaults to Latest.
+        :param scope: Scope of the calendars to use (required)
+        :type scope: str
+        :param valuation_schedule: The ValuationSchedule to generate schedule dates from (required)
+        :type valuation_schedule: ValuationSchedule
+        :param as_at: Optional AsAt for searching the calendar store. Defaults to Latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[datetime]
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: list[datetime]
         """
         kwargs['_return_http_data_only'] = True
         return self.generate_schedule_with_http_info(scope, valuation_schedule, **kwargs)  # noqa: E501
@@ -766,34 +921,55 @@ class CalendarsApi(object):
         Returns an ordered array of dates. The dates will only fall on business  days as defined by the scope and calendar codes in the valuation schedule.                Valuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),  every other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's  rollConvention.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.generate_schedule_with_http_info(scope, valuation_schedule, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendars to use (required)
-        :param ValuationSchedule valuation_schedule: The ValuationSchedule to generate schedule dates from (required)
-        :param datetime as_at: Optional AsAt for searching the calendar store. Defaults to Latest.
+        :param scope: Scope of the calendars to use (required)
+        :type scope: str
+        :param valuation_schedule: The ValuationSchedule to generate schedule dates from (required)
+        :type valuation_schedule: ValuationSchedule
+        :param as_at: Optional AsAt for searching the calendar store. Defaults to Latest.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[datetime], status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(list[datetime], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'valuation_schedule', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'valuation_schedule',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -804,21 +980,21 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `generate_schedule`")  # noqa: E501
         # verify the required parameter 'valuation_schedule' is set
-        if ('valuation_schedule' not in local_var_params or
-                local_var_params['valuation_schedule'] is None):
+        if self.api_client.client_side_validation and ('valuation_schedule' not in local_var_params or  # noqa: E501
+                                                        local_var_params['valuation_schedule'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `valuation_schedule` when calling `generate_schedule`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_schedule`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_schedule`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `generate_schedule`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -827,7 +1003,7 @@ class CalendarsApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -848,12 +1024,17 @@ class CalendarsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "list[datetime]",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/schedule/{scope}', 'POST',
@@ -863,13 +1044,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[datetime]',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_calendar(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get a calendar in its generic form  # noqa: E501
@@ -877,23 +1059,30 @@ class CalendarsApi(object):
         Retrieve a generic calendar by a specific ID at a point in AsAt time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_calendar(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar identifier (required)
-        :param str code: Code of the calendar identifier (required)
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendar
+        :param scope: Scope of the calendar identifier (required)
+        :type scope: str
+        :param code: Code of the calendar identifier (required)
+        :type code: str
+        :param as_at: The AsAt datetime at which to retrieve the calendar
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Calendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Calendar
         """
         kwargs['_return_http_data_only'] = True
         return self.get_calendar_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -904,34 +1093,55 @@ class CalendarsApi(object):
         Retrieve a generic calendar by a specific ID at a point in AsAt time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_calendar_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar identifier (required)
-        :param str code: Code of the calendar identifier (required)
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendar
+        :param scope: Scope of the calendar identifier (required)
+        :type scope: str
+        :param code: Code of the calendar identifier (required)
+        :type code: str
+        :param as_at: The AsAt datetime at which to retrieve the calendar
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -942,29 +1152,29 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_calendar`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_calendar`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -975,7 +1185,7 @@ class CalendarsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -990,13 +1200,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "Calendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}', 'GET',
@@ -1006,13 +1216,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Calendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_dates(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get dates for a specific calendar  # noqa: E501
@@ -1020,26 +1231,36 @@ class CalendarsApi(object):
         Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.  Providing an id filter can further refine the results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_dates(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param str from_effective_at: Where the effective window of dates should begin from
-        :param str to_effective_at: Where the effective window of dates should end
-        :param datetime as_at: AsAt the dates should be retrieved at
-        :param list[str] id_filter: An additional filter that will filter dates based on their identifer
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param from_effective_at: Where the effective window of dates should begin from
+        :type from_effective_at: str
+        :param to_effective_at: Where the effective window of dates should end
+        :type to_effective_at: str
+        :param as_at: AsAt the dates should be retrieved at
+        :type as_at: datetime
+        :param id_filter: An additional filter that will filter dates based on their identifer
+        :type id_filter: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfCalendarDate
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfCalendarDate
         """
         kwargs['_return_http_data_only'] = True
         return self.get_dates_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -1050,37 +1271,64 @@ class CalendarsApi(object):
         Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.  Providing an id filter can further refine the results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_dates_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param str from_effective_at: Where the effective window of dates should begin from
-        :param str to_effective_at: Where the effective window of dates should end
-        :param datetime as_at: AsAt the dates should be retrieved at
-        :param list[str] id_filter: An additional filter that will filter dates based on their identifer
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param from_effective_at: Where the effective window of dates should begin from
+        :type from_effective_at: str
+        :param to_effective_at: Where the effective window of dates should end
+        :type to_effective_at: str
+        :param as_at: AsAt the dates should be retrieved at
+        :type as_at: datetime
+        :param id_filter: An additional filter that will filter dates based on their identifer
+        :type id_filter: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfCalendarDate, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfCalendarDate, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'from_effective_at', 'to_effective_at', 'as_at', 'id_filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'from_effective_at',
+            'to_effective_at',
+            'as_at',
+            'id_filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1091,45 +1339,45 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_dates`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_dates`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_dates`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_dates`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_dates`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_dates`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_dates`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_dates`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('from_effective_at' in local_var_params and
-                len(local_var_params['from_effective_at']) > 256):
+        if self.api_client.client_side_validation and ('from_effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `from_effective_at` when calling `get_dates`, length must be less than or equal to `256`")  # noqa: E501
-        if ('from_effective_at' in local_var_params and
-                len(local_var_params['from_effective_at']) < 0):
+        if self.api_client.client_side_validation and ('from_effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `from_effective_at` when calling `get_dates`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'from_effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['from_effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'from_effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['from_effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `from_effective_at` when calling `get_dates`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
-        if ('to_effective_at' in local_var_params and
-                len(local_var_params['to_effective_at']) > 256):
+        if self.api_client.client_side_validation and ('to_effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `to_effective_at` when calling `get_dates`, length must be less than or equal to `256`")  # noqa: E501
-        if ('to_effective_at' in local_var_params and
-                len(local_var_params['to_effective_at']) < 0):
+        if self.api_client.client_side_validation and ('to_effective_at' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_effective_at']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `to_effective_at` when calling `get_dates`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'to_effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['to_effective_at']):  # noqa: E501
+        if self.api_client.client_side_validation and 'to_effective_at' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_\+:\.]+$', local_var_params['to_effective_at']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `to_effective_at` when calling `get_dates`, must conform to the pattern `/^[a-zA-Z0-9\-_\+:\.]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1140,13 +1388,13 @@ class CalendarsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'from_effective_at' in local_var_params:
+        if 'from_effective_at' in local_var_params and local_var_params['from_effective_at'] is not None:  # noqa: E501
             query_params.append(('fromEffectiveAt', local_var_params['from_effective_at']))  # noqa: E501
-        if 'to_effective_at' in local_var_params:
+        if 'to_effective_at' in local_var_params and local_var_params['to_effective_at'] is not None:  # noqa: E501
             query_params.append(('toEffectiveAt', local_var_params['to_effective_at']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'id_filter' in local_var_params:
+        if 'id_filter' in local_var_params and local_var_params['id_filter'] is not None:  # noqa: E501
             query_params.append(('idFilter', local_var_params['id_filter']))  # noqa: E501
             collection_formats['idFilter'] = 'multi'  # noqa: E501
 
@@ -1162,13 +1410,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfCalendarDate",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}/dates', 'GET',
@@ -1178,13 +1426,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfCalendarDate',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def is_business_date_time(self, date_time, scope, code, **kwargs):  # noqa: E501
         """[BETA] Check whether a DateTime is a \"Business DateTime\"  # noqa: E501
@@ -1192,24 +1441,32 @@ class CalendarsApi(object):
         A Business DateTime is defined as a point in time that:      * Does not represent a day that overlaps with the calendars WeekendMask      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar                All dates specified must be UTC and the upper bound of a calendar is not inclusive   e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00  IsBusinessDay(2020-12-26-00-00-00) == false  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.is_business_date_time(date_time, scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime date_time: DateTime to check - This DateTime must be UTC (required)
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param datetime as_at: AsAt for the request
+        :param date_time: DateTime to check - This DateTime must be UTC (required)
+        :type date_time: datetime
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param as_at: AsAt for the request
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: IsBusinessDayResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: IsBusinessDayResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.is_business_date_time_with_http_info(date_time, scope, code, **kwargs)  # noqa: E501
@@ -1220,35 +1477,58 @@ class CalendarsApi(object):
         A Business DateTime is defined as a point in time that:      * Does not represent a day that overlaps with the calendars WeekendMask      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar                All dates specified must be UTC and the upper bound of a calendar is not inclusive   e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00  IsBusinessDay(2020-12-26-00-00-00) == false  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.is_business_date_time_with_http_info(date_time, scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime date_time: DateTime to check - This DateTime must be UTC (required)
-        :param str scope: Scope of the calendar (required)
-        :param str code: Code of the calendar (required)
-        :param datetime as_at: AsAt for the request
+        :param date_time: DateTime to check - This DateTime must be UTC (required)
+        :type date_time: datetime
+        :param scope: Scope of the calendar (required)
+        :type scope: str
+        :param code: Code of the calendar (required)
+        :type code: str
+        :param as_at: AsAt for the request
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(IsBusinessDayResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(IsBusinessDayResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['date_time', 'scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'date_time',
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1259,33 +1539,33 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'date_time' is set
-        if ('date_time' not in local_var_params or
-                local_var_params['date_time'] is None):
+        if self.api_client.client_side_validation and ('date_time' not in local_var_params or  # noqa: E501
+                                                        local_var_params['date_time'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `date_time` when calling `is_business_date_time`")  # noqa: E501
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `is_business_date_time`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `is_business_date_time`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `is_business_date_time`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `is_business_date_time`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `is_business_date_time`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `is_business_date_time`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `is_business_date_time`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `is_business_date_time`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1296,9 +1576,9 @@ class CalendarsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'date_time' in local_var_params:
+        if 'date_time' in local_var_params and local_var_params['date_time'] is not None:  # noqa: E501
             query_params.append(('dateTime', local_var_params['date_time']))  # noqa: E501
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1313,13 +1593,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "IsBusinessDayResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/businessday/{scope}/{code}', 'GET',
@@ -1329,13 +1609,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='IsBusinessDayResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_calendars(self, **kwargs):  # noqa: E501
         """[BETA] List Calenders  # noqa: E501
@@ -1343,24 +1624,32 @@ class CalendarsApi(object):
         List calendars at a point in AsAt time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_calendars(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendars
-        :param str page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param as_at: The AsAt datetime at which to retrieve the calendars
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PagedResourceListOfCalendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PagedResourceListOfCalendar
         """
         kwargs['_return_http_data_only'] = True
         return self.list_calendars_with_http_info(**kwargs)  # noqa: E501
@@ -1371,35 +1660,58 @@ class CalendarsApi(object):
         List calendars at a point in AsAt time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_calendars_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendars
-        :param str page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param as_at: The AsAt datetime at which to retrieve the calendars
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PagedResourceListOfCalendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PagedResourceListOfCalendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at', 'page', 'limit', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at',
+            'page',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1410,22 +1722,22 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_calendars`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_calendars`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -1440,13 +1752,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "PagedResourceListOfCalendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic', 'GET',
@@ -1456,13 +1768,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PagedResourceListOfCalendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_calendars_in_scope(self, scope, **kwargs):  # noqa: E501
         """[BETA] List all calenders in a specified scope  # noqa: E501
@@ -1470,26 +1783,36 @@ class CalendarsApi(object):
         List calendars at a point in AsAt time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_calendars_in_scope(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendars (required)
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendars
-        :param str page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: Scope of the calendars (required)
+        :type scope: str
+        :param as_at: The AsAt datetime at which to retrieve the calendars
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: PagedResourceListOfCalendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: PagedResourceListOfCalendar
         """
         kwargs['_return_http_data_only'] = True
         return self.list_calendars_in_scope_with_http_info(scope, **kwargs)  # noqa: E501
@@ -1500,37 +1823,64 @@ class CalendarsApi(object):
         List calendars at a point in AsAt time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_calendars_in_scope_with_http_info(scope, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the calendars (required)
-        :param datetime as_at: The AsAt datetime at which to retrieve the calendars
-        :param str page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
-        :param int start: When paginating, skip this number of results.
-        :param int limit: When paginating, limit the number of returned results to this many.
-        :param str filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :param scope: Scope of the calendars (required)
+        :type scope: str
+        :param as_at: The AsAt datetime at which to retrieve the calendars
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the number of returned results to this many.
+        :type limit: int
+        :param filter: Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(PagedResourceListOfCalendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(PagedResourceListOfCalendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'as_at', 'page', 'start', 'limit', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1541,37 +1891,37 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `list_calendars_in_scope`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_calendars_in_scope`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_calendars_in_scope`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `list_calendars_in_scope`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('page' in local_var_params and
-                len(local_var_params['page']) > 500):
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) > 500):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_calendars_in_scope`, length must be less than or equal to `500`")  # noqa: E501
-        if ('page' in local_var_params and
-                len(local_var_params['page']) < 1):
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_calendars_in_scope`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_calendars_in_scope`, must conform to the pattern `/^[a-zA-Z0-9\+\/]*={0,3}$/`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_calendars_in_scope`, must be a value less than or equal to `5000`")  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_calendars_in_scope`, must be a value greater than or equal to `1`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) > 2147483647):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 2147483647):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_calendars_in_scope`, length must be less than or equal to `2147483647`")  # noqa: E501
-        if ('filter' in local_var_params and
-                len(local_var_params['filter']) < 0):
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_calendars_in_scope`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `filter` when calling `list_calendars_in_scope`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1580,15 +1930,15 @@ class CalendarsApi(object):
             path_params['scope'] = local_var_params['scope']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
-        if 'page' in local_var_params:
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'filter' in local_var_params:
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
         header_params = {}
@@ -1603,13 +1953,13 @@ class CalendarsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "PagedResourceListOfCalendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}', 'GET',
@@ -1619,13 +1969,14 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PagedResourceListOfCalendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def update_calendar(self, scope, code, update_calendar_request, **kwargs):  # noqa: E501
         """[BETA] Update a calendar  # noqa: E501
@@ -1633,23 +1984,30 @@ class CalendarsApi(object):
         Update the calendars WeekendMask, SourceProvider or Properties  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_calendar(scope, code, update_calendar_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the request (required)
-        :param str code: Code of the request (required)
-        :param UpdateCalendarRequest update_calendar_request: The new state of the calendar (required)
+        :param scope: Scope of the request (required)
+        :type scope: str
+        :param code: Code of the request (required)
+        :type code: str
+        :param update_calendar_request: The new state of the calendar (required)
+        :type update_calendar_request: UpdateCalendarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Calendar
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: Calendar
         """
         kwargs['_return_http_data_only'] = True
         return self.update_calendar_with_http_info(scope, code, update_calendar_request, **kwargs)  # noqa: E501
@@ -1660,34 +2018,55 @@ class CalendarsApi(object):
         Update the calendars WeekendMask, SourceProvider or Properties  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_calendar_with_http_info(scope, code, update_calendar_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: Scope of the request (required)
-        :param str code: Code of the request (required)
-        :param UpdateCalendarRequest update_calendar_request: The new state of the calendar (required)
+        :param scope: Scope of the request (required)
+        :type scope: str
+        :param code: Code of the request (required)
+        :type code: str
+        :param update_calendar_request: The new state of the calendar (required)
+        :type update_calendar_request: UpdateCalendarRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(Calendar, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'update_calendar_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'update_calendar_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1698,33 +2077,33 @@ class CalendarsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `update_calendar`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `update_calendar`")  # noqa: E501
         # verify the required parameter 'update_calendar_request' is set
-        if ('update_calendar_request' not in local_var_params or
-                local_var_params['update_calendar_request'] is None):
+        if self.api_client.client_side_validation and ('update_calendar_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_calendar_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `update_calendar_request` when calling `update_calendar`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `update_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_calendar`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -1754,12 +2133,17 @@ class CalendarsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "Calendar",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/calendars/generic/{scope}/{code}', 'POST',
@@ -1769,10 +2153,11 @@ class CalendarsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Calendar',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

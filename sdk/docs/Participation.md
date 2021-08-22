@@ -1,5 +1,7 @@
 # Participation
 
+The record an order's participation in a specific placement.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

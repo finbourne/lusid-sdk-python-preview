@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from lusid.api_client import ApiClient
-from lusid.exceptions import (
+from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,22 +43,28 @@ class ConventionsApi(object):
         Delete the specified CDS Flow Conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_cds_flow_conventions(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the CDS Flow Conventions to delete. (required)
-        :param str code: The CDS Flow Conventions to delete. (required)
+        :param scope: The scope of the CDS Flow Conventions to delete. (required)
+        :type scope: str
+        :param code: The CDS Flow Conventions to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_cds_flow_conventions_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -69,33 +75,52 @@ class ConventionsApi(object):
         Delete the specified CDS Flow Conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_cds_flow_conventions_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the CDS Flow Conventions to delete. (required)
-        :param str code: The CDS Flow Conventions to delete. (required)
+        :param scope: The scope of the CDS Flow Conventions to delete. (required)
+        :type scope: str
+        :param code: The CDS Flow Conventions to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -106,29 +131,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_cds_flow_conventions`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_cds_flow_conventions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cds_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cds_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cds_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_cds_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_cds_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_cds_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -152,13 +177,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "AnnulSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/credit/conventions/{scope}/{code}', 'DELETE',
@@ -168,13 +193,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_flow_conventions(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.  # noqa: E501
@@ -182,22 +208,28 @@ class ConventionsApi(object):
         Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_flow_conventions(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Flow Conventions to delete. (required)
-        :param str code: The Flow Conventions to delete. (required)
+        :param scope: The scope of the Flow Conventions to delete. (required)
+        :type scope: str
+        :param code: The Flow Conventions to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_flow_conventions_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -208,33 +240,52 @@ class ConventionsApi(object):
         Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_flow_conventions_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Flow Conventions to delete. (required)
-        :param str code: The Flow Conventions to delete. (required)
+        :param scope: The scope of the Flow Conventions to delete. (required)
+        :type scope: str
+        :param code: The Flow Conventions to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -245,29 +296,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_flow_conventions`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_flow_conventions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -291,13 +342,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "AnnulSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/flowconventions/{scope}/{code}', 'DELETE',
@@ -307,13 +358,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def delete_index_convention(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Delete the Index Convention of given scope and code, assuming that it is present.  # noqa: E501
@@ -321,22 +373,28 @@ class ConventionsApi(object):
         Delete the specified Index Convention from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_index_convention(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Index Convention to delete. (required)
-        :param str code: The Index Convention to delete. (required)
+        :param scope: The scope of the Index Convention to delete. (required)
+        :type scope: str
+        :param code: The Index Convention to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: AnnulSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: AnnulSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.delete_index_convention_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -347,33 +405,52 @@ class ConventionsApi(object):
         Delete the specified Index Convention from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_index_convention_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Index Convention to delete. (required)
-        :param str code: The Index Convention to delete. (required)
+        :param scope: The scope of the Index Convention to delete. (required)
+        :type scope: str
+        :param code: The Index Convention to delete. (required)
+        :type code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(AnnulSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -384,29 +461,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `delete_index_convention`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `delete_index_convention`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_index_convention`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_index_convention`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_index_convention`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_index_convention`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_index_convention`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_index_convention`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -430,13 +507,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "AnnulSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/indexconventions/{scope}/{code}', 'DELETE',
@@ -446,13 +523,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AnnulSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_cds_flow_conventions(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get CDS Flow Conventions  # noqa: E501
@@ -460,23 +538,30 @@ class ConventionsApi(object):
         Get a CDS Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_cds_flow_conventions(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the CDS Flow Conventions to retrieve. (required)
-        :param str code: The name of the CDS Flow Conventions to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.
+        :param scope: The scope of the CDS Flow Conventions to retrieve. (required)
+        :type scope: str
+        :param code: The name of the CDS Flow Conventions to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetCdsFlowConventionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetCdsFlowConventionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_cds_flow_conventions_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -487,34 +572,55 @@ class ConventionsApi(object):
         Get a CDS Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_cds_flow_conventions_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the CDS Flow Conventions to retrieve. (required)
-        :param str code: The name of the CDS Flow Conventions to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.
+        :param scope: The scope of the CDS Flow Conventions to retrieve. (required)
+        :type scope: str
+        :param code: The name of the CDS Flow Conventions to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetCdsFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetCdsFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -525,29 +631,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_cds_flow_conventions`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_cds_flow_conventions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_cds_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_cds_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_cds_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_cds_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_cds_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_cds_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -558,7 +664,7 @@ class ConventionsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -573,13 +679,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "GetCdsFlowConventionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/credit/conventions/{scope}/{code}', 'GET',
@@ -589,13 +695,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetCdsFlowConventionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_flow_conventions(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get Flow Conventions  # noqa: E501
@@ -603,23 +710,30 @@ class ConventionsApi(object):
         Get a Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_flow_conventions(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Flow Conventions to retrieve. (required)
-        :param str code: The name of the Flow Conventions to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Flow Conventions to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Flow Conventions to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetFlowConventionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetFlowConventionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_flow_conventions_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -630,34 +744,55 @@ class ConventionsApi(object):
         Get a Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_flow_conventions_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Flow Conventions to retrieve. (required)
-        :param str code: The name of the Flow Conventions to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Flow Conventions to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Flow Conventions to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -668,29 +803,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_flow_conventions`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_flow_conventions`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_flow_conventions`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_flow_conventions`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_flow_conventions`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -701,7 +836,7 @@ class ConventionsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -716,13 +851,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "GetFlowConventionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/flowconventions/{scope}/{code}', 'GET',
@@ -732,13 +867,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetFlowConventionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_index_convention(self, scope, code, **kwargs):  # noqa: E501
         """[BETA] Get Index Convention  # noqa: E501
@@ -746,23 +882,30 @@ class ConventionsApi(object):
         Get a Index Convention from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_index_convention(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Index Convention to retrieve. (required)
-        :param str code: The name of the Index Convention to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Index Convention to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Index Convention to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GetIndexConventionResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: GetIndexConventionResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.get_index_convention_with_http_info(scope, code, **kwargs)  # noqa: E501
@@ -773,34 +916,55 @@ class ConventionsApi(object):
         Get a Index Convention from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_index_convention_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str scope: The scope of the Index Convention to retrieve. (required)
-        :param str code: The name of the Index Convention to retrieve the data for. (required)
-        :param datetime as_at: The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.
+        :param scope: The scope of the Index Convention to retrieve. (required)
+        :type scope: str
+        :param code: The name of the Index Convention to retrieve the data for. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GetIndexConventionResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(GetIndexConventionResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['scope', 'code', 'as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'scope',
+            'code',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -811,29 +975,29 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'scope' is set
-        if ('scope' not in local_var_params or
-                local_var_params['scope'] is None):
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `scope` when calling `get_index_convention`")  # noqa: E501
         # verify the required parameter 'code' is set
-        if ('code' not in local_var_params or
-                local_var_params['code'] is None):
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `code` when calling `get_index_convention`")  # noqa: E501
 
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) > 64):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_index_convention`, length must be less than or equal to `64`")  # noqa: E501
-        if ('scope' in local_var_params and
-                len(local_var_params['scope']) < 1):
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_index_convention`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `get_index_convention`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) > 64):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_index_convention`, length must be less than or equal to `64`")  # noqa: E501
-        if ('code' in local_var_params and
-                len(local_var_params['code']) < 1):
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_index_convention`, length must be greater than or equal to `1`")  # noqa: E501
-        if 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_index_convention`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
@@ -844,7 +1008,7 @@ class ConventionsApi(object):
             path_params['code'] = local_var_params['code']  # noqa: E501
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -859,13 +1023,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "GetIndexConventionResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/indexconventions/{scope}/{code}', 'GET',
@@ -875,13 +1039,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetIndexConventionResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_cds_flow_conventions(self, **kwargs):  # noqa: E501
         """[BETA] List the set of CDS Flow Conventions  # noqa: E501
@@ -889,21 +1054,26 @@ class ConventionsApi(object):
         List the set of CDS Flow Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_cds_flow_conventions(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfGetCdsFlowConventionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfGetCdsFlowConventionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.list_cds_flow_conventions_with_http_info(**kwargs)  # noqa: E501
@@ -914,32 +1084,49 @@ class ConventionsApi(object):
         List the set of CDS Flow Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_cds_flow_conventions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfGetCdsFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfGetCdsFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -955,7 +1142,7 @@ class ConventionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -970,13 +1157,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfGetCdsFlowConventionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/credit/conventions', 'GET',
@@ -986,13 +1173,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfGetCdsFlowConventionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_flow_conventions(self, **kwargs):  # noqa: E501
         """[BETA] List the set of Flow Conventions  # noqa: E501
@@ -1000,21 +1188,26 @@ class ConventionsApi(object):
         List the set of Flow Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_flow_conventions(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfGetFlowConventionsResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfGetFlowConventionsResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.list_flow_conventions_with_http_info(**kwargs)  # noqa: E501
@@ -1025,32 +1218,49 @@ class ConventionsApi(object):
         List the set of Flow Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_flow_conventions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfGetFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfGetFlowConventionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1066,7 +1276,7 @@ class ConventionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1081,13 +1291,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfGetFlowConventionsResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/flowconventions', 'GET',
@@ -1097,13 +1307,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfGetFlowConventionsResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def list_index_convention(self, **kwargs):  # noqa: E501
         """[BETA] List the set of Index Conventions  # noqa: E501
@@ -1111,21 +1322,26 @@ class ConventionsApi(object):
         List the set of Index Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_index_convention(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResourceListOfGetIndexConventionResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: ResourceListOfGetIndexConventionResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.list_index_convention_with_http_info(**kwargs)  # noqa: E501
@@ -1136,32 +1352,49 @@ class ConventionsApi(object):
         List the set of Index Conventions at the specified date/time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_index_convention_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param datetime as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :param as_at: The asAt datetime at which to list the conventions. Defaults to latest if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResourceListOfGetIndexConventionResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(ResourceListOfGetIndexConventionResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['as_at']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1177,7 +1410,7 @@ class ConventionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'as_at' in local_var_params:
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
             query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
 
         header_params = {}
@@ -1192,13 +1425,13 @@ class ConventionsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
-
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-
-        # set the LUSID header
-        header_params['X-LUSID-SDK-Language'] = 'Python'
-        header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+        
+        response_types_map = {
+            200: "ResourceListOfGetIndexConventionResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/indexconventions', 'GET',
@@ -1208,13 +1441,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourceListOfGetIndexConventionResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_cds_flow_conventions(self, upsert_cds_flow_conventions_request, **kwargs):  # noqa: E501
         """[BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.  # noqa: E501
@@ -1222,21 +1456,26 @@ class ConventionsApi(object):
         Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_cds_flow_conventions(upsert_cds_flow_conventions_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCdsFlowConventionsRequest upsert_cds_flow_conventions_request: The CDS Flow Conventions to update or insert (required)
+        :param upsert_cds_flow_conventions_request: The CDS Flow Conventions to update or insert (required)
+        :type upsert_cds_flow_conventions_request: UpsertCdsFlowConventionsRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_cds_flow_conventions_with_http_info(upsert_cds_flow_conventions_request, **kwargs)  # noqa: E501
@@ -1247,32 +1486,49 @@ class ConventionsApi(object):
         Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_cds_flow_conventions_with_http_info(upsert_cds_flow_conventions_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertCdsFlowConventionsRequest upsert_cds_flow_conventions_request: The CDS Flow Conventions to update or insert (required)
+        :param upsert_cds_flow_conventions_request: The CDS Flow Conventions to update or insert (required)
+        :type upsert_cds_flow_conventions_request: UpsertCdsFlowConventionsRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_cds_flow_conventions_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_cds_flow_conventions_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1283,8 +1539,8 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_cds_flow_conventions_request' is set
-        if ('upsert_cds_flow_conventions_request' not in local_var_params or
-                local_var_params['upsert_cds_flow_conventions_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_cds_flow_conventions_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_cds_flow_conventions_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_cds_flow_conventions_request` when calling `upsert_cds_flow_conventions`")  # noqa: E501
 
         collection_formats = {}
@@ -1311,12 +1567,17 @@ class ConventionsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/credit/conventions', 'POST',
@@ -1326,13 +1587,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_flow_conventions(self, upsert_flow_conventions_request, **kwargs):  # noqa: E501
         """[BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.  # noqa: E501
@@ -1340,21 +1602,26 @@ class ConventionsApi(object):
         Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_flow_conventions(upsert_flow_conventions_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertFlowConventionsRequest upsert_flow_conventions_request: The Flow Conventions to update or insert (required)
+        :param upsert_flow_conventions_request: The Flow Conventions to update or insert (required)
+        :type upsert_flow_conventions_request: UpsertFlowConventionsRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_flow_conventions_with_http_info(upsert_flow_conventions_request, **kwargs)  # noqa: E501
@@ -1365,32 +1632,49 @@ class ConventionsApi(object):
         Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_flow_conventions_with_http_info(upsert_flow_conventions_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertFlowConventionsRequest upsert_flow_conventions_request: The Flow Conventions to update or insert (required)
+        :param upsert_flow_conventions_request: The Flow Conventions to update or insert (required)
+        :type upsert_flow_conventions_request: UpsertFlowConventionsRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_flow_conventions_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_flow_conventions_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1401,8 +1685,8 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_flow_conventions_request' is set
-        if ('upsert_flow_conventions_request' not in local_var_params or
-                local_var_params['upsert_flow_conventions_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_flow_conventions_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_flow_conventions_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_flow_conventions_request` when calling `upsert_flow_conventions`")  # noqa: E501
 
         collection_formats = {}
@@ -1429,12 +1713,17 @@ class ConventionsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/flowconventions', 'POST',
@@ -1444,13 +1733,14 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_index_convention(self, upsert_index_convention_request, **kwargs):  # noqa: E501
         """[BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.  # noqa: E501
@@ -1458,21 +1748,26 @@ class ConventionsApi(object):
         Update or insert Index Convention in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_index_convention(upsert_index_convention_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertIndexConventionRequest upsert_index_convention_request: The Index Conventions to update or insert (required)
+        :param upsert_index_convention_request: The Index Conventions to update or insert (required)
+        :type upsert_index_convention_request: UpsertIndexConventionRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UpsertSingleStructuredDataResponse
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: UpsertSingleStructuredDataResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.upsert_index_convention_with_http_info(upsert_index_convention_request, **kwargs)  # noqa: E501
@@ -1483,32 +1778,49 @@ class ConventionsApi(object):
         Update or insert Index Convention in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful                It is important to always check to verify success (or failure).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.upsert_index_convention_with_http_info(upsert_index_convention_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param UpsertIndexConventionRequest upsert_index_convention_request: The Index Conventions to update or insert (required)
+        :param upsert_index_convention_request: The Index Conventions to update or insert (required)
+        :type upsert_index_convention_request: UpsertIndexConventionRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(UpsertSingleStructuredDataResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['upsert_index_convention_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'upsert_index_convention_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -1519,8 +1831,8 @@ class ConventionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'upsert_index_convention_request' is set
-        if ('upsert_index_convention_request' not in local_var_params or
-                local_var_params['upsert_index_convention_request'] is None):
+        if self.api_client.client_side_validation and ('upsert_index_convention_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_index_convention_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `upsert_index_convention_request` when calling `upsert_index_convention`")  # noqa: E501
 
         collection_formats = {}
@@ -1547,12 +1859,17 @@ class ConventionsApi(object):
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['oauth2']  # noqa: E501
-
         # set the LUSID header
         header_params['X-LUSID-SDK-Language'] = 'Python'
         header_params['X-LUSID-SDK-Version'] = '0.11.3412'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+        
+        response_types_map = {
+            200: "UpsertSingleStructuredDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
 
         return self.api_client.call_api(
             '/api/conventions/rates/indexconventions', 'POST',
@@ -1562,10 +1879,11 @@ class ConventionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpsertSingleStructuredDataResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

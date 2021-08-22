@@ -1,5 +1,6 @@
 # QuoteInstrumentIdType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,7 @@
 # AggregationOptions
 
+Options for controlling the default aspects and behaviour of the aggregation.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

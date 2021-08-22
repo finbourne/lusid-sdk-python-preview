@@ -1,5 +1,6 @@
 # AggregationOp
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

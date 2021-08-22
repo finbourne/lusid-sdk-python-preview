@@ -1,5 +1,7 @@
 # TermDeposit
 
+Lusid internal representation of a term deposit
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
