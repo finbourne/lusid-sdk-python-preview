@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3414",
+    "version": "0.11.3415",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:55335"
     }
   ],
   "paths": {
@@ -12985,6 +12985,208 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeleteInstrumentPropertiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instruments/{identifierType}/{identifier}/properties/list": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] Get instrument properties (with Pagination)",
+        "description": "List all the properties of a particular instrument, as identified by a particular unique identifier.",
+        "operationId": "ListInstrumentProperties",
+        "parameters": [
+          {
+            "name": "identifierType",
+            "in": "path",
+            "description": "The unique identifier type to search, for example 'Figi'.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier type to search, for example 'Figi'.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the instrument's properties.\r\n            Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+              "type": "string",
+              "description": "The effective datetime or cut label at which to list the instrument's properties.\r\n            Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the instrument's properties. Defaults to returning\r\n            the latest version of each property if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the instrument's properties. Defaults to returning\r\n            the latest version of each property if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results per page to this number.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results per page to this number.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The properties of the specified instrument",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Instrument/MyScope/SomeInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Instrument/MyScope/SomeOtherInstrumentProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
                 }
               }
             }
@@ -71238,6 +71440,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfProperty": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfPropertyDefinition": {
         "required": [
           "values"
@@ -74598,7 +74841,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
