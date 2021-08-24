@@ -1,6 +1,6 @@
 # lusid.QuotesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:59548*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32761*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,8 +35,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -111,8 +111,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to delete.
@@ -175,8 +175,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to retrieve.
@@ -245,8 +245,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -323,8 +323,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to list.
@@ -395,8 +395,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
@@ -459,8 +459,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope of the quotes to list.
@@ -531,8 +531,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
@@ -597,8 +597,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:59548
-configuration.host = "http://local-unit-test-server.lusid.com:59548"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:32761
+configuration.host = "http://local-unit-test-server.lusid.com:32761"
 # Create an instance of the API class
 api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to use when updating or inserting the quotes.
