@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3421",
+    "version": "0.11.3424",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:39764"
     }
   ],
   "paths": {
@@ -24861,7 +24861,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "The updated definition of the portfolio group",
             "content": {
               "text/plain": {
@@ -34030,6 +34030,214 @@
           }
         ],
         "x-fbn-apistatus": "Stable"
+      }
+    },
+    "/api/portfolios/{scope}/{code}/properties/list": {
+      "get": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] Get portfolio properties",
+        "description": "List all the properties of a particular portfolio.",
+        "operationId": "ListPortfolioProperties",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio. Together with the scope this uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio. Together with the scope this uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+              "type": "string",
+              "description": "The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results per page to this number.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results per page to this number.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The properties of the specified portfolio",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Portfolio/MyScope/SomePortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Portfolio/MyScope/SomeOtherPortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Portfolio/MyScope/SomePortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Portfolio/MyScope/SomeOtherPortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfProperty"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "key": "Portfolio/MyScope/SomePortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ000034567"
+                      },
+                      "effectiveFrom": "2018-01-01T12:00:00.0000000+00:00"
+                    },
+                    {
+                      "key": "Portfolio/MyScope/SomeOtherPortfolioProperty",
+                      "value": {
+                        "labelValue": "XYZ00008910"
+                      },
+                      "effectiveFrom": "2017-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/properties/time-series": {
@@ -74840,7 +75048,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
