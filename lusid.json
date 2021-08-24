@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3417",
+    "version": "0.11.3418",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:47808"
     }
   ],
   "paths": {
@@ -59648,12 +59648,10 @@
       },
       "CalendarDate": {
         "required": [
-          "attributes",
           "dateIdentifier",
           "description",
           "fromUtc",
           "localDate",
-          "sourceData",
           "timezone",
           "toUtc",
           "type"
@@ -59695,7 +59693,8 @@
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            }
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -62249,13 +62248,8 @@
       },
       "DateAttributes": {
         "required": [
-          "activity",
-          "firstClose",
-          "firstOpen",
           "irregular",
           "irregularSession",
-          "lastClose",
-          "lastOpen",
           "newHours"
         ],
         "type": "object",
@@ -62273,31 +62267,36 @@
             "maxLength": 100,
             "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "firstOpen": {
             "maxLength": 100,
             "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "lastOpen": {
             "maxLength": 100,
             "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "firstClose": {
             "maxLength": 100,
             "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "lastClose": {
             "maxLength": 100,
             "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -74841,7 +74840,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
