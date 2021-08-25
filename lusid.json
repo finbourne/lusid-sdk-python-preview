@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3429",
+    "version": "0.11.3430",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -1886,25 +1886,181 @@
               "schema": {
                 "$ref": "#/components/schemas/BlockSetRequest"
               },
-              "example": {}
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "BLOC00000123"
+                    },
+                    "orderIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOC00000123"
+                      }
+                    ],
+                    "properties": {
+                      "block/MyScope/SomeBlockProperty": {
+                        "key": "Block/MyScope/SomeBlockProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 122345.33,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/BlockSetRequest"
               },
-              "example": {}
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "BLOC00000123"
+                    },
+                    "orderIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOC00000123"
+                      }
+                    ],
+                    "properties": {
+                      "block/MyScope/SomeBlockProperty": {
+                        "key": "Block/MyScope/SomeBlockProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 122345.33,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/BlockSetRequest"
               },
-              "example": {}
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "BLOC00000123"
+                    },
+                    "orderIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOC00000123"
+                      }
+                    ],
+                    "properties": {
+                      "block/MyScope/SomeBlockProperty": {
+                        "key": "Block/MyScope/SomeBlockProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 122345.33,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/BlockSetRequest"
               },
-              "example": {}
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "BLOC00000123"
+                    },
+                    "orderIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOC00000123"
+                      }
+                    ],
+                    "properties": {
+                      "block/MyScope/SomeBlockProperty": {
+                        "key": "Block/MyScope/SomeBlockProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 122345.33,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
             }
           }
         },
@@ -59612,8 +59768,88 @@
         "additionalProperties": false,
         "description": "A block of orders for the same instrument, intended to record for example a trader's aggregation\r\nof outstanding orders at a given time."
       },
+      "BlockRequest": {
+        "required": [
+          "createdDate",
+          "id",
+          "instrumentIdentifiers",
+          "orderIds",
+          "quantity",
+          "side",
+          "timeInForce",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "orderIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The related order ids."
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Client-defined properties associated with this block.",
+            "nullable": true
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The instrument ordered."
+          },
+          "quantity": {
+            "type": "number",
+            "description": "The total quantity of given instrument ordered.",
+            "format": "double"
+          },
+          "side": {
+            "type": "string",
+            "description": "The client's representation of the block's side (buy, sell, short, etc)"
+          },
+          "type": {
+            "type": "string",
+            "description": "The block order's type (examples: Limit, Market, ...)"
+          },
+          "timeInForce": {
+            "type": "string",
+            "description": "The block orders' time in force (examples: Day, GoodTilCancel, ...)"
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "The date on which the block was made",
+            "format": "date-time"
+          },
+          "limitPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "stopPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A request to create or update an Order."
+      },
       "BlockSetRequest": {
         "type": "object",
+        "properties": {
+          "requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlockRequest"
+            },
+            "description": "A collection of BlockRequests.",
+            "nullable": true
+          }
+        },
         "additionalProperties": false,
         "description": "A request to create or update multiple Blocks."
       },

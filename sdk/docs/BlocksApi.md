@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_blocks**
-> ResourceListOfBlock upsert_blocks(body=body)
+> ResourceListOfBlock upsert_blocks(block_set_request=block_set_request)
 
 [EXPERIMENTAL] Upsert Block
 
@@ -238,11 +238,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 configuration.host = "https://fbn-prd.lusid.com/api"
 # Create an instance of the API class
 api_instance = lusid.BlocksApi(lusid.ApiClient(configuration))
-body = {} # object | The collection of block requests. (optional)
+block_set_request = {"requests":[{"id":{"scope":"MyScope","code":"BLOC00000123"},"orderIds":[{"scope":"MyScope","code":"BLOC00000123"}],"properties":{"block/MyScope/SomeBlockProperty":{"key":"Block/MyScope/SomeBlockProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","type":"Limit","timeInForce":"GoodTilCancel","createdDate":"2006-04-11T00:00:00.0000000+00:00","limitPrice":{"amount":12413.33,"currency":"USD"},"stopPrice":{"amount":122345.33,"currency":"USD"}}]} # BlockSetRequest | The collection of block requests. (optional)
 
 try:
     # [EXPERIMENTAL] Upsert Block
-    api_response = api_instance.upsert_blocks(body=body)
+    api_response = api_instance.upsert_blocks(block_set_request=block_set_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BlocksApi->upsert_blocks: %s\n" % e)
@@ -252,7 +252,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**| The collection of block requests. | [optional] 
+ **block_set_request** | [**BlockSetRequest**](BlockSetRequest.md)| The collection of block requests. | [optional] 
 
 ### Return type
 
