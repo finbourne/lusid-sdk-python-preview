@@ -1,6 +1,6 @@
 # lusid.SchemasApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:50970*
+All URIs are relative to *http://local-unit-test-server.lusid.com:58038*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:50970
-configuration.host = "http://local-unit-test-server.lusid.com:50970"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58038
+configuration.host = "http://local-unit-test-server.lusid.com:58038"
 # Create an instance of the API class
 api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 entity = 'entity_example' # str | The name of a valid entity
@@ -92,8 +92,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:50970
-configuration.host = "http://local-unit-test-server.lusid.com:50970"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58038
+configuration.host = "http://local-unit-test-server.lusid.com:58038"
 # Create an instance of the API class
 api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 property_keys = ['property_keys_example'] # list[str] | One or more property keys for which the schema is requested (optional)
@@ -156,8 +156,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:50970
-configuration.host = "http://local-unit-test-server.lusid.com:50970"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58038
+configuration.host = "http://local-unit-test-server.lusid.com:58038"
 # Create an instance of the API class
 api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
@@ -222,8 +222,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:50970
-configuration.host = "http://local-unit-test-server.lusid.com:50970"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:58038
+configuration.host = "http://local-unit-test-server.lusid.com:58038"
 # Create an instance of the API class
 api_instance = lusid.SchemasApi(lusid.ApiClient(configuration))
 

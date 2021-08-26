@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3433",
+    "version": "0.11.3434",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50970"
+      "url": "http://local-unit-test-server.lusid.com:58038"
     }
   ],
   "paths": {
@@ -35755,6 +35755,17 @@
               "nullable": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "alternativeIncDate",
+            "in": "query",
+            "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
+            "schema": {
+              "type": "string",
+              "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
           }
         ],
         "responses": {
