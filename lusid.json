@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3431",
+    "version": "0.11.3432",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:61410"
+      "url": "http://local-unit-test-server.lusid.com:46515"
     }
   ],
   "paths": {
@@ -44138,12 +44138,12 @@
                 "$ref": "#/components/schemas/SideConfigurationDataRequest"
               },
               "example": {
-                "side": "Side1",
+                "side": "Side_Test",
                 "security": "security",
                 "currency": "currency",
-                "rate": "0.5",
-                "units": "500",
-                "amount": "1000"
+                "rate": "0.7",
+                "units": "300",
+                "amount": "2000"
               }
             },
             "application/json": {
@@ -44151,12 +44151,12 @@
                 "$ref": "#/components/schemas/SideConfigurationDataRequest"
               },
               "example": {
-                "side": "Side1",
+                "side": "Side_Test",
                 "security": "security",
                 "currency": "currency",
-                "rate": "0.5",
-                "units": "500",
-                "amount": "1000"
+                "rate": "0.7",
+                "units": "300",
+                "amount": "2000"
               }
             },
             "text/json": {
@@ -44164,12 +44164,12 @@
                 "$ref": "#/components/schemas/SideConfigurationDataRequest"
               },
               "example": {
-                "side": "Side1",
+                "side": "Side_Test",
                 "security": "security",
                 "currency": "currency",
-                "rate": "0.5",
-                "units": "500",
-                "amount": "1000"
+                "rate": "0.7",
+                "units": "300",
+                "amount": "2000"
               }
             },
             "application/*+json": {
@@ -44177,12 +44177,12 @@
                 "$ref": "#/components/schemas/SideConfigurationDataRequest"
               },
               "example": {
-                "side": "Side1",
+                "side": "Side_Test",
                 "security": "security",
                 "currency": "currency",
-                "rate": "0.5",
-                "units": "500",
-                "amount": "1000"
+                "rate": "0.7",
+                "units": "300",
+                "amount": "2000"
               }
             }
           }
