@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3434",
+    "version": "0.11.3435",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:58038"
+      "url": "http://local-unit-test-server.lusid.com:53048"
     }
   ],
   "paths": {
@@ -9766,28 +9766,8 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
-                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description",
-                "valueType": "Decimal",
-                "unitSchema": "Basic",
-                "acceptableUnits": [
-                  {
-                    "code": "Ap",
-                    "displayName": "Apples",
-                    "description": "A quantity of apples"
-                  },
-                  {
-                    "code": "Bn",
-                    "displayName": "Bananas",
-                    "description": "A quantity of bananas"
-                  },
-                  {
-                    "code": "Ch",
-                    "displayName": "Cherry",
-                    "description": "A quantity of cherries"
-                  }
-                ]
+                "description": "Data type description"
               }
             },
             "application/json": {
@@ -9795,28 +9775,8 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
-                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description",
-                "valueType": "Decimal",
-                "unitSchema": "Basic",
-                "acceptableUnits": [
-                  {
-                    "code": "Ap",
-                    "displayName": "Apples",
-                    "description": "A quantity of apples"
-                  },
-                  {
-                    "code": "Bn",
-                    "displayName": "Bananas",
-                    "description": "A quantity of bananas"
-                  },
-                  {
-                    "code": "Ch",
-                    "displayName": "Cherry",
-                    "description": "A quantity of cherries"
-                  }
-                ]
+                "description": "Data type description"
               }
             },
             "text/json": {
@@ -9824,28 +9784,8 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
-                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description",
-                "valueType": "Decimal",
-                "unitSchema": "Basic",
-                "acceptableUnits": [
-                  {
-                    "code": "Ap",
-                    "displayName": "Apples",
-                    "description": "A quantity of apples"
-                  },
-                  {
-                    "code": "Bn",
-                    "displayName": "Bananas",
-                    "description": "A quantity of bananas"
-                  },
-                  {
-                    "code": "Ch",
-                    "displayName": "Cherry",
-                    "description": "A quantity of cherries"
-                  }
-                ]
+                "description": "Data type description"
               }
             },
             "application/*+json": {
@@ -9853,28 +9793,8 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
-                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description",
-                "valueType": "Decimal",
-                "unitSchema": "Basic",
-                "acceptableUnits": [
-                  {
-                    "code": "Ap",
-                    "displayName": "Apples",
-                    "description": "A quantity of apples"
-                  },
-                  {
-                    "code": "Bn",
-                    "displayName": "Bananas",
-                    "description": "A quantity of bananas"
-                  },
-                  {
-                    "code": "Ch",
-                    "displayName": "Cherry",
-                    "description": "A quantity of cherries"
-                  }
-                ]
+                "description": "Data type description"
               }
             }
           }
@@ -73818,75 +73738,16 @@
         "description": "This request specifies a new Cut Label Definition"
       },
       "UpdateDataTypeRequest": {
-        "required": [
-          "description",
-          "displayName",
-          "typeValueRange",
-          "valueType"
-        ],
         "type": "object",
         "properties": {
-          "typeValueRange": {
-            "enum": [
-              "Open",
-              "Closed"
-            ],
-            "type": "string",
-            "description": "The available values are: Open, Closed"
-          },
           "displayName": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "valueType": {
-            "enum": [
-              "String",
-              "Int",
-              "Decimal",
-              "DateTime",
-              "Boolean",
-              "Map",
-              "List",
-              "PropertyArray",
-              "Percentage",
-              "Code",
-              "Id",
-              "Uri",
-              "CurrencyAndAmount",
-              "TradePrice",
-              "Currency",
-              "MetricValue",
-              "ResourceId",
-              "ResultValue",
-              "CutLocalTime",
-              "DateOrCutLabel"
-            ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel"
-          },
-          "acceptableValues": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "description": "The display name of the data type.",
             "nullable": true
           },
-          "unitSchema": {
-            "enum": [
-              "NoUnits",
-              "Basic",
-              "Iso4217Currency"
-            ],
+          "description": {
             "type": "string",
-            "description": "The available values are: NoUnits, Basic, Iso4217Currency"
-          },
-          "acceptableUnits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateUnitDefinition"
-            },
+            "description": "The description of the data type.",
             "nullable": true
           }
         },
