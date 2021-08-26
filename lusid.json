@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3435",
+    "version": "0.11.3433",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53048"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -9766,8 +9766,28 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
+                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "valueType": "Decimal",
+                "unitSchema": "Basic",
+                "acceptableUnits": [
+                  {
+                    "code": "Ap",
+                    "displayName": "Apples",
+                    "description": "A quantity of apples"
+                  },
+                  {
+                    "code": "Bn",
+                    "displayName": "Bananas",
+                    "description": "A quantity of bananas"
+                  },
+                  {
+                    "code": "Ch",
+                    "displayName": "Cherry",
+                    "description": "A quantity of cherries"
+                  }
+                ]
               }
             },
             "application/json": {
@@ -9775,8 +9795,28 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
+                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "valueType": "Decimal",
+                "unitSchema": "Basic",
+                "acceptableUnits": [
+                  {
+                    "code": "Ap",
+                    "displayName": "Apples",
+                    "description": "A quantity of apples"
+                  },
+                  {
+                    "code": "Bn",
+                    "displayName": "Bananas",
+                    "description": "A quantity of bananas"
+                  },
+                  {
+                    "code": "Ch",
+                    "displayName": "Cherry",
+                    "description": "A quantity of cherries"
+                  }
+                ]
               }
             },
             "text/json": {
@@ -9784,8 +9824,28 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
+                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "valueType": "Decimal",
+                "unitSchema": "Basic",
+                "acceptableUnits": [
+                  {
+                    "code": "Ap",
+                    "displayName": "Apples",
+                    "description": "A quantity of apples"
+                  },
+                  {
+                    "code": "Bn",
+                    "displayName": "Bananas",
+                    "description": "A quantity of bananas"
+                  },
+                  {
+                    "code": "Ch",
+                    "displayName": "Cherry",
+                    "description": "A quantity of cherries"
+                  }
+                ]
               }
             },
             "application/*+json": {
@@ -9793,8 +9853,28 @@
                 "$ref": "#/components/schemas/UpdateDataTypeRequest"
               },
               "example": {
+                "typeValueRange": "Open",
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "valueType": "Decimal",
+                "unitSchema": "Basic",
+                "acceptableUnits": [
+                  {
+                    "code": "Ap",
+                    "displayName": "Apples",
+                    "description": "A quantity of apples"
+                  },
+                  {
+                    "code": "Bn",
+                    "displayName": "Bananas",
+                    "description": "A quantity of bananas"
+                  },
+                  {
+                    "code": "Ch",
+                    "displayName": "Cherry",
+                    "description": "A quantity of cherries"
+                  }
+                ]
               }
             }
           }
@@ -35675,17 +35755,6 @@
               "nullable": true
             },
             "x-nullable": true
-          },
-          {
-            "name": "alternativeIncDate",
-            "in": "query",
-            "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
-            "schema": {
-              "type": "string",
-              "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
           }
         ],
         "responses": {
@@ -73738,16 +73807,75 @@
         "description": "This request specifies a new Cut Label Definition"
       },
       "UpdateDataTypeRequest": {
+        "required": [
+          "description",
+          "displayName",
+          "typeValueRange",
+          "valueType"
+        ],
         "type": "object",
         "properties": {
-          "displayName": {
+          "typeValueRange": {
+            "enum": [
+              "Open",
+              "Closed"
+            ],
             "type": "string",
-            "description": "The display name of the data type.",
-            "nullable": true
+            "description": "The available values are: Open, Closed"
+          },
+          "displayName": {
+            "type": "string"
           },
           "description": {
+            "type": "string"
+          },
+          "valueType": {
+            "enum": [
+              "String",
+              "Int",
+              "Decimal",
+              "DateTime",
+              "Boolean",
+              "Map",
+              "List",
+              "PropertyArray",
+              "Percentage",
+              "Code",
+              "Id",
+              "Uri",
+              "CurrencyAndAmount",
+              "TradePrice",
+              "Currency",
+              "MetricValue",
+              "ResourceId",
+              "ResultValue",
+              "CutLocalTime",
+              "DateOrCutLabel"
+            ],
             "type": "string",
-            "description": "The description of the data type.",
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel"
+          },
+          "acceptableValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "unitSchema": {
+            "enum": [
+              "NoUnits",
+              "Basic",
+              "Iso4217Currency"
+            ],
+            "type": "string",
+            "description": "The available values are: NoUnits, Basic, Iso4217Currency"
+          },
+          "acceptableUnits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateUnitDefinition"
+            },
             "nullable": true
           }
         },
@@ -75156,7 +75284,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
