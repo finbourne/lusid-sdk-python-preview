@@ -1,6 +1,6 @@
 # lusid.BlocksApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:40702*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40702
+configuration.host = "http://local-unit-test-server.lusid.com:40702"
 # Create an instance of the API class
 api_instance = lusid.BlocksApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The block scope.
@@ -94,8 +94,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40702
+configuration.host = "http://local-unit-test-server.lusid.com:40702"
 # Create an instance of the API class
 api_instance = lusid.BlocksApi(lusid.ApiClient(configuration))
 scope = 'scope_example' # str | The scope to which the block belongs.
@@ -162,8 +162,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40702
+configuration.host = "http://local-unit-test-server.lusid.com:40702"
 # Create an instance of the API class
 api_instance = lusid.BlocksApi(lusid.ApiClient(configuration))
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)
@@ -234,8 +234,8 @@ configuration = lusid.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
+# Defining host is optional and default to http://local-unit-test-server.lusid.com:40702
+configuration.host = "http://local-unit-test-server.lusid.com:40702"
 # Create an instance of the API class
 api_instance = lusid.BlocksApi(lusid.ApiClient(configuration))
 block_set_request = {"requests":[{"id":{"scope":"MyScope","code":"BLOC00000123"},"orderIds":[{"scope":"MyScope","code":"BLOC00000123"}],"properties":{"block/MyScope/SomeBlockProperty":{"key":"Block/MyScope/SomeBlockProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","type":"Limit","timeInForce":"GoodTilCancel","createdDate":"2006-04-11T00:00:00.0000000+00:00","limitPrice":{"amount":12413.33,"currency":"USD"},"stopPrice":{"amount":122345.33,"currency":"USD"}}]} # BlockSetRequest | The collection of block requests. (optional)
