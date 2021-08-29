@@ -1,5 +1,6 @@
 # CreateDataTypeRequest
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

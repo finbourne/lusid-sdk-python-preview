@@ -1,5 +1,7 @@
 # DiscountFactorCurveData
 
+A curve containing discount factors and dates to which they apply
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

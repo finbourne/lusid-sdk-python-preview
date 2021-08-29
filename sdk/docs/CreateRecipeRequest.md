@@ -1,5 +1,7 @@
 # CreateRecipeRequest
 
+Specification class to request for the creation/supplementing of a configuration recipe
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # DiscountFactorCurveDataAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

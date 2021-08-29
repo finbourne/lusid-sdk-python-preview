@@ -1,6 +1,6 @@
 # lusid.ConventionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:53397*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,23 +34,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the CDS Flow Conventions to delete.
 code = 'code_example' # str | The CDS Flow Conventions to delete.
 
-try:
-    # [BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
-    api_response = api_instance.delete_cds_flow_conventions(scope, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->delete_cds_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+        api_response = api_instance.delete_cds_flow_conventions(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->delete_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -98,23 +111,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Flow Conventions to delete.
 code = 'code_example' # str | The Flow Conventions to delete.
 
-try:
-    # [BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.
-    api_response = api_instance.delete_flow_conventions(scope, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->delete_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.
+        api_response = api_instance.delete_flow_conventions(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->delete_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -162,23 +188,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Index Convention to delete.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Index Convention to delete.
 code = 'code_example' # str | The Index Convention to delete.
 
-try:
-    # [BETA] Delete the Index Convention of given scope and code, assuming that it is present.
-    api_response = api_instance.delete_index_convention(scope, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->delete_index_convention: %s\n" % e)
+    try:
+        # [BETA] Delete the Index Convention of given scope and code, assuming that it is present.
+        api_response = api_instance.delete_index_convention(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->delete_index_convention: %s\n" % e)
 ```
 
 ### Parameters
@@ -226,24 +265,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the CDS Flow Conventions to retrieve.
 code = 'code_example' # str | The name of the CDS Flow Conventions to retrieve the data for.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)
 
-try:
-    # [BETA] Get CDS Flow Conventions
-    api_response = api_instance.get_cds_flow_conventions(scope, code, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->get_cds_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Get CDS Flow Conventions
+        api_response = api_instance.get_cds_flow_conventions(scope, code, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->get_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -292,24 +344,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Flow Conventions to retrieve.
 code = 'code_example' # str | The name of the Flow Conventions to retrieve the data for.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)
 
-try:
-    # [BETA] Get Flow Conventions
-    api_response = api_instance.get_flow_conventions(scope, code, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->get_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Get Flow Conventions
+        api_response = api_instance.get_flow_conventions(scope, code, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->get_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -358,24 +423,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Index Convention to retrieve.
 code = 'code_example' # str | The name of the Index Convention to retrieve the data for.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)
 
-try:
-    # [BETA] Get Index Convention
-    api_response = api_instance.get_index_convention(scope, code, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->get_index_convention: %s\n" % e)
+    try:
+        # [BETA] Get Index Convention
+        api_response = api_instance.get_index_convention(scope, code, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->get_index_convention: %s\n" % e)
 ```
 
 ### Parameters
@@ -424,22 +502,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
-try:
-    # [BETA] List the set of CDS Flow Conventions
-    api_response = api_instance.list_cds_flow_conventions(as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->list_cds_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] List the set of CDS Flow Conventions
+        api_response = api_instance.list_cds_flow_conventions(as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->list_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -486,22 +577,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
-try:
-    # [BETA] List the set of Flow Conventions
-    api_response = api_instance.list_flow_conventions(as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->list_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] List the set of Flow Conventions
+        api_response = api_instance.list_flow_conventions(as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->list_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -548,22 +652,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)
 
-try:
-    # [BETA] List the set of Index Conventions
-    api_response = api_instance.list_index_convention(as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->list_index_convention: %s\n" % e)
+    try:
+        # [BETA] List the set of Index Conventions
+        api_response = api_instance.list_index_convention(as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->list_index_convention: %s\n" % e)
 ```
 
 ### Parameters
@@ -610,22 +727,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
 
-try:
-    # [BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->upsert_cds_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+        api_response = api_instance.upsert_cds_flow_conventions(upsert_cds_flow_conventions_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->upsert_cds_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -672,22 +802,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
-try:
-    # [BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_flow_conventions(upsert_flow_conventions_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->upsert_flow_conventions: %s\n" % e)
+    try:
+        # [BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.
+        api_response = api_instance.upsert_flow_conventions(upsert_flow_conventions_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->upsert_flow_conventions: %s\n" % e)
 ```
 
 ### Parameters
@@ -734,22 +877,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.ConventionsApi(lusid.ApiClient(configuration))
-upsert_index_convention_request = {"indexConvention":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertIndexConventionRequest | The Index Conventions to update or insert
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ConventionsApi(api_client)
+    upsert_index_convention_request = {"indexConvention":{"fixingReference":"Unknown","publicationDayLag":2,"paymentTenor":"1Y","dayCountConvention":"Act360","currency":"GBP","scope":"someScope","code":"exampleIndexonventionsName"}} # UpsertIndexConventionRequest | The Index Conventions to update or insert
 
-try:
-    # [BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_index_convention(upsert_index_convention_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConventionsApi->upsert_index_convention: %s\n" % e)
+    try:
+        # [BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.
+        api_response = api_instance.upsert_index_convention(upsert_index_convention_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConventionsApi->upsert_index_convention: %s\n" % e)
 ```
 
 ### Parameters

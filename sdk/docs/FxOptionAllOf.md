@@ -1,5 +1,6 @@
 # FxOptionAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

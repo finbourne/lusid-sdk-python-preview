@@ -1,5 +1,6 @@
 # MovementType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

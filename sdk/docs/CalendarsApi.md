@@ -1,6 +1,6 @@
 # lusid.CalendarsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:53397*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,23 +34,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope within which to search for the calendars
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope within which to search for the calendars
 add_business_days_to_date_request = {"businessDayOffset":5,"holidayCodes":["GBP"],"startDate":"2020-02-10T00:00:00.0000000+00:00"} # AddBusinessDaysToDateRequest | Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store
 
-try:
-    # [EXPERIMENTAL] Adds the requested number of Business Days to the provided date.
-    api_response = api_instance.add_business_days_to_date(scope, add_business_days_to_date_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->add_business_days_to_date: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Adds the requested number of Business Days to the provided date.
+        api_response = api_instance.add_business_days_to_date(scope, add_business_days_to_date_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->add_business_days_to_date: %s\n" % e)
 ```
 
 ### Parameters
@@ -98,24 +111,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendar
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
 create_date_request = {"dateId":"TestDate","fromUtc":"2020-02-12T12:00:00.0000000+00:00","toUtc":"2020-02-13T12:00:00.0000000+00:00","timeZone":"CET","description":"Chinese New year","type":"Holiday","sourceData":{}} # CreateDateRequest | Add date to calendar request
 
-try:
-    # [BETA] Add a date to a calendar
-    api_response = api_instance.add_date_to_calendar(scope, code, create_date_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->add_date_to_calendar: %s\n" % e)
+    try:
+        # [BETA] Add a date to a calendar
+        api_response = api_instance.add_date_to_calendar(scope, code, create_date_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->add_date_to_calendar: %s\n" % e)
 ```
 
 ### Parameters
@@ -164,22 +190,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne-Calendar-Service","properties":[{"key":"Calendar/HolidayType/Statutory","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne-Calendar-Service","properties":[{"key":"Calendar/HolidayType/Statutory","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
 
-try:
-    # [BETA] Create a calendar in its generic form
-    api_response = api_instance.create_calendar(create_calendar_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->create_calendar: %s\n" % e)
+    try:
+        # [BETA] Create a calendar in its generic form
+        api_response = api_instance.create_calendar(create_calendar_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->create_calendar: %s\n" % e)
 ```
 
 ### Parameters
@@ -226,23 +265,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendar
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
 
-try:
-    # [BETA] Delete a calendar
-    api_response = api_instance.delete_calendar(scope, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->delete_calendar: %s\n" % e)
+    try:
+        # [BETA] Delete a calendar
+        api_response = api_instance.delete_calendar(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->delete_calendar: %s\n" % e)
 ```
 
 ### Parameters
@@ -290,24 +342,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendar
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
 date_id = 'date_id_example' # str | Identifier of the date to be removed
 
-try:
-    # [BETA] Remove a date from a calendar
-    api_response = api_instance.delete_date_from_calendar(scope, code, date_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->delete_date_from_calendar: %s\n" % e)
+    try:
+        # [BETA] Remove a date from a calendar
+        api_response = api_instance.delete_date_from_calendar(scope, code, date_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->delete_date_from_calendar: %s\n" % e)
 ```
 
 ### Parameters
@@ -356,24 +421,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendars to use
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendars to use
 valuation_schedule = {"effectiveFrom":"2020-01-01","effectiveAt":"2021-01-01","tenor":"1M","rollConvention":"F","holidayCalendars":["GBP","USD"],"valuationDateTimes":[]} # ValuationSchedule | The ValuationSchedule to generate schedule dates from
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional AsAt for searching the calendar store. Defaults to Latest. (optional)
 
-try:
-    # [EXPERIMENTAL] Generate an ordered schedule of dates.
-    api_response = api_instance.generate_schedule(scope, valuation_schedule, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->generate_schedule: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Generate an ordered schedule of dates.
+        api_response = api_instance.generate_schedule(scope, valuation_schedule, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->generate_schedule: %s\n" % e)
 ```
 
 ### Parameters
@@ -422,24 +500,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendar identifier
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendar identifier
 code = 'code_example' # str | Code of the calendar identifier
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendar (optional)
 
-try:
-    # [BETA] Get a calendar in its generic form
-    api_response = api_instance.get_calendar(scope, code, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->get_calendar: %s\n" % e)
+    try:
+        # [BETA] Get a calendar in its generic form
+        api_response = api_instance.get_calendar(scope, code, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->get_calendar: %s\n" % e)
 ```
 
 ### Parameters
@@ -488,27 +579,40 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendar
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
 from_effective_at = 'from_effective_at_example' # str | Where the effective window of dates should begin from (optional)
 to_effective_at = 'to_effective_at_example' # str | Where the effective window of dates should end (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | AsAt the dates should be retrieved at (optional)
 id_filter = ['id_filter_example'] # list[str] | An additional filter that will filter dates based on their identifer (optional)
 
-try:
-    # [BETA] Get dates for a specific calendar
-    api_response = api_instance.get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->get_dates: %s\n" % e)
+    try:
+        # [BETA] Get dates for a specific calendar
+        api_response = api_instance.get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->get_dates: %s\n" % e)
 ```
 
 ### Parameters
@@ -560,25 +664,38 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    date_time = '2013-10-20T19:20:30+01:00' # datetime | DateTime to check - This DateTime must be UTC
 scope = 'scope_example' # str | Scope of the calendar
 code = 'code_example' # str | Code of the calendar
 as_at = '2013-10-20T19:20:30+01:00' # datetime | AsAt for the request (optional)
 
-try:
-    # [BETA] Check whether a DateTime is a \"Business DateTime\"
-    api_response = api_instance.is_business_date_time(date_time, scope, code, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->is_business_date_time: %s\n" % e)
+    try:
+        # [BETA] Check whether a DateTime is a \"Business DateTime\"
+        api_response = api_instance.is_business_date_time(date_time, scope, code, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->is_business_date_time: %s\n" % e)
 ```
 
 ### Parameters
@@ -628,25 +745,38 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendars (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendars (optional)
 page = 'page_example' # str | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [BETA] List Calenders
-    api_response = api_instance.list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
+    try:
+        # [BETA] List Calenders
+        api_response = api_instance.list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
 ```
 
 ### Parameters
@@ -696,27 +826,40 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the calendars
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the calendars
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendars (optional)
 page = 'page_example' # str | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [BETA] List all calenders in a specified scope
-    api_response = api_instance.list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->list_calendars_in_scope: %s\n" % e)
+    try:
+        # [BETA] List all calenders in a specified scope
+        api_response = api_instance.list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->list_calendars_in_scope: %s\n" % e)
 ```
 
 ### Parameters
@@ -768,24 +911,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53397
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:53397"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to https://fbn-prd.lusid.com/api
-configuration.host = "https://fbn-prd.lusid.com/api"
-# Create an instance of the API class
-api_instance = lusid.CalendarsApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | Scope of the request
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CalendarsApi(api_client)
+    scope = 'scope_example' # str | Scope of the request
 code = 'code_example' # str | Code of the request
 update_calendar_request = {"weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne-Calendar-Service","properties":[{"key":"Calendar/HolidayType/Statutory","value":{"labelValue":"CBTR"}}]} # UpdateCalendarRequest | The new state of the calendar
 
-try:
-    # [BETA] Update a calendar
-    api_response = api_instance.update_calendar(scope, code, update_calendar_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CalendarsApi->update_calendar: %s\n" % e)
+    try:
+        # [BETA] Update a calendar
+        api_response = api_instance.update_calendar(scope, code, update_calendar_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CalendarsApi->update_calendar: %s\n" % e)
 ```
 
 ### Parameters

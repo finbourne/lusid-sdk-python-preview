@@ -1,5 +1,7 @@
 # CustomEntityDefinition
 
+Representation of Custom Entity Definition on LUSID API
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
