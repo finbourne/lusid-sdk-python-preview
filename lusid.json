@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3445",
+    "version": "0.11.3447",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:31591"
     }
   ],
   "paths": {
@@ -35925,10 +35925,10 @@
           {
             "name": "alternativeIncDate",
             "in": "query",
-            "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
+            "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property.",
             "schema": {
               "type": "string",
-              "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin.",
+              "description": "The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -75474,7 +75474,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
