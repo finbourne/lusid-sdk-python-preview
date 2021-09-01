@@ -83,28 +83,30 @@ class RESTClientObject(object):
             else:
                 maxsize = 4
 
-        if configuration.proxy:
-            self.pool_manager = TCPKeepAliveProxyManager(
-                num_pools=pools_size,
-                maxsize=maxsize,
-                cert_reqs=cert_reqs,
-                ca_certs=ca_certs,
-                cert_file=configuration.cert_file,
-                key_file=configuration.key_file,
-                proxy_url=configuration.proxy,
-                proxy_headers=configuration.proxy_headers,
-                **addition_pool_args
-            )
-        else:
-            self.pool_manager = TCPKeepAlivePoolManager(
-                num_pools=pools_size,
-                maxsize=maxsize,
-                cert_reqs=cert_reqs,
-                ca_certs=ca_certs,
-                cert_file=configuration.cert_file,
-                key_file=configuration.key_file,
-                **addition_pool_args
-            )
+        # tcp_keep_alive cannot be put in additional_pool_args without errors in the base pool manager
+        if configuration.tcp_keep_alive:
+            if configuration.proxy:
+                self.pool_manager = TCPKeepAliveProxyManager(
+                    num_pools=pools_size,
+                    maxsize=maxsize,
+                    cert_reqs=cert_reqs,
+                    ca_certs=ca_certs,
+                    cert_file=configuration.cert_file,
+                    key_file=configuration.key_file,
+                    proxy_url=configuration.proxy,
+                    proxy_headers=configuration.proxy_headers,
+                    **addition_pool_args
+                )
+            else:
+                self.pool_manager = TCPKeepAlivePoolManager(
+                    num_pools=pools_size,
+                    maxsize=maxsize,
+                    cert_reqs=cert_reqs,
+                    ca_certs=ca_certs,
+                    cert_file=configuration.cert_file,
+                    key_file=configuration.key_file,
+                    **addition_pool_args
+                )
 
     def request(self, method, url, query_params=None, headers=None,
                 body=None, post_params=None, _preload_content=True,
