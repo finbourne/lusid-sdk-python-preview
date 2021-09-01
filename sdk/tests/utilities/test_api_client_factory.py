@@ -4,12 +4,13 @@ from datetime import datetime
 from unittest.mock import patch
 from parameterized import parameterized
 from threading import Thread
-from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor
+from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor, TCPKeepAlivePoolManager
 from lusid.utilities import ApiClientFactory
 
-from utilities import TokenUtilities as tu, CredentialsSource
-from utilities.temp_file_manager import TempFileManager
-from utilities import MockApiResponse
+from tests.utilities.token_utilities import TokenUtilities as tu
+from tests.utilities.temp_file_manager import TempFileManager
+from tests.utilities.credentials_source import CredentialsSource
+from tests.utilities.mock_api_response import MockApiResponse
 
 
 class UnknownApi:
@@ -228,6 +229,20 @@ class ApiFactory(unittest.TestCase):
             self.validate_api(api)
             self.assertTrue("CorrelationId" in api.api_client.default_headers, msg="CorrelationId not found in headers")
             self.assertEquals(api.api_client.default_headers["CorrelationId"], "param-correlation-id")
+
+    def test_get_api_without_tcp_keep_alive(self):
+        api_factory = ApiClientFactory(
+            tcp_keep_alive=False
+        )
+        # Make sure tcp_keep_alive was passed through all of the layers
+        self.assertFalse(api_factory.api_client.configuration.tcp_keep_alive)
+        self.assertFalse(hasattr(api_factory.api_client.rest_client, 'pool_manager'))
+
+    def test_get_api_with_tcp_keep_alive(self):
+        api_factory = ApiClientFactory()
+        # Make sure tcp_keep_alive was passed through all of the layers
+        self.assertTrue(hasattr(api_factory.api_client.rest_client, 'pool_manager'))
+        self.assertIsInstance(api_factory.api_client.rest_client.pool_manager, TCPKeepAlivePoolManager)
 
     def test_use_apifactory_with_id_provider_response_handler(self):
         """
