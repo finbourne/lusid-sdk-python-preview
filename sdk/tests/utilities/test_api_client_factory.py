@@ -232,6 +232,7 @@ class ApiFactory(unittest.TestCase):
 
     def test_get_api_without_tcp_keep_alive(self):
         api_factory = ApiClientFactory(
+            api_secrets_filename=CredentialsSource.secrets_path(),
             tcp_keep_alive=False
         )
         # Make sure tcp_keep_alive was passed through all of the layers
@@ -239,7 +240,7 @@ class ApiFactory(unittest.TestCase):
         self.assertFalse(hasattr(api_factory.api_client.rest_client, 'pool_manager'))
 
     def test_get_api_with_tcp_keep_alive(self):
-        api_factory = ApiClientFactory()
+        api_factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
         # Make sure tcp_keep_alive was passed through all of the layers
         self.assertTrue(hasattr(api_factory.api_client.rest_client, 'pool_manager'))
         self.assertIsInstance(api_factory.api_client.rest_client.pool_manager, TCPKeepAlivePoolManager)
