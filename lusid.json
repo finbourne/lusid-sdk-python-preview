@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3450",
+    "version": "0.11.3448",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:38845"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -8812,801 +8812,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AnnulSingleStructuredDataResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/customentities/{entityType}": {
-      "post": {
-        "tags": [
-          "CustomEntities"
-        ],
-        "summary": "[EXPERIMENTAL] Upsert a new CustomEntity",
-        "description": "Insert the custom entity if it does not exist or update the custom entity with the supplied state if it does exist.",
-        "operationId": "UpsertCustomEntity",
-        "parameters": [
-          {
-            "name": "entityType",
-            "in": "path",
-            "description": "The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint."
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The CustomEntity to be created",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityRequest"
-              },
-              "example": {
-                "displayName": "Issue",
-                "description": "Issue with loading data",
-                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
-                "identifiers": [
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "InternalId",
-                    "identifierValue": "067e9f2fce07401ca13285a0ab9ef5a6"
-                  },
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "JiraID",
-                    "identifierValue": "PLAT-250"
-                  }
-                ],
-                "fields": [
-                  {
-                    "name": "IssueName",
-                    "value": "InstrumentNotFound"
-                  },
-                  {
-                    "name": "Status",
-                    "value": "InProgress"
-                  },
-                  {
-                    "name": "StoryPointEstimate",
-                    "value": 1
-                  },
-                  {
-                    "name": "Assigned",
-                    "value": true
-                  },
-                  {
-                    "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00"
-                  }
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityRequest"
-              },
-              "example": {
-                "displayName": "Issue",
-                "description": "Issue with loading data",
-                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
-                "identifiers": [
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "InternalId",
-                    "identifierValue": "067e9f2fce07401ca13285a0ab9ef5a6"
-                  },
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "JiraID",
-                    "identifierValue": "PLAT-250"
-                  }
-                ],
-                "fields": [
-                  {
-                    "name": "IssueName",
-                    "value": "InstrumentNotFound"
-                  },
-                  {
-                    "name": "Status",
-                    "value": "InProgress"
-                  },
-                  {
-                    "name": "StoryPointEstimate",
-                    "value": 1
-                  },
-                  {
-                    "name": "Assigned",
-                    "value": true
-                  },
-                  {
-                    "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00"
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityRequest"
-              },
-              "example": {
-                "displayName": "Issue",
-                "description": "Issue with loading data",
-                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
-                "identifiers": [
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "InternalId",
-                    "identifierValue": "067e9f2fce07401ca13285a0ab9ef5a6"
-                  },
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "JiraID",
-                    "identifierValue": "PLAT-250"
-                  }
-                ],
-                "fields": [
-                  {
-                    "name": "IssueName",
-                    "value": "InstrumentNotFound"
-                  },
-                  {
-                    "name": "Status",
-                    "value": "InProgress"
-                  },
-                  {
-                    "name": "StoryPointEstimate",
-                    "value": 1
-                  },
-                  {
-                    "name": "Assigned",
-                    "value": true
-                  },
-                  {
-                    "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00"
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityRequest"
-              },
-              "example": {
-                "displayName": "Issue",
-                "description": "Issue with loading data",
-                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
-                "identifiers": [
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "InternalId",
-                    "identifierValue": "067e9f2fce07401ca13285a0ab9ef5a6"
-                  },
-                  {
-                    "identifierScope": "DataLoadingIssues",
-                    "identifierType": "JiraID",
-                    "identifierValue": "PLAT-250"
-                  }
-                ],
-                "fields": [
-                  {
-                    "name": "IssueName",
-                    "value": "InstrumentNotFound"
-                  },
-                  {
-                    "name": "Status",
-                    "value": "InProgress"
-                  },
-                  {
-                    "name": "StoryPointEstimate",
-                    "value": 1
-                  },
-                  {
-                    "name": "Assigned",
-                    "value": true
-                  },
-                  {
-                    "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00"
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "The upserted Custom Entity",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
-                  "entityType": "~issue",
-                  "customEntityId": "908c90ba-bbcf-4c92-b6ba-00e90e2b2e9c",
-                  "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "Issue",
-                  "description": "Issue with loading data",
-                  "identifiers": [
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "InternalId",
-                      "identifierValue": "567409653e1b460faa68c3df9bd71403",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "JiraId",
-                      "identifierValue": "PLAT-250",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "IssueName",
-                      "value": "InstrumentNotFound"
-                    },
-                    {
-                      "name": "Status",
-                      "value": "InProgress"
-                    },
-                    {
-                      "name": "StoryPointEstimate",
-                      "value": 1
-                    },
-                    {
-                      "name": "Assigned",
-                      "value": true
-                    },
-                    {
-                      "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
-                  "entityType": "~issue",
-                  "customEntityId": "908c90ba-bbcf-4c92-b6ba-00e90e2b2e9c",
-                  "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "Issue",
-                  "description": "Issue with loading data",
-                  "identifiers": [
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "InternalId",
-                      "identifierValue": "567409653e1b460faa68c3df9bd71403",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "JiraId",
-                      "identifierValue": "PLAT-250",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "IssueName",
-                      "value": "InstrumentNotFound"
-                    },
-                    {
-                      "name": "Status",
-                      "value": "InProgress"
-                    },
-                    {
-                      "name": "StoryPointEstimate",
-                      "value": 1
-                    },
-                    {
-                      "name": "Assigned",
-                      "value": true
-                    },
-                    {
-                      "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
-                  "entityType": "~issue",
-                  "customEntityId": "908c90ba-bbcf-4c92-b6ba-00e90e2b2e9c",
-                  "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "Issue",
-                  "description": "Issue with loading data",
-                  "identifiers": [
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "InternalId",
-                      "identifierValue": "567409653e1b460faa68c3df9bd71403",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "DataLoadingIssues",
-                      "identifierType": "JiraId",
-                      "identifierValue": "PLAT-250",
-                      "effectiveRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "IssueName",
-                      "value": "InstrumentNotFound"
-                    },
-                    {
-                      "name": "Status",
-                      "value": "InProgress"
-                    },
-                    {
-                      "name": "StoryPointEstimate",
-                      "value": 1
-                    },
-                    {
-                      "name": "Assigned",
-                      "value": true
-                    },
-                    {
-                      "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
-                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/customentities/{entityType}/{identifierType}/{identifierValue}": {
-      "get": {
-        "tags": [
-          "CustomEntities"
-        ],
-        "summary": "[EXPERIMENTAL] Get CustomEntity",
-        "description": "Retrieve a CustomEntity by a specific Id at a point in AsAt time",
-        "operationId": "GetCustomEntity",
-        "parameters": [
-          {
-            "name": "entityType",
-            "in": "path",
-            "description": "The type of entity to retrieve",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The type of entity to retrieve"
-            }
-          },
-          {
-            "name": "identifierType",
-            "in": "path",
-            "description": "An identifier type attached to the CustomEntity",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "An identifier type attached to the CustomEntity"
-            }
-          },
-          {
-            "name": "identifierValue",
-            "in": "path",
-            "description": "The identifier value",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The identifier value"
-            }
-          },
-          {
-            "name": "identifierScope",
-            "in": "query",
-            "description": "The identifier scope",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The identifier scope"
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The AsAt at which to retrieve the CustomEntity",
-            "schema": {
-              "type": "string",
-              "description": "The AsAt at which to retrieve the CustomEntity",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested Custom Entity",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
-                  "entityType": "~branch",
-                  "customEntityId": "913a1897-fbcc-47f1-a93f-493107659dbd",
-                  "version": {
-                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "The Frames",
-                  "description": "Finbourne's London office in The Frames building",
-                  "identifiers": [
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "what3words",
-                      "identifierValue": "loaf.fires.basket",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "Coordinates",
-                      "identifierValue": "51.52356,-0.08192",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "Name of building",
-                      "value": "Frames Building"
-                    },
-                    {
-                      "name": "Town",
-                      "value": "Shoreditch"
-                    },
-                    {
-                      "name": "CurrentOffice",
-                      "value": 1
-                    },
-                    {
-                      "name": "Date Moved in",
-                      "value": true
-                    },
-                    {
-                      "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
-                  "entityType": "~branch",
-                  "customEntityId": "913a1897-fbcc-47f1-a93f-493107659dbd",
-                  "version": {
-                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "The Frames",
-                  "description": "Finbourne's London office in The Frames building",
-                  "identifiers": [
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "what3words",
-                      "identifierValue": "loaf.fires.basket",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "Coordinates",
-                      "identifierValue": "51.52356,-0.08192",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "Name of building",
-                      "value": "Frames Building"
-                    },
-                    {
-                      "name": "Town",
-                      "value": "Shoreditch"
-                    },
-                    {
-                      "name": "CurrentOffice",
-                      "value": 1
-                    },
-                    {
-                      "name": "Date Moved in",
-                      "value": true
-                    },
-                    {
-                      "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityResponse"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
-                  "entityType": "~branch",
-                  "customEntityId": "913a1897-fbcc-47f1-a93f-493107659dbd",
-                  "version": {
-                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "displayName": "The Frames",
-                  "description": "Finbourne's London office in The Frames building",
-                  "identifiers": [
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "what3words",
-                      "identifierValue": "loaf.fires.basket",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "identifierScope": "locations",
-                      "identifierType": "Coordinates",
-                      "identifierValue": "51.52356,-0.08192",
-                      "effectiveRange": {
-                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                      },
-                      "asAtRange": {
-                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "fields": [
-                    {
-                      "name": "Name of building",
-                      "value": "Frames Building"
-                    },
-                    {
-                      "name": "Town",
-                      "value": "Shoreditch"
-                    },
-                    {
-                      "name": "CurrentOffice",
-                      "value": 1
-                    },
-                    {
-                      "name": "Date Moved in",
-                      "value": true
-                    },
-                    {
-                      "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
-                    }
-                  ],
-                  "effectiveRange": {
-                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
-                  },
-                  "asAtRange": {
-                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
-                  }
                 }
               }
             }
@@ -37225,11 +36430,10 @@
                 "Block",
                 "Participation",
                 "Package",
-                "OrderInstruction",
-                "CustomEntity"
+                "OrderInstruction"
               ],
               "type": "string",
-              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
             }
           },
           {
@@ -37401,11 +36605,10 @@
                 "Block",
                 "Participation",
                 "Package",
-                "OrderInstruction",
-                "CustomEntity"
+                "OrderInstruction"
               ],
               "type": "string",
-              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
             }
           },
           {
@@ -37535,11 +36738,10 @@
                 "Block",
                 "Participation",
                 "Package",
-                "OrderInstruction",
-                "CustomEntity"
+                "OrderInstruction"
               ],
               "type": "string",
-              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+              "description": "The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
             }
           },
           {
@@ -62555,11 +61757,10 @@
               "Block",
               "Participation",
               "Package",
-              "OrderInstruction",
-              "CustomEntity"
+              "OrderInstruction"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
           },
           "scope": {
             "type": "string",
@@ -62754,11 +61955,10 @@
               "Block",
               "Participation",
               "Package",
-              "OrderInstruction",
-              "CustomEntity"
+              "OrderInstruction"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
           },
           "scope": {
             "type": "string",
@@ -63464,23 +62664,6 @@
         },
         "additionalProperties": false
       },
-      "CustomEntityField": {
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object",
-            "additionalProperties": false
-          }
-        },
-        "additionalProperties": false
-      },
       "CustomEntityFieldDefinition": {
         "required": [
           "name",
@@ -63501,151 +62684,6 @@
           },
           "required": {
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomEntityIdRequest": {
-        "required": [
-          "identifierScope",
-          "identifierType",
-          "identifierValue"
-        ],
-        "type": "object",
-        "properties": {
-          "identifierScope": {
-            "type": "string"
-          },
-          "identifierType": {
-            "type": "string"
-          },
-          "identifierValue": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomEntityIdResponse": {
-        "required": [
-          "asAtRange",
-          "effectiveRange",
-          "identifierScope",
-          "identifierType",
-          "identifierValue"
-        ],
-        "type": "object",
-        "properties": {
-          "identifierScope": {
-            "type": "string"
-          },
-          "identifierType": {
-            "type": "string"
-          },
-          "identifierValue": {
-            "type": "string"
-          },
-          "effectiveRange": {
-            "$ref": "#/components/schemas/DateRange"
-          },
-          "asAtRange": {
-            "$ref": "#/components/schemas/DateRange"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomEntityRequest": {
-        "required": [
-          "description",
-          "displayName",
-          "identifiers"
-        ],
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "effectiveAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "identifiers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomEntityIdRequest"
-            }
-          },
-          "fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomEntityField"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomEntityResponse": {
-        "required": [
-          "asAtRange",
-          "customEntityId",
-          "displayName",
-          "effectiveRange",
-          "entityType",
-          "fields",
-          "identifiers",
-          "version"
-        ],
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "entityType": {
-            "type": "string"
-          },
-          "customEntityId": {
-            "type": "string"
-          },
-          "version": {
-            "$ref": "#/components/schemas/Version"
-          },
-          "displayName": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "identifiers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomEntityIdResponse"
-            }
-          },
-          "fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomEntityField"
-            }
-          },
-          "effectiveRange": {
-            "$ref": "#/components/schemas/DateRange"
-          },
-          "asAtRange": {
-            "$ref": "#/components/schemas/DateRange"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -70503,11 +69541,10 @@
               "Block",
               "Participation",
               "Package",
-              "OrderInstruction",
-              "CustomEntity"
+              "OrderInstruction"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
           },
           "scope": {
             "type": "string",
@@ -70660,11 +69697,10 @@
               "Block",
               "Participation",
               "Package",
-              "OrderInstruction",
-              "CustomEntity"
+              "OrderInstruction"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity"
+            "description": "The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction"
           },
           "scope": {
             "type": "string",
@@ -70758,8 +69794,7 @@
           "Block",
           "Participation",
           "Package",
-          "OrderInstruction",
-          "CustomEntity"
+          "OrderInstruction"
         ],
         "type": "string",
         "description": "See https://wiki.finbourne.com/information/domain-model-properties\r\n            \r\nEach domain refers to a logical set of properties which reside within it."
@@ -76439,7 +75474,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
@@ -76489,10 +75524,6 @@
     {
       "name": "Counterparties",
       "description": "Methods for the storage and retrieval of counterparty related information such as Counterparty Agreements, Credit Support Annexes and Netting Set data."
-    },
-    {
-      "name": "CustomEntities",
-      "description": ""
     },
     {
       "name": "CustomEntityDefinitions",
@@ -76640,7 +75671,6 @@
       "Conventions",
       "Corporate Action Sources",
       "Counterparties",
-      "CustomEntities",
       "CustomEntityDefinitions",
       "Cut Label Definitions",
       "Data Types",
