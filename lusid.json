@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54242"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -8893,7 +8893,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3704c290f6c410f9a4d3cdb58d96453"
+                    "identifierValue": "334da63b025341218c2df27c32d00101"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8937,7 +8937,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3704c290f6c410f9a4d3cdb58d96453"
+                    "identifierValue": "334da63b025341218c2df27c32d00101"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8981,7 +8981,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3704c290f6c410f9a4d3cdb58d96453"
+                    "identifierValue": "334da63b025341218c2df27c32d00101"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9025,7 +9025,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3704c290f6c410f9a4d3cdb58d96453"
+                    "identifierValue": "334da63b025341218c2df27c32d00101"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9071,7 +9071,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "b58fd007-6a95-42fd-8c9c-a175a70bffd1",
+                  "customEntityId": "61b72390-bbac-4cca-bfda-31cdde081e3f",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9082,7 +9082,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "9d62729a6e2646749b7a4c421f1da0e6",
+                      "identifierValue": "61c0d96c90aa41609dae065434a17bc7",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9145,7 +9145,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "b58fd007-6a95-42fd-8c9c-a175a70bffd1",
+                  "customEntityId": "61b72390-bbac-4cca-bfda-31cdde081e3f",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9156,7 +9156,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "9d62729a6e2646749b7a4c421f1da0e6",
+                      "identifierValue": "61c0d96c90aa41609dae065434a17bc7",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9219,7 +9219,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "b58fd007-6a95-42fd-8c9c-a175a70bffd1",
+                  "customEntityId": "61b72390-bbac-4cca-bfda-31cdde081e3f",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9230,7 +9230,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "9d62729a6e2646749b7a4c421f1da0e6",
+                      "identifierValue": "61c0d96c90aa41609dae065434a17bc7",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9412,7 +9412,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "ebbbd89c-ebcf-4119-8838-24189bab3564",
+                  "customEntityId": "a5c841c4-cc16-46bf-b87f-fb88ced0a679",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9480,7 +9480,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "ebbbd89c-ebcf-4119-8838-24189bab3564",
+                  "customEntityId": "a5c841c4-cc16-46bf-b87f-fb88ced0a679",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9548,7 +9548,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "ebbbd89c-ebcf-4119-8838-24189bab3564",
+                  "customEntityId": "a5c841c4-cc16-46bf-b87f-fb88ced0a679",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -76439,7 +76439,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
