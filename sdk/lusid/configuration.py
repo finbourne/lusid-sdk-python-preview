@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     LUSID API
 
@@ -9,13 +11,16 @@
 """
 
 
+from __future__ import absolute_import
+
 import copy
 import logging
 import multiprocessing
 import sys
 import urllib3
 
-from http import client as http_client
+import six
+from six.moves import http_client as httplib
 from lusid.exceptions import ApiValueError
 
 
@@ -74,8 +79,8 @@ class Configuration(object):
     :param server_operation_variables: Mapping from operation ID to a mapping with
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
-    :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
-      in PEM format
+    :param ssl_ca_cert: str - the path to a file of concatenated CA certificates 
+      in PEM format 
 
     :Example:
     """
@@ -84,14 +89,13 @@ class Configuration(object):
 
     def __init__(self, host=None,
                  api_key=None, api_key_prefix=None,
-                 access_token=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
                  disabled_client_side_validations="",
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ssl_ca_cert=None,
-                 tcp_keep_alive=False
+                 tcp_keep_alive=False,
                  ):
         """Constructor
         """
@@ -110,7 +114,6 @@ class Configuration(object):
         """Temp file folder for downloading files
         """
         # Authentication Settings
-        self.access_token = access_token
         self.api_key = {}
         if api_key:
             self.api_key = api_key
@@ -132,6 +135,9 @@ class Configuration(object):
         """
         self.discard_unknown_keys = discard_unknown_keys
         self.disabled_client_side_validations = disabled_client_side_validations
+        self.access_token = None
+        """access token for OAuth/Bearer
+        """
         self.logger = {}
         """Logging Settings
         """
@@ -194,10 +200,12 @@ class Configuration(object):
         # Enable client side validation
         self.client_side_validation = True
 
-        # Options to pass down to the underlying urllib3 socket
-        self.socket_options = None
-
+        # Set TCP keep alive
         self.tcp_keep_alive = tcp_keep_alive
+
+        self.socket_options = None
+        """Options to pass down to the underlying urllib3 socket
+        """
 
     def __deepcopy__(self, memo):
         cls = self.__class__
@@ -276,7 +284,7 @@ class Configuration(object):
             # then add file handler and remove stream handler.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
-            for _, logger in self.logger.items():
+            for _, logger in six.iteritems(self.logger):
                 logger.addHandler(self.logger_file_handler)
 
     @property
@@ -298,17 +306,17 @@ class Configuration(object):
         self.__debug = value
         if self.__debug:
             # if debug status is True, turn on debug logging
-            for _, logger in self.logger.items():
+            for _, logger in six.iteritems(self.logger):
                 logger.setLevel(logging.DEBUG)
-            # turn on http_client debug
-            http_client.HTTPConnection.debuglevel = 1
+            # turn on httplib debug
+            httplib.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
-            for _, logger in self.logger.items():
+            for _, logger in six.iteritems(self.logger):
                 logger.setLevel(logging.WARNING)
-            # turn off http_client debug
-            http_client.HTTPConnection.debuglevel = 0
+            # turn off httplib debug
+            httplib.HTTPConnection.debuglevel = 0
 
     @property
     def logger_format(self):
