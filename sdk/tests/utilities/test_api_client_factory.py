@@ -2,17 +2,15 @@ import unittest
 from collections import UserString
 from datetime import datetime
 from unittest.mock import patch
-
-import urllib3
+from urllib3 import PoolManager
 from parameterized import parameterized
 from threading import Thread
 from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor, TCPKeepAlivePoolManager
 from lusid.utilities import ApiClientFactory
 
-from tests.utilities.token_utilities import TokenUtilities as tu
-from tests.utilities.temp_file_manager import TempFileManager
-from tests.utilities.credentials_source import CredentialsSource
-from tests.utilities.mock_api_response import MockApiResponse
+from utilities import TokenUtilities as tu, CredentialsSource
+from utilities.temp_file_manager import TempFileManager
+from utilities import MockApiResponse
 
 
 class UnknownApi:
@@ -245,7 +243,7 @@ class ApiFactory(unittest.TestCase):
         api_factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
         # Make sure tcp_keep_alive was passed through all of the layers
         self.assertFalse(api_factory.api_client.configuration.tcp_keep_alive)
-        self.assertIsInstance(api_factory.api_client.rest_client.pool_manager, urllib3.PoolManager)
+        self.assertIsInstance(api_factory.api_client.rest_client.pool_manager, PoolManager)
 
     def test_use_apifactory_with_id_provider_response_handler(self):
         """
