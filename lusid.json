@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3456",
+    "version": "0.11.3459",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:38291"
     }
   ],
   "paths": {
@@ -8855,6 +8855,515 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/customentities/entitytypes": {
+      "post": {
+        "tags": [
+          "CustomEntityDefinitions"
+        ],
+        "summary": "[EXPERIMENTAL] Create a new CustomEntityDefinition",
+        "description": "Create a custom entity definition that does not already exist. Will return a Bad Request if the CustomEntityDefinition already exists",
+        "operationId": "CreateCustomEntityDefinition",
+        "requestBody": {
+          "description": "The CustomEntityDefinitionRequest",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
+              },
+              "example": {
+                "entityTypeName": "issue",
+                "displayName": "Issue",
+                "description": "Represents an issue in the system",
+                "fieldSchema": [
+                  {
+                    "name": "Assigned",
+                    "lifetime": "TimeVariant",
+                    "type": "bool",
+                    "required": true
+                  },
+                  {
+                    "name": "Status",
+                    "lifetime": "TimeVariant",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Effort In Days",
+                    "lifetime": "Perpetual",
+                    "type": "number",
+                    "required": false
+                  },
+                  {
+                    "name": "DateCreated",
+                    "lifetime": "Perpetual",
+                    "type": "datetime",
+                    "required": true
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
+              },
+              "example": {
+                "entityTypeName": "issue",
+                "displayName": "Issue",
+                "description": "Represents an issue in the system",
+                "fieldSchema": [
+                  {
+                    "name": "Assigned",
+                    "lifetime": "TimeVariant",
+                    "type": "bool",
+                    "required": true
+                  },
+                  {
+                    "name": "Status",
+                    "lifetime": "TimeVariant",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Effort In Days",
+                    "lifetime": "Perpetual",
+                    "type": "number",
+                    "required": false
+                  },
+                  {
+                    "name": "DateCreated",
+                    "lifetime": "Perpetual",
+                    "type": "datetime",
+                    "required": true
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
+              },
+              "example": {
+                "entityTypeName": "issue",
+                "displayName": "Issue",
+                "description": "Represents an issue in the system",
+                "fieldSchema": [
+                  {
+                    "name": "Assigned",
+                    "lifetime": "TimeVariant",
+                    "type": "bool",
+                    "required": true
+                  },
+                  {
+                    "name": "Status",
+                    "lifetime": "TimeVariant",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Effort In Days",
+                    "lifetime": "Perpetual",
+                    "type": "number",
+                    "required": false
+                  },
+                  {
+                    "name": "DateCreated",
+                    "lifetime": "Perpetual",
+                    "type": "datetime",
+                    "required": true
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
+              },
+              "example": {
+                "entityTypeName": "issue",
+                "displayName": "Issue",
+                "description": "Represents an issue in the system",
+                "fieldSchema": [
+                  {
+                    "name": "Assigned",
+                    "lifetime": "TimeVariant",
+                    "type": "bool",
+                    "required": true
+                  },
+                  {
+                    "name": "Status",
+                    "lifetime": "TimeVariant",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Effort In Days",
+                    "lifetime": "Perpetual",
+                    "type": "number",
+                    "required": false
+                  },
+                  {
+                    "name": "DateCreated",
+                    "lifetime": "Perpetual",
+                    "type": "datetime",
+                    "required": true
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created custom entity definition",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/customentities/entitytypes/{entityType}": {
+      "get": {
+        "tags": [
+          "CustomEntityDefinitions"
+        ],
+        "summary": "[EXPERIMENTAL] Get CustomEntityDefinition",
+        "description": "Retrieve a CustomEntityDefinition by a specific EntityType at a point in AsAt time",
+        "operationId": "GetDefinition",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "description": "The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest)."
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The AsAt at which to retrieve the CustomEntityDefinition.",
+            "schema": {
+              "type": "string",
+              "description": "The AsAt at which to retrieve the CustomEntityDefinition.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested custom entity definition",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "entityTypeName": "issue",
+                  "displayName": "Issue",
+                  "description": "Represents an issue in the system",
+                  "entityType": "~issue",
+                  "fieldSchema": [
+                    {
+                      "name": "Assigned",
+                      "lifetime": "TimeVariant",
+                      "type": "bool",
+                      "required": true
+                    },
+                    {
+                      "name": "Status",
+                      "lifetime": "TimeVariant",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "Effort In Days",
+                      "lifetime": "Perpetual",
+                      "type": "number",
+                      "required": false
+                    },
+                    {
+                      "name": "DateCreated",
+                      "lifetime": "Perpetual",
+                      "type": "datetime",
+                      "required": true
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/customentities/{entityType}": {
       "post": {
         "tags": [
@@ -8872,7 +9381,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint."
             }
@@ -8893,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "f75e6c527f0e487abebfedff5969101d"
+                    "identifierValue": "92099a2006074deb8c6398b3acbe7687"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8937,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "f75e6c527f0e487abebfedff5969101d"
+                    "identifierValue": "92099a2006074deb8c6398b3acbe7687"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8981,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "f75e6c527f0e487abebfedff5969101d"
+                    "identifierValue": "92099a2006074deb8c6398b3acbe7687"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9025,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "f75e6c527f0e487abebfedff5969101d"
+                    "identifierValue": "92099a2006074deb8c6398b3acbe7687"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9071,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "f82fa8b7-a57a-4fbd-951e-31fcb1e9d6dc",
+                  "customEntityId": "50828a76-922c-4ca2-bc71-1e745975683c",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9082,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "37c0478ef78949389150ef0d7bd70ea6",
+                      "identifierValue": "020f7ac412ed48c5a5e1c96187193578",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9145,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "f82fa8b7-a57a-4fbd-951e-31fcb1e9d6dc",
+                  "customEntityId": "50828a76-922c-4ca2-bc71-1e745975683c",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9156,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "37c0478ef78949389150ef0d7bd70ea6",
+                      "identifierValue": "020f7ac412ed48c5a5e1c96187193578",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9219,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "f82fa8b7-a57a-4fbd-951e-31fcb1e9d6dc",
+                  "customEntityId": "50828a76-922c-4ca2-bc71-1e745975683c",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9230,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "37c0478ef78949389150ef0d7bd70ea6",
+                      "identifierValue": "020f7ac412ed48c5a5e1c96187193578",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9339,14 +9847,13 @@
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of entity to retrieve",
+            "description": "The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The type of entity to retrieve"
+              "description": "The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest)."
             }
           },
           {
@@ -9412,7 +9919,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "77e70bad-84ea-44d9-be86-6e7acca2a432",
+                  "customEntityId": "2598f8d0-f73b-4977-9582-3ac79997c822",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9480,7 +9987,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "77e70bad-84ea-44d9-be86-6e7acca2a432",
+                  "customEntityId": "2598f8d0-f73b-4977-9582-3ac79997c822",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9548,7 +10055,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "77e70bad-84ea-44d9-be86-6e7acca2a432",
+                  "customEntityId": "2598f8d0-f73b-4977-9582-3ac79997c822",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9607,516 +10114,6 @@
                   "asAtRange": {
                     "fromDate": "2020-01-22T12:00:00.0000000+00:00"
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/customentitydefinitions": {
-      "post": {
-        "tags": [
-          "CustomEntityDefinitions"
-        ],
-        "summary": "[EXPERIMENTAL] Create a new CustomEntityDefinition",
-        "description": "Create a custom entity definition that does not already exist. Will return a Bad Request if the CustomEntityDefinition already exists",
-        "operationId": "CreateCustomEntityDefinition",
-        "requestBody": {
-          "description": "The CustomEntityDefinitionRequest",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
-              },
-              "example": {
-                "customEntityId": "issue",
-                "displayName": "Issue",
-                "description": "Represents an issue in the system",
-                "fieldSchema": [
-                  {
-                    "name": "Assigned",
-                    "temporality": "Bitemporal",
-                    "type": "bool",
-                    "required": true
-                  },
-                  {
-                    "name": "Status",
-                    "temporality": "Bitemporal",
-                    "type": "string",
-                    "required": true
-                  },
-                  {
-                    "name": "Effort In Days",
-                    "temporality": "Monotemporal",
-                    "type": "number",
-                    "required": false
-                  },
-                  {
-                    "name": "DateCreated",
-                    "temporality": "Monotemporal",
-                    "type": "datetime",
-                    "required": true
-                  }
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
-              },
-              "example": {
-                "customEntityId": "issue",
-                "displayName": "Issue",
-                "description": "Represents an issue in the system",
-                "fieldSchema": [
-                  {
-                    "name": "Assigned",
-                    "temporality": "Bitemporal",
-                    "type": "bool",
-                    "required": true
-                  },
-                  {
-                    "name": "Status",
-                    "temporality": "Bitemporal",
-                    "type": "string",
-                    "required": true
-                  },
-                  {
-                    "name": "Effort In Days",
-                    "temporality": "Monotemporal",
-                    "type": "number",
-                    "required": false
-                  },
-                  {
-                    "name": "DateCreated",
-                    "temporality": "Monotemporal",
-                    "type": "datetime",
-                    "required": true
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
-              },
-              "example": {
-                "customEntityId": "issue",
-                "displayName": "Issue",
-                "description": "Represents an issue in the system",
-                "fieldSchema": [
-                  {
-                    "name": "Assigned",
-                    "temporality": "Bitemporal",
-                    "type": "bool",
-                    "required": true
-                  },
-                  {
-                    "name": "Status",
-                    "temporality": "Bitemporal",
-                    "type": "string",
-                    "required": true
-                  },
-                  {
-                    "name": "Effort In Days",
-                    "temporality": "Monotemporal",
-                    "type": "number",
-                    "required": false
-                  },
-                  {
-                    "name": "DateCreated",
-                    "temporality": "Monotemporal",
-                    "type": "datetime",
-                    "required": true
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomEntityDefinitionRequest"
-              },
-              "example": {
-                "customEntityId": "issue",
-                "displayName": "Issue",
-                "description": "Represents an issue in the system",
-                "fieldSchema": [
-                  {
-                    "name": "Assigned",
-                    "temporality": "Bitemporal",
-                    "type": "bool",
-                    "required": true
-                  },
-                  {
-                    "name": "Status",
-                    "temporality": "Bitemporal",
-                    "type": "string",
-                    "required": true
-                  },
-                  {
-                    "name": "Effort In Days",
-                    "temporality": "Monotemporal",
-                    "type": "number",
-                    "required": false
-                  },
-                  {
-                    "name": "DateCreated",
-                    "temporality": "Monotemporal",
-                    "type": "datetime",
-                    "required": true
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The created custom entity definition",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/customentitydefinitions/{customEntityId}": {
-      "get": {
-        "tags": [
-          "CustomEntityDefinitions"
-        ],
-        "summary": "[EXPERIMENTAL] Get CustomEntityDefinition",
-        "description": "Retrieve a CustomEntityDefinition by a specific Id at a point in AsAt time",
-        "operationId": "GetDefinition",
-        "parameters": [
-          {
-            "name": "customEntityId",
-            "in": "path",
-            "description": "Id of the CustomEntityDefinition",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Id of the CustomEntityDefinition"
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The AsAt at which to retrieve the CustomEntityDefinition",
-            "schema": {
-              "type": "string",
-              "description": "The AsAt at which to retrieve the CustomEntityDefinition",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested custom entity definition",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEntityDefinition"
-                },
-                "example": {
-                  "href": "https://myco.lusid.com/api/customentitydefinitions/issue",
-                  "customEntityId": "issue",
-                  "displayName": "Issue",
-                  "description": "Represents an issue in the system",
-                  "entityType": "~issue",
-                  "fieldSchema": [
-                    {
-                      "name": "Assigned",
-                      "temporality": "Bitemporal",
-                      "type": "bool",
-                      "required": true
-                    },
-                    {
-                      "name": "Status",
-                      "temporality": "Bitemporal",
-                      "type": "string",
-                      "required": true
-                    },
-                    {
-                      "name": "Effort In Days",
-                      "temporality": "Monotemporal",
-                      "type": "number",
-                      "required": false
-                    },
-                    {
-                      "name": "DateCreated",
-                      "temporality": "Monotemporal",
-                      "type": "datetime",
-                      "required": true
-                    }
-                  ]
                 }
               }
             }
@@ -12119,6 +12116,175 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/feesandcommissions": {
+      "get": {
+        "tags": [
+          "FeesAndCommissions"
+        ],
+        "summary": "[EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.",
+        "description": "Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.",
+        "operationId": "GetApplicableFees",
+        "parameters": [
+          {
+            "name": "instrumentIdentifierType",
+            "in": "query",
+            "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+            "schema": {
+              "type": "string",
+              "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "instrumentIdentifier",
+            "in": "query",
+            "description": "Optional. The Instrument Identifier to get properties for.",
+            "schema": {
+              "type": "string",
+              "description": "Optional. The Instrument Identifier to get properties for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioScope",
+            "in": "query",
+            "description": "Optional. The scope of the portfolio to fetch additional properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The scope of the portfolio to fetch additional properties from.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioCode",
+            "in": "query",
+            "description": "Optional. The code of the portfolio to fetch additional properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The code of the portfolio to fetch additional properties from.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "additionalSearchKeys",
+            "in": "query",
+            "description": "Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The List of applicable fee calculations details",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
                 }
               }
             }
@@ -63402,9 +63568,9 @@
       },
       "CustomEntityDefinition": {
         "required": [
-          "customEntityId",
           "displayName",
           "entityType",
+          "entityTypeName",
           "fieldSchema"
         ],
         "type": "object",
@@ -63414,7 +63580,7 @@
             "format": "uri",
             "nullable": true
           },
-          "customEntityId": {
+          "entityTypeName": {
             "type": "string"
           },
           "displayName": {
@@ -63439,12 +63605,12 @@
       },
       "CustomEntityDefinitionRequest": {
         "required": [
-          "customEntityId",
-          "displayName"
+          "displayName",
+          "entityTypeName"
         ],
         "type": "object",
         "properties": {
-          "customEntityId": {
+          "entityTypeName": {
             "type": "string"
           },
           "displayName": {
@@ -63483,9 +63649,9 @@
       },
       "CustomEntityFieldDefinition": {
         "required": [
+          "lifetime",
           "name",
           "required",
-          "temporality",
           "type"
         ],
         "type": "object",
@@ -63493,7 +63659,7 @@
           "name": {
             "type": "string"
           },
-          "temporality": {
+          "lifetime": {
             "type": "string"
           },
           "type": {
@@ -64762,6 +64928,60 @@
             },
             "description": "Collection of links.",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeeCalculationDetails": {
+        "required": [
+          "additionalInformation",
+          "amount",
+          "calculationMethod",
+          "max",
+          "min",
+          "propertyKey",
+          "ruleInformation",
+          "ruleType"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
+          },
+          "ruleInformation": {
+            "type": "string",
+            "description": "Rule Sub Type"
+          },
+          "additionalInformation": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Other property keys populated for the fee"
+          },
+          "propertyKey": {
+            "type": "string",
+            "description": "The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'."
+          },
+          "calculationMethod": {
+            "type": "string",
+            "description": "Method of calculating the fees or commission eg. BPS or Fraction"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
+          },
+          "min": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
+          },
+          "max": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -72236,6 +72456,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfFeeCalculationDetails": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeeCalculationDetails"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfGetCdsFlowConventionsResponse": {
         "required": [
           "values"
@@ -76439,7 +76700,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -76517,6 +76778,10 @@
     {
       "name": "Executions",
       "description": "Methods for interacting with Executions. This is experimental functionality, with limited documentation presently. An Execution represents a market's fill of a street order. Executions are treated monotemporally; any updates are effective at the as-at time of update, and its not possible to make retroactive (or forward) changes."
+    },
+    {
+      "name": "FeesAndCommissions",
+      "description": "Methods for storage and retrieval of Fees and Commissions rules"
     },
     {
       "name": "Instruments",
@@ -76647,6 +76912,7 @@
       "Derived Transaction Portfolios",
       "Entities",
       "Executions",
+      "FeesAndCommissions",
       "Instruments",
       "Legal Entities",
       "Login",
