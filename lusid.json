@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3456",
+    "version": "0.11.3457",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53463"
+      "url": "http://local-unit-test-server.lusid.com:51720"
     }
   ],
   "paths": {
@@ -8893,7 +8893,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "b68640335de942859230bb571165569f"
+                    "identifierValue": "34ae4344f6324f4a827e2bbe19850f6c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8937,7 +8937,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "b68640335de942859230bb571165569f"
+                    "identifierValue": "34ae4344f6324f4a827e2bbe19850f6c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -8981,7 +8981,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "b68640335de942859230bb571165569f"
+                    "identifierValue": "34ae4344f6324f4a827e2bbe19850f6c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9025,7 +9025,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "b68640335de942859230bb571165569f"
+                    "identifierValue": "34ae4344f6324f4a827e2bbe19850f6c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9071,7 +9071,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "019a6550-c8dc-4cb2-aa0f-d8990ef37960",
+                  "customEntityId": "166c65a9-0dc3-48b5-903f-c54412eeaaf1",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9082,7 +9082,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "1d9f745919f94f808f65b909f53ae435",
+                      "identifierValue": "5239c1c4cbc44c7c884e2df9ff138b49",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9145,7 +9145,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "019a6550-c8dc-4cb2-aa0f-d8990ef37960",
+                  "customEntityId": "166c65a9-0dc3-48b5-903f-c54412eeaaf1",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9156,7 +9156,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "1d9f745919f94f808f65b909f53ae435",
+                      "identifierValue": "5239c1c4cbc44c7c884e2df9ff138b49",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9219,7 +9219,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "019a6550-c8dc-4cb2-aa0f-d8990ef37960",
+                  "customEntityId": "166c65a9-0dc3-48b5-903f-c54412eeaaf1",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9230,7 +9230,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "1d9f745919f94f808f65b909f53ae435",
+                      "identifierValue": "5239c1c4cbc44c7c884e2df9ff138b49",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9412,7 +9412,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "4bb756a2-3447-4498-bc6c-46f9dd5d70de",
+                  "customEntityId": "0a5e47a4-4fc8-486c-a3e9-0cadf8db75d5",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9480,7 +9480,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "4bb756a2-3447-4498-bc6c-46f9dd5d70de",
+                  "customEntityId": "0a5e47a4-4fc8-486c-a3e9-0cadf8db75d5",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9548,7 +9548,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "4bb756a2-3447-4498-bc6c-46f9dd5d70de",
+                  "customEntityId": "0a5e47a4-4fc8-486c-a3e9-0cadf8db75d5",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -12119,6 +12119,175 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/feesandcommissions": {
+      "get": {
+        "tags": [
+          "FeesAndCommissions"
+        ],
+        "summary": "[EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.",
+        "description": "Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.",
+        "operationId": "GetApplicableFees",
+        "parameters": [
+          {
+            "name": "instrumentIdentifierType",
+            "in": "query",
+            "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+            "schema": {
+              "type": "string",
+              "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "instrumentIdentifier",
+            "in": "query",
+            "description": "Optional. The Instrument Identifier to get properties for.",
+            "schema": {
+              "type": "string",
+              "description": "Optional. The Instrument Identifier to get properties for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioScope",
+            "in": "query",
+            "description": "Optional. The scope of the portfolio to fetch additional properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The scope of the portfolio to fetch additional properties from.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioCode",
+            "in": "query",
+            "description": "Optional. The code of the portfolio to fetch additional properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The code of the portfolio to fetch additional properties from.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "additionalSearchKeys",
+            "in": "query",
+            "description": "Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The List of applicable fee calculations details",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeCalculationDetails"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleType": "RuleType",
+                      "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
+                      "calculationMethod": "Calculation Method",
+                      "amount": 0.5
+                    }
+                  ],
+                  "href": "https://example.com",
+                  "links": []
                 }
               }
             }
@@ -64766,6 +64935,60 @@
         },
         "additionalProperties": false
       },
+      "FeeCalculationDetails": {
+        "required": [
+          "additionalInformation",
+          "amount",
+          "calculationMethod",
+          "max",
+          "min",
+          "propertyKey",
+          "ruleInformation",
+          "ruleType"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
+          },
+          "ruleInformation": {
+            "type": "string",
+            "description": "Rule Sub Type"
+          },
+          "additionalInformation": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Other property keys populated for the fee"
+          },
+          "propertyKey": {
+            "type": "string",
+            "description": "The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'."
+          },
+          "calculationMethod": {
+            "type": "string",
+            "description": "Method of calculating the fees or commission eg. BPS or Fraction"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
+          },
+          "min": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
+          },
+          "max": {
+            "type": "number",
+            "description": "Calculation value",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "FieldSchema": {
         "type": "object",
         "properties": {
@@ -72236,6 +72459,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfFeeCalculationDetails": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeeCalculationDetails"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfGetCdsFlowConventionsResponse": {
         "required": [
           "values"
@@ -76519,6 +76783,10 @@
       "description": "Methods for interacting with Executions. This is experimental functionality, with limited documentation presently. An Execution represents a market's fill of a street order. Executions are treated monotemporally; any updates are effective at the as-at time of update, and its not possible to make retroactive (or forward) changes."
     },
     {
+      "name": "FeesAndCommissions",
+      "description": "Methods for storage and retrieval of Fees and Commissions rules"
+    },
+    {
       "name": "Instruments",
       "description": "An instrument represents a financial asset that an investor owns or has exposure to. Each transaction should be booked against an instrument stored in the LUSID instrument master. For more information, see https://support.lusid.com/knowledgebase/article/KA-01857."
     },
@@ -76647,6 +76915,7 @@
       "Derived Transaction Portfolios",
       "Entities",
       "Executions",
+      "FeesAndCommissions",
       "Instruments",
       "Legal Entities",
       "Login",
