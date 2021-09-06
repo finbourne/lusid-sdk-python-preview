@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entity_type_name** | **str** |  | 
+**custom_entity_id** | **str** |  | 
 **display_name** | **str** |  | 
 **description** | **str** |  | [optional] 
 **field_schema** | [**list[CustomEntityFieldDefinition]**](CustomEntityFieldDefinition.md) |  | [optional] 

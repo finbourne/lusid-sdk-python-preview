@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**lifetime** | **str** |  | 
+**temporality** | **str** |  | 
 **type** | **str** |  | 
 **required** | **bool** |  | 
 

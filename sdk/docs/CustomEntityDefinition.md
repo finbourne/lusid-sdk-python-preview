@@ -6,7 +6,7 @@ Representation of Custom Entity Definition on LUSID API
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** |  | [optional] 
-**entity_type_name** | **str** |  | 
+**custom_entity_id** | **str** |  | 
 **display_name** | **str** |  | 
 **description** | **str** |  | [optional] 
 **entity_type** | **str** |  | 
