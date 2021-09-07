@@ -1,11 +1,11 @@
 # lusid.CustomEntityDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:38152*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_custom_entity_definition**](CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **POST** /api/customentitydefinitions | [EXPERIMENTAL] Create a new CustomEntityDefinition
-[**get_definition**](CustomEntityDefinitionsApi.md#get_definition) | **GET** /api/customentitydefinitions/{customEntityId} | [EXPERIMENTAL] Get CustomEntityDefinition
+[**create_custom_entity_definition**](CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **POST** /api/customentities/entitytypes | [EXPERIMENTAL] Create a new CustomEntityDefinition
+[**get_definition**](CustomEntityDefinitionsApi.md#get_definition) | **GET** /api/customentities/entitytypes/{entityType} | [EXPERIMENTAL] Get CustomEntityDefinition
 
 
 # **create_custom_entity_definition**
@@ -24,10 +24,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38152
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:38152"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:38152"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -45,7 +45,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntityDefinitionsApi(api_client)
-    custom_entity_definition_request = {"customEntityId":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","temporality":"Bitemporal","type":"bool","required":true},{"name":"Status","temporality":"Bitemporal","type":"string","required":true},{"name":"Effort In Days","temporality":"Monotemporal","type":"number","required":false},{"name":"DateCreated","temporality":"Monotemporal","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest (optional)
+    custom_entity_definition_request = {"entityTypeName":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","lifetime":"TimeVariant","type":"bool","required":true},{"name":"Status","lifetime":"TimeVariant","type":"string","required":true},{"name":"Effort In Days","lifetime":"Perpetual","type":"number","required":false},{"name":"DateCreated","lifetime":"Perpetual","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest (optional)
 
     try:
         # [EXPERIMENTAL] Create a new CustomEntityDefinition
@@ -84,11 +84,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_definition**
-> CustomEntityDefinition get_definition(custom_entity_id, as_at=as_at)
+> CustomEntityDefinition get_definition(entity_type, as_at=as_at)
 
 [EXPERIMENTAL] Get CustomEntityDefinition
 
-Retrieve a CustomEntityDefinition by a specific Id at a point in AsAt time
+Retrieve a CustomEntityDefinition by a specific EntityType at a point in AsAt time
 
 ### Example
 
@@ -99,10 +99,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38152
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:38152"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,7 +112,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:38152"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -120,12 +120,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntityDefinitionsApi(api_client)
-    custom_entity_id = 'custom_entity_id_example' # str | Id of the CustomEntityDefinition
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve the CustomEntityDefinition (optional)
+    entity_type = 'entity_type_example' # str | The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve the CustomEntityDefinition. (optional)
 
     try:
         # [EXPERIMENTAL] Get CustomEntityDefinition
-        api_response = api_instance.get_definition(custom_entity_id, as_at=as_at)
+        api_response = api_instance.get_definition(entity_type, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CustomEntityDefinitionsApi->get_definition: %s\n" % e)
@@ -135,8 +135,8 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **custom_entity_id** | **str**| Id of the CustomEntityDefinition | 
- **as_at** | **datetime**| The AsAt at which to retrieve the CustomEntityDefinition | [optional] 
+ **entity_type** | **str**| The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest). | 
+ **as_at** | **datetime**| The AsAt at which to retrieve the CustomEntityDefinition. | [optional] 
 
 ### Return type
 
