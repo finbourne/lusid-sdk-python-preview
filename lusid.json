@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3464",
+    "version": "0.11.3465",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:37552"
+      "url": "http://local-unit-test-server.lusid.com:56349"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "cc45b3efb8914707b3f00931f89c910f"
+                    "identifierValue": "78adbd4c304849419071ab3be13ef973"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "cc45b3efb8914707b3f00931f89c910f"
+                    "identifierValue": "78adbd4c304849419071ab3be13ef973"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "cc45b3efb8914707b3f00931f89c910f"
+                    "identifierValue": "78adbd4c304849419071ab3be13ef973"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "cc45b3efb8914707b3f00931f89c910f"
+                    "identifierValue": "78adbd4c304849419071ab3be13ef973"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "e838f400-a685-4596-a2cc-11ffcf748be4",
+                  "customEntityId": "b25f23c7-76d0-4d72-a342-6feb04bee206",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "c90be474662f44d09116ba7a7f1a823d",
+                      "identifierValue": "d4c94cd570a34919aa7ae28d2228b8a5",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "e838f400-a685-4596-a2cc-11ffcf748be4",
+                  "customEntityId": "b25f23c7-76d0-4d72-a342-6feb04bee206",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "c90be474662f44d09116ba7a7f1a823d",
+                      "identifierValue": "d4c94cd570a34919aa7ae28d2228b8a5",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "e838f400-a685-4596-a2cc-11ffcf748be4",
+                  "customEntityId": "b25f23c7-76d0-4d72-a342-6feb04bee206",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "c90be474662f44d09116ba7a7f1a823d",
+                      "identifierValue": "d4c94cd570a34919aa7ae28d2228b8a5",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9919,7 +9919,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "707b8105-0129-42a2-8efc-d28426737ece",
+                  "customEntityId": "1be89f28-2384-40c5-a16c-1e59f0f7937a",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9987,7 +9987,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "707b8105-0129-42a2-8efc-d28426737ece",
+                  "customEntityId": "1be89f28-2384-40c5-a16c-1e59f0f7937a",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10055,7 +10055,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "707b8105-0129-42a2-8efc-d28426737ece",
+                  "customEntityId": "1be89f28-2384-40c5-a16c-1e59f0f7937a",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -13906,7 +13906,7 @@
           "Instruments"
         ],
         "summary": "[EXPERIMENTAL] Delete instrument properties",
-        "description": "Delete a collection of properties from a particular instrument.",
+        "description": "Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which\r\nto delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.",
         "operationId": "DeleteInstrumentProperties",
         "parameters": [
           {
@@ -13934,10 +13934,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective date to delete time-variant properties from. Do not specify this parameter\r\n            if any of the properties to delete are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective date to delete time-variant properties from. Do not specify this parameter\r\n            if any of the properties to delete are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -14302,10 +14302,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of a property from the 'Instrument' domain whose history to retrieve.\r\n            This must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -16575,10 +16575,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -16693,10 +16693,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".\r\n            Each property must be from the \"LegalEntity\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -23924,10 +23924,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -24042,10 +24042,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".\r\n            Each property must be from the \"Person\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -29214,10 +29214,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -29625,7 +29625,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get the time series of a portfolio group property",
+        "summary": "[EARLY ACCESS] Get the time series of a portfolio group property",
         "description": "List the complete time series of a portfolio group property.",
         "operationId": "GetPortfolioGroupPropertyTimeSeries",
         "parameters": [
@@ -29661,10 +29661,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".\r\n            Each property must be from the \"PortfolioGroup\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -29781,7 +29781,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/relations": {
@@ -34716,10 +34716,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete time-variant properties.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete time-variant properties.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -35318,10 +35318,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property whose history to show.\r\n            This must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
