@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3462",
+    "version": "0.11.3469",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:59385"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "ad303a3c4c904de4a095a255e87ec63d"
+                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "ad303a3c4c904de4a095a255e87ec63d"
+                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "ad303a3c4c904de4a095a255e87ec63d"
+                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "ad303a3c4c904de4a095a255e87ec63d"
+                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "ace97b1a-1d06-4091-9dac-61eab3f903db",
+                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8a0b5727cc9a4ce5ab5be294c9c72721",
+                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "ace97b1a-1d06-4091-9dac-61eab3f903db",
+                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8a0b5727cc9a4ce5ab5be294c9c72721",
+                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "ace97b1a-1d06-4091-9dac-61eab3f903db",
+                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8a0b5727cc9a4ce5ab5be294c9c72721",
+                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9919,7 +9919,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "9b5e6bab-dfbc-4afe-a81e-4ba33c40c0f7",
+                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9987,7 +9987,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "9b5e6bab-dfbc-4afe-a81e-4ba33c40c0f7",
+                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10055,7 +10055,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "9b5e6bab-dfbc-4afe-a81e-4ba33c40c0f7",
+                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -13906,7 +13906,7 @@
           "Instruments"
         ],
         "summary": "[EXPERIMENTAL] Delete instrument properties",
-        "description": "Delete a collection of properties from a particular instrument.",
+        "description": "Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which\r\nto delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.",
         "operationId": "DeleteInstrumentProperties",
         "parameters": [
           {
@@ -13934,10 +13934,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective date to delete time-variant properties from. Do not specify this parameter\r\n            if any of the properties to delete are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective date to delete time-variant properties from. Do not specify this parameter\r\n            if any of the properties to delete are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -14302,10 +14302,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of a property from the 'Instrument' domain whose history to retrieve.\r\n            This must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -16575,10 +16575,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -16693,10 +16693,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".\r\n            Each property must be from the \"LegalEntity\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -23924,10 +23924,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of properties are perpetual.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -24042,10 +24042,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".\r\n            Each property must be from the \"Person\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -29214,10 +29214,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the properties.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the properties.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -29625,7 +29625,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get the time series of a portfolio group property",
+        "summary": "[EARLY ACCESS] Get the time series of a portfolio group property",
         "description": "List the complete time series of a portfolio group property.",
         "operationId": "GetPortfolioGroupPropertyTimeSeries",
         "parameters": [
@@ -29661,10 +29661,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\".\r\n            Each property must be from the \"PortfolioGroup\" domain.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -29781,7 +29781,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/relations": {
@@ -34716,10 +34716,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete time-variant properties.",
+            "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete time-variant properties.",
+              "description": "The effective datetime or cut label at which to delete time-variant properties from.\r\n            The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is\r\n            before the time-variant property exists then a failure is returned. Do not specify this parameter if any of\r\n            the properties to delete are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -35318,10 +35318,10 @@
             "name": "propertyKey",
             "in": "query",
             "description": "The property key of the property whose history to show.\r\n            This must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "required": true,
             "schema": {
               "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.",
-              "nullable": true
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
             }
           },
           {
@@ -43497,6 +43497,433 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/sequences/{scope}": {
+      "post": {
+        "tags": [
+          "Sequences"
+        ],
+        "summary": "[EXPERIMENTAL] Create a new sequence",
+        "description": "Create a new sequence",
+        "operationId": "CreateSequence",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope of the sequence definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the sequence definition.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request to create sequence definition.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSequenceRequest"
+              },
+              "example": {
+                "code": "TestCode",
+                "increment": 1,
+                "minValue": 0,
+                "maxValue": 10,
+                "start": 0,
+                "cycle": false
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSequenceRequest"
+              },
+              "example": {
+                "code": "TestCode",
+                "increment": 1,
+                "minValue": 0,
+                "maxValue": 10,
+                "start": 0,
+                "cycle": false
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSequenceRequest"
+              },
+              "example": {
+                "code": "TestCode",
+                "increment": 1,
+                "minValue": 0,
+                "maxValue": 10,
+                "start": 0,
+                "cycle": false
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSequenceRequest"
+              },
+              "example": {
+                "code": "TestCode",
+                "increment": 1,
+                "minValue": 0,
+                "maxValue": 10,
+                "start": 0,
+                "cycle": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful creation of the sequence",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/sequences/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Sequences"
+        ],
+        "summary": "[EXPERIMENTAL] Return the definition of a sequence",
+        "description": "Return the detailed definition of a sequence",
+        "operationId": "GetSequenceDefinition",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope of the sequence definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the sequence definition.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested sequence",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceDefinition"
+                },
+                "example": {
+                  "id": {
+                    "scope": "TestScope",
+                    "code": "TestCode"
+                  },
+                  "increment": 1,
+                  "minValue": 0,
+                  "maxValue": 10,
+                  "start": 1,
+                  "value": 3,
+                  "cycle": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/sequences/{scope}/{code}/next": {
+      "get": {
+        "tags": [
+          "Sequences"
+        ],
+        "summary": "[EXPERIMENTAL] Get the next set of values from the sequence",
+        "description": "Get the next set of values from the sequence",
+        "operationId": "Next",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "Scope of the sequence definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the sequence definition.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "batch",
+            "in": "query",
+            "description": "Number of sequences items to return for the specified sequence definition.",
+            "schema": {
+              "type": "integer",
+              "description": "Number of sequences items to return for the specified sequence definition.",
+              "format": "int32",
+              "default": 1
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets the next set of values for the sequence",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
+                },
+                "example": {
+                  "values": [
+                    "1",
+                    "2",
+                    "3"
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
+                },
+                "example": {
+                  "values": [
+                    "1",
+                    "2",
+                    "3"
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
+                },
+                "example": {
+                  "values": [
+                    "1",
+                    "2",
+                    "3"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/structured/{scope}": {
@@ -63217,6 +63644,56 @@
         },
         "additionalProperties": false
       },
+      "CreateSequenceRequest": {
+        "required": [
+          "code",
+          "cycle",
+          "increment",
+          "maxValue",
+          "minValue",
+          "start"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code of the sequence"
+          },
+          "increment": {
+            "type": "integer",
+            "description": "Size of the increment",
+            "format": "int64"
+          },
+          "minValue": {
+            "type": "integer",
+            "description": "Minimum value",
+            "format": "int64"
+          },
+          "maxValue": {
+            "type": "integer",
+            "description": "Maximum value",
+            "format": "int64"
+          },
+          "start": {
+            "type": "integer",
+            "description": "Start value",
+            "format": "int64"
+          },
+          "cycle": {
+            "type": "boolean",
+            "description": "Indicate whether the sequence will cycle"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTransactionPortfolioRequest": {
         "required": [
           "baseCurrency",
@@ -68077,6 +68554,30 @@
           "CarryAsPnl"
         ],
         "type": "string"
+      },
+      "NextValueInSequenceResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Next values"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "OpaqueMarketData": {
         "allOf": [
@@ -73954,6 +74455,61 @@
         "additionalProperties": false,
         "description": "A list of scopes."
       },
+      "SequenceDefinition": {
+        "required": [
+          "cycle",
+          "id",
+          "increment",
+          "maxValue",
+          "minValue",
+          "start",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "increment": {
+            "type": "integer",
+            "description": "Size of the increment",
+            "format": "int64"
+          },
+          "minValue": {
+            "type": "integer",
+            "description": "Minimum value",
+            "format": "int64"
+          },
+          "maxValue": {
+            "type": "integer",
+            "description": "Maximum value",
+            "format": "int64"
+          },
+          "start": {
+            "type": "integer",
+            "description": "Start value",
+            "format": "int64"
+          },
+          "value": {
+            "type": "integer",
+            "description": "Current value of the sequence",
+            "format": "int64"
+          },
+          "cycle": {
+            "type": "boolean",
+            "description": "Indicate whether the sequence will cycle"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "SetPersonIdentifiersRequest": {
         "type": "object",
         "properties": {
@@ -76700,7 +77256,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -76872,6 +77428,10 @@
       "description": "Methods providing Search capability."
     },
     {
+      "name": "Sequences",
+      "description": "Methods for generating and using sequences."
+    },
+    {
       "name": "Structured Market Data",
       "description": "Methods for the storage and retrieval of structured market data documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/knowledgebase/article/KA-01894."
     },
@@ -76935,6 +77495,7 @@
       "Schemas",
       "Scopes",
       "Search",
+      "Sequences",
       "Structured Market Data",
       "Structured Result Data",
       "System Configuration",
