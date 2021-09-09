@@ -43,7 +43,6 @@ from lusid.api.relationships_api import RelationshipsApi
 from lusid.api.schemas_api import SchemasApi
 from lusid.api.scopes_api import ScopesApi
 from lusid.api.search_api import SearchApi
-from lusid.api.sequences_api import SequencesApi
 from lusid.api.structured_market_data_api import StructuredMarketDataApi
 from lusid.api.structured_result_data_api import StructuredResultDataApi
 from lusid.api.system_configuration_api import SystemConfigurationApi
