@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3469",
+    "version": "0.11.3470",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:59385"
+      "url": "http://local-unit-test-server.lusid.com:31634"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
+                    "identifierValue": "64a910fd1a3e424da6aa0abfd6a93f72"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
+                    "identifierValue": "64a910fd1a3e424da6aa0abfd6a93f72"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
+                    "identifierValue": "64a910fd1a3e424da6aa0abfd6a93f72"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "e3503ce92b7b4845aa54bd17d64589c1"
+                    "identifierValue": "64a910fd1a3e424da6aa0abfd6a93f72"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
+                  "customEntityId": "ab66b6cf-76e4-4bbb-b232-7b76f11e33ca",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
+                      "identifierValue": "a15fe2ea354948a6a3b4966f579b9336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
+                  "customEntityId": "ab66b6cf-76e4-4bbb-b232-7b76f11e33ca",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
+                      "identifierValue": "a15fe2ea354948a6a3b4966f579b9336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "2e1f1ea3-0f4b-4941-8be5-e9c7e33d9ea3",
+                  "customEntityId": "ab66b6cf-76e4-4bbb-b232-7b76f11e33ca",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "e786292660cd4c5e8299260d31a86c2c",
+                      "identifierValue": "a15fe2ea354948a6a3b4966f579b9336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9919,7 +9919,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
+                  "customEntityId": "c4f36930-8e4d-4321-8352-09fad4f9706c",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9987,7 +9987,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
+                  "customEntityId": "c4f36930-8e4d-4321-8352-09fad4f9706c",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10055,7 +10055,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "020315a4-15f4-43c0-8320-2e41fc988a0d",
+                  "customEntityId": "c4f36930-8e4d-4321-8352-09fad4f9706c",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -43499,433 +43499,6 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
-    "/api/sequences/{scope}": {
-      "post": {
-        "tags": [
-          "Sequences"
-        ],
-        "summary": "[EXPERIMENTAL] Create a new sequence",
-        "description": "Create a new sequence",
-        "operationId": "CreateSequence",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "Scope of the sequence definition.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Scope of the sequence definition.",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Request to create sequence definition.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSequenceRequest"
-              },
-              "example": {
-                "code": "TestCode",
-                "increment": 1,
-                "minValue": 0,
-                "maxValue": 10,
-                "start": 0,
-                "cycle": false
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSequenceRequest"
-              },
-              "example": {
-                "code": "TestCode",
-                "increment": 1,
-                "minValue": 0,
-                "maxValue": 10,
-                "start": 0,
-                "cycle": false
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSequenceRequest"
-              },
-              "example": {
-                "code": "TestCode",
-                "increment": 1,
-                "minValue": 0,
-                "maxValue": 10,
-                "start": 0,
-                "cycle": false
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSequenceRequest"
-              },
-              "example": {
-                "code": "TestCode",
-                "increment": 1,
-                "minValue": 0,
-                "maxValue": 10,
-                "start": 0,
-                "cycle": false
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Successful creation of the sequence",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/sequences/{scope}/{code}": {
-      "get": {
-        "tags": [
-          "Sequences"
-        ],
-        "summary": "[EXPERIMENTAL] Return the definition of a sequence",
-        "description": "Return the detailed definition of a sequence",
-        "operationId": "GetSequenceDefinition",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "Scope of the sequence definition.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Scope of the sequence definition.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested sequence",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SequenceDefinition"
-                },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "increment": 1,
-                  "minValue": 0,
-                  "maxValue": 10,
-                  "start": 1,
-                  "value": 3,
-                  "cycle": false
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/sequences/{scope}/{code}/next": {
-      "get": {
-        "tags": [
-          "Sequences"
-        ],
-        "summary": "[EXPERIMENTAL] Get the next set of values from the sequence",
-        "description": "Get the next set of values from the sequence",
-        "operationId": "Next",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "Scope of the sequence definition.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Scope of the sequence definition.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Code of the sequence definition. This together with stated scope uniquely\r\n            identifies the sequence definition.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "batch",
-            "in": "query",
-            "description": "Number of sequences items to return for the specified sequence definition.",
-            "schema": {
-              "type": "integer",
-              "description": "Number of sequences items to return for the specified sequence definition.",
-              "format": "int32",
-              "default": 1
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Gets the next set of values for the sequence",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
-                },
-                "example": {
-                  "values": [
-                    "1",
-                    "2",
-                    "3"
-                  ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
-                },
-                "example": {
-                  "values": [
-                    "1",
-                    "2",
-                    "3"
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NextValueInSequenceResponse"
-                },
-                "example": {
-                  "values": [
-                    "1",
-                    "2",
-                    "3"
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/structured/{scope}": {
       "post": {
         "tags": [
@@ -63644,56 +63217,6 @@
         },
         "additionalProperties": false
       },
-      "CreateSequenceRequest": {
-        "required": [
-          "code",
-          "cycle",
-          "increment",
-          "maxValue",
-          "minValue",
-          "start"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "Code of the sequence"
-          },
-          "increment": {
-            "type": "integer",
-            "description": "Size of the increment",
-            "format": "int64"
-          },
-          "minValue": {
-            "type": "integer",
-            "description": "Minimum value",
-            "format": "int64"
-          },
-          "maxValue": {
-            "type": "integer",
-            "description": "Maximum value",
-            "format": "int64"
-          },
-          "start": {
-            "type": "integer",
-            "description": "Start value",
-            "format": "int64"
-          },
-          "cycle": {
-            "type": "boolean",
-            "description": "Indicate whether the sequence will cycle"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateTransactionPortfolioRequest": {
         "required": [
           "baseCurrency",
@@ -68554,30 +68077,6 @@
           "CarryAsPnl"
         ],
         "type": "string"
-      },
-      "NextValueInSequenceResponse": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Next values"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "OpaqueMarketData": {
         "allOf": [
@@ -74455,61 +73954,6 @@
         "additionalProperties": false,
         "description": "A list of scopes."
       },
-      "SequenceDefinition": {
-        "required": [
-          "cycle",
-          "id",
-          "increment",
-          "maxValue",
-          "minValue",
-          "start",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "increment": {
-            "type": "integer",
-            "description": "Size of the increment",
-            "format": "int64"
-          },
-          "minValue": {
-            "type": "integer",
-            "description": "Minimum value",
-            "format": "int64"
-          },
-          "maxValue": {
-            "type": "integer",
-            "description": "Maximum value",
-            "format": "int64"
-          },
-          "start": {
-            "type": "integer",
-            "description": "Start value",
-            "format": "int64"
-          },
-          "value": {
-            "type": "integer",
-            "description": "Current value of the sequence",
-            "format": "int64"
-          },
-          "cycle": {
-            "type": "boolean",
-            "description": "Indicate whether the sequence will cycle"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "SetPersonIdentifiersRequest": {
         "type": "object",
         "properties": {
@@ -77428,10 +76872,6 @@
       "description": "Methods providing Search capability."
     },
     {
-      "name": "Sequences",
-      "description": "Methods for generating and using sequences."
-    },
-    {
       "name": "Structured Market Data",
       "description": "Methods for the storage and retrieval of structured market data documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/knowledgebase/article/KA-01894."
     },
@@ -77495,7 +76935,6 @@
       "Schemas",
       "Scopes",
       "Search",
-      "Sequences",
       "Structured Market Data",
       "Structured Result Data",
       "System Configuration",
