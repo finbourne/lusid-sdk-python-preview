@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3475",
+    "version": "0.11.3476",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54349"
+      "url": "http://local-unit-test-server.lusid.com:60563"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "0053e8d60b84490ba08e4a5ee40ddfca"
+                    "identifierValue": "25b52ca392dd4c679ac6339ce1b47bb7"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "0053e8d60b84490ba08e4a5ee40ddfca"
+                    "identifierValue": "25b52ca392dd4c679ac6339ce1b47bb7"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "0053e8d60b84490ba08e4a5ee40ddfca"
+                    "identifierValue": "25b52ca392dd4c679ac6339ce1b47bb7"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "0053e8d60b84490ba08e4a5ee40ddfca"
+                    "identifierValue": "25b52ca392dd4c679ac6339ce1b47bb7"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "c198f77b-dcc4-4178-aca1-24b431db5515",
+                  "customEntityId": "4007d283-721f-4dc3-a6a1-43661455a87d",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "54970c0502024b909089b4ca8d4c9950",
+                      "identifierValue": "154621f4874c44bca238c0e57ed36035",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "c198f77b-dcc4-4178-aca1-24b431db5515",
+                  "customEntityId": "4007d283-721f-4dc3-a6a1-43661455a87d",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "54970c0502024b909089b4ca8d4c9950",
+                      "identifierValue": "154621f4874c44bca238c0e57ed36035",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "c198f77b-dcc4-4178-aca1-24b431db5515",
+                  "customEntityId": "4007d283-721f-4dc3-a6a1-43661455a87d",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "54970c0502024b909089b4ca8d4c9950",
+                      "identifierValue": "154621f4874c44bca238c0e57ed36035",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9919,7 +9919,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "e2ec1980-74ff-4779-af9b-f23af5590075",
+                  "customEntityId": "dc8cc037-aa17-4cdf-a2ad-d54fa19ada87",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9987,7 +9987,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "e2ec1980-74ff-4779-af9b-f23af5590075",
+                  "customEntityId": "dc8cc037-aa17-4cdf-a2ad-d54fa19ada87",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10055,7 +10055,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "e2ec1980-74ff-4779-af9b-f23af5590075",
+                  "customEntityId": "dc8cc037-aa17-4cdf-a2ad-d54fa19ada87",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -60243,6 +60243,23 @@
           "frequency": {
             "type": "string",
             "description": "Show the aggregated output returns on a Daily or Monthly period.",
+            "nullable": true
+          },
+          "compositeMembers": {
+            "type": "integer",
+            "description": "The number of members in the Composite on the given day.",
+            "format": "int32",
+            "nullable": true
+          },
+          "compositeMembersWithoutReturn": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "description": "List containing Composite members which post no return on the given day.",
             "nullable": true
           }
         },
