@@ -131,3 +131,20 @@ class RetryTests(unittest.TestCase):
 
         self.assertEqual(ex.exception.status, 404)
         self.assertEqual(api.invocations, 3)
+
+    def test_providing_retry_override_with_no_retry_invokes_call(self):
+        api = self.factory.build(MockApi)
+
+        api.execute_retryable_call("Portfolio", name="Portfolio", lusid_retries=0)
+
+        self.assertEqual(api.invocations, 1)
+
+    def test_providing_retry_invokes_call(self):
+        with self.assertRaises(ApiException) as ex:
+            self.factory.build(lusid.InstrumentsApi).get_instrument(
+                identifier_type="doesnt_exist",
+                identifier="blah",
+                lusid_retries=1
+            )
+
+        self.assertEqual(ex.exception.status, 400)

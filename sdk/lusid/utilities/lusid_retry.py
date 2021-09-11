@@ -13,8 +13,11 @@ def lusidretry(fn):
         if not isinstance(retries, int):
             retries = 3
 
+        # remove the lusid_retries param from the kwargs
+        kwargs.pop("lusid_retries", None)
+
         tries = 0
-        while tries < retries:
+        while tries < retries+1:
             try:
                 return fn(*args, **kwargs)
             except ApiException as ex:
