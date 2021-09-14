@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3488",
+    "version": "0.11.3489",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:39462"
     }
   ],
   "paths": {
@@ -9387,7 +9387,7 @@
           }
         ],
         "requestBody": {
-          "description": "The CustomEntity to be created",
+          "description": "The CustomEntity to be created.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "6756fa049e3049d4bebb7ae4b3d3beca"
+                    "identifierValue": "66ca2acf2fea49289fa3704b348e074a"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "6756fa049e3049d4bebb7ae4b3d3beca"
+                    "identifierValue": "66ca2acf2fea49289fa3704b348e074a"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "6756fa049e3049d4bebb7ae4b3d3beca"
+                    "identifierValue": "66ca2acf2fea49289fa3704b348e074a"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "6756fa049e3049d4bebb7ae4b3d3beca"
+                    "identifierValue": "66ca2acf2fea49289fa3704b348e074a"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "9425e7de-96f5-4303-b979-661984113c26",
+                  "customEntityId": "0d6562b3-37a9-45e7-9da9-694900d95d52",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8f4774af40204e768154f7135d82c432",
+                      "identifierValue": "0f8def5d633e4d5e99a01646db5516e6",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "9425e7de-96f5-4303-b979-661984113c26",
+                  "customEntityId": "0d6562b3-37a9-45e7-9da9-694900d95d52",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8f4774af40204e768154f7135d82c432",
+                      "identifierValue": "0f8def5d633e4d5e99a01646db5516e6",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "9425e7de-96f5-4303-b979-661984113c26",
+                  "customEntityId": "0d6562b3-37a9-45e7-9da9-694900d95d52",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "8f4774af40204e768154f7135d82c432",
+                      "identifierValue": "0f8def5d633e4d5e99a01646db5516e6",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9833,6 +9833,143 @@
           }
         ],
         "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "CustomEntities"
+        ],
+        "summary": "[EXPERIMENTAL] List Custom Entities",
+        "description": "List all the Custom Entities matching particular criteria.",
+        "operationId": "ListCustomEntities",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "description": "The type of entity to list.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "The type of entity to list."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the entities. Defaults to the current LUSID\r\n            system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to list the entities. Defaults to the current LUSID\r\n            system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the entities. Defaults to returning the latest version\r\n            of each portfolio if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the entities. Defaults to returning the latest version\r\n            of each portfolio if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+            "schema": {
+              "type": "string",
+              "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
+            "schema": {
+              "type": "string",
+              "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested custom entities",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/customentities/{entityType}/{identifierType}/{identifierValue}": {
@@ -9841,7 +9978,7 @@
           "CustomEntities"
         ],
         "summary": "[EXPERIMENTAL] Get CustomEntity",
-        "description": "Retrieve a CustomEntity by a specific Id at a point in AsAt time",
+        "description": "Retrieve a CustomEntity by a specific Id at a point in AsAt time.",
         "operationId": "GetCustomEntity",
         "parameters": [
           {
@@ -9859,49 +9996,49 @@
           {
             "name": "identifierType",
             "in": "path",
-            "description": "An identifier type attached to the CustomEntity",
+            "description": "An identifier type attached to the CustomEntity.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "An identifier type attached to the CustomEntity"
+              "description": "An identifier type attached to the CustomEntity."
             }
           },
           {
             "name": "identifierValue",
             "in": "path",
-            "description": "The identifier value",
+            "description": "The identifier value.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The identifier value"
+              "description": "The identifier value."
             }
           },
           {
             "name": "identifierScope",
             "in": "query",
-            "description": "The identifier scope",
+            "description": "The identifier scope.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The identifier scope"
+              "description": "The identifier scope."
             }
           },
           {
             "name": "asAt",
             "in": "query",
-            "description": "The AsAt at which to retrieve the CustomEntity",
+            "description": "The AsAt at which to retrieve the CustomEntity.",
             "schema": {
               "type": "string",
-              "description": "The AsAt at which to retrieve the CustomEntity",
+              "description": "The AsAt at which to retrieve the CustomEntity.",
               "format": "date-time",
               "nullable": true
             },
@@ -9919,7 +10056,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "5f2c7476-8b52-4a2b-9889-8e4d1225cb9b",
+                  "customEntityId": "b56891db-1c9d-4a39-95d7-9085de8ed9da",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -9987,7 +10124,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "5f2c7476-8b52-4a2b-9889-8e4d1225cb9b",
+                  "customEntityId": "b56891db-1c9d-4a39-95d7-9085de8ed9da",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10055,7 +10192,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "5f2c7476-8b52-4a2b-9889-8e4d1225cb9b",
+                  "customEntityId": "b56891db-1c9d-4a39-95d7-9085de8ed9da",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -63796,36 +63933,43 @@
         "properties": {
           "href": {
             "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
             "format": "uri",
             "nullable": true
           },
           "entityType": {
-            "type": "string"
+            "type": "string",
+            "description": "The EntityType to be used when relations are created to the CustomEntity"
           },
           "customEntityId": {
-            "type": "string"
+            "type": "string",
+            "description": "A unique identifier for the CustomEntity"
           },
           "version": {
             "$ref": "#/components/schemas/Version"
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "The display name of the CustomEntity"
           },
           "description": {
             "type": "string",
+            "description": "The description of the CustomEntity",
             "nullable": true
           },
           "identifiers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityIdResponse"
-            }
+            },
+            "description": "A collection of CustomEntityIdentifiers that can identify the CustomEntity"
           },
           "fields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityField"
-            }
+            },
+            "description": "A collection of CustomEntityFields that decorate the CustomEntity"
           },
           "effectiveRange": {
             "$ref": "#/components/schemas/DateRange"
@@ -68820,6 +68964,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CorporateActionSource"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
+      "PagedResourceListOfCustomEntityResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomEntityResponse"
             },
             "description": "The resources to list."
           },
@@ -76726,7 +76911,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
