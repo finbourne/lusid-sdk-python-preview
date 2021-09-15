@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3492",
+    "version": "0.11.3493",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:39910"
+      "url": "http://local-unit-test-server.lusid.com:33491"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "c30d0a5f11264510bc2825a814784a0d"
+                    "identifierValue": "893c499bcb8748f5bed8fd9a2df16650"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "c30d0a5f11264510bc2825a814784a0d"
+                    "identifierValue": "893c499bcb8748f5bed8fd9a2df16650"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "c30d0a5f11264510bc2825a814784a0d"
+                    "identifierValue": "893c499bcb8748f5bed8fd9a2df16650"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "c30d0a5f11264510bc2825a814784a0d"
+                    "identifierValue": "893c499bcb8748f5bed8fd9a2df16650"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "128168f0-e38c-42ce-8409-57d2896a40ab",
+                  "customEntityId": "92540dc8-8fa2-4f68-98d5-4cc5adba40a3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "78878bb7e42449d982e1a56ca7db2f4a",
+                      "identifierValue": "83b0dea54fe9492780a8a4b9f3407336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "128168f0-e38c-42ce-8409-57d2896a40ab",
+                  "customEntityId": "92540dc8-8fa2-4f68-98d5-4cc5adba40a3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "78878bb7e42449d982e1a56ca7db2f4a",
+                      "identifierValue": "83b0dea54fe9492780a8a4b9f3407336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "128168f0-e38c-42ce-8409-57d2896a40ab",
+                  "customEntityId": "92540dc8-8fa2-4f68-98d5-4cc5adba40a3",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "78878bb7e42449d982e1a56ca7db2f4a",
+                      "identifierValue": "83b0dea54fe9492780a8a4b9f3407336",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -10056,7 +10056,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "35c4f094-b0b3-48d1-8595-217c80b1273c",
+                  "customEntityId": "0d876029-7ec6-45e9-b84a-3c87beef086d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10124,7 +10124,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "35c4f094-b0b3-48d1-8595-217c80b1273c",
+                  "customEntityId": "0d876029-7ec6-45e9-b84a-3c87beef086d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10192,7 +10192,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "35c4f094-b0b3-48d1-8595-217c80b1273c",
+                  "customEntityId": "0d876029-7ec6-45e9-b84a-3c87beef086d",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -62051,10 +62051,14 @@
               "FxVolSurfaceData",
               "IrVolCubeData",
               "OpaqueMarketData",
-              "YieldCurveData"
+              "YieldCurveData",
+              "FxForwardCurveData",
+              "FxForwardPipsCurveData",
+              "FxForwardTenorCurveData",
+              "FxForwardTenorPipsCurveData"
             ],
             "type": "string",
-            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
           }
         },
         "additionalProperties": false,
@@ -64477,10 +64481,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
@@ -64748,10 +64756,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
@@ -65900,6 +65912,268 @@
         ],
         "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument"
       },
+      "FxForwardCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "dates",
+              "domCcy",
+              "fgnCcy",
+              "marketDataType",
+              "rates"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the quoted rates",
+                "format": "date-time"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the fx forward"
+              },
+              "fgnCcy": {
+                "type": "string",
+                "description": "Foreign currency of the fx forward"
+              },
+              "dates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "description": "Dates for which the forward rates apply"
+              },
+              "rates": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy)"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Contains data (i.e. dates and rates + metadata) for building fx forward curves"
+      },
+      "FxForwardPipsCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "dates",
+              "domCcy",
+              "fgnCcy",
+              "marketDataType",
+              "pipRates"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the quoted pip rates",
+                "format": "date-time"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the fx forward"
+              },
+              "fgnCcy": {
+                "type": "string",
+                "description": "Foreign currency of the fx forward"
+              },
+              "dates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "description": "Dates for which the forward rates apply"
+              },
+              "pipRates": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Contains data (i.e. dates and pips + metadata) for building fx forward curves (when combined with a spot rate to build on)"
+      },
+      "FxForwardTenorCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "domCcy",
+              "fgnCcy",
+              "marketDataType",
+              "rates",
+              "tenors"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the quoted rates",
+                "format": "date-time"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the fx forward"
+              },
+              "fgnCcy": {
+                "type": "string",
+                "description": "Foreign currency of the fx forward"
+              },
+              "tenors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Tenors for which the forward rates apply"
+              },
+              "rates": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy)"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Contains data (i.e. tenors and rates + metadata) for building fx forward curves (when combined with a date to build on)"
+      },
+      "FxForwardTenorPipsCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "domCcy",
+              "fgnCcy",
+              "marketDataType",
+              "pipRates",
+              "tenors"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the quoted pip rates",
+                "format": "date-time"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the fx forward"
+              },
+              "fgnCcy": {
+                "type": "string",
+                "description": "Foreign currency of the fx forward"
+              },
+              "tenors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Tenors for which the forward rates apply"
+              },
+              "pipRates": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
+              }
+            }
+          }
+        ],
+        "description": "Contains data (i.e. tenors and pips + metadata) for building fx forward curves (when combined with a spot rate and a date to build on)"
+      },
       "FxOption": {
         "allOf": [
           {
@@ -66093,10 +66367,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
@@ -67515,10 +67793,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
@@ -68095,7 +68377,11 @@
           "FxVolSurfaceData",
           "IrVolCubeData",
           "OpaqueMarketData",
-          "YieldCurveData"
+          "YieldCurveData",
+          "FxForwardCurveData",
+          "FxForwardPipsCurveData",
+          "FxForwardTenorCurveData",
+          "FxForwardTenorPipsCurveData"
         ],
         "type": "string",
         "description": "The format of the complex market data stored. Complex market data is used to store any\r\ndata which requires more context than just a simple single point as is the case with a\r\nquote.\r\nExamples of such complex market data are Discount Curve and Volatility Surfaces."
@@ -68219,10 +68505,12 @@
               "ForwardSpecifiedRateUndiscounted",
               "IndexNav",
               "IndexPrice",
-              "InlinedIndex"
+              "InlinedIndex",
+              "ForwardFromCurve",
+              "ForwardFromCurveUndiscounted"
             ],
             "type": "string",
-            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex"
+            "description": "The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted"
           }
         },
         "additionalProperties": false,
@@ -68283,10 +68571,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
@@ -70739,7 +71031,9 @@
           "ForwardSpecifiedRateUndiscounted",
           "IndexNav",
           "IndexPrice",
-          "InlinedIndex"
+          "InlinedIndex",
+          "ForwardFromCurve",
+          "ForwardFromCurveUndiscounted"
         ],
         "type": "string"
       },
@@ -76894,10 +77188,14 @@
                   "FxVolSurfaceData",
                   "IrVolCubeData",
                   "OpaqueMarketData",
-                  "YieldCurveData"
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData"
               }
             }
           }
