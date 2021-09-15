@@ -46,7 +46,7 @@ with open("./lusid/__version__.py") as fp:
 
 setup(
 
-    name='lusid-sdk-preview',
+    name='lusid-sdk-generated-preview',
     version=version['__version__'],
     description='Python Preview SDK for LUSID API',
     url='https://github.com/finbourne/lusid-sdk-python-preview',
