@@ -462,6 +462,4 @@ from lusid.models.weekend_mask import WeekendMask
 from lusid.models.weighted_instrument import WeightedInstrument
 from lusid.models.weighted_instruments import WeightedInstruments
 
-# import utilities into sdk package
-from lusid.utilities.api_client_factory import ApiClientFactory
 
