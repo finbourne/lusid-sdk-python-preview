@@ -1,5 +1,6 @@
 # FxOptionAllOf
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 **strike** | **float** | The strike of the option. | 
 **dom_ccy** | **str** | The domestic currency of the instrument. | 
 **fgn_ccy** | **str** | The foreign currency of the FX. | 
-**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap | 
+**premium** | [**Premium**](Premium.md) |  | [optional] 
+**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

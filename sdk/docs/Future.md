@@ -1,5 +1,7 @@
 # Future
 
+IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument                             A future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a committment to buy a certain number of               contracts of a certain size at a date in the future.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,7 +12,7 @@ Name | Type | Description | Notes
 **contracts** | **float** | The number of contracts held | [optional] 
 **ref_spot_price** | **float** | The reference spot price for the future at which the contract was entered into. | [optional] 
 **underlying** | [**LusidInstrument**](LusidInstrument.md) |  | 
-**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap | 
+**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

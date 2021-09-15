@@ -1,5 +1,7 @@
 # CdsIndex
 
+IL CDS Index Instrument; Lusid-ibor internal representation of a Credit Default Swap Index instrument  Calculation information and reference data can be obtained from Markit, e.g. https://www.markit.com/Documentation/Product/ITraxx
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,7 +13,7 @@ Name | Type | Description | Notes
 **basket** | [**Basket**](Basket.md) |  | 
 **convention_name** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
 **notional** | **float** | The notional quantity that applies to both the premium and protection legs | 
-**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap | 
+**instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

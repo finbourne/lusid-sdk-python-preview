@@ -1,6 +1,6 @@
 # lusid.QuotesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:52870*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,15 +31,28 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
 provider = 'provider_example' # str | The Provider of the rule (optional)
 price_source = 'price_source_example' # str | The PriceSource of the rule (optional)
 instrument_id_type = 'instrument_id_type_example' # str | The InstrumentIdType of the rule (optional)
@@ -48,12 +61,12 @@ quote_type = 'quote_type_example' # str | The QuoteType of the rule (optional)
 field = 'field_example' # str | The Field of the rule (optional)
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
-try:
-    # [EXPERIMENTAL] Delete a Quote Access Metadata Rule
-    api_response = api_instance.delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->delete_quote_accces_metadata_rule: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Delete a Quote Access Metadata Rule
+        api_response = api_instance.delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->delete_quote_accces_metadata_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -107,23 +120,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the quotes to delete.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the quotes to delete.
 request_body = {"dS-VOD-PRICE-MID":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"}} # dict(str, QuoteId) | The quotes to delete keyed by a unique correlation id. (optional)
 
-try:
-    # [EARLY ACCESS] Delete quotes
-    api_response = api_instance.delete_quotes(scope, request_body=request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->delete_quotes: %s\n" % e)
+    try:
+        # [EARLY ACCESS] Delete quotes
+        api_response = api_instance.delete_quotes(scope, request_body=request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->delete_quotes: %s\n" % e)
 ```
 
 ### Parameters
@@ -171,26 +197,39 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the quotes to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the quotes to retrieve.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)
 request_body = {"dS-VOD-PRICE-MID":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"}} # dict(str, QuoteSeriesId) | The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)
 
-try:
-    # [EARLY ACCESS] Get quotes
-    api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->get_quotes: %s\n" % e)
+    try:
+        # [EARLY ACCESS] Get quotes
+        api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->get_quotes: %s\n" % e)
 ```
 
 ### Parameters
@@ -241,15 +280,28 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
 provider = 'provider_example' # str | The Provider of the rule (optional)
 price_source = 'price_source_example' # str | The PriceSource of the rule (optional)
 instrument_id_type = 'instrument_id_type_example' # str | The InstrumentIdType of the rule (optional)
@@ -259,12 +311,12 @@ field = 'field_example' # str | The Field of the rule (optional)
 effective_at = 'effective_at_example' # str | The effective date of the rule (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
 
-try:
-    # [EXPERIMENTAL] Get a quote access metadata rule
-    api_response = api_instance.get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->get_quotes_access_metadata_rule: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Get a quote access metadata rule
+        api_response = api_instance.get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->get_quotes_access_metadata_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -319,27 +371,40 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the quotes to list.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the quotes to list.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [DEPRECATED] List quotes
-    api_response = api_instance.list_quotes(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->list_quotes: %s\n" % e)
+    try:
+        # [DEPRECATED] List quotes
+        api_response = api_instance.list_quotes(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->list_quotes: %s\n" % e)
 ```
 
 ### Parameters
@@ -391,23 +456,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the Quote Access Metadata Rule to retrieve.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
 
-try:
-    # [EXPERIMENTAL] List all quote access metadata rules in a scope
-    api_response = api_instance.list_quotes_access_metadata_rules(scope, as_at=as_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->list_quotes_access_metadata_rules: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] List all quote access metadata rules in a scope
+        api_response = api_instance.list_quotes_access_metadata_rules(scope, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->list_quotes_access_metadata_rules: %s\n" % e)
 ```
 
 ### Parameters
@@ -455,27 +533,40 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the quotes to list.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope of the quotes to list.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [EARLY ACCESS] List quotes for scope
-    api_response = api_instance.list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->list_quotes_for_scope: %s\n" % e)
+    try:
+        # [EARLY ACCESS] List quotes for scope
+        api_response = api_instance.list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->list_quotes_for_scope: %s\n" % e)
 ```
 
 ### Parameters
@@ -527,24 +618,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope to use when updating or inserting the Quote Access Metadata Rule.
 upsert_quote_access_metadata_rule_request = {"id":{"provider":"ExampleDataProvider","field":"ExampleQuoteField"},"metadata":{"informationClassification":[{"value":"Public"}],"region":[{"value":"EMEA"}]}} # UpsertQuoteAccessMetadataRuleRequest | The Quote Access Metadata Rule to update or insert
 effective_at = 'effective_at_example' # str | The date this rule will effective from (optional)
 
-try:
-    # [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
-    api_response = api_instance.upsert_quote_access_metadata_rule(scope, upsert_quote_access_metadata_rule_request, effective_at=effective_at)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->upsert_quote_access_metadata_rule: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        api_response = api_instance.upsert_quote_access_metadata_rule(scope, upsert_quote_access_metadata_rule_request, effective_at=effective_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->upsert_quote_access_metadata_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -593,23 +697,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.QuotesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to use when updating or inserting the quotes.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.QuotesApi(api_client)
+    scope = 'scope_example' # str | The scope to use when updating or inserting the quotes.
 request_body = {"dS-VOD-PRICE-MID":{"quoteId":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1460,"unit":"CNY"}},"o-C-EURUSD-PRICE-BID":{"quoteId":{"quoteSeriesId":{"provider":"Oanda","priceSource":"Citi","instrumentId":"EUR/USD","instrumentIdType":"CurrencyPair","quoteType":"Price","field":"bid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1.367,"unit":"EUR/USD"},"lineage":"Oanda/FxRates_2018-10-22T00:00:00.0000000+00:00.csv"}} # dict(str, UpsertQuoteRequest) | The quotes to update or insert keyed by a unique correlation id. (optional)
 
-try:
-    # [EARLY ACCESS] Upsert quotes
-    api_response = api_instance.upsert_quotes(scope, request_body=request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QuotesApi->upsert_quotes: %s\n" % e)
+    try:
+        # [EARLY ACCESS] Upsert quotes
+        api_response = api_instance.upsert_quotes(scope, request_body=request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling QuotesApi->upsert_quotes: %s\n" % e)
 ```
 
 ### Parameters

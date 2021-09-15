@@ -1,6 +1,6 @@
 # lusid.ComplexMarketDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:52870*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,23 +25,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ComplexMarketDataApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the complex market data to delete.
-request_body = {"first-item":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"DiscountFactorCurveData","marketAsset":"USDOIS"},"second-item":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"OpaqueMarketData","marketAsset":"RBS"}} # dict(str, ComplexMarketDataId) | The complex market data Ids to delete, each keyed by a unique correlation id.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplexMarketDataApi(api_client)
+    scope = 'scope_example' # str | The scope of the complex market data to delete.
+request_body = {"first-item":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"USDOIS"},"second-item":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"RBS"}} # dict(str, ComplexMarketDataId) | The complex market data Ids to delete, each keyed by a unique correlation id.
 
-try:
-    # [EXPERIMENTAL] Delete one or more items of complex market data, assuming they are present.
-    api_response = api_instance.delete_complex_market_data(scope, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ComplexMarketDataApi->delete_complex_market_data: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Delete one or more items of complex market data, assuming they are present.
+        api_response = api_instance.delete_complex_market_data(scope, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplexMarketDataApi->delete_complex_market_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -89,26 +102,39 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ComplexMarketDataApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the complex market data to retrieve.
-request_body = {"first-item":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"DiscountFactorCurveData","marketAsset":"USDOIS"},"second-item":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"OpaqueMarketData","marketAsset":"RBS"}} # dict(str, ComplexMarketDataId) | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplexMarketDataApi(api_client)
+    scope = 'scope_example' # str | The scope of the complex market data to retrieve.
+request_body = {"first-item":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"USDOIS"},"second-item":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"RBS"}} # dict(str, ComplexMarketDataId) | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 effective_at = 'effective_at_example' # str | The effective datetime at which to retrieve the complex market data. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)
 
-try:
-    # [EXPERIMENTAL] Get complex market data
-    api_response = api_instance.get_complex_market_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ComplexMarketDataApi->get_complex_market_data: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Get complex market data
+        api_response = api_instance.get_complex_market_data(scope, request_body, effective_at=effective_at, as_at=as_at, max_age=max_age)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplexMarketDataApi->get_complex_market_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -159,23 +185,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ComplexMarketDataApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope to use when updating or inserting the complex market data.
-request_body = {"first-item":{"marketDataId":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"DiscountFactorCurveData","marketAsset":"USDOIS"},"marketData":{"baseDate":"1970-01-01T00:00:00.0000000+00:00","dates":["1970-01-01T00:00:00.0000000+00:00"],"discountFactors":[1],"marketDataType":"DiscountFactorCurveData"}},"second-item":{"marketDataId":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketDataType":"OpaqueMarketData","marketAsset":"RBS"},"marketData":{"document":"{ \"some\":\"valid json\"}","format":"Json","name":"free text identifier of document 1","marketDataType":"OpaqueMarketData"}}} # dict(str, UpsertComplexMarketDataRequest) | The set of complex market data items to update or insert keyed by a unique correlation id.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplexMarketDataApi(api_client)
+    scope = 'scope_example' # str | The scope to use when updating or inserting the complex market data.
+request_body = {"first-item":{"marketDataId":{"provider":"DataScope","priceSource":"Some Bank Plc","lineage":"Swaps Desk Trader A","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"USDOIS"},"marketData":{"baseDate":"1970-01-01T00:00:00.0000000+00:00","dates":["1970-01-01T00:00:00.0000000+00:00"],"discountFactors":[1],"marketDataType":"DiscountFactorCurveData"}},"second-item":{"marketDataId":{"provider":"DataScope","priceSource":"AN.Other Bank Plc","lineage":"Swaps Desk Trader B","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","marketAsset":"RBS"},"marketData":{"document":"{ \"some\":\"valid json\"}","format":"Json","name":"free text identifier of document 1","marketDataType":"OpaqueMarketData"}}} # dict(str, UpsertComplexMarketDataRequest) | The set of complex market data items to update or insert keyed by a unique correlation id.
 
-try:
-    # [EXPERIMENTAL] Upsert a set of complex market data items. This creates or updates the data in Lusid.
-    api_response = api_instance.upsert_complex_market_data(scope, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ComplexMarketDataApi->upsert_complex_market_data: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Upsert a set of complex market data items. This creates or updates the data in Lusid.
+        api_response = api_instance.upsert_complex_market_data(scope, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplexMarketDataApi->upsert_complex_market_data: %s\n" % e)
 ```
 
 ### Parameters

@@ -1,5 +1,7 @@
 # QuoteAccessMetadataRuleId
 
+An identifier that uniquely identifies a set of Quote access control metadata.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

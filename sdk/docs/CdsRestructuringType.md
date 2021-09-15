@@ -1,5 +1,6 @@
 # CdsRestructuringType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,6 @@
 # lusid.ReconciliationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:52870*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,26 +26,39 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
-sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 portfolios_reconciliation_request = {"left":{"portfolioId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"right":{"portfolioId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"instrumentPropertyKeys":["Instrument/default/Name"]} # PortfoliosReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
-try:
-    # [EARLY ACCESS] Reconcile portfolio holdings
-    api_response = api_instance.reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request=portfolios_reconciliation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReconciliationsApi->reconcile_holdings: %s\n" % e)
+    try:
+        # [EARLY ACCESS] Reconcile portfolio holdings
+        api_response = api_instance.reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request=portfolios_reconciliation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->reconcile_holdings: %s\n" % e)
 ```
 
 ### Parameters
@@ -96,26 +109,39 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
-sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 filter = 'filter_example' # str | Optional. Expression to filter the result set (optional)
 portfolios_reconciliation_request_preview = {"tolerance":{"/Holding/Units":{"value":0,"type":"Absolute"},"/Holding/Cost":{"value":0,"type":"Relative"}},"left":{"portfolioId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"right":{"portfolioId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"instrumentPropertyKeys":["Instrument/default/Name"]} # PortfoliosReconciliationRequestPreview | The specifications of the inputs to the reconciliation. This request can take tolerance for units and cost. (optional)
 
-try:
-    # [EXPERIMENTAL] Reconcile portfolio holdings with given tolerance
-    api_response = api_instance.reconcile_holdings_preview(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request_preview=portfolios_reconciliation_request_preview)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReconciliationsApi->reconcile_holdings_preview: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Reconcile portfolio holdings with given tolerance
+        api_response = api_instance.reconcile_holdings_preview(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request_preview=portfolios_reconciliation_request_preview)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->reconcile_holdings_preview: %s\n" % e)
 ```
 
 ### Parameters
@@ -166,22 +192,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
-inline_valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPUSD","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"right":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPJPY","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"JPY","refSpotRate":132,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"leftToRightMapping":[],"preserveKeys":[]} # InlineValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    inline_valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPUSD","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"right":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPJPY","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"JPY","refSpotRate":132,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"leftToRightMapping":[],"preserveKeys":[]} # InlineValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
-try:
-    # [BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
-    api_response = api_instance.reconcile_inline(inline_valuations_reconciliation_request=inline_valuations_reconciliation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReconciliationsApi->reconcile_inline: %s\n" % e)
+    try:
+        # [BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
+        api_response = api_instance.reconcile_inline(inline_valuations_reconciliation_request=inline_valuations_reconciliation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->reconcile_inline: %s\n" % e)
 ```
 
 ### Parameters
@@ -228,22 +267,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.ReconciliationsApi(lusid.ApiClient(configuration))
-valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"right":{"recipeId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"leftToRightMapping":[],"preserveKeys":["Instrument/default/Name"]} # ValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"right":{"recipeId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"leftToRightMapping":[],"preserveKeys":["Instrument/default/Name"]} # ValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
-try:
-    # [BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-    api_response = api_instance.reconcile_valuation(valuations_reconciliation_request=valuations_reconciliation_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReconciliationsApi->reconcile_valuation: %s\n" % e)
+    try:
+        # [BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        api_response = api_instance.reconcile_valuation(valuations_reconciliation_request=valuations_reconciliation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->reconcile_valuation: %s\n" % e)
 ```
 
 ### Parameters

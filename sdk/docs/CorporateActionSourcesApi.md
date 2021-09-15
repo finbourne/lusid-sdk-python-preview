@@ -1,6 +1,6 @@
 # lusid.CorporateActionSourcesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:52870*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,24 +28,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of corporate action source
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    scope = 'scope_example' # str | The scope of corporate action source
 code = 'code_example' # str | The code of the corporate action source
 upsert_corporate_action_request = [{"corporateActionCode":"MyStockSplitId","description":"2-for-1 stock split of instrument BBG001S6PJ31","announcementDate":"2018-03-01T00:00:00.0000000+00:00","exDate":"2018-06-01T00:00:00.0000000+00:00","recordDate":"2018-06-02T00:00:00.0000000+00:00","paymentDate":"2018-08-02T00:00:00.0000000+00:00","transitions":[{"inputTransition":{"instrumentIdentifiers":{"instrument/default/Figi":"BBG001S6PJ31"},"unitsFactor":1,"costFactor":1},"outputTransitions":[{"instrumentIdentifiers":{"instrument/default/Figi":"BBG001S6PJ31"},"unitsFactor":2,"costFactor":1}]}]}] # list[UpsertCorporateActionRequest] | The corporate action definitions (optional)
 
-try:
-    # [BETA] Upsert corporate actions
-    api_response = api_instance.batch_upsert_corporate_actions(scope, code, upsert_corporate_action_request=upsert_corporate_action_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->batch_upsert_corporate_actions: %s\n" % e)
+    try:
+        # [BETA] Upsert corporate actions
+        api_response = api_instance.batch_upsert_corporate_actions(scope, code, upsert_corporate_action_request=upsert_corporate_action_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->batch_upsert_corporate_actions: %s\n" % e)
 ```
 
 ### Parameters
@@ -94,22 +107,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-create_corporate_action_source_request = {"scope":"ExampleScope","code":"ExampleCode","displayName":"ExampleDisplayName","description":"Example Description"} # CreateCorporateActionSourceRequest | The corporate action source definition
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    create_corporate_action_source_request = {"scope":"ExampleScope","code":"ExampleCode","displayName":"ExampleDisplayName","description":"Example Description"} # CreateCorporateActionSourceRequest | The corporate action source definition
 
-try:
-    # [BETA] Create corporate action source
-    api_response = api_instance.create_corporate_action_source(create_corporate_action_source_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->create_corporate_action_source: %s\n" % e)
+    try:
+        # [BETA] Create corporate action source
+        api_response = api_instance.create_corporate_action_source(create_corporate_action_source_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->create_corporate_action_source: %s\n" % e)
 ```
 
 ### Parameters
@@ -156,23 +182,36 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the corporate action source to be deleted
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    scope = 'scope_example' # str | The scope of the corporate action source to be deleted
 code = 'code_example' # str | The code of the corporate action source to be deleted
 
-try:
-    # [BETA] Delete a corporate action source
-    api_response = api_instance.delete_corporate_action_source(scope, code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->delete_corporate_action_source: %s\n" % e)
+    try:
+        # [BETA] Delete a corporate action source
+        api_response = api_instance.delete_corporate_action_source(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->delete_corporate_action_source: %s\n" % e)
 ```
 
 ### Parameters
@@ -220,24 +259,37 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the corporate action source
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    scope = 'scope_example' # str | The scope of the corporate action source
 code = 'code_example' # str | The code of the corporate action source
 corporate_action_ids = ['corporate_action_ids_example'] # list[str] | The IDs of the corporate actions to delete
 
-try:
-    # [EXPERIMENTAL] Delete corporate actions
-    api_response = api_instance.delete_corporate_actions(scope, code, corporate_action_ids)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->delete_corporate_actions: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Delete corporate actions
+        api_response = api_instance.delete_corporate_actions(scope, code, corporate_action_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->delete_corporate_actions: %s\n" % e)
 ```
 
 ### Parameters
@@ -286,15 +338,28 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-scope = 'scope_example' # str | The scope of the corporate action source.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    scope = 'scope_example' # str | The scope of the corporate action source.
 code = 'code_example' # str | The code of the corporate action source.
 from_effective_at = 'from_effective_at_example' # str | Optional. The start effective date of the data range. (optional)
 to_effective_at = 'to_effective_at_example' # str | Optional. The end effective date of the data range. (optional)
@@ -303,12 +368,12 @@ sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these
 limit = 56 # int | Optional. When paginating, limit the results to this number. (optional)
 filter = 'filter_example' # str | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
-try:
-    # [BETA] Get corporate actions
-    api_response = api_instance.get_corporate_actions(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, sort_by=sort_by, limit=limit, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->get_corporate_actions: %s\n" % e)
+    try:
+        # [BETA] Get corporate actions
+        api_response = api_instance.get_corporate_actions(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, sort_by=sort_by, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->get_corporate_actions: %s\n" % e)
 ```
 
 ### Parameters
@@ -362,26 +427,39 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.CorporateActionSourcesApi(lusid.ApiClient(configuration))
-as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.CorporateActionSourcesApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
 limit = 100 # int | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional) (default to 100)
 filter = 'filter_example' # str | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \"displayName eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 page = 'page_example' # str | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)
 
-try:
-    # [BETA] List corporate action sources
-    api_response = api_instance.list_corporate_action_sources(as_at=as_at, sort_by=sort_by, limit=limit, filter=filter, page=page)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CorporateActionSourcesApi->list_corporate_action_sources: %s\n" % e)
+    try:
+        # [BETA] List corporate action sources
+        api_response = api_instance.list_corporate_action_sources(as_at=as_at, sort_by=sort_by, limit=limit, filter=filter, page=page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CorporateActionSourcesApi->list_corporate_action_sources: %s\n" % e)
 ```
 
 ### Parameters

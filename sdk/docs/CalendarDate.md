@@ -1,5 +1,6 @@
 # CalendarDate
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,8 +12,8 @@ Name | Type | Description | Notes
 **timezone** | **str** |  | 
 **description** | **str** |  | 
 **type** | **str** |  | 
-**attributes** | [**DateAttributes**](DateAttributes.md) |  | 
-**source_data** | **dict(str, str)** |  | 
+**attributes** | [**DateAttributes**](DateAttributes.md) |  | [optional] 
+**source_data** | **dict(str, str)** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

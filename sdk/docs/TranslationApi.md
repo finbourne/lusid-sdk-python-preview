@@ -1,6 +1,6 @@
 # lusid.TranslationApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:52870*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,22 +23,35 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-configuration = lusid.Configuration()
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://fbn-prd.lusid.com/api"
+)
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://local-unit-test-server.lusid.com:52870
-configuration.host = "http://local-unit-test-server.lusid.com:52870"
-# Create an instance of the API class
-api_instance = lusid.TranslationApi(lusid.ApiClient(configuration))
-translate_instrument_definitions_request = {"instruments":{"myFavouriteInstrument":{"instrumentFormat":{"sourceSystem":"someSource","vendor":"someVendor","version":"someVersion"},"content":"{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}","instrumentType":"ExoticInstrument"},"myFavouriteLusidInstrument":{"startDate":"2021-06-14T22:05:06.9665289+00:00","maturityDate":"2022-06-14T22:05:06.9665297+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}},"dialect":"targetDialect"} # TranslateInstrumentDefinitionsRequest | The definitions of the instruments to translate along with the target dialect.
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.TranslationApi(api_client)
+    translate_instrument_definitions_request = {"instruments":{"myFavouriteInstrument":{"instrumentFormat":{"sourceSystem":"someSource","vendor":"someVendor","version":"someVersion"},"content":"{\"InstrumentContentShouldBeGivenAsAJsonString\": \"OrAnXmlString\"}","instrumentType":"ExoticInstrument"},"myFavouriteLusidInstrument":{"startDate":"2018-01-01T00:00:00.0000000+00:00","maturityDate":"2019-01-01T00:00:00.0000000+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}},"dialect":"targetDialect"} # TranslateInstrumentDefinitionsRequest | The definitions of the instruments to translate along with the target dialect.
 
-try:
-    # [EXPERIMENTAL] Translate instruments
-    api_response = api_instance.translate_instrument_definitions(translate_instrument_definitions_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TranslationApi->translate_instrument_definitions: %s\n" % e)
+    try:
+        # [EXPERIMENTAL] Translate instruments
+        api_response = api_instance.translate_instrument_definitions(translate_instrument_definitions_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TranslationApi->translate_instrument_definitions: %s\n" % e)
 ```
 
 ### Parameters
