@@ -1,16 +1,16 @@
 # lusid.SequencesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:59385*
+All URIs are relative to *http://local-unit-test-server.lusid.com:40437*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_sequence**](SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EXPERIMENTAL] Create a new sequence
-[**get_sequence_definition**](SequencesApi.md#get_sequence_definition) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] Return the definition of a sequence
-[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Get the next set of values from the sequence
+[**get_sequence**](SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] Get a specified sequence
+[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Get next values from sequence
 
 
 # **create_sequence**
-> SequenceDefinition create_sequence(scope, create_sequence_request=create_sequence_request)
+> SequenceDefinition create_sequence(scope, create_sequence_request)
 
 [EXPERIMENTAL] Create a new sequence
 
@@ -25,10 +25,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59385
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:40437
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +38,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -46,12 +46,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.SequencesApi(api_client)
-    scope = 'scope_example' # str | Scope of the sequence definition.
-create_sequence_request = {"code":"TestCode","increment":1,"minValue":0,"maxValue":10,"start":0,"cycle":false} # CreateSequenceRequest | Request to create sequence definition. (optional)
+    scope = 'scope_example' # str | Scope of the sequence.
+create_sequence_request = {"code":"TestCode","increment":1,"minValue":0,"maxValue":10,"start":0,"cycle":false,"pattern":"Prefix-"} # CreateSequenceRequest | Request to create sequence
 
     try:
         # [EXPERIMENTAL] Create a new sequence
-        api_response = api_instance.create_sequence(scope, create_sequence_request=create_sequence_request)
+        api_response = api_instance.create_sequence(scope, create_sequence_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling SequencesApi->create_sequence: %s\n" % e)
@@ -61,8 +61,8 @@ create_sequence_request = {"code":"TestCode","increment":1,"minValue":0,"maxValu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the sequence definition. | 
- **create_sequence_request** | [**CreateSequenceRequest**](CreateSequenceRequest.md)| Request to create sequence definition. | [optional] 
+ **scope** | **str**| Scope of the sequence. | 
+ **create_sequence_request** | [**CreateSequenceRequest**](CreateSequenceRequest.md)| Request to create sequence | 
 
 ### Return type
 
@@ -80,18 +80,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Successful creation of the sequence |  -  |
+**201** | The newly created Sequence |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_sequence_definition**
-> SequenceDefinition get_sequence_definition(scope, code)
+# **get_sequence**
+> SequenceDefinition get_sequence(scope, code)
 
-[EXPERIMENTAL] Return the definition of a sequence
+[EXPERIMENTAL] Get a specified sequence
 
-Return the detailed definition of a sequence
+Return the details of a specified sequence
 
 ### Example
 
@@ -102,10 +102,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59385
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:40437
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +115,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -123,23 +123,23 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.SequencesApi(api_client)
-    scope = 'scope_example' # str | Scope of the sequence definition.
-code = 'code_example' # str | Code of the sequence definition. This together with stated scope uniquely              identifies the sequence definition.
+    scope = 'scope_example' # str | Scope of the sequence.
+code = 'code_example' # str | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
 
     try:
-        # [EXPERIMENTAL] Return the definition of a sequence
-        api_response = api_instance.get_sequence_definition(scope, code)
+        # [EXPERIMENTAL] Get a specified sequence
+        api_response = api_instance.get_sequence(scope, code)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling SequencesApi->get_sequence_definition: %s\n" % e)
+        print("Exception when calling SequencesApi->get_sequence: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the sequence definition. | 
- **code** | **str**| Code of the sequence definition. This together with stated scope uniquely              identifies the sequence definition. | 
+ **scope** | **str**| Scope of the sequence. | 
+ **code** | **str**| Code of the sequence. This together with stated scope uniquely              identifies the sequence. | 
 
 ### Return type
 
@@ -166,9 +166,9 @@ Name | Type | Description  | Notes
 # **next**
 > NextValueInSequenceResponse next(scope, code, batch=batch)
 
-[EXPERIMENTAL] Get the next set of values from the sequence
+[EXPERIMENTAL] Get next values from sequence
 
-Get the next set of values from the sequence
+Get the next set of values from a specified sequence
 
 ### Example
 
@@ -179,10 +179,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59385
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:40437
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,7 +192,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59385"
+    host = "http://local-unit-test-server.lusid.com:40437"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -200,12 +200,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.SequencesApi(api_client)
-    scope = 'scope_example' # str | Scope of the sequence definition.
-code = 'code_example' # str | Code of the sequence definition. This together with stated scope uniquely              identifies the sequence definition.
-batch = 1 # int | Number of sequences items to return for the specified sequence definition. (optional) (default to 1)
+    scope = 'scope_example' # str | Scope of the sequence.
+code = 'code_example' # str | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
+batch = 56 # int | Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] Get the next set of values from the sequence
+        # [EXPERIMENTAL] Get next values from sequence
         api_response = api_instance.next(scope, code, batch=batch)
         pprint(api_response)
     except ApiException as e:
@@ -216,9 +216,9 @@ batch = 1 # int | Number of sequences items to return for the specified sequence
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| Scope of the sequence definition. | 
- **code** | **str**| Code of the sequence definition. This together with stated scope uniquely              identifies the sequence definition. | 
- **batch** | **int**| Number of sequences items to return for the specified sequence definition. | [optional] [default to 1]
+ **scope** | **str**| Scope of the sequence. | 
+ **code** | **str**| Code of the sequence. This together with stated scope uniquely              identifies the sequence. | 
+ **batch** | **int**| Number of sequences items to return for the specified sequence. Default to 1 if not specified. | [optional] 
 
 ### Return type
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Gets the next set of values for the sequence |  -  |
+**200** | The response containing next available values in specified sequence. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
