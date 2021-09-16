@@ -1,6 +1,6 @@
 # lusid.DataTypesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:59003*
+All URIs are relative to *http://local-unit-test-server.lusid.com:30524*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59003
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30524
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +40,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -102,10 +102,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59003
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30524
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +115,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -181,10 +181,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59003
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30524
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -194,7 +194,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -264,10 +264,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59003
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30524
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -277,7 +277,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_data_type**
-> DataType update_data_type(scope, code, update_data_type_request=update_data_type_request)
+> DataType update_data_type(scope, code, update_data_type_request)
 
 [BETA] Update data type definition
 
@@ -351,10 +351,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59003
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30524
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -364,7 +364,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:59003"
+    host = "http://local-unit-test-server.lusid.com:30524"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -374,11 +374,11 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.DataTypesApi(api_client)
     scope = 'scope_example' # str | The scope of the data type
 code = 'code_example' # str | The code of the data type
-update_data_type_request = {"displayName":"My data format","description":"Data type description"} # UpdateDataTypeRequest | The updated definition of the data type (optional)
+update_data_type_request = {"displayName":"My data format","description":"Data type description"} # UpdateDataTypeRequest | The updated definition of the data type
 
     try:
         # [BETA] Update data type definition
-        api_response = api_instance.update_data_type(scope, code, update_data_type_request=update_data_type_request)
+        api_response = api_instance.update_data_type(scope, code, update_data_type_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DataTypesApi->update_data_type: %s\n" % e)
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the data type | 
  **code** | **str**| The code of the data type | 
- **update_data_type_request** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md)| The updated definition of the data type | [optional] 
+ **update_data_type_request** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md)| The updated definition of the data type | 
 
 ### Return type
 

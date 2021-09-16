@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3497",
+    "version": "0.11.3500",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:59003"
+      "url": "http://local-unit-test-server.lusid.com:30524"
     }
   ],
   "paths": {
@@ -9401,7 +9401,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "41e4817deaad41ac9e0c9db4f8938b97"
+                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9445,7 +9445,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "41e4817deaad41ac9e0c9db4f8938b97"
+                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9489,7 +9489,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "41e4817deaad41ac9e0c9db4f8938b97"
+                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9533,7 +9533,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "41e4817deaad41ac9e0c9db4f8938b97"
+                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -9579,7 +9579,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "58beec6a-9312-41c7-943f-c3807a6b410a",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9590,7 +9590,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "70dd467c8da14bdfa107efb13ed50190",
+                      "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9653,7 +9653,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "58beec6a-9312-41c7-943f-c3807a6b410a",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9664,7 +9664,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "70dd467c8da14bdfa107efb13ed50190",
+                      "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -9727,7 +9727,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
-                  "customEntityId": "58beec6a-9312-41c7-943f-c3807a6b410a",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
                     "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
@@ -9738,7 +9738,7 @@
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
-                      "identifierValue": "70dd467c8da14bdfa107efb13ed50190",
+                      "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
                       "effectiveRange": {
                         "fromDate": "2021-07-23T12:00:00.0000000+00:00",
                         "untilDate": "9999-12-31T23:59:59.9999999+00:00"
@@ -10056,7 +10056,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "71a7613a-4a30-4dd2-b04b-ddab3378ff46",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10124,7 +10124,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "71a7613a-4a30-4dd2-b04b-ddab3378ff46",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10192,7 +10192,7 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
-                  "customEntityId": "71a7613a-4a30-4dd2-b04b-ddab3378ff46",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
                     "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
@@ -10726,7 +10726,8 @@
                 "description": "Data type description"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -60981,10 +60982,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -61284,10 +61286,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -61568,10 +61571,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -61730,10 +61734,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -62311,10 +62316,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -62719,10 +62725,16 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope that the data type will be created in."
           },
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The code of the data type. Together with the scope this uniquely defines the data type."
           },
@@ -62735,10 +62747,16 @@
             "description": "Indicates the range of data acceptable by a data type. The available values are: Open, Closed"
           },
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the data type."
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description of the data type."
           },
@@ -63459,12 +63477,21 @@
         "type": "object",
         "properties": {
           "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "details": {
@@ -63549,10 +63576,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -63708,10 +63736,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -64493,6 +64522,114 @@
         ],
         "description": "A curve containing discount factors and dates to which they apply"
       },
+      "Equity": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          {
+            "required": [
+              "domCcy",
+              "identifiers",
+              "instrumentType",
+              "maturityDate",
+              "startDate"
+            ],
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "format": "date-time"
+              },
+              "maturityDate": {
+                "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "format": "date-time"
+              },
+              "identifiers": {
+                "type": "object",
+                "properties": {
+                  "LusidInstrumentId": {
+                    "type": "string"
+                  },
+                  "Isin": {
+                    "type": "string"
+                  },
+                  "Sedol": {
+                    "type": "string"
+                  },
+                  "Cusip": {
+                    "type": "string"
+                  },
+                  "ClientInternal": {
+                    "type": "string"
+                  },
+                  "Figi": {
+                    "type": "string"
+                  },
+                  "RIC": {
+                    "type": "string"
+                  },
+                  "QuotePermId": {
+                    "type": "string"
+                  },
+                  "REDCode": {
+                    "type": "string"
+                  },
+                  "BBGId": {
+                    "type": "string"
+                  },
+                  "ICECode": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "description": "external market codes and identifiers for the equity, e.g. IBM"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "The domestic currency of the instrument."
+              },
+              "instrumentType": {
+                "enum": [
+                  "QuotedSecurity",
+                  "InterestRateSwap",
+                  "FxForward",
+                  "Future",
+                  "ExoticInstrument",
+                  "FxOption",
+                  "CreditDefaultSwap",
+                  "InterestRateSwaption",
+                  "Bond",
+                  "EquityOption",
+                  "FixedLeg",
+                  "FloatingLeg",
+                  "BespokeCashFlowsLeg",
+                  "Unknown",
+                  "TermDeposit",
+                  "ContractForDifference",
+                  "EquitySwap",
+                  "CashPerpetual",
+                  "CashSettled",
+                  "CdsIndex",
+                  "Basket",
+                  "FundingLeg",
+                  "CrossCurrencySwap",
+                  "FxSwap",
+                  "ForwardRateAgreement",
+                  "SimpleInstrument",
+                  "Repo",
+                  "Equity"
+                ],
+                "type": "string",
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
+              }
+            }
+          }
+        ],
+        "description": "An equity instrument."
+      },
       "EquityOption": {
         "allOf": [
           {
@@ -64603,10 +64740,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -64704,10 +64842,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65049,10 +65188,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65315,10 +65455,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65406,10 +65547,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65581,10 +65723,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65649,10 +65792,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65736,10 +65880,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -65900,10 +66045,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -66258,10 +66404,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -66315,10 +66462,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -67487,10 +67635,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -67600,7 +67749,8 @@
           "FxSwap",
           "ForwardRateAgreement",
           "SimpleInstrument",
-          "Repo"
+          "Repo",
+          "Equity"
         ],
         "type": "string"
       },
@@ -67663,10 +67813,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -67741,10 +67892,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -68118,10 +68270,11 @@
               "FxSwap",
               "ForwardRateAgreement",
               "SimpleInstrument",
-              "Repo"
+              "Repo",
+              "Equity"
             ],
             "type": "string",
-            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+            "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
           }
         },
         "additionalProperties": false,
@@ -72349,10 +72502,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -74650,10 +74804,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -74987,10 +75142,11 @@
                   "FxSwap",
                   "ForwardRateAgreement",
                   "SimpleInstrument",
-                  "Repo"
+                  "Repo",
+                  "Equity"
                 ],
                 "type": "string",
-                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo"
+                "description": "The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CashSettled, CdsIndex, Basket, FundingLeg, CrossCurrencySwap, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity"
               }
             }
           }
@@ -75788,13 +75944,35 @@
         "type": "object",
         "properties": {
           "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The display name of the data type.",
             "nullable": true
           },
           "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description of the data type.",
+            "nullable": true
+          },
+          "acceptableValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The acceptable set of values for this data type. Only applies to 'open' value type range.",
+            "nullable": true
+          },
+          "acceptableUnits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateUnitRequest"
+            },
+            "description": "The definitions of the acceptable units.",
             "nullable": true
           }
         },
@@ -75907,6 +76085,33 @@
             "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The description to relate target entity object and source entity object."
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUnitRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
