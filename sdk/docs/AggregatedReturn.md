@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **metrics_value** | **dict(str, float)** | The value for the specified metric. | 
 **frequency** | **str** | Show the aggregated output returns on a Daily or Monthly period. | [optional] 
 **composite_members** | **int** | The number of members in the Composite on the given day. | [optional] 
-**composite_members_without_return** | **list[dict(str, str)]** | List containing Composite members which post no return on the given day. | [optional] 
+**composite_members_without_return** | [**list[ResourceId]**](ResourceId.md) | List containing Composite members which post no return on the given day. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
