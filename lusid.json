@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3513",
+    "version": "0.11.3514",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:35247"
+      "url": "http://local-unit-test-server.lusid.com:60039"
     }
   ],
   "paths": {
@@ -39042,7 +39042,9 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false
+                      "attemptToInferMissingFx": false,
+                      "calendarScope": "CoppClarkHolidayCalendars",
+                      "conventionScope": "Conventions"
                     }
                   },
                   "pricing": {
@@ -39098,7 +39100,9 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false
+                      "attemptToInferMissingFx": false,
+                      "calendarScope": "CoppClarkHolidayCalendars",
+                      "conventionScope": "Conventions"
                     }
                   },
                   "pricing": {
@@ -39154,7 +39158,9 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false
+                      "attemptToInferMissingFx": false,
+                      "calendarScope": "CoppClarkHolidayCalendars",
+                      "conventionScope": "Conventions"
                     }
                   },
                   "pricing": {
@@ -39210,7 +39216,9 @@
                       "defaultSupplier": "Lusid",
                       "defaultInstrumentCodeType": "LusidInstrumentId",
                       "defaultScope": "default",
-                      "attemptToInferMissingFx": false
+                      "attemptToInferMissingFx": false,
+                      "calendarScope": "CoppClarkHolidayCalendars",
+                      "conventionScope": "Conventions"
                     }
                   },
                   "pricing": {
@@ -39368,7 +39376,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39426,7 +39436,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39495,7 +39507,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39553,7 +39567,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39622,7 +39638,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39680,7 +39698,9 @@
                             "defaultSupplier": "Lusid",
                             "defaultInstrumentCodeType": "LusidInstrumentId",
                             "defaultScope": "default",
-                            "attemptToInferMissingFx": false
+                            "attemptToInferMissingFx": false,
+                            "calendarScope": "CoppClarkHolidayCalendars",
+                            "conventionScope": "Conventions"
                           }
                         },
                         "pricing": {
@@ -39840,7 +39860,9 @@
                         "defaultSupplier": "Lusid",
                         "defaultInstrumentCodeType": "LusidInstrumentId",
                         "defaultScope": "default",
-                        "attemptToInferMissingFx": false
+                        "attemptToInferMissingFx": false,
+                        "calendarScope": "CoppClarkHolidayCalendars",
+                        "conventionScope": "Conventions"
                       }
                     },
                     "pricing": {
@@ -39903,7 +39925,9 @@
                         "defaultSupplier": "Lusid",
                         "defaultInstrumentCodeType": "LusidInstrumentId",
                         "defaultScope": "default",
-                        "attemptToInferMissingFx": false
+                        "attemptToInferMissingFx": false,
+                        "calendarScope": "CoppClarkHolidayCalendars",
+                        "conventionScope": "Conventions"
                       }
                     },
                     "pricing": {
@@ -39966,7 +39990,9 @@
                         "defaultSupplier": "Lusid",
                         "defaultInstrumentCodeType": "LusidInstrumentId",
                         "defaultScope": "default",
-                        "attemptToInferMissingFx": false
+                        "attemptToInferMissingFx": false,
+                        "calendarScope": "CoppClarkHolidayCalendars",
+                        "conventionScope": "Conventions"
                       }
                     },
                     "pricing": {
@@ -69209,6 +69235,16 @@
           "attemptToInferMissingFx": {
             "type": "boolean",
             "description": "if true will calculate a missing Fx pair (e.g. THBJPY) from the inverse JPYTHB or from standardised pairs against USD, e.g. THBUSD and JPYUSD"
+          },
+          "calendarScope": {
+            "type": "string",
+            "description": "The scope in which holiday calendars stored",
+            "nullable": true
+          },
+          "conventionScope": {
+            "type": "string",
+            "description": "The scope in which holiday calendars stored",
+            "nullable": true
           }
         },
         "additionalProperties": false,
