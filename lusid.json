@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3515",
+    "version": "0.11.3516",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:40048"
+      "url": "http://local-unit-test-server.lusid.com:59830"
     }
   ],
   "paths": {
@@ -64047,7 +64047,7 @@
           "pattern": {
             "maxLength": 44,
             "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "pattern": "^[A-Za-z0-9_-]*\\{\\{seqValue\\}\\}[A-Za-z0-9_-]*$",
             "type": "string",
             "description": "The pattern to be used to generate next values in the sequence. Default to null. Please provide a null value until further notice.",
             "nullable": true
