@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3539",
+    "version": "0.11.3538",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50097"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -23260,10 +23260,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime if identifiers are perpetual.",
+            "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of identifiers are perpetual.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime if identifiers are perpetual.",
+              "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime of identifiers are perpetual.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -70916,6 +70916,14 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -78331,7 +78339,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
