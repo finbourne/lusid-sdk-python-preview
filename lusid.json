@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3529",
+    "version": "0.11.3531",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -12380,9 +12380,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -12398,9 +12416,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -12416,9 +12452,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -12478,13 +12532,13 @@
           {
             "name": "additionalSearchKeys",
             "in": "query",
-            "description": "Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+            "description": "Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The minimum list of fields available is as follows : \"RuleName\", \"Country\", \"FeeCalculationMethod\", \"FeeMultiplier\", \"MinFeeCalculationMethod\", \r\n            \"MinFeeMultiplier\", \"MaxFeeCalculationMethod\", \"MaxFeeMultiplier\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string"
               },
-              "description": "Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
+              "description": "Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".\r\n            The minimum list of fields available is as follows : \"RuleName\", \"Country\", \"FeeCalculationMethod\", \"FeeMultiplier\", \"MinFeeCalculationMethod\", \r\n            \"MinFeeMultiplier\", \"MaxFeeCalculationMethod\", \"MaxFeeMultiplier\", \"PropertyKey\", \r\n            \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\", \r\n            \"Custodian\", \"Exchange\"",
               "nullable": true
             },
             "x-nullable": true
@@ -12503,9 +12557,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -12521,9 +12593,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -12539,9 +12629,27 @@
                     {
                       "ruleType": "RuleType",
                       "ruleInformation": "Country : << unspecified / any >> , TransactionType: Buy, Counterparty : someName, SettlementCurrency : << unspecified / any >>, TransactionCurrency : << unspecified / any >>, ExecutionBroker : some, Custodian : some, Exchange : some",
+                      "additionalInformation": {
+                        "some/extra/Propety": "PropValue",
+                        "otherColumnInfo": "RowValue"
+                      },
                       "propertyKey": "Transaction/dummyPropertyScope/dummyPropertyCode",
-                      "calculationMethod": "Calculation Method",
-                      "amount": 0.5
+                      "calculationInfo": [
+                        {
+                          "calculationDescription": "Fee",
+                          "calculationMethod": "Bps",
+                          "multiplier": "Quantity",
+                          "calculationAmount": 35
+                        },
+                        {
+                          "calculationDescription": "FeeMax",
+                          "calculationMethod": "Flat",
+                          "calculationAmount": 5
+                        },
+                        {
+                          "calculationDescription": "FeeMin"
+                        }
+                      ]
                     }
                   ],
                   "href": "https://example.com",
@@ -61997,6 +62105,61 @@
         },
         "additionalProperties": false
       },
+      "CalculationInfo": {
+        "required": [
+          "calculationAmount",
+          "calculationDescription",
+          "calculationMethod",
+          "multiplier"
+        ],
+        "type": "object",
+        "properties": {
+          "calculationDescription": {
+            "type": "string"
+          },
+          "calculationMethod": {
+            "enum": [
+              "Rate",
+              "BasisPoints",
+              "Bps",
+              "Percentage",
+              "Flat",
+              "FlatFee",
+              "None"
+            ],
+            "type": "string",
+            "description": "The available values are: Rate, BasisPoints, Bps, Percentage, Flat, FlatFee, None",
+            "nullable": true
+          },
+          "multiplier": {
+            "enum": [
+              "Quantity",
+              "Value",
+              "None"
+            ],
+            "type": "string",
+            "description": "The available values are: Quantity, Value, None",
+            "nullable": true
+          },
+          "calculationAmount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalculationMethod": {
+        "enum": [
+          "Rate",
+          "BasisPoints",
+          "Bps",
+          "Percentage",
+          "Flat",
+          "FlatFee",
+          "None"
+        ],
+        "type": "string"
+      },
       "Calendar": {
         "required": [
           "id",
@@ -65918,10 +66081,7 @@
       "FeeCalculationDetails": {
         "required": [
           "additionalInformation",
-          "amount",
-          "calculationMethod",
-          "max",
-          "min",
+          "calculationInfo",
           "propertyKey",
           "ruleInformation",
           "ruleType"
@@ -65947,24 +66107,12 @@
             "type": "string",
             "description": "The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'."
           },
-          "calculationMethod": {
-            "type": "string",
-            "description": "Method of calculating the fees or commission eg. BPS or Fraction"
-          },
-          "amount": {
-            "type": "number",
-            "description": "Calculation value",
-            "format": "double"
-          },
-          "min": {
-            "type": "number",
-            "description": "Calculation value",
-            "format": "double"
-          },
-          "max": {
-            "type": "number",
-            "description": "Calculation value",
-            "format": "double"
+          "calculationInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalculationInfo"
+            },
+            "description": "Information for calculating fees and commissions"
           }
         },
         "additionalProperties": false
@@ -69357,6 +69505,14 @@
           "UnsettledCashTypes",
           "Carry",
           "CarryAsPnl"
+        ],
+        "type": "string"
+      },
+      "Multiplier": {
+        "enum": [
+          "Quantity",
+          "Value",
+          "None"
         ],
         "type": "string"
       },
