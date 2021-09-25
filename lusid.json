@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3541",
+    "version": "0.11.3542",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:58111"
+      "url": "http://local-unit-test-server.lusid.com:56878"
     }
   ],
   "paths": {
@@ -70043,14 +70043,14 @@
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "A related order ids."
+            "description": "Related order ids."
           },
           "orderInstructionIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "A related order instruction id."
+            "description": "Related order instruction ids."
           },
           "properties": {
             "type": "object",
@@ -70091,14 +70091,14 @@
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "A related order ids."
+            "description": "Related order ids."
           },
           "orderInstructionIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "A related order instruction id."
+            "description": "Related order instruction ids."
           },
           "properties": {
             "type": "object",
