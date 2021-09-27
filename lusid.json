@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3544",
+    "version": "0.11.3545",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:59410"
+      "url": "http://local-unit-test-server.lusid.com:51110"
     }
   ],
   "paths": {
@@ -39180,7 +39180,10 @@
                     }
                   },
                   "inheritedRecipes": [],
-                  "description": ""
+                  "description": "",
+                  "holding": {
+                    "taxLotLevelHoldings": true
+                  }
                 }
               }
             },
@@ -39238,7 +39241,10 @@
                     }
                   },
                   "inheritedRecipes": [],
-                  "description": ""
+                  "description": "",
+                  "holding": {
+                    "taxLotLevelHoldings": true
+                  }
                 }
               }
             },
@@ -39296,7 +39302,10 @@
                     }
                   },
                   "inheritedRecipes": [],
-                  "description": ""
+                  "description": "",
+                  "holding": {
+                    "taxLotLevelHoldings": true
+                  }
                 }
               }
             },
@@ -39354,7 +39363,10 @@
                     }
                   },
                   "inheritedRecipes": [],
-                  "description": ""
+                  "description": "",
+                  "holding": {
+                    "taxLotLevelHoldings": true
+                  }
                 }
               }
             }
@@ -39521,7 +39533,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     },
                     {
@@ -39574,7 +39589,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     }
                   ],
@@ -39652,7 +39670,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     },
                     {
@@ -39705,7 +39726,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     }
                   ],
@@ -39783,7 +39807,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     },
                     {
@@ -39836,7 +39863,10 @@
                           }
                         },
                         "inheritedRecipes": [],
-                        "description": ""
+                        "description": "",
+                        "holding": {
+                          "taxLotLevelHoldings": true
+                        }
                       }
                     }
                   ],
@@ -40005,7 +40035,10 @@
                       }
                     },
                     "inheritedRecipes": [],
-                    "description": ""
+                    "description": "",
+                    "holding": {
+                      "taxLotLevelHoldings": true
+                    }
                   }
                 }
               },
@@ -40070,7 +40103,10 @@
                       }
                     },
                     "inheritedRecipes": [],
-                    "description": ""
+                    "description": "",
+                    "holding": {
+                      "taxLotLevelHoldings": true
+                    }
                   }
                 }
               },
@@ -40135,7 +40171,10 @@
                       }
                     },
                     "inheritedRecipes": [],
-                    "description": ""
+                    "description": "",
+                    "holding": {
+                      "taxLotLevelHoldings": true
+                    }
                   }
                 }
               }
@@ -62926,6 +62965,9 @@
             "type": "string",
             "description": "User can assign a description to understand more humanly the recipe.",
             "nullable": true
+          },
+          "holding": {
+            "$ref": "#/components/schemas/HoldingContext"
           }
         },
         "additionalProperties": false,
@@ -67864,6 +67906,17 @@
         },
         "additionalProperties": false,
         "description": "The target holdings."
+      },
+      "HoldingContext": {
+        "type": "object",
+        "properties": {
+          "taxLotLevelHoldings": {
+            "type": "boolean",
+            "description": "Whether or not to expand the holdings to return the underlying tax-lots. Defaults to True."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Holding context node.\r\nContains settings that control how LUSID handles holdings within portfolios."
       },
       "HoldingsAdjustment": {
         "required": [
