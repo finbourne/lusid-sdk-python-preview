@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3549",
+    "version": "0.11.3550",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -62017,6 +62017,17 @@
                 "type": "string",
                 "description": "The initial coupon date which specifies the accrual start period for a fixed coupon bond with ex dividend schedule",
                 "format": "date-time",
+                "nullable": true
+              },
+              "firstCouponPayDate": {
+                "type": "string",
+                "description": "The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used\r\nas an anchor to compare with the start date and determine if this is a long/short coupon period.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "calculationType": {
+                "type": "string",
+                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nSupported string (enumeration) values are: [Standard, NoCalculationFloater, BrazilFixedCoupon].",
                 "nullable": true
               },
               "instrumentType": {
