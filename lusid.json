@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3551",
+    "version": "0.11.3553",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:44255"
     }
   ],
   "paths": {
@@ -75639,9 +75639,7 @@
           "increment",
           "maxValue",
           "minValue",
-          "pattern",
-          "start",
-          "value"
+          "start"
         ],
         "type": "object",
         "properties": {
@@ -75671,7 +75669,8 @@
           "value": {
             "type": "integer",
             "description": "The last used value of the sequence",
-            "format": "int64"
+            "format": "int64",
+            "nullable": true
           },
           "cycle": {
             "type": "boolean",
@@ -75679,7 +75678,8 @@
           },
           "pattern": {
             "type": "string",
-            "description": "The pattern to be used to generate next values in the sequence."
+            "description": "The pattern to be used to generate next values in the sequence.",
+            "nullable": true
           },
           "links": {
             "type": "array",
@@ -78499,7 +78499,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
