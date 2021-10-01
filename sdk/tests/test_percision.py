@@ -1,5 +1,6 @@
 import unittest
 from datetime import datetime
+from decimal import Decimal
 
 import pytz
 import uuid
@@ -39,5 +40,5 @@ class Properties(unittest.TestCase):
         portfolio = self.portfolios_api.get_portfolio("test-precision", "ABC",
                                                       property_keys = ["Portfolio/test-precision/noquotes"])
 
+        self.assertEqual(portfolio.properties['Portfolio/test-precision/noquotes'].value.metric_value.value, Decimal('0.1234567891011121314151617182'))
 
-        print(portfolio)
