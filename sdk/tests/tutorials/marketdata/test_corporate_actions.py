@@ -38,7 +38,7 @@ class CorporateActions(unittest.TestCase):
         instrument_name = "instrument-name"
         instrument_original_figi = "FR0123456789"
         instrument_updated_figi = "FR5555555555"
-        portfolio_code = "corporate-actions-portfolio"
+        portfolio_code = f"corporate-actions-portfolio-{uuid.uuid4()}"
         effective_at_date = datetime(2021, 1, 1, tzinfo=pytz.utc)
         corporate_action_source_code = "name-change-corporate-actions-source"
         corporate_action_code = "name-change-corporate-action"
