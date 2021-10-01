@@ -192,9 +192,9 @@ class CorporateActions(unittest.TestCase):
 
         # Remove all data that was created for the test.
         # Delete the two instruments.
-        self.instruments_api.delete_instrument("Figi", instrument_original_figi)
-
-        self.instruments_api.delete_instrument("Figi", instrument_updated_figi)
+        # self.instruments_api.delete_instrument("Figi", instrument_original_figi)
+        #
+        # self.instruments_api.delete_instrument("Figi", instrument_updated_figi)
 
         # Delete the portfolio.
         self.portfolios_api.delete_portfolio(
