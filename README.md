@@ -20,7 +20,7 @@ For more details on API endpoint categories, see [What is the LUSID feature rele
 To find out which category an API endpoint falls into, see [LUSID API Documentation](https://www.lusid.com/api/swagger/index.html).
 
 
-## Documentation
+## Documentation 
 
 For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-python-preview/wiki).
 
