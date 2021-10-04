@@ -54,11 +54,11 @@ class ApiClient(object):
         to the API. More threads means more concurrent API requests.
     """
 
-    PRIMITIVE_TYPES = (bool, bytes, six.text_type, Decimal) + six.integer_types
+    PRIMITIVE_TYPES = (float, bool, bytes, six.text_type, Decimal) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         'int': int,
         'long': int if six.PY3 else long,  # noqa: F821
-        'float': Decimal,
+        'float': float,
         'str': str,
         'bool': bool,
         'date': datetime.date,
@@ -68,7 +68,7 @@ class ApiClient(object):
     _pool = None
 
     def __init__(self, configuration=None, header_name=None, header_value=None,
-                 cookie=None, pool_threads=1):
+                 cookie=None, pool_threads=1, flag_to_use_decimal =False):
         if configuration is None:
             configuration = Configuration.get_default_copy()
         self.configuration = configuration
@@ -82,6 +82,8 @@ class ApiClient(object):
         # Set default User-Agent.
         self.user_agent = 'OpenAPI-Generator/0.11.3550/python'
         self.client_side_validation = configuration.client_side_validation
+        self.flag_to_use_decimal = flag_to_use_decimal
+
 
     def __enter__(self):
         return self
@@ -278,11 +280,13 @@ class ApiClient(object):
         if response_type == "file":
             return self.__deserialize_file(response)
 
+
         # fetch data from response object
-        try:
+        if self.flag_to_use_decimal:
             data = json.loads(response.data, parse_float = Decimal)
-        except ValueError:
-            data = json.loads(response.data, parse_float = Decimal)
+        else:
+             data = json.loads(response.data)
+
 
         return self.__deserialize(data, response_type)
 
@@ -296,7 +300,8 @@ class ApiClient(object):
         """
         if data is None:
             return None
-
+        if self.flag_to_use_decimal:
+            self.NATIVE_TYPES_MAPPING['float'] = Decimal
 
         if type(klass) == str:
             if klass.startswith('list['):
@@ -604,6 +609,10 @@ class ApiClient(object):
 
         return path
 
+    def get_floating_part(self,data):
+        remainder = data % 1
+        return remainder
+
     def __deserialize_primitive(self, data, klass):
         """Deserializes string to primitive type.
 
@@ -612,12 +621,17 @@ class ApiClient(object):
 
         :return: int, long, float, str, bool.
         """
-        try:
-            return klass(data)
-        except UnicodeEncodeError:
-            return six.text_type(data)
-        except TypeError:
-            return data
+
+
+        if type(klass) is float and self.flag_to_use_decimal and len(get_floating_part(data)) > 15:
+            return decimal(data)
+        else:
+            try:
+                return klass(data)
+            except UnicodeEncodeError:
+                return six.text_type(data)
+            except TypeError:
+                return data
 
     def __deserialize_object(self, value):
         """Return an original value.
