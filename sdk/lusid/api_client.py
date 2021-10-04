@@ -300,6 +300,7 @@ class ApiClient(object):
         """
         if data is None:
             return None
+        
         if self.flag_to_use_decimal:
             self.NATIVE_TYPES_MAPPING['float'] = Decimal
 
