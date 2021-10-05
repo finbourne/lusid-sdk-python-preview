@@ -374,7 +374,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.DataTypesApi(api_client)
     scope = 'scope_example' # str | The scope of the data type
 code = 'code_example' # str | The code of the data type
-update_data_type_request = {"displayName":"My data format","description":"Data type description"} # UpdateDataTypeRequest | The updated definition of the data type
+update_data_type_request = {"displayName":"My data format","description":"Data type description","acceptableValues":["Apples, Bananas, Cherry"]} # UpdateDataTypeRequest | The updated definition of the data type
 
     try:
         # [BETA] Update data type definition

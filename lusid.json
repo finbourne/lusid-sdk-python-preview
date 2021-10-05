@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3565",
+    "version": "0.11.3568",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -10696,7 +10696,10 @@
               },
               "example": {
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "acceptableValues": [
+                  "Apples, Bananas, Cherry"
+                ]
               }
             },
             "application/json": {
@@ -10705,7 +10708,10 @@
               },
               "example": {
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "acceptableValues": [
+                  "Apples, Bananas, Cherry"
+                ]
               }
             },
             "text/json": {
@@ -10714,7 +10720,10 @@
               },
               "example": {
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "acceptableValues": [
+                  "Apples, Bananas, Cherry"
+                ]
               }
             },
             "application/*+json": {
@@ -10723,7 +10732,10 @@
               },
               "example": {
                 "displayName": "My data format",
-                "description": "Data type description"
+                "description": "Data type description",
+                "acceptableValues": [
+                  "Apples, Bananas, Cherry"
+                ]
               }
             }
           },
