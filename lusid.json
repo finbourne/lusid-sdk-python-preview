@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3575",
+    "version": "0.11.3574",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50683"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -39192,8 +39192,7 @@
                   },
                   "aggregation": {
                     "options": {
-                      "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false
+                      "useAnsiLikeSyntax": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -39254,8 +39253,7 @@
                   },
                   "aggregation": {
                     "options": {
-                      "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false
+                      "useAnsiLikeSyntax": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -39316,8 +39314,7 @@
                   },
                   "aggregation": {
                     "options": {
-                      "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false
+                      "useAnsiLikeSyntax": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -39378,8 +39375,7 @@
                   },
                   "aggregation": {
                     "options": {
-                      "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false
+                      "useAnsiLikeSyntax": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -39549,8 +39545,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -39606,8 +39601,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -39688,8 +39682,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -39745,8 +39738,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -39827,8 +39819,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -39884,8 +39875,7 @@
                         },
                         "aggregation": {
                           "options": {
-                            "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false
+                            "useAnsiLikeSyntax": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -40057,8 +40047,7 @@
                     },
                     "aggregation": {
                       "options": {
-                        "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false
+                        "useAnsiLikeSyntax": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -40126,8 +40115,7 @@
                     },
                     "aggregation": {
                       "options": {
-                        "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false
+                        "useAnsiLikeSyntax": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -40195,8 +40183,7 @@
                     },
                     "aggregation": {
                       "options": {
-                        "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false
+                        "useAnsiLikeSyntax": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -61307,10 +61294,6 @@
           "useAnsiLikeSyntax": {
             "type": "boolean",
             "description": "Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \"select a,sum(a) from results\";\r\nANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a)."
-          },
-          "allowPartialEntitlementSuccess": {
-            "type": "boolean",
-            "description": "In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations\r\napplied only to those portfolios where entitlements checks succeeded."
           }
         },
         "additionalProperties": false,
@@ -78631,7 +78614,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
