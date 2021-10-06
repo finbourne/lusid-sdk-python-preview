@@ -4,21 +4,21 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_quote_accces_metadata_rule**](QuotesApi.md#delete_quote_accces_metadata_rule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Delete a Quote Access Metadata Rule
-[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] Delete quotes
-[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] Get quotes
-[**get_quotes_access_metadata_rule**](QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] Get a quote access metadata rule
-[**list_quotes**](QuotesApi.md#list_quotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] List quotes
-[**list_quotes_access_metadata_rules**](QuotesApi.md#list_quotes_access_metadata_rules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] List all quote access metadata rules in a scope
-[**list_quotes_for_scope**](QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] List quotes for scope
-[**upsert_quote_access_metadata_rule**](QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
-[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] Upsert quotes
+[**delete_quote_accces_metadata_rule**](QuotesApi.md#delete_quote_accces_metadata_rule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] DeleteQuoteAcccesMetadataRule: Delete a Quote Access Metadata Rule
+[**delete_quotes**](QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] DeleteQuotes: Delete quotes
+[**get_quotes**](QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] GetQuotes: Get quotes
+[**get_quotes_access_metadata_rule**](QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+[**list_quotes**](QuotesApi.md#list_quotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] ListQuotes: List quotes
+[**list_quotes_access_metadata_rules**](QuotesApi.md#list_quotes_access_metadata_rules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+[**list_quotes_for_scope**](QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] ListQuotesForScope: List quotes for scope
+[**upsert_quote_access_metadata_rule**](QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+[**upsert_quotes**](QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] UpsertQuotes: Upsert quotes
 
 
 # **delete_quote_accces_metadata_rule**
 > QuoteAccessMetadataRule delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
 
-[EXPERIMENTAL] Delete a Quote Access Metadata Rule
+[EXPERIMENTAL] DeleteQuoteAcccesMetadataRule: Delete a Quote Access Metadata Rule
 
 Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
 
@@ -62,7 +62,7 @@ field = 'field_example' # str | The Field of the rule (optional)
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
     try:
-        # [EXPERIMENTAL] Delete a Quote Access Metadata Rule
+        # [EXPERIMENTAL] DeleteQuoteAcccesMetadataRule: Delete a Quote Access Metadata Rule
         api_response = api_instance.delete_quote_accces_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 # **delete_quotes**
 > AnnulQuotesResponse delete_quotes(scope, request_body=request_body)
 
-[EARLY ACCESS] Delete quotes
+[EARLY ACCESS] DeleteQuotes: Delete quotes
 
 Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
 
@@ -145,7 +145,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {"dS-VOD-PRICE-MID":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"}} # dict(str, QuoteId) | The quotes to delete keyed by a unique correlation id. (optional)
 
     try:
-        # [EARLY ACCESS] Delete quotes
+        # [EARLY ACCESS] DeleteQuotes: Delete quotes
         api_response = api_instance.delete_quotes(scope, request_body=request_body)
         pprint(api_response)
     except ApiException as e:
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 # **get_quotes**
 > GetQuotesResponse get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
 
-[EARLY ACCESS] Get quotes
+[EARLY ACCESS] GetQuotes: Get quotes
 
 Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
 
@@ -225,7 +225,7 @@ max_age = 'max_age_example' # str | The duration of the look back window in an I
 request_body = {"dS-VOD-PRICE-MID":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"}} # dict(str, QuoteSeriesId) | The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)
 
     try:
-        # [EARLY ACCESS] Get quotes
+        # [EARLY ACCESS] GetQuotes: Get quotes
         api_response = api_instance.get_quotes(scope, effective_at=effective_at, as_at=as_at, max_age=max_age, request_body=request_body)
         pprint(api_response)
     except ApiException as e:
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 # **get_quotes_access_metadata_rule**
 > QuoteAccessMetadataRule get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] Get a quote access metadata rule
+[EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
 
 Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
 
@@ -312,7 +312,7 @@ effective_at = 'effective_at_example' # str | The effective date of the rule (op
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] Get a quote access metadata rule
+        # [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
         api_response = api_instance.get_quotes_access_metadata_rule(scope, provider=provider, price_source=price_source, instrument_id_type=instrument_id_type, instrument_id=instrument_id, quote_type=quote_type, field=field, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 # **list_quotes**
 > ResourceListOfQuote list_quotes(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
-[DEPRECATED] List quotes
+[DEPRECATED] ListQuotes: List quotes
 
 List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
 
@@ -400,7 +400,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [DEPRECATED] List quotes
+        # [DEPRECATED] ListQuotes: List quotes
         api_response = api_instance.list_quotes(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 # **list_quotes_access_metadata_rules**
 > ResourceListOfQuoteAccessMetadataRule list_quotes_access_metadata_rules(scope, as_at=as_at)
 
-[EXPERIMENTAL] List all quote access metadata rules in a scope
+[EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
 
 Get all the quote access metadata rules in the specified scope
 
@@ -481,7 +481,7 @@ with lusid.ApiClient(configuration) as api_client:
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata rule. Defaults to return the latest version if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] List all quote access metadata rules in a scope
+        # [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         api_response = api_instance.list_quotes_access_metadata_rules(scope, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 # **list_quotes_for_scope**
 > ResourceListOfQuote list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
-[EARLY ACCESS] List quotes for scope
+[EARLY ACCESS] ListQuotesForScope: List quotes for scope
 
 List all the quotes from a single scope at the specified date/time
 
@@ -562,7 +562,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] List quotes for scope
+        # [EARLY ACCESS] ListQuotesForScope: List quotes for scope
         api_response = api_instance.list_quotes_for_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 # **upsert_quote_access_metadata_rule**
 > QuoteAccessMetadataRule upsert_quote_access_metadata_rule(scope, upsert_quote_access_metadata_rule_request, effective_at=effective_at)
 
-[EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+[EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
 
 Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
 
@@ -644,7 +644,7 @@ upsert_quote_access_metadata_rule_request = {"id":{"provider":"ExampleDataProvid
 effective_at = 'effective_at_example' # str | The date this rule will effective from (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        # [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         api_response = api_instance.upsert_quote_access_metadata_rule(scope, upsert_quote_access_metadata_rule_request, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 # **upsert_quotes**
 > UpsertQuotesResponse upsert_quotes(scope, request_body=request_body)
 
-[EARLY ACCESS] Upsert quotes
+[EARLY ACCESS] UpsertQuotes: Upsert quotes
 
 Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
 
@@ -722,7 +722,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {"dS-VOD-PRICE-MID":{"quoteId":{"quoteSeriesId":{"provider":"DataScope","priceSource":"","instrumentId":"GB00BH4HKS39","instrumentIdType":"Isin","quoteType":"Price","field":"mid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1460,"unit":"CNY"}},"o-C-EURUSD-PRICE-BID":{"quoteId":{"quoteSeriesId":{"provider":"Oanda","priceSource":"Citi","instrumentId":"EUR/USD","instrumentIdType":"CurrencyPair","quoteType":"Price","field":"bid"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00"},"metricValue":{"value":1.367,"unit":"EUR/USD"},"lineage":"Oanda/FxRates_2018-10-22T00:00:00.0000000+00:00.csv"}} # dict(str, UpsertQuoteRequest) | The quotes to update or insert keyed by a unique correlation id. (optional)
 
     try:
-        # [EARLY ACCESS] Upsert quotes
+        # [EARLY ACCESS] UpsertQuotes: Upsert quotes
         api_response = api_instance.upsert_quotes(scope, request_body=request_body)
         pprint(api_response)
     except ApiException as e:

@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_order_instruction**](OrderInstructionsApi.md#delete_order_instruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] Delete orderInstruction
-[**get_order_instruction**](OrderInstructionsApi.md#get_order_instruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] Get OrderInstruction
-[**list_order_instructions**](OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] List OrderInstructions
-[**upsert_order_instructions**](OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] Upsert OrderInstruction
+[**delete_order_instruction**](OrderInstructionsApi.md#delete_order_instruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+[**get_order_instruction**](OrderInstructionsApi.md#get_order_instruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+[**list_order_instructions**](OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+[**upsert_order_instructions**](OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
 
 
 # **delete_order_instruction**
 > DeletedEntityResponse delete_order_instruction(scope, code)
 
-[EXPERIMENTAL] Delete orderInstruction
+[EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
 
 Delete an orderInstruction. Deletion will be valid from the orderInstruction's creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The orderInstruction's code. This, together with the scope uniquely identifies the orderInstruction to delete.
 
     try:
-        # [EXPERIMENTAL] Delete orderInstruction
+        # [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
         api_response = api_instance.delete_order_instruction(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_order_instruction**
 > OrderInstruction get_order_instruction(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Get OrderInstruction
+[EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
 
 Fetch a OrderInstruction that matches the specified identifier
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"OrderInstruction\" domain to decorate onto the orderInstruction.              These take the format {domain}/{scope}/{code} e.g. \"OrderInstruction/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] Get OrderInstruction
+        # [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
         api_response = api_instance.get_order_instruction(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_order_instructions**
 > PagedResourceListOfOrderInstruction list_order_instructions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] List OrderInstructions
+[EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
 
 Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"OrderInstruction\" domain to decorate onto each orderInstruction.                  These take the format {domain}/{scope}/{code} e.g. \"OrderInstruction/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] List OrderInstructions
+        # [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
         api_response = api_instance.list_order_instructions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_order_instructions**
 > ResourceListOfOrderInstruction upsert_order_instructions(order_instruction_set_request=order_instruction_set_request)
 
-[EXPERIMENTAL] Upsert OrderInstruction
+[EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
 
 Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     order_instruction_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PACK00000123"},"properties":{"orderInstruction/MyScope/SomeOrderInstructionProperty":{"key":"OrderInstruction/MyScope/SomeOrderInstructionProperty","value":{"labelValue":"XYZ000034567"}}}}]} # OrderInstructionSetRequest | The collection of orderInstruction requests. (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert OrderInstruction
+        # [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
         api_response = api_instance.upsert_order_instructions(order_instruction_set_request=order_instruction_set_request)
         pprint(api_response)
     except ApiException as e:

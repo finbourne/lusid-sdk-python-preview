@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relationship**](RelationshipsApi.md#create_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | [EXPERIMENTAL] Create Relationship
-[**delete_relationship**](RelationshipsApi.md#delete_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EXPERIMENTAL] Delete Relationship
+[**create_relationship**](RelationshipsApi.md#create_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | [EXPERIMENTAL] CreateRelationship: Create Relationship
+[**delete_relationship**](RelationshipsApi.md#delete_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EXPERIMENTAL] DeleteRelationship: Delete Relationship
 
 
 # **create_relationship**
 > CompleteRelationship create_relationship(scope, code, create_relationship_request)
 
-[EXPERIMENTAL] Create Relationship
+[EXPERIMENTAL] CreateRelationship: Create Relationship
 
 Create a relationship between two entity objects by their identifiers
 
@@ -50,7 +50,7 @@ code = 'code_example' # str | The code of the relationship
 create_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationshipRequest | The details of the relationship to create.
 
     try:
-        # [EXPERIMENTAL] Create Relationship
+        # [EXPERIMENTAL] CreateRelationship: Create Relationship
         api_response = api_instance.create_relationship(scope, code, create_relationship_request)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **delete_relationship**
 > DeletedEntityResponse delete_relationship(scope, code, delete_relationship_request)
 
-[EXPERIMENTAL] Delete Relationship
+[EXPERIMENTAL] DeleteRelationship: Delete Relationship
 
 Delete a relationship between two entity objects represented by their identifiers
 
@@ -129,7 +129,7 @@ code = 'code_example' # str | The code of the relationship
 delete_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"},"effectiveFrom":"2019-01-10T00:00:00.0000000+00:00"} # DeleteRelationshipRequest | The details of the relationship to delete.
 
     try:
-        # [EXPERIMENTAL] Delete Relationship
+        # [EXPERIMENTAL] DeleteRelationship: Delete Relationship
         api_response = api_instance.delete_relationship(scope, code, delete_relationship_request)
         pprint(api_response)
     except ApiException as e:

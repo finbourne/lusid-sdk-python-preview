@@ -4,24 +4,24 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_business_days_to_date**](CalendarsApi.md#add_business_days_to_date) | **POST** /api/calendars/businessday/{scope}/add | [EXPERIMENTAL] Adds the requested number of Business Days to the provided date.
-[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [BETA] Add a date to a calendar
-[**create_calendar**](CalendarsApi.md#create_calendar) | **POST** /api/calendars/generic | [BETA] Create a calendar in its generic form
-[**delete_calendar**](CalendarsApi.md#delete_calendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [BETA] Delete a calendar
-[**delete_date_from_calendar**](CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [BETA] Remove a date from a calendar
-[**generate_schedule**](CalendarsApi.md#generate_schedule) | **POST** /api/calendars/schedule/{scope} | [EXPERIMENTAL] Generate an ordered schedule of dates.
-[**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [BETA] Get a calendar in its generic form
-[**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [BETA] Get dates for a specific calendar
-[**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [BETA] Check whether a DateTime is a \&quot;Business DateTime\&quot;
-[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [BETA] List Calenders
-[**list_calendars_in_scope**](CalendarsApi.md#list_calendars_in_scope) | **GET** /api/calendars/generic/{scope} | [BETA] List all calenders in a specified scope
-[**update_calendar**](CalendarsApi.md#update_calendar) | **POST** /api/calendars/generic/{scope}/{code} | [BETA] Update a calendar
+[**add_business_days_to_date**](CalendarsApi.md#add_business_days_to_date) | **POST** /api/calendars/businessday/{scope}/add | [EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
+[**add_date_to_calendar**](CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [BETA] AddDateToCalendar: Add a date to a calendar
+[**create_calendar**](CalendarsApi.md#create_calendar) | **POST** /api/calendars/generic | [BETA] CreateCalendar: Create a calendar in its generic form
+[**delete_calendar**](CalendarsApi.md#delete_calendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [BETA] DeleteCalendar: Delete a calendar
+[**delete_date_from_calendar**](CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [BETA] DeleteDateFromCalendar: Remove a date from a calendar
+[**generate_schedule**](CalendarsApi.md#generate_schedule) | **POST** /api/calendars/schedule/{scope} | [EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.
+[**get_calendar**](CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [BETA] GetCalendar: Get a calendar in its generic form
+[**get_dates**](CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [BETA] GetDates: Get dates for a specific calendar
+[**is_business_date_time**](CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [BETA] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
+[**list_calendars**](CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [BETA] ListCalendars: List Calenders
+[**list_calendars_in_scope**](CalendarsApi.md#list_calendars_in_scope) | **GET** /api/calendars/generic/{scope} | [BETA] ListCalendarsInScope: List all calenders in a specified scope
+[**update_calendar**](CalendarsApi.md#update_calendar) | **POST** /api/calendars/generic/{scope}/{code} | [BETA] UpdateCalendar: Update a calendar
 
 
 # **add_business_days_to_date**
 > AddBusinessDaysToDateResponse add_business_days_to_date(scope, add_business_days_to_date_request)
 
-[EXPERIMENTAL] Adds the requested number of Business Days to the provided date.
+[EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
 
 A Business day is defined as a point in time that:      * Does not represent a day in the calendar's weekend      * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)                 All dates specified must be UTC and the upper bound of a calendar is not inclusive                 e.g. From: 2020-12-24-00-00-00:       Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.       Adding -2 business days returns 2020-12-22 under the same assumptions.                If the provided number of days to add is zero, returns a failure.
 
@@ -59,7 +59,7 @@ with lusid.ApiClient(configuration) as api_client:
 add_business_days_to_date_request = {"businessDayOffset":5,"holidayCodes":["GBP"],"startDate":"2020-02-10T00:00:00.0000000+00:00"} # AddBusinessDaysToDateRequest | Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store
 
     try:
-        # [EXPERIMENTAL] Adds the requested number of Business Days to the provided date.
+        # [EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
         api_response = api_instance.add_business_days_to_date(scope, add_business_days_to_date_request)
         pprint(api_response)
     except ApiException as e:
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **add_date_to_calendar**
 > CalendarDate add_date_to_calendar(scope, code, create_date_request)
 
-[BETA] Add a date to a calendar
+[BETA] AddDateToCalendar: Add a date to a calendar
 
 Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
 
@@ -137,7 +137,7 @@ code = 'code_example' # str | Code of the calendar
 create_date_request = {"dateId":"TestDate","fromUtc":"2020-02-12T12:00:00.0000000+00:00","toUtc":"2020-02-13T12:00:00.0000000+00:00","timeZone":"CET","description":"Chinese New year","type":"Holiday","sourceData":{}} # CreateDateRequest | Add date to calendar request
 
     try:
-        # [BETA] Add a date to a calendar
+        # [BETA] AddDateToCalendar: Add a date to a calendar
         api_response = api_instance.add_date_to_calendar(scope, code, create_date_request)
         pprint(api_response)
     except ApiException as e:
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **create_calendar**
 > Calendar create_calendar(create_calendar_request)
 
-[BETA] Create a calendar in its generic form
+[BETA] CreateCalendar: Create a calendar in its generic form
 
 Create a calendar in a generic form which can be used to store date events.
 
@@ -214,7 +214,7 @@ with lusid.ApiClient(configuration) as api_client:
     create_calendar_request = {"calendarId":{"scope":"TestScope","code":"TestCode"},"calendarType":"Holiday","weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne-Calendar-Service","properties":[{"key":"Calendar/HolidayType/Statutory","value":{"labelValue":"CBTR"}}]} # CreateCalendarRequest | A request to create the calendar
 
     try:
-        # [BETA] Create a calendar in its generic form
+        # [BETA] CreateCalendar: Create a calendar in its generic form
         api_response = api_instance.create_calendar(create_calendar_request)
         pprint(api_response)
     except ApiException as e:
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **delete_calendar**
 > Calendar delete_calendar(scope, code)
 
-[BETA] Delete a calendar
+[BETA] DeleteCalendar: Delete a calendar
 
 Delete a calendar and all of its respective dates
 
@@ -290,7 +290,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | Code of the calendar
 
     try:
-        # [BETA] Delete a calendar
+        # [BETA] DeleteCalendar: Delete a calendar
         api_response = api_instance.delete_calendar(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 # **delete_date_from_calendar**
 > CalendarDate delete_date_from_calendar(scope, code, date_id)
 
-[BETA] Remove a date from a calendar
+[BETA] DeleteDateFromCalendar: Remove a date from a calendar
 
 Remove a date from a calendar.
 
@@ -368,7 +368,7 @@ code = 'code_example' # str | Code of the calendar
 date_id = 'date_id_example' # str | Identifier of the date to be removed
 
     try:
-        # [BETA] Remove a date from a calendar
+        # [BETA] DeleteDateFromCalendar: Remove a date from a calendar
         api_response = api_instance.delete_date_from_calendar(scope, code, date_id)
         pprint(api_response)
     except ApiException as e:
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 # **generate_schedule**
 > list[datetime] generate_schedule(scope, valuation_schedule, as_at=as_at)
 
-[EXPERIMENTAL] Generate an ordered schedule of dates.
+[EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.
 
 Returns an ordered array of dates. The dates will only fall on business  days as defined by the scope and calendar codes in the valuation schedule.                Valuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),  every other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's  rollConvention.
 
@@ -447,7 +447,7 @@ valuation_schedule = {"effectiveFrom":"2020-01-01","effectiveAt":"2021-01-01","t
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional AsAt for searching the calendar store. Defaults to Latest. (optional)
 
     try:
-        # [EXPERIMENTAL] Generate an ordered schedule of dates.
+        # [EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.
         api_response = api_instance.generate_schedule(scope, valuation_schedule, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 # **get_calendar**
 > Calendar get_calendar(scope, code, as_at=as_at)
 
-[BETA] Get a calendar in its generic form
+[BETA] GetCalendar: Get a calendar in its generic form
 
 Retrieve a generic calendar by a specific ID at a point in AsAt time
 
@@ -526,7 +526,7 @@ code = 'code_example' # str | Code of the calendar identifier
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the calendar (optional)
 
     try:
-        # [BETA] Get a calendar in its generic form
+        # [BETA] GetCalendar: Get a calendar in its generic form
         api_response = api_instance.get_calendar(scope, code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 # **get_dates**
 > ResourceListOfCalendarDate get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
 
-[BETA] Get dates for a specific calendar
+[BETA] GetDates: Get dates for a specific calendar
 
 Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.  Providing an id filter can further refine the results.
 
@@ -608,7 +608,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | AsAt the dates should be retrie
 id_filter = ['id_filter_example'] # list[str] | An additional filter that will filter dates based on their identifer (optional)
 
     try:
-        # [BETA] Get dates for a specific calendar
+        # [BETA] GetDates: Get dates for a specific calendar
         api_response = api_instance.get_dates(scope, code, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at, id_filter=id_filter)
         pprint(api_response)
     except ApiException as e:
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 # **is_business_date_time**
 > IsBusinessDayResponse is_business_date_time(date_time, scope, code, as_at=as_at)
 
-[BETA] Check whether a DateTime is a \"Business DateTime\"
+[BETA] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
 
 A Business DateTime is defined as a point in time that:      * Does not represent a day that overlaps with the calendars WeekendMask      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar                All dates specified must be UTC and the upper bound of a calendar is not inclusive   e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00  IsBusinessDay(2020-12-26-00-00-00) == false
 
@@ -691,7 +691,7 @@ code = 'code_example' # str | Code of the calendar
 as_at = '2013-10-20T19:20:30+01:00' # datetime | AsAt for the request (optional)
 
     try:
-        # [BETA] Check whether a DateTime is a \"Business DateTime\"
+        # [BETA] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
         api_response = api_instance.is_business_date_time(date_time, scope, code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 # **list_calendars**
 > PagedResourceListOfCalendar list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
 
-[BETA] List Calenders
+[BETA] ListCalendars: List Calenders
 
 List calendars at a point in AsAt time.
 
@@ -772,7 +772,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [BETA] List Calenders
+        # [BETA] ListCalendars: List Calenders
         api_response = api_instance.list_calendars(as_at=as_at, page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -813,7 +813,7 @@ Name | Type | Description  | Notes
 # **list_calendars_in_scope**
 > PagedResourceListOfCalendar list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
-[BETA] List all calenders in a specified scope
+[BETA] ListCalendarsInScope: List all calenders in a specified scope
 
 List calendars at a point in AsAt time.
 
@@ -855,7 +855,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [BETA] List all calenders in a specified scope
+        # [BETA] ListCalendarsInScope: List all calenders in a specified scope
         api_response = api_instance.list_calendars_in_scope(scope, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -898,7 +898,7 @@ Name | Type | Description  | Notes
 # **update_calendar**
 > Calendar update_calendar(scope, code, update_calendar_request)
 
-[BETA] Update a calendar
+[BETA] UpdateCalendar: Update a calendar
 
 Update the calendars WeekendMask, SourceProvider or Properties
 
@@ -937,7 +937,7 @@ code = 'code_example' # str | Code of the request
 update_calendar_request = {"weekendMask":{"days":["Saturday","Sunday"],"timeZone":"UTC"},"sourceProvider":"Finbourne-Calendar-Service","properties":[{"key":"Calendar/HolidayType/Statutory","value":{"labelValue":"CBTR"}}]} # UpdateCalendarRequest | The new state of the calendar
 
     try:
-        # [BETA] Update a calendar
+        # [BETA] UpdateCalendar: Update a calendar
         api_response = api_instance.update_calendar(scope, code, update_calendar_request)
         pprint(api_response)
     except ApiException as e:

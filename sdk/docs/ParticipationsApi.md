@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_participation**](ParticipationsApi.md#delete_participation) | **DELETE** /api/participations/{scope}/{code} | [EXPERIMENTAL] Delete participation
-[**get_participation**](ParticipationsApi.md#get_participation) | **GET** /api/participations/{scope}/{code} | [EXPERIMENTAL] Get Participation
-[**list_participations**](ParticipationsApi.md#list_participations) | **GET** /api/participations | [EXPERIMENTAL] List Participations
-[**upsert_participations**](ParticipationsApi.md#upsert_participations) | **POST** /api/participations | [EXPERIMENTAL] Upsert Participation
+[**delete_participation**](ParticipationsApi.md#delete_participation) | **DELETE** /api/participations/{scope}/{code} | [EXPERIMENTAL] DeleteParticipation: Delete participation
+[**get_participation**](ParticipationsApi.md#get_participation) | **GET** /api/participations/{scope}/{code} | [EXPERIMENTAL] GetParticipation: Get Participation
+[**list_participations**](ParticipationsApi.md#list_participations) | **GET** /api/participations | [EXPERIMENTAL] ListParticipations: List Participations
+[**upsert_participations**](ParticipationsApi.md#upsert_participations) | **POST** /api/participations | [EXPERIMENTAL] UpsertParticipations: Upsert Participation
 
 
 # **delete_participation**
 > DeletedEntityResponse delete_participation(scope, code)
 
-[EXPERIMENTAL] Delete participation
+[EXPERIMENTAL] DeleteParticipation: Delete participation
 
 Delete an participation. Deletion will be valid from the participation's creation datetime.  This means that the participation will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The participation's code. This, together with the scope uniquely identifies the participation to delete.
 
     try:
-        # [EXPERIMENTAL] Delete participation
+        # [EXPERIMENTAL] DeleteParticipation: Delete participation
         api_response = api_instance.delete_participation(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_participation**
 > Participation get_participation(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Get Participation
+[EXPERIMENTAL] GetParticipation: Get Participation
 
 Fetch a Participation that matches the specified identifier
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Participation\" domain to decorate onto the participation.              These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] Get Participation
+        # [EXPERIMENTAL] GetParticipation: Get Participation
         api_response = api_instance.get_participation(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_participations**
 > PagedResourceListOfParticipation list_participations(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] List Participations
+[EXPERIMENTAL] ListParticipations: List Participations
 
 Fetch the last pre-AsAt date version of each Participation in scope (does not fetch the entire history).
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Participation\" domain to decorate onto each participation.                  These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] List Participations
+        # [EXPERIMENTAL] ListParticipations: List Participations
         api_response = api_instance.list_participations(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_participations**
 > ResourceListOfParticipation upsert_participations(participation_set_request=participation_set_request)
 
-[EXPERIMENTAL] Upsert Participation
+[EXPERIMENTAL] UpsertParticipations: Upsert Participation
 
 Upsert; update existing participations with given ids, or create new participations otherwise.
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     participation_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PART00000123"},"placementId":{"scope":"MyScope","code":"PLAC00000123"},"orderId":{"scope":"MyScope","code":"ORDER00000123"}}]} # ParticipationSetRequest | The collection of participation requests. (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert Participation
+        # [EXPERIMENTAL] UpsertParticipations: Upsert Participation
         api_response = api_instance.upsert_participations(participation_set_request=participation_set_request)
         pprint(api_response)
     except ApiException as e:

@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_placement**](PlacementsApi.md#delete_placement) | **DELETE** /api/placements/{scope}/{code} | [EXPERIMENTAL] Delete placement
-[**get_placement**](PlacementsApi.md#get_placement) | **GET** /api/placements/{scope}/{code} | [EXPERIMENTAL] Get Placement
-[**list_placements**](PlacementsApi.md#list_placements) | **GET** /api/placements | [EXPERIMENTAL] List Placements
-[**upsert_placements**](PlacementsApi.md#upsert_placements) | **POST** /api/placements | [EXPERIMENTAL] Upsert Placement
+[**delete_placement**](PlacementsApi.md#delete_placement) | **DELETE** /api/placements/{scope}/{code} | [EXPERIMENTAL] DeletePlacement: Delete placement
+[**get_placement**](PlacementsApi.md#get_placement) | **GET** /api/placements/{scope}/{code} | [EXPERIMENTAL] GetPlacement: Get Placement
+[**list_placements**](PlacementsApi.md#list_placements) | **GET** /api/placements | [EXPERIMENTAL] ListPlacements: List Placements
+[**upsert_placements**](PlacementsApi.md#upsert_placements) | **POST** /api/placements | [EXPERIMENTAL] UpsertPlacements: Upsert Placement
 
 
 # **delete_placement**
 > DeletedEntityResponse delete_placement(scope, code)
 
-[EXPERIMENTAL] Delete placement
+[EXPERIMENTAL] DeletePlacement: Delete placement
 
 Delete an placement. Deletion will be valid from the placement's creation datetime.  This means that the placement will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The placement's code. This, together with the scope uniquely identifies the placement to delete.
 
     try:
-        # [EXPERIMENTAL] Delete placement
+        # [EXPERIMENTAL] DeletePlacement: Delete placement
         api_response = api_instance.delete_placement(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_placement**
 > Placement get_placement(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Get Placement
+[EXPERIMENTAL] GetPlacement: Get Placement
 
 Fetch a Placement that matches the specified identifier
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Placement\" domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] Get Placement
+        # [EXPERIMENTAL] GetPlacement: Get Placement
         api_response = api_instance.get_placement(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_placements**
 > PagedResourceListOfPlacement list_placements(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] List Placements
+[EXPERIMENTAL] ListPlacements: List Placements
 
 Fetch the last pre-AsAt date version of each placement in scope (does not fetch the entire history).
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Placement\" domain to decorate onto each placement.                  These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] List Placements
+        # [EXPERIMENTAL] ListPlacements: List Placements
         api_response = api_instance.list_placements(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_placements**
 > ResourceListOfPlacement upsert_placements(placement_set_request=placement_set_request)
 
-[EXPERIMENTAL] Upsert Placement
+[EXPERIMENTAL] UpsertPlacements: Upsert Placement
 
 Upsert; update existing placements with given ids, or create new placements otherwise.
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     placement_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PLAC00000123"},"blockIds":[{"scope":"MyScope","code":"BLOCK00000123"}],"properties":{"placement/MyScope/SomePlacementProperty":{"key":"Placement/MyScope/SomePlacementProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"state":"New","side":"Buy","timeInForce":"GoodTilCancel","type":"Limit","createdDate":"2006-04-11T00:00:00.0000000+00:00","limitPrice":{"amount":12413.33,"currency":"USD"},"stopPrice":{"amount":124335.33,"currency":"USD"},"counterparty":"SomeCounterparty"}]} # PlacementSetRequest | The collection of placement requests. (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert Placement
+        # [EXPERIMENTAL] UpsertPlacements: Upsert Placement
         api_response = api_instance.upsert_placements(placement_set_request=placement_set_request)
         pprint(api_response)
     except ApiException as e:

@@ -4,37 +4,37 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_portfolio_to_group**](PortfolioGroupsApi.md#add_portfolio_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] Add portfolio to group
-[**add_sub_group_to_group**](PortfolioGroupsApi.md#add_sub_group_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add sub group to group
-[**build_transactions_for_portfolio_group**](PortfolioGroupsApi.md#build_transactions_for_portfolio_group) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
-[**create_portfolio_group**](PortfolioGroupsApi.md#create_portfolio_group) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create portfolio group
-[**delete_group_properties**](PortfolioGroupsApi.md#delete_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] Delete group properties
-[**delete_key_from_portfolio_group_access_metadata**](PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
-[**delete_portfolio_from_group**](PortfolioGroupsApi.md#delete_portfolio_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Delete portfolio from group
-[**delete_portfolio_group**](PortfolioGroupsApi.md#delete_portfolio_group) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete portfolio group
-[**delete_sub_group_from_group**](PortfolioGroupsApi.md#delete_sub_group_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Delete sub group from group
-[**get_a2_b_data_for_portfolio_group**](PortfolioGroupsApi.md#get_a2_b_data_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/a2b | [EXPERIMENTAL] Get A2B data for a Portfolio Group
-[**get_group_properties**](PortfolioGroupsApi.md#get_group_properties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] Get group properties
-[**get_holdings_for_portfolio_group**](PortfolioGroupsApi.md#get_holdings_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
-[**get_portfolio_group**](PortfolioGroupsApi.md#get_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Get portfolio group
-[**get_portfolio_group_access_metadata_by_key**](PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
-[**get_portfolio_group_commands**](PortfolioGroupsApi.md#get_portfolio_group_commands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio group commands
-[**get_portfolio_group_expansion**](PortfolioGroupsApi.md#get_portfolio_group_expansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get portfolio group expansion
-[**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
-[**get_portfolio_group_property_time_series**](PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] Get the time series of a portfolio group property
-[**get_portfolio_group_relations**](PortfolioGroupsApi.md#get_portfolio_group_relations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] Get Relations for Portfolio Group
-[**get_portfolio_group_relationships**](PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] Get Relationships for Portfolio Group
-[**get_transactions_for_portfolio_group**](PortfolioGroupsApi.md#get_transactions_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
-[**list_portfolio_groups**](PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List portfolio groups
-[**update_portfolio_group**](PortfolioGroupsApi.md#update_portfolio_group) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update portfolio group
-[**upsert_group_properties**](PortfolioGroupsApi.md#upsert_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] Upsert group properties
-[**upsert_portfolio_group_access_metadata**](PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[**add_portfolio_to_group**](PortfolioGroupsApi.md#add_portfolio_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
+[**add_sub_group_to_group**](PortfolioGroupsApi.md#add_sub_group_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
+[**build_transactions_for_portfolio_group**](PortfolioGroupsApi.md#build_transactions_for_portfolio_group) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
+[**create_portfolio_group**](PortfolioGroupsApi.md#create_portfolio_group) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
+[**delete_group_properties**](PortfolioGroupsApi.md#delete_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeleteGroupProperties: Delete group properties
+[**delete_key_from_portfolio_group_access_metadata**](PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
+[**delete_portfolio_from_group**](PortfolioGroupsApi.md#delete_portfolio_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
+[**delete_portfolio_group**](PortfolioGroupsApi.md#delete_portfolio_group) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
+[**delete_sub_group_from_group**](PortfolioGroupsApi.md#delete_sub_group_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
+[**get_a2_b_data_for_portfolio_group**](PortfolioGroupsApi.md#get_a2_b_data_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/a2b | [EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
+[**get_group_properties**](PortfolioGroupsApi.md#get_group_properties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] GetGroupProperties: Get group properties
+[**get_holdings_for_portfolio_group**](PortfolioGroupsApi.md#get_holdings_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
+[**get_portfolio_group**](PortfolioGroupsApi.md#get_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
+[**get_portfolio_group_access_metadata_by_key**](PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+[**get_portfolio_group_commands**](PortfolioGroupsApi.md#get_portfolio_group_commands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
+[**get_portfolio_group_expansion**](PortfolioGroupsApi.md#get_portfolio_group_expansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
+[**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
+[**get_portfolio_group_property_time_series**](PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
+[**get_portfolio_group_relations**](PortfolioGroupsApi.md#get_portfolio_group_relations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
+[**get_portfolio_group_relationships**](PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
+[**get_transactions_for_portfolio_group**](PortfolioGroupsApi.md#get_transactions_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
+[**list_portfolio_groups**](PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+[**update_portfolio_group**](PortfolioGroupsApi.md#update_portfolio_group) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
+[**upsert_group_properties**](PortfolioGroupsApi.md#upsert_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
+[**upsert_portfolio_group_access_metadata**](PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 
 # **add_portfolio_to_group**
 > PortfolioGroup add_portfolio_to_group(scope, code, effective_at=effective_at, resource_id=resource_id)
 
-[EARLY ACCESS] Add portfolio to group
+[EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
 
 Add a single portfolio to a portfolio group.
 
@@ -74,7 +74,7 @@ effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime f
 resource_id = {"scope":"MyScope","code":"MyCode"} # ResourceId | The resource identifier of the portfolio to add to the portfolio group. (optional)
 
     try:
-        # [EARLY ACCESS] Add portfolio to group
+        # [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
         api_response = api_instance.add_portfolio_to_group(scope, code, effective_at=effective_at, resource_id=resource_id)
         pprint(api_response)
     except ApiException as e:
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 # **add_sub_group_to_group**
 > PortfolioGroup add_sub_group_to_group(scope, code, effective_at=effective_at, resource_id=resource_id)
 
-[EARLY ACCESS] Add sub group to group
+[EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
 
 Add a portfolio group to a portfolio group as a sub group.
 
@@ -155,7 +155,7 @@ effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime f
 resource_id = {"scope":"MyScope","code":"MyCode"} # ResourceId | The resource identifier of the portfolio group to add to the portfolio group as a sub group. (optional)
 
     try:
-        # [EARLY ACCESS] Add sub group to group
+        # [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
         api_response = api_instance.add_sub_group_to_group(scope, code, effective_at=effective_at, resource_id=resource_id)
         pprint(api_response)
     except ApiException as e:
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 # **build_transactions_for_portfolio_group**
 > VersionedResourceListOfOutputTransaction build_transactions_for_portfolio_group(scope, code, transaction_query_parameters, as_at=as_at, filter=filter, property_keys=property_keys, limit=limit, page=page)
 
-[EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
+[EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
 
 Build transactions for transaction portfolios in a portfolio group over a given interval of effective time.     When the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.
 
@@ -240,7 +240,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 page = 'page_example' # str | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)
 
     try:
-        # [EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
+        # [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
         api_response = api_instance.build_transactions_for_portfolio_group(scope, code, transaction_query_parameters, as_at=as_at, filter=filter, property_keys=property_keys, limit=limit, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 # **create_portfolio_group**
 > PortfolioGroup create_portfolio_group(scope, create_portfolio_group_request=create_portfolio_group_request)
 
-[EARLY ACCESS] Create portfolio group
+[EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
 
 Create a portfolio group in a specific scope.
 
@@ -323,7 +323,7 @@ with lusid.ApiClient(configuration) as api_client:
 create_portfolio_group_request = {"code":"MyGroupCode","created":"2019-10-04T00:00:00.0000000+00:00","values":[{"scope":"MyScope","code":"MyPortfolioCode1"},{"scope":"MyScope","code":"MyPortfolioCode2"}],"subGroups":[{"scope":"MyScope","code":"MySubGroupCode"}],"properties":{},"displayName":"MyGroupName","description":"My group description"} # CreatePortfolioGroupRequest | The definition and details of the portfolio group. (optional)
 
     try:
-        # [EARLY ACCESS] Create portfolio group
+        # [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
         api_response = api_instance.create_portfolio_group(scope, create_portfolio_group_request=create_portfolio_group_request)
         pprint(api_response)
     except ApiException as e:
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 # **delete_group_properties**
 > DeletedEntityResponse delete_group_properties(scope, code, request_body, effective_at=effective_at)
 
-[EARLY ACCESS] Delete group properties
+[EARLY ACCESS] DeleteGroupProperties: Delete group properties
 
 Delete one or more properties from a single portfolio group. If the properties are time variant then an effective date time from which the properties  will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
 
@@ -402,7 +402,7 @@ request_body = ["PortfolioGroup/MyScope/MyPropertyName","PortfolioGroup/MyScope/
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)
 
     try:
-        # [EARLY ACCESS] Delete group properties
+        # [EARLY ACCESS] DeleteGroupProperties: Delete group properties
         api_response = api_instance.delete_group_properties(scope, code, request_body, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 # **delete_key_from_portfolio_group_access_metadata**
 > DeletedEntityResponse delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
 
-[EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
+[EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
 
 Deletes the Portfolio Group Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
 
@@ -483,7 +483,7 @@ metadata_key = 'metadata_key_example' # str | Key of the Access Metadata entry t
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
     try:
-        # [EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry
+        # [EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
         api_response = api_instance.delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 # **delete_portfolio_from_group**
 > PortfolioGroup delete_portfolio_from_group(scope, code, portfolio_scope, portfolio_code, effective_at=effective_at)
 
-[EARLY ACCESS] Delete portfolio from group
+[EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
 
 Remove a single portfolio from a portfolio group.
 
@@ -565,7 +565,7 @@ portfolio_code = 'portfolio_code_example' # str | The code of the portfolio bein
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the portfolio will be removed from the portfolio group. (optional)
 
     try:
-        # [EARLY ACCESS] Delete portfolio from group
+        # [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
         api_response = api_instance.delete_portfolio_from_group(scope, code, portfolio_scope, portfolio_code, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -607,7 +607,7 @@ Name | Type | Description  | Notes
 # **delete_portfolio_group**
 > DeletedEntityResponse delete_portfolio_group(scope, code)
 
-[EARLY ACCESS] Delete portfolio group
+[EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
 
 Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.  In this case any portfolios or sub groups contained in this group will not be deleted, however they will no longer be grouped together by this portfolio group.  The deletion will be valid from the portfolio group's creation datetime, ie. the portfolio group will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -645,7 +645,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The code of the portfolio group to delete. Together with the scope this uniquely identifies the portfolio group to delete.
 
     try:
-        # [EARLY ACCESS] Delete portfolio group
+        # [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
         api_response = api_instance.delete_portfolio_group(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 # **delete_sub_group_from_group**
 > PortfolioGroup delete_sub_group_from_group(scope, code, subgroup_scope, subgroup_code, effective_at=effective_at)
 
-[EARLY ACCESS] Delete sub group from group
+[EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
 
 Remove a single portfolio group (sub group) from a portfolio group.
 
@@ -725,7 +725,7 @@ subgroup_code = 'subgroup_code_example' # str | The code of the sub group to rem
 effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime from which the sub group will be removed from the portfolio group. (optional)
 
     try:
-        # [EARLY ACCESS] Delete sub group from group
+        # [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
         api_response = api_instance.delete_sub_group_from_group(scope, code, subgroup_scope, subgroup_code, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 # **get_a2_b_data_for_portfolio_group**
 > ResourceListOfA2BDataRecord get_a2_b_data_for_portfolio_group(scope, code, from_effective_at, to_effective_at, as_at=as_at, recipe_id_scope=recipe_id_scope, recipe_id_code=recipe_id_code, property_keys=property_keys, filter=filter)
 
-[EXPERIMENTAL] Get A2B data for a Portfolio Group
+[EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
 
 Get an A2B report for all Transaction Portfolios within the given portfolio group.
 
@@ -812,7 +812,7 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 filter = 'filter_example' # str | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EXPERIMENTAL] Get A2B data for a Portfolio Group
+        # [EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
         api_response = api_instance.get_a2_b_data_for_portfolio_group(scope, code, from_effective_at, to_effective_at, as_at=as_at, recipe_id_scope=recipe_id_scope, recipe_id_code=recipe_id_code, property_keys=property_keys, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -858,7 +858,7 @@ Name | Type | Description  | Notes
 # **get_group_properties**
 > PortfolioGroupProperties get_group_properties(scope, code, effective_at=effective_at, as_at=as_at)
 
-[EARLY ACCESS] Get group properties
+[EARLY ACCESS] GetGroupProperties: Get group properties
 
 List all the properties of a single portfolio group.
 
@@ -898,7 +898,7 @@ effective_at = 'effective_at_example' # str | The effective date time or cut lab
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt date time at which to list the group's properties. Defaults to return the latest version of each property if not specified. (optional)
 
     try:
-        # [EARLY ACCESS] Get group properties
+        # [EARLY ACCESS] GetGroupProperties: Get group properties
         api_response = api_instance.get_group_properties(scope, code, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -939,7 +939,7 @@ Name | Type | Description  | Notes
 # **get_holdings_for_portfolio_group**
 > VersionedResourceListOfPortfolioHolding get_holdings_for_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, by_taxlots=by_taxlots)
 
-[EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
+[EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
 
 Get the holdings of transaction portfolios in specified portfolio group.
 
@@ -982,7 +982,7 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 by_taxlots = True # bool | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)
 
     try:
-        # [EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
+        # [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
         api_response = api_instance.get_holdings_for_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, by_taxlots=by_taxlots)
         pprint(api_response)
     except ApiException as e:
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group**
 > PortfolioGroup get_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at)
 
-[EARLY ACCESS] Get portfolio group
+[EARLY ACCESS] GetPortfolioGroup: Get portfolio group
 
 Retrieve the definition of a single portfolio group.
 
@@ -1066,7 +1066,7 @@ effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime a
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)
 
     try:
-        # [EARLY ACCESS] Get portfolio group
+        # [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
         api_response = api_instance.get_portfolio_group(scope, code, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_access_metadata_by_key**
 > list[AccessMetadataValue] get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+[EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
 
 Get a specific Portfolio Group access metadata by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
 
@@ -1148,7 +1148,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata (optional)
 
     try:
-        # [EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+        # [EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
         api_response = api_instance.get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -1190,7 +1190,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_commands**
 > ResourceListOfProcessedCommand get_portfolio_group_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
 
-[EARLY ACCESS] Get portfolio group commands
+[EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
 
 Gets all the commands that modified a single portfolio group.
 
@@ -1231,7 +1231,7 @@ to_as_at = '2013-10-20T19:20:30+01:00' # datetime | The upper bound asAt datetim
 filter = 'filter_example' # str | Expression to filter the result set.                For example, to filter on the User ID, use \"userId.id eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] Get portfolio group commands
+        # [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
         api_response = api_instance.get_portfolio_group_commands(scope, code, from_as_at=from_as_at, to_as_at=to_as_at, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1273,7 +1273,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_expansion**
 > ExpandedGroup get_portfolio_group_expansion(scope, code, effective_at=effective_at, as_at=as_at, property_filter=property_filter)
 
-[EARLY ACCESS] Get portfolio group expansion
+[EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
 
 List all the portfolios in a group, including all portfolios within sub groups in the group. Each portfolio will be decorated with all of its properties unless a property filter is specified.
 
@@ -1314,7 +1314,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to e
 property_filter = ['property_filter_example'] # list[str] | The restricted list of property keys from the \"Portfolio\" domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional)
 
     try:
-        # [EARLY ACCESS] Get portfolio group expansion
+        # [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
         api_response = api_instance.get_portfolio_group_expansion(scope, code, effective_at=effective_at, as_at=as_at, property_filter=property_filter)
         pprint(api_response)
     except ApiException as e:
@@ -1356,7 +1356,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_metadata**
 > dict(str, list[AccessMetadataValue]) get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
+[EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
 
 Pass the scope and Portfolio Group code parameters to retrieve the associated Access Metadata
 
@@ -1396,7 +1396,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] Get Access Metadata rules for Portfolio Group
+        # [EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
         api_response = api_instance.get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -1437,7 +1437,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_property_time_series**
 > ResourceListOfPropertyInterval get_portfolio_group_property_time_series(scope, code, property_key, portfolio_group_effective_at=portfolio_group_effective_at, as_at=as_at, filter=filter, page=page, limit=limit)
 
-[EARLY ACCESS] Get the time series of a portfolio group property
+[EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
 
 List the complete time series of a portfolio group property.
 
@@ -1481,7 +1481,7 @@ page = 'page_example' # str | The pagination token to use to continue listing pr
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 
     try:
-        # [EARLY ACCESS] Get the time series of a portfolio group property
+        # [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
         api_response = api_instance.get_portfolio_group_property_time_series(scope, code, property_key, portfolio_group_effective_at=portfolio_group_effective_at, as_at=as_at, filter=filter, page=page, limit=limit)
         pprint(api_response)
     except ApiException as e:
@@ -1526,7 +1526,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_relations**
 > ResourceListOfRelation get_portfolio_group_relations(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] Get Relations for Portfolio Group
+[EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
 
 Get relations for the specified Portfolio Group
 
@@ -1568,7 +1568,7 @@ filter = 'filter_example' # str | Expression to filter the relations. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
 
     try:
-        # [EXPERIMENTAL] Get Relations for Portfolio Group
+        # [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
         api_response = api_instance.get_portfolio_group_relations(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:
@@ -1611,7 +1611,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_relationships**
 > ResourceListOfRelationship get_portfolio_group_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] Get Relationships for Portfolio Group
+[EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
 
 Get relationships for the specified Portfolio Group
 
@@ -1653,7 +1653,7 @@ filter = 'filter_example' # str | Expression to filter relationships. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array. (optional)
 
     try:
-        # [EXPERIMENTAL] Get Relationships for Portfolio Group
+        # [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
         api_response = api_instance.get_portfolio_group_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:
@@ -1696,7 +1696,7 @@ Name | Type | Description  | Notes
 # **get_transactions_for_portfolio_group**
 > VersionedResourceListOfTransaction get_transactions_for_portfolio_group(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, limit=limit, page=page)
 
-[EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
+[EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
 
 Get transactions for transaction portfolios in a portfolio group over a given interval of effective time.     When the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.
 
@@ -1741,7 +1741,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 page = 'page_example' # str | The pagination token to use to continue listing transactions from a previous call to GetTransactions. (optional)
 
     try:
-        # [EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
+        # [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
         api_response = api_instance.get_transactions_for_portfolio_group(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, limit=limit, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -1787,7 +1787,7 @@ Name | Type | Description  | Notes
 # **list_portfolio_groups**
 > ResourceListOfPortfolioGroup list_portfolio_groups(scope, effective_at=effective_at, as_at=as_at, filter=filter)
 
-[EARLY ACCESS] List portfolio groups
+[EARLY ACCESS] ListPortfolioGroups: List portfolio groups
 
 List all the portfolio groups in a single scope.
 
@@ -1827,7 +1827,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] List portfolio groups
+        # [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
         api_response = api_instance.list_portfolio_groups(scope, effective_at=effective_at, as_at=as_at, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1868,7 +1868,7 @@ Name | Type | Description  | Notes
 # **update_portfolio_group**
 > PortfolioGroup update_portfolio_group(scope, code, effective_at=effective_at, update_portfolio_group_request=update_portfolio_group_request)
 
-[EARLY ACCESS] Update portfolio group
+[EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
 
 Update the definition of a single portfolio group. Not all elements within a portfolio group definition are modifiable  due to the potential implications for data already stored against the portfolio group.
 
@@ -1908,7 +1908,7 @@ effective_at = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime a
 update_portfolio_group_request = {"displayName":"MyGroupName","description":"My Group Description"} # UpdatePortfolioGroupRequest | The updated portfolio group definition. (optional)
 
     try:
-        # [EARLY ACCESS] Update portfolio group
+        # [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
         api_response = api_instance.update_portfolio_group(scope, code, effective_at=effective_at, update_portfolio_group_request=update_portfolio_group_request)
         pprint(api_response)
     except ApiException as e:
@@ -1949,7 +1949,7 @@ Name | Type | Description  | Notes
 # **upsert_group_properties**
 > PortfolioGroupProperties upsert_group_properties(scope, code, request_body=request_body)
 
-[EARLY ACCESS] Upsert group properties
+[EARLY ACCESS] UpsertGroupProperties: Upsert group properties
 
 Update or insert one or more properties onto a single group. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'PortfolioGroup'.                Upserting a property that exists for a group, with a null value, will delete the instance of the property for that group.    Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -1988,7 +1988,7 @@ code = 'code_example' # str | The code of the group to update or insert the prop
 request_body = {"portfolioGroup/MyScope/FundManagerName":{"key":"PortfolioGroup/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"},"portfolioGroup/MyScope/SomeProperty":{"key":"PortfolioGroup/MyScope/SomeProperty","value":{"labelValue":"SomeValue"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},"portfolioGroup/MyScope/AnotherProperty":{"key":"PortfolioGroup/MyScope/AnotherProperty","value":{"labelValue":"AnotherValue"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveUntil":"2020-01-01T00:00:00.0000000+00:00"},"portfolioGroup/MyScope/ReBalanceInterval":{"key":"PortfolioGroup/MyScope/ReBalanceInterval","value":{"metricValue":{"value":30,"unit":"Days"}}}} # dict(str, ModelProperty) | The properties to be updated or inserted onto the group. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"PortfolioGroup/Manager/Id\". (optional)
 
     try:
-        # [EARLY ACCESS] Upsert group properties
+        # [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
         api_response = api_instance.upsert_group_properties(scope, code, request_body=request_body)
         pprint(api_response)
     except ApiException as e:
@@ -2028,7 +2028,7 @@ Name | Type | Description  | Notes
 # **upsert_portfolio_group_access_metadata**
 > ResourceListOfAccessMetadataValueOf upsert_portfolio_group_access_metadata(scope, code, metadata_key, upsert_portfolio_group_access_metadata_request, effective_at=effective_at)
 
-[EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
@@ -2069,7 +2069,7 @@ upsert_portfolio_group_access_metadata_request = {"metadata":[{"value":"SilverLi
 effective_at = 'effective_at_example' # str | The date this rule will be effective from (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        # [EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         api_response = api_instance.upsert_portfolio_group_access_metadata(scope, code, metadata_key, upsert_portfolio_group_access_metadata_request, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:

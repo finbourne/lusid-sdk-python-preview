@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_applicable_fees**](FeesAndCommissionsApi.md#get_applicable_fees) | **GET** /api/feesandcommissions | [EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
-[**list_all_fees**](FeesAndCommissionsApi.md#list_all_fees) | **GET** /api/feesandcommissions/rules | [EXPERIMENTAL] List the rules available for fees and commissions.
+[**get_applicable_fees**](FeesAndCommissionsApi.md#get_applicable_fees) | **GET** /api/feesandcommissions | [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
+[**list_all_fees**](FeesAndCommissionsApi.md#list_all_fees) | **GET** /api/feesandcommissions/rules | [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
 
 
 # **get_applicable_fees**
 > ResourceListOfFeeCalculationDetails get_applicable_fees(instrument_identifier_type=instrument_identifier_type, instrument_identifier=instrument_identifier, portfolio_scope=portfolio_scope, portfolio_code=portfolio_code, additional_search_keys=additional_search_keys)
 
-[EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
+[EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
 
 Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.
 
@@ -52,7 +52,7 @@ portfolio_code = 'portfolio_code_example' # str | Optional. The code of the port
 additional_search_keys = ['additional_search_keys_example'] # list[str] | Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".              The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\",               \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\",               \"Custodian\", \"Exchange\" (optional)
 
     try:
-        # [EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
+        # [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
         api_response = api_instance.get_applicable_fees(instrument_identifier_type=instrument_identifier_type, instrument_identifier=instrument_identifier, portfolio_scope=portfolio_scope, portfolio_code=portfolio_code, additional_search_keys=additional_search_keys)
         pprint(api_response)
     except ApiException as e:
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **list_all_fees**
 > ResourceListOfFeeCalculationDetails list_all_fees(additional_search_keys=additional_search_keys)
 
-[EXPERIMENTAL] List the rules available for fees and commissions.
+[EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
 
 By default, will list ALL rules available. Additional keys and be specified to list a smaller subset of rules.
 
@@ -131,7 +131,7 @@ with lusid.ApiClient(configuration) as api_client:
     additional_search_keys = ['additional_search_keys_example'] # list[str] | Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".              The minimum list of fields available is as follows : \"RuleName\", \"Country\", \"FeeCalculationMethod\", \"FeeMultiplier\", \"MinFeeCalculationMethod\",               \"MinFeeMultiplier\", \"MaxFeeCalculationMethod\", \"MaxFeeMultiplier\", \"PropertyKey\",               \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\",               \"Custodian\", \"Exchange\" (optional)
 
     try:
-        # [EXPERIMENTAL] List the rules available for fees and commissions.
+        # [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
         api_response = api_instance.list_all_fees(additional_search_keys=additional_search_keys)
         pprint(api_response)
     except ApiException as e:

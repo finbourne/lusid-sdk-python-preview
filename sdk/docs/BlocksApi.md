@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_block**](BlocksApi.md#delete_block) | **DELETE** /api/blocks/{scope}/{code} | [EXPERIMENTAL] Delete block
-[**get_block**](BlocksApi.md#get_block) | **GET** /api/blocks/{scope}/{code} | [EXPERIMENTAL] Get Block
-[**list_blocks**](BlocksApi.md#list_blocks) | **GET** /api/blocks | [EXPERIMENTAL] List Blocks
-[**upsert_blocks**](BlocksApi.md#upsert_blocks) | **POST** /api/blocks | [EXPERIMENTAL] Upsert Block
+[**delete_block**](BlocksApi.md#delete_block) | **DELETE** /api/blocks/{scope}/{code} | [EXPERIMENTAL] DeleteBlock: Delete block
+[**get_block**](BlocksApi.md#get_block) | **GET** /api/blocks/{scope}/{code} | [EXPERIMENTAL] GetBlock: Get Block
+[**list_blocks**](BlocksApi.md#list_blocks) | **GET** /api/blocks | [EXPERIMENTAL] ListBlocks: List Blocks
+[**upsert_blocks**](BlocksApi.md#upsert_blocks) | **POST** /api/blocks | [EXPERIMENTAL] UpsertBlocks: Upsert Block
 
 
 # **delete_block**
 > DeletedEntityResponse delete_block(scope, code)
 
-[EXPERIMENTAL] Delete block
+[EXPERIMENTAL] DeleteBlock: Delete block
 
 Delete an block. Deletion will be valid from the block's creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The block's code. This, together with the scope uniquely identifies the block to delete.
 
     try:
-        # [EXPERIMENTAL] Delete block
+        # [EXPERIMENTAL] DeleteBlock: Delete block
         api_response = api_instance.delete_block(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_block**
 > Block get_block(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] Get Block
+[EXPERIMENTAL] GetBlock: Get Block
 
 Fetch a Block that matches the specified identifier
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Block\" domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \"Block/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] Get Block
+        # [EXPERIMENTAL] GetBlock: Get Block
         api_response = api_instance.get_block(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_blocks**
 > PagedResourceListOfBlock list_blocks(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] List Blocks
+[EXPERIMENTAL] ListBlocks: List Blocks
 
 Fetch the last pre-AsAt date version of each block in scope (does not fetch the entire history).
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Block\" domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \"Block/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] List Blocks
+        # [EXPERIMENTAL] ListBlocks: List Blocks
         api_response = api_instance.list_blocks(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_blocks**
 > ResourceListOfBlock upsert_blocks(block_set_request=block_set_request)
 
-[EXPERIMENTAL] Upsert Block
+[EXPERIMENTAL] UpsertBlocks: Upsert Block
 
 Upsert; update existing blocks with given ids, or create new blocks otherwise.
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     block_set_request = {"requests":[{"id":{"scope":"MyScope","code":"BLOC00000123"},"orderIds":[{"scope":"MyScope","code":"BLOC00000123"}],"properties":{"block/MyScope/SomeBlockProperty":{"key":"Block/MyScope/SomeBlockProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"side":"Buy","type":"Limit","timeInForce":"GoodTilCancel","createdDate":"2006-04-11T00:00:00.0000000+00:00","limitPrice":{"amount":12413.33,"currency":"USD"},"stopPrice":{"amount":122345.33,"currency":"USD"}}]} # BlockSetRequest | The collection of block requests. (optional)
 
     try:
-        # [EXPERIMENTAL] Upsert Block
+        # [EXPERIMENTAL] UpsertBlocks: Upsert Block
         api_response = api_instance.upsert_blocks(block_set_request=block_set_request)
         pprint(api_response)
     except ApiException as e:

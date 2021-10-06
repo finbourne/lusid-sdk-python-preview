@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_data_map**](StructuredResultDataApi.md#create_data_map) | **POST** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] Create data map
-[**delete_structured_result_data**](StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] Delete structured result data
-[**get_data_map**](StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] Get data map
-[**get_structured_result_data**](StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] Get structured result data
-[**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [BETA] Upsert structured result data
+[**create_data_map**](StructuredResultDataApi.md#create_data_map) | **POST** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] CreateDataMap: Create data map
+[**delete_structured_result_data**](StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
+[**get_data_map**](StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] GetDataMap: Get data map
+[**get_structured_result_data**](StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] GetStructuredResultData: Get structured result data
+[**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [BETA] UpsertStructuredResultData: Upsert structured result data
 
 
 # **create_data_map**
 > UpsertStructuredDataResponse create_data_map(scope, request_body)
 
-[EXPERIMENTAL] Create data map
+[EXPERIMENTAL] CreateDataMap: Create data map
 
 Create or update one or more structured result store address definition data maps in a particular scope. Note these are immutable and cannot be changed once created.                In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data map object in the response.                The response returns both the collection of successfully created or updated data maps, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
 
@@ -52,7 +52,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {} # dict(str, CreateDataMapRequest) | Individual data map creation requests.
 
     try:
-        # [EXPERIMENTAL] Create data map
+        # [EXPERIMENTAL] CreateDataMap: Create data map
         api_response = api_instance.create_data_map(scope, request_body)
         pprint(api_response)
     except ApiException as e:
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 # **delete_structured_result_data**
 > AnnulStructuredDataResponse delete_structured_result_data(scope, request_body)
 
-[EXPERIMENTAL] Delete structured result data
+[EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
 
 Delete one or more structured result data items from a particular scope. Each item is identified by a unique ID which includes  information about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully deleted data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
 
@@ -129,7 +129,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The data IDs to delete, each keyed by a unique, ephemeral correlation ID.
 
     try:
-        # [EXPERIMENTAL] Delete structured result data
+        # [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
         api_response = api_instance.delete_structured_result_data(scope, request_body)
         pprint(api_response)
     except ApiException as e:
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 # **get_data_map**
 > GetDataMapResponse get_data_map(scope, request_body)
 
-[EXPERIMENTAL] Get data map
+[EXPERIMENTAL] GetDataMap: Get data map
 
 Retrieve one or more structured result store address definition data maps from a particular scope.                Each data map can be identified by its invariant key, which can be thought of as a permanent URL.  For each ID, LUSID returns the most recently matched item.                In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data map in the response.                The response returns three collections. The first contains successfully retrieved data maps. The second contains those with a  valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.                For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
 
@@ -206,7 +206,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {} # dict(str, DataMapKey) | The data map keys to look up, each keyed by a unique, ephemeral correlation ID.
 
     try:
-        # [EXPERIMENTAL] Get data map
+        # [EXPERIMENTAL] GetDataMap: Get data map
         api_response = api_instance.get_data_map(scope, request_body)
         pprint(api_response)
     except ApiException as e:
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 # **get_structured_result_data**
 > GetStructuredResultDataResponse get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
 
-[EXPERIMENTAL] Get structured result data
+[EXPERIMENTAL] GetStructuredResultData: Get structured result data
 
 Retrieve one or more structured result data items from a particular scope.                Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID  returns the most recently matched item with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified to control how far back to look from the specified  effective datetime. LUSID returns the most recent item within this window.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.    The response returns three collections. The first contains successfully retrieved data items. The second contains those with a  valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.    For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
 
@@ -285,7 +285,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 max_age = 'max_age_example' # str | The duration of the look-back window in ISO8601 time interval format, for example 'P1Y2M3DT4H30M' (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)
 
     try:
-        # [EXPERIMENTAL] Get structured result data
+        # [EXPERIMENTAL] GetStructuredResultData: Get structured result data
         api_response = api_instance.get_structured_result_data(scope, request_body, as_at=as_at, max_age=max_age)
         pprint(api_response)
     except ApiException as e:
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 # **upsert_structured_result_data**
 > UpsertStructuredDataResponse upsert_structured_result_data(scope, request_body)
 
-[BETA] Upsert structured result data
+[BETA] UpsertStructuredResultData: Upsert structured result data
 
 Create or update one or more structured result data items in a particular scope. An item is updated if it already exists  and created if it does not.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully created or updated data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
 
@@ -364,7 +364,7 @@ with lusid.ApiClient(configuration) as api_client:
 request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
 
     try:
-        # [BETA] Upsert structured result data
+        # [BETA] UpsertStructuredResultData: Upsert structured result data
         api_response = api_instance.upsert_structured_result_data(scope, request_body)
         pprint(api_response)
     except ApiException as e:
