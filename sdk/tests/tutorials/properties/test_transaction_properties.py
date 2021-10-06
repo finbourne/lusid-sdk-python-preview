@@ -114,7 +114,7 @@ class TransactionProperty(unittest.TestCase):
         self.create_portfolio()
 
         # Setup transaction with txn tax details as the property value
-        response = self.create_txn_with_property("BBG000FD8G46", transaction_tax_string)
+        response = self.create_txn_with_property("BBG000HC9638", transaction_tax_string)
         self.assertIsNotNone(response)
 
         # Get transaction with property
