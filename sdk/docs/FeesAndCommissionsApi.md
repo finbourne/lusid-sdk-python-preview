@@ -1,17 +1,17 @@
 # lusid.FeesAndCommissionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_applicable_fees**](FeesAndCommissionsApi.md#get_applicable_fees) | **GET** /api/feesandcommissions | [EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
-[**list_all_fees**](FeesAndCommissionsApi.md#list_all_fees) | **GET** /api/feesandcommissions/rules | [EXPERIMENTAL] List the rules available for fees and commissions.
+[**get_applicable_fees**](FeesAndCommissionsApi.md#get_applicable_fees) | **GET** /api/feesandcommissions | [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
+[**list_all_fees**](FeesAndCommissionsApi.md#list_all_fees) | **GET** /api/feesandcommissions/rules | [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
 
 
 # **get_applicable_fees**
 > ResourceListOfFeeCalculationDetails get_applicable_fees(instrument_identifier_type=instrument_identifier_type, instrument_identifier=instrument_identifier, portfolio_scope=portfolio_scope, portfolio_code=portfolio_code, additional_search_keys=additional_search_keys)
 
-[EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
+[EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
 
 Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.
 
@@ -24,10 +24,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -52,7 +52,7 @@ portfolio_code = 'portfolio_code_example' # str | Optional. The code of the port
 additional_search_keys = ['additional_search_keys_example'] # list[str] | Any other property keys or fields and their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".              The list of fields available is as follows : \"RuleName\", \"Country\", \"FeeType\", \"FeeRate\", \"MinFee\", \"MaxFee\", \"PropertyKey\",               \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\",               \"Custodian\", \"Exchange\" (optional)
 
     try:
-        # [EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.
+        # [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
         api_response = api_instance.get_applicable_fees(instrument_identifier_type=instrument_identifier_type, instrument_identifier=instrument_identifier, portfolio_scope=portfolio_scope, portfolio_code=portfolio_code, additional_search_keys=additional_search_keys)
         pprint(api_response)
     except ApiException as e:
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **list_all_fees**
 > ResourceListOfFeeCalculationDetails list_all_fees(additional_search_keys=additional_search_keys)
 
-[EXPERIMENTAL] List the rules available for fees and commissions.
+[EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
 
 By default, will list ALL rules available. Additional keys and be specified to list a smaller subset of rules.
 
@@ -107,10 +107,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -120,7 +120,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -131,7 +131,7 @@ with lusid.ApiClient(configuration) as api_client:
     additional_search_keys = ['additional_search_keys_example'] # list[str] | Any other property keys or fields and their corresponding values that should be matched to reduce the list of rules returned. Eg. \"Instrument/default/Name=exampleValue\" or \"AdditionalKey2=Value2\".              The minimum list of fields available is as follows : \"RuleName\", \"Country\", \"FeeCalculationMethod\", \"FeeMultiplier\", \"MinFeeCalculationMethod\",               \"MinFeeMultiplier\", \"MaxFeeCalculationMethod\", \"MaxFeeMultiplier\", \"PropertyKey\",               \"TransactionType\", \"Counterparty\", \"SettlementCurrency\", \"TransactionCurrency\", \"ExecutionBroker\",               \"Custodian\", \"Exchange\" (optional)
 
     try:
-        # [EXPERIMENTAL] List the rules available for fees and commissions.
+        # [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
         api_response = api_instance.list_all_fees(additional_search_keys=additional_search_keys)
         pprint(api_response)
     except ApiException as e:

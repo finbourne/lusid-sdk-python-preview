@@ -1,19 +1,19 @@
 # lusid.SearchApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EXPERIMENTAL] Instruments search
-[**search_portfolio_groups**](SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] Search Portfolio Groups
-[**search_portfolios**](SearchApi.md#search_portfolios) | **GET** /api/search/portfolios | [EARLY ACCESS] Search Portfolios
-[**search_properties**](SearchApi.md#search_properties) | **GET** /api/search/propertydefinitions | [EARLY ACCESS] Search Property Definitions
+[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EXPERIMENTAL] InstrumentsSearch: Instruments search
+[**search_portfolio_groups**](SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
+[**search_portfolios**](SearchApi.md#search_portfolios) | **GET** /api/search/portfolios | [EARLY ACCESS] SearchPortfolios: Search Portfolios
+[**search_properties**](SearchApi.md#search_properties) | **GET** /api/search/propertydefinitions | [EARLY ACCESS] SearchProperties: Search Property Definitions
 
 
 # **instruments_search**
 > list[InstrumentMatch] instruments_search(instrument_search_property, mastered_effective_at=mastered_effective_at, mastered_only=mastered_only)
 
-[EXPERIMENTAL] Instruments search
+[EXPERIMENTAL] InstrumentsSearch: Instruments search
 
 Search across all instruments that have been mastered in LUSID. Optionally augment the results with instruments from an external symbology service,  currently OpenFIGI.
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -52,7 +52,7 @@ mastered_effective_at = 'mastered_effective_at_example' # str | The effective da
 mastered_only = False # bool | If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. (optional) (default to False)
 
     try:
-        # [EXPERIMENTAL] Instruments search
+        # [EXPERIMENTAL] InstrumentsSearch: Instruments search
         api_response = api_instance.instruments_search(instrument_search_property, mastered_effective_at=mastered_effective_at, mastered_only=mastered_only)
         pprint(api_response)
     except ApiException as e:
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **search_portfolio_groups**
 > PagedResourceListOfPortfolioGroupSearchResult search_portfolio_groups(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
 
-[EARLY ACCESS] Search Portfolio Groups
+[EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
 
 Search through all portfolio groups
 
@@ -105,10 +105,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,7 +118,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -133,7 +133,7 @@ limit = 56 # int | When paginating, only return this number of records (optional
 page = 'page_example' # str | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)
 
     try:
-        # [EARLY ACCESS] Search Portfolio Groups
+        # [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
         api_response = api_instance.search_portfolio_groups(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 # **search_portfolios**
 > PagedResourceListOfPortfolioSearchResult search_portfolios(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
 
-[EARLY ACCESS] Search Portfolios
+[EARLY ACCESS] SearchPortfolios: Search Portfolios
 
 Search through all portfolios
 
@@ -188,10 +188,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -201,7 +201,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -216,7 +216,7 @@ limit = 56 # int | When paginating, only return this number of records (optional
 page = 'page_example' # str | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)
 
     try:
-        # [EARLY ACCESS] Search Portfolios
+        # [EARLY ACCESS] SearchPortfolios: Search Portfolios
         api_response = api_instance.search_portfolios(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **search_properties**
 > PagedResourceListOfPropertyDefinitionSearchResult search_properties(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
 
-[EARLY ACCESS] Search Property Definitions
+[EARLY ACCESS] SearchProperties: Search Property Definitions
 
 Search through all Property Definitions
 
@@ -271,10 +271,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -284,7 +284,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -299,7 +299,7 @@ limit = 56 # int | When paginating, only return this number of records (optional
 page = 'page_example' # str | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)
 
     try:
-        # [EARLY ACCESS] Search Property Definitions
+        # [EARLY ACCESS] SearchProperties: Search Property Definitions
         api_response = api_instance.search_properties(search=search, filter=filter, sort_by=sort_by, limit=limit, page=page)
         pprint(api_response)
     except ApiException as e:

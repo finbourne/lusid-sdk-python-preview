@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3577",
+    "version": "0.11.3578",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:37599"
+      "url": "http://local-unit-test-server.lusid.com:57003"
     }
   ],
   "paths": {
@@ -26,7 +26,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[BETA] Perform valuation for a list of portfolios and/or portfolio groups",
+        "summary": "[BETA] GetValuation: Perform valuation for a list of portfolios and/or portfolio groups",
         "description": "Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.",
         "operationId": "GetValuation",
         "requestBody": {
@@ -311,7 +311,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[BETA] Perform valuation for an inlined portfolio",
+        "summary": "[BETA] GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio",
         "description": "Perform valuation on the portfolio that is defined by the weighted set of instruments passed to the request.",
         "operationId": "GetValuationOfWeightedInstruments",
         "requestBody": {
@@ -596,7 +596,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[EXPERIMENTAL] Generates a recipe sufficient to perform valuations for the given portfolio.",
+        "summary": "[EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.",
         "description": "Given a set of scopes, a portfolio Id and a basic recipe, this endpoint generates a configuration recipe with relevant rules that can value the instruments in the portfolio.",
         "operationId": "GenerateConfigurationRecipe",
         "parameters": [
@@ -763,7 +763,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EARLY ACCESS] List Allocations",
+        "summary": "[EARLY ACCESS] ListAllocations: List Allocations",
         "description": "Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).",
         "operationId": "ListAllocations",
         "parameters": [
@@ -919,7 +919,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EARLY ACCESS] Upsert Allocations",
+        "summary": "[EARLY ACCESS] UpsertAllocations: Upsert Allocations",
         "description": "Upsert; update existing allocations with given ids, or create new allocations otherwise.",
         "operationId": "UpsertAllocations",
         "requestBody": {
@@ -1363,7 +1363,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EARLY ACCESS] Get Allocation",
+        "summary": "[EARLY ACCESS] GetAllocation: Get Allocation",
         "description": "Fetch an Allocation matching the provided identifier",
         "operationId": "GetAllocation",
         "parameters": [
@@ -1630,7 +1630,7 @@
         "tags": [
           "Allocations"
         ],
-        "summary": "[EARLY ACCESS] Delete allocation",
+        "summary": "[EARLY ACCESS] DeleteAllocation: Delete allocation",
         "description": "Delete an allocation. Deletion will be valid from the allocation's creation datetime.\r\nThis means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteAllocation",
         "parameters": [
@@ -1726,7 +1726,7 @@
         "tags": [
           "Blocks"
         ],
-        "summary": "[EXPERIMENTAL] List Blocks",
+        "summary": "[EXPERIMENTAL] ListBlocks: List Blocks",
         "description": "Fetch the last pre-AsAt date version of each block in scope (does not fetch the entire history).",
         "operationId": "ListBlocks",
         "parameters": [
@@ -1876,7 +1876,7 @@
         "tags": [
           "Blocks"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Block",
+        "summary": "[EXPERIMENTAL] UpsertBlocks: Upsert Block",
         "description": "Upsert; update existing blocks with given ids, or create new blocks otherwise.",
         "operationId": "UpsertBlocks",
         "requestBody": {
@@ -2264,7 +2264,7 @@
         "tags": [
           "Blocks"
         ],
-        "summary": "[EXPERIMENTAL] Get Block",
+        "summary": "[EXPERIMENTAL] GetBlock: Get Block",
         "description": "Fetch a Block that matches the specified identifier",
         "operationId": "GetBlock",
         "parameters": [
@@ -2507,7 +2507,7 @@
         "tags": [
           "Blocks"
         ],
-        "summary": "[EXPERIMENTAL] Delete block",
+        "summary": "[EXPERIMENTAL] DeleteBlock: Delete block",
         "description": "Delete an block. Deletion will be valid from the block's creation datetime.\r\nThis means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteBlock",
         "parameters": [
@@ -2603,7 +2603,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Adds the requested number of Business Days to the provided date.",
+        "summary": "[EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.",
         "description": "A Business day is defined as a point in time that:\r\n    * Does not represent a day in the calendar's weekend\r\n    * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)\r\n             \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive\r\n             \r\ne.g. From: 2020-12-24-00-00-00:\r\n     Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.\r\n     Adding -2 business days returns 2020-12-22 under the same assumptions.\r\n            \r\nIf the provided number of days to add is zero, returns a failure.",
         "operationId": "AddBusinessDaysToDate",
         "parameters": [
@@ -2749,7 +2749,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Check whether a DateTime is a \"Business DateTime\"",
+        "summary": "[BETA] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"",
         "description": "A Business DateTime is defined as a point in time that:\r\n    * Does not represent a day that overlaps with the calendars WeekendMask\r\n    * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar\r\n    * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar\r\n            \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive \r\ne.g. From: 2020-12-25-00-00-00 \r\n     To: 2020-12-26-00-00-00\r\nIsBusinessDay(2020-12-26-00-00-00) == false",
         "operationId": "IsBusinessDateTime",
         "parameters": [
@@ -2881,7 +2881,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] List Calenders",
+        "summary": "[BETA] ListCalendars: List Calenders",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendars",
         "parameters": [
@@ -3157,7 +3157,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Create a calendar in its generic form",
+        "summary": "[BETA] CreateCalendar: Create a calendar in its generic form",
         "description": "Create a calendar in a generic form which can be used to store date events.",
         "operationId": "CreateCalendar",
         "requestBody": {
@@ -3415,7 +3415,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] List all calenders in a specified scope",
+        "summary": "[BETA] ListCalendarsInScope: List all calenders in a specified scope",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendarsInScope",
         "parameters": [
@@ -3724,7 +3724,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Get a calendar in its generic form",
+        "summary": "[BETA] GetCalendar: Get a calendar in its generic form",
         "description": "Retrieve a generic calendar by a specific ID at a point in AsAt time",
         "operationId": "GetCalendar",
         "parameters": [
@@ -3902,7 +3902,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Update a calendar",
+        "summary": "[BETA] UpdateCalendar: Update a calendar",
         "description": "Update the calendars WeekendMask, SourceProvider or Properties",
         "operationId": "UpdateCalendar",
         "parameters": [
@@ -4166,7 +4166,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Delete a calendar",
+        "summary": "[BETA] DeleteCalendar: Delete a calendar",
         "description": "Delete a calendar and all of its respective dates",
         "operationId": "DeleteCalendar",
         "parameters": [
@@ -4334,7 +4334,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Get dates for a specific calendar",
+        "summary": "[BETA] GetDates: Get dates for a specific calendar",
         "description": "Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.\r\nProviding an id filter can further refine the results.",
         "operationId": "GetDates",
         "parameters": [
@@ -4530,7 +4530,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Add a date to a calendar",
+        "summary": "[BETA] AddDateToCalendar: Add a date to a calendar",
         "description": "Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.\r\nA local date will be calculated by the system and applied to the calendar before processing.",
         "operationId": "AddDateToCalendar",
         "parameters": [
@@ -4721,7 +4721,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] Remove a date from a calendar",
+        "summary": "[BETA] DeleteDateFromCalendar: Remove a date from a calendar",
         "description": "Remove a date from a calendar.",
         "operationId": "DeleteDateFromCalendar",
         "parameters": [
@@ -4863,7 +4863,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] Generate an ordered schedule of dates.",
+        "summary": "[EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.",
         "description": "Returns an ordered array of dates. The dates will only fall on business\r\ndays as defined by the scope and calendar codes in the valuation schedule.\r\n            \r\nValuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),\r\nevery other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's\r\nrollConvention.",
         "operationId": "GenerateSchedule",
         "parameters": [
@@ -5040,7 +5040,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a set of complex market data items. This creates or updates the data in Lusid.",
+        "summary": "[EXPERIMENTAL] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.",
         "description": "Update or insert one or more complex market data items in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each complex market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each complex market data in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted complex market data, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the item could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "UpsertComplexMarketData",
         "parameters": [
@@ -5309,7 +5309,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Delete one or more items of complex market data, assuming they are present.",
+        "summary": "[EXPERIMENTAL] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.",
         "description": "Delete one or more specified complex market data items from a single scope. Each item is identified by a unique id which includes\r\ninformation about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).\r\n            \r\nIn the request each complex market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted  complex market data items, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the it could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteComplexMarketData",
         "parameters": [
@@ -5498,7 +5498,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Get complex market data",
+        "summary": "[EXPERIMENTAL] GetComplexMarketData: Get complex market data",
         "description": "Get one or more items of complex market data from a single scope.\r\n            \r\nEach item can be identified by its time invariant complex market data identifier.\r\n            \r\nFor each id LUSID will return the most recent matched item with respect to the provided (or default) effective datetime.\r\n            \r\nAn optional maximum age range window can be specified which defines how far back to look back for data from the specified effective datetime.\r\nLUSID will return the most recent item within this window.\r\n            \r\nIn the request each complex market data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each item in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved complex market data. Two, those that had a\r\nvalid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.\r\n            \r\nFor the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.",
         "operationId": "GetComplexMarketData",
         "parameters": [
@@ -5724,7 +5724,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] List the set of CDS Flow Conventions",
+        "summary": "[BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions",
         "description": "List the set of CDS Flow Conventions at the specified date/time",
         "operationId": "ListCdsFlowConventions",
         "parameters": [
@@ -5804,7 +5804,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.",
+        "summary": "[BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.",
         "description": "Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCdsFlowConventions",
         "requestBody": {
@@ -5974,7 +5974,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Get CDS Flow Conventions",
+        "summary": "[BETA] GetCdsFlowConventions: Get CDS Flow Conventions",
         "description": "Get a CDS Flow Conventions from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCdsFlowConventions",
         "parameters": [
@@ -6080,7 +6080,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Delete the CDS Flow Conventions of given scope and code, assuming that it is present.",
+        "summary": "[BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.",
         "description": "Delete the specified CDS Flow Conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCdsFlowConventions",
         "parameters": [
@@ -6176,7 +6176,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] List the set of Flow Conventions",
+        "summary": "[BETA] ListFlowConventions: List the set of Flow Conventions",
         "description": "List the set of Flow Conventions at the specified date/time",
         "operationId": "ListFlowConventions",
         "parameters": [
@@ -6256,7 +6256,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Upsert Flow Conventions. This creates or updates the data in Lusid.",
+        "summary": "[BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.",
         "description": "Update or insert Flow Conventions in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertFlowConventions",
         "requestBody": {
@@ -6422,7 +6422,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Get Flow Conventions",
+        "summary": "[BETA] GetFlowConventions: Get Flow Conventions",
         "description": "Get a Flow Conventions from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetFlowConventions",
         "parameters": [
@@ -6528,7 +6528,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Delete the Flow Conventions of given scope and code, assuming that it is present.",
+        "summary": "[BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.",
         "description": "Delete the specified conventions from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteFlowConventions",
         "parameters": [
@@ -6624,7 +6624,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] List the set of Index Conventions",
+        "summary": "[BETA] ListIndexConvention: List the set of Index Conventions",
         "description": "List the set of Index Conventions at the specified date/time",
         "operationId": "ListIndexConvention",
         "parameters": [
@@ -6704,7 +6704,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Upsert a set of Index Convention. This creates or updates the data in Lusid.",
+        "summary": "[BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.",
         "description": "Update or insert Index Convention in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Index Convention or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertIndexConvention",
         "requestBody": {
@@ -6842,7 +6842,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Get Index Convention",
+        "summary": "[BETA] GetIndexConvention: Get Index Convention",
         "description": "Get a Index Convention from a single scope.\r\nThe response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetIndexConvention",
         "parameters": [
@@ -6948,7 +6948,7 @@
         "tags": [
           "Conventions"
         ],
-        "summary": "[BETA] Delete the Index Convention of given scope and code, assuming that it is present.",
+        "summary": "[BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.",
         "description": "Delete the specified Index Convention from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteIndexConvention",
         "parameters": [
@@ -7044,7 +7044,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] Create corporate action source",
+        "summary": "[BETA] CreateCorporateActionSource: Create corporate action source",
         "description": "Create a corporate action source.",
         "operationId": "CreateCorporateActionSource",
         "requestBody": {
@@ -7160,7 +7160,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] List corporate action sources",
+        "summary": "[BETA] ListCorporateActionSources: List corporate action sources",
         "description": "Gets a list of all corporate action sources",
         "operationId": "ListCorporateActionSources",
         "parameters": [
@@ -7295,7 +7295,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] Delete a corporate action source",
+        "summary": "[BETA] DeleteCorporateActionSource: Delete a corporate action source",
         "description": "Deletes a single corporate action source",
         "operationId": "DeleteCorporateActionSource",
         "parameters": [
@@ -7393,7 +7393,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] Upsert corporate actions",
+        "summary": "[BETA] BatchUpsertCorporateActions: Upsert corporate actions",
         "description": "Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.\r\n            \r\nIf a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.",
         "operationId": "BatchUpsertCorporateActions",
         "parameters": [
@@ -7654,7 +7654,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] Get corporate actions",
+        "summary": "[BETA] GetCorporateActions: Get corporate actions",
         "description": "Get corporate actions from a particular corporate action source.",
         "operationId": "GetCorporateActions",
         "parameters": [
@@ -7829,7 +7829,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[EXPERIMENTAL] Delete corporate actions",
+        "summary": "[EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions",
         "description": "Delete one or more corporate actions from a particular corporate action source.",
         "operationId": "DeleteCorporateActions",
         "parameters": [
@@ -7940,7 +7940,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Counterparty Agreements",
+        "summary": "[EXPERIMENTAL] ListCounterpartyAgreements: List the set of Counterparty Agreements",
         "description": "List the set of Counterparty Agreements at the specified AsAt date/time",
         "operationId": "ListCounterpartyAgreements",
         "parameters": [
@@ -8020,7 +8020,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Counterparty Agreement",
+        "summary": "[EXPERIMENTAL] UpsertCounterpartyAgreement: Upsert Counterparty Agreement",
         "description": "Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCounterpartyAgreement",
         "requestBody": {
@@ -8206,7 +8206,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Get Counterparty Agreement",
+        "summary": "[EXPERIMENTAL] GetCounterpartyAgreement: Get Counterparty Agreement",
         "description": "Get a Counterparty Agreement from a single scope.\r\nThe response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCounterpartyAgreement",
         "parameters": [
@@ -8312,7 +8312,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Delete the Counterparty Agreement of given scope and code",
+        "summary": "[EXPERIMENTAL] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code",
         "description": "Delete the specified Counterparty Agreement from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCounterpartyAgreement",
         "parameters": [
@@ -8408,7 +8408,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Credit Support Annexes",
+        "summary": "[EXPERIMENTAL] ListCreditSupportAnnexes: List the set of Credit Support Annexes",
         "description": "List the set of Credit Support Annexes at the specified AsAt date/time",
         "operationId": "ListCreditSupportAnnexes",
         "parameters": [
@@ -8488,7 +8488,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Credit Support Annex",
+        "summary": "[EXPERIMENTAL] UpsertCreditSupportAnnex: Upsert Credit Support Annex",
         "description": "Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCreditSupportAnnex",
         "requestBody": {
@@ -8658,7 +8658,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Get Credit Support Annex",
+        "summary": "[EXPERIMENTAL] GetCreditSupportAnnex: Get Credit Support Annex",
         "description": "Get a Credit Support Annex from a single scope.\r\nThe response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCreditSupportAnnex",
         "parameters": [
@@ -8764,7 +8764,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] Delete the Credit Support Annex of given scope and code",
+        "summary": "[EXPERIMENTAL] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code",
         "description": "Delete the specified Credit Support Annex from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCreditSupportAnnex",
         "parameters": [
@@ -8860,7 +8860,7 @@
         "tags": [
           "CustomEntityDefinitions"
         ],
-        "summary": "[EXPERIMENTAL] Create a new CustomEntityDefinition",
+        "summary": "[EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition",
         "description": "Create a custom entity definition that does not already exist. Will return a Bad Request if the CustomEntityDefinition already exists",
         "operationId": "CreateCustomEntityDefinition",
         "requestBody": {
@@ -9176,7 +9176,7 @@
         "tags": [
           "CustomEntityDefinitions"
         ],
-        "summary": "[EXPERIMENTAL] Get CustomEntityDefinition",
+        "summary": "[EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition",
         "description": "Retrieve a CustomEntityDefinition by a specific EntityType at a point in AsAt time",
         "operationId": "GetDefinition",
         "parameters": [
@@ -9369,7 +9369,7 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a new CustomEntity",
+        "summary": "[EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity",
         "description": "Insert the custom entity if it does not exist or update the custom entity with the supplied state if it does exist.",
         "operationId": "UpsertCustomEntity",
         "parameters": [
@@ -9838,7 +9838,7 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] List Custom Entities",
+        "summary": "[EXPERIMENTAL] ListCustomEntities: List Custom Entities",
         "description": "List all the Custom Entities matching particular criteria.",
         "operationId": "ListCustomEntities",
         "parameters": [
@@ -9977,7 +9977,7 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] Get CustomEntity",
+        "summary": "[EXPERIMENTAL] GetCustomEntity: Get CustomEntity",
         "description": "Retrieve a CustomEntity by a specific Id at a point in AsAt time.",
         "operationId": "GetCustomEntity",
         "parameters": [
@@ -10299,7 +10299,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[BETA] Create data type definition",
+        "summary": "[BETA] CreateDataType: Create data type definition",
         "description": "Create a new data type definition\r\n\r\nData types cannot be created in either the \"default\" or \"system\" scopes.",
         "operationId": "CreateDataType",
         "requestBody": {
@@ -10496,7 +10496,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[EARLY ACCESS] List data types",
+        "summary": "[EARLY ACCESS] ListDataTypes: List data types",
         "description": "List all data types in a specified scope",
         "operationId": "ListDataTypes",
         "parameters": [
@@ -10654,7 +10654,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[BETA] Update data type definition",
+        "summary": "[BETA] UpdateDataType: Update data type definition",
         "description": "Update the definition of the specified existing data type\r\n\r\nNot all elements within a data type definition are modifiable due to the potential implications for data\r\nalready stored against the types",
         "operationId": "UpdateDataType",
         "parameters": [
@@ -10804,7 +10804,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[EARLY ACCESS] Get data type definition",
+        "summary": "[EARLY ACCESS] GetDataType: Get data type definition",
         "description": "Get the definition of a specified data type",
         "operationId": "GetDataType",
         "parameters": [
@@ -10914,7 +10914,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[EARLY ACCESS] Get units from data type",
+        "summary": "[EARLY ACCESS] GetUnitsFromDataType: Get units from data type",
         "description": "Get the definitions of the specified units associated bound to a specific data type",
         "operationId": "GetUnitsFromDataType",
         "parameters": [
@@ -11051,7 +11051,7 @@
         "tags": [
           "Derived Transaction Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Create derived portfolio",
+        "summary": "[EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio",
         "description": "Create a derived transaction portfolio from a parent transaction portfolio (which may itself be derived).",
         "operationId": "CreateDerivedPortfolio",
         "parameters": [
@@ -11236,7 +11236,7 @@
         "tags": [
           "Derived Transaction Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Delete derived portfolio details",
+        "summary": "[EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details",
         "description": "Delete all the portfolio details for a derived transaction portfolio.",
         "operationId": "DeleteDerivedPortfolioDetails",
         "parameters": [
@@ -11348,7 +11348,7 @@
         "tags": [
           "Entities"
         ],
-        "summary": "[EARLY ACCESS] Get the next change to each portfolio in a scope.",
+        "summary": "[EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.",
         "description": "Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.\r\nIncludes changes from parent portfolios in different scopes.\r\nExcludes changes from subcriptions (e.g corporate actions).",
         "operationId": "GetPortfolioChanges",
         "parameters": [
@@ -11457,7 +11457,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] List Executions",
+        "summary": "[EXPERIMENTAL] ListExecutions: List Executions",
         "description": "Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).",
         "operationId": "ListExecutions",
         "parameters": [
@@ -11607,7 +11607,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Execution",
+        "summary": "[EXPERIMENTAL] UpsertExecutions: Upsert Execution",
         "description": "Upsert; update existing executions with given ids, or create new executions otherwise.",
         "operationId": "UpsertExecutions",
         "requestBody": {
@@ -11981,7 +11981,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] Get Execution",
+        "summary": "[EXPERIMENTAL] GetExecution: Get Execution",
         "description": "Fetch a Execution that matches the specified identifier",
         "operationId": "GetExecution",
         "parameters": [
@@ -12218,7 +12218,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] Delete execution",
+        "summary": "[EXPERIMENTAL] DeleteExecution: Delete execution",
         "description": "Delete an execution. Deletion will be valid from the execution's creation datetime.\r\nThis means that the execution will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteExecution",
         "parameters": [
@@ -12314,7 +12314,7 @@
         "tags": [
           "FeesAndCommissions"
         ],
-        "summary": "[EXPERIMENTAL] Get the Fees and Commissions that may be applicable to a transaction.",
+        "summary": "[EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.",
         "description": "Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.",
         "operationId": "GetApplicableFees",
         "parameters": [
@@ -12537,7 +12537,7 @@
         "tags": [
           "FeesAndCommissions"
         ],
-        "summary": "[EXPERIMENTAL] List the rules available for fees and commissions.",
+        "summary": "[EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.",
         "description": "By default, will list ALL rules available. Additional keys and be specified to list a smaller subset of rules.",
         "operationId": "ListAllFees",
         "parameters": [
@@ -12714,7 +12714,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Upsert instruments",
+        "summary": "UpsertInstruments: Upsert instruments",
         "description": "Create or update one or more instruments in the instrument master. An instrument is updated\r\nif it already exists and created if it does not.\r\n            \r\nIn the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral\r\nand not stored by LUSID. It serves only to easily identify each instrument in the response.\r\n            \r\nNote that an instrument must have at least one unique identifier, which is a combination of a type\r\n(such as 'Figi') and a value (such as 'BBG000BS1N49'). In addition, a random value is automatically\r\ngenerated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see\r\nhttps://support.lusid.com/knowledgebase/article/KA-01862.\r\n            \r\nThe response returns both the collection of successfully created or updated instruments, as well as those\r\nthat failed. For each failure, a reason is provided. It is important to check the failed set for\r\nunsuccessful results.\n\nThe maximum number of instruments that this method can upsert per request is 2,000.",
         "operationId": "UpsertInstruments",
         "requestBody": {
@@ -13094,7 +13094,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] List instruments",
+        "summary": "[EARLY ACCESS] ListInstruments: List instruments",
         "description": "List all the instruments in the instrument master.\r\n            \r\nTo retrieve a particular set of instruments instead, use the Get instruments endpoint.\n\nThe maximum number of instruments that this method can list per request is 2,000.",
         "operationId": "ListInstruments",
         "parameters": [
@@ -13263,7 +13263,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get instruments",
+        "summary": "GetInstruments: Get instruments",
         "description": "Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.\r\n            \r\nNote that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.",
         "operationId": "GetInstruments",
         "parameters": [
@@ -13439,7 +13439,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Upsert instruments properties",
+        "summary": "UpsertInstrumentsProperties: Upsert instruments properties",
         "description": "Create or update one or more properties for particular instruments.\r\n            \r\nEach instrument property is updated if it exists and created if it does not. For any failures, a reason\r\nis provided.\r\n            \r\nProperties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
         "operationId": "UpsertInstrumentsProperties",
         "requestBody": {
@@ -13701,7 +13701,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] Get instrument identifier types",
+        "summary": "[EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types",
         "description": "Retrieve a list of all valid instrument identifier types and whether they are unique or not.\r\n            \r\nAn instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).\r\nIn addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.\r\n            \r\nAn instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).",
         "operationId": "GetInstrumentIdentifierTypes",
         "responses": {
@@ -13749,7 +13749,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "Get instrument",
+        "summary": "GetInstrument: Get instrument",
         "description": "Retrieve the definition of a particular instrument, as identified by a particular unique identifier.",
         "operationId": "GetInstrument",
         "parameters": [
@@ -13877,7 +13877,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] Update instrument identifier",
+        "summary": "[EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier",
         "description": "Create, update or delete a particular instrument identifier for an instrument.\r\n            \r\nTo delete the identifier, leave the value unspecified in the request. If not being deleted, the\r\nidentifier is updated if it exists and created if it does not.",
         "operationId": "UpdateInstrumentIdentifier",
         "parameters": [
@@ -14013,7 +14013,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] Delete instrument",
+        "summary": "[EARLY ACCESS] DeleteInstrument: Delete instrument",
         "description": "Delete a particular instrument, as identified by a particular instrument identifier.\r\n            \r\nOnce deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating\r\ntransactions or holdings. You can still query existing transactions and holdings related to the\r\ndeleted instrument.",
         "operationId": "DeleteInstrument",
         "parameters": [
@@ -14105,7 +14105,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] Get instrument properties",
+        "summary": "[EXPERIMENTAL] GetInstrumentProperties: Get instrument properties",
         "description": "List all the properties of a particular instrument, as identified by a particular unique identifier.",
         "operationId": "GetInstrumentProperties",
         "parameters": [
@@ -14286,7 +14286,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] Delete instrument properties",
+        "summary": "[EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties",
         "description": "Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which\r\nto delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.",
         "operationId": "DeleteInstrumentProperties",
         "parameters": [
@@ -14451,7 +14451,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] Get instrument properties (with Pagination)",
+        "summary": "[EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)",
         "description": "List all the properties of a particular instrument, as identified by a particular unique identifier.",
         "operationId": "ListInstrumentProperties",
         "parameters": [
@@ -14653,7 +14653,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EARLY ACCESS] Get instrument property time series",
+        "summary": "[EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series",
         "description": "Retrieve the complete time series (history) for a particular property of an instrument.",
         "operationId": "GetInstrumentPropertyTimeSeries",
         "parameters": [
@@ -14811,7 +14811,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EARLY ACCESS] Upsert Legal Entity",
+        "summary": "[EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity",
         "description": "Create or update a legal entity",
         "operationId": "UpsertLegalEntity",
         "requestBody": {
@@ -15308,7 +15308,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EARLY ACCESS] List Legal Entities",
+        "summary": "[EARLY ACCESS] ListLegalEntities: List Legal Entities",
         "description": "List legal entities which has identifier of specific identifier type's scope and code, and satisfies filter criteria.",
         "operationId": "ListLegalEntities",
         "parameters": [
@@ -15826,7 +15826,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EARLY ACCESS] Get Legal Entity",
+        "summary": "[EARLY ACCESS] GetLegalEntity: Get Legal Entity",
         "description": "Retrieve the definition of a legal entity.",
         "operationId": "GetLegalEntity",
         "parameters": [
@@ -16160,7 +16160,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EARLY ACCESS] Delete Legal Entity",
+        "summary": "[EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity",
         "description": "Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.\r\nThis means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteLegalEntity",
         "parameters": [
@@ -16269,7 +16269,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get Access Metadata rules for a Legal Entity",
+        "summary": "[EXPERIMENTAL] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity",
         "description": "Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata",
         "operationId": "GetAllLegalEntityAccessMetadata",
         "parameters": [
@@ -16419,7 +16419,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EXPERIMENTAL] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Legal Entity Access Metadata entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Legal Entity Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertLegalEntityAccessMetadata",
         "parameters": [
@@ -16608,7 +16608,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity",
+        "summary": "[EXPERIMENTAL] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity",
         "description": "Get a specific Legal Entity Access Metadata by specifying the corresponding identifier parts and Legal Entity code\r\n            \r\nNo matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry",
         "operationId": "GetLegalEntityAccessMetadataByKey",
         "parameters": [
@@ -16760,7 +16760,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Legal Entity Access Metadata entry",
+        "summary": "[EXPERIMENTAL] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry",
         "description": "Deletes the Legal Entity Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeleteLegalEntityAccessMetadata",
         "parameters": [
@@ -16893,7 +16893,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Delete Legal Entity Properties",
+        "summary": "[EXPERIMENTAL] DeleteLegalEntityProperties: Delete Legal Entity Properties",
         "description": "Delete all properties that belong to the given property keys of the legal entity.",
         "operationId": "DeleteLegalEntityProperties",
         "parameters": [
@@ -17030,7 +17030,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get Legal Entity Property Time Series",
+        "summary": "[EXPERIMENTAL] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series",
         "description": "List the complete time series of a legal entity property.",
         "operationId": "GetLegalEntityPropertyTimeSeries",
         "parameters": [
@@ -17192,7 +17192,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get Relations for Legal Entity",
+        "summary": "[EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity",
         "description": "Get relations for the specified Legal Entity",
         "operationId": "GetLegalEntityRelations",
         "parameters": [
@@ -17421,7 +17421,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] Get Relationships for Legal Entity",
+        "summary": "[EXPERIMENTAL] GetLegalEntityRelationships: Get Relationships for Legal Entity",
         "description": "Get Relationships for the specified Legal Entity",
         "operationId": "GetLegalEntityRelationships",
         "parameters": [
@@ -17662,7 +17662,7 @@
         "tags": [
           "Login"
         ],
-        "summary": "Get SAML Identity Provider",
+        "summary": "GetSamlIdentityProviderId: Get SAML Identity Provider",
         "description": "Get the unique identifier for the SAML 2.0 Identity Provider to be used for domain.",
         "operationId": "GetSamlIdentityProviderId",
         "parameters": [
@@ -17743,7 +17743,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "[EARLY ACCESS] Get resources available for access control",
+        "summary": "[EARLY ACCESS] ListAccessControlledResources: Get resources available for access control",
         "description": "Get the comprehensive set of resources that are available for access control",
         "operationId": "ListAccessControlledResources",
         "parameters": [
@@ -17823,7 +17823,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "[EARLY ACCESS] Download Excel Addin",
+        "summary": "[EARLY ACCESS] GetExcelAddin: Download Excel Addin",
         "description": "Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned",
         "operationId": "GetExcelAddin",
         "parameters": [
@@ -17903,7 +17903,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EXPERIMENTAL] Get a quote access metadata rule",
+        "summary": "[EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule",
         "description": "Get a specific quote access metadata rule by specifying the corresponding identifier parts\r\n            \r\nNo matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule",
         "operationId": "GetQuotesAccessMetadataRule",
         "parameters": [
@@ -18069,7 +18069,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EXPERIMENTAL] List all quote access metadata rules in a scope",
+        "summary": "[EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope",
         "description": "Get all the quote access metadata rules in the specified scope",
         "operationId": "ListQuotesAccessMetadataRules",
         "parameters": [
@@ -18162,7 +18162,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.",
+        "summary": "[EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.",
         "description": "Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n\r\nThe response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful\r\n\r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched",
         "operationId": "UpsertQuoteAccessMetadataRule",
         "parameters": [
@@ -18352,7 +18352,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Quote Access Metadata Rule",
+        "summary": "[EXPERIMENTAL] DeleteQuoteAcccesMetadataRule: Delete a Quote Access Metadata Rule",
         "description": "Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts",
         "operationId": "DeleteQuoteAcccesMetadataRule",
         "parameters": [
@@ -18506,7 +18506,7 @@
         "tags": [
           "Application Metadata"
         ],
-        "summary": "[EARLY ACCESS] Get LUSID versions",
+        "summary": "[EARLY ACCESS] GetLusidVersions: Get LUSID versions",
         "description": "Get the semantic versions associated with LUSID and its ecosystem",
         "operationId": "GetLusidVersions",
         "responses": {
@@ -18554,7 +18554,7 @@
         "tags": [
           "OrderInstructions"
         ],
-        "summary": "[EXPERIMENTAL] List OrderInstructions",
+        "summary": "[EXPERIMENTAL] ListOrderInstructions: List OrderInstructions",
         "description": "Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).",
         "operationId": "ListOrderInstructions",
         "parameters": [
@@ -18704,7 +18704,7 @@
         "tags": [
           "OrderInstructions"
         ],
-        "summary": "[EXPERIMENTAL] Upsert OrderInstruction",
+        "summary": "[EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction",
         "description": "Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.",
         "operationId": "UpsertOrderInstructions",
         "requestBody": {
@@ -18938,7 +18938,7 @@
         "tags": [
           "OrderInstructions"
         ],
-        "summary": "[EXPERIMENTAL] Get OrderInstruction",
+        "summary": "[EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction",
         "description": "Fetch a OrderInstruction that matches the specified identifier",
         "operationId": "GetOrderInstruction",
         "parameters": [
@@ -19115,7 +19115,7 @@
         "tags": [
           "OrderInstructions"
         ],
-        "summary": "[EXPERIMENTAL] Delete orderInstruction",
+        "summary": "[EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction",
         "description": "Delete an orderInstruction. Deletion will be valid from the orderInstruction's creation datetime.\r\nThis means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteOrderInstruction",
         "parameters": [
@@ -19211,7 +19211,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EARLY ACCESS] List Orders",
+        "summary": "[EARLY ACCESS] ListOrders: List Orders",
         "description": "Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).",
         "operationId": "ListOrders",
         "parameters": [
@@ -19367,7 +19367,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EARLY ACCESS] Upsert Order",
+        "summary": "[EARLY ACCESS] UpsertOrders: Upsert Order",
         "description": "Upsert; update existing orders with given ids, or create new orders otherwise.",
         "operationId": "UpsertOrders",
         "requestBody": {
@@ -19804,7 +19804,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EARLY ACCESS] Get Order",
+        "summary": "[EARLY ACCESS] GetOrder: Get Order",
         "description": "Fetch an Order that matches the specified identifier",
         "operationId": "GetOrder",
         "parameters": [
@@ -20068,7 +20068,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "[EARLY ACCESS] Delete order",
+        "summary": "[EARLY ACCESS] DeleteOrder: Delete order",
         "description": "Delete an order. Deletion will be valid from the order's creation datetime.\r\nThis means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteOrder",
         "parameters": [
@@ -20164,7 +20164,7 @@
         "tags": [
           "Packages"
         ],
-        "summary": "[EXPERIMENTAL] List Packages",
+        "summary": "[EXPERIMENTAL] ListPackages: List Packages",
         "description": "Fetch the last pre-AsAt date version of each package in scope (does not fetch the entire history).",
         "operationId": "ListPackages",
         "parameters": [
@@ -20314,7 +20314,7 @@
         "tags": [
           "Packages"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Package",
+        "summary": "[EXPERIMENTAL] UpsertPackages: Upsert Package",
         "description": "Upsert; update existing packages with given ids, or create new packages otherwise.",
         "operationId": "UpsertPackages",
         "requestBody": {
@@ -20608,7 +20608,7 @@
         "tags": [
           "Packages"
         ],
-        "summary": "[EXPERIMENTAL] Get Package",
+        "summary": "[EXPERIMENTAL] GetPackage: Get Package",
         "description": "Fetch a Package that matches the specified identifier",
         "operationId": "GetPackage",
         "parameters": [
@@ -20797,7 +20797,7 @@
         "tags": [
           "Packages"
         ],
-        "summary": "[EXPERIMENTAL] Delete package",
+        "summary": "[EXPERIMENTAL] DeletePackage: Delete package",
         "description": "Delete an package. Deletion will be valid from the package's creation datetime.\r\nThis means that the package will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeletePackage",
         "parameters": [
@@ -20893,7 +20893,7 @@
         "tags": [
           "Participations"
         ],
-        "summary": "[EXPERIMENTAL] List Participations",
+        "summary": "[EXPERIMENTAL] ListParticipations: List Participations",
         "description": "Fetch the last pre-AsAt date version of each Participation in scope (does not fetch the entire history).",
         "operationId": "ListParticipations",
         "parameters": [
@@ -21043,7 +21043,7 @@
         "tags": [
           "Participations"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Participation",
+        "summary": "[EXPERIMENTAL] UpsertParticipations: Upsert Participation",
         "description": "Upsert; update existing participations with given ids, or create new participations otherwise.",
         "operationId": "UpsertParticipations",
         "requestBody": {
@@ -21253,7 +21253,7 @@
         "tags": [
           "Participations"
         ],
-        "summary": "[EXPERIMENTAL] Get Participation",
+        "summary": "[EXPERIMENTAL] GetParticipation: Get Participation",
         "description": "Fetch a Participation that matches the specified identifier",
         "operationId": "GetParticipation",
         "parameters": [
@@ -21406,7 +21406,7 @@
         "tags": [
           "Participations"
         ],
-        "summary": "[EXPERIMENTAL] Delete participation",
+        "summary": "[EXPERIMENTAL] DeleteParticipation: Delete participation",
         "description": "Delete an participation. Deletion will be valid from the participation's creation datetime.\r\nThis means that the participation will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteParticipation",
         "parameters": [
@@ -21502,7 +21502,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Person",
+        "summary": "[EXPERIMENTAL] UpsertPerson: Upsert Person",
         "description": "Create or update a new person under the specified scope.",
         "operationId": "UpsertPerson",
         "requestBody": {
@@ -21964,7 +21964,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] List Persons",
+        "summary": "[EXPERIMENTAL] ListPersons: List Persons",
         "description": "List persons which have identifiers of a specific identifier type's scope and code, and satisfies filter criteria.",
         "operationId": "ListPersons",
         "parameters": [
@@ -22497,7 +22497,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get Person",
+        "summary": "[EXPERIMENTAL] GetPerson: Get Person",
         "description": "Retrieve the definition of a person.",
         "operationId": "GetPerson",
         "parameters": [
@@ -22807,7 +22807,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Delete person",
+        "summary": "[EXPERIMENTAL] DeletePerson: Delete person",
         "description": "Delete a person. Deletion will be valid from the person's creation datetime.\r\nThis means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeletePerson",
         "parameters": [
@@ -22916,7 +22916,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Set Person Identifiers",
+        "summary": "[EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers",
         "description": "Set identifiers of the person.",
         "operationId": "SetPersonIdentifiers",
         "parameters": [
@@ -23209,7 +23209,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Delete Person Identifiers",
+        "summary": "[EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers",
         "description": "Delete identifiers that belong to the given property keys of the person.",
         "operationId": "DeletePersonIdentifiers",
         "parameters": [
@@ -23346,7 +23346,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get Access Metadata rules for a Person",
+        "summary": "[EXPERIMENTAL] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person",
         "description": "Pass the Scope and Code of the Person identifier along with the person code parameter to retrieve the associated Access Metadata",
         "operationId": "GetAllPersonAccessMetadata",
         "parameters": [
@@ -23490,7 +23490,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EXPERIMENTAL] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertPersonAccessMetadata",
         "parameters": [
@@ -23670,7 +23670,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Person",
+        "summary": "[EXPERIMENTAL] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person",
         "description": "Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code\r\n            \r\nNo matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry",
         "operationId": "GetPersonAccessMetadataByKey",
         "parameters": [
@@ -23813,7 +23813,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Person Access Metadata entry",
+        "summary": "[EXPERIMENTAL] DeletePersonAccessMetadata: Delete a Person Access Metadata entry",
         "description": "Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeletePersonAccessMetadata",
         "parameters": [
@@ -23937,7 +23937,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Set Person Properties",
+        "summary": "[EXPERIMENTAL] SetPersonProperties: Set Person Properties",
         "description": "Set properties of the person.",
         "operationId": "SetPersonProperties",
         "parameters": [
@@ -24242,7 +24242,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Delete Person Properties",
+        "summary": "[EXPERIMENTAL] DeletePersonProperties: Delete Person Properties",
         "description": "Delete all properties that belong to the given property keys of the person.",
         "operationId": "DeletePersonProperties",
         "parameters": [
@@ -24379,7 +24379,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get Person Property Time Series",
+        "summary": "[EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series",
         "description": "List the complete time series of a person property.",
         "operationId": "GetPersonPropertyTimeSeries",
         "parameters": [
@@ -24541,7 +24541,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get Relations for Person",
+        "summary": "[EXPERIMENTAL] GetPersonRelations: Get Relations for Person",
         "description": "Get relations for the specified person.",
         "operationId": "GetPersonRelations",
         "parameters": [
@@ -24749,7 +24749,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] Get Relationships for Person",
+        "summary": "[EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person",
         "description": "Get relationships for the specified person.",
         "operationId": "GetPersonRelationships",
         "parameters": [
@@ -24984,7 +24984,7 @@
         "tags": [
           "Placements"
         ],
-        "summary": "[EXPERIMENTAL] List Placements",
+        "summary": "[EXPERIMENTAL] ListPlacements: List Placements",
         "description": "Fetch the last pre-AsAt date version of each placement in scope (does not fetch the entire history).",
         "operationId": "ListPlacements",
         "parameters": [
@@ -25134,7 +25134,7 @@
         "tags": [
           "Placements"
         ],
-        "summary": "[EXPERIMENTAL] Upsert Placement",
+        "summary": "[EXPERIMENTAL] UpsertPlacements: Upsert Placement",
         "description": "Upsert; update existing placements with given ids, or create new placements otherwise.",
         "operationId": "UpsertPlacements",
         "requestBody": {
@@ -25536,7 +25536,7 @@
         "tags": [
           "Placements"
         ],
-        "summary": "[EXPERIMENTAL] Get Placement",
+        "summary": "[EXPERIMENTAL] GetPlacement: Get Placement",
         "description": "Fetch a Placement that matches the specified identifier",
         "operationId": "GetPlacement",
         "parameters": [
@@ -25785,7 +25785,7 @@
         "tags": [
           "Placements"
         ],
-        "summary": "[EXPERIMENTAL] Delete placement",
+        "summary": "[EXPERIMENTAL] DeletePlacement: Delete placement",
         "description": "Delete an placement. Deletion will be valid from the placement's creation datetime.\r\nThis means that the placement will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeletePlacement",
         "parameters": [
@@ -25881,7 +25881,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Create portfolio group",
+        "summary": "[EARLY ACCESS] CreatePortfolioGroup: Create portfolio group",
         "description": "Create a portfolio group in a specific scope.",
         "operationId": "CreatePortfolioGroup",
         "parameters": [
@@ -26077,7 +26077,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] List portfolio groups",
+        "summary": "[EARLY ACCESS] ListPortfolioGroups: List portfolio groups",
         "description": "List all the portfolio groups in a single scope.",
         "operationId": "ListPortfolioGroups",
         "parameters": [
@@ -26192,7 +26192,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Update portfolio group",
+        "summary": "[EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group",
         "description": "Update the definition of a single portfolio group. Not all elements within a portfolio group definition are modifiable\r\ndue to the potential implications for data already stored against the portfolio group.",
         "operationId": "UpdatePortfolioGroup",
         "parameters": [
@@ -26341,7 +26341,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Delete portfolio group",
+        "summary": "[EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group",
         "description": "Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.\r\nIn this case any portfolios or sub groups contained in this group will not be deleted, however they will no longer be grouped together by this portfolio group.\r\nThe deletion will be valid from the portfolio group's creation datetime, ie. the portfolio group will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeletePortfolioGroup",
         "parameters": [
@@ -26437,7 +26437,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get portfolio group",
+        "summary": "[EARLY ACCESS] GetPortfolioGroup: Get portfolio group",
         "description": "Retrieve the definition of a single portfolio group.",
         "operationId": "GetPortfolioGroup",
         "parameters": [
@@ -26559,7 +26559,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get A2B data for a Portfolio Group",
+        "summary": "[EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group",
         "description": "Get an A2B report for all Transaction Portfolios within the given portfolio group.",
         "operationId": "GetA2BDataForPortfolioGroup",
         "parameters": [
@@ -28050,7 +28050,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get portfolio group commands",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands",
         "description": "Gets all the commands that modified a single portfolio group.",
         "operationId": "GetPortfolioGroupCommands",
         "parameters": [
@@ -28176,7 +28176,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get portfolio group expansion",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion",
         "description": "List all the portfolios in a group, including all portfolios within sub groups in the group. Each portfolio will be decorated with all of its properties unless a property filter is specified.",
         "operationId": "GetPortfolioGroupExpansion",
         "parameters": [
@@ -28313,7 +28313,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get holdings for transaction portfolios in portfolio group",
+        "summary": "[EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group",
         "description": "Get the holdings of transaction portfolios in specified portfolio group.",
         "operationId": "GetHoldingsForPortfolioGroup",
         "parameters": [
@@ -28593,7 +28593,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get Access Metadata rules for Portfolio Group",
+        "summary": "[EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group",
         "description": "Pass the scope and Portfolio Group code parameters to retrieve the associated Access Metadata",
         "operationId": "GetPortfolioGroupMetadata",
         "parameters": [
@@ -28730,7 +28730,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group",
+        "summary": "[EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group",
         "description": "Get a specific Portfolio Group access metadata by specifying the corresponding identifier parts\r\n            \r\nNo matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule",
         "operationId": "GetPortfolioGroupAccessMetadataByKey",
         "parameters": [
@@ -28866,7 +28866,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertPortfolioGroupAccessMetadata",
         "parameters": [
@@ -29039,7 +29039,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Portfolio Group Access Metadata entry",
+        "summary": "[EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry",
         "description": "Deletes the Portfolio Group Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeleteKeyFromPortfolioGroupAccessMetadata",
         "parameters": [
@@ -29156,7 +29156,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Add portfolio to group",
+        "summary": "[EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group",
         "description": "Add a single portfolio to a portfolio group.",
         "operationId": "AddPortfolioToGroup",
         "parameters": [
@@ -29307,7 +29307,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Delete portfolio from group",
+        "summary": "[EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group",
         "description": "Remove a single portfolio from a portfolio group.",
         "operationId": "DeletePortfolioFromGroup",
         "parameters": [
@@ -29439,7 +29439,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get group properties",
+        "summary": "[EARLY ACCESS] GetGroupProperties: Get group properties",
         "description": "List all the properties of a single portfolio group.",
         "operationId": "GetGroupProperties",
         "parameters": [
@@ -29560,7 +29560,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Delete group properties",
+        "summary": "[EARLY ACCESS] DeleteGroupProperties: Delete group properties",
         "description": "Delete one or more properties from a single portfolio group. If the properties are time variant then an effective date time from which the properties\r\nwill be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.",
         "operationId": "DeleteGroupProperties",
         "parameters": [
@@ -29731,7 +29731,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Upsert group properties",
+        "summary": "[EARLY ACCESS] UpsertGroupProperties: Upsert group properties",
         "description": "Update or insert one or more properties onto a single group. A property will be updated if it\r\nalready exists and inserted if it does not. All properties must be of the domain 'PortfolioGroup'.\r\n            \r\nUpserting a property that exists for a group, with a null value, will delete the instance of the property for that group.\r\n\r\nProperties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
         "operationId": "UpsertGroupProperties",
         "parameters": [
@@ -30006,7 +30006,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get the time series of a portfolio group property",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property",
         "description": "List the complete time series of a portfolio group property.",
         "operationId": "GetPortfolioGroupPropertyTimeSeries",
         "parameters": [
@@ -30170,7 +30170,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get Relations for Portfolio Group",
+        "summary": "[EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group",
         "description": "Get relations for the specified Portfolio Group",
         "operationId": "GetPortfolioGroupRelations",
         "parameters": [
@@ -30376,7 +30376,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] Get Relationships for Portfolio Group",
+        "summary": "[EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group",
         "description": "Get relationships for the specified Portfolio Group",
         "operationId": "GetPortfolioGroupRelationships",
         "parameters": [
@@ -30600,7 +30600,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Add sub group to group",
+        "summary": "[EARLY ACCESS] AddSubGroupToGroup: Add sub group to group",
         "description": "Add a portfolio group to a portfolio group as a sub group.",
         "operationId": "AddSubGroupToGroup",
         "parameters": [
@@ -30751,7 +30751,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Delete sub group from group",
+        "summary": "[EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group",
         "description": "Remove a single portfolio group (sub group) from a portfolio group.",
         "operationId": "DeleteSubGroupFromGroup",
         "parameters": [
@@ -30883,7 +30883,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group",
+        "summary": "[EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group",
         "description": "Get transactions for transaction portfolios in a portfolio group over a given interval of effective time. \r\n\r\nWhen the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the\r\nunion set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.",
         "operationId": "GetTransactionsForPortfolioGroup",
         "parameters": [
@@ -31221,7 +31221,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group",
+        "summary": "[EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group",
         "description": "Build transactions for transaction portfolios in a portfolio group over a given interval of effective time. \r\n\r\nWhen the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the\r\nunion set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.",
         "operationId": "BuildTransactionsForPortfolioGroup",
         "parameters": [
@@ -32064,7 +32064,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "List portfolios",
+        "summary": "ListPortfolios: List portfolios",
         "description": "List all the portfolios matching particular criteria.",
         "operationId": "ListPortfolios",
         "parameters": [
@@ -32228,7 +32228,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EARLY ACCESS] Reconcile portfolio holdings",
+        "summary": "[EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings",
         "description": "Reconcile the holdings of two portfolios.",
         "operationId": "ReconcileHoldings",
         "parameters": [
@@ -32455,7 +32455,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.",
+        "summary": "[BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of inline instruments using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileInline",
         "requestBody": {
@@ -32948,7 +32948,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
+        "summary": "[BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileValuation",
         "requestBody": {
@@ -33409,7 +33409,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] Reconcile portfolio holdings with given tolerance",
+        "summary": "[EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance",
         "description": "Reconcile the holdings of two portfolios.",
         "operationId": "ReconcileHoldingsPreview",
         "parameters": [
@@ -33676,7 +33676,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "List portfolios for scope",
+        "summary": "ListPortfoliosForScope: List portfolios for scope",
         "description": "List all the portfolios in a particular scope.",
         "operationId": "ListPortfoliosForScope",
         "parameters": [
@@ -33844,7 +33844,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Get portfolio",
+        "summary": "GetPortfolio: Get portfolio",
         "description": "Retrieve the definition of a particular portfolio.",
         "operationId": "GetPortfolio",
         "parameters": [
@@ -33978,7 +33978,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Delete portfolio",
+        "summary": "DeletePortfolio: Delete portfolio",
         "description": "Delete a particular portfolio.\r\n            \r\nThe deletion will take effect from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.",
         "operationId": "DeletePortfolio",
         "parameters": [
@@ -34074,7 +34074,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Update portfolio",
+        "summary": "UpdatePortfolio: Update portfolio",
         "description": "Update the definition of a particular portfolio.\r\n            \r\nNote that not all elements of a portfolio definition are\r\nmodifiable due to the potential implications for data already stored.",
         "operationId": "UpdatePortfolio",
         "parameters": [
@@ -34225,7 +34225,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Get portfolio commands",
+        "summary": "[EARLY ACCESS] GetPortfolioCommands: Get portfolio commands",
         "description": "Get all the commands that modified a particular portfolio, including any input transactions.",
         "operationId": "GetPortfolioCommands",
         "parameters": [
@@ -34381,7 +34381,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get access metadata rules for a portfolio",
+        "summary": "[EXPERIMENTAL] GetPortfolioMetadata: Get access metadata rules for a portfolio",
         "description": "Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio",
         "operationId": "GetPortfolioMetadata",
         "parameters": [
@@ -34517,7 +34517,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get an entry identified by a metadataKey in the access metadata object",
+        "summary": "[EXPERIMENTAL] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object",
         "description": "Get a specific portfolio access metadata rule by specifying the corresponding identifier parts\r\n            \r\nNo matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule",
         "operationId": "GetPortfoliosAccessMetadataByKey",
         "parameters": [
@@ -34653,7 +34653,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EXPERIMENTAL] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n\r\nThe response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful\r\n\r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched",
         "operationId": "UpsertPortfolioAccessMetadata",
         "parameters": [
@@ -34826,7 +34826,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Portfolio Access Metadata Rule",
+        "summary": "[EXPERIMENTAL] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule",
         "description": "Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts",
         "operationId": "DeleteKeyFromPortfolioAccessMetadata",
         "parameters": [
@@ -34943,7 +34943,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Get portfolio properties",
+        "summary": "GetPortfolioProperties: Get portfolio properties",
         "description": "List all the properties of a particular portfolio.",
         "operationId": "GetPortfolioProperties",
         "parameters": [
@@ -35062,7 +35062,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Delete portfolio properties",
+        "summary": "DeletePortfolioProperties: Delete portfolio properties",
         "description": "Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which\r\nto delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.",
         "operationId": "DeletePortfolioProperties",
         "parameters": [
@@ -35183,7 +35183,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "Upsert portfolio properties",
+        "summary": "UpsertPortfolioProperties: Upsert portfolio properties",
         "description": "Create or update one or more properties for a particular portfolio. A property is updated if it\r\nalready exists and created if it does not. All properties must be from the 'Portfolio' domain.\r\n            \r\nProperties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which it is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
         "operationId": "UpsertPortfolioProperties",
         "parameters": [
@@ -35455,7 +35455,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get portfolio properties",
+        "summary": "[EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties",
         "description": "List all the properties of a particular portfolio.",
         "operationId": "ListPortfolioProperties",
         "parameters": [
@@ -35663,7 +35663,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get portfolio property time series",
+        "summary": "[EXPERIMENTAL] GetPortfolioPropertyTimeSeries: Get portfolio property time series",
         "description": "Show the complete time series (history) for a particular portfolio property.",
         "operationId": "GetPortfolioPropertyTimeSeries",
         "parameters": [
@@ -35827,7 +35827,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get portfolio relations",
+        "summary": "[EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations",
         "description": "Get relations for a particular portfolio.",
         "operationId": "GetPortfolioRelations",
         "parameters": [
@@ -36072,7 +36072,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get portfolio relationships",
+        "summary": "[EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships",
         "description": "Get relationships for a particular portfolio.",
         "operationId": "GetPortfolioRelationships",
         "parameters": [
@@ -36350,7 +36350,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Upsert Returns",
+        "summary": "[EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns",
         "description": "Update or insert returns into the specified portfolio.",
         "operationId": "UpsertPortfolioReturns",
         "parameters": [
@@ -36568,7 +36568,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Get Returns",
+        "summary": "[EARLY ACCESS] GetPortfolioReturns: Get Returns",
         "description": "Get Returns which are on the specified portfolio.",
         "operationId": "GetPortfolioReturns",
         "parameters": [
@@ -36726,7 +36726,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Aggregated Returns",
+        "summary": "[EXPERIMENTAL] GetPortfolioAggregatedReturns: Aggregated Returns",
         "description": "Aggregate Returns which are on the specified portfolio.",
         "operationId": "GetPortfolioAggregatedReturns",
         "parameters": [
@@ -36980,7 +36980,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Delete Returns",
+        "summary": "[EXPERIMENTAL] DeletePortfolioReturns: Delete Returns",
         "description": "Cancel one or more Returns which exist into the specified portfolio.",
         "operationId": "DeletePortfolioReturns",
         "parameters": [
@@ -37126,7 +37126,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Aggregate Returns (This is a deprecated endpoint).",
+        "summary": "[EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).",
         "description": "Aggregate Returns which are on the specified portfolio.",
         "operationId": "GetPortfolioAggregateReturns",
         "parameters": [
@@ -37349,7 +37349,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Create property definition",
+        "summary": "CreatePropertyDefinition: Create property definition",
         "description": "Define a new property.",
         "operationId": "CreatePropertyDefinition",
         "requestBody": {
@@ -37497,7 +37497,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Get multiple property definitions",
+        "summary": "GetMultiplePropertyDefinitions: Get multiple property definitions",
         "description": "Retrieve the definition of one or more specified properties.",
         "operationId": "GetMultiplePropertyDefinitions",
         "parameters": [
@@ -37603,7 +37603,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "[EARLY ACCESS] Create derived property definition",
+        "summary": "[EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition",
         "description": "Define a new derived property.",
         "operationId": "CreateDerivedPropertyDefinition",
         "requestBody": {
@@ -37745,7 +37745,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Update property definition",
+        "summary": "UpdatePropertyDefinition: Update property definition",
         "description": "Update the definition of a specified existing property. Not all elements within a property definition\r\nare modifiable due to the potential implications for values already stored against the property.",
         "operationId": "UpdatePropertyDefinition",
         "parameters": [
@@ -37921,7 +37921,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Delete property definition",
+        "summary": "DeletePropertyDefinition: Delete property definition",
         "description": "Delete the definition of the specified property.",
         "operationId": "DeletePropertyDefinition",
         "parameters": [
@@ -38055,7 +38055,7 @@
         "tags": [
           "Property Definitions"
         ],
-        "summary": "Get property definition",
+        "summary": "GetPropertyDefinition: Get property definition",
         "description": "Retrieve the definition of a specified property.",
         "operationId": "GetPropertyDefinition",
         "parameters": [
@@ -38203,7 +38203,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] Upsert quotes",
+        "summary": "[EARLY ACCESS] UpsertQuotes: Upsert quotes",
         "description": "Update or insert one or more quotes in a single scope. A quote will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.\n\nThe maximum number of quotes that this method can upsert per request is 2,000.",
         "operationId": "UpsertQuotes",
         "parameters": [
@@ -38478,7 +38478,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] List quotes for scope",
+        "summary": "[EARLY ACCESS] ListQuotesForScope: List quotes for scope",
         "description": "List all the quotes from a single scope at the specified date/time",
         "operationId": "ListQuotesForScope",
         "parameters": [
@@ -38615,7 +38615,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] Delete quotes",
+        "summary": "[EARLY ACCESS] DeleteQuotes: Delete quotes",
         "description": "Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about\r\nthe type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteQuotes",
         "parameters": [
@@ -38796,7 +38796,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[DEPRECATED] List quotes",
+        "summary": "[DEPRECATED] ListQuotes: List quotes",
         "description": "List all the quotes from a single scope at the specified date/time\r\nPlease use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope",
         "operationId": "ListQuotes",
         "parameters": [
@@ -38933,7 +38933,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] Get quotes",
+        "summary": "[EARLY ACCESS] GetQuotes: Get quotes",
         "description": "Get one or more quotes from a single scope.\r\n            \r\nEach quote can be identified by its time invariant quote series id.\r\n            \r\nFor each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime. \r\n            \r\nAn optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.\r\nLUSID will return the most recent quote within this window.\r\n            \r\nIn the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved quotes. Two, those that had a\r\nvalid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.\r\n\r\nFor the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.\n\nThe maximum number of quotes that this method can get per request is 2,000.",
         "operationId": "GetQuotes",
         "parameters": [
@@ -39136,7 +39136,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a Configuration Recipe. This creates or updates the data in Lusid.",
+        "summary": "[EXPERIMENTAL] UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.",
         "description": "Update or insert one Configuration Recipe in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Configuration Recipe or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertConfigurationRecipe",
         "requestBody": {
@@ -39456,7 +39456,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] List the set of Configuration Recipes",
+        "summary": "[EXPERIMENTAL] ListConfigurationRecipes: List the set of Configuration Recipes",
         "description": "List the set of configuration recipes at the specified date/time and scope",
         "operationId": "ListConfigurationRecipes",
         "parameters": [
@@ -39953,7 +39953,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] Get Configuration Recipe",
+        "summary": "[EXPERIMENTAL] GetConfigurationRecipe: Get Configuration Recipe",
         "description": "Get a Configuration Recipe from a single scope.\r\n            \r\nThe response will return either the recipe that has been stored, or a failure explaining why the request was unsuccessful.\r\n            \r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetConfigurationRecipe",
         "parameters": [
@@ -40251,7 +40251,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] Delete a Configuration Recipe, assuming that it is present.",
+        "summary": "[EXPERIMENTAL] DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.",
         "description": "Delete the specified Configuration Recipe from a single scope.\r\n            \r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteConfigurationRecipe",
         "parameters": [
@@ -40347,7 +40347,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Create reference portfolio",
+        "summary": "CreateReferencePortfolio: Create reference portfolio",
         "description": "Create a reference portfolio in a particular scope.",
         "operationId": "CreateReferencePortfolio",
         "parameters": [
@@ -40482,7 +40482,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Upsert reference portfolio constituents",
+        "summary": "UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents",
         "description": "Add constituents to a reference portfolio.",
         "operationId": "UpsertReferencePortfolioConstituents",
         "parameters": [
@@ -40748,7 +40748,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "Get reference portfolio constituents",
+        "summary": "GetReferencePortfolioConstituents: Get reference portfolio constituents",
         "description": "Get constituents from a reference portfolio at a particular effective time.",
         "operationId": "GetReferencePortfolioConstituents",
         "parameters": [
@@ -40884,7 +40884,7 @@
         "tags": [
           "Reference Portfolio"
         ],
-        "summary": "List constituents adjustments",
+        "summary": "ListConstituentsAdjustments: List constituents adjustments",
         "description": "List adjustments made to constituents in a reference portfolio.",
         "operationId": "ListConstituentsAdjustments",
         "parameters": [
@@ -41016,7 +41016,7 @@
         "tags": [
           "Relation Definitions"
         ],
-        "summary": "[EXPERIMENTAL] Create a relation definition",
+        "summary": "[EXPERIMENTAL] CreateRelationDefinition: Create a relation definition",
         "description": "Define a new relation.",
         "operationId": "CreateRelationDefinition",
         "requestBody": {
@@ -41154,7 +41154,7 @@
         "tags": [
           "Relation Definitions"
         ],
-        "summary": "[EXPERIMENTAL] Get relation definition",
+        "summary": "[EXPERIMENTAL] GetRelationDefinition: Get relation definition",
         "description": "Retrieve the definition of a specified relation.",
         "operationId": "GetRelationDefinition",
         "parameters": [
@@ -41264,7 +41264,7 @@
         "tags": [
           "Relations"
         ],
-        "summary": "[EXPERIMENTAL] Create Relation",
+        "summary": "[EXPERIMENTAL] CreateRelation: Create Relation",
         "description": "Create a relation between two entity objects by their identifiers",
         "operationId": "CreateRelation",
         "parameters": [
@@ -41507,7 +41507,7 @@
         "tags": [
           "Relations"
         ],
-        "summary": "[EXPERIMENTAL] Delete a relation",
+        "summary": "[EXPERIMENTAL] DeleteRelation: Delete a relation",
         "description": "Delete a relation between two entity objects represented by their identifiers",
         "operationId": "DeleteRelation",
         "parameters": [
@@ -41694,7 +41694,7 @@
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EXPERIMENTAL] Create Relationship Definition",
+        "summary": "[EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition",
         "description": "Create a new relationship definition to be used for creating relationships between entities.",
         "operationId": "CreateRelationshipDefinition",
         "requestBody": {
@@ -41883,7 +41883,7 @@
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EXPERIMENTAL] Update Relationship Definition",
+        "summary": "[EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition",
         "description": "Update the definition of a specified existing relationship. Not all elements within a relationship definition\r\nare modifiable due to the potential implications for values already stored against the relationship.",
         "operationId": "UpdateRelationshipDefinition",
         "parameters": [
@@ -42076,7 +42076,7 @@
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EXPERIMENTAL] Get relationship definition",
+        "summary": "[EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition",
         "description": "Retrieve the specified relationship definition",
         "operationId": "GetRelationshipDefinition",
         "parameters": [
@@ -42237,7 +42237,7 @@
         "tags": [
           "Relationships"
         ],
-        "summary": "[EXPERIMENTAL] Create Relationship",
+        "summary": "[EXPERIMENTAL] CreateRelationship: Create Relationship",
         "description": "Create a relationship between two entity objects by their identifiers",
         "operationId": "CreateRelationship",
         "parameters": [
@@ -42489,7 +42489,7 @@
         "tags": [
           "Relationships"
         ],
-        "summary": "[EXPERIMENTAL] Delete Relationship",
+        "summary": "[EXPERIMENTAL] DeleteRelationship: Delete Relationship",
         "description": "Delete a relationship between two entity objects represented by their identifiers",
         "operationId": "DeleteRelationship",
         "parameters": [
@@ -42661,7 +42661,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[EXPERIMENTAL] Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.",
+        "summary": "[EXPERIMENTAL] GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.",
         "description": "When a request is made for aggregation, the user needs to know what keys can be passed to it for queryable data. This endpoint allows to queries to provide the set of keys,\r\nwhat they are and what they return.",
         "operationId": "GetQueryableKeys",
         "parameters": [
@@ -42763,7 +42763,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "[BETA] List entities",
+        "summary": "[BETA] ListEntities: List entities",
         "description": "List all available entities for which schema information is available.",
         "operationId": "ListEntities",
         "responses": {
@@ -42811,7 +42811,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "[BETA] Get schema",
+        "summary": "[BETA] GetEntitySchema: Get schema",
         "description": "Gets the schema and meta-data for a given entity",
         "operationId": "GetEntitySchema",
         "parameters": [
@@ -42895,7 +42895,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "[BETA] Get property schema",
+        "summary": "[BETA] GetPropertySchema: Get property schema",
         "description": "Get the schemas for the provided list of property keys.",
         "operationId": "GetPropertySchema",
         "parameters": [
@@ -42992,7 +42992,7 @@
         "tags": [
           "Schemas"
         ],
-        "summary": "[BETA] Get value types",
+        "summary": "[BETA] GetValueTypes: Get value types",
         "description": "Gets the available value types for which a schema is available.",
         "operationId": "GetValueTypes",
         "parameters": [
@@ -43100,7 +43100,7 @@
         "tags": [
           "Scopes"
         ],
-        "summary": "[EARLY ACCESS] List Scopes",
+        "summary": "[EARLY ACCESS] ListScopes: List Scopes",
         "description": "List all the scopes that contain data.",
         "operationId": "ListScopes",
         "parameters": [
@@ -43183,7 +43183,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "[EXPERIMENTAL] Instruments search",
+        "summary": "[EXPERIMENTAL] InstrumentsSearch: Instruments search",
         "description": "Search across all instruments that have been mastered in LUSID. Optionally augment the results with instruments from an external symbology service,\r\ncurrently OpenFIGI.",
         "operationId": "InstrumentsSearch",
         "parameters": [
@@ -43350,7 +43350,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "[EARLY ACCESS] Search Portfolio Groups",
+        "summary": "[EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups",
         "description": "Search through all portfolio groups",
         "operationId": "SearchPortfolioGroups",
         "parameters": [
@@ -43555,7 +43555,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "[EARLY ACCESS] Search Portfolios",
+        "summary": "[EARLY ACCESS] SearchPortfolios: Search Portfolios",
         "description": "Search through all portfolios",
         "operationId": "SearchPortfolios",
         "parameters": [
@@ -43772,7 +43772,7 @@
         "tags": [
           "Search"
         ],
-        "summary": "[EARLY ACCESS] Search Property Definitions",
+        "summary": "[EARLY ACCESS] SearchProperties: Search Property Definitions",
         "description": "Search through all Property Definitions",
         "operationId": "SearchProperties",
         "parameters": [
@@ -43971,7 +43971,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] Create a new sequence",
+        "summary": "[EXPERIMENTAL] CreateSequence: Create a new sequence",
         "description": "Create a new sequence",
         "operationId": "CreateSequence",
         "parameters": [
@@ -44156,7 +44156,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] Get a specified sequence",
+        "summary": "[EXPERIMENTAL] GetSequence: Get a specified sequence",
         "description": "Return the details of a specified sequence",
         "operationId": "GetSequence",
         "parameters": [
@@ -44293,7 +44293,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] Get next values from sequence",
+        "summary": "[EXPERIMENTAL] Next: Get next values from sequence",
         "description": "Get the next set of values from a specified sequence",
         "operationId": "Next",
         "parameters": [
@@ -44426,7 +44426,7 @@
         "tags": [
           "Structured Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Upsert a set of structured market data items. This creates or updates the data in Lusid.",
+        "summary": "[EXPERIMENTAL] UpsertStructuredMarketData: Upsert a set of structured market data items. This creates or updates the data in Lusid.",
         "description": "Update or insert one or more structured market data items in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each structured market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each structured market data in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted structured market data, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the item could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "UpsertStructuredMarketData",
         "parameters": [
@@ -44687,7 +44687,7 @@
         "tags": [
           "Structured Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Delete one or more items of structured market data, assuming they are present.",
+        "summary": "[EXPERIMENTAL] DeleteStructuredMarketData: Delete one or more items of structured market data, assuming they are present.",
         "description": "Delete one or more specified structured market data items from a single scope. Each item is identified by a unique id which includes\r\ninformation about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).\r\n            \r\nIn the request each market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted market data items, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the it could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteStructuredMarketData",
         "parameters": [
@@ -44852,7 +44852,7 @@
         "tags": [
           "Structured Market Data"
         ],
-        "summary": "[EXPERIMENTAL] Get structured market data",
+        "summary": "[EXPERIMENTAL] GetStructuredMarketData: Get structured market data",
         "description": "Get one or more items of structured market data from a single scope.\r\n            \r\nEach item can be identified by its time invariant structured market data identifier.\r\n            \r\nFor each id LUSID will return the most recent matched item with respect to the provided (or default) effective datetime. \r\n            \r\nAn optional maximum age range window can be specified which defines how far back to look back for data from the specified effective datetime.\r\nLUSID will return the most recent item within this window.\r\n            \r\nIn the request each structured market data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each item in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved structured market data. Two, those that had a\r\nvalid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.\r\n\r\nFor the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.",
         "operationId": "GetStructuredMarketData",
         "parameters": [
@@ -45054,7 +45054,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "[EARLY ACCESS] Create a Cut Label",
+        "summary": "[EARLY ACCESS] CreateCutLabelDefinition: Create a Cut Label",
         "description": "Create a Cut Label valid in all scopes",
         "operationId": "CreateCutLabelDefinition",
         "requestBody": {
@@ -45185,7 +45185,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "[EARLY ACCESS] List Existing Cut Labels",
+        "summary": "[EARLY ACCESS] ListCutLabelDefinitions: List Existing Cut Labels",
         "description": "List all the Cut Label Definitions that are valid at the given AsAt time",
         "operationId": "ListCutLabelDefinitions",
         "parameters": [
@@ -45325,7 +45325,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "[EARLY ACCESS] Update a Cut Label",
+        "summary": "[EARLY ACCESS] UpdateCutLabelDefinition: Update a Cut Label",
         "description": "Update a specified cut label",
         "operationId": "UpdateCutLabelDefinition",
         "parameters": [
@@ -45468,7 +45468,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "[EARLY ACCESS] Get a Cut Label",
+        "summary": "[EARLY ACCESS] GetCutLabelDefinition: Get a Cut Label",
         "description": "Get a specified cut label at a given time",
         "operationId": "GetCutLabelDefinition",
         "parameters": [
@@ -45562,7 +45562,7 @@
         "tags": [
           "Cut Label Definitions"
         ],
-        "summary": "[EARLY ACCESS] Delete a Cut Label",
+        "summary": "[EARLY ACCESS] DeleteCutLabelDefinition: Delete a Cut Label",
         "description": "Delete a specified cut label",
         "operationId": "DeleteCutLabelDefinition",
         "parameters": [
@@ -45649,7 +45649,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "[EXPERIMENTAL] Set transaction types",
+        "summary": "[EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types",
         "description": "Configure all existing transaction types. Note it is not possible to configure a single existing transaction type on its own.\r\n            \r\nWARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.",
         "operationId": "SetConfigurationTransactionTypes",
         "requestBody": {
@@ -46116,7 +46116,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "[EARLY ACCESS] List transaction types",
+        "summary": "[EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types",
         "description": "Get the list of current transaction types. For information on the default transaction types provided with\r\nLUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.",
         "operationId": "ListConfigurationTransactionTypes",
         "parameters": [
@@ -46198,7 +46198,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "[EXPERIMENTAL] Create side definition",
+        "summary": "[EXPERIMENTAL] CreateSideDefinition: Create side definition",
         "description": "Create a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.",
         "operationId": "CreateSideDefinition",
         "requestBody": {
@@ -46323,7 +46323,7 @@
         "tags": [
           "System Configuration"
         ],
-        "summary": "[EARLY ACCESS] Create transaction type",
+        "summary": "[EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type",
         "description": "Create a new transaction type by specifying a definition and mappings to movements.",
         "operationId": "CreateConfigurationTransactionType",
         "requestBody": {
@@ -46532,7 +46532,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Create portfolio",
+        "summary": "CreatePortfolio: Create portfolio",
         "description": "Create a transaction portfolio in a particular scope.",
         "operationId": "CreatePortfolio",
         "parameters": [
@@ -46767,7 +46767,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Resolve instrument",
+        "summary": "[EARLY ACCESS] ResolveInstrument: Resolve instrument",
         "description": "Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  \r\nperiod of time. Also update the instrument identifiers with the given instrument identifiers collection.",
         "operationId": "ResolveInstrument",
         "parameters": [
@@ -46954,7 +46954,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get A2B data",
+        "summary": "[EXPERIMENTAL] GetA2BData: Get A2B data",
         "description": "Get an A2B report for the given portfolio.",
         "operationId": "GetA2BData",
         "parameters": [
@@ -51268,7 +51268,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get an A2B report at the movement level for the given portfolio.",
+        "summary": "[EXPERIMENTAL] GetA2BMovements: Get an A2B report at the movement level for the given portfolio.",
         "description": "Get an A2B report at the movement level for the given portfolio.",
         "operationId": "GetA2BMovements",
         "parameters": [
@@ -52033,7 +52033,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get bucketed cash flows from a list of portfolios",
+        "summary": "[EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios",
         "description": "We bucket/aggregate a transaction portfolio's instruments by date or tenor specified in the request.\r\nThe cashflows are grouped by both instrumentId and currency. \r\n            \r\nIf you want transactional level cashflow, please use the 'GetUpsertableCashFlows' endpoint.\r\nIf you want instrument cashflow, please use the 'GetPortfolioCashFlows' endpoint.\r\nNote that these endpoints do not apply bucketing.",
         "operationId": "GetBucketedCashFlows",
         "parameters": [
@@ -52192,7 +52192,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[BETA] Get portfolio cash flows",
+        "summary": "[BETA] GetPortfolioCashFlows: Get portfolio cash flows",
         "description": "Get the set of cash flows that occur in a window for the transaction portfolio's instruments.\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.",
         "operationId": "GetPortfolioCashFlows",
         "parameters": [
@@ -52365,7 +52365,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get portfolio cash ladder",
+        "summary": "[EXPERIMENTAL] GetPortfolioCashLadder: Get portfolio cash ladder",
         "description": "Get a cash ladder for a transaction portfolio.",
         "operationId": "GetPortfolioCashLadder",
         "parameters": [
@@ -52871,7 +52871,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EARLY ACCESS] Get portfolio cash statement",
+        "summary": "[EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement",
         "description": "Get a cash statement for a transaction portfolio.",
         "operationId": "GetPortfolioCashStatement",
         "parameters": [
@@ -55388,7 +55388,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get details",
+        "summary": "GetDetails: Get details",
         "description": "Get certain details associated with a transaction portfolio.",
         "operationId": "GetDetails",
         "parameters": [
@@ -55549,7 +55549,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert portfolio details",
+        "summary": "UpsertPortfolioDetails: Upsert portfolio details",
         "description": "Create or update certain details for a particular transaction portfolio. The details are updated if they already exist, and inserted if they do not.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.",
         "operationId": "UpsertPortfolioDetails",
         "parameters": [
@@ -55750,7 +55750,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Set holdings",
+        "summary": "SetHoldings: Set holdings",
         "description": "Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically\r\nconstruct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio\r\nare always set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
         "operationId": "SetHoldings",
         "parameters": [
@@ -56065,7 +56065,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Adjust holdings",
+        "summary": "AdjustHoldings: Adjust holdings",
         "description": "Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will\r\nautomatically construct adjustment transactions to ensure that the holdings which have been adjusted are\r\nalways set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
         "operationId": "AdjustHoldings",
         "parameters": [
@@ -56380,7 +56380,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Cancel adjust holdings",
+        "summary": "CancelAdjustHoldings: Cancel adjust holdings",
         "description": "Cancel all previous holding adjustments made on the specified transaction portfolio for a specified effective\r\ndatetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.",
         "operationId": "CancelAdjustHoldings",
         "parameters": [
@@ -56487,7 +56487,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get holdings",
+        "summary": "GetHoldings: Get holdings",
         "description": "Calculate holdings for a transaction portfolio.",
         "operationId": "GetHoldings",
         "parameters": [
@@ -56764,7 +56764,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "List holdings adjustments",
+        "summary": "ListHoldingsAdjustments: List holdings adjustments",
         "description": "List the holdings adjustments made to the specified transaction portfolio over a specified interval of effective time.",
         "operationId": "ListHoldingsAdjustments",
         "parameters": [
@@ -56896,7 +56896,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get holdings adjustment",
+        "summary": "GetHoldingsAdjustment: Get holdings adjustment",
         "description": "Get a holdings adjustment made to a transaction portfolio at a specific effective datetime. Note that a\r\nholdings adjustment will only be returned if one exists for the specified effective datetime.",
         "operationId": "GetHoldingsAdjustment",
         "parameters": [
@@ -57162,7 +57162,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] Get holdings with orders",
+        "summary": "[EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders",
         "description": "Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,\r\nand account for order state/fulfillment; that is, treat outstanding orders (and related records) as\r\nif they had been realised at moment of query.",
         "operationId": "GetHoldingsWithOrders",
         "parameters": [
@@ -57580,7 +57580,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Get transactions",
+        "summary": "GetTransactions: Get transactions",
         "description": "Retrieve all the transactions that occurred during a particular time interval. \r\n\r\nIf the portfolio is a derived transaction portfolio, the transactions returned are the\r\nunion set of all transactions of the parent (and any grandparents, etc.) as well as\r\nthose of the derived transaction portfolio itself.",
         "operationId": "GetTransactions",
         "parameters": [
@@ -57916,7 +57916,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert transactions",
+        "summary": "UpsertTransactions: Upsert transactions",
         "description": "Create or update transactions in the transaction portfolio. A transaction will be updated\r\nif it already exists and created if it does not.\n\nThe maximum number of transactions that this method can upsert per request is 10,000.",
         "operationId": "UpsertTransactions",
         "parameters": [
@@ -58182,7 +58182,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Cancel transactions",
+        "summary": "CancelTransactions: Cancel transactions",
         "description": "Cancel one or more transactions from the transaction portfolio.",
         "operationId": "CancelTransactions",
         "parameters": [
@@ -58293,7 +58293,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Build transactions",
+        "summary": "BuildTransactions: Build transactions",
         "description": "Builds and returns all transactions that affect the holdings of a portfolio over a given interval of\r\neffective time into a set of output transactions. This includes transactions automatically generated by\r\nLUSID such as holding adjustments.",
         "operationId": "BuildTransactions",
         "parameters": [
@@ -59133,7 +59133,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Upsert transaction properties",
+        "summary": "UpsertTransactionProperties: Upsert transaction properties",
         "description": "Create or update one or more transaction properties for a single transaction in the transaction portfolio.\r\nEach property will be updated if it already exists and created if it does not.\r\nBoth transaction and portfolio must exist at the time when properties are created or updated.",
         "operationId": "UpsertTransactionProperties",
         "parameters": [
@@ -59362,7 +59362,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "Delete properties from transaction",
+        "summary": "DeletePropertiesFromTransaction: Delete properties from transaction",
         "description": "Delete one or more properties from a single transaction in a transaction portfolio.",
         "operationId": "DeletePropertiesFromTransaction",
         "parameters": [
@@ -59485,7 +59485,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[BETA] Get upsertable portfolio cash flows.",
+        "summary": "[BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.",
         "description": "Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).\r\n            \r\nNote that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique\r\ntransaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is\r\nnot split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.\r\n            \r\nIn essence this is identical to the 'GetCashFlows' endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.\r\nThere are a couple of important points:\r\n(1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.\r\n    These are therefore defaulted to a sensible option; the user will likely need to change these.\r\n(2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.\r\n(3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.",
         "operationId": "GetUpsertablePortfolioCashFlows",
         "parameters": [
@@ -59658,7 +59658,7 @@
         "tags": [
           "Translation"
         ],
-        "summary": "[EXPERIMENTAL] Translate instruments",
+        "summary": "[EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments",
         "description": "Translates one or more instruments into the given target dialect.\r\n            \r\nIn the request each instrument definition should be keyed by a unique correlation id. This id is ephemeral\r\nand is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.\r\n            \r\nAny instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.\r\n            \r\nThe response will return both the collection of successfully translated instruments in the target dialect,\r\nas well as those that failed.\r\nFor the failures a reason will be provided explaining why the instrument could not be updated or inserted.",
         "operationId": "TranslateInstrumentDefinitions",
         "requestBody": {
@@ -59856,7 +59856,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[EXPERIMENTAL] Create data map",
+        "summary": "[EXPERIMENTAL] CreateDataMap: Create data map",
         "description": "Create or update one or more structured result store address definition data maps in a particular scope. Note these are immutable and cannot be changed once created.\r\n            \r\nIn the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data map object in the response.\r\n            \r\nThe response returns both the collection of successfully created or updated data maps, as well as those that failed.\r\nFor each failure, a reason is provided.\r\n            \r\nIt is important to check the failed set for any unsuccessful results.",
         "operationId": "CreateDataMap",
         "parameters": [
@@ -59985,7 +59985,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[EXPERIMENTAL] Get data map",
+        "summary": "[EXPERIMENTAL] GetDataMap: Get data map",
         "description": "Retrieve one or more structured result store address definition data maps from a particular scope.\r\n            \r\nEach data map can be identified by its invariant key, which can be thought of as a permanent URL.\r\nFor each ID, LUSID returns the most recently matched item.\r\n            \r\nIn the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data map in the response.\r\n            \r\nThe response returns three collections. The first contains successfully retrieved data maps. The second contains those with a\r\nvalid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.\r\n            \r\nFor the IDs that failed to resolve or could not be found, a reason is provided.\r\n            \r\nIt is important to check the failed sets for any unsuccessful results.",
         "operationId": "GetDataMap",
         "parameters": [
@@ -60114,7 +60114,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[BETA] Upsert structured result data",
+        "summary": "[BETA] UpsertStructuredResultData: Upsert structured result data",
         "description": "Create or update one or more structured result data items in a particular scope. An item is updated if it already exists\r\nand created if it does not.\r\n            \r\nIn the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data item in the response.\r\n            \r\nThe response returns both the collection of successfully created or updated data items, as well as those that failed.\r\nFor each failure, a reason is provided.\r\n            \r\nIt is important to check the failed set for any unsuccessful results.",
         "operationId": "UpsertStructuredResultData",
         "parameters": [
@@ -60359,7 +60359,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[EXPERIMENTAL] Delete structured result data",
+        "summary": "[EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data",
         "description": "Delete one or more structured result data items from a particular scope. Each item is identified by a unique ID which includes\r\ninformation about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).\r\n            \r\nIn the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data item in the response.\r\n            \r\nThe response returns both the collection of successfully deleted data items, as well as those that failed.\r\nFor each failure, a reason is provided.\r\n            \r\nIt is important to check the failed set for any unsuccessful results.",
         "operationId": "DeleteStructuredResultData",
         "parameters": [
@@ -60516,7 +60516,7 @@
         "tags": [
           "Structured Result Data"
         ],
-        "summary": "[EXPERIMENTAL] Get structured result data",
+        "summary": "[EXPERIMENTAL] GetStructuredResultData: Get structured result data",
         "description": "Retrieve one or more structured result data items from a particular scope.\r\n            \r\nEach item can be identified by its time invariant structured result data identifier. For each ID, LUSID\r\nreturns the most recently matched item with respect to the provided (or default) effective datetime. \r\n            \r\nAn optional maximum age range window can be specified to control how far back to look from the specified\r\neffective datetime. LUSID returns the most recent item within this window.\r\n            \r\nIn the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data item in the response.\r\n\r\nThe response returns three collections. The first contains successfully retrieved data items. The second contains those with a\r\nvalid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.\r\n\r\nFor the IDs that failed to resolve or could not be found, a reason is provided.\r\n            \r\nIt is important to check the failed sets for any unsuccessful results.",
         "operationId": "GetStructuredResultData",
         "parameters": [

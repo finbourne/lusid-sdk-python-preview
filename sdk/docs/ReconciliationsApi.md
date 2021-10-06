@@ -1,19 +1,19 @@
 # lusid.ReconciliationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] Reconcile portfolio holdings
-[**reconcile_holdings_preview**](ReconciliationsApi.md#reconcile_holdings_preview) | **POST** /api/portfolios/preview/$reconcileholdings | [EXPERIMENTAL] Reconcile portfolio holdings with given tolerance
-[**reconcile_inline**](ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | [BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
-[**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | [BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+[**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
+[**reconcile_holdings_preview**](ReconciliationsApi.md#reconcile_holdings_preview) | **POST** /api/portfolios/preview/$reconcileholdings | [EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance
+[**reconcile_inline**](ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | [BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
+[**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | [BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
 
 
 # **reconcile_holdings**
 > ResourceListOfReconciliationBreak reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request=portfolios_reconciliation_request)
 
-[EARLY ACCESS] Reconcile portfolio holdings
+[EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 
 Reconcile the holdings of two portfolios.
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -54,7 +54,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set.
 portfolios_reconciliation_request = {"left":{"portfolioId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"right":{"portfolioId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"instrumentPropertyKeys":["Instrument/default/Name"]} # PortfoliosReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
     try:
-        # [EARLY ACCESS] Reconcile portfolio holdings
+        # [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
         api_response = api_instance.reconcile_holdings(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request=portfolios_reconciliation_request)
         pprint(api_response)
     except ApiException as e:
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **reconcile_holdings_preview**
 > ResourceListOfReconciliationBreak reconcile_holdings_preview(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request_preview=portfolios_reconciliation_request_preview)
 
-[EXPERIMENTAL] Reconcile portfolio holdings with given tolerance
+[EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance
 
 Reconcile the holdings of two portfolios.
 
@@ -109,10 +109,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -122,7 +122,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -137,7 +137,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set 
 portfolios_reconciliation_request_preview = {"tolerance":{"/Holding/Units":{"value":0,"type":"Absolute"},"/Holding/Cost":{"value":0,"type":"Relative"}},"left":{"portfolioId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"right":{"portfolioId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"instrumentPropertyKeys":["Instrument/default/Name"]} # PortfoliosReconciliationRequestPreview | The specifications of the inputs to the reconciliation. This request can take tolerance for units and cost. (optional)
 
     try:
-        # [EXPERIMENTAL] Reconcile portfolio holdings with given tolerance
+        # [EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance
         api_response = api_instance.reconcile_holdings_preview(sort_by=sort_by, start=start, limit=limit, filter=filter, portfolios_reconciliation_request_preview=portfolios_reconciliation_request_preview)
         pprint(api_response)
     except ApiException as e:
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **reconcile_inline**
 > ListAggregationReconciliation reconcile_inline(inline_valuations_reconciliation_request=inline_valuations_reconciliation_request)
 
-[BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
+[BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
 
 Perform valuation of one or two set of inline instruments using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
 
@@ -192,10 +192,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -205,7 +205,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -216,7 +216,7 @@ with lusid.ApiClient(configuration) as api_client:
     inline_valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPUSD","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"right":{"recipeId":{"scope":"MyScope","code":"default"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Value"}],"groupBy":["Instrument/default/Name"],"reportCurrency":"USD","equipWithSubtotals":false,"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]},"instruments":[{"quantity":10000,"holdingIdentifier":"fx-fwd-GBPJPY","instrument":{"startDate":"2018-03-01T00:00:00.0000000+00:00","maturityDate":"2018-03-30T00:00:00.0000000+00:00","domAmount":100,"domCcy":"GBP","fgnAmount":-150,"fgnCcy":"JPY","refSpotRate":132,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"}}]},"leftToRightMapping":[],"preserveKeys":[]} # InlineValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
     try:
-        # [BETA] Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
+        # [BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
         api_response = api_instance.reconcile_inline(inline_valuations_reconciliation_request=inline_valuations_reconciliation_request)
         pprint(api_response)
     except ApiException as e:
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 # **reconcile_valuation**
 > ListAggregationReconciliation reconcile_valuation(valuations_reconciliation_request=valuations_reconciliation_request)
 
-[BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+[BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
 
 Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
 
@@ -267,10 +267,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -280,7 +280,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -291,7 +291,7 @@ with lusid.ApiClient(configuration) as api_client:
     valuations_reconciliation_request = {"left":{"recipeId":{"scope":"MySourceScope","code":"MySourcePortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"right":{"recipeId":{"scope":"MyTargetScope","code":"MyTargetPortfolioCode"},"asAt":"2018-03-05T00:00:00.0000000+00:00","metrics":[{"key":"Instrument/default/Name","op":"Value"},{"key":"Holding/default/PV","op":"Sum"}],"groupBy":["Instrument/default/Name"],"sort":[],"reportCurrency":"USD","equipWithSubtotals":false,"portfolioEntityIds":[{"scope":"PortfolioScope1","code":"MyPortfolioAbC","portfolioEntityType":"SinglePortfolio"},{"scope":"PortfolioScope2","code":"MyPortfolioDeF","portfolioEntityType":"SinglePortfolio"}],"valuationSchedule":{"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","tenor":"1D","rollConvention":"F","holidayCalendars":[],"valuationDateTimes":[]}},"leftToRightMapping":[],"preserveKeys":["Instrument/default/Name"]} # ValuationsReconciliationRequest | The specifications of the inputs to the reconciliation (optional)
 
     try:
-        # [BETA] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        # [BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
         api_response = api_instance.reconcile_valuation(valuations_reconciliation_request=valuations_reconciliation_request)
         pprint(api_response)
     except ApiException as e:

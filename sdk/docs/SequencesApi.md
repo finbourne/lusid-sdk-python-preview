@@ -1,18 +1,18 @@
 # lusid.SequencesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_sequence**](SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EXPERIMENTAL] Create a new sequence
-[**get_sequence**](SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] Get a specified sequence
-[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Get next values from sequence
+[**create_sequence**](SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EXPERIMENTAL] CreateSequence: Create a new sequence
+[**get_sequence**](SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] GetSequence: Get a specified sequence
+[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Next: Get next values from sequence
 
 
 # **create_sequence**
 > SequenceDefinition create_sequence(scope, create_sequence_request)
 
-[EXPERIMENTAL] Create a new sequence
+[EXPERIMENTAL] CreateSequence: Create a new sequence
 
 Create a new sequence
 
@@ -25,10 +25,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +38,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -50,7 +50,7 @@ with lusid.ApiClient(configuration) as api_client:
 create_sequence_request = {"code":"TestCode","increment":1,"minValue":0,"maxValue":10,"start":0,"cycle":false,"pattern":"Prefix-"} # CreateSequenceRequest | Request to create sequence
 
     try:
-        # [EXPERIMENTAL] Create a new sequence
+        # [EXPERIMENTAL] CreateSequence: Create a new sequence
         api_response = api_instance.create_sequence(scope, create_sequence_request)
         pprint(api_response)
     except ApiException as e:
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **get_sequence**
 > SequenceDefinition get_sequence(scope, code)
 
-[EXPERIMENTAL] Get a specified sequence
+[EXPERIMENTAL] GetSequence: Get a specified sequence
 
 Return the details of a specified sequence
 
@@ -102,10 +102,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +115,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -127,7 +127,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
 
     try:
-        # [EXPERIMENTAL] Get a specified sequence
+        # [EXPERIMENTAL] GetSequence: Get a specified sequence
         api_response = api_instance.get_sequence(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 # **next**
 > NextValueInSequenceResponse next(scope, code, batch=batch)
 
-[EXPERIMENTAL] Get next values from sequence
+[EXPERIMENTAL] Next: Get next values from sequence
 
 Get the next set of values from a specified sequence
 
@@ -179,10 +179,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,7 +192,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -205,7 +205,7 @@ code = 'code_example' # str | Code of the sequence. This together with stated sc
 batch = 56 # int | Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] Get next values from sequence
+        # [EXPERIMENTAL] Next: Get next values from sequence
         api_response = api_instance.next(scope, code, batch=batch)
         pprint(api_response)
     except ApiException as e:

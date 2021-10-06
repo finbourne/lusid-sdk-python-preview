@@ -1,18 +1,18 @@
 # lusid.RelationshipDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relationship_definition**](RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EXPERIMENTAL] Create Relationship Definition
-[**get_relationship_definition**](RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] Get relationship definition
-[**update_relationship_definition**](RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] Update Relationship Definition
+[**create_relationship_definition**](RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
+[**get_relationship_definition**](RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
+[**update_relationship_definition**](RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
 
 
 # **create_relationship_definition**
 > RelationshipDefinition create_relationship_definition(create_relationship_definition_request)
 
-[EXPERIMENTAL] Create Relationship Definition
+[EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
 
 Create a new relationship definition to be used for creating relationships between entities.
 
@@ -25,10 +25,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +38,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -49,7 +49,7 @@ with lusid.ApiClient(configuration) as api_client:
     create_relationship_definition_request = {"scope":"PortfolioManagementTeam","code":"Traders","sourceEntityType":"Portfolio","targetEntityType":"Person","displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio","lifeTime":"TimeVariant","relationshipCardinality":"ManyToMany"} # CreateRelationshipDefinitionRequest | The definition of the new relationship.
 
     try:
-        # [EXPERIMENTAL] Create Relationship Definition
+        # [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
         api_response = api_instance.create_relationship_definition(create_relationship_definition_request)
         pprint(api_response)
     except ApiException as e:
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 # **get_relationship_definition**
 > RelationshipDefinition get_relationship_definition(scope, code, as_at=as_at)
 
-[EXPERIMENTAL] Get relationship definition
+[EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
 
 Retrieve the specified relationship definition
 
@@ -100,10 +100,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,7 +113,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -126,7 +126,7 @@ code = 'code_example' # str | The code of the specified relationship definition.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] Get relationship definition
+        # [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
         api_response = api_instance.get_relationship_definition(scope, code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 # **update_relationship_definition**
 > RelationshipDefinition update_relationship_definition(scope, code, update_relationship_definition_request)
 
-[EXPERIMENTAL] Update Relationship Definition
+[EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
 
 Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
 
@@ -179,10 +179,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:37599
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57003
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,7 +192,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:37599"
+    host = "http://local-unit-test-server.lusid.com:57003"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -205,7 +205,7 @@ code = 'code_example' # str | The code of the relationship definition being upda
 update_relationship_definition_request = {"displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio"} # UpdateRelationshipDefinitionRequest | The details of relationship definition to update.
 
     try:
-        # [EXPERIMENTAL] Update Relationship Definition
+        # [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
         api_response = api_instance.update_relationship_definition(scope, code, update_relationship_definition_request)
         pprint(api_response)
     except ApiException as e:
