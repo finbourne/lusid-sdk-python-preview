@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3578",
+    "version": "0.11.3579",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:57003"
+      "url": "http://local-unit-test-server.lusid.com:55238"
     }
   ],
   "paths": {
@@ -44004,7 +44004,7 @@
                 "maxValue": 10,
                 "start": 0,
                 "cycle": false,
-                "pattern": "Prefix-"
+                "pattern": "TXN-{{seqValue}}"
               }
             },
             "application/json": {
@@ -44018,7 +44018,7 @@
                 "maxValue": 10,
                 "start": 0,
                 "cycle": false,
-                "pattern": "Prefix-"
+                "pattern": "TXN-{{seqValue}}"
               }
             },
             "text/json": {
@@ -44032,7 +44032,7 @@
                 "maxValue": 10,
                 "start": 0,
                 "cycle": false,
-                "pattern": "Prefix-"
+                "pattern": "TXN-{{seqValue}}"
               }
             },
             "application/*+json": {
@@ -44046,7 +44046,7 @@
                 "maxValue": 10,
                 "start": 0,
                 "cycle": false,
-                "pattern": "Prefix-"
+                "pattern": "TXN-{{seqValue}}"
               }
             }
           },
@@ -44071,7 +44071,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               },
               "application/json": {
@@ -44089,7 +44089,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               },
               "text/json": {
@@ -44107,7 +44107,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               }
             }
@@ -44208,7 +44208,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               },
               "application/json": {
@@ -44226,7 +44226,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               },
               "text/json": {
@@ -44244,7 +44244,7 @@
                   "start": 1,
                   "value": 3,
                   "cycle": false,
-                  "pattern": "Prefix-"
+                  "pattern": "TXN-{{seqValue}}"
                 }
               }
             }
@@ -44350,9 +44350,9 @@
                 },
                 "example": {
                   "values": [
-                    "Prefix-1",
-                    "Prefix-2",
-                    "Prefix-3"
+                    "TXN-0",
+                    "TXN-1",
+                    "TXN-2"
                   ]
                 }
               },
@@ -44362,9 +44362,9 @@
                 },
                 "example": {
                   "values": [
-                    "Prefix-1",
-                    "Prefix-2",
-                    "Prefix-3"
+                    "TXN-0",
+                    "TXN-1",
+                    "TXN-2"
                   ]
                 }
               },
@@ -44374,9 +44374,9 @@
                 },
                 "example": {
                   "values": [
-                    "Prefix-1",
-                    "Prefix-2",
-                    "Prefix-3"
+                    "TXN-0",
+                    "TXN-1",
+                    "TXN-2"
                   ]
                 }
               }
