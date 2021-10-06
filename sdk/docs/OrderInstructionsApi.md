@@ -1,19 +1,19 @@
 # lusid.OrderInstructionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_order_instruction**](OrderInstructionsApi.md#delete_order_instruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
-[**get_order_instruction**](OrderInstructionsApi.md#get_order_instruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
-[**list_order_instructions**](OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
-[**upsert_order_instructions**](OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+[**delete_order_instruction**](OrderInstructionsApi.md#delete_order_instruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] Delete orderInstruction
+[**get_order_instruction**](OrderInstructionsApi.md#get_order_instruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] Get OrderInstruction
+[**list_order_instructions**](OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] List OrderInstructions
+[**upsert_order_instructions**](OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] Upsert OrderInstruction
 
 
 # **delete_order_instruction**
 > DeletedEntityResponse delete_order_instruction(scope, code)
 
-[EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+[EXPERIMENTAL] Delete orderInstruction
 
 Delete an orderInstruction. Deletion will be valid from the orderInstruction's creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The orderInstruction's code. This, together with the scope uniquely identifies the orderInstruction to delete.
 
     try:
-        # [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+        # [EXPERIMENTAL] Delete orderInstruction
         api_response = api_instance.delete_order_instruction(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_order_instruction**
 > OrderInstruction get_order_instruction(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+[EXPERIMENTAL] Get OrderInstruction
 
 Fetch a OrderInstruction that matches the specified identifier
 
@@ -103,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"OrderInstruction\" domain to decorate onto the orderInstruction.              These take the format {domain}/{scope}/{code} e.g. \"OrderInstruction/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+        # [EXPERIMENTAL] Get OrderInstruction
         api_response = api_instance.get_order_instruction(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_order_instructions**
 > PagedResourceListOfOrderInstruction list_order_instructions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+[EXPERIMENTAL] List OrderInstructions
 
 Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
 
@@ -184,10 +184,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -197,7 +197,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"OrderInstruction\" domain to decorate onto each orderInstruction.                  These take the format {domain}/{scope}/{code} e.g. \"OrderInstruction/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+        # [EXPERIMENTAL] List OrderInstructions
         api_response = api_instance.list_order_instructions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_order_instructions**
 > ResourceListOfOrderInstruction upsert_order_instructions(order_instruction_set_request=order_instruction_set_request)
 
-[EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+[EXPERIMENTAL] Upsert OrderInstruction
 
 Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
 
@@ -269,10 +269,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -282,7 +282,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     order_instruction_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PACK00000123"},"properties":{"orderInstruction/MyScope/SomeOrderInstructionProperty":{"key":"OrderInstruction/MyScope/SomeOrderInstructionProperty","value":{"labelValue":"XYZ000034567"}}}}]} # OrderInstructionSetRequest | The collection of orderInstruction requests. (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+        # [EXPERIMENTAL] Upsert OrderInstruction
         api_response = api_instance.upsert_order_instructions(order_instruction_set_request=order_instruction_set_request)
         pprint(api_response)
     except ApiException as e:

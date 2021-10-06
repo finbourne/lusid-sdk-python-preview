@@ -1,19 +1,19 @@
 # lusid.SchemasApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_entity_schema**](SchemasApi.md#get_entity_schema) | **GET** /api/schemas/entities/{entity} | [BETA] GetEntitySchema: Get schema
-[**get_property_schema**](SchemasApi.md#get_property_schema) | **GET** /api/schemas/properties | [BETA] GetPropertySchema: Get property schema
-[**get_value_types**](SchemasApi.md#get_value_types) | **GET** /api/schemas/types | [BETA] GetValueTypes: Get value types
-[**list_entities**](SchemasApi.md#list_entities) | **GET** /api/schemas/entities | [BETA] ListEntities: List entities
+[**get_entity_schema**](SchemasApi.md#get_entity_schema) | **GET** /api/schemas/entities/{entity} | [BETA] Get schema
+[**get_property_schema**](SchemasApi.md#get_property_schema) | **GET** /api/schemas/properties | [BETA] Get property schema
+[**get_value_types**](SchemasApi.md#get_value_types) | **GET** /api/schemas/types | [BETA] Get value types
+[**list_entities**](SchemasApi.md#list_entities) | **GET** /api/schemas/entities | [BETA] List entities
 
 
 # **get_entity_schema**
 > Schema get_entity_schema(entity)
 
-[BETA] GetEntitySchema: Get schema
+[BETA] Get schema
 
 Gets the schema and meta-data for a given entity
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -50,7 +50,7 @@ with lusid.ApiClient(configuration) as api_client:
     entity = 'entity_example' # str | The name of a valid entity
 
     try:
-        # [BETA] GetEntitySchema: Get schema
+        # [BETA] Get schema
         api_response = api_instance.get_entity_schema(entity)
         pprint(api_response)
     except ApiException as e:
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 # **get_property_schema**
 > PropertySchema get_property_schema(property_keys=property_keys, as_at=as_at)
 
-[BETA] GetPropertySchema: Get property schema
+[BETA] Get property schema
 
 Get the schemas for the provided list of property keys.
 
@@ -101,10 +101,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -114,7 +114,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -126,7 +126,7 @@ with lusid.ApiClient(configuration) as api_client:
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data (optional)
 
     try:
-        # [BETA] GetPropertySchema: Get property schema
+        # [BETA] Get property schema
         api_response = api_instance.get_property_schema(property_keys=property_keys, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 # **get_value_types**
 > ResourceListOfValueType get_value_types(sort_by=sort_by, start=start, limit=limit)
 
-[BETA] GetValueTypes: Get value types
+[BETA] Get value types
 
 Gets the available value types for which a schema is available.
 
@@ -178,10 +178,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -191,7 +191,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -204,7 +204,7 @@ start = 56 # int | Optional. When paginating, skip this number of results (optio
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 
     try:
-        # [BETA] GetValueTypes: Get value types
+        # [BETA] Get value types
         api_response = api_instance.get_value_types(sort_by=sort_by, start=start, limit=limit)
         pprint(api_response)
     except ApiException as e:
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 # **list_entities**
 > ResourceListOfString list_entities()
 
-[BETA] ListEntities: List entities
+[BETA] List entities
 
 List all available entities for which schema information is available.
 
@@ -257,10 +257,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -270,7 +270,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -280,7 +280,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.SchemasApi(api_client)
     
     try:
-        # [BETA] ListEntities: List entities
+        # [BETA] List entities
         api_response = api_instance.list_entities()
         pprint(api_response)
     except ApiException as e:

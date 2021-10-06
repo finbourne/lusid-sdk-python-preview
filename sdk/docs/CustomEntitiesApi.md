@@ -1,18 +1,18 @@
 # lusid.CustomEntitiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
-[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List Custom Entities
-[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
+[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] Get CustomEntity
+[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] List Custom Entities
+[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] Upsert a new CustomEntity
 
 
 # **get_custom_entity**
 > CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at)
 
-[EXPERIMENTAL] GetCustomEntity: Get CustomEntity
+[EXPERIMENTAL] Get CustomEntity
 
 Retrieve a CustomEntity by a specific Id at a point in AsAt time.
 
@@ -25,10 +25,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +38,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -53,7 +53,7 @@ identifier_scope = 'identifier_scope_example' # str | The identifier scope.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve the CustomEntity. (optional)
 
     try:
-        # [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
+        # [EXPERIMENTAL] Get CustomEntity
         api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **list_custom_entities**
 > PagedResourceListOfCustomEntityResponse list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
 
-[EXPERIMENTAL] ListCustomEntities: List Custom Entities
+[EXPERIMENTAL] List Custom Entities
 
 List all the Custom Entities matching particular criteria.
 
@@ -108,10 +108,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -121,7 +121,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -137,7 +137,7 @@ filter = 'filter_example' # str | Expression to filter the results. For more inf
 page = 'page_example' # str | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 
     try:
-        # [EXPERIMENTAL] ListCustomEntities: List Custom Entities
+        # [EXPERIMENTAL] List Custom Entities
         api_response = api_instance.list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **upsert_custom_entity**
 > CustomEntityResponse upsert_custom_entity(entity_type, custom_entity_request)
 
-[EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
+[EXPERIMENTAL] Upsert a new CustomEntity
 
 Insert the custom entity if it does not exist or update the custom entity with the supplied state if it does exist.
 
@@ -193,10 +193,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -206,7 +206,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -218,7 +218,7 @@ with lusid.ApiClient(configuration) as api_client:
 custom_entity_request = {"displayName":"Issue","description":"Issue with loading data","effectiveAt":"2021-07-23T12:00:00.0000000+00:00","identifiers":[{"identifierScope":"DataLoadingIssues","identifierType":"InternalId","identifierValue":"188ce1eaecaf43efa6b33b680b75b40c"},{"identifierScope":"DataLoadingIssues","identifierType":"JiraID","identifierValue":"PLAT-250"}],"fields":[{"name":"IssueName","value":"InstrumentNotFound"},{"name":"Status","value":"InProgress"},{"name":"StoryPointEstimate","value":1},{"name":"Assigned","value":true},{"name":"DateCreated","value":"2021-07-13T12:00:00.0000000+00:00"}]} # CustomEntityRequest | The CustomEntity to be created.
 
     try:
-        # [EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
+        # [EXPERIMENTAL] Upsert a new CustomEntity
         api_response = api_instance.upsert_custom_entity(entity_type, custom_entity_request)
         pprint(api_response)
     except ApiException as e:

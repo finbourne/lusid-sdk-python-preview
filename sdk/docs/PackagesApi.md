@@ -1,19 +1,19 @@
 # lusid.PackagesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_package**](PackagesApi.md#delete_package) | **DELETE** /api/packages/{scope}/{code} | [EXPERIMENTAL] DeletePackage: Delete package
-[**get_package**](PackagesApi.md#get_package) | **GET** /api/packages/{scope}/{code} | [EXPERIMENTAL] GetPackage: Get Package
-[**list_packages**](PackagesApi.md#list_packages) | **GET** /api/packages | [EXPERIMENTAL] ListPackages: List Packages
-[**upsert_packages**](PackagesApi.md#upsert_packages) | **POST** /api/packages | [EXPERIMENTAL] UpsertPackages: Upsert Package
+[**delete_package**](PackagesApi.md#delete_package) | **DELETE** /api/packages/{scope}/{code} | [EXPERIMENTAL] Delete package
+[**get_package**](PackagesApi.md#get_package) | **GET** /api/packages/{scope}/{code} | [EXPERIMENTAL] Get Package
+[**list_packages**](PackagesApi.md#list_packages) | **GET** /api/packages | [EXPERIMENTAL] List Packages
+[**upsert_packages**](PackagesApi.md#upsert_packages) | **POST** /api/packages | [EXPERIMENTAL] Upsert Package
 
 
 # **delete_package**
 > DeletedEntityResponse delete_package(scope, code)
 
-[EXPERIMENTAL] DeletePackage: Delete package
+[EXPERIMENTAL] Delete package
 
 Delete an package. Deletion will be valid from the package's creation datetime.  This means that the package will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The package's code. This, together with the scope uniquely identifies the package to delete.
 
     try:
-        # [EXPERIMENTAL] DeletePackage: Delete package
+        # [EXPERIMENTAL] Delete package
         api_response = api_instance.delete_package(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_package**
 > Package get_package(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] GetPackage: Get Package
+[EXPERIMENTAL] Get Package
 
 Fetch a Package that matches the specified identifier
 
@@ -103,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Package\" domain to decorate onto the package.              These take the format {domain}/{scope}/{code} e.g. \"Package/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] GetPackage: Get Package
+        # [EXPERIMENTAL] Get Package
         api_response = api_instance.get_package(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_packages**
 > PagedResourceListOfPackage list_packages(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] ListPackages: List Packages
+[EXPERIMENTAL] List Packages
 
 Fetch the last pre-AsAt date version of each package in scope (does not fetch the entire history).
 
@@ -184,10 +184,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -197,7 +197,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Package\" domain to decorate onto each package.                  These take the format {domain}/{scope}/{code} e.g. \"Package/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] ListPackages: List Packages
+        # [EXPERIMENTAL] List Packages
         api_response = api_instance.list_packages(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_packages**
 > ResourceListOfPackage upsert_packages(package_set_request=package_set_request)
 
-[EXPERIMENTAL] UpsertPackages: Upsert Package
+[EXPERIMENTAL] Upsert Package
 
 Upsert; update existing packages with given ids, or create new packages otherwise.
 
@@ -269,10 +269,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -282,7 +282,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     package_set_request = {"requests":[{"id":{"scope":"MyScope","code":"PACK00000123"},"orderIds":[{"scope":"MyScope","code":"ORDER00000123"}],"orderInstructionIds":[{"scope":"MyScope","code":"INSTR00000123"}],"properties":{"package/MyScope/SomePackageProperty":{"key":"Package/MyScope/SomePackageProperty","value":{"labelValue":"XYZ000034567"}}}}]} # PackageSetRequest | The collection of package requests. (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertPackages: Upsert Package
+        # [EXPERIMENTAL] Upsert Package
         api_response = api_instance.upsert_packages(package_set_request=package_set_request)
         pprint(api_response)
     except ApiException as e:

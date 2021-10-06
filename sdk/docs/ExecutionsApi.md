@@ -1,19 +1,19 @@
 # lusid.ExecutionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_execution**](ExecutionsApi.md#delete_execution) | **DELETE** /api/executions/{scope}/{code} | [EXPERIMENTAL] DeleteExecution: Delete execution
-[**get_execution**](ExecutionsApi.md#get_execution) | **GET** /api/executions/{scope}/{code} | [EXPERIMENTAL] GetExecution: Get Execution
-[**list_executions**](ExecutionsApi.md#list_executions) | **GET** /api/executions | [EXPERIMENTAL] ListExecutions: List Executions
-[**upsert_executions**](ExecutionsApi.md#upsert_executions) | **POST** /api/executions | [EXPERIMENTAL] UpsertExecutions: Upsert Execution
+[**delete_execution**](ExecutionsApi.md#delete_execution) | **DELETE** /api/executions/{scope}/{code} | [EXPERIMENTAL] Delete execution
+[**get_execution**](ExecutionsApi.md#get_execution) | **GET** /api/executions/{scope}/{code} | [EXPERIMENTAL] Get Execution
+[**list_executions**](ExecutionsApi.md#list_executions) | **GET** /api/executions | [EXPERIMENTAL] List Executions
+[**upsert_executions**](ExecutionsApi.md#upsert_executions) | **POST** /api/executions | [EXPERIMENTAL] Upsert Execution
 
 
 # **delete_execution**
 > DeletedEntityResponse delete_execution(scope, code)
 
-[EXPERIMENTAL] DeleteExecution: Delete execution
+[EXPERIMENTAL] Delete execution
 
 Delete an execution. Deletion will be valid from the execution's creation datetime.  This means that the execution will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The execution's code. This, together with the scope uniquely identifies the execution to delete.
 
     try:
-        # [EXPERIMENTAL] DeleteExecution: Delete execution
+        # [EXPERIMENTAL] Delete execution
         api_response = api_instance.delete_execution(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_execution**
 > Execution get_execution(scope, code, as_at=as_at, property_keys=property_keys)
 
-[EXPERIMENTAL] GetExecution: Get Execution
+[EXPERIMENTAL] Get Execution
 
 Fetch a Execution that matches the specified identifier
 
@@ -103,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -130,7 +130,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Execution\" domain to decorate onto the execution.              These take the format {domain}/{scope}/{code} e.g. \"Execution/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] GetExecution: Get Execution
+        # [EXPERIMENTAL] Get Execution
         api_response = api_instance.get_execution(scope, code, as_at=as_at, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 # **list_executions**
 > PagedResourceListOfExecution list_executions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] ListExecutions: List Executions
+[EXPERIMENTAL] List Executions
 
 Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
 
@@ -184,10 +184,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -197,7 +197,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -213,7 +213,7 @@ filter = '' # str | Expression to filter the result set. Read more about filteri
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Execution\" domain to decorate onto each execution.                  These take the format {domain}/{scope}/{code} e.g. \"Execution/system/Name\". (optional)
 
     try:
-        # [EXPERIMENTAL] ListExecutions: List Executions
+        # [EXPERIMENTAL] List Executions
         api_response = api_instance.list_executions(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_executions**
 > ResourceListOfExecution upsert_executions(execution_set_request=execution_set_request)
 
-[EXPERIMENTAL] UpsertExecutions: Upsert Execution
+[EXPERIMENTAL] Upsert Execution
 
 Upsert; update existing executions with given ids, or create new executions otherwise.
 
@@ -269,10 +269,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -282,7 +282,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     execution_set_request = {"requests":[{"id":{"scope":"MyScope","code":"EXEC00000123"},"placementId":{"scope":"MyScope","code":"PLAC00000123"},"properties":{"execution/MyScope/SomeExecutionProperty":{"key":"Execution/MyScope/SomeExecutionProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"instrument/default/Currency":"GBP"},"quantity":100,"state":"New","side":"Buy","type":"Limit","createdDate":"2006-04-11T00:00:00.0000000+00:00","settlementDate":"2006-04-13T00:00:00.0000000+00:00","price":{"amount":12413.33,"currency":"USD"},"settlementCurrency":"GBP","settlementCurrencyFxRate":0.67,"counterparty":"SomeCounterparty"}]} # ExecutionSetRequest | The collection of execution requests. (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertExecutions: Upsert Execution
+        # [EXPERIMENTAL] Upsert Execution
         api_response = api_instance.upsert_executions(execution_set_request=execution_set_request)
         pprint(api_response)
     except ApiException as e:

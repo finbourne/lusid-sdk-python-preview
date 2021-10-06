@@ -1,17 +1,17 @@
 # lusid.CustomEntityDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_custom_entity_definition**](CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **POST** /api/customentities/entitytypes | [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
-[**get_definition**](CustomEntityDefinitionsApi.md#get_definition) | **GET** /api/customentities/entitytypes/{entityType} | [EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition
+[**create_custom_entity_definition**](CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **POST** /api/customentities/entitytypes | [EXPERIMENTAL] Create a new CustomEntityDefinition
+[**get_definition**](CustomEntityDefinitionsApi.md#get_definition) | **GET** /api/customentities/entitytypes/{entityType} | [EXPERIMENTAL] Get CustomEntityDefinition
 
 
 # **create_custom_entity_definition**
 > CustomEntityDefinition create_custom_entity_definition(custom_entity_definition_request=custom_entity_definition_request)
 
-[EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
+[EXPERIMENTAL] Create a new CustomEntityDefinition
 
 Create a custom entity definition that does not already exist. Will return a Bad Request if the CustomEntityDefinition already exists
 
@@ -24,10 +24,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -48,7 +48,7 @@ with lusid.ApiClient(configuration) as api_client:
     custom_entity_definition_request = {"entityTypeName":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","lifetime":"TimeVariant","type":"bool","required":true},{"name":"Status","lifetime":"TimeVariant","type":"string","required":true},{"name":"Effort In Days","lifetime":"Perpetual","type":"number","required":false},{"name":"DateCreated","lifetime":"Perpetual","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest (optional)
 
     try:
-        # [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
+        # [EXPERIMENTAL] Create a new CustomEntityDefinition
         api_response = api_instance.create_custom_entity_definition(custom_entity_definition_request=custom_entity_definition_request)
         pprint(api_response)
     except ApiException as e:
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 # **get_definition**
 > CustomEntityDefinition get_definition(entity_type, as_at=as_at)
 
-[EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition
+[EXPERIMENTAL] Get CustomEntityDefinition
 
 Retrieve a CustomEntityDefinition by a specific EntityType at a point in AsAt time
 
@@ -99,10 +99,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,7 +112,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -124,7 +124,7 @@ with lusid.ApiClient(configuration) as api_client:
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve the CustomEntityDefinition. (optional)
 
     try:
-        # [EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition
+        # [EXPERIMENTAL] Get CustomEntityDefinition
         api_response = api_instance.get_definition(entity_type, as_at=as_at)
         pprint(api_response)
     except ApiException as e:

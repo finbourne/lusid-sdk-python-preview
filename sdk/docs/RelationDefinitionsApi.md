@@ -1,17 +1,17 @@
 # lusid.RelationDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relation_definition**](RelationDefinitionsApi.md#create_relation_definition) | **POST** /api/relationdefinitions | [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
-[**get_relation_definition**](RelationDefinitionsApi.md#get_relation_definition) | **GET** /api/relationdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationDefinition: Get relation definition
+[**create_relation_definition**](RelationDefinitionsApi.md#create_relation_definition) | **POST** /api/relationdefinitions | [EXPERIMENTAL] Create a relation definition
+[**get_relation_definition**](RelationDefinitionsApi.md#get_relation_definition) | **GET** /api/relationdefinitions/{scope}/{code} | [EXPERIMENTAL] Get relation definition
 
 
 # **create_relation_definition**
 > RelationDefinition create_relation_definition(create_relation_definition_request)
 
-[EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
+[EXPERIMENTAL] Create a relation definition
 
 Define a new relation.
 
@@ -24,10 +24,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -48,7 +48,7 @@ with lusid.ApiClient(configuration) as api_client:
     create_relation_definition_request = {"scope":"PortfolioManagementTeam","code":"Traders","sourceEntityDomain":"Portfolio","targetEntityDomain":"Person","displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio","lifeTime":"TimeVariant","constraintStyle":"Collection"} # CreateRelationDefinitionRequest | The definition of the new relation.
 
     try:
-        # [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
+        # [EXPERIMENTAL] Create a relation definition
         api_response = api_instance.create_relation_definition(create_relation_definition_request)
         pprint(api_response)
     except ApiException as e:
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 # **get_relation_definition**
 > RelationDefinition get_relation_definition(scope, code, as_at=as_at)
 
-[EXPERIMENTAL] GetRelationDefinition: Get relation definition
+[EXPERIMENTAL] Get relation definition
 
 Retrieve the definition of a specified relation.
 
@@ -99,10 +99,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55238
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,7 +112,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55238"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -125,7 +125,7 @@ code = 'code_example' # str | The code of the specified relation. Together with 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] GetRelationDefinition: Get relation definition
+        # [EXPERIMENTAL] Get relation definition
         api_response = api_instance.get_relation_definition(scope, code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
