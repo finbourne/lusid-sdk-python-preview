@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3581",
+    "version": "0.11.3582",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:47787"
+      "url": "http://local-unit-test-server.lusid.com:39198"
     }
   ],
   "paths": {
@@ -71856,12 +71856,15 @@
         "description": "The details for the cashflow for a given portfolio."
       },
       "PortfolioCashLadder": {
+        "required": [
+          "currency",
+          "records"
+        ],
         "type": "object",
         "properties": {
           "currency": {
             "type": "string",
-            "description": "The currency of the cash-flows.",
-            "nullable": true
+            "description": "The currency of the cash-flows."
           },
           "subHoldingKeys": {
             "type": "object",
@@ -71876,8 +71879,7 @@
             "items": {
               "$ref": "#/components/schemas/CashLadderRecord"
             },
-            "description": "A record of cash flows on a specific date.",
-            "nullable": true
+            "description": "A record of cash flows on a specific date."
           },
           "links": {
             "type": "array",
