@@ -45,43 +45,43 @@ class Instruments(unittest.TestCase):
     def test_seed_instrument_master(self):
         response = self.instruments_api.upsert_instruments(request_body={
 
-            "BBG000FD8G46": models.InstrumentDefinition(
-                name="HISCOX LTD",
+            "BBG00KTDTF73": models.InstrumentDefinition(
+                name="AT&T INC",
                 identifiers={
-                    "Figi": models.InstrumentIdValue(value="BBG000FD8G46"),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_1")
+                    "Figi": models.InstrumentIdValue(value="BBG00KTDTF73"),
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_1_example")
                 }
             ),
 
-            "BBG000DW76R4": models.InstrumentDefinition(
-                name="ITV PLC",
+            "BBG00Y271826": models.InstrumentDefinition(
+                name="BYTES TECHNOLOGY GROUP PLC",
                 identifiers={
-                    "Figi": models.InstrumentIdValue(value="BBG000DW76R4"),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_2")
+                    "Figi": models.InstrumentIdValue(value="BBG00Y271826"),
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_2_example")
                 }
             ),
 
-            "BBG000PQKVN8": models.InstrumentDefinition(
-                name="MONDI PLC",
+            "BBG00L7XVNP1": models.InstrumentDefinition(
+                name="CUSHMAN & WAKEFIELD PLC",
                 identifiers={
-                    "Figi": models.InstrumentIdValue(value="BBG000PQKVN8"),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_3")
+                    "Figi": models.InstrumentIdValue(value="BBG00L7XVNP1"),
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_3_example")
                 }
             ),
 
-            "BBG000BDWPY0": models.InstrumentDefinition(
-                name="NEXT PLC",
+            "BBG005D5KGM0": models.InstrumentDefinition(
+                name="FIRST CITRUS BANCORPORATION",
                 identifiers={
-                    "Figi": models.InstrumentIdValue(value="BBG000BDWPY0"),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_4")
+                    "Figi": models.InstrumentIdValue(value="BBG005D5KGM0"),
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_4_example")
                 }
             ),
 
-            "BBG000BF46Y8": models.InstrumentDefinition(
-                name="TESCO PLC",
+            "BBG000DPM932": models.InstrumentDefinition(
+                name="FRASERS GROUP PLC",
                 identifiers={
-                    "Figi": models.InstrumentIdValue(value="BBG000BF46Y8"),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_5")
+                    "Figi": models.InstrumentIdValue(value="BBG000DPM932"),
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_5_example")
                 }
             )
         })
@@ -91,15 +91,15 @@ class Instruments(unittest.TestCase):
     @lusid_feature("F22")
     def test_lookup_instrument_by_unique_id(self):
 
-        figi = "BBG000FD8G46"
+        figi = "BBG00KTDTF73"
 
         # set up the instrument
         response = self.instruments_api.upsert_instruments(request_body={
             figi: models.InstrumentDefinition(
-                name="HISCOX LTD",
+                name="AT&T INC",
                 identifiers={
                     "Figi": models.InstrumentIdValue(value=figi),
-                    "ClientInternal": models.InstrumentIdValue(value="internal_id_1")
+                    "ClientInternal": models.InstrumentIdValue(value="internal_id_1_example")
                 }
             )
         })
@@ -116,7 +116,7 @@ class Instruments(unittest.TestCase):
         self.assertTrue(figi in looked_up_instruments.values, msg=f"cannot find {figi}")
 
         instrument = looked_up_instruments.values[figi]
-        self.assertTrue(instrument.name, "HISCOX LTD")
+        self.assertTrue(instrument.name, "AT&T INC")
 
         property = next(filter(lambda i: i.key == "Instrument/default/ClientInternal", instrument.properties), None)
         self.assertTrue(property.value, "internal_id_1")
@@ -140,7 +140,7 @@ class Instruments(unittest.TestCase):
     @lusid_feature("F25")
     def test_list_instruments_by_identifier_type(self):
 
-        figis = ["BBG000FD8G46", "BBG000DW76R4", "BBG000PQKVN8"]
+        figis = ["BBG00KTDTF73", "BBG00Y271826", "BBG00L7XVNP1"]
 
         # get a set of instruments querying by FIGIs
         instruments = self.instruments_api.get_instruments(identifier_type="Figi", request_body=figis)
@@ -154,7 +154,7 @@ class Instruments(unittest.TestCase):
         property_value = models.PropertyValue(label_value="Insurance")
         property_key = f"Instrument/{TestDataUtilities.tutorials_scope}/CustomSector"
         identifier_type = "Figi"
-        identifier = "BBG000FD8G46"
+        identifier = "BBG00KTDTF73"
 
         # update the instrument
         self.instruments_api.upsert_instruments_properties(upsert_instrument_property_request=[
