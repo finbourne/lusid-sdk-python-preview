@@ -1,3 +1,4 @@
+import json
 import unittest
 import uuid
 import pytz
@@ -62,16 +63,20 @@ class CorporateActions(unittest.TestCase):
             }
         )
 
-        # Create a transaction portfolio to hold the original instrument.
-        self.transaction_portfolios_api.create_portfolio(
-            scope=TestDataUtilities.tutorials_scope,
-            create_transaction_portfolio_request=models.CreateTransactionPortfolioRequest(
-                code=portfolio_code,
-                display_name=portfolio_code,
-                base_currency="GBP",
-                created=effective_at_date,
-            ),
-        )
+        try:
+            # Create a transaction portfolio to hold the original instrument.
+            self.transaction_portfolios_api.create_portfolio(
+                scope=TestDataUtilities.tutorials_scope,
+                create_transaction_portfolio_request=models.CreateTransactionPortfolioRequest(
+                    code=portfolio_code,
+                    display_name=portfolio_code,
+                    base_currency="GBP",
+                    created=effective_at_date,
+                ),
+            )
+        except lusid.ApiException as e:
+            if json.loads(e.body)["name"] == "PortfolioWithIdAlreadyExists":
+                pass  # ignore if the portfolio exists
 
         # Add a transaction for the original instrument.
         self.transaction_portfolios_api.upsert_transactions(
@@ -102,9 +107,13 @@ class CorporateActions(unittest.TestCase):
             description="Name change corporate actions source",
         )
 
-        self.corporate_actions_sources_api.create_corporate_action_source(
-            create_corporate_action_source_request=corporate_action_source
-        )
+        try:
+            self.corporate_actions_sources_api.create_corporate_action_source(
+                create_corporate_action_source_request=corporate_action_source
+            )
+        except lusid.ApiException as e:
+            if json.loads(e.body)["name"] == "EntityWithIdAlreadyExists":
+                pass  # ignore if the property definition exists
 
         # Apply the corporate actions source to the transaction portfolio.
         self.transaction_portfolios_api.upsert_portfolio_details(
@@ -201,10 +210,14 @@ class CorporateActions(unittest.TestCase):
             TestDataUtilities.tutorials_scope, portfolio_code
         )
 
-        # Delete the corporate action source.
-        self.corporate_actions_sources_api.delete_corporate_action_source(
-            TestDataUtilities.tutorials_scope, corporate_action_source_code
-        )
+        try:
+            # Delete the corporate action source.
+            self.corporate_actions_sources_api.delete_corporate_action_source(
+                TestDataUtilities.tutorials_scope, corporate_action_source_code
+            )
+        except lusid.ApiException as e:
+            if json.loads(e.body)["name"] == "CorporateActionSourceDoesNotExist":
+                pass  # ignore if the property definition exists
 
     @lusid_feature("F33")
     def test_list_corporate_action_sources(self):
