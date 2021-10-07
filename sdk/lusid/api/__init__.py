@@ -24,6 +24,7 @@ from lusid.api.fees_and_commissions_api import FeesAndCommissionsApi
 from lusid.api.instruments_api import InstrumentsApi
 from lusid.api.legal_entities_api import LegalEntitiesApi
 from lusid.api.login_api import LoginApi
+from lusid.api.order_graph_api import OrderGraphApi
 from lusid.api.order_instructions_api import OrderInstructionsApi
 from lusid.api.orders_api import OrdersApi
 from lusid.api.packages_api import PackagesApi
