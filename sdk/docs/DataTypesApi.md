@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**get_data_type**](DataTypesApi.md#get_data_type) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
 [**get_units_from_data_type**](DataTypesApi.md#get_units_from_data_type) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 [**list_data_types**](DataTypesApi.md#list_data_types) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
-[**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [BETA] UpdateDataType: Update data type definition
+[**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
 
 
 # **create_data_type**
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 # **update_data_type**
 > DataType update_data_type(scope, code, update_data_type_request)
 
-[BETA] UpdateDataType: Update data type definition
+[EXPERIMENTAL] UpdateDataType: Update data type definition
 
 Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
 
@@ -377,7 +377,7 @@ code = 'code_example' # str | The code of the data type
 update_data_type_request = {"displayName":"My data format","description":"Data type description","acceptableValues":["Apples, Bananas, Cherry"]} # UpdateDataTypeRequest | The updated definition of the data type
 
     try:
-        # [BETA] UpdateDataType: Update data type definition
+        # [EXPERIMENTAL] UpdateDataType: Update data type definition
         api_response = api_instance.update_data_type(scope, code, update_data_type_request)
         pprint(api_response)
     except ApiException as e:
