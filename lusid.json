@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3589",
+    "version": "0.11.3590",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32803"
+      "url": "http://local-unit-test-server.lusid.com:57493"
     }
   ],
   "paths": {
@@ -67647,7 +67647,7 @@
               },
               "fixingDate": {
                 "type": "string",
-                "description": "The fixing date .",
+                "description": "The fixing date.",
                 "format": "date-time"
               },
               "instrumentType": {
@@ -68054,7 +68054,7 @@
               },
               "isDeliveryNotCash": {
                 "type": "boolean",
-                "description": "True of the option is settled in cash false if delivery."
+                "description": "True if the option is settled in cash, false if delivery."
               },
               "isCallNotPut": {
                 "type": "boolean",

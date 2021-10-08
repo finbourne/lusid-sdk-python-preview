@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **start_date** | **datetime** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **option_maturity_date** | **datetime** | The maturity date of the option. | 
 **option_settlement_date** | **datetime** | The settlement date of the option. | 
-**is_delivery_not_cash** | **bool** | True of the option is settled in cash false if delivery. | 
+**is_delivery_not_cash** | **bool** | True if the option is settled in cash, false if delivery. | 
 **is_call_not_put** | **bool** | True if the option is a call, false if the option is a put. | 
 **strike** | **float** | The strike of the option. | 
 **dom_ccy** | **str** | The domestic currency of the instrument. | 
