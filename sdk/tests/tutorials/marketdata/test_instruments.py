@@ -1,4 +1,3 @@
-import json
 import unittest
 
 import lusid
@@ -156,20 +155,6 @@ class Instruments(unittest.TestCase):
         property_key = f"Instrument/{TestDataUtilities.tutorials_scope}/CustomSector"
         identifier_type = "Figi"
         identifier = "BBG00KTDTF73"
-
-        try:
-            self.property_definitions_api.create_property_definition(
-                create_property_definition_request=lusid.models.CreatePropertyDefinitionRequest(
-                    domain='Instrument',
-                    scope=TestDataUtilities.tutorials_scope,
-                    code="CustomSector",
-                    display_name="Custom Sector",
-                    data_type_id=lusid.ResourceId(scope="system", code="string"),
-                )
-            )
-        except lusid.ApiException as e:
-            if json.loads(e.body)["name"] == "PropertyAlreadyExists":
-                pass  # ignore if the property definition exists
 
         # update the instrument
         self.instruments_api.upsert_instruments_properties(upsert_instrument_property_request=[
