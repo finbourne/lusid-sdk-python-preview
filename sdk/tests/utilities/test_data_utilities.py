@@ -13,7 +13,7 @@ import unittest
 
 
 class TestDataUtilities:
-    tutorials_scope = f"Testdemo"
+    tutorials_scope = f"Testdemo_{datetime.now().strftime('%Y-%m-%d_%H_%M_%S')}"
     market_data_scope = "FinbourneMarketData"
 
     lusid_cash_identifier = "Instrument/default/Currency"
