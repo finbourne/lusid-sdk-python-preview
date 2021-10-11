@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3591",
+    "version": "0.11.3592",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:39171"
     }
   ],
   "paths": {
@@ -69562,21 +69562,12 @@
                 "format": "date-time"
               },
               "payOrReceiveFixed": {
-                "enum": [
-                  "NotDefined",
-                  "Pay",
-                  "Receive"
-                ],
                 "type": "string",
-                "description": "The available values are: NotDefined, Pay, Receive"
+                "description": "True if on exercise the holder of the option enters the swap paying fixed, false if floating.\r\nSupported string (enumeration) values are: [Pay, Receive]."
               },
               "deliveryMethod": {
-                "enum": [
-                  "Cash",
-                  "Physical"
-                ],
                 "type": "string",
-                "description": "The available values are: Cash, Physical"
+                "description": "How does the option settle\r\nSupported string (enumeration) values are: [Cash, Physical]."
               },
               "swap": {
                 "$ref": "#/components/schemas/InterestRateSwap"
@@ -71950,14 +71941,6 @@
         },
         "additionalProperties": false,
         "description": "A request to create or update multiple Participations."
-      },
-      "PayReceive": {
-        "enum": [
-          "NotDefined",
-          "Pay",
-          "Receive"
-        ],
-        "type": "string"
       },
       "PerformanceReturn": {
         "required": [
@@ -79377,7 +79360,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
