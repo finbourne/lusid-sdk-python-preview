@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3592",
+    "version": "0.11.3593",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:39171"
+      "url": "http://local-unit-test-server.lusid.com:60202"
     }
   ],
   "paths": {
@@ -18870,10 +18870,18 @@
                           "code": "EXEC0000456"
                         }
                       ],
-                      "ordered": 1500,
-                      "placed": 1250,
-                      "allocated": 1100,
-                      "executed": 800,
+                      "ordered": {
+                        "quantity": 1500
+                      },
+                      "placed": {
+                        "quantity": 1250
+                      },
+                      "allocated": {
+                        "quantity": 1100
+                      },
+                      "executed": {
+                        "quantity": 800
+                      },
                       "derivedState": "In progress"
                     }
                   ],
@@ -18967,10 +18975,18 @@
                           "code": "EXEC0000456"
                         }
                       ],
-                      "ordered": 1500,
-                      "placed": 1250,
-                      "allocated": 1100,
-                      "executed": 800,
+                      "ordered": {
+                        "quantity": 1500
+                      },
+                      "placed": {
+                        "quantity": 1250
+                      },
+                      "allocated": {
+                        "quantity": 1100
+                      },
+                      "executed": {
+                        "quantity": 800
+                      },
                       "derivedState": "In progress"
                     }
                   ],
@@ -19064,10 +19080,18 @@
                           "code": "EXEC0000456"
                         }
                       ],
-                      "ordered": 1500,
-                      "placed": 1250,
-                      "allocated": 1100,
-                      "executed": 800,
+                      "ordered": {
+                        "quantity": 1500
+                      },
+                      "placed": {
+                        "quantity": 1250
+                      },
+                      "allocated": {
+                        "quantity": 1100
+                      },
+                      "executed": {
+                        "quantity": 800
+                      },
                       "derivedState": "In progress"
                     }
                   ],
@@ -70679,28 +70703,34 @@
             "description": "Identifiers of all executions against placements in the block."
           },
           "ordered": {
-            "type": "number",
-            "description": "Total number of units of the instrument across all orders in the block.",
-            "format": "double"
+            "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "placed": {
-            "type": "number",
-            "description": "Number of units of the instrument across all placements in the block.",
-            "format": "double"
+            "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "allocated": {
-            "type": "number",
-            "description": "Number of units of the instrument across all allocations in the block.",
-            "format": "double"
+            "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "executed": {
-            "type": "number",
-            "description": "How many of the quantity ordered for this block have been executed in the market.",
-            "format": "double"
+            "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "derivedState": {
             "type": "string",
             "description": "A simple description of the overall state of a block."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphSynopsis": {
+        "required": [
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units.",
+            "format": "double"
           }
         },
         "additionalProperties": false
