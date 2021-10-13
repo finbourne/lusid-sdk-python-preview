@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3599",
+    "version": "0.11.3600",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:42423"
     }
   ],
   "paths": {
@@ -57915,7 +57915,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/VersionedResourceListOfPortfolioHolding"
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfPortfolioHolding"
                 },
                 "example": {
                   "version": {
@@ -58008,7 +58008,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VersionedResourceListOfPortfolioHolding"
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfPortfolioHolding"
                 },
                 "example": {
                   "version": {
@@ -58101,7 +58101,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VersionedResourceListOfPortfolioHolding"
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfPortfolioHolding"
                 },
                 "example": {
                   "version": {
@@ -79421,6 +79421,57 @@
         },
         "additionalProperties": false
       },
+      "VersionedResourceListWithWarningsOfPortfolioHolding": {
+        "required": [
+          "values",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioHolding"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "VersionSummaryDto": {
         "type": "object",
         "properties": {
@@ -79443,6 +79494,22 @@
             },
             "description": "Collection of links.",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Warning": {
+        "required": [
+          "entityId",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -79568,7 +79635,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
