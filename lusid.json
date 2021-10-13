@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3605",
+    "version": "0.11.3603",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60292"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -40165,10 +40165,7 @@
                               "supplier": "Lusid",
                               "modelName": "Discounting",
                               "instrumentType": "Bond",
-                              "parameters": "",
-                              "modelOptions": {
-                                "modelOptionsType": "EmptyModelOptions"
-                              }
+                              "parameters": ""
                             }
                           ],
                           "modelChoice": {},
@@ -40307,10 +40304,7 @@
                               "supplier": "Lusid",
                               "modelName": "Discounting",
                               "instrumentType": "Bond",
-                              "parameters": "",
-                              "modelOptions": {
-                                "modelOptionsType": "EmptyModelOptions"
-                              }
+                              "parameters": ""
                             }
                           ],
                           "modelChoice": {},
@@ -40449,10 +40443,7 @@
                               "supplier": "Lusid",
                               "modelName": "Discounting",
                               "instrumentType": "Bond",
-                              "parameters": "",
-                              "modelOptions": {
-                                "modelOptionsType": "EmptyModelOptions"
-                              }
+                              "parameters": ""
                             }
                           ],
                           "modelChoice": {},
@@ -40682,10 +40673,7 @@
                           "supplier": "Lusid",
                           "modelName": "Discounting",
                           "instrumentType": "Bond",
-                          "parameters": "",
-                          "modelOptions": {
-                            "modelOptionsType": "EmptyModelOptions"
-                          }
+                          "parameters": ""
                         }
                       ],
                       "modelChoice": {},
@@ -40754,10 +40742,7 @@
                           "supplier": "Lusid",
                           "modelName": "Discounting",
                           "instrumentType": "Bond",
-                          "parameters": "",
-                          "modelOptions": {
-                            "modelOptionsType": "EmptyModelOptions"
-                          }
+                          "parameters": ""
                         }
                       ],
                       "modelChoice": {},
@@ -40826,10 +40811,7 @@
                           "supplier": "Lusid",
                           "modelName": "Discounting",
                           "instrumentType": "Bond",
-                          "parameters": "",
-                          "modelOptions": {
-                            "modelOptionsType": "EmptyModelOptions"
-                          }
+                          "parameters": ""
                         }
                       ],
                       "modelChoice": {},
@@ -66208,30 +66190,6 @@
         ],
         "description": "A curve containing discount factors and dates to which they apply"
       },
-      "EmptyModelOptions": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ModelOptions"
-          },
-          {
-            "required": [
-              "modelOptionsType"
-            ],
-            "type": "object",
-            "properties": {
-              "modelOptionsType": {
-                "enum": [
-                  "Invalid",
-                  "OpaqueModelOptions",
-                  "EmptyModelOptions"
-                ],
-                "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
-              }
-            }
-          }
-        ]
-      },
       "Equity": {
         "allOf": [
           {
@@ -70587,35 +70545,6 @@
         },
         "additionalProperties": false
       },
-      "ModelOptions": {
-        "required": [
-          "modelOptionsType"
-        ],
-        "type": "object",
-        "properties": {
-          "modelOptionsType": {
-            "enum": [
-              "Invalid",
-              "OpaqueModelOptions",
-              "EmptyModelOptions"
-            ],
-            "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
-          }
-        },
-        "additionalProperties": false,
-        "discriminator": {
-          "propertyName": "modelOptionsType"
-        }
-      },
-      "ModelOptionsType": {
-        "enum": [
-          "Invalid",
-          "OpaqueModelOptions",
-          "EmptyModelOptions"
-        ],
-        "type": "string"
-      },
       "ModelSelection": {
         "required": [
           "library",
@@ -70760,38 +70689,6 @@
           }
         ],
         "description": "A representation of an un-built piece of complex market data, to allow for passing through\r\nto the vendor library for building.\r\nThe market data will usually be in some standard form such as XML or Json, representing a curve or surface."
-      },
-      "OpaqueModelOptions": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ModelOptions"
-          },
-          {
-            "required": [
-              "data",
-              "modelOptionsType"
-            ],
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "object",
-                  "additionalProperties": false
-                }
-              },
-              "modelOptionsType": {
-                "enum": [
-                  "Invalid",
-                  "OpaqueModelOptions",
-                  "EmptyModelOptions"
-                ],
-                "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
-              }
-            }
-          }
-        ]
       },
       "OperandType": {
         "enum": [
@@ -79345,6 +79242,7 @@
         "required": [
           "instrumentType",
           "modelName",
+          "parameters",
           "supplier"
         ],
         "type": "object",
@@ -79370,11 +79268,7 @@
           },
           "parameters": {
             "type": "string",
-            "description": "THIS FIELD IS DEPRECATED - use ModelOptions\r\nThe set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.\r\nNote that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is\r\nbetter understood.",
-            "nullable": true
-          },
-          "modelOptions": {
-            "$ref": "#/components/schemas/ModelOptions"
+            "description": "The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.\r\nNote that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is\r\nbetter understood."
           }
         },
         "additionalProperties": false,
@@ -79747,7 +79641,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
