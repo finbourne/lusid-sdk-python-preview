@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3615",
+    "version": "0.11.3612",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:44717"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -5682,299 +5682,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetComplexMarketDataResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/compliance": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.",
-        "description": "Use this endpoint to fetch a list of all historical compliance runs.",
-        "operationId": "ListComplianceRuns",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "type": "string",
-              "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The List of all compliance runs completed",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/compliance/{runId}": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.",
-        "description": "Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown\r\nof the passing state of each rule, portfolio combination.",
-        "operationId": "GetComplianceRun",
-        "parameters": [
-          {
-            "name": "runId",
-            "in": "path",
-            "description": "The unique identifier of the compliance run requested.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier of the compliance run requested."
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "type": "string",
-              "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The details of a specific compliance run",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
-                  "links": []
                 }
               }
             }
@@ -38097,7 +37804,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns",
+        "summary": "[EXPERIMENTAL] GetPortfolioAggregatedReturns: Aggregated Returns",
         "description": "Aggregate Returns which are on the specified portfolio.",
         "operationId": "GetPortfolioAggregatedReturns",
         "parameters": [
@@ -38343,7 +38050,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete": {
@@ -38351,7 +38058,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EARLY ACCESS] DeletePortfolioReturns: Delete Returns",
+        "summary": "[EXPERIMENTAL] DeletePortfolioReturns: Delete Returns",
         "description": "Cancel one or more Returns which exist into the specified portfolio.",
         "operationId": "DeletePortfolioReturns",
         "parameters": [
@@ -38489,7 +38196,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated": {
@@ -64454,47 +64161,6 @@
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of complex market data such as an interest rate curve or volatility surface."
       },
-      "ComplianceRuleResult": {
-        "required": [
-          "passed",
-          "portfolio",
-          "ruleId"
-        ],
-        "type": "object",
-        "properties": {
-          "ruleId": {
-            "type": "string",
-            "description": "The unique identifierof a compliance rule"
-          },
-          "portfolio": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "passed": {
-            "type": "boolean",
-            "description": "The result of an individual compliance run, true if passed"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ComplianceRun": {
-        "required": [
-          "asAt",
-          "runId"
-        ],
-        "type": "object",
-        "properties": {
-          "runId": {
-            "type": "string",
-            "description": "The unique identifier of a compliance run"
-          },
-          "asAt": {
-            "type": "string",
-            "description": "The date at time at which the compliance run was run",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
       "ConfigurationRecipe": {
         "required": [
           "code",
@@ -72339,88 +72005,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Calendar"
-            },
-            "description": "The resources to list."
-          },
-          "href": {
-            "type": "string",
-            "description": "The URI of the resource list.",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A paginated list of resource that can be returned from a request."
-      },
-      "PagedResourceListOfComplianceRuleResult": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results.",
-            "nullable": true
-          },
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComplianceRuleResult"
-            },
-            "description": "The resources to list."
-          },
-          "href": {
-            "type": "string",
-            "description": "The URI of the resource list.",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A paginated list of resource that can be returned from a request."
-      },
-      "PagedResourceListOfComplianceRun": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results.",
-            "nullable": true
-          },
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComplianceRun"
             },
             "description": "The resources to list."
           },
@@ -80707,7 +80291,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
@@ -80741,10 +80325,6 @@
     {
       "name": "Complex Market Data",
       "description": "Methods for the storage and retrieval of complex market data documents."
-    },
-    {
-      "name": "Compliance",
-      "description": "Methods for storage and retrieval of Compliance runs"
     },
     {
       "name": "Configuration Recipe",
@@ -80920,7 +80500,6 @@
       "Blocks",
       "Calendars",
       "Complex Market Data",
-      "Compliance",
       "Configuration Recipe",
       "Conventions",
       "Corporate Action Sources",

@@ -9,7 +9,6 @@ from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.blocks_api import BlocksApi
 from lusid.api.calendars_api import CalendarsApi
 from lusid.api.complex_market_data_api import ComplexMarketDataApi
-from lusid.api.compliance_api import ComplianceApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
 from lusid.api.conventions_api import ConventionsApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
