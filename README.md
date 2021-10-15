@@ -8,7 +8,7 @@ This is the Python Preview SDK for [LUSID by FINBOURNE](https://www.finbourne.co
 The PyPi package for the LUSID SDK can installed using the following:
 
 ```
-pip install lusid-sdk-preview finbourne-sdk-utilities
+pip install lusid-sdk-preview
 ```
 
 We publish two versions of the Python SDK:
