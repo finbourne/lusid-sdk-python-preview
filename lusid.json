@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3617",
+    "version": "0.11.3618",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:52420"
+      "url": "http://local-unit-test-server.lusid.com:64306"
     }
   ],
   "paths": {
@@ -68656,6 +68656,11 @@
                 "type": "string",
                 "description": "The fixing date.",
                 "format": "date-time"
+              },
+              "settlementCcy": {
+                "type": "string",
+                "description": "The settlement currency.\r\nIf provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
