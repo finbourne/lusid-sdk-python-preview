@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3626",
+    "version": "0.11.3627",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:55270"
     }
   ],
   "paths": {
@@ -10614,7 +10614,7 @@
                 "typeValueRange": "Open",
                 "displayName": "My data format",
                 "description": "Data type description",
-                "valueType": "Decimal",
+                "valueType": "String",
                 "unitSchema": "Basic",
                 "acceptableUnits": [
                   {
@@ -10632,7 +10632,37 @@
                     "displayName": "Cherry",
                     "description": "A quantity of cherries"
                   }
-                ]
+                ],
+                "referenceData": {
+                  "fieldDefinitions": [
+                    {
+                      "key": "english_short_name",
+                      "isRequired": true,
+                      "isUnique": true
+                    },
+                    {
+                      "key": "continent",
+                      "isRequired": true,
+                      "isUnique": false
+                    }
+                  ],
+                  "values": [
+                    {
+                      "value": "FRA",
+                      "fields": {
+                        "english_short_name": "France",
+                        "continent": "Europe"
+                      }
+                    },
+                    {
+                      "value": "DEU",
+                      "fields": {
+                        "english_short_name": "Germany",
+                        "continent": "Europe"
+                      }
+                    }
+                  ]
+                }
               }
             },
             "application/json": {
@@ -10645,7 +10675,7 @@
                 "typeValueRange": "Open",
                 "displayName": "My data format",
                 "description": "Data type description",
-                "valueType": "Decimal",
+                "valueType": "String",
                 "unitSchema": "Basic",
                 "acceptableUnits": [
                   {
@@ -10663,7 +10693,37 @@
                     "displayName": "Cherry",
                     "description": "A quantity of cherries"
                   }
-                ]
+                ],
+                "referenceData": {
+                  "fieldDefinitions": [
+                    {
+                      "key": "english_short_name",
+                      "isRequired": true,
+                      "isUnique": true
+                    },
+                    {
+                      "key": "continent",
+                      "isRequired": true,
+                      "isUnique": false
+                    }
+                  ],
+                  "values": [
+                    {
+                      "value": "FRA",
+                      "fields": {
+                        "english_short_name": "France",
+                        "continent": "Europe"
+                      }
+                    },
+                    {
+                      "value": "DEU",
+                      "fields": {
+                        "english_short_name": "Germany",
+                        "continent": "Europe"
+                      }
+                    }
+                  ]
+                }
               }
             },
             "text/json": {
@@ -10676,7 +10736,7 @@
                 "typeValueRange": "Open",
                 "displayName": "My data format",
                 "description": "Data type description",
-                "valueType": "Decimal",
+                "valueType": "String",
                 "unitSchema": "Basic",
                 "acceptableUnits": [
                   {
@@ -10694,7 +10754,37 @@
                     "displayName": "Cherry",
                     "description": "A quantity of cherries"
                   }
-                ]
+                ],
+                "referenceData": {
+                  "fieldDefinitions": [
+                    {
+                      "key": "english_short_name",
+                      "isRequired": true,
+                      "isUnique": true
+                    },
+                    {
+                      "key": "continent",
+                      "isRequired": true,
+                      "isUnique": false
+                    }
+                  ],
+                  "values": [
+                    {
+                      "value": "FRA",
+                      "fields": {
+                        "english_short_name": "France",
+                        "continent": "Europe"
+                      }
+                    },
+                    {
+                      "value": "DEU",
+                      "fields": {
+                        "english_short_name": "Germany",
+                        "continent": "Europe"
+                      }
+                    }
+                  ]
+                }
               }
             },
             "application/*+json": {
@@ -10707,7 +10797,7 @@
                 "typeValueRange": "Open",
                 "displayName": "My data format",
                 "description": "Data type description",
-                "valueType": "Decimal",
+                "valueType": "String",
                 "unitSchema": "Basic",
                 "acceptableUnits": [
                   {
@@ -10725,7 +10815,37 @@
                     "displayName": "Cherry",
                     "description": "A quantity of cherries"
                   }
-                ]
+                ],
+                "referenceData": {
+                  "fieldDefinitions": [
+                    {
+                      "key": "english_short_name",
+                      "isRequired": true,
+                      "isUnique": true
+                    },
+                    {
+                      "key": "continent",
+                      "isRequired": true,
+                      "isUnique": false
+                    }
+                  ],
+                  "values": [
+                    {
+                      "value": "FRA",
+                      "fields": {
+                        "english_short_name": "France",
+                        "continent": "Europe"
+                      }
+                    },
+                    {
+                      "value": "DEU",
+                      "fields": {
+                        "english_short_name": "Germany",
+                        "continent": "Europe"
+                      }
+                    }
+                  ]
+                }
               }
             }
           }
@@ -65205,6 +65325,9 @@
             },
             "description": "The definitions of the acceptable units.",
             "nullable": true
+          },
+          "referenceData": {
+            "$ref": "#/components/schemas/ReferenceData"
           }
         },
         "additionalProperties": false
@@ -66673,6 +66796,9 @@
             },
             "nullable": true
           },
+          "referenceData": {
+            "$ref": "#/components/schemas/ReferenceData"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -67938,6 +68064,29 @@
         },
         "additionalProperties": false
       },
+      "FieldDefinition": {
+        "required": [
+          "isRequired",
+          "isUnique",
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string"
+          },
+          "isRequired": {
+            "type": "boolean"
+          },
+          "isUnique": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "FieldSchema": {
         "type": "object",
         "properties": {
@@ -67981,6 +68130,30 @@
           "displayOrder": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldValue": {
+        "required": [
+          "fields",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string"
+          },
+          "fields": {
+            "maxLength": 10,
+            "minLength": 1,
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -75241,6 +75414,28 @@
         },
         "additionalProperties": false
       },
+      "ReferenceData": {
+        "required": [
+          "fieldDefinitions",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "fieldDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldDefinition"
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReferencePortfolioConstituent": {
         "required": [
           "currency",
@@ -80712,7 +80907,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
