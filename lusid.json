@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3633",
+    "version": "0.11.3634",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:53528"
     }
   ],
   "paths": {
@@ -54525,6 +54525,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 128347,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54585,6 +54589,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54645,6 +54653,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54705,6 +54717,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54765,6 +54781,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54825,6 +54845,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54885,6 +54909,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54945,6 +54973,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -54985,6 +55017,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 63890.34,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55024,6 +55060,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 16744.39,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -55085,6 +55125,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55145,6 +55189,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55184,6 +55232,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 77652.81,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -55225,6 +55277,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55263,6 +55319,10 @@
                         "currency": "USD"
                       },
                       "costBasisReportingCurrency": {
+                        "amount": 10000,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
                       }
@@ -55315,6 +55375,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 128347,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55375,6 +55439,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55435,6 +55503,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55495,6 +55567,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55555,6 +55631,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55615,6 +55695,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55675,6 +55759,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55735,6 +55823,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55775,6 +55867,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 63890.34,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55814,6 +55910,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 16744.39,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -55875,6 +55975,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55935,6 +56039,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -55974,6 +56082,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 77652.81,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -56015,6 +56127,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56053,6 +56169,10 @@
                         "currency": "USD"
                       },
                       "costBasisReportingCurrency": {
+                        "amount": 10000,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
                       }
@@ -56105,6 +56225,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 128347,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56165,6 +56289,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56225,6 +56353,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56285,6 +56417,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56345,6 +56481,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56405,6 +56545,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56465,6 +56609,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56525,6 +56673,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56565,6 +56717,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 63890.34,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56604,6 +56760,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 16744.39,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -56665,6 +56825,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56725,6 +56889,10 @@
                         "properties": {},
                         "source": "",
                         "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56764,6 +56932,10 @@
                       },
                       "costBasisReportingCurrency": {
                         "amount": 77652.81,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
                         "currency": "USD"
                       }
                     },
@@ -56805,6 +56977,10 @@
                       "costBasisReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
+                        "amount": 0,
+                        "currency": "USD"
                       }
                     },
                     {
@@ -56843,6 +57019,10 @@
                         "currency": "USD"
                       },
                       "costBasisReportingCurrency": {
+                        "amount": 10000,
+                        "currency": "USD"
+                      },
+                      "unrealisedGainLossReportingCurrency": {
                         "amount": 10000,
                         "currency": "USD"
                       }
@@ -73827,7 +74007,8 @@
           "movementName",
           "sequenceNumber",
           "translationGainLoss",
-          "type"
+          "type",
+          "unrealisedGainLossReportingCurrency"
         ],
         "type": "object",
         "properties": {
@@ -73887,6 +74068,9 @@
           },
           "transaction": {
             "$ref": "#/components/schemas/Transaction"
+          },
+          "unrealisedGainLossReportingCurrency": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "links": {
             "type": "array",
@@ -80907,7 +81091,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
