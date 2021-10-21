@@ -68,7 +68,8 @@ class ApiClient(object):
     _pool = None
 
     def __init__(self, configuration=None, header_name=None, header_value=None,
-                 cookie=None, pool_threads=1, flag_to_use_decimal =False):
+                 cookie=None, pool_threads=1, flag_to_use_decimal =True):
+
         if configuration is None:
             configuration = Configuration.get_default_copy()
         self.configuration = configuration
@@ -300,7 +301,7 @@ class ApiClient(object):
         """
         if data is None:
             return None
-        
+
         if self.flag_to_use_decimal:
             self.NATIVE_TYPES_MAPPING['float'] = Decimal
 
@@ -624,7 +625,7 @@ class ApiClient(object):
         """
 
 
-        if type(klass) is float and self.flag_to_use_decimal and len(get_floating_part(data)) > 15:
+        if type(klass) is Decimal and self.flag_to_use_decimal and len(get_floating_part(data)) > 15:
             return decimal(data)
         else:
             try:
