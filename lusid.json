@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3638",
+    "version": "0.11.3639",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54254"
+      "url": "http://local-unit-test-server.lusid.com:50466"
     }
   ],
   "paths": {
@@ -12796,6 +12796,17 @@
               "nullable": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "description": "Optionally provide the filename of an alternative to the default fees file ({fees.csv})\r\n            in your {fees-and-commissions} Drive folder, to support different fee structures.\r\n            For example, you might use one to understand the effect of different fees when considering a change in broker.",
+            "schema": {
+              "pattern": "^[A-Za-z0-9_\\-\\.]+[A-Za-z0-9_\\-\\. ]*$",
+              "type": "string",
+              "description": "Optionally provide the filename of an alternative to the default fees file ({fees.csv})\r\n            in your {fees-and-commissions} Drive folder, to support different fee structures.\r\n            For example, you might use one to understand the effect of different fees when considering a change in broker.",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -13042,6 +13053,17 @@
               "nullable": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "description": "Optionally provide the filename of an alternative to the default fees file ({fees.csv})\r\n            in your Drive {fees-and-commissions} folder, to support different fee structures.\r\n            For example, you might use one to understand the effect of different fees when considering a change in broker.",
+            "schema": {
+              "pattern": "^[A-Za-z0-9_\\-\\.]+[A-Za-z0-9_\\-\\. ]*$",
+              "type": "string",
+              "description": "Optionally provide the filename of an alternative to the default fees file ({fees.csv})\r\n            in your Drive {fees-and-commissions} folder, to support different fee structures.\r\n            For example, you might use one to understand the effect of different fees when considering a change in broker.",
+              "nullable": true
+            }
           }
         ],
         "responses": {
