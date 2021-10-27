@@ -85,6 +85,9 @@ class ApiClient(object):
         self.client_side_validation = configuration.client_side_validation
         self.flag_to_use_decimal = flag_to_use_decimal
 
+        if self.flag_to_use_decimal:
+            self.NATIVE_TYPES_MAPPING['float'] = Decimal
+
 
     def __enter__(self):
         return self
@@ -284,9 +287,19 @@ class ApiClient(object):
 
         # fetch data from response object
         if self.flag_to_use_decimal:
-            data = json.loads(response.data, parse_float = Decimal)
+            try:
+               data = json.loads(response.data, parse_float = Decimal)
+            except ValueError:
+                data= response.data
         else:
-             data = json.loads(response.data)
+            try:
+                data = json.loads(response.data)
+            except ValueError:
+                data = response.data
+
+
+
+
 
 
         return self.__deserialize(data, response_type)
@@ -302,8 +315,6 @@ class ApiClient(object):
         if data is None:
             return None
 
-        if self.flag_to_use_decimal:
-            self.NATIVE_TYPES_MAPPING['float'] = Decimal
 
         if type(klass) == str:
             if klass.startswith('list['):
@@ -610,8 +621,9 @@ class ApiClient(object):
             f.write(response.data)
 
         return path
-
-    def get_floating_part(self,data):
+    @staticmethod
+    def __get_floating_part(self,data):
+        """ Returns floating part of a float."""
         remainder = data % 1
         return remainder
 

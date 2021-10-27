@@ -6,12 +6,8 @@ import pytz
 import uuid
 
 import lusid
-import lusid.models as models
-from lusidfeature import lusid_feature
 
 from lusid.utilities.api_client_builder import ApiClientBuilder
-from utilities.instrument_loader import InstrumentLoader
-from utilities.test_data_utilities import TestDataUtilities
 from utilities.credentials_source import CredentialsSource
 
 
