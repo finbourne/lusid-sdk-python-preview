@@ -25,7 +25,6 @@ from decimal import Decimal
 # python 2 and python 3 compatibility library
 import six
 from six.moves.urllib.parse import quote
-
 from lusid.configuration import Configuration
 import lusid.models
 from lusid import rest
@@ -286,20 +285,13 @@ class ApiClient(object):
 
 
         # fetch data from response object
-        if self.flag_to_use_decimal:
-            try:
-               data = json.loads(response.data, parse_float = Decimal)
-            except ValueError:
-                data= response.data
-        else:
-            try:
+        try:
+            if self.flag_to_use_decimal:
+                data = json.loads(response.data, parse_float = Decimal)
+            else:
                 data = json.loads(response.data)
-            except ValueError:
-                data = response.data
-
-
-
-
+        except ValueError:
+            data = response.data
 
 
         return self.__deserialize(data, response_type)
@@ -621,8 +613,9 @@ class ApiClient(object):
             f.write(response.data)
 
         return path
+
     @staticmethod
-    def __get_floating_part(self,data):
+    def __get_floating_part(data):
         """ Returns floating part of a float."""
         remainder = data % 1
         return remainder
@@ -637,8 +630,8 @@ class ApiClient(object):
         """
 
 
-        if type(klass) is Decimal and self.flag_to_use_decimal and len(get_floating_part(data)) > 15:
-            return decimal(data)
+        if type(klass) is Decimal and self.flag_to_use_decimal and len(self.__get_floating_part(data)) > 15:
+            return Decimal(data)
         else:
             try:
                 return klass(data)
