@@ -630,7 +630,7 @@ class ApiClient(object):
         """
 
 
-        if type(klass) is Decimal and self.flag_to_use_decimal and len(self.__get_floating_part(data)) > 15:
+        if type(klass) is Decimal and self.flag_to_use_decimal:
             return Decimal(data)
         else:
             try:
