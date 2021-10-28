@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3657",
+    "version": "0.11.3659",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:45241"
     }
   ],
   "paths": {
@@ -41043,7 +41043,8 @@
                               "parameters": "",
                               "modelOptions": {
                                 "modelOptionsType": "EmptyModelOptions"
-                              }
+                              },
+                              "instrumentId": ""
                             }
                           ],
                           "modelChoice": {},
@@ -41185,7 +41186,8 @@
                               "parameters": "",
                               "modelOptions": {
                                 "modelOptionsType": "EmptyModelOptions"
-                              }
+                              },
+                              "instrumentId": ""
                             }
                           ],
                           "modelChoice": {},
@@ -41327,7 +41329,8 @@
                               "parameters": "",
                               "modelOptions": {
                                 "modelOptionsType": "EmptyModelOptions"
-                              }
+                              },
+                              "instrumentId": ""
                             }
                           ],
                           "modelChoice": {},
@@ -41560,7 +41563,8 @@
                           "parameters": "",
                           "modelOptions": {
                             "modelOptionsType": "EmptyModelOptions"
-                          }
+                          },
+                          "instrumentId": ""
                         }
                       ],
                       "modelChoice": {},
@@ -41632,7 +41636,8 @@
                           "parameters": "",
                           "modelOptions": {
                             "modelOptionsType": "EmptyModelOptions"
-                          }
+                          },
+                          "instrumentId": ""
                         }
                       ],
                       "modelChoice": {},
@@ -41704,7 +41709,8 @@
                           "parameters": "",
                           "modelOptions": {
                             "modelOptionsType": "EmptyModelOptions"
-                          }
+                          },
+                          "instrumentId": ""
                         }
                       ],
                       "modelChoice": {},
@@ -66705,10 +66711,11 @@
                 "enum": [
                   "Invalid",
                   "OpaqueModelOptions",
-                  "EmptyModelOptions"
+                  "EmptyModelOptions",
+                  "IndexModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
               }
             }
           }
@@ -69702,6 +69709,41 @@
         "additionalProperties": false,
         "description": "A set of conventions that describe the conventions for calculation of payments made on rates interbank lending and similar.\r\nBased on ISDA 2006 conventions and similar documentation. Please see the knowledge base for further documentation."
       },
+      "IndexModelOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "modelOptionsType",
+              "portfolioScaling"
+            ],
+            "type": "object",
+            "properties": {
+              "portfolioScaling": {
+                "enum": [
+                  "Sum",
+                  "AbsoluteSum",
+                  "Unity"
+                ],
+                "type": "string",
+                "description": "The available values are: Sum, AbsoluteSum, Unity"
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions"
+                ],
+                "type": "string",
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+              }
+            }
+          }
+        ]
+      },
       "IndustryClassifier": {
         "required": [
           "classificationCode",
@@ -71101,10 +71143,11 @@
             "enum": [
               "Invalid",
               "OpaqueModelOptions",
-              "EmptyModelOptions"
+              "EmptyModelOptions",
+              "IndexModelOptions"
             ],
             "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
+            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
           }
         },
         "additionalProperties": false,
@@ -71116,7 +71159,8 @@
         "enum": [
           "Invalid",
           "OpaqueModelOptions",
-          "EmptyModelOptions"
+          "EmptyModelOptions",
+          "IndexModelOptions"
         ],
         "type": "string"
       },
@@ -71288,10 +71332,11 @@
                 "enum": [
                   "Invalid",
                   "OpaqueModelOptions",
-                  "EmptyModelOptions"
+                  "EmptyModelOptions",
+                  "IndexModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
               }
             }
           }
@@ -77472,6 +77517,14 @@
         },
         "additionalProperties": false
       },
+      "ScalingMethodology": {
+        "enum": [
+          "Sum",
+          "AbsoluteSum",
+          "Unity"
+        ],
+        "type": "string"
+      },
       "Schema": {
         "type": "object",
         "properties": {
@@ -78366,7 +78419,6 @@
         "required": [
           "description",
           "transactionClass",
-          "transactionGroup",
           "transactionRoles",
           "type"
         ],
@@ -78386,7 +78438,16 @@
           },
           "transactionGroup": {
             "type": "string",
-            "description": "Group is a set of codes related to a source, or sync"
+            "description": "Group is a set of codes related to a source, or sync. DEPRECATED: This field will be removed, use `Source` instead",
+            "nullable": true
+          },
+          "source": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "Used to group a set of transaction types",
+            "nullable": true
           },
           "transactionRoles": {
             "enum": [
@@ -79998,6 +80059,11 @@
           },
           "modelOptions": {
             "$ref": "#/components/schemas/ModelOptions"
+          },
+          "instrumentId": {
+            "type": "string",
+            "description": "This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument\r\nspecified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling\r\nmethodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one\r\nset but desired in general.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -80370,7 +80436,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
