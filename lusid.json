@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3661",
+    "version": "0.11.3662",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33498"
+      "url": "http://local-unit-test-server.lusid.com:34588"
     }
   ],
   "paths": {
@@ -5252,7 +5252,7 @@
         },
         "responses": {
           "200": {
-            "description": "The successfully updated or inserted StructuredMarketData along with any failures",
+            "description": "The successfully updated or inserted ComplexMarketData along with any failures",
             "content": {
               "text/plain": {
                 "schema": {
@@ -64135,21 +64135,21 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "The platform or vendor that provided the structured market data, e.g. 'DataScope', 'LUSID', 'ISDA' etc."
+            "description": "The platform or vendor that provided the complex market data, e.g. 'DataScope', 'LUSID', 'ISDA' etc."
           },
           "priceSource": {
             "type": "string",
-            "description": "The source or originator of the structured market data, e.g. a bank or financial institution.",
+            "description": "The source or originator of the complex market data, e.g. a bank or financial institution.",
             "nullable": true
           },
           "lineage": {
             "type": "string",
-            "description": "Description of the structured market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+            "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
             "nullable": true
           },
           "effectiveAt": {
             "type": "string",
-            "description": "The effectiveAt or cut label that this item of structured market data is/was updated/inserted with.",
+            "description": "The effectiveAt or cut label that this item of complex market data is/was updated/inserted with.",
             "format": "dateorcutlabel",
             "nullable": true
           },
@@ -77930,7 +77930,7 @@
           },
           "effectiveAt": {
             "type": "string",
-            "description": "The effectiveAt or cut label that this item of structured market data is/was updated/inserted with.",
+            "description": "The effectiveAt or cut label that this item of structured result data is/was updated/inserted with.",
             "format": "dateorcutlabel",
             "nullable": true
           },
