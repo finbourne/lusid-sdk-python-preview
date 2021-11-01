@@ -41,11 +41,14 @@ class ApiConfiguration:
             :param url: The url to format
             :return: An Okta token url (if the input is an Okta issuer url). The original url otherwise.
             """
-            if url is not None and re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', url,
-                                             flags=re.IGNORECASE) is not None:
-                if re.search('\/v\d+\/token$', url, flags=re.IGNORECASE) is None:
-                    return url.rstrip('/') + '/v1/token'
+            if (url is not None and
+                    # and it's an Okta oauth2 URL
+                    re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', url, flags=re.IGNORECASE) is not None and
+                    # and it's missing the token suffix
+                    re.search('\/v\d+\/token$', url, flags=re.IGNORECASE) is None):
+                return url.rstrip('/') + '/v1/token'
             return url
+
         self.__token_url = format_token_url(value)
 
     @property
