@@ -1,3 +1,6 @@
+import re
+
+
 class ApiConfiguration:
 
     def __init__(self, token_url=None, api_url=None, username=None, password=None, client_id=None, client_secret=None,
@@ -15,7 +18,7 @@ class ApiConfiguration:
         :param str certificate_filename: Name of the certificate file (.pem, .cer or .crt)
         :param lusid.utilities.ProxyConfig proxy_config: The proxy configuration to use
         """
-        self.__token_url = token_url
+        self.token_url = token_url
         self.__api_url = api_url
         self.__username = username
         self.__password = password
@@ -31,7 +34,15 @@ class ApiConfiguration:
 
     @token_url.setter
     def token_url(self, value):
-        self.__token_url = value
+        # Check if we are using an Okta token url
+        if value is not None and re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', value, flags=re.IGNORECASE) is not None:
+            # Check if the Okta token url is missing the proper suffix
+            if re.search('\/v\d+\/token$', value, flags=re.IGNORECASE) is None:
+                self.__token_url = value.rstrip('/') + '/v1/token'
+            else:
+                self.__token_url = value
+        else:
+            self.__token_url = value
 
     @property
     def api_url(self):
