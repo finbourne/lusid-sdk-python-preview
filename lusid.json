@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3670",
+    "version": "0.11.3671",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42844"
+      "url": "http://local-unit-test-server.lusid.com:43999"
     }
   ],
   "paths": {
@@ -10179,12 +10179,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
             "schema": {
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
               "format": "int32",
               "nullable": true
             },
@@ -15961,12 +15961,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
             "schema": {
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.",
+              "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
               "format": "int32",
               "nullable": true
             },
@@ -23551,12 +23551,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
             "schema": {
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified.",
+              "description": "When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.",
               "format": "int32",
               "nullable": true
             },
@@ -33629,12 +33629,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
             "schema": {
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
               "format": "int32",
               "nullable": true
             },
@@ -35255,12 +35255,12 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
             "schema": {
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the results to this number. Defaults to 65,535 if not specified.",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
               "format": "int32",
               "nullable": true
             },
