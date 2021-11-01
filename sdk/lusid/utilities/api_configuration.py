@@ -34,15 +34,19 @@ class ApiConfiguration:
 
     @token_url.setter
     def token_url(self, value):
-        # Check if we are using an Okta token url
-        if value is not None and re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', value, flags=re.IGNORECASE) is not None:
-            # Check if the Okta token url is missing the proper suffix
-            if re.search('\/v\d+\/token$', value, flags=re.IGNORECASE) is None:
-                self.__token_url = value.rstrip('/') + '/v1/token'
-            else:
-                self.__token_url = value
-        else:
-            self.__token_url = value
+        def format_token_url(url: str) -> str:
+            """
+            Given an Okta issuer url (ie: https://lusid-testdomain.okta.com/oauth2/asd8f7a98sdf89a7ad), this function
+            will return a full token url (ie: https://lusid-testdomain.okta.com/oauth2/asd8f7a98sdf89a7ad/v1/token)
+            :param url: The url to format
+            :return: An Okta token url (if the input is an Okta issuer url). The original url otherwise.
+            """
+            if url is not None and re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', url,
+                                             flags=re.IGNORECASE) is not None:
+                if re.search('\/v\d+\/token$', url, flags=re.IGNORECASE) is None:
+                    return url.rstrip('/') + '/v1/token'
+            return url
+        self.__token_url = format_token_url(value)
 
     @property
     def api_url(self):
