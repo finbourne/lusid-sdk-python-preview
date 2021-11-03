@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3674",
+    "version": "0.11.3675",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42122"
+      "url": "http://local-unit-test-server.lusid.com:40719"
     }
   ],
   "paths": {
@@ -19318,13 +19318,13 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "Partially placed"
                     }
                   ],
                   "links": []
@@ -19424,13 +19424,13 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "Partially placed"
                     }
                   ],
                   "links": []
@@ -19530,13 +19530,13 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "Partially placed"
                     }
                   ],
                   "links": []
@@ -71571,10 +71571,10 @@
           "placed": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
-          "allocated": {
+          "executed": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
-          "executed": {
+          "allocated": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "derivedState": {
