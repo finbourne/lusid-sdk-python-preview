@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3686",
+    "version": "0.11.3687",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:34706"
+      "url": "http://local-unit-test-server.lusid.com:46559"
     }
   ],
   "paths": {
@@ -33667,6 +33667,511 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/portfolios/$reconcileGeneric": {
+      "post": {
+        "tags": [
+          "Reconciliations"
+        ],
+        "summary": "[EXPERIMENTAL] ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.\r\n            \r\nThe output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,\r\nand elision of resulting differences where they are 'empty' or null or zero.",
+        "description": "Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.\r\nProduce a breakdown of the resulting differences in evaluation that can be iterated through.",
+        "operationId": "ReconcileGeneric",
+        "requestBody": {
+          "description": "The specifications of the inputs to the reconciliation",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReconciliationRequest"
+              },
+              "example": {
+                "left": {
+                  "recipeId": {
+                    "scope": "MySourceScope",
+                    "code": "MySourcePortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "right": {
+                  "recipeId": {
+                    "scope": "MyTargetScope",
+                    "code": "MyTargetPortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "leftToRightMapping": [],
+                "comparisonRules": [
+                  {
+                    "comparisonType": "AbsoluteDifference",
+                    "tolerance": 1.2345,
+                    "ruleType": "ReconcileNumericRule",
+                    "appliesTo": {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  }
+                ],
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReconciliationRequest"
+              },
+              "example": {
+                "left": {
+                  "recipeId": {
+                    "scope": "MySourceScope",
+                    "code": "MySourcePortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "right": {
+                  "recipeId": {
+                    "scope": "MyTargetScope",
+                    "code": "MyTargetPortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "leftToRightMapping": [],
+                "comparisonRules": [
+                  {
+                    "comparisonType": "AbsoluteDifference",
+                    "tolerance": 1.2345,
+                    "ruleType": "ReconcileNumericRule",
+                    "appliesTo": {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  }
+                ],
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReconciliationRequest"
+              },
+              "example": {
+                "left": {
+                  "recipeId": {
+                    "scope": "MySourceScope",
+                    "code": "MySourcePortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "right": {
+                  "recipeId": {
+                    "scope": "MyTargetScope",
+                    "code": "MyTargetPortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "leftToRightMapping": [],
+                "comparisonRules": [
+                  {
+                    "comparisonType": "AbsoluteDifference",
+                    "tolerance": 1.2345,
+                    "ruleType": "ReconcileNumericRule",
+                    "appliesTo": {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  }
+                ],
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReconciliationRequest"
+              },
+              "example": {
+                "left": {
+                  "recipeId": {
+                    "scope": "MySourceScope",
+                    "code": "MySourcePortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "right": {
+                  "recipeId": {
+                    "scope": "MyTargetScope",
+                    "code": "MyTargetPortfolioCode"
+                  },
+                  "asAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "metrics": [
+                    {
+                      "key": "Instrument/default/Name",
+                      "op": "Value"
+                    },
+                    {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  ],
+                  "groupBy": [
+                    "Instrument/default/Name"
+                  ],
+                  "sort": [],
+                  "reportCurrency": "USD",
+                  "equipWithSubtotals": false,
+                  "portfolioEntityIds": [
+                    {
+                      "scope": "PortfolioScope1",
+                      "code": "MyPortfolioAbC",
+                      "portfolioEntityType": "SinglePortfolio"
+                    },
+                    {
+                      "scope": "PortfolioScope2",
+                      "code": "MyPortfolioDeF",
+                      "portfolioEntityType": "SinglePortfolio"
+                    }
+                  ],
+                  "valuationSchedule": {
+                    "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "tenor": "1D",
+                    "rollConvention": "F",
+                    "holidayCalendars": [],
+                    "valuationDateTimes": []
+                  }
+                },
+                "leftToRightMapping": [],
+                "comparisonRules": [
+                  {
+                    "comparisonType": "AbsoluteDifference",
+                    "tolerance": 1.2345,
+                    "ruleType": "ReconcileNumericRule",
+                    "appliesTo": {
+                      "key": "Holding/default/PV",
+                      "op": "Sum"
+                    }
+                  }
+                ],
+                "preserveKeys": [
+                  "Instrument/default/Name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The requested reconciliation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconciliationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconciliationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconciliationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/portfolios/$reconcileholdings": {
       "post": {
         "tags": [
@@ -66434,6 +66939,14 @@
         },
         "additionalProperties": false
       },
+      "DateTimeComparisonType": {
+        "enum": [
+          "Exact",
+          "AbsoluteDifference"
+        ],
+        "type": "string",
+        "description": "Comparison types for date time data"
+      },
       "DayOfWeek": {
         "enum": [
           "Sunday",
@@ -69540,6 +70053,17 @@
         "additionalProperties": false,
         "description": "A record of holdings adjustments made on the transaction portfolio."
       },
+      "IDataRecord": {
+        "type": "object",
+        "properties": {
+          "fieldCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "IdentifierPartSchema": {
         "required": [
           "description",
@@ -71233,6 +71757,15 @@
           }
         },
         "additionalProperties": false
+      },
+      "NumericComparisonType": {
+        "enum": [
+          "Exact",
+          "AbsoluteDifference",
+          "RelativeDifference"
+        ],
+        "type": "string",
+        "description": "Comparison types for numerical data"
       },
       "OpaqueMarketData": {
         "allOf": [
@@ -74903,6 +75436,147 @@
         },
         "additionalProperties": false
       },
+      "ReconcileDateTimeRule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReconciliationRule"
+          },
+          {
+            "required": [
+              "appliesTo",
+              "comparisonType",
+              "ruleType"
+            ],
+            "type": "object",
+            "properties": {
+              "comparisonType": {
+                "enum": [
+                  "Exact",
+                  "AbsoluteDifference"
+                ],
+                "type": "string",
+                "description": "The available values are: Exact, AbsoluteDifference"
+              },
+              "tolerance": {
+                "type": "number",
+                "description": "For a numeric type only (i.e. decimal, integer, date or datetime offset possibly controversially), this is the quantity used in the comparison.\r\nThe units of the tolerance must be set appropriately for the item being compared.\r\nFor a number such as a currency or amount that will be a simple quantity, for a DateTime or DateTimeOffset it should be days. If fewer than a single day then this should be\r\npassed as a fraction.",
+                "format": "double"
+              },
+              "ruleType": {
+                "enum": [
+                  "ReconcileNumericRule",
+                  "ReconcileDateTimeRule",
+                  "ReconcileStringRule",
+                  "ReconcileExact"
+                ],
+                "type": "string",
+                "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
+              },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              }
+            }
+          }
+        ],
+        "description": "Comparison of date time values"
+      },
+      "ReconcileNumericRule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReconciliationRule"
+          },
+          {
+            "required": [
+              "appliesTo",
+              "comparisonType",
+              "ruleType"
+            ],
+            "type": "object",
+            "properties": {
+              "comparisonType": {
+                "enum": [
+                  "Exact",
+                  "AbsoluteDifference",
+                  "RelativeDifference"
+                ],
+                "type": "string",
+                "description": "The available values are: Exact, AbsoluteDifference, RelativeDifference"
+              },
+              "tolerance": {
+                "type": "number",
+                "description": "For a numeric type only (i.e. decimal, integer, date or datetime offset possibly controversially), this is the quantity used in the comparison.\r\nThe units of the tolerance must be set appropriately for the item being compared.\r\nFor a number such as a currency or amount that will be a simple quantity, for a DateTime or DateTimeOffset it should be days. If fewer than a single day then this should be\r\npassed as a fraction.",
+                "format": "double"
+              },
+              "ruleType": {
+                "enum": [
+                  "ReconcileNumericRule",
+                  "ReconcileDateTimeRule",
+                  "ReconcileStringRule",
+                  "ReconcileExact"
+                ],
+                "type": "string",
+                "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
+              },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              }
+            }
+          }
+        ]
+      },
+      "ReconcileStringRule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReconciliationRule"
+          },
+          {
+            "required": [
+              "appliesTo",
+              "comparisonType",
+              "ruleType"
+            ],
+            "type": "object",
+            "properties": {
+              "comparisonType": {
+                "enum": [
+                  "Exact",
+                  "Contains",
+                  "CaseInsensitive",
+                  "ContainsAnyCase",
+                  "IsOneOf"
+                ],
+                "type": "string",
+                "description": "The available values are: Exact, Contains, CaseInsensitive, ContainsAnyCase, IsOneOf"
+              },
+              "oneOfCandidates": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "description": "For cases of \"IsOneOf\" a set is required to match values against.\r\nFuzzy matching of strings against one of a set. There can be cases where systems \"A\" and \"B\" might use different terms for the same logical entity. A common case would be\r\ncomparison of something like a day count fraction where some convention like the \"actual 365\" convention might be represented as one of [\"A365\", \"Act365\", \"Actual365\"] or similar.\r\nThis is to allow this kind of fuzzy matching of values. Note that as this is exhaustive comparison across sets it will be slow and should therefore be used sparingly.",
+                "nullable": true
+              },
+              "ruleType": {
+                "enum": [
+                  "ReconcileNumericRule",
+                  "ReconcileDateTimeRule",
+                  "ReconcileStringRule",
+                  "ReconcileExact"
+                ],
+                "type": "string",
+                "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
+              },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              }
+            }
+          }
+        ],
+        "description": "Comparison of string values"
+      },
       "ReconciliationBreak": {
         "required": [
           "differenceCost",
@@ -74980,6 +75654,122 @@
           }
         },
         "additionalProperties": false
+      },
+      "ReconciliationLine": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "$ref": "#/components/schemas/IDataRecord"
+          },
+          "right": {
+            "$ref": "#/components/schemas/IDataRecord"
+          },
+          "difference": {
+            "$ref": "#/components/schemas/IDataRecord"
+          },
+          "resultComparison": {
+            "$ref": "#/components/schemas/IDataRecord"
+          }
+        },
+        "additionalProperties": false,
+        "description": "In evaluating a left and right hand side holding or valuation set, two data records result. These are then compared based on a set of\r\nrules. This results in either a match or failure to match. If there is a match both left and right will be present, otherwise one will not.\r\nA difference will be present if a match was calculated.\r\nThe options used in comparison may result in elision of results where an exact or tolerable match is made."
+      },
+      "ReconciliationRequest": {
+        "required": [
+          "left",
+          "right"
+        ],
+        "type": "object",
+        "properties": {
+          "left": {
+            "$ref": "#/components/schemas/ValuationRequest"
+          },
+          "right": {
+            "$ref": "#/components/schemas/ValuationRequest"
+          },
+          "leftToRightMapping": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReconciliationLeftRightAddressKeyPair"
+            },
+            "description": "The mapping from property keys requested by left aggregation to property keys on right hand side",
+            "nullable": true
+          },
+          "comparisonRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReconciliationRule"
+            },
+            "description": "The set of rules to be used in comparing values. These are the rules that determine what constitues a match.\r\nThe simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and\r\ncase-insensitive string comparison are supported amongst other types.",
+            "nullable": true
+          },
+          "preserveKeys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies a queryable address in Lusid."
+            },
+            "description": "List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping.\r\nIf two values are equal, for a given key then the value is elided from the results. Setting it here\r\nwill preserve it (takes the values from the RHS and puts it into the line by line results).",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a portfolio\r\nusing an aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based\r\ndifference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a portfolio.\r\nFor instance, one might look at the difference in risk caused by the addition of transaction to a portfolio, or through changing the valuation\r\nmethodology or system."
+      },
+      "ReconciliationResponse": {
+        "type": "object",
+        "properties": {
+          "comparisons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReconciliationLine"
+            },
+            "description": "List of comparisons of left to right hand sides.",
+            "nullable": true
+          },
+          "dataSchema": {
+            "$ref": "#/components/schemas/ResultDataSchema"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class representing the set of comparisons that result from comparing holdings and their valuations between two separate evaluations."
+      },
+      "ReconciliationRule": {
+        "required": [
+          "appliesTo",
+          "ruleType"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleType": {
+            "enum": [
+              "ReconcileNumericRule",
+              "ReconcileDateTimeRule",
+              "ReconcileStringRule",
+              "ReconcileExact"
+            ],
+            "type": "string",
+            "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
+          },
+          "appliesTo": {
+            "$ref": "#/components/schemas/AggregateSpec"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A rule describing how a comparison between two items in the reconciliation should be performed and what constitutes equality.\r\nThis does not influence WHAT constitutes a match, but only whether once a line has been matched whether an item within it matches another item.\r\nIf a rule is not given for an item, it will default to equality comparison.",
+        "discriminator": {
+          "propertyName": "reconciliationRuleType"
+        }
+      },
+      "ReconciliationRuleType": {
+        "enum": [
+          "ReconcileNumericRule",
+          "ReconcileDateTimeRule",
+          "ReconcileStringRule",
+          "ReconcileExact"
+        ],
+        "type": "string",
+        "description": "Types of available reconciliation rule."
       },
       "ReferenceData": {
         "required": [
@@ -77772,6 +78562,17 @@
         },
         "additionalProperties": false
       },
+      "StringComparisonType": {
+        "enum": [
+          "Exact",
+          "Contains",
+          "CaseInsensitive",
+          "ContainsAnyCase",
+          "IsOneOf"
+        ],
+        "type": "string",
+        "description": "Comparison types for strings"
+      },
       "StructuredResultData": {
         "required": [
           "document",
@@ -79873,7 +80674,7 @@
               "type": "string",
               "description": "The key that uniquely identifies a queryable address in Lusid."
             },
-            "description": "List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping",
+            "description": "List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping.\r\nIf two values are equal, for a given key then the value is elided from the results. Setting it here\r\nwill preserve it (takes the values from the RHS and puts it into the line by line results).",
             "nullable": true
           }
         },
