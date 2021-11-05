@@ -6,7 +6,6 @@ A rule describing how a comparison between two items in the reconciliation shoul
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rule_type** | **str** | The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact | 
-**applies_to** | [**AggregateSpec**](AggregateSpec.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

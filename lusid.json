@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3687",
+    "version": "0.11.3688",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:46559"
+      "url": "http://local-unit-test-server.lusid.com:64488"
     }
   ],
   "paths": {
@@ -33774,11 +33774,11 @@
                   {
                     "comparisonType": "AbsoluteDifference",
                     "tolerance": 1.2345,
-                    "ruleType": "ReconcileNumericRule",
                     "appliesTo": {
                       "key": "Holding/default/PV",
                       "op": "Sum"
-                    }
+                    },
+                    "ruleType": "ReconcileNumericRule"
                   }
                 ],
                 "preserveKeys": [
@@ -33882,11 +33882,11 @@
                   {
                     "comparisonType": "AbsoluteDifference",
                     "tolerance": 1.2345,
-                    "ruleType": "ReconcileNumericRule",
                     "appliesTo": {
                       "key": "Holding/default/PV",
                       "op": "Sum"
-                    }
+                    },
+                    "ruleType": "ReconcileNumericRule"
                   }
                 ],
                 "preserveKeys": [
@@ -33990,11 +33990,11 @@
                   {
                     "comparisonType": "AbsoluteDifference",
                     "tolerance": 1.2345,
-                    "ruleType": "ReconcileNumericRule",
                     "appliesTo": {
                       "key": "Holding/default/PV",
                       "op": "Sum"
-                    }
+                    },
+                    "ruleType": "ReconcileNumericRule"
                   }
                 ],
                 "preserveKeys": [
@@ -34098,11 +34098,11 @@
                   {
                     "comparisonType": "AbsoluteDifference",
                     "tolerance": 1.2345,
-                    "ruleType": "ReconcileNumericRule",
                     "appliesTo": {
                       "key": "Holding/default/PV",
                       "op": "Sum"
-                    }
+                    },
+                    "ruleType": "ReconcileNumericRule"
                   }
                 ],
                 "preserveKeys": [
@@ -75462,6 +75462,9 @@
                 "description": "For a numeric type only (i.e. decimal, integer, date or datetime offset possibly controversially), this is the quantity used in the comparison.\r\nThe units of the tolerance must be set appropriately for the item being compared.\r\nFor a number such as a currency or amount that will be a simple quantity, for a DateTime or DateTimeOffset it should be days. If fewer than a single day then this should be\r\npassed as a fraction.",
                 "format": "double"
               },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              },
               "ruleType": {
                 "enum": [
                   "ReconcileNumericRule",
@@ -75471,9 +75474,6 @@
                 ],
                 "type": "string",
                 "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
-              },
-              "appliesTo": {
-                "$ref": "#/components/schemas/AggregateSpec"
               }
             }
           }
@@ -75507,6 +75507,9 @@
                 "description": "For a numeric type only (i.e. decimal, integer, date or datetime offset possibly controversially), this is the quantity used in the comparison.\r\nThe units of the tolerance must be set appropriately for the item being compared.\r\nFor a number such as a currency or amount that will be a simple quantity, for a DateTime or DateTimeOffset it should be days. If fewer than a single day then this should be\r\npassed as a fraction.",
                 "format": "double"
               },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              },
               "ruleType": {
                 "enum": [
                   "ReconcileNumericRule",
@@ -75516,9 +75519,6 @@
                 ],
                 "type": "string",
                 "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
-              },
-              "appliesTo": {
-                "$ref": "#/components/schemas/AggregateSpec"
               }
             }
           }
@@ -75559,6 +75559,9 @@
                 "description": "For cases of \"IsOneOf\" a set is required to match values against.\r\nFuzzy matching of strings against one of a set. There can be cases where systems \"A\" and \"B\" might use different terms for the same logical entity. A common case would be\r\ncomparison of something like a day count fraction where some convention like the \"actual 365\" convention might be represented as one of [\"A365\", \"Act365\", \"Actual365\"] or similar.\r\nThis is to allow this kind of fuzzy matching of values. Note that as this is exhaustive comparison across sets it will be slow and should therefore be used sparingly.",
                 "nullable": true
               },
+              "appliesTo": {
+                "$ref": "#/components/schemas/AggregateSpec"
+              },
               "ruleType": {
                 "enum": [
                   "ReconcileNumericRule",
@@ -75568,9 +75571,6 @@
                 ],
                 "type": "string",
                 "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
-              },
-              "appliesTo": {
-                "$ref": "#/components/schemas/AggregateSpec"
               }
             }
           }
@@ -75736,7 +75736,6 @@
       },
       "ReconciliationRule": {
         "required": [
-          "appliesTo",
           "ruleType"
         ],
         "type": "object",
@@ -75750,9 +75749,6 @@
             ],
             "type": "string",
             "description": "The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact"
-          },
-          "appliesTo": {
-            "$ref": "#/components/schemas/AggregateSpec"
           }
         },
         "additionalProperties": false,
