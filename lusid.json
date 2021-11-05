@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3690",
+    "version": "0.11.3691",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32973"
+      "url": "http://local-unit-test-server.lusid.com:38633"
     }
   ],
   "paths": {
@@ -19684,10 +19684,10 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
                       "derivedState": "In progress"
@@ -19782,10 +19782,10 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
                       "derivedState": "In progress"
@@ -19880,10 +19880,10 @@
                       "placed": {
                         "quantity": 1250
                       },
-                      "allocated": {
+                      "executed": {
                         "quantity": 1100
                       },
-                      "executed": {
+                      "allocated": {
                         "quantity": 800
                       },
                       "derivedState": "In progress"
@@ -72098,10 +72098,10 @@
           "placed": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
-          "allocated": {
+          "executed": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
-          "executed": {
+          "allocated": {
             "$ref": "#/components/schemas/OrderGraphSynopsis"
           },
           "derivedState": {
