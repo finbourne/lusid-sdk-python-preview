@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3701",
+    "version": "0.11.3702",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42907"
+      "url": "http://local-unit-test-server.lusid.com:56988"
     }
   ],
   "paths": {
@@ -47919,6 +47919,100 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "System Configuration"
+        ],
+        "summary": "[EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source",
+        "description": "Returns failure if requested source is not found",
+        "operationId": "GetTransactionConfigurationSource",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "path",
+            "description": "The source for which to retrieve transaction configurations",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The source for which to retrieve transaction configurations",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the transaction configurations.\r\n            Defaults to returning the latest version of the transaction configurations if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the transaction configurations.\r\n            Defaults to returning the latest version of the transaction configurations if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSetConfigurationData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSetConfigurationData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSetConfigurationData"
                 }
               }
             }

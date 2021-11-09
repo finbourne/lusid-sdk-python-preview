@@ -1,12 +1,13 @@
 # lusid.SystemConfigurationApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:42907*
+All URIs are relative to *http://local-unit-test-server.lusid.com:56988*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_configuration_transaction_type**](SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
 [**create_side_definition**](SystemConfigurationApi.md#create_side_definition) | **POST** /api/systemconfiguration/transactions/side | [EXPERIMENTAL] CreateSideDefinition: Create side definition
 [**delete_transaction_configuration_source**](SystemConfigurationApi.md#delete_transaction_configuration_source) | **DELETE** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
+[**get_transaction_configuration_source**](SystemConfigurationApi.md#get_transaction_configuration_source) | **GET** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
 [**list_configuration_transaction_types**](SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
 [**set_configuration_transaction_types**](SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactions | [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
 
@@ -27,10 +28,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42907
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +41,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -102,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42907
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -177,10 +178,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42907
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -190,7 +191,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -236,6 +237,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_transaction_configuration_source**
+> TransactionSetConfigurationData get_transaction_configuration_source(source, as_at=as_at)
+
+[EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
+
+Returns failure if requested source is not found
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:56988"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:56988"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.SystemConfigurationApi(api_client)
+    source = 'source_example' # str | The source for which to retrieve transaction configurations
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
+        api_response = api_instance.get_transaction_configuration_source(source, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SystemConfigurationApi->get_transaction_configuration_source: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source** | **str**| The source for which to retrieve transaction configurations | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. | [optional] 
+
+### Return type
+
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_configuration_transaction_types**
 > TransactionSetConfigurationData list_configuration_transaction_types(as_at=as_at)
 
@@ -252,10 +330,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42907
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -265,7 +343,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -327,10 +405,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42907
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:56988
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -340,7 +418,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:42907"
+    host = "http://local-unit-test-server.lusid.com:56988"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
