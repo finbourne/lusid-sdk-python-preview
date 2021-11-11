@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3706",
+    "version": "0.11.3707",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -18330,6 +18330,9 @@
             "in": "query",
             "description": "The requested version of the Excel plugin",
             "schema": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^\\d+\\.\\d+(\\.)?\\d+(-[a-zA-Z0-9\\.-]{1,30})?$",
               "type": "string",
               "description": "The requested version of the Excel plugin",
               "nullable": true
@@ -25288,6 +25291,9 @@
             "description": "Key of the metadata entry to retrieve",
             "required": true,
             "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Key of the metadata entry to retrieve"
             }
@@ -62988,9 +62994,13 @@
         "type": "object",
         "properties": {
           "value": {
+            "maxLength": 2048,
+            "minLength": 0,
             "type": "string"
           },
           "provider": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }
@@ -64178,6 +64188,8 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
             "type": "string",
             "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
             "nullable": true
@@ -64560,6 +64572,8 @@
         "type": "object",
         "properties": {
           "rollFrequency": {
+            "maxLength": 16,
+            "minLength": 0,
             "type": "string",
             "description": "The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products",
             "nullable": true
@@ -64569,14 +64583,20 @@
             "description": "Currency of the flow convention."
           },
           "paymentFrequency": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment."
           },
           "dayCountConvention": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]."
           },
           "rollConvention": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
           },
@@ -64605,11 +64625,17 @@
             "format": "int32"
           },
           "scope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope used when updating or inserting the convention.",
             "nullable": true
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The code of the convention.",
             "nullable": true
@@ -65044,15 +65070,21 @@
         "type": "object",
         "properties": {
           "provider": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The platform or vendor that provided the complex market data, e.g. 'DataScope', 'LUSID', 'ISDA' etc."
           },
           "priceSource": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "The source or originator of the complex market data, e.g. a bank or financial institution.",
             "nullable": true
           },
           "lineage": {
+            "maxLength": 1024,
+            "minLength": 0,
             "type": "string",
             "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
             "nullable": true
@@ -65064,6 +65096,8 @@
             "nullable": true
           },
           "marketAsset": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The name of the market entity that the document represents",
             "nullable": true
@@ -65532,6 +65566,8 @@
             "description": "A user-defined display label for the Counterparty Agreement."
           },
           "agreementType": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "A user-defined field to capture the type of agreement this represents. Examples might be \"ISDA 2002 Master Agreement\" or \"ISDA 1992 Master Agreement\"."
           },
@@ -66717,14 +66753,20 @@
             "description": "The set of currencies within which it is acceptable to post cash collateral."
           },
           "isdaAgreementVersion": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "The transactions will take place with reference to a particular ISDA master agreement. This\r\nwill likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009."
           },
           "marginCallFrequency": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations\r\nmade and money transferred to readjust. The calculation might also require a specific time for valuation and notification."
           },
           "valuationAgent": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "Are the calculations performed by the institutions's counterparty or the institution trading with them."
           },
@@ -67164,16 +67206,23 @@
             "nullable": true
           },
           "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The name of the data item. This is the name that will appear",
             "nullable": true
           },
           "dataType": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "A member of the set of possible data types, that all data passed under that key is expected to be of.\r\nCurrently limited to one of [string, integer, decimal].",
             "nullable": true
           },
           "keyType": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual 'row' within the list of dictionaries,\r\nor a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf]",
             "nullable": true
@@ -67186,11 +67235,17 @@
         "type": "object",
         "properties": {
           "version": {
+            "maxLength": 32,
+            "minLength": 0,
+            "pattern": "^\\d+\\.\\d+(\\.)?\\d+(-[a-zA-Z0-9\\.-]{1,30})?$",
             "type": "string",
             "description": "The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version\r\nof the mappings that the client assigns it.",
             "nullable": true
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "A unique name to semantically identify the mapping set.",
             "nullable": true
@@ -68914,14 +68969,20 @@
             "description": "Currency of the flow convention."
           },
           "paymentFrequency": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment."
           },
           "dayCountConvention": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]."
           },
           "rollConvention": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
           },
@@ -68950,11 +69011,17 @@
             "format": "int32"
           },
           "scope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope used when updating or inserting the convention.",
             "nullable": true
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The code of the convention.",
             "nullable": true
@@ -70604,6 +70671,8 @@
         "type": "object",
         "properties": {
           "fixingReference": {
+            "maxLength": 64,
+            "minLength": 0,
             "type": "string",
             "description": "The reference rate name for fixings"
           },
@@ -70613,10 +70682,14 @@
             "format": "int32"
           },
           "paymentTenor": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year."
           },
           "dayCountConvention": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\n            and difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]."
           },
@@ -70625,11 +70698,17 @@
             "description": "Currency of the index convention."
           },
           "scope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope used when updating or inserting the convention.",
             "nullable": true
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The code of the convention.",
             "nullable": true
@@ -70744,6 +70823,8 @@
             "nullable": true
           },
           "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
             "type": "string",
             "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
             "nullable": true
@@ -71912,14 +71993,21 @@
         "type": "object",
         "properties": {
           "key": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)"
           },
           "supplier": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The market data supplier (where the data comes from)"
           },
           "dataScope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope in which the data should be found when using this rule."
           },
@@ -71938,10 +72026,14 @@
             "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront"
           },
           "field": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The conceptual qualification for the field, such as bid, mid, or ask.\r\nThe field must be one of a defined set for the given supplier, in the same way as it\r\nis for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId"
           },
           "quoteInterval": {
+            "maxLength": 16,
+            "minLength": 0,
             "type": "string",
             "description": "Shorthand for the time interval used to select market data. This must be a dot-separated string\r\n            nominating a start and end date, for example '5D.0D' to look back 5 days from today (0 days ago). The syntax\r\n            is <i>int</i><i>char</i>.<i>int</i><i>char</i>, where <i>char</i> is one of D(ay), W(eek), M(onth) or Y(ear).",
             "nullable": true
@@ -71953,11 +72045,16 @@
             "nullable": true
           },
           "priceSource": {
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote",
             "nullable": true
           },
           "mask": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "Allows for partial or complete override of the market asset resolved for a dependency\r\nEither a named override or a dot separated string (A.B.C.D.*).\r\ne.g. for Rates curve 'EUR.*' will replace the resolve MarketAsset 'GBP/12M', 'GBP/3M' with the EUR equivalent, if there\r\nare no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule.",
             "nullable": true
@@ -72003,16 +72100,23 @@
         "type": "object",
         "properties": {
           "defaultSupplier": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The default supplier of data. This controls which 'dialect' is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId",
             "nullable": true
           },
           "defaultInstrumentCodeType": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "When instrument quotes are searched for, what identifier should be used by default",
             "nullable": true
           },
           "defaultScope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "For default rules, which scope should data be searched for in",
             "nullable": true
@@ -72022,11 +72126,17 @@
             "description": "if true will calculate a missing Fx pair (e.g. THBJPY) from the inverse JPYTHB or from standardised pairs against USD, e.g. THBUSD and JPYUSD"
           },
           "calendarScope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope in which holiday calendars stored",
             "nullable": true
           },
           "conventionScope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope in which holiday calendars stored",
             "nullable": true
@@ -74537,16 +74647,24 @@
         "type": "object",
         "properties": {
           "scope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The scope within which the portfolio or portfolio group lives.",
             "nullable": true
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "Portfolio name or code.",
             "nullable": true
           },
           "portfolioEntityType": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "String identifier for portfolio e.g. \"SinglePortfolio\" and \"GroupPortfolio\". If not specified, it is assumed to be a single portfolio.",
             "nullable": true
@@ -75688,31 +75806,45 @@
         "type": "object",
         "properties": {
           "provider": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "description": "The platform or vendor that provided the quote, e.g. 'DataScope', 'LUSID' etc.",
             "nullable": true
           },
           "priceSource": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "The source or originator of the quote, e.g. a bank or financial institution.",
             "nullable": true
           },
           "instrumentId": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. 'BBG00JX0P539'.",
             "nullable": true
           },
           "instrumentIdType": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z]*$",
             "type": "string",
             "description": "The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. 'Figi'.",
             "nullable": true
           },
           "quoteType": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z]*$",
             "type": "string",
             "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.",
             "nullable": true
           },
           "field": {
+            "maxLength": 2048,
+            "minLength": 0,
             "type": "string",
             "description": "The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider.",
             "nullable": true
@@ -78594,22 +78726,33 @@
         "type": "object",
         "properties": {
           "resourceKey": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "The result data key that identifies the address pattern that this is a rule for"
           },
           "supplier": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "the result resource supplier (where the data comes from)"
           },
           "dataScope": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "which is the scope in which the data should be found"
           },
           "documentCode": {
+            "maxLength": 256,
+            "minLength": 1,
             "type": "string",
             "description": "document code that defines which document is desired"
           },
           "quoteInterval": {
+            "maxLength": 16,
+            "minLength": 0,
             "type": "string",
             "description": "Shorthand for the time interval used to select result data. This must be a dot-separated string\r\n            specifying a start and end date, for example '5D.0D' to look back 5 days from today (0 days ago).",
             "nullable": true
@@ -79089,20 +79232,29 @@
         "type": "object",
         "properties": {
           "documentFormat": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "The format of the accompanying document."
           },
           "version": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^\\d+\\.\\d+(\\.)?\\d+(-[a-zA-Z0-9\\.-]{1,30})?$",
             "type": "string",
             "description": "The semantic version of the document format; MAJOR.MINOR.PATCH",
             "nullable": true
           },
           "name": {
+            "maxLength": 256,
+            "minLength": 1,
             "type": "string",
             "description": "The name or description for the document",
             "nullable": true
           },
           "document": {
+            "maxLength": 256000,
+            "minLength": 0,
             "type": "string",
             "description": "The document that will be stored (or retrieved) and which describes a unit result data entity such as a set of prices or yields"
           },
@@ -79120,10 +79272,16 @@
         "type": "object",
         "properties": {
           "source": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The platform or vendor that provided the structured result data, e.g. 'client'. This is primarily of interest when data could have been sourced from multiple sources"
           },
           "code": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The identifier for the entity that this id describes. It could be an index, instrument or other form of structured data",
             "nullable": true
@@ -81085,6 +81243,8 @@
             "nullable": true
           },
           "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
             "type": "string",
             "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.\r\nIf not present, then the currency of the relevant portfolio will be used in its place.",
             "nullable": true
@@ -81126,11 +81286,15 @@
             "format": "dateorcutlabel"
           },
           "tenor": {
+            "maxLength": 16,
+            "minLength": 0,
             "type": "string",
             "description": "Tenor, e.g \"1D\", \"1M\" to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.",
             "nullable": true
           },
           "rollConvention": {
+            "maxLength": 16,
+            "minLength": 0,
             "type": "string",
             "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.\r\nIn that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.",
             "nullable": true
@@ -81245,14 +81409,20 @@
             "description": "The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds"
           },
           "modelName": {
+            "maxLength": 128,
+            "minLength": 0,
             "type": "string",
             "description": "The vendor library model name"
           },
           "instrumentType": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "The vendor library instrument type"
           },
           "parameters": {
+            "maxLength": 64,
+            "minLength": 0,
             "type": "string",
             "description": "THIS FIELD IS DEPRECATED - use ModelOptions\r\nThe set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.\r\nNote that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is\r\nbetter understood.",
             "nullable": true
@@ -81634,6 +81804,8 @@
             "format": "double"
           },
           "holdingIdentifier": {
+            "maxLength": 256,
+            "minLength": 0,
             "type": "string",
             "description": "Identifier for the instrument.\r\nFor a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or\r\na composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument\r\nsuch as purchase of shares on multiple dates where tax implications are different this would not be the case.\r\n\r\nIn an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation\r\nrequest that accompanies the set of weighted instruments.",
             "nullable": true
