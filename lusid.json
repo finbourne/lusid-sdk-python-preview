@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3716",
+    "version": "0.11.3717",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62575"
+      "url": "http://local-unit-test-server.lusid.com:48945"
     }
   ],
   "paths": {
@@ -5816,6 +5816,101 @@
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance",
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/run": {
+      "post": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process",
+        "description": "Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.",
+        "operationId": "RunComplianceCheck",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "description": "The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder",
+            "required": true,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_\\-\\.]+[A-Za-z0-9_\\-\\. ]*$",
+              "type": "string",
+              "description": "The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The identifying information of a compliance run",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               }
             }

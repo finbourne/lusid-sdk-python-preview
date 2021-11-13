@@ -1,11 +1,12 @@
 # lusid.ComplianceApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:62575*
+All URIs are relative to *http://local-unit-test-server.lusid.com:48945*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_compliance_run**](ComplianceApi.md#get_compliance_run) | **GET** /api/compliance/{runId} | [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.
 [**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
+[**run_compliance_check**](ComplianceApi.md#run_compliance_check) | **POST** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
 
 
 # **get_compliance_run**
@@ -24,10 +25,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62575
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48945
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62575"
+    host = "http://local-unit-test-server.lusid.com:48945"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +38,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62575"
+    host = "http://local-unit-test-server.lusid.com:48945"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -105,10 +106,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62575
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48945
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62575"
+    host = "http://local-unit-test-server.lusid.com:48945"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,7 +119,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62575"
+    host = "http://local-unit-test-server.lusid.com:48945"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -163,6 +164,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The List of all compliance runs completed |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **run_compliance_check**
+> ComplianceRun run_compliance_check(file_name)
+
+[EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
+
+Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48945
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:48945"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:48945"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    file_name = 'file_name_example' # str | The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder
+
+    try:
+        # [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
+        api_response = api_instance.run_compliance_check(file_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->run_compliance_check: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file_name** | **str**| The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder | 
+
+### Return type
+
+[**ComplianceRun**](ComplianceRun.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The identifying information of a compliance run |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
