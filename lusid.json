@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3720",
+    "version": "0.11.3721",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32241"
+      "url": "http://local-unit-test-server.lusid.com:53593"
     }
   ],
   "paths": {
@@ -784,6 +784,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -834,6 +837,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "default": "",
@@ -1788,7 +1794,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -2908,6 +2914,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -2932,6 +2941,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -3494,7 +3506,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -5739,6 +5751,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -5763,6 +5778,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -5981,6 +5999,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -6005,6 +6026,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -7602,7 +7626,7 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set. For example, to\r\nfilter on the Display Name, use \"displayName eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -8151,7 +8175,7 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -10290,6 +10314,9 @@
             "in": "query",
             "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -10300,6 +10327,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
               "nullable": true
@@ -11094,7 +11124,7 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -11479,7 +11509,7 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Schema, use \"schema eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -12033,7 +12063,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -13800,6 +13830,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing instruments; this value is returned from\r\n             the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and\r\n             <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be\r\n             provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing instruments; this value is returned from\r\n             the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and\r\n             <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be\r\n             provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915.",
               "nullable": true
@@ -15390,6 +15423,9 @@
             "in": "query",
             "description": "Expression to filter the results. For more information about filtering,\r\n            see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results. For more information about filtering,\r\n            see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -15400,6 +15436,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing properties; this value is returned from\r\n            the previous call. If a pagination token is provided, the <i>filter</i>, <i>effectiveAt</i> and\r\n            <i>asAt</i> fields must not have changed since the original request. For more information, see\r\n            https://support.lusid.com/knowledgebase/article/KA-01915.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing properties; this value is returned from\r\n            the previous call. If a pagination token is provided, the <i>filter</i>, <i>effectiveAt</i> and\r\n            <i>asAt</i> fields must not have changed since the original request. For more information, see\r\n            https://support.lusid.com/knowledgebase/article/KA-01915.",
               "nullable": true
@@ -16072,7 +16111,7 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -17771,6 +17810,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -17781,6 +17823,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
               "nullable": true
@@ -17943,7 +17988,7 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -18172,7 +18217,7 @@
             "in": "query",
             "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -18345,6 +18390,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Application, use \"application eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set. \r\n            For example, to filter on the Application, use \"application eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -19212,7 +19260,7 @@
             "in": "query",
             "description": "See https://support.lusid.com/knowledgebase/article/KA-01914/",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -19667,7 +19715,7 @@
             "in": "query",
             "description": "See https://support.lusid.com/knowledgebase/article/KA-01914/",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -20098,7 +20146,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -20714,6 +20762,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -20764,6 +20815,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
               "default": "",
@@ -21708,7 +21762,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -22437,7 +22491,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -23548,6 +23602,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing portfolios from a previous call to list portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing portfolios from a previous call to list portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -23584,6 +23641,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\n            For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\n            For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -25243,6 +25303,7 @@
             "description": "Key of the metadata entry to retrieve",
             "required": true,
             "schema": {
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Key of the metadata entry to retrieve"
             }
@@ -25979,6 +26040,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -25989,6 +26053,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter and asAt fields\r\n            must not have changed since the original request.",
               "nullable": true
@@ -26142,6 +26209,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -26359,7 +26429,7 @@
             "in": "query",
             "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -26579,7 +26649,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -27654,6 +27724,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -28198,6 +28271,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -29650,6 +29726,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n             For example, to filter on the User ID, use \"userId.id eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n             For example, to filter on the User ID, use \"userId.id eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -29918,6 +29997,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -31620,6 +31702,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -31630,6 +31715,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing properties from a previous call to get property time series.\r\n            This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
               "nullable": true
@@ -31775,6 +31863,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the relations. Users should provide null or empty string for this field until further notice.",
               "nullable": true
@@ -31984,7 +32075,7 @@
             "in": "query",
             "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -32499,6 +32590,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -32536,6 +32630,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
               "nullable": true
@@ -32815,6 +32912,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n             For example, to filter on the Transaction Type, use \"type eq 'Buy'\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -32852,6 +32952,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing transactions from a previous call to BuildTransactions.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing transactions from a previous call to BuildTransactions.",
               "nullable": true
@@ -33641,6 +33744,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing portfolios; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing portfolios; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -33677,6 +33783,9 @@
             "in": "query",
             "description": "Expression to filter the results.\r\n            For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results.\r\n            For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -33687,6 +33796,9 @@
             "in": "query",
             "description": "Expression specifying the criteria that the returned portfolios must meet. For example, to see which\r\n            portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',\r\n            specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression specifying the criteria that the returned portfolios must meet. For example, to see which\r\n            portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',\r\n            specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".",
               "nullable": true
@@ -34325,6 +34437,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -35506,6 +35621,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set",
               "nullable": true
@@ -35772,6 +35890,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -35808,6 +35929,9 @@
             "in": "query",
             "description": "Expression to filter the results.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -36336,6 +36460,9 @@
             "in": "query",
             "description": "Expression to filter the results.\r\n            For example, to filter on the User ID, specify \"userId.id eq 'string'\".\r\n            For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results.\r\n            For example, to filter on the User ID, specify \"userId.id eq 'string'\".\r\n            For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -36346,6 +36473,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing commands; this value is returned from the previous call.",
               "nullable": true
@@ -37782,6 +37912,9 @@
             "in": "query",
             "description": "Expression to filter the results. For more information about filtering,\r\n            see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results. For more information about filtering,\r\n            see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -37792,6 +37925,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing properties; this value is returned from\r\n            the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing properties; this value is returned from\r\n            the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields\r\n            must not have changed since the original request.",
               "nullable": true
@@ -37937,6 +38073,9 @@
             "in": "query",
             "description": "Expression to filter the relations. Provide a null or empty string for this field until further notice.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the relations. Provide a null or empty string for this field until further notice.",
               "nullable": true
@@ -38185,7 +38324,7 @@
             "in": "query",
             "description": "Expression to filter the relationships. Provide a null or empty string for this field until further notice.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -39568,6 +39707,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\n            For example, to filter on the Lifetime, use \"lifeTime eq 'Perpetual'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\n            For example, to filter on the Lifetime, use \"lifeTime eq 'Perpetual'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -40560,6 +40702,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -40594,6 +40739,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -40878,6 +41026,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -40912,6 +41063,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -41527,7 +41681,7 @@
             "in": "query",
             "description": "Expression to filter the result set. Read more about filtering results from LUSID here:\r\n            https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -44744,6 +44898,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.\r\n            This value is returned from the previous call.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.\r\n            This value is returned from the previous call.",
               "nullable": true
@@ -44766,6 +44923,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -45183,7 +45343,7 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to filter on the Scope, use \"scope eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
-              "maxLength": 2147483647,
+              "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
@@ -45443,6 +45603,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\nFor example, to filter on the Scope, use \"id.scope eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\nFor example, to filter on the Scope, use \"id.scope eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -45453,6 +45616,9 @@
             "in": "query",
             "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 1,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
               "nullable": true
@@ -45474,6 +45640,9 @@
             "in": "query",
             "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
               "nullable": true
@@ -45648,6 +45817,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\nFor example, to filter on the portfolio Type, use \"type eq 'Transaction'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\nFor example, to filter on the portfolio Type, use \"type eq 'Transaction'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -45658,6 +45830,9 @@
             "in": "query",
             "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 1,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
               "nullable": true
@@ -45679,6 +45854,9 @@
             "in": "query",
             "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
               "nullable": true
@@ -45865,6 +46043,9 @@
             "in": "query",
             "description": "Expression to filter the result set. \r\nFor example, to filter on the Value Type, use \"valueType eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. \r\nFor example, to filter on the Value Type, use \"valueType eq 'string'\"\r\nRead more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -45875,6 +46056,9 @@
             "in": "query",
             "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 1,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName",
               "nullable": true
@@ -45896,6 +46080,9 @@
             "in": "query",
             "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.",
               "nullable": true
@@ -46690,6 +46877,9 @@
             "in": "query",
             "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on code, use \"code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Optional. Expression to filter the result set.\r\n            For example, to filter on code, use \"code eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -46700,6 +46890,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.\r\nIf a pagination token is provided the sortBy, filter, and asAt fields\r\nmust not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.\r\nIf a pagination token is provided the sortBy, filter, and asAt fields\r\nmust not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
@@ -48956,6 +49149,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -53282,6 +53478,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
@@ -54194,6 +54393,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -54367,6 +54569,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -54862,6 +55067,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -58644,6 +58852,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to filter on the Holding Type, use \"holdingType eq 'p'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Holding Type, use \"holdingType eq 'p'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -59319,6 +59530,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to filter on the Holding Type, use \"holdingType eq 'p'\"\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Holding Type, use \"holdingType eq 'p'\"\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -59771,6 +59985,9 @@
             "in": "query",
             "description": "Expression with which to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression with which to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -59796,6 +60013,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
               "nullable": true
@@ -60459,6 +60679,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n            For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -60496,6 +60719,9 @@
             "in": "query",
             "description": "The pagination token to use to continue listing transactions from a previous call to BuildTransactions.",
             "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
               "description": "The pagination token to use to continue listing transactions from a previous call to BuildTransactions.",
               "nullable": true
@@ -61687,6 +61913,9 @@
             "in": "query",
             "description": "Expression to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set.\r\n             For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".\r\n             For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
@@ -65825,9 +66054,11 @@
             "type": "string"
           },
           "displayName": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "description": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "nullable": true
           },
@@ -67027,9 +67258,11 @@
             "type": "string"
           },
           "displayName": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "description": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "nullable": true
           },
@@ -72940,6 +73173,18 @@
         },
         "additionalProperties": false,
         "description": "A request to create or update multiple Orders."
+      },
+      "OtcConfirmation": {
+        "type": "object",
+        "properties": {
+          "counterpartyAgreementCode": {
+            "type": "string",
+            "description": "The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "For the storage of any information pertinent to the confirmation of an OTC trade. e.g the Counterparty Agreement Code"
       },
       "OutputTransaction": {
         "required": [
@@ -79670,6 +79915,9 @@
             "type": "string",
             "description": "The asAt datetime that the transaction was added to LUSID.",
             "format": "date-time"
+          },
+          "otcConfirmation": {
+            "$ref": "#/components/schemas/OtcConfirmation"
           }
         },
         "additionalProperties": false,
@@ -80341,9 +80589,11 @@
         "type": "object",
         "properties": {
           "displayName": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string"
           },
           "description": {
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "nullable": true
           },
