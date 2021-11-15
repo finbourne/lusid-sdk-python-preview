@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3717",
+    "version": "0.11.3718",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:48945"
+      "url": "http://local-unit-test-server.lusid.com:36517"
     }
   ],
   "paths": {
@@ -72192,6 +72192,9 @@
         "type": "string"
       },
       "MarketOptions": {
+        "required": [
+          "defaultScope"
+        ],
         "type": "object",
         "properties": {
           "defaultSupplier": {
@@ -72213,8 +72216,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "For default rules, which scope should data be searched for in",
-            "nullable": true
+            "description": "For default rules, which scope should data be searched for in"
           },
           "attemptToInferMissingFx": {
             "type": "boolean",
