@@ -28,6 +28,10 @@ class CredentialsSource:
         return f"{testcase_func.__name__}: {param.args[0]}"
 
     @classmethod
+    def fetch_pat(cls):
+        return os.getenv("FBN_LUSID_ACCESS_TOKEN", None)
+
+    @classmethod
     def fetch_credentials(cls):
         credentials = cls.secrets_path()
 
@@ -60,8 +64,8 @@ class CredentialsSource:
                 if value is None:
                     vars[key] = config_vars[key]
 
-        if None in vars.values():
-            assert False, "Source test configuration missing values from both secrets file and environment variables"
+        # if access_token is not None and None in vars.values():
+        #     assert False, "Source test configuration missing values from both secrets file and environment variables"
 
         vars_optional = {
             "app_name": os.getenv("FBN_APP_NAME", None),
