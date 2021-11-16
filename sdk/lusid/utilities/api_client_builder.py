@@ -52,6 +52,8 @@ class ApiClientBuilder:
         # Load the configuration
         configuration = ApiConfigurationLoader.load(api_secrets_filename)
 
+
+
         # If an api_configuration has been provided override the loaded configuration with any properties that it has
         if api_configuration is not None:
             for key, value in vars(api_configuration).items():
@@ -84,6 +86,14 @@ class ApiClientBuilder:
         config = Configuration(tcp_keep_alive=tcp_keep_alive)
         config.access_token = api_token
         config.host = configuration.api_url
+
+        if api_configuration.flag_to_use_decimal is not None:
+            config.flag_to_use_decimal = api_configuration.flag_to_use_decimal
+
+        if configuration.flag_to_use_decimal is not None:
+            config.flag_to_use_decimal = configuration.flag_to_use_decimal
+
+
 
         # Set the certificate from the configuration
         config.ssl_ca_cert = configuration.certificate_filename

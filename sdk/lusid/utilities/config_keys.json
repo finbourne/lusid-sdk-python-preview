@@ -7,6 +7,10 @@
       "env": "FBN_LUSID_API_URL",
       "config": "apiUrl"
   },
+  "flag_to_use_decimal" : {
+        "env": "flag_to_use_decimal",
+        "config": "flag_to_use_decimal"
+  },
   "username": {
       "env": "FBN_USERNAME",
       "config": "username"
