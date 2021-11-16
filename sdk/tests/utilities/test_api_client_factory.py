@@ -44,6 +44,12 @@ class RefreshingToken(UserString):
 
 
 class ApiFactory(unittest.TestCase):
+
+    def get_env_vars_wout_pat(self):
+        env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items()if value is not None}
+        env_vars_wout_pat = {k:env_vars[k] for k in env_vars if k !="FBN_LUSID_ACCESS_TOKEN"}
+        return env_vars_wout_pat
+
     def validate_api(self, api):
         result = api.get_instrument_identifier_types()
         self.assertIsNotNone(result)
@@ -252,56 +258,61 @@ class ApiFactory(unittest.TestCase):
         Ensures that an id_provider_response handler that is passed to the ApiClientFactory can be used during
         communication with the id provider (if appropriate).
         """
-        responses = []
 
-        def record_response(id_provider_response):
-            nonlocal responses
-            responses.append(id_provider_response.status_code)
+        with patch.dict('os.environ', self.get_env_vars_wout_pat(), clear=True):
 
-        api_factory = ApiClientFactory(
-            api_secrets_filename=CredentialsSource.secrets_path(),
-            id_provider_response_handler=record_response
-        )
+            responses = []
 
-        api = api_factory.build(InstrumentsApi)
-        self.validate_api(api)
+            def record_response(id_provider_response):
+                nonlocal responses
+                responses.append(id_provider_response.status_code)
 
-        self.assertGreater(len(responses), 0)
+            api_factory = ApiClientFactory(
+                api_secrets_filename=CredentialsSource.secrets_path(),
+                id_provider_response_handler=record_response
+            )
+
+            api = api_factory.build(InstrumentsApi)
+            self.validate_api(api)
+
+            self.assertGreater(len(responses), 0)
 
     def test_use_apifactory_multiple_threads(self):
 
-        access_token = str(ApiClientFactory(
-            api_secrets_filename=CredentialsSource.secrets_path()
-        ).api_client.configuration.access_token)
+        with patch.dict('os.environ', self.get_env_vars_wout_pat(), clear=True):
 
-        api_factory = ApiClientFactory(
-            api_secrets_filename=CredentialsSource.secrets_path()
-        )
+            access_token = str(ApiClientFactory(
+                api_secrets_filename=CredentialsSource.secrets_path()
+            ).api_client.configuration.access_token)
 
-        def get_identifier_types(factory):
-            return factory.build(InstrumentsApi).get_instrument_identifier_types()
-
-        thread1 = Thread(target=get_identifier_types, args=[api_factory])
-        thread2 = Thread(target=get_identifier_types, args=[api_factory])
-        thread3 = Thread(target=get_identifier_types, args=[api_factory])
-
-        with patch("requests.post") as identity_mock:
-            identity_mock.side_effect = lambda *args, **kwargs: MockApiResponse(
-                json_data={
-                    "access_token": f"{access_token}",
-                    "refresh_token": "mock_refresh_token",
-                    "expires_in": 3600
-                },
-                status_code=200
+            api_factory = ApiClientFactory(
+                api_secrets_filename=CredentialsSource.secrets_path()
             )
 
-            thread1.start()
-            thread2.start()
-            thread3.start()
+            def get_identifier_types(factory):
+                return factory.build(InstrumentsApi).get_instrument_identifier_types()
 
-            thread1.join()
-            thread2.join()
-            thread3.join()
+            thread1 = Thread(target=get_identifier_types, args=[api_factory])
+            thread2 = Thread(target=get_identifier_types, args=[api_factory])
+            thread3 = Thread(target=get_identifier_types, args=[api_factory])
 
-            # Ensure that we only got an access token once
-            self.assertEqual(1, identity_mock.call_count)
+            with patch("requests.post") as identity_mock:
+                identity_mock.side_effect = lambda *args, **kwargs: MockApiResponse(
+                    json_data={
+                        "access_token": f"{access_token}",
+                        "refresh_token": "mock_refresh_token",
+                        "expires_in": 3600
+                    },
+                    status_code=200
+                )
+
+                thread1.start()
+                thread2.start()
+                thread3.start()
+
+                thread1.join()
+                thread2.join()
+                thread3.join()
+
+                # Ensure that we only got an access token once
+                self.assertEqual(1, identity_mock.call_count)

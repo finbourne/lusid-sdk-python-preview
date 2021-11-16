@@ -52,6 +52,11 @@ class ApiClientBuilder:
         # Load the configuration
         configuration = ApiConfigurationLoader.load(api_secrets_filename)
 
+        # If token is passed in by user, use that pat
+        # Otherwise use the attribute set on the ApiConfigurationLoader
+        if token is not None:
+            configuration.access_token = token
+
         # If an api_configuration has been provided override the loaded configuration with any properties that it has
         if api_configuration is not None:
             for key, value in vars(api_configuration).items():
@@ -59,10 +64,11 @@ class ApiClientBuilder:
                     setattr(configuration, key, value)
 
         # Use the access token provided if it exists
-        if token is not None:
+        if configuration.access_token is not None:
             # Check that there is an api_url available
             cls.__check_required_fields(configuration, ["api_url"])
-            api_token = token
+            api_token = configuration.access_token
+
         # Otherwise generate an access token from Okta and use a RefreshingToken going forward
         else:
             # Check that all the required fields for generating a token exist
