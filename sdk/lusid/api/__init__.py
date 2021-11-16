@@ -9,6 +9,7 @@ from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.blocks_api import BlocksApi
 from lusid.api.calendars_api import CalendarsApi
 from lusid.api.complex_market_data_api import ComplexMarketDataApi
+from lusid.api.compliance_api import ComplianceApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
 from lusid.api.conventions_api import ConventionsApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
@@ -23,7 +24,7 @@ from lusid.api.executions_api import ExecutionsApi
 from lusid.api.fees_and_commissions_api import FeesAndCommissionsApi
 from lusid.api.instruments_api import InstrumentsApi
 from lusid.api.legal_entities_api import LegalEntitiesApi
-from lusid.api.login_api import LoginApi
+from lusid.api.order_graph_api import OrderGraphApi
 from lusid.api.order_instructions_api import OrderInstructionsApi
 from lusid.api.orders_api import OrdersApi
 from lusid.api.packages_api import PackagesApi
@@ -44,7 +45,6 @@ from lusid.api.schemas_api import SchemasApi
 from lusid.api.scopes_api import ScopesApi
 from lusid.api.search_api import SearchApi
 from lusid.api.sequences_api import SequencesApi
-from lusid.api.structured_market_data_api import StructuredMarketDataApi
 from lusid.api.structured_result_data_api import StructuredResultDataApi
 from lusid.api.system_configuration_api import SystemConfigurationApi
 from lusid.api.transaction_portfolios_api import TransactionPortfoliosApi

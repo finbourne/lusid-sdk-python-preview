@@ -50,6 +50,7 @@ class ApiConfigurationLoader:
             for key, value in config_keys.items() if "proxy" not in key
         }
 
+
         # Populate the values for the proxy preferring the secrets file over the environment variables
         populated_proxy_values = {
             key.replace("proxy_", ""): config.get(proxy_config_key, {}).get(value["config"], os.getenv(value["env"], None))
