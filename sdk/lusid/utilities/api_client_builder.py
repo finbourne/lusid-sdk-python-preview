@@ -52,19 +52,29 @@ class ApiClientBuilder:
         # Load the configuration
         configuration = ApiConfigurationLoader.load(api_secrets_filename)
 
-        # If token is passed in by user, use that pat
-        # Otherwise use the attribute set on the ApiConfigurationLoader
-        if token is not None:
-            configuration.access_token = token
-
         # If an api_configuration has been provided override the loaded configuration with any properties that it has
         if api_configuration is not None:
             for key, value in vars(api_configuration).items():
                 if value is not None:
                     setattr(configuration, key, value)
 
-        # Use the access token provided if it exists
-        if configuration.access_token is not None:
+        #---------------------------------------------------------------------
+        # The ApiClientBuilder uses the following conditional logic to resolve
+        # an authentication approach:
+        # (1) First look for a PAT passed in as a param by the user
+        # (2) Next look for a secrets file passed in as a param by the user
+        # (3) If no params are passed, next search for a PAT in the env variables
+        # (4) Finally, use the secrets file and secrets env variables.
+        #     Here secrets in the secrets file take precedence over secrets in the env variables.
+        #----------------------------------------------------------------------
+
+        # If token is passed in by user, then use that token
+        if token is not None:
+            cls.__check_required_fields(configuration, ["api_url"])
+            api_token = token
+
+        # If there is a token in the env vars, and the user has not provided a secrets file, use the token
+        elif configuration.access_token is not None and api_secrets_filename is None:
             # Check that there is an api_url available
             cls.__check_required_fields(configuration, ["api_url"])
             api_token = configuration.access_token
