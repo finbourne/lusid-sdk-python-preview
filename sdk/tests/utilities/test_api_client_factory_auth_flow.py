@@ -1,6 +1,6 @@
 import unittest
 import os
-from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor
+from lusid import InstrumentsApi, ResourceListOfInstrumentIdTypeDescriptor, ApiException
 from lusid.utilities import ApiClientFactory
 from utilities import CredentialsSource
 from unittest.mock import patch
@@ -39,10 +39,17 @@ class ApiFactory(unittest.TestCase):
     def test_bad_pat_in_param_but_good_pat_in_env_vars(self):
 
         with patch.dict(self.os_environ_dict_str, self.get_pat_env_var(), clear=True):
-            factory = ApiClientFactory(token="INVALID_TOKEN")
-            api = factory.build(InstrumentsApi)
-            self.assertIsInstance(api, InstrumentsApi)
-            self.validate_api(api)
+
+            try:
+
+                factory = ApiClientFactory(token="INVALID_TOKEN")
+                api = factory.build(InstrumentsApi)
+                api.get_instrument_identifier_types()
+
+            except ApiException as e:
+
+                self.assertEquals(401, e.status)
+
 
     def test_bad_secrets_file_in_param_but_good_pat_in_env_vars(self):
 
