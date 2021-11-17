@@ -70,6 +70,7 @@ class ApiClientBuilder:
 
         # If token is passed in by user, then use that token
         if token is not None:
+            cls.__check_required_fields(configuration, ["api_url"])
             api_token = token
 
         # If there is a token in the env vars, and the user has not provided a secrets file, use the token
