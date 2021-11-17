@@ -26,7 +26,7 @@ class ApiClientBuilderTests(unittest.TestCase):
             [
                 "Missing username and password when generating a token",
                 ["password", "username"],
-                None
+                "example_token"
             ]
         ], testcase_func_name=CredentialsSource.custom_name_func
     )
