@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3730",
+    "version": "0.11.3731",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50898"
+      "url": "http://local-unit-test-server.lusid.com:53421"
     }
   ],
   "paths": {
@@ -68103,6 +68103,14 @@
         ],
         "description": "A curve containing discount factors and dates to which they apply"
       },
+      "DiscountingMethod": {
+        "enum": [
+          "Standard",
+          "ConstantTimeValueOfMoney",
+          "Invalid"
+        ],
+        "type": "string"
+      },
       "EmptyModelOptions": {
         "allOf": [
           {
@@ -68119,10 +68127,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
@@ -70013,6 +70022,59 @@
         ],
         "description": "Contains data (i.e. dates and rates + metadata) for building fx forward curves"
       },
+      "FxForwardModelOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "convertToReportCcy",
+              "discountingMethod",
+              "forwardRateObservableType",
+              "modelOptionsType"
+            ],
+            "type": "object",
+            "properties": {
+              "forwardRateObservableType": {
+                "enum": [
+                  "ForwardPoints",
+                  "ForwardRate",
+                  "RatesCurve",
+                  "FxForwardCurve",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid"
+              },
+              "discountingMethod": {
+                "enum": [
+                  "Standard",
+                  "ConstantTimeValueOfMoney",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: Standard, ConstantTimeValueOfMoney, Invalid"
+              },
+              "convertToReportCcy": {
+                "type": "boolean",
+                "description": "Convert all FX flows to the report currency\r\nBy setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base."
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
+                ],
+                "type": "string",
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+              }
+            }
+          }
+        ]
+      },
       "FxForwardPipsCurveData": {
         "allOf": [
           {
@@ -71177,10 +71239,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
@@ -72530,6 +72593,16 @@
         ],
         "type": "string"
       },
+      "MarketObservableType": {
+        "enum": [
+          "ForwardPoints",
+          "ForwardRate",
+          "RatesCurve",
+          "FxForwardCurve",
+          "Invalid"
+        ],
+        "type": "string"
+      },
       "MarketOptions": {
         "required": [
           "defaultScope"
@@ -72637,10 +72710,11 @@
               "Invalid",
               "OpaqueModelOptions",
               "EmptyModelOptions",
-              "IndexModelOptions"
+              "IndexModelOptions",
+              "FxForwardModelOptions"
             ],
             "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
           }
         },
         "additionalProperties": false,
@@ -72653,7 +72727,8 @@
           "Invalid",
           "OpaqueModelOptions",
           "EmptyModelOptions",
-          "IndexModelOptions"
+          "IndexModelOptions",
+          "FxForwardModelOptions"
         ],
         "type": "string"
       },
@@ -72835,10 +72910,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
