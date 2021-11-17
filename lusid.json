@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3734",
+    "version": "0.11.3735",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53717"
+      "url": "http://local-unit-test-server.lusid.com:52162"
     }
   ],
   "paths": {
@@ -72544,7 +72544,6 @@
           "priceSource": {
             "maxLength": 256,
             "minLength": 0,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote",
             "nullable": true
