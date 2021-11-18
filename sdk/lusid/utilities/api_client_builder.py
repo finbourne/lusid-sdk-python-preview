@@ -52,49 +52,63 @@ class ApiClientBuilder:
         # Load the configuration
         configuration = ApiConfigurationLoader.load(api_secrets_filename)
 
-        # If an api_configuration has been provided override the loaded configuration with any properties that it has
+        # If an api_configuration has been provided override the loaded configuration
+        # with any properties that it has
         if api_configuration is not None:
             for key, value in vars(api_configuration).items():
                 if value is not None:
                     setattr(configuration, key, value)
 
-        #---------------------------------------------------------------------
-        # The ApiClientBuilder uses the following conditional logic to resolve
-        # an authentication approach:
-        # (1) First look for a PAT passed in as a param by the user
-        # (2) Next look for a secrets file passed in as a param by the user
-        # (3) If no params are passed, next search for a PAT in the env variables
-        # (4) Finally, use the secrets file and secrets env variables.
-        #     Here secrets in the secrets file take precedence over secrets in the env variables.
-        #----------------------------------------------------------------------
+        def resolve_api_token(configuration):
 
-        # If token is passed in by user, then use that token
-        if token is not None:
-            cls.__check_required_fields(configuration, ["api_url"])
-            api_token = token
+            """
+            Description:
+            This method uses a token or secrets to build an API client.
+            The method uses the following conditional logic in order of precedence to resolve an
+            authentication path:
 
-        # If there is a token in the env vars, and the user has not provided a secrets file, use the token
-        elif configuration.access_token is not None and api_secrets_filename is None:
-            # Check that there is an api_url available
-            cls.__check_required_fields(configuration, ["api_url"])
-            api_token = configuration.access_token
+                1. Use PAT passed into the function
+                2. Use secrets files passed into the function
+                3. Use environment variables
 
-        # Otherwise generate an access token from Okta and use a RefreshingToken going forward
-        else:
-            # Check that all the required fields for generating a token exist
-            cls.__check_required_fields(configuration, [
-                "api_url",
-                "password",
-                "username",
-                "client_id",
-                "client_secret",
-                "token_url"])
+            PAT are used in preference to supplied credentials.
+            secrets files are used in preference to environment variables.
 
-            # Generate an access token
-            api_token = RefreshingToken(
-                api_configuration=configuration,
-                id_provider_response_handler=id_provider_response_handler
-            )
+            :param ApiConfiguration configuration:
+            :return: str api_token
+            """
+
+            # If token is passed in by user, then use that token
+            if token is not None:
+                cls.__check_required_fields(configuration, ["api_url"])
+                api_token = token
+
+            # If there is a token in the env vars, and the user has not provided a secrets file, use the token
+            elif configuration.access_token is not None and api_secrets_filename is None:
+                # Check that there is an api_url available
+                cls.__check_required_fields(configuration, ["api_url"])
+                api_token = configuration.access_token
+
+            # Otherwise generate an access token from Okta and use a RefreshingToken going forward
+            else:
+                # Check that all the required fields for generating a token exist
+                cls.__check_required_fields(configuration, [
+                    "api_url",
+                    "password",
+                    "username",
+                    "client_id",
+                    "client_secret",
+                    "token_url"])
+
+                # Generate an access token
+                api_token = RefreshingToken(
+                    api_configuration=configuration,
+                    id_provider_response_handler=id_provider_response_handler
+                )
+
+            return api_token
+
+        api_token = resolve_api_token(configuration)
 
         # Initialise the API client using the token so that it can be included in all future requests
         config = Configuration(tcp_keep_alive=tcp_keep_alive)
