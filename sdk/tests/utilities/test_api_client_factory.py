@@ -23,7 +23,7 @@ class UnknownImpl:
 
 
 source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
-pat_token = CredentialsSource.fetch_pat()
+
 
 class RefreshingToken(UserString):
 
@@ -45,10 +45,10 @@ class RefreshingToken(UserString):
 
 class ApiFactory(unittest.TestCase):
 
-    def get_env_vars_without_pat(self):
+    def get_env_vars_wout_pat(self):
         env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items()if value is not None}
-        env_vars_without_pat = {k:env_vars[k] for k in env_vars if k !="FBN_LUSID_ACCESS_TOKEN"}
-        return env_vars_without_pat
+        env_vars_wout_pat = {k:env_vars[k] for k in env_vars if k !="FBN_LUSID_ACCESS_TOKEN"}
+        return env_vars_wout_pat
 
     def validate_api(self, api):
         result = api.get_instrument_identifier_types()
@@ -259,7 +259,7 @@ class ApiFactory(unittest.TestCase):
         communication with the id provider (if appropriate).
         """
 
-        with patch.dict('os.environ', self.get_env_vars_without_pat(), clear=True):
+        with patch.dict('os.environ', self.get_env_vars_wout_pat(), clear=True):
 
             responses = []
 
@@ -279,7 +279,7 @@ class ApiFactory(unittest.TestCase):
 
     def test_use_apifactory_multiple_threads(self):
 
-        with patch.dict('os.environ', self.get_env_vars_without_pat(), clear=True):
+        with patch.dict('os.environ', self.get_env_vars_wout_pat(), clear=True):
 
             access_token = str(ApiClientFactory(
                 api_secrets_filename=CredentialsSource.secrets_path()
