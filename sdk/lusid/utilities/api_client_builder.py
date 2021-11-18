@@ -63,7 +63,7 @@ class ApiClientBuilder:
 
             """
             Description:
-            This method uses a PAT (Personal Access Token) or secrets to return an API token.
+            This method uses a token or secrets to build an API client.
             The method uses the following conditional logic in order of precedence to resolve an
             authentication path:
 
