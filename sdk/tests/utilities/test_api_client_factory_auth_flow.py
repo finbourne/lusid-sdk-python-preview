@@ -60,7 +60,7 @@ class ApiFactory(unittest.TestCase):
 
             with self.assertLogs() as context_manager:
 
-                ApiClientFactory(api_secrets_filename="secrets_file_not_exist.json")
+                factory = ApiClientFactory(api_secrets_filename="secrets_file_not_exist.json")
 
                 self.assertEqual(
                     f"WARNING:root:Provided secrets file of secrets_file_not_exist.json can not be found, please ensure you have correctly specified the full path to the file or don't provide a secrets file to use environment variables instead.",
