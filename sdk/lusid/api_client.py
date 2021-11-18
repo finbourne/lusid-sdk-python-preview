@@ -68,7 +68,7 @@ class ApiClient(object):
     _pool = None
 
     def __init__(self, configuration=None, header_name=None, header_value=None,
-                 cookie=None, pool_threads=1, flag_to_use_decimal= False):
+                 cookie=None, pool_threads=1):
         if configuration is None:
             configuration = Configuration.get_default_copy()
         self.configuration = configuration
@@ -622,15 +622,12 @@ class ApiClient(object):
         :return: int, long, float, str, bool.
         """
 
-        if type(klass) is Decimal and self.flag_to_use_decimal:
-            return Decimal(data)
-        else:
-            try:
-                return klass(data)
-            except UnicodeEncodeError:
-                return six.text_type(data)
-            except TypeError:
-                return data
+        try:
+            return klass(data)
+        except UnicodeEncodeError:
+            return six.text_type(data)
+        except TypeError:
+            return data
 
     def __deserialize_object(self, value):
         """Return an original value.

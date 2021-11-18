@@ -37,7 +37,7 @@ class ApiClientBuilder:
 
     @classmethod
     def build(cls, api_secrets_filename=None, id_provider_response_handler=None, api_configuration=None,
-              token=None, correlation_id=None, tcp_keep_alive=False):
+              token=None, correlation_id=None, tcp_keep_alive=False, flag_to_use_decimal=False):
         """
         :param str api_secrets_filename: The full path to the JSON file containing the API credentials and optional proxy details
         :param typing.callable id_provider_response_handler: An optional function to handle the Okta response
@@ -51,8 +51,6 @@ class ApiClientBuilder:
 
         # Load the configuration
         configuration = ApiConfigurationLoader.load(api_secrets_filename)
-
-
 
         # If an api_configuration has been provided override the loaded configuration with any properties that it has
         if api_configuration is not None:
@@ -83,17 +81,9 @@ class ApiClientBuilder:
             )
 
         # Initialise the API client using the token so that it can be included in all future requests
-        config = Configuration(tcp_keep_alive=tcp_keep_alive)
+        config = Configuration(tcp_keep_alive=tcp_keep_alive,flag_to_use_decimal=flag_to_use_decimal)
         config.access_token = api_token
         config.host = configuration.api_url
-
-        if api_configuration.flag_to_use_decimal is not None:
-            config.flag_to_use_decimal = api_configuration.flag_to_use_decimal
-
-        if configuration.flag_to_use_decimal is not None:
-            config.flag_to_use_decimal = configuration.flag_to_use_decimal
-
-
 
         # Set the certificate from the configuration
         config.ssl_ca_cert = configuration.certificate_filename

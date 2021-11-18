@@ -95,7 +95,7 @@ class Configuration(object):
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ssl_ca_cert=None,
-                 tcp_keep_alive=False,
+                 tcp_keep_alive=False, flag_to_use_decimal=False
                  ):
         """Constructor
         """
@@ -202,6 +202,9 @@ class Configuration(object):
 
         # Set TCP keep alive
         self.tcp_keep_alive = tcp_keep_alive
+
+        # set decimal_flag
+        self.flag_to_use_decimal = flag_to_use_decimal
 
         self.socket_options = None
         """Options to pass down to the underlying urllib3 socket

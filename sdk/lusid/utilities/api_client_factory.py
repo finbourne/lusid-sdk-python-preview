@@ -55,7 +55,7 @@ class ApiClientFactory:
         builder_kwargs["api_secrets_filename"] = kwargs.get("api_secrets_filename", None)
 
         #Add config to use decimal
-        builder_kwargs["flag_to_use_decimal"] = kwargs.get("flag_to_use_decimal", None)
+        builder_kwargs["flag_to_use_decimal"] = kwargs.get("flag_to_use_decimal", False)
 
         # add the correlation id if specified
         builder_kwargs["correlation_id"] = kwargs.get("correlation_id", None)
