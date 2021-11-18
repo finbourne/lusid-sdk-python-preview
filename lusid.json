@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3739",
+    "version": "0.11.3740",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:32026"
+      "url": "http://local-unit-test-server.lusid.com:44467"
     }
   ],
   "paths": {
@@ -64475,7 +64475,7 @@
             "properties": {
               "startDate": {
                 "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date. If settle days = 0 then this is the initial accrual date of the bond.",
                 "format": "date-time"
               },
               "maturityDate": {
@@ -64516,7 +64516,7 @@
               },
               "initialCouponDate": {
                 "type": "string",
-                "description": "The initial coupon date which specifies the accrual start period for a fixed coupon bond with ex dividend schedule",
+                "description": "The initial coupon date is in fact the previous coupon pay date in the bond schedule. This date specifies the start of the coupon period in which the ex-dividend date lies.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -64528,7 +64528,7 @@
               },
               "calculationType": {
                 "type": "string",
-                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nSupported string (enumeration) values are: [Standard, NoCalculationFloater, BrazilFixedCoupon].",
+                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon].",
                 "nullable": true
               },
               "instrumentType": {
@@ -69654,7 +69654,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "identifiers": {
@@ -69662,14 +69662,14 @@
                 "additionalProperties": {
                   "type": "string"
                 },
-                "description": "external market codes and identifiers for the bond, e.g. ISIN."
+                "description": "External market codes and identifiers for the bond, e.g. ISIN."
               },
               "contractDetails": {
                 "$ref": "#/components/schemas/FuturesContractDetails"
               },
               "contracts": {
                 "type": "number",
-                "description": "The number of contracts held",
+                "description": "The number of contracts held.",
                 "format": "double"
               },
               "refSpotPrice": {
@@ -69739,15 +69739,15 @@
         "properties": {
           "domCcy": {
             "type": "string",
-            "description": "currency in which the contract is paid."
+            "description": "Currency in which the contract is paid."
           },
           "contractCode": {
             "type": "string",
-            "description": "The two letter contract code abbreviation. e.g. CL => Crude Oil."
+            "description": "The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc."
           },
           "contractMonth": {
             "type": "string",
-            "description": "which month does the contract trade for.\r\nSupported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]."
+            "description": "Which month does the contract trade for.\r\nSupported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]."
           },
           "contractSize": {
             "type": "number",
@@ -69756,7 +69756,7 @@
           },
           "convention": {
             "type": "string",
-            "description": "If appropriate, the day count convention method used in pricing (rates futures)"
+            "description": "If appropriate, the day count convention method used in pricing (rates futures)."
           },
           "country": {
             "type": "string",
@@ -69764,7 +69764,7 @@
           },
           "description": {
             "type": "string",
-            "description": "Description of contract"
+            "description": "Description of contract."
           },
           "exchangeCode": {
             "type": "string",
@@ -69772,21 +69772,21 @@
           },
           "exchangeName": {
             "type": "string",
-            "description": "Exchange name (for when code is not automatically recognized)"
+            "description": "Exchange name (for when code is not automatically recognized)."
           },
           "tickerStep": {
             "type": "number",
-            "description": "Minimal step size change in ticker",
+            "description": "Minimal step size change in ticker.",
             "format": "double"
           },
           "unitValue": {
             "type": "number",
-            "description": "The value in the currency of a 1 unit change in the contract price",
+            "description": "The value in the currency of a 1 unit change in the contract price.",
             "format": "double"
           }
         },
         "additionalProperties": false,
-        "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\n            common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
+        "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\ncommon codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
       },
       "FxForward": {
         "allOf": [
