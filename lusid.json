@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3751",
+    "version": "0.11.3748",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:47593"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -6698,7 +6698,6 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
-                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6722,7 +6721,6 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
-                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6746,7 +6744,6 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
-                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6770,7 +6767,6 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
-                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -69457,11 +69453,6 @@
             "description": "The number of Good Business Days between determination and payment of reset.",
             "format": "int32"
           },
-          "leapDaysIncluded": {
-            "type": "boolean",
-            "description": "If this flag is set to true, the 29th of February is included in the date schedule when the business roll convention is applied.\r\nIf this flag is set to false, the business roll convention ignores February 29 for date schedules, cash flow payments etc.\r\nThis flag defaults to true if not specified, i.e., leap days are included in a date schedule generation.",
-            "nullable": true
-          },
           "scope": {
             "maxLength": 256,
             "minLength": 1,
@@ -82429,7 +82420,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
