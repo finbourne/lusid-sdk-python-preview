@@ -35,6 +35,7 @@ class ApiClientFactory:
         builder_kwargs = {}
 
         if "token" in kwargs and str(kwargs["token"]) != "None":
+
             # If there is a token use it along with the specified proxy details if specified
             config = ApiConfiguration(
                 api_url=kwargs.get("api_url", None),
