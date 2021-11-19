@@ -27,6 +27,7 @@ import urllib3
 
 from lusid.exceptions import ApiException, ApiValueError
 from lusid.tcp.tcp_keep_alive_probes import TCPKeepAlivePoolManager, TCPKeepAliveProxyManager
+import simplejson as json
 
 logger = logging.getLogger(__name__)
 
