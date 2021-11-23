@@ -36,7 +36,7 @@ class PrecisionTest(unittest.TestCase):
             create_property_definition_request = property_definition)
 
         #  property value
-        property_value = Decimal(0.1234567891011121314151617182)
+        property_value = Decimal("0.1234567891011121314151617182")
         portfolio_property = lusid.models.ModelProperty(key=property_definition_result.key,
                                                         value=lusid.models.PropertyValue(metric_value=lusid.models.MetricValue(value=property_value)))
 
@@ -62,7 +62,7 @@ class PrecisionTest(unittest.TestCase):
 
 
         self.assertTrue(type(portfolio.properties['Portfolio/test-precision/decimal_value'].value.metric_value.value)== Decimal)
-        self.assertEqual(Decimal('0.1234567891011121298916464184'), portfolio.properties['Portfolio/test-precision/decimal_value'].value.metric_value.value)
+        self.assertEqual(Decimal("0.1234567891011121314151617182"), portfolio.properties['Portfolio/test-precision/decimal_value'].value.metric_value.value)
         print(portfolio.properties['Portfolio/test-precision/decimal_value'].value.metric_value.value)
 
     def test_float(self):
