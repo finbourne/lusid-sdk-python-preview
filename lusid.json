@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3754",
+    "version": "0.11.3756",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:42211"
     }
   ],
   "paths": {
@@ -46325,6 +46325,116 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/sequences": {
+      "get": {
+        "tags": [
+          "Sequences"
+        ],
+        "summary": "[EXPERIMENTAL] ListSequences: List Sequences",
+        "description": "List sequences which satisfies filtering criteria.",
+        "operationId": "ListSequences",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing sequences from a previous call to list sequences. This\r\nvalue is returned from the previous call.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing sequences from a previous call to list sequences. This\r\nvalue is returned from the previous call.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The sequences matching filtering criteria",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/sequences/{scope}": {
       "post": {
         "tags": [
@@ -74506,6 +74616,47 @@
         "additionalProperties": false,
         "description": "A paginated list of resource that can be returned from a request."
       },
+      "PagedResourceListOfSequenceDefinition": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SequenceDefinition"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
       "Participation": {
         "required": [
           "id",
@@ -82429,7 +82580,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
