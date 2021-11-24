@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3758",
+    "version": "0.11.3759",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:40290"
+      "url": "http://local-unit-test-server.lusid.com:50701"
     }
   ],
   "paths": {
@@ -41485,7 +41485,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41547,7 +41548,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41609,7 +41611,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41671,7 +41674,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41846,7 +41850,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -41903,7 +41908,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -41989,7 +41995,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42046,7 +42053,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42132,7 +42140,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42189,7 +42198,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42366,7 +42376,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -42439,7 +42450,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -42512,7 +42524,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -75891,6 +75904,10 @@
           "useChildSubHoldingKeysForPortfolioExpansion": {
             "type": "boolean",
             "description": "Should fund constituents inherit subholding keys from the parent subholding keyb"
+          },
+          "validateDomesticAndQuoteCurrenciesAreConsistent": {
+            "type": "boolean",
+            "description": "Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing."
           }
         },
         "additionalProperties": false,
