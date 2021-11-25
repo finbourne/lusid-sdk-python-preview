@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3760",
+    "version": "0.11.3761",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:49300"
     }
   ],
   "paths": {
@@ -11455,6 +11455,210 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/datatypes/{scope}/{code}/referencedatavalues": {
+      "put": {
+        "tags": [
+          "Data Types"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type",
+        "description": "Replaces the whole set of reference values",
+        "operationId": "UpdateReferenceValues",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the data type",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the data type",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the data type",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the data type",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The updated reference values",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/datatypes/{scope}/{code}/units": {
@@ -82606,7 +82810,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

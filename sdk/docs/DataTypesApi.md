@@ -1,6 +1,6 @@
 # lusid.DataTypesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:49300*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_units_from_data_type**](DataTypesApi.md#get_units_from_data_type) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 [**list_data_types**](DataTypesApi.md#list_data_types) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
 [**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
+[**update_reference_values**](DataTypesApi.md#update_reference_values) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
 
 
 # **create_data_type**
@@ -27,10 +28,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +41,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -102,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -181,10 +182,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -194,7 +195,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -264,10 +265,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -277,7 +278,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -351,10 +352,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -364,7 +365,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:49300"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -391,6 +392,85 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the data type | 
  **code** | **str**| The code of the data type | 
  **update_data_type_request** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md)| The updated definition of the data type | 
+
+### Return type
+
+[**DataType**](DataType.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_reference_values**
+> DataType update_reference_values(scope, code, field_value)
+
+[EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+
+Replaces the whole set of reference values
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:49300
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:49300"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:49300"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.DataTypesApi(api_client)
+    scope = 'scope_example' # str | The scope of the data type
+code = 'code_example' # str | The code of the data type
+field_value = [{"value":"FRA","fields":{"english_short_name":"France","continent":"Europe"}},{"value":"DEU","fields":{"english_short_name":"Germany","continent":"Europe"}}] # list[FieldValue] | The updated reference values
+
+    try:
+        # [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+        api_response = api_instance.update_reference_values(scope, code, field_value)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataTypesApi->update_reference_values: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the data type | 
+ **code** | **str**| The code of the data type | 
+ **field_value** | [**list[FieldValue]**](FieldValue.md)| The updated reference values | 
 
 ### Return type
 
