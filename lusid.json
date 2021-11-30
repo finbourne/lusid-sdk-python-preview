@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3725",
+    "version": "0.11.3777",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -6698,6 +6698,7 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
+                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6721,6 +6722,7 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
+                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6744,6 +6746,7 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
+                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -6767,6 +6770,7 @@
                   ],
                   "settleDays": 2,
                   "resetDays": 2,
+                  "leapDaysIncluded": true,
                   "scope": "someScope",
                   "code": "exampleFlowConventionsName"
                 }
@@ -11453,6 +11457,210 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/datatypes/{scope}/{code}/referencedatavalues": {
+      "put": {
+        "tags": [
+          "Data Types"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type",
+        "description": "Replaces the whole set of reference values",
+        "operationId": "UpdateReferenceValues",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the data type",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the data type",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the data type",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the data type",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The updated reference values",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldValue"
+                },
+                "description": "The updated reference values"
+              },
+              "example": [
+                {
+                  "value": "FRA",
+                  "fields": {
+                    "english_short_name": "France",
+                    "continent": "Europe"
+                  }
+                },
+                {
+                  "value": "DEU",
+                  "fields": {
+                    "english_short_name": "Germany",
+                    "continent": "Europe"
+                  }
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/datatypes/{scope}/{code}/units": {
       "get": {
         "tags": [
@@ -13883,6 +14091,9 @@
             "in": "query",
             "description": "Expression to filter the result set. Defaults to filtering out inactive instruments\r\n             (that is, those that have been deleted). For more information about filtering results,\r\n             see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the result set. Defaults to filtering out inactive instruments\r\n             (that is, those that have been deleted). For more information about filtering results,\r\n             see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "default": "State eq 'Active'",
@@ -17753,6 +17964,8 @@
             "description": "Scope of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Scope of the legal entity identifier type.",
@@ -17765,6 +17978,8 @@
             "description": "Code of the legal entity identifier type.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity identifier type.",
@@ -17777,6 +17992,8 @@
             "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity.",
@@ -18569,6 +18786,8 @@
             "in": "query",
             "description": "The Provider of the rule",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
               "type": "string",
               "description": "The Provider of the rule",
               "nullable": true
@@ -19018,6 +19237,8 @@
             "in": "query",
             "description": "The Provider of the rule",
             "schema": {
+              "maxLength": 256,
+              "minLength": 0,
               "type": "string",
               "description": "The Provider of the rule",
               "nullable": true
@@ -25447,7 +25668,7 @@
             "description": "Key of the metadata entry to retrieve",
             "required": true,
             "schema": {
-              "maxLength": 100,
+              "maxLength": 256,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
@@ -30393,6 +30614,8 @@
             "description": "Key of the metadata entry to retrieve",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "Key of the metadata entry to retrieve"
             }
@@ -30529,6 +30752,8 @@
             "description": "Key of the access metadata entry to upsert",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "Key of the access metadata entry to upsert"
             }
@@ -30702,6 +30927,8 @@
             "description": "Key of the Access Metadata entry to delete",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "Key of the Access Metadata entry to delete"
             }
@@ -36733,6 +36960,8 @@
             "description": "Key of the metadata to retrieve",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "Key of the metadata to retrieve"
             }
@@ -36869,6 +37098,8 @@
             "description": "Key of the access metadata to upsert",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "Key of the access metadata to upsert"
             }
@@ -37042,6 +37273,8 @@
             "description": "The metadataKey identifying the access metadata entry to delete",
             "required": true,
             "schema": {
+              "maxLength": 256,
+              "minLength": 1,
               "type": "string",
               "description": "The metadataKey identifying the access metadata entry to delete"
             }
@@ -38549,6 +38782,9 @@
             "description": "The scope of the Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Portfolio.",
               "nullable": true
@@ -38560,6 +38796,9 @@
             "description": "The code of the  Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the  Portfolio.",
               "nullable": true
@@ -38571,6 +38810,9 @@
             "description": "The scope of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Returns.",
               "nullable": true
@@ -38582,6 +38824,9 @@
             "description": "The code of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the Returns.",
               "nullable": true
@@ -38767,6 +39012,9 @@
             "description": "The scope of the Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Portfolio.",
               "nullable": true
@@ -38778,6 +39026,9 @@
             "description": "The code of the  Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the  Portfolio.",
               "nullable": true
@@ -38789,6 +39040,9 @@
             "description": "The scope of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Returns.",
               "nullable": true
@@ -38800,6 +39054,9 @@
             "description": "The code of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the Returns.",
               "nullable": true
@@ -38925,6 +39182,9 @@
             "description": "The scope of the Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Portfolio.",
               "nullable": true
@@ -38936,6 +39196,9 @@
             "description": "The code of the  Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the  Portfolio.",
               "nullable": true
@@ -38947,6 +39210,9 @@
             "description": "The scope of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Returns.",
               "nullable": true
@@ -38958,6 +39224,9 @@
             "description": "The code of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the Returns.",
               "nullable": true
@@ -39179,6 +39448,9 @@
             "description": "The scope of the Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Portfolio.",
               "nullable": true
@@ -39190,6 +39462,9 @@
             "description": "The code of the  Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the  Portfolio.",
               "nullable": true
@@ -39201,6 +39476,9 @@
             "description": "The scope of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Returns.",
               "nullable": true
@@ -39212,6 +39490,9 @@
             "description": "The code of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the Returns.",
               "nullable": true
@@ -39325,6 +39606,9 @@
             "description": "The scope of the Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Portfolio.",
               "nullable": true
@@ -39336,6 +39620,9 @@
             "description": "The code of the  Portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the  Portfolio.",
               "nullable": true
@@ -39347,6 +39634,9 @@
             "description": "The scope of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the Returns.",
               "nullable": true
@@ -39358,6 +39648,9 @@
             "description": "The code of the Returns.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the Returns.",
               "nullable": true
@@ -39368,6 +39661,9 @@
             "in": "query",
             "description": "The Recipe Scope for getting the fx rates",
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The Recipe Scope for getting the fx rates",
               "nullable": true
@@ -39378,6 +39674,9 @@
             "in": "query",
             "description": "The Recipe Code for getting the fx rates",
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The Recipe Code for getting the fx rates",
               "nullable": true
@@ -41390,7 +41689,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41452,7 +41752,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41514,7 +41815,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41576,7 +41878,8 @@
                       "enableUseOfCachedUnitResults": false,
                       "windowValuationOnInstrumentStartEnd": false,
                       "removeContingentCashflowsInPaymentDiary": false,
-                      "useChildSubHoldingKeysForPortfolioExpansion": false
+                      "useChildSubHoldingKeysForPortfolioExpansion": false,
+                      "validateDomesticAndQuoteCurrenciesAreConsistent": false
                     },
                     "resultDataRules": []
                   },
@@ -41751,7 +42054,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -41808,7 +42112,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -41894,7 +42199,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -41951,7 +42257,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42037,7 +42344,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42094,7 +42402,8 @@
                             "enableUseOfCachedUnitResults": false,
                             "windowValuationOnInstrumentStartEnd": false,
                             "removeContingentCashflowsInPaymentDiary": false,
-                            "useChildSubHoldingKeysForPortfolioExpansion": false
+                            "useChildSubHoldingKeysForPortfolioExpansion": false,
+                            "validateDomesticAndQuoteCurrenciesAreConsistent": false
                           },
                           "resultDataRules": []
                         },
@@ -42271,7 +42580,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -42344,7 +42654,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -42417,7 +42728,8 @@
                         "enableUseOfCachedUnitResults": false,
                         "windowValuationOnInstrumentStartEnd": false,
                         "removeContingentCashflowsInPaymentDiary": false,
-                        "useChildSubHoldingKeysForPortfolioExpansion": false
+                        "useChildSubHoldingKeysForPortfolioExpansion": false,
+                        "validateDomesticAndQuoteCurrenciesAreConsistent": false
                       },
                       "resultDataRules": []
                     },
@@ -42585,6 +42897,9 @@
             "description": "The scope in which to create the reference portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope in which to create the reference portfolio.",
               "nullable": true
@@ -46227,6 +46542,116 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/sequences": {
+      "get": {
+        "tags": [
+          "Sequences"
+        ],
+        "summary": "[EXPERIMENTAL] ListSequences: List Sequences",
+        "description": "List sequences which satisfies filtering criteria.",
+        "operationId": "ListSequences",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing sequences from a previous call to list sequences. This\r\nvalue is returned from the previous call.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing sequences from a previous call to list sequences. This\r\nvalue is returned from the previous call.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many. Defaults to 500 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the result set. \r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The sequences matching filtering criteria",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfSequenceDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/sequences/{scope}": {
       "post": {
         "tags": [
@@ -48631,6 +49056,9 @@
             "description": "The scope in which to create the transaction portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope in which to create the transaction portfolio.",
               "nullable": true
@@ -48880,6 +49308,9 @@
             "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
               "nullable": true
@@ -59483,6 +59914,9 @@
             "description": "The scope of the transaction portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The scope of the transaction portfolio.",
               "nullable": true
@@ -60657,6 +61091,9 @@
             "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
             "required": true,
             "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
               "nullable": true
@@ -64369,7 +64806,7 @@
             "properties": {
               "startDate": {
                 "type": "string",
-                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date. If settle days = 0 then this is the initial accrual date of the bond.",
                 "format": "date-time"
               },
               "maturityDate": {
@@ -64410,7 +64847,7 @@
               },
               "initialCouponDate": {
                 "type": "string",
-                "description": "The initial coupon date which specifies the accrual start period for a fixed coupon bond with ex dividend schedule",
+                "description": "The initial coupon date is in fact the previous coupon pay date in the bond schedule. This date specifies the start of the coupon period in which the ex-dividend date lies.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -64422,7 +64859,7 @@
               },
               "calculationType": {
                 "type": "string",
-                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nSupported string (enumeration) values are: [Standard, NoCalculationFloater, BrazilFixedCoupon].",
+                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon].",
                 "nullable": true
               },
               "instrumentType": {
@@ -67997,6 +68434,14 @@
         ],
         "description": "A curve containing discount factors and dates to which they apply"
       },
+      "DiscountingMethod": {
+        "enum": [
+          "Standard",
+          "ConstantTimeValueOfMoney",
+          "Invalid"
+        ],
+        "type": "string"
+      },
       "EmptyModelOptions": {
         "allOf": [
           {
@@ -68013,10 +68458,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
@@ -69338,6 +69784,11 @@
             "description": "The number of Good Business Days between determination and payment of reset.",
             "format": "int32"
           },
+          "leapDaysIncluded": {
+            "type": "boolean",
+            "description": "If this flag is set to true, the 29th of February is included in the date schedule when the business roll convention is applied.\r\nIf this flag is set to false, the business roll convention ignores February 29 for date schedules, cash flow payments etc.\r\nThis flag defaults to true if not specified, i.e., leap days are included in a date schedule generation.",
+            "nullable": true
+          },
           "scope": {
             "maxLength": 256,
             "minLength": 1,
@@ -69539,7 +69990,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "identifiers": {
@@ -69547,14 +69998,14 @@
                 "additionalProperties": {
                   "type": "string"
                 },
-                "description": "external market codes and identifiers for the bond, e.g. ISIN."
+                "description": "External market codes and identifiers for the bond, e.g. ISIN."
               },
               "contractDetails": {
                 "$ref": "#/components/schemas/FuturesContractDetails"
               },
               "contracts": {
                 "type": "number",
-                "description": "The number of contracts held",
+                "description": "The number of contracts held.",
                 "format": "double"
               },
               "refSpotPrice": {
@@ -69624,15 +70075,15 @@
         "properties": {
           "domCcy": {
             "type": "string",
-            "description": "currency in which the contract is paid."
+            "description": "Currency in which the contract is paid."
           },
           "contractCode": {
             "type": "string",
-            "description": "The two letter contract code abbreviation. e.g. CL => Crude Oil."
+            "description": "The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc."
           },
           "contractMonth": {
             "type": "string",
-            "description": "which month does the contract trade for.\r\nSupported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]."
+            "description": "Which month does the contract trade for.\r\nSupported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]."
           },
           "contractSize": {
             "type": "number",
@@ -69641,7 +70092,7 @@
           },
           "convention": {
             "type": "string",
-            "description": "If appropriate, the day count convention method used in pricing (rates futures)"
+            "description": "If appropriate, the day count convention method used in pricing (rates futures)."
           },
           "country": {
             "type": "string",
@@ -69649,7 +70100,7 @@
           },
           "description": {
             "type": "string",
-            "description": "Description of contract"
+            "description": "Description of contract."
           },
           "exchangeCode": {
             "type": "string",
@@ -69657,21 +70108,21 @@
           },
           "exchangeName": {
             "type": "string",
-            "description": "Exchange name (for when code is not automatically recognized)"
+            "description": "Exchange name (for when code is not automatically recognized)."
           },
           "tickerStep": {
             "type": "number",
-            "description": "Minimal step size change in ticker",
+            "description": "Minimal step size change in ticker.",
             "format": "double"
           },
           "unitValue": {
             "type": "number",
-            "description": "The value in the currency of a 1 unit change in the contract price",
+            "description": "The value in the currency of a 1 unit change in the contract price.",
             "format": "double"
           }
         },
         "additionalProperties": false,
-        "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\n            common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
+        "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\ncommon codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
       },
       "FxForward": {
         "allOf": [
@@ -69906,6 +70357,59 @@
           }
         ],
         "description": "Contains data (i.e. dates and rates + metadata) for building fx forward curves"
+      },
+      "FxForwardModelOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "convertToReportCcy",
+              "discountingMethod",
+              "forwardRateObservableType",
+              "modelOptionsType"
+            ],
+            "type": "object",
+            "properties": {
+              "forwardRateObservableType": {
+                "enum": [
+                  "ForwardPoints",
+                  "ForwardRate",
+                  "RatesCurve",
+                  "FxForwardCurve",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid"
+              },
+              "discountingMethod": {
+                "enum": [
+                  "Standard",
+                  "ConstantTimeValueOfMoney",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: Standard, ConstantTimeValueOfMoney, Invalid"
+              },
+              "convertToReportCcy": {
+                "type": "boolean",
+                "description": "Convert all FX flows to the report currency\r\nBy setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base."
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
+                ],
+                "type": "string",
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+              }
+            }
+          }
+        ]
       },
       "FxForwardPipsCurveData": {
         "allOf": [
@@ -71071,10 +71575,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
@@ -71631,8 +72136,12 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
+              },
+              "isNonDeliverable": {
+                "type": "boolean",
+                "description": "Is the contract an IRS of \"Non-Deliverable\" type, meaning a single payment in the settlement currency based on the difference between\r\nthe fixed and floating rates."
               },
               "legs": {
                 "type": "array",
@@ -71640,6 +72149,11 @@
                   "$ref": "#/components/schemas/InstrumentLeg"
                 },
                 "description": "The set of instrument legs that define the swap instrument."
+              },
+              "settlementCcy": {
+                "type": "string",
+                "description": "Settlement currency if IRS is non-deliverable",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
@@ -71680,7 +72194,7 @@
             }
           }
         ],
-        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\n            \r\n             A swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\n             These may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\n             payment currency, payment frequency and so on they can be used to match sets of future obligations"
+        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations"
       },
       "InterestRateSwaption": {
         "allOf": [
@@ -72375,7 +72889,6 @@
           "priceSource": {
             "maxLength": 256,
             "minLength": 0,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote",
             "nullable": true
@@ -72421,6 +72934,16 @@
           "REDCode",
           "BBGId",
           "ICECode"
+        ],
+        "type": "string"
+      },
+      "MarketObservableType": {
+        "enum": [
+          "ForwardPoints",
+          "ForwardRate",
+          "RatesCurve",
+          "FxForwardCurve",
+          "Invalid"
         ],
         "type": "string"
       },
@@ -72531,10 +73054,11 @@
               "Invalid",
               "OpaqueModelOptions",
               "EmptyModelOptions",
-              "IndexModelOptions"
+              "IndexModelOptions",
+              "FxForwardModelOptions"
             ],
             "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
           }
         },
         "additionalProperties": false,
@@ -72547,7 +73071,8 @@
           "Invalid",
           "OpaqueModelOptions",
           "EmptyModelOptions",
-          "IndexModelOptions"
+          "IndexModelOptions",
+          "FxForwardModelOptions"
         ],
         "type": "string"
       },
@@ -72729,10 +73254,11 @@
                   "Invalid",
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
-                  "IndexModelOptions"
+                  "IndexModelOptions",
+                  "FxForwardModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
               }
             }
           }
@@ -74316,6 +74842,47 @@
         "additionalProperties": false,
         "description": "A paginated list of resource that can be returned from a request."
       },
+      "PagedResourceListOfSequenceDefinition": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SequenceDefinition"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
       "Participation": {
         "required": [
           "id",
@@ -75541,6 +76108,10 @@
           "useChildSubHoldingKeysForPortfolioExpansion": {
             "type": "boolean",
             "description": "Should fund constituents inherit subholding keys from the parent subholding keyb"
+          },
+          "validateDomesticAndQuoteCurrenciesAreConsistent": {
+            "type": "boolean",
+            "description": "Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing."
           }
         },
         "additionalProperties": false,
@@ -79284,7 +79855,6 @@
           "type": {
             "maxLength": 64,
             "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "description": {

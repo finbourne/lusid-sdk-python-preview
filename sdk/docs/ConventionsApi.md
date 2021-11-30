@@ -823,7 +823,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ConventionsApi(api_client)
-    upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
+    upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"leapDaysIncluded":true,"scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
     try:
         # [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
