@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3784",
+    "version": "0.11.3785",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:33951"
     }
   ],
   "paths": {
@@ -64517,6 +64517,7 @@
           "Equities",
           "Credit",
           "Commodities",
+          "Money",
           "Unknown"
         ],
         "type": "string"
@@ -65812,10 +65813,11 @@
               "FxForwardPipsCurveData",
               "FxForwardTenorCurveData",
               "FxForwardTenorPipsCurveData",
-              "FxForwardCurveByQuoteReference"
+              "FxForwardCurveByQuoteReference",
+              "CreditSpreadCurveData"
             ],
             "type": "string",
-            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
           }
         },
         "additionalProperties": false,
@@ -67489,6 +67491,74 @@
         "additionalProperties": false,
         "description": "Object describing a credit rating,\r\nwhich assesses the stability and credit worthiness of a legal entity\r\nand hence its likelihood of defaulting on its outstanding obligations (typically debt)."
       },
+      "CreditSpreadCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "domCcy",
+              "marketDataType",
+              "recoveryRate",
+              "spreads",
+              "tenors"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the quoted rates",
+                "format": "date-time"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the curve"
+              },
+              "recoveryRate": {
+                "type": "number",
+                "description": "The recovery rate in default.",
+                "format": "double"
+              },
+              "spreads": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Par spread quotes corresponding to the tenors."
+              },
+              "tenors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The tenors for which the rates apply"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData",
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+              }
+            }
+          }
+        ],
+        "description": "A credit spread curve matching tenors against par spread quotes"
+      },
       "CreditSupportAnnex": {
         "required": [
           "collateralCurrencies",
@@ -68424,10 +68494,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -68850,10 +68921,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70077,6 +70149,11 @@
             "type": "string",
             "description": "Currency in which the contract is paid."
           },
+          "assetClass": {
+            "type": "string",
+            "description": "The asset class of the underlying. Optional and will default to Unknown if not set.\r\nSupported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].",
+            "nullable": true
+          },
           "contractCode": {
             "type": "string",
             "description": "The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc."
@@ -70104,11 +70181,11 @@
           },
           "exchangeCode": {
             "type": "string",
-            "description": "Exchange code for contract\r\nSupported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE]."
+            "description": "Exchange code for contract\r\nSupported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE, NASDAQ, EEX, LME]."
           },
           "exchangeName": {
             "type": "string",
-            "description": "Exchange name (for when code is not automatically recognized)."
+            "description": "Exchange name (for when code is not automatically recognised)."
           },
           "tickerStep": {
             "type": "number",
@@ -70281,10 +70358,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70348,10 +70426,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70468,10 +70547,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70534,10 +70614,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70600,10 +70681,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -70820,10 +70902,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -71778,10 +71861,11 @@
               "Equities",
               "Credit",
               "Commodities",
+              "Money",
               "Unknown"
             ],
             "type": "string",
-            "description": "The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Unknown"
+            "description": "The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown"
           },
           "domCcy": {
             "type": "string",
@@ -72313,10 +72397,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -72916,7 +73001,8 @@
           "FxForwardPipsCurveData",
           "FxForwardTenorCurveData",
           "FxForwardTenorPipsCurveData",
-          "FxForwardCurveByQuoteReference"
+          "FxForwardCurveByQuoteReference",
+          "CreditSpreadCurveData"
         ],
         "type": "string",
         "description": "The format of the complex market data stored. Complex market data is used to store any\r\ndata which requires more context than just a simple single point as is the case with a\r\nquote.\r\nExamples of such complex market data are Discount Curve and Volatility Surfaces."
@@ -73220,10 +73306,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -80021,10 +80108,11 @@
                   "Equities",
                   "Credit",
                   "Commodities",
+                  "Money",
                   "Unknown"
                 ],
                 "type": "string",
-                "description": "The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Unknown"
+                "description": "The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown"
               },
               "fgnCcys": {
                 "type": "array",
@@ -82793,10 +82881,11 @@
                   "FxForwardPipsCurveData",
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
-                  "FxForwardCurveByQuoteReference"
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
               }
             }
           }
@@ -82810,7 +82899,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
