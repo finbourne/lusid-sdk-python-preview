@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3792",
+    "version": "0.11.3793",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:48588"
+      "url": "http://local-unit-test-server.lusid.com:34947"
     }
   ],
   "paths": {
@@ -2893,7 +2893,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] ListCalendars: List Calenders",
+        "summary": "[BETA] ListCalendars: List Calendars",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendars",
         "parameters": [
@@ -11037,6 +11037,152 @@
           }
         ],
         "x-fbn-apistatus": "Beta"
+      },
+      "get": {
+        "tags": [
+          "Data Types"
+        ],
+        "summary": "[EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data",
+        "description": "List all data type summaries",
+        "operationId": "ListDataTypeSummaries",
+        "parameters": [
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the data type summaries. Defaults to returning the latest version\r\n             of each summary if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the data type summaries. Defaults to returning the latest version\r\n             of each summary if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing data type summaries. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing data type summaries. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "When paginating, skip this number of results.",
+            "schema": {
+              "type": "integer",
+              "description": "When paginating, skip this number of results.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Optional. Expression to filter the result set. \r\n             For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",\r\n             to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Optional. Expression to filter the result set. \r\n             For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",\r\n             to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"\r\n             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName.",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfDataTypeSummary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfDataTypeSummary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfDataTypeSummary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/datatypes/{scope}": {
@@ -68198,6 +68344,89 @@
         },
         "additionalProperties": false
       },
+      "DataTypeSummary": {
+        "required": [
+          "description",
+          "displayName",
+          "id",
+          "typeValueRange",
+          "valueType"
+        ],
+        "type": "object",
+        "properties": {
+          "typeValueRange": {
+            "enum": [
+              "Open",
+              "Closed"
+            ],
+            "type": "string",
+            "description": "Indicates the range of data acceptable by a data type. The available values are: Open, Closed"
+          },
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The display name of the data type."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the data type."
+          },
+          "valueType": {
+            "enum": [
+              "String",
+              "Int",
+              "Decimal",
+              "DateTime",
+              "Boolean",
+              "Map",
+              "List",
+              "PropertyArray",
+              "Percentage",
+              "Code",
+              "Id",
+              "Uri",
+              "CurrencyAndAmount",
+              "TradePrice",
+              "Currency",
+              "MetricValue",
+              "ResourceId",
+              "ResultValue",
+              "CutLocalTime",
+              "DateOrCutLabel"
+            ],
+            "type": "string",
+            "description": "The expected type of the values. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel"
+          },
+          "acceptableValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The acceptable set of values for this data type. Only applies to 'open' value type range.",
+            "nullable": true
+          },
+          "unitSchema": {
+            "enum": [
+              "NoUnits",
+              "Basic",
+              "Iso4217Currency"
+            ],
+            "type": "string",
+            "description": "The schema of the data type's units. The available values are: NoUnits, Basic, Iso4217Currency"
+          },
+          "acceptableUnits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IUnitDefinitionDto"
+            },
+            "description": "The definitions of the acceptable units.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DataTypeValueRange": {
         "enum": [
           "Open",
@@ -74334,6 +74563,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CutLabelDefinition"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
+      "PagedResourceListOfDataTypeSummary": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataTypeSummary"
             },
             "description": "The resources to list."
           },

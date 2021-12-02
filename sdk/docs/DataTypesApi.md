@@ -1,12 +1,13 @@
 # lusid.DataTypesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:48588*
+All URIs are relative to *http://local-unit-test-server.lusid.com:34947*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_data_type**](DataTypesApi.md#create_data_type) | **POST** /api/datatypes | [BETA] CreateDataType: Create data type definition
 [**get_data_type**](DataTypesApi.md#get_data_type) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
 [**get_units_from_data_type**](DataTypesApi.md#get_units_from_data_type) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
+[**list_data_type_summaries**](DataTypesApi.md#list_data_type_summaries) | **GET** /api/datatypes | [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
 [**list_data_types**](DataTypesApi.md#list_data_types) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
 [**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
 [**update_reference_values**](DataTypesApi.md#update_reference_values) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
@@ -28,10 +29,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -41,7 +42,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -103,10 +104,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +117,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -182,10 +183,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -195,7 +196,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -249,6 +250,91 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_data_type_summaries**
+> PagedResourceListOfDataTypeSummary list_data_type_summaries(as_at=as_at, page=page, start=start, limit=limit, filter=filter, sort_by=sort_by)
+
+[EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+
+List all data type summaries
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:34947"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:34947"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.DataTypesApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+start = 56 # int | When paginating, skip this number of results. (optional)
+limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
+filter = 'filter_example' # str | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
+sort_by = ['sort_by_example'] # list[str] | Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+        api_response = api_instance.list_data_type_summaries(as_at=as_at, page=page, start=start, limit=limit, filter=filter, sort_by=sort_by)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataTypesApi->list_data_type_summaries: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **as_at** | **datetime**| The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **start** | **int**| When paginating, skip this number of results. | [optional] 
+ **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
+ **filter** | **str**| Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **sort_by** | [**list[str]**](str.md)| Sort the results by these fields. Use use the &#39;-&#39; sign to denote descending allocation e.g. -MyFieldName. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfDataTypeSummary**](PagedResourceListOfDataTypeSummary.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_data_types**
 > ResourceListOfDataType list_data_types(scope, as_at=as_at, include_system=include_system, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
@@ -265,10 +351,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -278,7 +364,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -352,10 +438,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -365,7 +451,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -431,10 +517,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:48588
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:34947
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -444,7 +530,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:48588"
+    host = "http://local-unit-test-server.lusid.com:34947"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
