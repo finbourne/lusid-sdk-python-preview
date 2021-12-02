@@ -5,13 +5,13 @@ Most, if not all, information about contracts is standardised. See, e.g. https:/
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dom_ccy** | **str** | currency in which the contract is paid. | 
+**dom_ccy** | **str** | Currency in which the contract is paid. | 
 **strike** | **float** | The option strike, this can be negative for some options. | 
 **contract_size** | **float** | Size of a single contract. By default this should be set to 1000 if otherwise unknown and is defaulted to such. | 
 **country** | **str** | Country (code) for the exchange. | 
-**delivery_type** | **str** | The delivery type, cash or physical. An option on a future is physically settled if upon exerciseing the  holder receives a future.  Supported string (enumeration) values are: [Cash, Physical]. | 
+**delivery_type** | **str** | The delivery type, cash or physical. An option on a future is physically settled if upon exercising the  holder receives a future.  Supported string (enumeration) values are: [Cash, Physical]. | 
 **description** | **str** | Description of contract | 
-**exchange_code** | **str** | Exchange code for contract  Supported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE, NASDAQ, EEX]. | 
+**exchange_code** | **str** | Exchange code for contract  Supported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE, NASDAQ, EEX, LME]. | 
 **exercise_date** | **datetime** | Exercise Date | 
 **exercise_type** | **str** | The exercise type, European, American or Bermudan  Supported string (enumeration) values are: [None, European, Bermudan, American]. | 
 **option_code** | **str** | Option Contract Code, typically one or two letters, e.g. OG &#x3D;&gt; Option on Gold. | 

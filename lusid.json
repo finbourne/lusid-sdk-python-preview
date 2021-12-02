@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3790",
+    "version": "0.11.3791",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:45209"
+      "url": "http://local-unit-test-server.lusid.com:59595"
     }
   ],
   "paths": {
@@ -69058,7 +69058,7 @@
         "properties": {
           "domCcy": {
             "type": "string",
-            "description": "currency in which the contract is paid."
+            "description": "Currency in which the contract is paid."
           },
           "strike": {
             "type": "number",
@@ -69076,7 +69076,7 @@
           },
           "deliveryType": {
             "type": "string",
-            "description": "The delivery type, cash or physical. An option on a future is physically settled if upon exerciseing the\r\nholder receives a future.\r\nSupported string (enumeration) values are: [Cash, Physical]."
+            "description": "The delivery type, cash or physical. An option on a future is physically settled if upon exercising the\r\nholder receives a future.\r\nSupported string (enumeration) values are: [Cash, Physical]."
           },
           "description": {
             "type": "string",
@@ -69084,7 +69084,7 @@
           },
           "exchangeCode": {
             "type": "string",
-            "description": "Exchange code for contract\r\nSupported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE, NASDAQ, EEX]."
+            "description": "Exchange code for contract\r\nSupported string (enumeration) values are: [ASX, CBOT, CBF, CME, CMX, EOP, HKG, KFE, MFM, OSE, SGX, NYBOT, KCBT, MGE, MATIF, SFE, NYFE, NYM, LIFFE, EUREX, ICE, MSE, NASDAQ, EEX, LME]."
           },
           "exerciseDate": {
             "type": "string",
