@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3796",
+    "version": "0.11.3797",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:47490"
+      "url": "http://local-unit-test-server.lusid.com:30100"
     }
   ],
   "paths": {
@@ -67662,10 +67662,12 @@
                 "type": "string",
                 "description": "Domestic currency of the curve"
               },
-              "recoveryRate": {
-                "type": "number",
-                "description": "The recovery rate in default.",
-                "format": "double"
+              "tenors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The tenors for which the rates apply"
               },
               "spreads": {
                 "type": "array",
@@ -67675,12 +67677,10 @@
                 },
                 "description": "Par spread quotes corresponding to the tenors."
               },
-              "tenors": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "The tenors for which the rates apply"
+              "recoveryRate": {
+                "type": "number",
+                "description": "The recovery rate in default.",
+                "format": "double"
               },
               "marketDataType": {
                 "enum": [
