@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3802",
+    "version": "0.11.3804",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:34946"
+      "url": "http://local-unit-test-server.lusid.com:50729"
     }
   ],
   "paths": {
@@ -5058,7 +5058,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.",
+        "summary": "[EARLY ACCESS] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.",
         "description": "Update or insert one or more complex market data items in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each complex market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each complex market data in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted complex market data, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the item could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "UpsertComplexMarketData",
         "parameters": [
@@ -5319,7 +5319,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/complexmarketdata/{scope}/$delete": {
@@ -5327,7 +5327,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.",
+        "summary": "[EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.",
         "description": "Delete one or more specified complex market data items from a single scope. Each item is identified by a unique id which includes\r\ninformation about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).\r\n            \r\nIn the request each complex market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted  complex market data items, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the it could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteComplexMarketData",
         "parameters": [
@@ -5508,7 +5508,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/complexmarketdata/{scope}/$get": {
@@ -5516,7 +5516,7 @@
         "tags": [
           "Complex Market Data"
         ],
-        "summary": "[EXPERIMENTAL] GetComplexMarketData: Get complex market data",
+        "summary": "[EARLY ACCESS] GetComplexMarketData: Get complex market data",
         "description": "Get one or more items of complex market data from a single scope.\r\n            \r\nEach item can be identified by its time invariant complex market data identifier.\r\n            \r\nFor each id LUSID will return the most recent matched item with respect to the provided (or default) effective datetime.\r\n            \r\nAn optional maximum age range window can be specified which defines how far back to look back for data from the specified effective datetime.\r\nLUSID will return the most recent item within this window.\r\n            \r\nIn the request each complex market data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each item in the response.\r\n            \r\nThe response will return three collections. One, the successfully retrieved complex market data. Two, those that had a\r\nvalid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.\r\n            \r\nFor the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.\r\n            \r\nIt is important to always check the failed and not found sets for any unsuccessful results.",
         "operationId": "GetComplexMarketData",
         "parameters": [
@@ -5734,7 +5734,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/compliance": {
@@ -66083,30 +66083,6 @@
         },
         "additionalProperties": false
       },
-      "Compounding": {
-        "required": [
-          "compoundingMethod",
-          "resetFrequency",
-          "spreadCompoundingMethod"
-        ],
-        "type": "object",
-        "properties": {
-          "compoundingMethod": {
-            "type": "string",
-            "description": "If the interest rate is simple or compounded.\r\nSupported string (enumeration) values are: [Average, Compounded, None]."
-          },
-          "resetFrequency": {
-            "type": "string",
-            "description": "The interest payment frequency."
-          },
-          "spreadCompoundingMethod": {
-            "type": "string",
-            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [IsdaCompounding, NoCompounding, IsdaFlatCompounding, None]."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The compounding settings used on interest rate."
-      },
       "ConfigurationRecipe": {
         "required": [
           "code",
@@ -72806,8 +72782,6 @@
       },
       "LegDefinition": {
         "required": [
-          "compounding",
-          "indexConventionName",
           "notionalExchangeType",
           "payReceive",
           "rateOrSpread",
@@ -72847,10 +72821,7 @@
           },
           "stubType": {
             "type": "string",
-            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both]."
-          },
-          "compounding": {
-            "$ref": "#/components/schemas/Compounding"
+            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront]."
           }
         },
         "additionalProperties": false,
