@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3810",
+    "version": "0.11.3807",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33021"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -66083,30 +66083,6 @@
         },
         "additionalProperties": false
       },
-      "Compounding": {
-        "required": [
-          "compoundingMethod",
-          "resetFrequency",
-          "spreadCompoundingMethod"
-        ],
-        "type": "object",
-        "properties": {
-          "compoundingMethod": {
-            "type": "string",
-            "description": "If the interest rate is simple or compounded.\r\nSupported string (enumeration) values are: [Average, Compounded, None]."
-          },
-          "resetFrequency": {
-            "type": "string",
-            "description": "The interest payment frequency."
-          },
-          "spreadCompoundingMethod": {
-            "type": "string",
-            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [IsdaCompounding, NoCompounding, IsdaFlatCompounding, None]."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The compounding settings used on interest rate."
-      },
       "ConfigurationRecipe": {
         "required": [
           "code",
@@ -72845,10 +72821,7 @@
           },
           "stubType": {
             "type": "string",
-            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both]."
-          },
-          "compounding": {
-            "$ref": "#/components/schemas/Compounding"
+            "description": "If a stub is required should it be at the front or back of the leg.\r\nSupported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront]."
           }
         },
         "additionalProperties": false,
@@ -83215,7 +83188,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
