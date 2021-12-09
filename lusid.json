@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3820",
+    "version": "0.11.3821",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:45920"
+      "url": "http://local-unit-test-server.lusid.com:45408"
     }
   ],
   "paths": {
@@ -72849,10 +72849,34 @@
           },
           "compounding": {
             "$ref": "#/components/schemas/Compounding"
+          },
+          "amortisation": {
+            "$ref": "#/components/schemas/StepSchedule"
           }
         },
         "additionalProperties": false,
         "description": "Definition of the set of flow and index conventions along with other miscellaneous information required to generate an instrument leg."
+      },
+      "LevelStep": {
+        "required": [
+          "date",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date from which the level should apply.",
+            "format": "date-time"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "The quantity which is applied. This might be an absolute, percentage, fractional or other value.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Item which is stepped in level/quantity."
       },
       "Link": {
         "required": [
@@ -80489,6 +80513,38 @@
           "Descending"
         ],
         "type": "string"
+      },
+      "StepSchedule": {
+        "required": [
+          "levelType",
+          "scheduleType",
+          "steps",
+          "stepScheduleType"
+        ],
+        "type": "object",
+        "properties": {
+          "levelType": {
+            "type": "string",
+            "description": "The type of shift or adjustment that the quantity represents\r\nSupported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]."
+          },
+          "scheduleType": {
+            "type": "string",
+            "description": "What type of schedule does this represent.\r\nSupported string (enumeration) values are: [Fixed, Float, Optionality, Step, Payment, Accrual]."
+          },
+          "stepScheduleType": {
+            "type": "string",
+            "description": "The type of step that this schedule is for.\r\nSupported string (enumeration) values are: [Coupon, Notional, Spread]."
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LevelStep"
+            },
+            "description": "The level steps which are applied."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Schedule that steps at known dated points in time.\r\nUsed in representation of a sinking bond, also called amortisation, steps in coupons for fixed bonds and spreads for floating bonds."
       },
       "Stream": {
         "type": "object",
