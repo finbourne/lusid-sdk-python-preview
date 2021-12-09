@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3825",
+    "version": "0.11.3826",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50096"
+      "url": "http://local-unit-test-server.lusid.com:52742"
     }
   ],
   "paths": {
@@ -64985,7 +64985,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
                 "format": "date-time"
               },
               "domCcy": {
@@ -64997,12 +64997,12 @@
               },
               "principal": {
                 "type": "number",
-                "description": "The face-value or principal for the bond at outset.\r\n            This might be reduced through its lifetime in the event of amortization or similar.",
+                "description": "The face-value or principal for the bond at outset.\r\nThis might be reduced through its lifetime in the event of amortization or similar.",
                 "format": "double"
               },
               "couponRate": {
                 "type": "number",
-                "description": "simple coupon rate.",
+                "description": "Simple coupon rate.",
                 "format": "double"
               },
               "identifiers": {
@@ -65010,18 +65010,18 @@
                 "additionalProperties": {
                   "type": "string"
                 },
-                "description": "external market codes and identifiers for the bond, e.g. ISIN.",
+                "description": "External market codes and identifiers for the bond, e.g. ISIN.",
                 "nullable": true
               },
               "exDividendDays": {
                 "type": "integer",
-                "description": "The number of days before the next coupon payment for which the bond goes ex-dividend.",
+                "description": "Number of Good Business Days before the next coupon payment, in which the bond goes ex-dividend. This means that if the settlement date falls in the ex-dividend period\r\nthen the coupon paid is zero and the accrued interest is negative. The ex-dividend  period is (Next Coupon Payment Date - ExDividendDays, Next Coupon Payment Date).",
                 "format": "int32",
                 "nullable": true
               },
               "initialCouponDate": {
                 "type": "string",
-                "description": "The initial coupon date is in fact the previous coupon pay date in the bond schedule. This date specifies the start of the coupon period in which the ex-dividend date lies.",
+                "description": "The initial coupon date applies to ex-dividends bonds with effectiveAt date before the initial accrual start date. In this case, the initial coupon date is used as an anchor to\r\ngenerate a bond schedule that allows the computation of the ex-dividend date and hence the right coupon amount and accrued interest.",
                 "format": "date-time",
                 "nullable": true
               },
