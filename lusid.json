@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3826",
+    "version": "0.11.3827",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:37992"
     }
   ],
   "paths": {
@@ -17332,6 +17332,143 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers": {
+      "delete": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers",
+        "description": "Delete identifiers that belong to the given property keys of the legal entity.",
+        "operationId": "DeleteLegalEntityIdentifiers",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "The property keys of the identifiers to delete. These take the format\r\n            {domain}/{scope}/{code} e.g. \"LegalEntity/CreditAgency/Identifier\". Each property must be from the \"LegalEntity\" domain. Identifiers or identifiers not specified in request will not be changed.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "The property keys of the identifiers to delete. These take the format\r\n            {domain}/{scope}/{code} e.g. \"LegalEntity/CreditAgency/Identifier\". Each property must be from the \"LegalEntity\" domain. Identifiers or identifiers not specified in request will not be changed."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime if identifiers are perpetual.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.\r\n            Must not include an effective datetime if identifiers are perpetual.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The datetime that the identifiers were deleted from the specified legal entity",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata": {
@@ -83271,7 +83408,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
