@@ -3,19 +3,23 @@ import uuid
 
 class IdGenerator:
 
-    def __init__(self, default_scope=None):
+    default_scope = "sdk_example"
+
+    def __init__(self, scope=default_scope):
         """
 
         Parameters
         ----------
-        default_scope   scope to use for subsequent generate calls when do scope is provided
+        scope : str, optional
+          scope to use for subsequent calls to generate ids, when no scope is provided defaults
+          to `sdk_example`
         """
-        self.default_scope = default_scope if default_scope is not None else "sdk_example"
+        self.scope = scope if scope is not None else self.default_scope
         self._scope_and_codes = set()
 
     def generate_scope_and_code(self, entity, scope=None, code_prefix=None):
         """
-        Generate a scope ond code
+        Generate a scope and code
 
         Parameters
         ----------

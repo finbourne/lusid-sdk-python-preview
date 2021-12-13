@@ -34,7 +34,7 @@ class ReferencePortfolio(unittest.TestCase):
         cls.instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = cls.instrument_loader.load_instruments()
 
-        cls.id_generator = IdGenerator(default_scope=TestDataUtilities.tutorials_scope)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
 
     @classmethod
     def tearDownClass(cls):
