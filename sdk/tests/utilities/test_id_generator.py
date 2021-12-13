@@ -8,7 +8,7 @@ class IdGeneratorTests(unittest.TestCase):
 
     def test_use_default_scope_when_not_specified(self):
         id_generator = IdGenerator()
-        self.assertEqual("sdk_example", id_generator.default_scope)
+        self.assertEqual(IdGenerator.default_scope, id_generator.scope)
 
     @parameterized.expand([
         ["custom-scope"],
@@ -16,14 +16,14 @@ class IdGeneratorTests(unittest.TestCase):
     ])
     def test_uses_provided_scope(self, scope):
         id_generator = IdGenerator(scope)
-        self.assertEqual(scope, id_generator.default_scope)
+        self.assertEqual(scope, id_generator.scope)
 
     def test_explicit_none_scope_uses_default(self):
         id_generator = IdGenerator(None)
-        self.assertEqual("sdk_example", id_generator.default_scope)
+        self.assertEqual(IdGenerator.default_scope, id_generator.scope)
 
     @parameterized.expand([
-        ["default scope", None, "sdk_example"],
+        ["default scope", None, IdGenerator.default_scope],
         ["override scope", "new-scope", "new-scope"]
     ])
     def test_generate_scope_and_code(self, _, scope, expected_scope):
@@ -41,7 +41,7 @@ class IdGeneratorTests(unittest.TestCase):
         gen_entity, gen_scope, gen_code = id_generator.generate_scope_and_code("portfolio", code_prefix=code_prefix)
 
         self.assertEqual("portfolio", gen_entity)
-        self.assertEqual("sdk_example", gen_scope)
+        self.assertEqual(IdGenerator.default_scope, gen_scope)
         self.assertIsNotNone(gen_code)
         self.assertTrue(gen_code.startswith(code_prefix))
 
@@ -56,13 +56,27 @@ class IdGeneratorTests(unittest.TestCase):
 
         self.assertEqual(0, len(list(vals)))
 
-    def test_get_scope_and_code(self):
+    def test_get_scope_and_code_with_default_scope(self):
         id_generator = IdGenerator()
         entity, scope, code = id_generator.generate_scope_and_code("portfolio")
 
         val = next(id_generator.pop_scope_and_codes(), None)
 
         self.assertEqual(scope, val[1])
+        self.assertEqual(scope, id_generator.default_scope)
+
+        val = next(id_generator.pop_scope_and_codes(), None)
+        self.assertIsNone(val)
+
+    def test_get_scope_and_code_with_specified_scope(self):
+        test_scope = "test-scope"
+        id_generator = IdGenerator(test_scope)
+        entity, scope, code = id_generator.generate_scope_and_code("portfolio")
+
+        val = next(id_generator.pop_scope_and_codes(), None)
+
+        self.assertEqual(scope, val[1])
+        self.assertEqual(scope, test_scope)
 
         val = next(id_generator.pop_scope_and_codes(), None)
         self.assertIsNone(val)
