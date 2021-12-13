@@ -1,20 +1,19 @@
-import logging
 import unittest
-from datetime import datetime
-
 import pytz
-from lusidfeature import lusid_feature
+import json
+import logging
+
+from datetime import datetime
 
 import lusid
 import lusid.models as models
-from lusid import ApiException
-from utilities import IdGenerator
-from utilities import InstrumentLoader
+
+from lusidfeature import lusid_feature
 from utilities import TestDataUtilities
+from utilities import InstrumentLoader
 
 
 class ReferencePortfolio(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
 
@@ -34,26 +33,16 @@ class ReferencePortfolio(unittest.TestCase):
         cls.instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = cls.instrument_loader.load_instruments()
 
-        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
-
-    @classmethod
-    def tearDownClass(cls):
-        for _, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
-
     @lusid_feature("F39")
     def test_create_reference_portfolio(self):
 
-        _, _, portfolio_code = self.id_generator.generate_scope_and_code("portfolio")
+        f39_reference_portfolio_code = "F39p_ReferencePortfolioCode"
         f39_reference_portfolio_name = "F39p_Reference Portfolio Name"
 
         # Details of the new reference portfolio to be created
         request = models.CreateReferencePortfolioRequest(
             display_name=f39_reference_portfolio_name,
-            code=portfolio_code,
+            code=f39_reference_portfolio_code,
         )
 
         # Create the reference portfolio in LUSID in the tutorials scope
@@ -64,19 +53,25 @@ class ReferencePortfolio(unittest.TestCase):
 
         self.assertEqual(result.id.code, request.code)
 
+        # Delete portfolio once the test is complete
+        self.portfolios_api.delete_portfolio(
+            scope=TestDataUtilities.tutorials_scope, code=f39_reference_portfolio_code
+        )
+
     @lusid_feature("F40")
     def test_upsert_reference_portfolio_constituents(self):
 
         constituent_weights = [10, 20, 30, 15, 25]
         effective_date = datetime(year=2021, month=3, day=29, tzinfo=pytz.UTC)
 
-        _, _, portfolio_code = self.id_generator.generate_scope_and_code("portfolio")
+        f40_reference_portfolio_code = "F40p_ReferencePortfolioCode"
         f40_reference_portfolio_name = "F40p_Reference Portfolio Name"
+
 
         # Create a new reference portfolio
         request = models.CreateReferencePortfolioRequest(
             display_name=f40_reference_portfolio_name,
-            code=portfolio_code,
+            code=f40_reference_portfolio_code,
             created=effective_date,
         )
 
@@ -112,7 +107,7 @@ class ReferencePortfolio(unittest.TestCase):
         # Make the upsert request via the reference portfolio API
         self.reference_portfolio_api.upsert_reference_portfolio_constituents(
             scope=TestDataUtilities.tutorials_scope,
-            code=portfolio_code,
+            code=f40_reference_portfolio_code,
             upsert_reference_portfolio_constituents_request=bulk_constituent_request,
         )
 
@@ -120,7 +115,7 @@ class ReferencePortfolio(unittest.TestCase):
         constituent_holdings = (
             self.reference_portfolio_api.get_reference_portfolio_constituents(
                 scope=TestDataUtilities.tutorials_scope,
-                code=portfolio_code,
+                code=f40_reference_portfolio_code,
             )
         )
 
@@ -129,12 +124,17 @@ class ReferencePortfolio(unittest.TestCase):
 
         # Validate instruments on holdings
         for constituent, upserted_instrument in zip(
-                constituent_holdings.constituents, self.instrument_ids
+            constituent_holdings.constituents, self.instrument_ids
         ):
             self.assertEqual(constituent.instrument_uid, upserted_instrument)
 
         # Validate holding weights
         for constituent, weight in zip(
-                constituent_holdings.constituents, constituent_weights
+            constituent_holdings.constituents, constituent_weights
         ):
             self.assertEqual(constituent.weight, weight)
+
+        # Delete portfolio once the test is complete
+        self.portfolios_api.delete_portfolio(
+            scope=TestDataUtilities.tutorials_scope, code=f40_reference_portfolio_code
+        )
