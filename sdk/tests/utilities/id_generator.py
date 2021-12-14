@@ -47,6 +47,31 @@ class IdGenerator:
         self._scope_and_codes.add(item)
         return item
 
+    def add_scope_and_code(self, entity, scope, code):
+        """
+        Adds a scope and code to collection of already generated ids
+
+        Parameters
+        ----------
+        entity : str
+            User defined string to describe the entity the scope and code is being generated for. This is returned
+            when calling ``pop_scope_and_codes``
+        scope : str
+            Scope of the entity
+        code : str
+            Code of the entity
+
+        Returns
+        -------
+        (str, str, str)
+            The generated (entity, scope, code)
+
+        """
+        item = (entity, scope, code)
+
+        self._scope_and_codes.add(item)
+        return item
+
     def clear(self):
         """
         Clears all generated ids

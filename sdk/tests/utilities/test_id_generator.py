@@ -1,6 +1,7 @@
 import unittest
+import uuid
 
-from . import IdGenerator
+from utilities import IdGenerator
 from parameterized import parameterized
 
 
@@ -36,7 +37,7 @@ class IdGeneratorTests(unittest.TestCase):
         self.assertIsNot("", gen_code)
 
     def test_generate_scope_and_code_with_scope_prefix(self):
-        code_prefix= "abc-"
+        code_prefix = "abc-"
         id_generator = IdGenerator()
         gen_entity, gen_scope, gen_code = id_generator.generate_scope_and_code("portfolio", code_prefix=code_prefix)
 
@@ -44,6 +45,18 @@ class IdGeneratorTests(unittest.TestCase):
         self.assertEqual(IdGenerator.default_scope, gen_scope)
         self.assertIsNotNone(gen_code)
         self.assertTrue(gen_code.startswith(code_prefix))
+
+    def test_generate_scope_and_code_with_different_entity(self):
+        id_generator = IdGenerator()
+        entity1, scope1, code1 = id_generator.generate_scope_and_code("portfolio")
+
+        entity2, scope2, code2 = id_generator.generate_scope_and_code("property")
+
+        vals = set(id_generator.pop_scope_and_codes())
+
+        self.assertEqual(2, len(vals))
+        self.assertIn((entity1, scope1, code1), vals)
+        self.assertIn((entity2, scope2, code2), vals)
 
     def test_clear_scope_and_code(self):
         id_generator = IdGenerator()
@@ -93,3 +106,33 @@ class IdGeneratorTests(unittest.TestCase):
         gen_vals = set(id_generator.pop_scope_and_codes())
         self.assertEqual(n, len(gen_vals))
         self.assertSetEqual(vals, gen_vals)
+
+    def test_add_scope_and_code(self):
+        id_generator = IdGenerator()
+        code = str(uuid.uuid4())
+        id_generator.add_scope_and_code("portfolio", IdGenerator.default_scope, code)
+
+        val = next(id_generator.pop_scope_and_codes(), None)
+
+        self.assertEqual(IdGenerator.default_scope, val[1])
+        self.assertEqual(code, val[2])
+
+    def test_add_scope_and_code_with_specified_scope(self):
+        test_scope = "test-scope"
+        id_generator = IdGenerator()
+        code = str(uuid.uuid4())
+        id_generator.add_scope_and_code("portfolio", test_scope, code)
+
+        val = next(id_generator.pop_scope_and_codes(), None)
+
+        self.assertEqual(test_scope, val[1])
+        self.assertEqual(code, val[2])
+
+    def test_add_existing_scope_and_code(self):
+        id_generator = IdGenerator()
+        _, gen_scope, gen_code = id_generator.generate_scope_and_code("portfolio")
+
+        id_generator.add_scope_and_code("portfolio", gen_scope, gen_code)
+
+        gen_vals = set(id_generator.pop_scope_and_codes())
+        self.assertEqual(1, len(gen_vals))
