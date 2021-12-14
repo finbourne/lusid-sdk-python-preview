@@ -136,3 +136,38 @@ class IdGeneratorTests(unittest.TestCase):
 
         gen_vals = set(id_generator.pop_scope_and_codes())
         self.assertEqual(1, len(gen_vals))
+
+    def test_generate_scope_and_code_with_annotations(self):
+        id_generator = IdGenerator()
+        test_scope = "test-scope"
+        annotations = ["val1", "val2"]
+        item = id_generator.generate_scope_and_code(
+            "portfolio",
+            scope=test_scope,
+            annotations=annotations
+        )
+
+        self.assertEqual("portfolio", item[0])
+        self.assertEqual(test_scope, item[1])
+        self.assertIsNotNone(item[2])
+        self.assertIsNot("", item[2])
+        self.assertEqual("val1", item[3])
+        self.assertEqual("val2", item[4])
+
+    def test_add_scope_and_code_with_annotations(self):
+        id_generator = IdGenerator()
+        test_scope = "test-scope"
+        test_code = "test-code"
+        annotations = ["val1", "val2"]
+        item = id_generator.add_scope_and_code(
+            "portfolio",
+            scope=test_scope,
+            code=test_code,
+            annotations=annotations
+        )
+
+        self.assertEqual("portfolio", item[0])
+        self.assertEqual(test_scope, item[1])
+        self.assertEqual(test_code, item[2])
+        self.assertEqual("val1", item[3])
+        self.assertEqual("val2", item[4])

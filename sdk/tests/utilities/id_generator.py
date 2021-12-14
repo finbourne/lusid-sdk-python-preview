@@ -17,7 +17,7 @@ class IdGenerator:
         self.scope = scope if scope is not None else self.default_scope
         self._scope_and_codes = set()
 
-    def generate_scope_and_code(self, entity, scope=None, code_prefix=None):
+    def generate_scope_and_code(self, entity, scope=None, code_prefix=None, annotations=[]):
         """
         Generate a scope and code
 
@@ -30,11 +30,13 @@ class IdGenerator:
             Scope to use, if not supplied the default one will be used
         code_prefix : str, optional
             Prefix for the generated code
+        annotations : list
+            List of user supplied values to be stored alongside the id
 
         Returns
         -------
-        (str, str, str)
-            The generated (entity, scope, code)
+        (str, str, str, ...)
+            The generated (entity, scope, code, ...) where ... are any supplied annotation values
 
         """
         scope = scope if scope is not None else self.scope
@@ -42,12 +44,12 @@ class IdGenerator:
         code = str(uuid.uuid4())
         code = code if code_prefix is None else f"{code_prefix}{code}"
 
-        item = (entity, scope, code)
+        item = (entity, scope, code, *annotations)
 
         self._scope_and_codes.add(item)
         return item
 
-    def add_scope_and_code(self, entity, scope, code):
+    def add_scope_and_code(self, entity, scope, code, annotations=[]):
         """
         Adds a scope and code to collection of already generated ids
 
@@ -60,14 +62,16 @@ class IdGenerator:
             Scope of the entity
         code : str
             Code of the entity
+        annotations : list
+            List of user supplied values to be stored alongside the id
 
         Returns
         -------
-        (str, str, str)
-            The generated (entity, scope, code)
+        (str, str, str, ...)
+            The generated (entity, scope, code, ...) where ... are any supplied annotation values
 
         """
-        item = (entity, scope, code)
+        item = (entity, scope, code, *annotations)
 
         self._scope_and_codes.add(item)
         return item
