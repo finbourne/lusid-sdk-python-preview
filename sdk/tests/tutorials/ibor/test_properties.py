@@ -2,18 +2,16 @@ import unittest
 from datetime import datetime
 
 import pytz
-import uuid
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-
-from lusid import ApiException
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from utilities import IdGenerator
+from utilities.credentials_source import CredentialsSource
+from utilities.id_generator_utilities import delete_entities
 from utilities.instrument_loader import InstrumentLoader
 from utilities.test_data_utilities import TestDataUtilities
-from utilities.credentials_source import CredentialsSource
 
 
 class Properties(unittest.TestCase):
@@ -36,18 +34,7 @@ class Properties(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-
-        for item in cls.id_generator.pop_scope_and_codes():
-            entity = item[0]
-            scope = item[1]
-            code = item[2]
-            try:
-                if entity == "property_definition":
-                    cls.property_definitions_api.delete_property_definition(item[3], scope, code)
-                elif entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F14")
     def test_create_portfolio_with_label_property(self):

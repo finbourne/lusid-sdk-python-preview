@@ -1,16 +1,18 @@
+import json
 import unittest
-import uuid
+
+from lusidfeature import lusid_feature
+
 import lusid
 import lusid.models as models
-from lusid import OrderRequest, ApiException
+from lusid import OrderRequest
 from lusid import OrderSetRequest
 from lusid import PerpetualProperty
 from lusid import PropertyValue
 from lusid import ResourceId
-from lusidfeature import lusid_feature
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
-import json
+from utilities.id_generator_utilities import delete_entities
 
 
 class Orders(unittest.TestCase):
@@ -36,7 +38,7 @@ class Orders(unittest.TestCase):
                     if json.loads(e.body)["name"] == "PropertyAlreadyExists":
                         pass  # ignore if the property definition exists
                 finally:
-                    id_generator.add_scope_and_code("property_definition", scope, code)
+                    id_generator.add_scope_and_code("property_definition", scope, code, ["Order"])
 
     @classmethod
     def setUpClass(cls):
@@ -60,14 +62,7 @@ class Orders(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for entity, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                if entity == "property_definition":
-                    cls.properties_api.delete_property_definition("Order", scope, code)
-                elif entity == "order":
-                    cls.orders_api.delete_order(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F4")
     def test_upsert_simple_order(self):

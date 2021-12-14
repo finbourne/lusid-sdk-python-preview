@@ -1,12 +1,12 @@
-import unittest
-import logging
 import json
+import logging
+import unittest
 
 import lusid
 import lusid.models as models
-from lusid import ApiException
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class DerivedPropertyTests(unittest.TestCase):
@@ -28,14 +28,7 @@ class DerivedPropertyTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for item in cls.id_generator.pop_scope_and_codes():
-            scope = item[1]
-            code = item[2]
-            domain = item[3]
-            try:
-                cls.property_definitions_api.delete_property_definition(domain, scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     def create_ratings_property(self, *ratings):
 

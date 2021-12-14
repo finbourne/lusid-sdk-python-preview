@@ -1,13 +1,14 @@
-import unittest
 import json
 import logging
-import pytz
+import unittest
 from datetime import datetime
+
+import pytz
 
 import lusid
 import lusid.models as models
-from lusid import ApiException
 from utilities import TestDataUtilities, IdGenerator
+from utilities.id_generator_utilities import delete_entities
 
 
 class MultiLabelPropertyTests(unittest.TestCase):
@@ -26,18 +27,7 @@ class MultiLabelPropertyTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for item in cls.id_generator.pop_scope_and_codes():
-            entity = item[0]
-            scope = item[1]
-            code = item[2]
-            try:
-                if entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-                elif entity == "property_definition":
-                    domain = item[3]
-                    cls.property_definitions_api.delete_property_definition(domain, scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     def test_create_portfolio_with_mv_property(self):
         # Details of property to be created

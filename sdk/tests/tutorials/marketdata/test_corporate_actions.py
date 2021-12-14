@@ -1,17 +1,17 @@
 import json
 import unittest
 import uuid
-import pytz
 from datetime import datetime, timedelta
+
+import pytz
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-
-from lusid import ApiException
 from lusid.utilities.api_client_builder import ApiClientBuilder
 from utilities import IdGenerator
 from utilities.credentials_source import CredentialsSource
+from utilities.id_generator_utilities import delete_entities
 from utilities.test_data_utilities import TestDataUtilities
 
 
@@ -30,17 +30,7 @@ class CorporateActions(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for item in cls.id_generator.pop_scope_and_codes():
-            entity = item[0]
-            scope = item[1]
-            code = item[2]
-            try:
-                if entity == "ca_source":
-                    cls.corporate_actions_sources_api.delete_corporate_action_source(scope, code)
-                elif entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F12-4")
     def test_name_change_corporate_action(self):

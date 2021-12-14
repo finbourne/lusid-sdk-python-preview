@@ -11,6 +11,7 @@ import lusid.models as models
 from lusid import ApiException
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class TransactionProperty(unittest.TestCase):
@@ -38,17 +39,7 @@ class TransactionProperty(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for item in cls.id_generator.pop_scope_and_codes():
-            entity = item[0]
-            scope = item[1]
-            code = item[2]
-            try:
-                if entity == "property_definition":
-                    cls.property_definitions_api.delete_property_definition(item[3], scope, code)
-                elif entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     def create_transaction_property(self):
         # Details of the property

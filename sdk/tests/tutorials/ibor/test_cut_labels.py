@@ -2,13 +2,13 @@ import unittest
 import uuid
 from datetime import date, timedelta
 
-import lusid
-import lusid.models as models
 from lusidfeature import lusid_feature
 
-from lusid import ApiException
+import lusid
+import lusid.models as models
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class CutLabels(unittest.TestCase):
@@ -32,14 +32,7 @@ class CutLabels(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for entity, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                if entity == "cut_label":
-                    cls.cut_labels.delete_cut_label_definition(code)
-                elif entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F32")
     def test_cut_labels(self):

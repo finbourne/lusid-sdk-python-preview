@@ -10,6 +10,7 @@ from lusidfeature import lusid_feature
 from lusid import ApiException
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Valuation(unittest.TestCase):
@@ -34,14 +35,7 @@ class Valuation(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for entity, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                if entity == "portfolio":
-                    cls.portfolios_api.delete_portfolio(scope, code)
-                elif entity == "recipe":
-                    cls.recipes_api.delete_configuration_recipe(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F20")
     def test_portfolio_aggregation(self):

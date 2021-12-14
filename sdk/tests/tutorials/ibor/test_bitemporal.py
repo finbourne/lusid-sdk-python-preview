@@ -10,6 +10,7 @@ from lusidfeature import lusid_feature
 from lusid import ApiException
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Bitemporal(unittest.TestCase):
@@ -31,11 +32,7 @@ class Bitemporal(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for _, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     def print_transactions(self, as_at, transactions):
         print("transactions at: {}".format(as_at))
