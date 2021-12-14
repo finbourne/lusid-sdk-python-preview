@@ -8,7 +8,8 @@ import logging
 # import lusid specific packages
 import lusid
 import lusid.models as models
-from utilities import InstrumentLoader
+from lusid import ApiException
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
 
 
@@ -18,11 +19,14 @@ class TransactionProperty(unittest.TestCase):
         # setup logging configuration
         cls.root_logger = logging.getLogger(__name__)
         cls.root_logger.setLevel(logging.INFO)
+        
         # create a configured API client
         api_client = TestDataUtilities.api_client()
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
+
         # load instruments from InstrumentLoader
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
@@ -30,6 +34,21 @@ class TransactionProperty(unittest.TestCase):
         # set test scope and code
         cls.scope = "TransactionProperty"
         cls.code = "TransactionTaxDetail"
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        for item in cls.id_generator.pop_scope_and_codes():
+            entity = item[0]
+            scope = item[1]
+            code = item[2]
+            try:
+                if entity == "property_definition":
+                    cls.property_definitions_api.delete_property_definition(item[3], scope, code)
+                elif entity == "portfolio":
+                    cls.portfolios_api.delete_portfolio(scope, code)
+            except ApiException as ex:
+                print(ex)
 
     def create_transaction_property(self):
         # Details of the property
@@ -51,6 +70,9 @@ class TransactionProperty(unittest.TestCase):
                 self.root_logger.info(
                     f"Property {property_definition.domain}/{property_definition.scope}/{property_definition.code} already exists"
                 )
+        finally:
+            self.id_generator.add_scope_and_code("property_definition", property_definition.scope,
+                                                 property_definition.code, ["Transaction"])
 
     def create_portfolio(self):
         # Details of new portfolio to be created
@@ -73,6 +95,8 @@ class TransactionProperty(unittest.TestCase):
                 self.root_logger.info(
                     f"Portfolio {create_portfolio_request.code} already exists"
                 )
+        finally:
+            self.id_generator.add_scope_and_code("portfolio", self.scope, self.code)
 
     def create_txn_with_property(self, instrument_id, property_value):
         # setup the transaction
@@ -124,8 +148,8 @@ class TransactionProperty(unittest.TestCase):
         # Parse property value from transaction and assert is equal to original string object
         queried_property_string = (
             txn_response.values[0]
-            .properties[f"Transaction/{self.scope}/{self.code}"]
-            .value.label_value
+                .properties[f"Transaction/{self.scope}/{self.code}"]
+                .value.label_value
         )
         self.assertIsNotNone(queried_property_string)
         self.assertEqual(queried_property_string, transaction_tax_string)

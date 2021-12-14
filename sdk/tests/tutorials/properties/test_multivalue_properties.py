@@ -1,28 +1,43 @@
-# import general python packages
 import unittest
 import json
 import logging
 import pytz
 from datetime import datetime
 
-# import lusid specific packages
 import lusid
 import lusid.models as models
-from utilities import TestDataUtilities
-
-# setup logging configuration
-logging.basicConfig(level=logging.INFO)
+from lusid import ApiException
+from utilities import TestDataUtilities, IdGenerator
 
 
 class MultiLabelPropertyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+
+        logging.basicConfig(level=logging.INFO)
+
         # create a configured API client
         api_client = TestDataUtilities.api_client()
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.portfolios_api = lusid.PortfoliosApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        for item in cls.id_generator.pop_scope_and_codes():
+            entity = item[0]
+            scope = item[1]
+            code = item[2]
+            try:
+                if entity == "portfolio":
+                    cls.portfolios_api.delete_portfolio(scope, code)
+                elif entity == "property_definition":
+                    domain = item[3]
+                    cls.property_definitions_api.delete_property_definition(domain, scope, code)
+            except ApiException as ex:
+                print(ex)
 
     def test_create_portfolio_with_mv_property(self):
         # Details of property to be created
@@ -50,6 +65,9 @@ class MultiLabelPropertyTests(unittest.TestCase):
                 logging.info(
                     f"Property {multi_value_property_definition.domain}/{multi_value_property_definition.scope}/{multi_value_property_definition.display_name} already exists"
                 )
+        finally:
+            self.id_generator.add_scope_and_code("property_definition", multi_value_property_definition.scope,
+                                                 multi_value_property_definition.code, ["Portfolio"])
 
         schedule = [
             '{ "2019-12-31" : "5"}',
@@ -77,6 +95,8 @@ class MultiLabelPropertyTests(unittest.TestCase):
                 logging.info(
                     f"Portfolio {create_portfolio_request.code} already exists"
                 )
+        finally:
+            self.id_generator.add_scope_and_code("portfolio", scope, portfolio_code)
 
         self.portfolios_api.upsert_portfolio_properties(
             scope=scope,
