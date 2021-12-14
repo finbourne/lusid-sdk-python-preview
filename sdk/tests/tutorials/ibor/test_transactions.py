@@ -7,7 +7,9 @@ import pytz
 import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+
+from lusid import ApiException
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
 
 
@@ -20,16 +22,27 @@ class Transactions(unittest.TestCase):
 
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
 
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        for _, scope, code in cls.id_generator.pop_scope_and_codes():
+            try:
+                cls.portfolios_api.delete_portfolio(scope, code)
+            except ApiException as ex:
+                print(ex)
 
     @lusid_feature("F17")
     def test_load_listed_instrument_transaction(self):
         # create the portfolio
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         trade_date = datetime(2018, 1, 1, tzinfo=pytz.utc)
 
@@ -66,6 +79,7 @@ class Transactions(unittest.TestCase):
     def test_load_cash_transaction(self):
         # create the portfolio
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         trade_date = datetime(2018, 1, 1, tzinfo=pytz.utc)
 
@@ -110,6 +124,7 @@ class Transactions(unittest.TestCase):
 
         # create portfolio code
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         # Upsert transactions
         transactions = [
