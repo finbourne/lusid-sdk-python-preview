@@ -6,7 +6,9 @@ import pytz
 import lusid
 import lusid.models as models
 from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+
+from lusid import ApiException
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
 
 
@@ -22,10 +24,24 @@ class Valuation(unittest.TestCase):
         cls.recipes_api = lusid.ConfigurationRecipeApi(api_client)
         cls.aggregation_api = lusid.AggregationApi(api_client)
         cls.quotes_api = lusid.QuotesApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
+
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        for entity, scope, code in cls.id_generator.pop_scope_and_codes():
+            try:
+                if entity == "portfolio":
+                    cls.portfolios_api.delete_portfolio(scope, code)
+                elif entity == "recipe":
+                    cls.recipes_api.delete_configuration_recipe(scope, code)
+            except ApiException as ex:
+                print(ex)
 
     @lusid_feature("F20")
     def test_portfolio_aggregation(self):
@@ -33,6 +49,7 @@ class Valuation(unittest.TestCase):
         effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
 
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         transactions = [
             self.test_data_utilities.build_transaction_request(instrument_id=self.instrument_ids[0],
@@ -91,6 +108,9 @@ class Valuation(unittest.TestCase):
 
         recipe_scope = 'cs-tutorials'
         recipe_code = 'quotes_recipe'
+
+        self.id_generator.add_scope_and_code("recipe", recipe_scope, recipe_code)
+
         demo_recipe = models.ConfigurationRecipe(
             scope=recipe_scope,
             code=recipe_code,
