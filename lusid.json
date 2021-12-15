@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3834",
+    "version": "0.11.3835",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:41839"
+      "url": "http://local-unit-test-server.lusid.com:53249"
     }
   ],
   "paths": {
@@ -6051,7 +6051,10 @@
                         "scope": "MyScope",
                         "code": "MyPortfolioCode"
                       },
-                      "passed": true
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
@@ -6070,7 +6073,10 @@
                         "scope": "MyScope",
                         "code": "MyPortfolioCode"
                       },
-                      "passed": true
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
@@ -6089,7 +6095,10 @@
                         "scope": "MyScope",
                         "code": "MyPortfolioCode"
                       },
-                      "passed": true
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
@@ -66183,7 +66192,14 @@
         "required": [
           "passed",
           "portfolio",
-          "ruleId"
+          "resultValue",
+          "ruleDescription",
+          "ruleId",
+          "ruleInformationKey",
+          "ruleInformationMatch",
+          "ruleLowerLimit",
+          "ruleName",
+          "ruleUpperLimit"
         ],
         "type": "object",
         "properties": {
@@ -66191,12 +66207,43 @@
             "type": "string",
             "description": "The unique identifierof a compliance rule"
           },
+          "ruleName": {
+            "type": "string",
+            "description": "The User-given name of the rule"
+          },
+          "ruleDescription": {
+            "type": "string",
+            "description": "The User-given description of the rule"
+          },
           "portfolio": {
             "$ref": "#/components/schemas/ResourceId"
           },
           "passed": {
             "type": "boolean",
             "description": "The result of an individual compliance run, true if passed"
+          },
+          "resultValue": {
+            "type": "number",
+            "description": "The calculation result that was used to confirm a pass/fail",
+            "format": "double"
+          },
+          "ruleInformationMatch": {
+            "type": "string",
+            "description": "The value matched by the rule"
+          },
+          "ruleInformationKey": {
+            "type": "string",
+            "description": "The property key matched by the rule"
+          },
+          "ruleLowerLimit": {
+            "type": "integer",
+            "description": "The lower limit of the rule",
+            "format": "int32"
+          },
+          "ruleUpperLimit": {
+            "type": "integer",
+            "description": "The upper limit of the rule",
+            "format": "int32"
           }
         },
         "additionalProperties": false
