@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3832",
+    "version": "0.11.3834",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:41839"
     }
   ],
   "paths": {
@@ -67479,12 +67479,16 @@
             "description": "The code of the relationship definition. Together with the scope this uniquely defines the relationship definition."
           },
           "sourceEntityType": {
+            "maxLength": 64,
+            "minLength": 1,
             "type": "string",
-            "description": "The entity type of the source entity object must be, allowed values are 'Portfolio', 'PortfolioGroup', 'Person' and 'LegalEntity'."
+            "description": "The entity type of the source entity object. Allowed values are 'Portfolio', 'PortfolioGroup', 'Person', 'LegalEntity' or a custom entity type prefixed with '~'."
           },
           "targetEntityType": {
+            "maxLength": 64,
+            "minLength": 1,
             "type": "string",
-            "description": "The entity type of the target entity object must be, allowed values are 'Portfolio', 'PortfolioGroup', 'Person' and 'LegalEntity'."
+            "description": "The entity type of the target entity object. Allowed values are 'Portfolio', 'PortfolioGroup', 'Person', 'LegalEntity' or a custom entity type prefixed with '~'."
           },
           "displayName": {
             "maxLength": 512,
@@ -83408,7 +83412,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
