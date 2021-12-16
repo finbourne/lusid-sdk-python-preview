@@ -1,4 +1,3 @@
-import logging
 import unittest
 from datetime import datetime
 
@@ -17,10 +16,6 @@ class ReferencePortfolio(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
-        # Log any exceptions
-        cls.logger = logging.getLogger()
-        cls.logger.setLevel(logging.INFO)
 
         # Create API client
         api_client = TestDataUtilities.api_client()
