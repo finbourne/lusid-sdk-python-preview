@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3838",
+    "version": "0.11.3839",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53351"
+      "url": "http://local-unit-test-server.lusid.com:57804"
     }
   ],
   "paths": {
@@ -65242,7 +65242,7 @@
         "properties": {
           "index": {
             "type": "string",
-            "description": "Index set, e.g. iTraxx or CDX"
+            "description": "Index set, e.g. iTraxx or CDX."
           },
           "name": {
             "type": "string",
@@ -65456,7 +65456,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "domCcy": {
@@ -66004,7 +66004,7 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
-            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
+            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, HalfMonthModifiedFollowing]."
           },
           "paymentCalendars": {
             "type": "array",
@@ -66073,7 +66073,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "flowConventions": {
@@ -66099,7 +66099,7 @@
               },
               "notional": {
                 "type": "number",
-                "description": "The notional quantity that applies to both the premium and protection legs",
+                "description": "The notional quantity that applies to both the premium and protection legs.",
                 "format": "double"
               },
               "instrumentType": {
@@ -66179,15 +66179,15 @@
           },
           "protectStartDay": {
             "type": "boolean",
-            "description": "Does the protection leg pay out in the case of default on the start date"
+            "description": "Does the protection leg pay out in the case of default on the start date."
           },
           "payAccruedInterestOnDefault": {
             "type": "boolean",
-            "description": "Should accrued interest on the premium leg be paid if a credit event occurs"
+            "description": "Should accrued interest on the premium leg be paid if a credit event occurs."
           }
         },
         "additionalProperties": false,
-        "description": "CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.\r\nThis class gathers a number of common features which may deviate. These will default to the market standard when\r\nno overrides are provided"
+        "description": "CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.\r\nThis class gathers a number of common features which may deviate. These will default to the market standard when\r\nno overrides are provided."
       },
       "CdsRestructuringType": {
         "enum": [
@@ -66610,7 +66610,7 @@
           },
           "spreadCompoundingMethod": {
             "type": "string",
-            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [IsdaCompounding, NoCompounding, IsdaFlatCompounding, None]."
+            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [IsdaCompounding, NoCompounding, IsdaFlatCompounding]."
           }
         },
         "additionalProperties": false,
@@ -68156,7 +68156,7 @@
             "properties": {
               "ticker": {
                 "type": "string",
-                "description": "A ticker to uniquely specify then entity against which the cds is written"
+                "description": "A ticker to uniquely specify then entity against which the cds is written."
               },
               "startDate": {
                 "type": "string",
@@ -68165,7 +68165,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "flowConventions": {
@@ -68173,7 +68173,7 @@
               },
               "couponRate": {
                 "type": "number",
-                "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\n            For a standard corporate CDS (North American) this must be either 100bps or 500bps.",
+                "description": "The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \"0.05\" meaning 500 basis points or 5%.\r\nFor a standard corporate CDS (North American) this must be either 100bps or 500bps.",
                 "format": "double"
               },
               "conventionName": {
@@ -68408,7 +68408,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "legs": {
@@ -69401,7 +69401,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "identifiers": {
@@ -69635,7 +69635,7 @@
             "properties": {
               "startDate": {
                 "type": "string",
-                "description": "The start date of the EquitySwap",
+                "description": "The start date of the EquitySwap.",
                 "format": "date-time"
               },
               "maturityDate": {
@@ -69664,7 +69664,7 @@
               },
               "notionalReset": {
                 "type": "boolean",
-                "description": "Notional reset flag, if true the notional of the funding leg is reset at the start of every\r\ncoupon to match the value of the equity leg (equity price at start of coupon times quantity)"
+                "description": "Notional reset flag, if true the notional of the funding leg is reset at the start of every\r\ncoupon to match the value of the equity leg (equity price at start of coupon times quantity)."
               },
               "quantity": {
                 "type": "number",
@@ -69829,7 +69829,7 @@
               },
               "contracts": {
                 "type": "number",
-                "description": "The number of contracts held",
+                "description": "The number of contracts held.",
                 "format": "double"
               },
               "refSpotPrice": {
@@ -69928,12 +69928,12 @@
           },
           "exerciseDate": {
             "type": "string",
-            "description": "Exercise Date",
+            "description": "Exercise Date.",
             "format": "date-time"
           },
           "exerciseType": {
             "type": "string",
-            "description": "The exercise type, European, American or Bermudan\r\nSupported string (enumeration) values are: [None, European, Bermudan, American]."
+            "description": "The exercise type, European, American or Bermudan.\r\nSupported string (enumeration) values are: [European, Bermudan, American]."
           },
           "optionCode": {
             "type": "string",
@@ -69941,14 +69941,14 @@
           },
           "optionType": {
             "type": "string",
-            "description": "The option type, Call or Put.\r\nSupported string (enumeration) values are: [None, Call, Put]."
+            "description": "The option type, Call or Put.\r\nSupported string (enumeration) values are: [Call, Put]."
           },
           "underlying": {
             "$ref": "#/components/schemas/LusidInstrument"
           },
           "underlyingCode": {
             "type": "string",
-            "description": "Code of the underlying, for an option on futures this should be the futures code"
+            "description": "Code of the underlying, for an option on futures this should be the futures code."
           }
         },
         "additionalProperties": false,
@@ -70173,7 +70173,7 @@
               },
               "content": {
                 "type": "string",
-                "description": "The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other\r\n            interface is supported it is possible to fall back onto this.\r\n            For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system."
+                "description": "The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other\r\ninterface is supported it is possible to fall back onto this.\r\nFor example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system."
               },
               "instrumentType": {
                 "enum": [
@@ -70214,7 +70214,7 @@
             }
           }
         ],
-        "description": "Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,\r\n            by a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics\r\n            like FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches."
+        "description": "Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,\r\nby a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics\r\nlike FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches."
       },
       "ExpandedGroup": {
         "required": [
@@ -70446,7 +70446,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "legDefinition": {
@@ -70475,7 +70475,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\n            This supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
+                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
                 "nullable": true
               },
               "instrumentType": {
@@ -70517,7 +70517,7 @@
             }
           }
         ],
-        "description": "representation of a fixed rates leg"
+        "description": "Lusid-ibor internal representation of a fixed rates leg."
       },
       "FloatingLeg": {
         "allOf": [
@@ -70547,7 +70547,7 @@
               },
               "notional": {
                 "type": "number",
-                "description": "scaling factor to apply to leg quantities.",
+                "description": "Scaling factor to apply to leg quantities.",
                 "format": "double"
               },
               "overrides": {
@@ -70569,7 +70569,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\n            This supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
+                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
                 "nullable": true
               },
               "instrumentType": {
@@ -70611,7 +70611,7 @@
             }
           }
         ],
-        "description": "representation of a floating rates leg"
+        "description": "Lusid-ibor internal representation of a floating rates leg."
       },
       "FlowConventionName": {
         "required": [
@@ -70631,11 +70631,11 @@
           },
           "tenor": {
             "type": "string",
-            "description": "Tenor for the convention name"
+            "description": "Tenor for the convention name."
           }
         },
         "additionalProperties": false,
-        "description": "Representation of an abstract definition of a flow convention set consisting of currency, tenor and an index name (arbitrary string but likely something like \"IBOR\")"
+        "description": "Representation of an abstract definition of a flow convention set consisting of currency, tenor and an index name (arbitrary string but likely something like \"IBOR\")."
       },
       "FlowConventions": {
         "required": [
@@ -70670,7 +70670,7 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
-            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF]."
+            "description": "When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.\r\nSupported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, EndOfMonth, EOM, EndOfMonthPrevious, EOMP, EndOfMonthFollowing, EOMF, HalfMonthModifiedFollowing]."
           },
           "paymentCalendars": {
             "type": "array",
@@ -70745,7 +70745,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "domCcy": {
@@ -70754,7 +70754,7 @@
               },
               "fixingDate": {
                 "type": "string",
-                "description": "The date at which the rate to be paid, the reference rate, is confirmed/observed",
+                "description": "The date at which the rate to be paid, the reference rate, is confirmed/observed.",
                 "format": "date-time"
               },
               "fraRate": {
@@ -70806,7 +70806,7 @@
             }
           }
         ],
-        "description": "Forward Rate Agreement"
+        "description": "Lusid-ibor internal representation of a Forward Rate Agreement"
       },
       "FundingLeg": {
         "allOf": [
@@ -70825,10 +70825,12 @@
             "properties": {
               "startDate": {
                 "type": "string",
+                "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
               },
               "maturityDate": {
                 "type": "string",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "legDefinition": {
@@ -70836,6 +70838,7 @@
               },
               "notional": {
                 "type": "number",
+                "description": "Scaling factor to apply to leg quantities.",
                 "format": "double"
               },
               "instrumentType": {
@@ -70967,7 +70970,7 @@
             }
           }
         ],
-        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument\r\n            \r\n             A future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a committment to buy a certain number of\r\n             contracts of a certain size at a date in the future."
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument\r\n            \r\nA future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a commitment to buy a certain number of\r\ncontracts of a certain size at a date in the future."
       },
       "FuturesContractDetails": {
         "required": [
@@ -71065,7 +71068,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\n            For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\n            Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "domAmount": {
@@ -71079,12 +71082,12 @@
               },
               "fgnAmount": {
                 "type": "number",
-                "description": "The amount that is to be paid in the foreign currency on the maturity date",
+                "description": "The amount that is to be paid in the foreign currency on the maturity date.",
                 "format": "double"
               },
               "fgnCcy": {
                 "type": "string",
-                "description": "The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.\r\n            For the outright forward, currencies are exchanged. By domestic is then that of the portfolio."
+                "description": "The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.\r\nFor the outright forward, currencies are exchanged. By domestic is then that of the portfolio."
               },
               "refSpotRate": {
                 "type": "number",
@@ -71093,7 +71096,7 @@
               },
               "isNdf": {
                 "type": "boolean",
-                "description": "Is the contract an Fx-Forward of \"Non-Deliverable\" type, meaning a single payment in the domestic currency based on the change in fx-rate vs\r\n            a reference rate is used."
+                "description": "Is the contract an Fx-Forward of \"Non-Deliverable\" type, meaning a single payment in the domestic currency based on the change in fx-rate vs\r\na reference rate is used."
               },
               "fixingDate": {
                 "type": "string",
@@ -71144,7 +71147,7 @@
             }
           }
         ],
-        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument"
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument."
       },
       "FxForwardCurveByQuoteReference": {
         "allOf": [
@@ -71695,7 +71698,7 @@
             }
           }
         ],
-        "description": "IL FX Swap Instrument; Lusid-ibor internal representation of an FX Swap instrument"
+        "description": "IL FX Swap Instrument; Lusid-ibor internal representation of an FX Swap instrument."
       },
       "FxVolSurfaceData": {
         "allOf": [
@@ -72434,7 +72437,7 @@
             "maxLength": 64,
             "minLength": 0,
             "type": "string",
-            "description": "The reference rate name for fixings"
+            "description": "The reference rate name for fixings."
           },
           "publicationDayLag": {
             "type": "integer",
@@ -72451,7 +72454,7 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\n            and difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]."
+            "description": "when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year\r\nand difference between them.\r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]."
           },
           "currency": {
             "type": "string",
@@ -72942,7 +72945,7 @@
             }
           }
         ],
-        "description": "Representation of a rates leg.\r\n            A set of cashflows that are paid at a set of points in time according to some set of conventions.",
+        "description": "Representation of a rates leg.\r\nA set of cashflows that are paid at a set of points in time according to some set of conventions.",
         "discriminator": {
           "propertyName": "instrumentType"
         }
@@ -73075,7 +73078,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "isNonDeliverable": {
@@ -73091,7 +73094,7 @@
               },
               "settlementCcy": {
                 "type": "string",
-                "description": "Settlement currency if IRS is non-deliverable",
+                "description": "Settlement currency if IRS is non-deliverable.",
                 "nullable": true
               },
               "instrumentType": {
@@ -73133,7 +73136,7 @@
             }
           }
         ],
-        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument\r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations"
+        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument.\r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations."
       },
       "InterestRateSwaption": {
         "allOf": [
@@ -77037,16 +77040,16 @@
         "properties": {
           "amount": {
             "type": "number",
-            "description": "Premium amount",
+            "description": "Premium amount.",
             "format": "double"
           },
           "currency": {
             "type": "string",
-            "description": "Premium currency"
+            "description": "Premium currency."
           },
           "date": {
             "type": "string",
-            "description": "Date when premium paid",
+            "description": "Date when premium paid.",
             "format": "date-time"
           }
         },
@@ -78662,7 +78665,7 @@
               },
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "domCcy": {
@@ -81047,12 +81050,12 @@
             "properties": {
               "maturityDate": {
                 "type": "string",
-                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date",
+                "description": "The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.\r\nFor the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as\r\nConstant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date.",
                 "format": "date-time"
               },
               "domCcy": {
                 "type": "string",
-                "description": "The domestic currency"
+                "description": "The domestic currency."
               },
               "assetClass": {
                 "enum": [
@@ -81073,12 +81076,12 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "The set of foreign currencies, if any (optional)",
+                "description": "The set of foreign currencies, if any (optional).",
                 "nullable": true
               },
               "simpleInstrumentType": {
                 "type": "string",
-                "description": "The Instrument type of the simple instrument"
+                "description": "The Instrument type of the simple instrument."
               },
               "instrumentType": {
                 "enum": [
@@ -81119,7 +81122,7 @@
             }
           }
         ],
-        "description": "IL SimpleInstrument Instrument; Lusid-ibor internal representation of a SimpleInstrument instrument"
+        "description": "IL SimpleInstrument Instrument; Lusid-ibor internal representation of a SimpleInstrument instrument."
       },
       "SortOrder": {
         "enum": [
@@ -81139,7 +81142,7 @@
         "properties": {
           "levelType": {
             "type": "string",
-            "description": "The type of shift or adjustment that the quantity represents\r\nSupported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]."
+            "description": "The type of shift or adjustment that the quantity represents.\r\nSupported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]."
           },
           "scheduleType": {
             "type": "string",
@@ -81445,7 +81448,7 @@
             }
           }
         ],
-        "description": "Lusid internal representation of a term deposit"
+        "description": "Lusid internal representation of a term deposit."
       },
       "Tolerance": {
         "type": "object",
