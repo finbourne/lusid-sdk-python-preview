@@ -5,7 +5,7 @@ Descriptive information that describes a particular basket of instruments. Most 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**index** | **str** | Index set, e.g. iTraxx or CDX. | 
+**index** | **str** | Index set, e.g. iTraxx or CDX | 
 **name** | **str** | The index name within the set, e.g. \&quot;MAIN\&quot; or \&quot;Crossover\&quot;. | 
 **region** | **str** | Applicable geographic country or region. Typically something like \&quot;Europe\&quot;, \&quot;Asia ex-Japan\&quot;, \&quot;Japan\&quot; or \&quot;Australia\&quot;. | 
 **series_id** | **int** | The series identifier. | 
