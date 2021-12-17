@@ -2,12 +2,13 @@ import unittest
 from datetime import datetime
 
 import pytz
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Holdings(unittest.TestCase):
@@ -23,9 +24,14 @@ class Holdings(unittest.TestCase):
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
 
         cls.instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = cls.instrument_loader.load_instruments()
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F2")
     def test_get_holdings(self):
@@ -39,6 +45,7 @@ class Holdings(unittest.TestCase):
 
         # Create a portfolio
         portfolio_id = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_id)
 
         transactions = [
             # Starting cash position
@@ -107,6 +114,7 @@ class Holdings(unittest.TestCase):
         day2 = datetime(2018, 1, 5, tzinfo=pytz.utc)
 
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         instrument1 = self.instrument_ids[0]
         instrument2 = self.instrument_ids[1]

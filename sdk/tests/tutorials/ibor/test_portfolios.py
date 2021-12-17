@@ -3,12 +3,13 @@ import uuid
 from datetime import datetime
 
 import pytz
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Portfolios(unittest.TestCase):
@@ -28,38 +29,55 @@ class Portfolios(unittest.TestCase):
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
+
     @lusid_feature("F8")
     def test_create_portfolio(self):
-        guid = str(uuid.uuid4())
+
+        _, scope, portfolio_code = self.id_generator.generate_scope_and_code(
+            "portfolio",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="portfolio-"
+        )
 
         # details of the new portfolio to be created, created here with the minimum set of mandatory fields
         request = models.CreateTransactionPortfolioRequest(
 
             # descriptive name for the portfolio
-            display_name="portfolio-{0}".format(guid),
+            display_name=portfolio_code,
 
             # unique portfolio code, portfolio codes must be unique across scopes
-            code="id-{0}".format(guid),
+            code=portfolio_code,
             base_currency="GBP")
 
         # create the portfolio in LUSID in the specified scope
         result = self.transaction_portfolios_api.create_portfolio(
-            scope=TestDataUtilities.tutorials_scope,
+            scope=scope,
             create_transaction_portfolio_request=request)
 
         self.assertEqual(result.id.code, request.code)
 
     @lusid_feature("F9")
     def test_create_portfolio_with_properties(self):
-        guid = str(uuid.uuid4())
-        property_name = "fund-style-{0}".format(guid)
+
+        _, scope, property_code, _ = self.id_generator.generate_scope_and_code(
+            "property_definition",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="fund-style-",
+            annotations=["Portfolio"]
+        )
+
         data_type_id = models.ResourceId("system", "string")
 
         #   property definition
         property_definition = models.CreatePropertyDefinitionRequest(
             domain="Portfolio",
             scope=TestDataUtilities.tutorials_scope,
-            code=property_name,
+            code=property_code,
             value_required=False,
             display_name="Fund Style",
             life_time="Perpetual",
@@ -75,9 +93,15 @@ class Portfolios(unittest.TestCase):
         portfolio_property = models.ModelProperty(key=property_definition_result.key,
                                                   value=models.PropertyValue(label_value=property_value))
 
+        _, scope, portfolio_code = self.id_generator.generate_scope_and_code(
+            "portfolio",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="portfolio-"
+        )
+
         #  details of the portfolio to be created
-        request = models.CreateTransactionPortfolioRequest(display_name="portfolio-{0}".format(guid),
-                                                           code="id-{0}".format(guid),
+        request = models.CreateTransactionPortfolioRequest(display_name=portfolio_code,
+                                                           code=portfolio_code,
                                                            base_currency="GBP",
 
                                                            # set the property value when creating the portfolio
@@ -87,7 +111,7 @@ class Portfolios(unittest.TestCase):
 
         # create the portfolio
         portfolio = self.transaction_portfolios_api.create_portfolio(
-            scope=TestDataUtilities.tutorials_scope,
+            scope=scope,
             create_transaction_portfolio_request=request)
 
         portfolio_code = portfolio.id.code
@@ -97,7 +121,8 @@ class Portfolios(unittest.TestCase):
                                                                             portfolio_code)
 
         self.assertEqual(len(portfolio_properties.properties), 1)
-        self.assertEqual(portfolio_properties.properties[property_definition_result.key].value.label_value, property_value)
+        self.assertEqual(portfolio_properties.properties[property_definition_result.key].value.label_value,
+                         property_value)
 
     @lusid_feature("F10")
     def test_add_transaction_to_portfolio(self):
@@ -107,6 +132,7 @@ class Portfolios(unittest.TestCase):
 
         # create the portfolio
         portfolio_id = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_id)
 
         #   details of the transaction to be added
         transaction = models.TransactionRequest(
@@ -139,8 +165,13 @@ class Portfolios(unittest.TestCase):
 
     @lusid_feature("F11")
     def test_add_transaction_to_portfolio_with_property(self):
-        guid = str(uuid.uuid4())
-        property_name = "traderId-{0}".format(guid)
+
+        _, scope, property_code, _ = self.id_generator.generate_scope_and_code(
+            "property_definition",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="traderId-",
+            annotations=["Transaction"]
+        )
 
         #   details of the property to be created
         property_definition = models.CreatePropertyDefinitionRequest(
@@ -149,13 +180,13 @@ class Portfolios(unittest.TestCase):
             domain="Transaction",
 
             # the scope the property will be created in
-            scope=TestDataUtilities.tutorials_scope,
+            scope=scope,
 
             life_time="Perpetual",
 
             # when the property value is set it will be valid forever and cannot be changed.
             # properties whose values can change over time should be created with LifeTimeEnum.TIMEVARIANT
-            code=property_name,
+            code=property_code,
             value_required=False,
             display_name="Trader Id",
             data_type_id=models.ResourceId("system", "string")
@@ -170,6 +201,7 @@ class Portfolios(unittest.TestCase):
 
         # create the portfolio
         portfolio_id = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_id)
 
         property_value_as_string = "A Trader"
         property_value = models.PropertyValue(property_value_as_string)
@@ -187,7 +219,8 @@ class Portfolios(unittest.TestCase):
             source="Client",
 
             # add the property to the transaction
-            properties={property_definition_result.key: models.PerpetualProperty(property_definition_result.key, property_value)}
+            properties={property_definition_result.key: models.PerpetualProperty(property_definition_result.key,
+                                                                                 property_value)}
         )
 
         #   add the transaction
@@ -201,9 +234,11 @@ class Portfolios(unittest.TestCase):
 
         self.assertEqual(len(trades.values), 1)
         self.assertEqual(trades.values[0].transaction_id, transaction.transaction_id)
-        self.assertEqual(trades.values[0].properties[property_definition_result.key].value.label_value, property_value_as_string)
+        self.assertEqual(trades.values[0].properties[property_definition_result.key].value.label_value,
+                         property_value_as_string)
 
     @lusid_feature("F12")
+    @unittest.skip("long running, run explicitly")
     def test_list_scopes(self):
         # Get the list of scopes across all entities
         scopes = self.scopes_api.list_scopes()
@@ -216,7 +251,8 @@ class Portfolios(unittest.TestCase):
         scope = TestDataUtilities.tutorials_scope + str(uuid.uuid4())
 
         for i in range(10):
-            self.test_data_utilities.create_transaction_portfolio(scope)
+            code = self.test_data_utilities.create_transaction_portfolio(scope)
+            self.id_generator.add_scope_and_code("portfolio", scope, code)
 
         # Retrieve the list of portfolios
         portfolios = self.portfolios_api.list_portfolios_for_scope(scope)

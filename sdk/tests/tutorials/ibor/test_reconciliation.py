@@ -2,12 +2,13 @@ import unittest
 from datetime import datetime, timedelta
 
 import pytz
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Reconciliation(unittest.TestCase):
@@ -19,17 +20,25 @@ class Reconciliation(unittest.TestCase):
 
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
         cls.reconciliations_api = lusid.ReconciliationsApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
 
         instruments_api = lusid.InstrumentsApi(api_client)
         instrument_loader = InstrumentLoader(instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F16")
     def test_reconcile_portfolio(self):
         # create the portfolio
-        portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        scope = TestDataUtilities.tutorials_scope
+        portfolio_code = self.test_data_utilities.create_transaction_portfolio(scope)
+        self.id_generator.add_scope_and_code("portfolio", scope, portfolio_code)
 
         today = datetime.now().astimezone(tz=pytz.utc)
         yesterday = today - timedelta(1)

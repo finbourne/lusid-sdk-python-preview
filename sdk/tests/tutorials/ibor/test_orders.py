@@ -1,5 +1,8 @@
+import json
 import unittest
-import uuid
+
+from lusidfeature import lusid_feature
+
 import lusid
 import lusid.models as models
 from lusid import OrderRequest
@@ -7,10 +10,9 @@ from lusid import OrderSetRequest
 from lusid import PerpetualProperty
 from lusid import PropertyValue
 from lusid import ResourceId
-from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
-import json
+from utilities.id_generator_utilities import delete_entities
 
 
 class Orders(unittest.TestCase):
@@ -18,11 +20,11 @@ class Orders(unittest.TestCase):
     test_codes = ['TIF', 'OrderBook', 'PortfolioManager', 'Account', 'Strategy']
 
     @staticmethod
-    def load_properties(api_client, scopes, codes):
+    def load_properties(properties_api, id_generator, scopes, codes):
         for scope in scopes:
             for code in codes:
                 try:
-                    lusid.PropertyDefinitionsApi(api_client).create_property_definition(
+                    properties_api.create_property_definition(
                         create_property_definition_request=models.CreatePropertyDefinitionRequest(
                             domain="Order",
                             scope=scope,
@@ -34,30 +36,44 @@ class Orders(unittest.TestCase):
                     )
                 except lusid.ApiException as e:
                     if json.loads(e.body)["name"] == "PropertyAlreadyExists":
-                        pass # ignore if the property definition exists
-
+                        pass  # ignore if the property definition exists
+                finally:
+                    id_generator.add_scope_and_code("property_definition", scope, code, ["Order"])
 
     @classmethod
     def setUpClass(cls):
         # create a configured API client
         api_client = TestDataUtilities.api_client()
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
         cls.orders_api = lusid.OrdersApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
+        cls.properties_api = lusid.PropertyDefinitionsApi(api_client)
+
         instrument_loader = InstrumentLoader(cls.instruments_api)
+
         cls.instrument_ids = instrument_loader.load_instruments()
-        cls.load_properties(api_client=api_client, scopes=cls.tests_scope.values(), codes=cls.test_codes)
+        cls.load_properties(
+            properties_api=cls.properties_api,
+            id_generator=cls.id_generator,
+            scopes=cls.tests_scope.values(),
+            codes=cls.test_codes
+        )
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F4")
     def test_upsert_simple_order(self):
         """Makes a request for a single order."""
 
-        orders_scope = self.tests_scope['simple-upsert']
-        # Create unique order id
-        order_id = str(uuid.uuid4())
-
         # Construct order arguments
         instrument_identifiers = {TestDataUtilities.lusid_luid_identifier: self.instrument_ids[0]}
-        ##Create ResourceId for order
+        _, orders_scope, order_id = self.id_generator.generate_scope_and_code("order",
+                                                                              scope=self.tests_scope['simple-upsert'])
+
+        # Create ResourceId for order
         order_resource_id = models.ResourceId(orders_scope, order_id)
         portfolio_id = ResourceId(orders_scope, "OrdersTestPortfolio")
         properties = {f"Order/{orders_scope}/TIF": PerpetualProperty(f"Order/{orders_scope}/TIF", PropertyValue("GTC")),
@@ -81,9 +97,9 @@ class Orders(unittest.TestCase):
 
         upsert_result = self.orders_api.upsert_orders(order_set_request=order_set_request)
 
-        self.assertEqual(len(upsert_result.values),1)
-        response=upsert_result.values[0].to_dict()
+        self.assertEqual(len(upsert_result.values), 1)
+        response = upsert_result.values[0].to_dict()
         self.assertEqual(response['id']['code'], order_id)
         self.assertEqual(response['lusid_instrument_id'], self.instrument_ids[0])
         self.assertEqual(response['quantity'], 100)
-        self.assertEqual(response['properties'][f"Order/{orders_scope}/TIF"]['key'] , f"Order/{orders_scope}/TIF")
+        self.assertEqual(response['properties'][f"Order/{orders_scope}/TIF"]['key'], f"Order/{orders_scope}/TIF")

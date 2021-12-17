@@ -6,8 +6,11 @@ import pytz
 
 import lusid
 from lusidfeature import lusid_feature
-from utilities import InstrumentLoader
+
+from lusid import ApiException
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class Bitemporal(unittest.TestCase):
@@ -18,12 +21,18 @@ class Bitemporal(unittest.TestCase):
         api_client = TestDataUtilities.api_client()
 
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
+        cls.portfolios_api = lusid.PortfoliosApi(api_client)
 
         instruments_api = lusid.InstrumentsApi(api_client)
         instrument_loader = InstrumentLoader(instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     def print_transactions(self, as_at, transactions):
         print("transactions at: {}".format(as_at))
@@ -34,9 +43,11 @@ class Bitemporal(unittest.TestCase):
                                               transaction.units,
                                               transaction.transaction_price.price,
                                               transaction.total_consideration.amount))
+
     @lusid_feature("F1")
     def test_apply_bitemporal_portfolio_change(self):
         portfolio_code = self.test_data_utilities.create_transaction_portfolio(TestDataUtilities.tutorials_scope)
+        self.id_generator.add_scope_and_code("portfolio", TestDataUtilities.tutorials_scope, portfolio_code)
 
         initial_transactions = [
             self.test_data_utilities.build_transaction_request(instrument_id=self.instrument_ids[0],

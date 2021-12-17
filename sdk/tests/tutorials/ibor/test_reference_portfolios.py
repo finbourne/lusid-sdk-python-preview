@@ -1,4 +1,3 @@
-import logging
 import unittest
 from datetime import datetime
 
@@ -7,20 +6,16 @@ from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusid import ApiException
 from utilities import IdGenerator
 from utilities import InstrumentLoader
 from utilities import TestDataUtilities
+from utilities.id_generator_utilities import delete_entities
 
 
 class ReferencePortfolio(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
-        # Log any exceptions
-        cls.logger = logging.getLogger()
-        cls.logger.setLevel(logging.INFO)
 
         # Create API client
         api_client = TestDataUtilities.api_client()
@@ -38,11 +33,7 @@ class ReferencePortfolio(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for _, scope, code in cls.id_generator.pop_scope_and_codes():
-            try:
-                cls.portfolios_api.delete_portfolio(scope, code)
-            except ApiException as ex:
-                print(ex)
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F39")
     def test_create_reference_portfolio(self):

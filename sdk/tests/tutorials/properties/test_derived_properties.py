@@ -1,28 +1,34 @@
-# import general python packages
-import unittest
-import logging
 import json
+import logging
+import unittest
 
-# import lusid specific packages
 import lusid
 import lusid.models as models
-from utilities import InstrumentLoader
+from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
-
-# setup logging configuration
-logging.basicConfig(level=logging.INFO)
+from utilities.id_generator_utilities import delete_entities
 
 
 class DerivedPropertyTests(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
+
+        logging.basicConfig(level=logging.INFO)
+
         # create a configured API client
         api_client = TestDataUtilities.api_client()
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.instruments_api = lusid.InstrumentsApi(api_client)
+
         # load instruments from InstrumentLoader
         instrument_loader = InstrumentLoader(cls.instruments_api)
         cls.instrument_ids = instrument_loader.load_instruments()
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
+
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     def create_ratings_property(self, *ratings):
 
@@ -49,6 +55,8 @@ class DerivedPropertyTests(unittest.TestCase):
                     logging.info(
                         f"Property {property_definition.domain}/{property_definition.scope}/{property_definition.display_name} already exists"
                     )
+            finally:
+                self.id_generator.add_scope_and_code("property_definition", property_definition.scope, property_definition.code, ["Instrument"])
 
     def upsert_ratings_property(self, figi, fitch_value=None, moodys_value=None):
 
@@ -124,6 +132,8 @@ class DerivedPropertyTests(unittest.TestCase):
                 logging.info(
                     f"Property {derived_prop_definition_req.domain}{derived_prop_definition_req.scope}/{derived_prop_definition_req.display_name} already exists"
                 )
+        finally:
+            self.id_generator.add_scope_and_code("property_definition", derived_prop_definition_req.scope, derived_prop_definition_req.code, ["Instrument"])
 
         # test case for derived property with both ratings
         moodys_then_fitch = self.get_instruments_with_derived_prop("BBG00KTDTF73")

@@ -2,16 +2,16 @@ import unittest
 from datetime import datetime
 
 import pytz
-import uuid
+from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
-from lusidfeature import lusid_feature
-
 from lusid.utilities.api_client_builder import ApiClientBuilder
+from utilities import IdGenerator
+from utilities.credentials_source import CredentialsSource
+from utilities.id_generator_utilities import delete_entities
 from utilities.instrument_loader import InstrumentLoader
 from utilities.test_data_utilities import TestDataUtilities
-from utilities.credentials_source import CredentialsSource
 
 
 class Properties(unittest.TestCase):
@@ -30,26 +30,32 @@ class Properties(unittest.TestCase):
         cls.instrument_ids = instrument_loader.load_instruments()
 
         cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
+        cls.id_generator = IdGenerator(scope=TestDataUtilities.tutorials_scope)
 
-    def get_guid(self):
-        # creates random alphanumeric code
-        return str(uuid.uuid4())[:12]
+    @classmethod
+    def tearDownClass(cls):
+        delete_entities(cls.id_generator)
 
     @lusid_feature("F14")
     def test_create_portfolio_with_label_property(self):
         # Details of property to be created
-        uuid = self.get_guid()
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
+
+        _, scope, property_code, _ = self.id_generator.generate_scope_and_code(
+            "property_definition",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="fund-style-",
+            annotations=["Portfolio"]
+        )
 
         label_property_definition = models.CreatePropertyDefinitionRequest(
             domain="Portfolio",
-            scope=TestDataUtilities.tutorials_scope,
-            code="fund-style-{}".format(uuid),
-            display_name="fund style",
+            scope=scope,
+            code=property_code,
+            display_name=property_code,
             life_time="Perpetual",
             value_required=False,
             data_type_id=models.resource_id.ResourceId(scope="system", code="string")
-
         )
 
         # create property definition
@@ -59,10 +65,16 @@ class Properties(unittest.TestCase):
         # create property values
         property_value = models.PropertyValue(label_value="Active")
 
+        _, scope, portfolio_code = self.id_generator.generate_scope_and_code(
+            "portfolio",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="portfolio-"
+        )
+
         # Details of new portfolio to be created
         create_portfolio_request = models.CreateTransactionPortfolioRequest(
-            code="ud-{}".format(uuid),
-            display_name="portfolio-{}".format(uuid),
+            code=portfolio_code,
+            display_name=portfolio_code,
             base_currency="GBP",
             created=effective_date,
             properties={
@@ -90,14 +102,21 @@ class Properties(unittest.TestCase):
 
     @lusid_feature("F15")
     def test_create_portfolio_with_metric_property(self):
-        uuid = self.get_guid()
+
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
+
+        _, scope, property_code, _ = self.id_generator.generate_scope_and_code(
+            "property_definition",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="fund-NAV-",
+            annotations=["Portfolio"]
+        )
 
         # details of property to be created
         metric_property_definition = models.CreatePropertyDefinitionRequest(
             domain="Portfolio",
-            scope=TestDataUtilities.tutorials_scope,
-            code="fund-NAV-{}".format(uuid),
+            scope=scope,
+            code=property_code,
             display_name="fund NAV",
             life_time="Perpetual",
             value_required=False,
@@ -112,9 +131,16 @@ class Properties(unittest.TestCase):
         # metric_property_value_request = models.PropertyValue(label_value="Active")
 
         # Details of the new portfolio to be created, created here with the minimum set of mandatory fields
+
+        _, scope, portfolio_code = self.id_generator.generate_scope_and_code(
+            "portfolio",
+            scope=TestDataUtilities.tutorials_scope,
+            code_prefix="portfolio-"
+        )
+
         create_portfolio_request = models.CreateTransactionPortfolioRequest(
-            code="ud-{}".format(uuid),
-            display_name="portfolio-{}".format(uuid),
+            code=portfolio_code,
+            display_name=portfolio_code,
             base_currency="GBP",
             created=effective_date,
             properties={
