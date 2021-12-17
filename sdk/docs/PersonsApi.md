@@ -1,16 +1,16 @@
 # lusid.PersonsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:64099*
+All URIs are relative to *http://local-unit-test-server.lusid.com:41824*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_person**](PersonsApi.md#delete_person) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] DeletePerson: Delete person
-[**delete_person_access_metadata**](PersonsApi.md#delete_person_access_metadata) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
+[**delete_person_access_metadata**](PersonsApi.md#delete_person_access_metadata) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
 [**delete_person_identifiers**](PersonsApi.md#delete_person_identifiers) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
 [**delete_person_properties**](PersonsApi.md#delete_person_properties) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
-[**get_all_person_access_metadata**](PersonsApi.md#get_all_person_access_metadata) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EXPERIMENTAL] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
+[**get_all_person_access_metadata**](PersonsApi.md#get_all_person_access_metadata) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
 [**get_person**](PersonsApi.md#get_person) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] GetPerson: Get Person
-[**get_person_access_metadata_by_key**](PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
+[**get_person_access_metadata_by_key**](PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
 [**get_person_property_time_series**](PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
 [**get_person_relations**](PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
 [**get_person_relationships**](PersonsApi.md#get_person_relationships) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**set_person_identifiers**](PersonsApi.md#set_person_identifiers) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
 [**set_person_properties**](PersonsApi.md#set_person_properties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] SetPersonProperties: Set Person Properties
 [**upsert_person**](PersonsApi.md#upsert_person) | **POST** /api/persons | [EXPERIMENTAL] UpsertPerson: Upsert Person
-[**upsert_person_access_metadata**](PersonsApi.md#upsert_person_access_metadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[**upsert_person_access_metadata**](PersonsApi.md#upsert_person_access_metadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 
 # **delete_person**
@@ -37,10 +37,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -50,7 +50,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 # **delete_person_access_metadata**
 > DeletedEntityResponse delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
 
-[EXPERIMENTAL] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
+[EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
 
 Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
 
@@ -116,10 +116,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -129,7 +129,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -144,7 +144,7 @@ metadata_key = 'metadata_key_example' # str | Key of the metadata entry to retri
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
     try:
-        # [EXPERIMENTAL] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
+        # [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
         api_response = api_instance.delete_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -199,10 +199,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -212,7 +212,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -282,10 +282,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -295,7 +295,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 # **get_all_person_access_metadata**
 > dict(str, list[AccessMetadataValue]) get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
+[EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
 
 Pass the Scope and Code of the Person identifier along with the person code parameter to retrieve the associated Access Metadata
 
@@ -365,10 +365,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -378,7 +378,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -393,7 +393,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
+        # [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
         api_response = api_instance.get_all_person_access_metadata(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -448,10 +448,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -461,7 +461,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 # **get_person_access_metadata_by_key**
 > list[AccessMetadataValue] get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
+[EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
 
 Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
 
@@ -533,10 +533,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -546,7 +546,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -562,7 +562,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
+        # [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
         api_response = api_instance.get_person_access_metadata_by_key(id_type_scope, id_type_code, code, metadata_key, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -618,10 +618,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -631,7 +631,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -707,10 +707,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -720,7 +720,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -794,10 +794,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -807,7 +807,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -881,10 +881,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -894,7 +894,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -972,10 +972,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -985,7 +985,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1053,10 +1053,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1066,7 +1066,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1134,10 +1134,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1147,7 +1147,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 # **upsert_person_access_metadata**
 > ResourceListOfAccessMetadataValueOf upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, upsert_person_access_metadata_request, effective_at=effective_at)
 
-[EXPERIMENTAL] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
@@ -1209,10 +1209,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1222,7 +1222,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1238,7 +1238,7 @@ upsert_person_access_metadata_request = {"metadata":[{"value":"SilverLicence","p
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to upsert the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        # [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         api_response = api_instance.upsert_person_access_metadata(id_type_scope, id_type_code, code, metadata_key, upsert_person_access_metadata_request, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:

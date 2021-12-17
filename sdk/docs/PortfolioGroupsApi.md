@@ -1,6 +1,6 @@
 # lusid.PortfolioGroupsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:64099*
+All URIs are relative to *http://local-unit-test-server.lusid.com:41824*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**build_transactions_for_portfolio_group**](PortfolioGroupsApi.md#build_transactions_for_portfolio_group) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
 [**create_portfolio_group**](PortfolioGroupsApi.md#create_portfolio_group) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
 [**delete_group_properties**](PortfolioGroupsApi.md#delete_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeleteGroupProperties: Delete group properties
-[**delete_key_from_portfolio_group_access_metadata**](PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
+[**delete_key_from_portfolio_group_access_metadata**](PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
 [**delete_portfolio_from_group**](PortfolioGroupsApi.md#delete_portfolio_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
 [**delete_portfolio_group**](PortfolioGroupsApi.md#delete_portfolio_group) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
 [**delete_sub_group_from_group**](PortfolioGroupsApi.md#delete_sub_group_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
@@ -17,10 +17,10 @@ Method | HTTP request | Description
 [**get_group_properties**](PortfolioGroupsApi.md#get_group_properties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] GetGroupProperties: Get group properties
 [**get_holdings_for_portfolio_group**](PortfolioGroupsApi.md#get_holdings_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
 [**get_portfolio_group**](PortfolioGroupsApi.md#get_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
-[**get_portfolio_group_access_metadata_by_key**](PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+[**get_portfolio_group_access_metadata_by_key**](PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
 [**get_portfolio_group_commands**](PortfolioGroupsApi.md#get_portfolio_group_commands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
 [**get_portfolio_group_expansion**](PortfolioGroupsApi.md#get_portfolio_group_expansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
-[**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
+[**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
 [**get_portfolio_group_property_time_series**](PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
 [**get_portfolio_group_relations**](PortfolioGroupsApi.md#get_portfolio_group_relations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
 [**get_portfolio_group_relationships**](PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 [**list_portfolio_groups**](PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
 [**update_portfolio_group**](PortfolioGroupsApi.md#update_portfolio_group) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
 [**upsert_group_properties**](PortfolioGroupsApi.md#upsert_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
-[**upsert_portfolio_group_access_metadata**](PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[**upsert_portfolio_group_access_metadata**](PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 
 # **add_portfolio_to_group**
@@ -47,10 +47,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -60,7 +60,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -128,10 +128,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -141,7 +141,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -209,10 +209,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -222,7 +222,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -298,10 +298,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -311,7 +311,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -375,10 +375,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -388,7 +388,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 # **delete_key_from_portfolio_group_access_metadata**
 > DeletedEntityResponse delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
 
-[EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
+[EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
 
 Deletes the Portfolio Group Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
 
@@ -456,10 +456,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -469,7 +469,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -483,7 +483,7 @@ metadata_key = 'metadata_key_example' # str | Key of the Access Metadata entry t
 effective_at = 'effective_at_example' # str | The effective date to delete at, if this is not supplied, it will delete all data found (optional)
 
     try:
-        # [EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
+        # [EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
         api_response = api_instance.delete_key_from_portfolio_group_access_metadata(scope, code, metadata_key, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -537,10 +537,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -550,7 +550,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -620,10 +620,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -633,7 +633,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -697,10 +697,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -710,7 +710,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -780,10 +780,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -793,7 +793,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -871,10 +871,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -884,7 +884,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -952,10 +952,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -965,7 +965,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1039,10 +1039,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1052,7 +1052,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_access_metadata_by_key**
 > list[AccessMetadataValue] get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+[EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
 
 Get a specific Portfolio Group access metadata by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
 
@@ -1120,10 +1120,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1133,7 +1133,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1148,7 +1148,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the access metadata (optional)
 
     try:
-        # [EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+        # [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
         api_response = api_instance.get_portfolio_group_access_metadata_by_key(scope, code, metadata_key, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -1203,10 +1203,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1216,7 +1216,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1286,10 +1286,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1299,7 +1299,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1356,7 +1356,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_metadata**
 > dict(str, list[AccessMetadataValue]) get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
 
-[EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
+[EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
 
 Pass the scope and Portfolio Group code parameters to retrieve the associated Access Metadata
 
@@ -1369,10 +1369,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1382,7 +1382,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1396,7 +1396,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
+        # [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
         api_response = api_instance.get_portfolio_group_metadata(scope, code, effective_at=effective_at, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -1450,10 +1450,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1463,7 +1463,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1539,10 +1539,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1552,7 +1552,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1624,10 +1624,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1637,7 +1637,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1709,10 +1709,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1722,7 +1722,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1800,10 +1800,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1813,7 +1813,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1881,10 +1881,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1894,7 +1894,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1962,10 +1962,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1975,7 +1975,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -2028,7 +2028,7 @@ Name | Type | Description  | Notes
 # **upsert_portfolio_group_access_metadata**
 > ResourceListOfAccessMetadataValueOf upsert_portfolio_group_access_metadata(scope, code, metadata_key, upsert_portfolio_group_access_metadata_request, effective_at=effective_at)
 
-[EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+[EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
@@ -2041,10 +2041,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:64099
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:41824
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2054,7 +2054,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:64099"
+    host = "http://local-unit-test-server.lusid.com:41824"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -2069,7 +2069,7 @@ upsert_portfolio_group_access_metadata_request = {"metadata":[{"value":"SilverLi
 effective_at = 'effective_at_example' # str | The date this rule will be effective from (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        # [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         api_response = api_instance.upsert_portfolio_group_access_metadata(scope, code, metadata_key, upsert_portfolio_group_access_metadata_request, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3848",
+    "version": "0.11.3849",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:64099"
+      "url": "http://local-unit-test-server.lusid.com:41824"
     }
   ],
   "paths": {
@@ -17894,7 +17894,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity",
+        "summary": "[EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity",
         "description": "Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata",
         "operationId": "GetAllLegalEntityAccessMetadata",
         "parameters": [
@@ -18036,7 +18036,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}": {
@@ -18044,7 +18044,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Legal Entity Access Metadata entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Legal Entity Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertLegalEntityAccessMetadata",
         "parameters": [
@@ -18227,13 +18227,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity",
+        "summary": "[EARLY ACCESS] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity",
         "description": "Get a specific Legal Entity Access Metadata by specifying the corresponding identifier parts and Legal Entity code\r\n            \r\nNo matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry",
         "operationId": "GetLegalEntityAccessMetadataByKey",
         "parameters": [
@@ -18379,13 +18379,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry",
+        "summary": "[EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry",
         "description": "Deletes the Legal Entity Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeleteLegalEntityAccessMetadata",
         "parameters": [
@@ -18510,7 +18510,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties": {
@@ -25858,7 +25858,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person",
+        "summary": "[EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person",
         "description": "Pass the Scope and Code of the Person identifier along with the person code parameter to retrieve the associated Access Metadata",
         "operationId": "GetAllPersonAccessMetadata",
         "parameters": [
@@ -25994,7 +25994,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}": {
@@ -26002,7 +26002,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertPersonAccessMetadata",
         "parameters": [
@@ -26176,13 +26176,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person",
+        "summary": "[EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person",
         "description": "Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code\r\n            \r\nNo matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry",
         "operationId": "GetPersonAccessMetadataByKey",
         "parameters": [
@@ -26320,13 +26320,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] DeletePersonAccessMetadata: Delete a Person Access Metadata entry",
+        "summary": "[EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry",
         "description": "Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeletePersonAccessMetadata",
         "parameters": [
@@ -26445,7 +26445,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/persons/{idTypeScope}/{idTypeCode}/{code}/properties": {
@@ -31172,7 +31172,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group",
         "description": "Pass the scope and Portfolio Group code parameters to retrieve the associated Access Metadata",
         "operationId": "GetPortfolioGroupMetadata",
         "parameters": [
@@ -31301,7 +31301,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/metadata/{metadataKey}": {
@@ -31309,7 +31309,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group",
         "description": "Get a specific Portfolio Group access metadata by specifying the corresponding identifier parts\r\n            \r\nNo matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule",
         "operationId": "GetPortfolioGroupAccessMetadataByKey",
         "parameters": [
@@ -31441,13 +31441,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "put": {
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
         "operationId": "UpsertPortfolioGroupAccessMetadata",
         "parameters": [
@@ -31616,13 +31616,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry",
+        "summary": "[EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry",
         "description": "Deletes the Portfolio Group Access Metadata entry that exactly matches the provided identifier parts.\r\n\r\nIt is important to always check to verify success (or failure).",
         "operationId": "DeleteKeyFromPortfolioGroupAccessMetadata",
         "parameters": [
@@ -31733,7 +31733,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/portfolios": {
@@ -37534,7 +37534,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioMetadata: Get access metadata rules for a portfolio",
+        "summary": "[EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio",
         "description": "Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio",
         "operationId": "GetPortfolioMetadata",
         "parameters": [
@@ -37662,7 +37662,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/metadata/{metadataKey}": {
@@ -37670,7 +37670,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object",
+        "summary": "[EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object",
         "description": "Get a specific portfolio access metadata rule by specifying the corresponding identifier parts\r\n            \r\nNo matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule",
         "operationId": "GetPortfoliosAccessMetadataByKey",
         "parameters": [
@@ -37802,13 +37802,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "put": {
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.",
+        "summary": "[EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.",
         "description": "Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n\r\nThe response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful\r\n\r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched",
         "operationId": "UpsertPortfolioAccessMetadata",
         "parameters": [
@@ -37977,13 +37977,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule",
+        "summary": "[EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule",
         "description": "Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts",
         "operationId": "DeleteKeyFromPortfolioAccessMetadata",
         "parameters": [
@@ -38094,7 +38094,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/properties": {
