@@ -1,11 +1,12 @@
 # lusid.RelationshipDefinitionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:46099*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_relationship_definition**](RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
 [**get_relationship_definition**](RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
+[**list_relationship_definitions**](RelationshipDefinitionsApi.md#list_relationship_definitions) | **GET** /api/relationshipdefinitions | [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
 [**update_relationship_definition**](RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
 
 
@@ -25,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:46099
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -100,10 +101,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:46099
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,7 +114,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -163,6 +164,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_relationship_definitions**
+> PagedResourceListOfRelationshipDefinition list_relationship_definitions(as_at=as_at, page=page, limit=limit, filter=filter)
+
+[EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
+
+Retrieve one or more specified relationship definitions.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:46099
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:46099"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:46099"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.RelationshipDefinitionsApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)
+filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
+        api_response = api_instance.list_relationship_definitions(as_at=as_at, page=page, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RelationshipDefinitionsApi->list_relationship_definitions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional] 
+ **filter** | **str**| Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfRelationshipDefinition**](PagedResourceListOfRelationshipDefinition.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested relationship definitions |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_relationship_definition**
 > RelationshipDefinition update_relationship_definition(scope, code, update_relationship_definition_request)
 
@@ -179,10 +261,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:46099
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,7 +274,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:46099"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
