@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3865",
+    "version": "0.11.3866",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:46099"
+      "url": "http://local-unit-test-server.lusid.com:62489"
     }
   ],
   "paths": {
@@ -59451,6 +59451,233 @@
           }
         ],
         "x-fbn-apistatus": "Stable"
+      },
+      "patch": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] PatchPortfolioDetails: Patch portfolio details",
+        "description": "Create or update certain details for a particular transaction portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nCurrently supported properties are: SubHoldingKeys",
+        "operationId": "PatchPortfolioDetails",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the transaction portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the\r\n             scope this uniquely identifies the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the transaction portfolio. Together with the\r\n             scope this uniquely identifies the transaction portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the updated or inserted details should become valid.\r\n             Defaults to the current LUSID system datetime if not specified.\r\n             Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the updated or inserted details should become valid.\r\n             Defaults to the current LUSID system datetime if not specified.\r\n             Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The patch document.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The patch document."
+              },
+              "example": [
+                {
+                  "value": [
+                    "Transaction/Client/AccountType"
+                  ],
+                  "path": "/SubHoldingKeys",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The patch document."
+              },
+              "example": [
+                {
+                  "value": [
+                    "Transaction/Client/AccountType"
+                  ],
+                  "path": "/SubHoldingKeys",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The patch document."
+              },
+              "example": [
+                {
+                  "value": [
+                    "Transaction/Client/AccountType"
+                  ],
+                  "path": "/SubHoldingKeys",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The patch document."
+              },
+              "example": [
+                {
+                  "value": [
+                    "Transaction/Client/AccountType"
+                  ],
+                  "path": "/SubHoldingKeys",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The newly patched details",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortfolioDetails"
+                },
+                "example": {
+                  "originPortfolioId": {
+                    "scope": "Region",
+                    "code": "UK"
+                  },
+                  "baseCurrency": "GBP",
+                  "corporateActionSourceId": {
+                    "scope": "Sources",
+                    "code": "Vendor1"
+                  },
+                  "subHoldingKeys": [
+                    "Portfolio/Client/AccountType"
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortfolioDetails"
+                },
+                "example": {
+                  "originPortfolioId": {
+                    "scope": "Region",
+                    "code": "UK"
+                  },
+                  "baseCurrency": "GBP",
+                  "corporateActionSourceId": {
+                    "scope": "Sources",
+                    "code": "Vendor1"
+                  },
+                  "subHoldingKeys": [
+                    "Portfolio/Client/AccountType"
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PortfolioDetails"
+                },
+                "example": {
+                  "originPortfolioId": {
+                    "scope": "Region",
+                    "code": "UK"
+                  },
+                  "baseCurrency": "GBP",
+                  "corporateActionSourceId": {
+                    "scope": "Sources",
+                    "code": "Vendor1"
+                  },
+                  "subHoldingKeys": [
+                    "Portfolio/Client/AccountType"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/holdings": {
@@ -74607,6 +74834,29 @@
           "Property"
         ],
         "type": "string"
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "Operator": {
         "enum": [
