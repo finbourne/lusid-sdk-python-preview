@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3867",
+    "version": "0.11.3868",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:58940"
     }
   ],
   "paths": {
@@ -17846,6 +17846,368 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "post": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers",
+        "description": "Set identifiers of the Legal Entity.",
+        "operationId": "SetLegalEntityIdentifiers",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the legal entity identifier type.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity identifier type.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request containing identifiers to set for the legal entity. Identifiers not specified in request will not be changed.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetLegalEntityIdentifiersRequest"
+              },
+              "example": {
+                "identifiers": {
+                  "legalEntity/ExternalIdentifier/LEI": {
+                    "key": "LegalEntity/ExternalIdentifier/LEI",
+                    "value": {
+                      "labelValue": "LEI_12345678"
+                    }
+                  },
+                  "legalEntity/InternalIdentifier/InternalLeiId": {
+                    "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                    "value": {
+                      "labelValue": "Internal_XHSP2038"
+                    }
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetLegalEntityIdentifiersRequest"
+              },
+              "example": {
+                "identifiers": {
+                  "legalEntity/ExternalIdentifier/LEI": {
+                    "key": "LegalEntity/ExternalIdentifier/LEI",
+                    "value": {
+                      "labelValue": "LEI_12345678"
+                    }
+                  },
+                  "legalEntity/InternalIdentifier/InternalLeiId": {
+                    "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                    "value": {
+                      "labelValue": "Internal_XHSP2038"
+                    }
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetLegalEntityIdentifiersRequest"
+              },
+              "example": {
+                "identifiers": {
+                  "legalEntity/ExternalIdentifier/LEI": {
+                    "key": "LegalEntity/ExternalIdentifier/LEI",
+                    "value": {
+                      "labelValue": "LEI_12345678"
+                    }
+                  },
+                  "legalEntity/InternalIdentifier/InternalLeiId": {
+                    "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                    "value": {
+                      "labelValue": "Internal_XHSP2038"
+                    }
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetLegalEntityIdentifiersRequest"
+              },
+              "example": {
+                "identifiers": {
+                  "legalEntity/ExternalIdentifier/LEI": {
+                    "key": "LegalEntity/ExternalIdentifier/LEI",
+                    "value": {
+                      "labelValue": "LEI_12345678"
+                    }
+                  },
+                  "legalEntity/InternalIdentifier/InternalLeiId": {
+                    "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                    "value": {
+                      "labelValue": "Internal_XHSP2038"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The Legal Entity with updated identifiers",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalEntity"
+                },
+                "example": {
+                  "displayName": "LegalEntity1DisplayName",
+                  "description": "LegalEntity1Description",
+                  "href": "https://example.com",
+                  "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
+                  "identifiers": {
+                    "legalEntity/ExternalIdentifier/LEI": {
+                      "key": "LegalEntity/ExternalIdentifier/LEI",
+                      "value": {
+                        "labelValue": "LEI_12345678"
+                      }
+                    },
+                    "legalEntity/InternalIdentifier/InternalLeiId": {
+                      "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                      "value": {
+                        "labelValue": "Internal_XHSP2038"
+                      }
+                    },
+                    "legalEntity/Details/Name": {
+                      "key": "LegalEntity/Details/Name",
+                      "value": {
+                        "labelValue": "John Smith"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "legalEntity/Details/Country": {
+                      "key": "LegalEntity/Details/Country",
+                      "value": {
+                        "labelValue": "United Kingdom"
+                      },
+                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalEntity"
+                },
+                "example": {
+                  "displayName": "LegalEntity1DisplayName",
+                  "description": "LegalEntity1Description",
+                  "href": "https://example.com",
+                  "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
+                  "identifiers": {
+                    "legalEntity/ExternalIdentifier/LEI": {
+                      "key": "LegalEntity/ExternalIdentifier/LEI",
+                      "value": {
+                        "labelValue": "LEI_12345678"
+                      }
+                    },
+                    "legalEntity/InternalIdentifier/InternalLeiId": {
+                      "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                      "value": {
+                        "labelValue": "Internal_XHSP2038"
+                      }
+                    },
+                    "legalEntity/Details/Name": {
+                      "key": "LegalEntity/Details/Name",
+                      "value": {
+                        "labelValue": "John Smith"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "legalEntity/Details/Country": {
+                      "key": "LegalEntity/Details/Country",
+                      "value": {
+                        "labelValue": "United Kingdom"
+                      },
+                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalEntity"
+                },
+                "example": {
+                  "displayName": "LegalEntity1DisplayName",
+                  "description": "LegalEntity1Description",
+                  "href": "https://example.com",
+                  "lusidLegalEntityId": "UniqueLusidLegalEntityId1",
+                  "identifiers": {
+                    "legalEntity/ExternalIdentifier/LEI": {
+                      "key": "LegalEntity/ExternalIdentifier/LEI",
+                      "value": {
+                        "labelValue": "LEI_12345678"
+                      }
+                    },
+                    "legalEntity/InternalIdentifier/InternalLeiId": {
+                      "key": "LegalEntity/InternalIdentifier/InternalLeiId",
+                      "value": {
+                        "labelValue": "Internal_XHSP2038"
+                      }
+                    },
+                    "legalEntity/Details/Name": {
+                      "key": "LegalEntity/Details/Name",
+                      "value": {
+                        "labelValue": "John Smith"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "legalEntity/Details/Country": {
+                      "key": "LegalEntity/Details/Country",
+                      "value": {
+                        "labelValue": "United Kingdom"
+                      },
+                      "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "counterpartyRiskInformation": {
+                    "countryOfRisk": "UnitedKingdom",
+                    "creditRatings": [
+                      {
+                        "ratingSource": "StandardAndPoors",
+                        "rating": "AA+"
+                      }
+                    ],
+                    "industryClassifiers": [
+                      {
+                        "classificationSystemName": "GICS2018",
+                        "classificationCode": "10101010"
+                      }
+                    ]
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
                 }
               }
             }
@@ -81512,6 +81874,20 @@
         },
         "additionalProperties": false
       },
+      "SetLegalEntityIdentifiersRequest": {
+        "type": "object",
+        "properties": {
+          "identifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Identifiers to set for a Legal Entity. Identifiers not included in the request will not be amended.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "SetPersonIdentifiersRequest": {
         "type": "object",
         "properties": {
@@ -84553,7 +84929,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
