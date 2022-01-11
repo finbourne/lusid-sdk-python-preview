@@ -2,10 +2,22 @@ import unittest
 import uuid
 
 from utilities import IdGenerator
+from utilities.id_generator_utilities import delete_entities
+import lusid
+from utilities import TestDataUtilities
 from parameterized import parameterized
 
 
 class IdGeneratorTests(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+
+        api_client = TestDataUtilities.api_client()
+
+        # Setup required LUSID APIs
+        cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
+        cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
 
     def test_use_default_scope_when_not_specified(self):
         id_generator = IdGenerator()
@@ -171,3 +183,15 @@ class IdGeneratorTests(unittest.TestCase):
         self.assertEqual(test_code, item[2])
         self.assertEqual("val1", item[3])
         self.assertEqual("val2", item[4])
+
+    def test_delete_entities_for_multiple_entities(self):
+        id_generator = IdGenerator()
+        n = 5
+
+        for i in range(n):
+            _, scope, code = id_generator.generate_scope_and_code(entity="portfolio", scope="TestDeletion", code_prefix=f"{str(i)}-")
+            self.test_data_utilities.create_transaction_portfolio(scope=scope, code=code)
+
+        delete_entities(id_generator)
+        gen_vals = set(id_generator.pop_scope_and_codes())
+        self.assertEqual(0, len(gen_vals))

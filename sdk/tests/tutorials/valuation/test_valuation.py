@@ -1,97 +1,27 @@
-import unittest
-from datetime import datetime
-from parameterized import parameterized
-
-import pytz
-
 import lusid
 import lusid.models as models
-from utilities import InstrumentLoader
-from utilities import TestDataUtilities
+from lusidfeature import lusid_feature
+from utilities import TestDataUtilities, BaseValuationUtilities
 
 
-class Valuation(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        # Create a configured API client
-        api_client = TestDataUtilities.api_client()
+class Valuation(BaseValuationUtilities):
+    """This is an example of conducting a simple valution in LUSID,
+    illustrating how to create a portfolio, add transactions and up-
+    sert market data for pricing. Finally, a valuation_request is
+    carried out on the constructed portfolio
+    """
 
-        # Setup required LUSID APIs
-        cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
-        cls.portfolios_api = lusid.PortfoliosApi(api_client)
-        cls.instruments_api = lusid.InstrumentsApi(api_client)
-        cls.aggregation_api = lusid.AggregationApi(api_client)
-        cls.quotes_api = lusid.QuotesApi(api_client)
-        cls.recipes_api = lusid.ConfigurationRecipeApi(api_client)
-        instrument_loader = InstrumentLoader(cls.instruments_api)
-        cls.instrument_ids = instrument_loader.load_instruments()
-
-        # Setup test data from utilities
-        cls.test_data_utilities = TestDataUtilities(cls.transaction_portfolios_api)
-
-        # Set test parameters
-        cls.effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)
-        cls.portfolio_code = cls.test_data_utilities.create_transaction_portfolio(
-            TestDataUtilities.tutorials_scope
-        )
-
-        # Setup test portfolio
-        cls.setup_portfolio(cls.effective_date, cls.portfolio_code)
-
-    @classmethod
-    def tearDownClass(cls):
-        # Delete portfolio once tests are concluded
-        cls.portfolios_api.delete_portfolio(
-            TestDataUtilities.tutorials_scope,
-            cls.portfolio_code
-        )
-
-    @classmethod
-    def setup_portfolio(cls, effective_date, portfolio_code) -> None:
+    def upsert_quotes(self) -> models.UpsertQuotesResponse:
         """
-        Sets up instrument, quotes and portfolio data from TestDataUtilities
-        :param datetime effective_date: The portfolio creation date
-        :param str portfolio_code: The code of the the test portfolio
-        :return: None
+        Upserts quotes into LUSID to be used in pricing valuation
+        :param str instrument_id: The identifier used in the upserted quotes
+        :return: UpsertQuotesResponse
         """
-
-        transactions = [
-            cls.test_data_utilities.build_transaction_request(
-                instrument_id=cls.instrument_ids[0],
-                units=100,
-                price=101,
-                currency="GBP",
-                trade_date=effective_date,
-                transaction_type="StockIn",
-            ),
-            cls.test_data_utilities.build_transaction_request(
-                instrument_id=cls.instrument_ids[1],
-                units=100,
-                price=102,
-                currency="GBP",
-                trade_date=effective_date,
-                transaction_type="StockIn",
-            ),
-            cls.test_data_utilities.build_transaction_request(
-                instrument_id=cls.instrument_ids[2],
-                units=100,
-                price=103,
-                currency="GBP",
-                trade_date=effective_date,
-                transaction_type="StockIn",
-            ),
-        ]
-
-        cls.transaction_portfolios_api.upsert_transactions(
-            scope=TestDataUtilities.tutorials_scope,
-            code=portfolio_code,
-            transaction_request=transactions,
-        )
 
         prices = [
-            (cls.instrument_ids[0], 100),
-            (cls.instrument_ids[1], 200),
-            (cls.instrument_ids[2], 300),
+            ("BBG00Y271826", 100),
+            ("BBG005D5KGM0", 200),
+            ("BBG000DPM932", 300),
         ]
 
         requests = [
@@ -100,18 +30,18 @@ class Valuation(unittest.TestCase):
                     models.QuoteSeriesId(
                         provider="Lusid",
                         instrument_id=price[0],
-                        instrument_id_type="LusidInstrumentId",
+                        instrument_id_type="Figi",
                         quote_type="Price",
                         field="mid",
                     ),
-                    effective_at=effective_date,
+                    effective_at=self.effective_date,
                 ),
                 metric_value=models.MetricValue(value=price[1], unit="GBP"),
             )
             for price in prices
         ]
 
-        cls.quotes_api.upsert_quotes(
+        self.quotes_api.upsert_quotes(
             TestDataUtilities.tutorials_scope,
             request_body={
                 "quote" + str(request_number): requests[request_number]
@@ -123,7 +53,8 @@ class Valuation(unittest.TestCase):
         self, recipe_scope, recipe_code
     ) -> lusid.models.ConfigurationRecipe:
         """
-        Creates a configuration recipe that can be used inline or upserted
+        Creates a simple configuration recipe that can be upserted and
+        and referenced in valuation. Sets a simple lookup based recipe.
         :param str recipe_scope: The scope for the configuration recipe
         :param str recipe_code: The code of the the configuration recipe
         :return: ConfigurationRecipe
@@ -137,7 +68,7 @@ class Valuation(unittest.TestCase):
                 suppliers=models.MarketContextSuppliers(equity="Lusid"),
                 options=models.MarketOptions(
                     default_supplier="Lusid",
-                    default_instrument_code_type="LusidInstrumentId",
+                    default_instrument_code_type="Figi",
                     default_scope=TestDataUtilities.tutorials_scope,
                 ),
             ),
@@ -153,52 +84,68 @@ class Valuation(unittest.TestCase):
         upsert_recipe_request = models.UpsertRecipeRequest(configuration_recipe)
         self.recipes_api.upsert_configuration_recipe(upsert_recipe_request)
 
-    @parameterized.expand(
-        [
-            [
-                "Test valuation with an aggregation request using an already upserted recipe",
-                None,
-                "TestRecipes",
-                "SimpleQuotes",
-            ],
-        ]
-    )
-    def test_aggregation(self, _, in_line_recipe, recipe_scope, recipe_code) -> None:
+    @lusid_feature("F10-1")
+    def create_valuation_request(
+        self, recipe_scope=None, recipe_code=None
+    ) -> lusid.models.ValuationRequest:
         """
-        General valuation/aggregation test
+        Creates a valuation request that can be used to return results based on
+        an upserted recipe for the selected portfolio. The selected key in this
+        example will return valuation in the portfolio currency (see 'Valuation/PV'
+        for results in domestic currency). Additionally, the 'op' parameter will
+        allow for use of arithmetic operators on a given metric. For more info on
+        the set of available metrics, see the 'get_queryable_keys()' call under
+        LUSID API docs, part of the Aggregation endpoint.
+        :param str recipe_scope: The scope for an already upserted recipe
+        :param str recipe_code: The code for an already upserted recipe
+        :return: ValuationRequest
         """
-        # create recipe (provides model parameters, locations to use in resolving market data etc.
-        # and push it into LUSID. Only needs to happen once each time when updated, or first time run to create.
-        recipe = self.create_configuration_recipe(recipe_scope, recipe_code)
-        self.upsert_recipe_request(recipe)
 
-        # Set valuation result key
-        valuation_key = "Sum(Holding/default/PV)"
+        recipe_id = models.ResourceId(scope=recipe_scope, code=recipe_code)
 
-        # create valuation request
-        valuation_request = models.ValuationRequest(
-            recipe_id=models.ResourceId(scope=recipe_scope, code=recipe_code),
+        return models.ValuationRequest(
+            recipe_id=recipe_id,
             metrics=[
                 models.AggregateSpec("Instrument/default/Name", "Value"),
-                models.AggregateSpec("Holding/default/PV", "Proportion"),
-                models.AggregateSpec("Holding/default/PV", "Sum"),
+                models.AggregateSpec("Valuation/PvInPortfolioCcy", "Proportion"),
+                models.AggregateSpec("Valuation/PvInPortfolioCcy", "Sum"),
             ],
             group_by=["Instrument/default/Name"],
-            valuation_schedule=models.ValuationSchedule(effective_at=self.effective_date),
             portfolio_entity_ids=[
                 models.PortfolioEntityId(
                     scope=TestDataUtilities.tutorials_scope,
-                    code=self.portfolio_code)
-            ]
+                    code=self.portfolio_code,
+                    portfolio_entity_type="SinglePortfolio",
+                )
+            ],
+            valuation_schedule=models.ValuationSchedule(
+                effective_from=self.effective_date, effective_at=self.effective_date
+            ),
         )
 
-        # Complete aggregation
-        aggregation = self.aggregation_api.get_valuation(
+    def test_valuation(self) -> None:
+        """
+        General valuation test using an upserted recipe
+        """
+
+        # Upsert recipes and quotes
+        recipe = self.create_configuration_recipe(self.recipe_scope, self.recipe_code)
+        self.upsert_recipe_request(recipe)
+        self.upsert_quotes()
+
+        # Create valuation request
+        valuation_request = self.create_valuation_request(
+            self.recipe_scope,
+            self.recipe_code,
+        )
+
+        # Complete valuation
+        valuation = self.aggregation_api.get_valuation(
             valuation_request=valuation_request
         )
 
         # Asserts
-        self.assertEqual(len(aggregation.data), 3)
-        self.assertEqual(aggregation.data[0][valuation_key], 10000)
-        self.assertEqual(aggregation.data[1][valuation_key], 20000)
-        self.assertEqual(aggregation.data[2][valuation_key], 30000)
+        self.assertEqual(len(valuation.data), 3)
+        self.assertEqual(valuation.data[0][self.valuation_portfolio_key], 10000)
+        self.assertEqual(valuation.data[1][self.valuation_portfolio_key], 20000)
+        self.assertEqual(valuation.data[2][self.valuation_portfolio_key], 30000)
