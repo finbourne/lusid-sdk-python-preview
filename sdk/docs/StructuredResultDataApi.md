@@ -1,6 +1,6 @@
 # lusid.StructuredResultDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:62646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:52159*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_structured_result_data**](StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
 [**get_data_map**](StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] GetDataMap: Get data map
 [**get_structured_result_data**](StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] GetStructuredResultData: Get structured result data
+[**get_virtual_document**](StructuredResultDataApi.md#get_virtual_document) | **POST** /api/unitresults/virtualdocument/{scope}/$get | [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
 [**upsert_structured_result_data**](StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [BETA] UpsertStructuredResultData: Upsert structured result data
 
 
@@ -27,10 +28,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62646
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +41,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -104,10 +105,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62646
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -117,7 +118,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -181,10 +182,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62646
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -194,7 +195,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -258,10 +259,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62646
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -271,7 +272,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -323,6 +324,85 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_virtual_document**
+> GetVirtualDocumentResponse get_virtual_document(scope, request_body, as_at=as_at)
+
+[EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
+
+Retrieve one or more virtual documents from a particular scope.                Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID  returns the most recently matched item with respect to the provided effective datetime.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns two collections. The first contains successfully retrieved data items. The second contains those with a  valid identifier but that could not be found, or those that failed because LUSID could not construct a valid identifier from the request.                For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:52159"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:52159"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.StructuredResultDataApi(api_client)
+    scope = 'scope_example' # str | The scope in which to construct the virtual documents.
+request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
+        api_response = api_instance.get_virtual_document(scope, request_body, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling StructuredResultDataApi->get_virtual_document: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope in which to construct the virtual documents. | 
+ **request_body** | [**dict(str, StructuredResultDataId)**](StructuredResultDataId.md)| The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. | [optional] 
+
+### Return type
+
+[**GetVirtualDocumentResponse**](GetVirtualDocumentResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully retrieved virtual documents along with any failures. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **upsert_structured_result_data**
 > UpsertStructuredDataResponse upsert_structured_result_data(scope, request_body)
 
@@ -339,10 +419,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:62646
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52159
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -352,7 +432,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:62646"
+    host = "http://local-unit-test-server.lusid.com:52159"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
