@@ -1,11 +1,12 @@
 # lusid.ComplexMarketDataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:31871*
+All URIs are relative to *http://local-unit-test-server.lusid.com:52679*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_complex_market_data**](ComplexMarketDataApi.md#delete_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$delete | [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
 [**get_complex_market_data**](ComplexMarketDataApi.md#get_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$get | [EARLY ACCESS] GetComplexMarketData: Get complex market data
+[**list_complex_market_data**](ComplexMarketDataApi.md#list_complex_market_data) | **GET** /api/complexmarketdata | [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
 [**upsert_complex_market_data**](ComplexMarketDataApi.md#upsert_complex_market_data) | **POST** /api/complexmarketdata/{scope} | [EARLY ACCESS] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
 
 
@@ -25,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:31871
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52679
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -102,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:31871
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52679
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -169,6 +170,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_complex_market_data**
+> ResourceListOfListComplexMarketDataWithMetaDataResponse list_complex_market_data(as_at=as_at)
+
+[EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+
+List the set of ComplexMarketData at the specified date/time,  along with the scope the data was stored in and its identifier in that scope.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52679
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:52679"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:52679"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplexMarketDataApi(api_client)
+    as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+        api_response = api_instance.list_complex_market_data(as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplexMarketDataApi->list_complex_market_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **as_at** | **datetime**| The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. | [optional] 
+
+### Return type
+
+[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](ResourceListOfListComplexMarketDataWithMetaDataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested ComplexMarketData |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **upsert_complex_market_data**
 > UpsertStructuredDataResponse upsert_complex_market_data(scope, request_body)
 
@@ -185,10 +261,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:31871
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:52679
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -198,7 +274,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:31871"
+    host = "http://local-unit-test-server.lusid.com:52679"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

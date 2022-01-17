@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3893",
+    "version": "0.11.3894",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:31871"
+      "url": "http://local-unit-test-server.lusid.com:52679"
     }
   ],
   "paths": {
@@ -5010,6 +5010,235 @@
                     "type": "string",
                     "format": "date-time"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/complexmarketdata": {
+      "get": {
+        "tags": [
+          "Complex Market Data"
+        ],
+        "summary": "[EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData",
+        "description": "List the set of ComplexMarketData at the specified date/time,\r\nalong with the scope the data was stored in and its identifier in that scope.",
+        "operationId": "ListComplexMarketData",
+        "parameters": [
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested ComplexMarketData",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfListComplexMarketDataWithMetaDataResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "Some Bank Plc",
+                        "lineage": "Swaps Desk Trader A",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "USDOIS"
+                      },
+                      "marketData": {
+                        "baseDate": "1970-01-01T00:00:00.0000000+00:00",
+                        "dates": [
+                          "1970-01-01T00:00:00.0000000+00:00"
+                        ],
+                        "discountFactors": [
+                          1
+                        ],
+                        "marketDataType": "DiscountFactorCurveData"
+                      }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "AN.Other Bank Plc",
+                        "lineage": "Swaps Desk Trader B",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "RBS"
+                      },
+                      "marketData": {
+                        "document": "{ \"some\":\"valid json\"}",
+                        "format": "Json",
+                        "name": "free text identifier of document 1",
+                        "marketDataType": "OpaqueMarketData"
+                      }
+                    }
+                  ],
+                  "href": "https://lusid.com/api/",
+                  "links": [
+                    {
+                      "relation": "RequestLogs",
+                      "href": "http://example.com",
+                      "description": "A link to the LUSID Insights website showing all logs related to this request",
+                      "method": "GET"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfListComplexMarketDataWithMetaDataResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "Some Bank Plc",
+                        "lineage": "Swaps Desk Trader A",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "USDOIS"
+                      },
+                      "marketData": {
+                        "baseDate": "1970-01-01T00:00:00.0000000+00:00",
+                        "dates": [
+                          "1970-01-01T00:00:00.0000000+00:00"
+                        ],
+                        "discountFactors": [
+                          1
+                        ],
+                        "marketDataType": "DiscountFactorCurveData"
+                      }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "AN.Other Bank Plc",
+                        "lineage": "Swaps Desk Trader B",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "RBS"
+                      },
+                      "marketData": {
+                        "document": "{ \"some\":\"valid json\"}",
+                        "format": "Json",
+                        "name": "free text identifier of document 1",
+                        "marketDataType": "OpaqueMarketData"
+                      }
+                    }
+                  ],
+                  "href": "https://lusid.com/api/",
+                  "links": [
+                    {
+                      "relation": "RequestLogs",
+                      "href": "http://example.com",
+                      "description": "A link to the LUSID Insights website showing all logs related to this request",
+                      "method": "GET"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfListComplexMarketDataWithMetaDataResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "Some Bank Plc",
+                        "lineage": "Swaps Desk Trader A",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "USDOIS"
+                      },
+                      "marketData": {
+                        "baseDate": "1970-01-01T00:00:00.0000000+00:00",
+                        "dates": [
+                          "1970-01-01T00:00:00.0000000+00:00"
+                        ],
+                        "discountFactors": [
+                          1
+                        ],
+                        "marketDataType": "DiscountFactorCurveData"
+                      }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "DataScope",
+                        "priceSource": "AN.Other Bank Plc",
+                        "lineage": "Swaps Desk Trader B",
+                        "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                        "marketAsset": "RBS"
+                      },
+                      "marketData": {
+                        "document": "{ \"some\":\"valid json\"}",
+                        "format": "Json",
+                        "name": "free text identifier of document 1",
+                        "marketDataType": "OpaqueMarketData"
+                      }
+                    }
+                  ],
+                  "href": "https://lusid.com/api/",
+                  "links": [
+                    {
+                      "relation": "RequestLogs",
+                      "href": "http://example.com",
+                      "description": "A link to the LUSID Insights website showing all logs related to this request",
+                      "method": "GET"
+                    }
+                  ]
                 }
               }
             }
@@ -74944,6 +75173,24 @@
         },
         "additionalProperties": false
       },
+      "ListComplexMarketDataWithMetaDataResponse": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope that the listed ComplexMarketData entity is stored in.",
+            "nullable": true
+          },
+          "marketDataId": {
+            "$ref": "#/components/schemas/ComplexMarketDataId"
+          },
+          "marketData": {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Wraps a Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketData object with information that was retrieved from storage with it.\r\nIn particular,\r\nthe scope that the data was stored in,\r\nand a <seealso cref=\"T:Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketDataId\" /> object identifying the market data in that scope."
+      },
       "LusidInstrument": {
         "required": [
           "instrumentType"
@@ -81135,6 +81382,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/IUnitDefinitionDto"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
+      "ResourceListOfListComplexMarketDataWithMetaDataResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListComplexMarketDataWithMetaDataResponse"
             },
             "description": "The resources to list."
           },
