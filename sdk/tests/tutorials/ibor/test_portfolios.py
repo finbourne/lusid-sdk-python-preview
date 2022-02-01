@@ -35,7 +35,7 @@ class Portfolios(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F8")
+    @lusid_feature("F1-4")
     def test_create_portfolio(self):
 
         _, scope, portfolio_code = self.id_generator.generate_scope_and_code(
