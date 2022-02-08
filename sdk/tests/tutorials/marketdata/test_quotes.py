@@ -19,7 +19,7 @@ class Quotes(unittest.TestCase):
 
         cls.quotes_api = lusid.QuotesApi(api_client)
 
-    @lusid_feature("F28")
+    @lusid_feature("F14-1")
     def test_add_quote(self):
 
         request = models.UpsertQuoteRequest(
@@ -41,7 +41,7 @@ class Quotes(unittest.TestCase):
 
         self.quotes_api.upsert_quotes(TestDataUtilities.tutorials_scope, request_body={"quote1": request})
 
-    @lusid_feature("F29")
+    @lusid_feature("F14-1")
     def test_get_quote_for_instrument_for_single_day(self):
 
         quote_series_id = models.QuoteSeriesId(
