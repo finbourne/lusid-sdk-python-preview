@@ -41,7 +41,6 @@ class Instruments(unittest.TestCase):
             # create the property
             cls.property_definitions_api.create_property_definition(definition=property_definition)
 
-    @lusid_feature("F41")
     def test_seed_instrument_master(self):
         response = self.instruments_api.upsert_instruments(request_body={
 
@@ -88,7 +87,7 @@ class Instruments(unittest.TestCase):
 
         self.assertEqual(len(response.values), 5, response.failed)
 
-    @lusid_feature("F22")
+    @lusid_feature("F21-1")
     def test_lookup_instrument_by_unique_id(self):
 
         figi = "BBG00KTDTF73"
@@ -121,13 +120,13 @@ class Instruments(unittest.TestCase):
         property = next(filter(lambda i: i.key == "Instrument/default/ClientInternal", instrument.properties), None)
         self.assertTrue(property.value, "internal_id_1")
 
-    @lusid_feature("F23")
+    @lusid_feature("F21-1")
     def test_list_available_identifiers(self):
 
         identifiers = self.instruments_api.get_instrument_identifier_types()
         self.assertGreater(len(identifiers.values), 0)
 
-    @lusid_feature("F24")
+    @lusid_feature("F21-3")
     def test_list_all_instruments(self):
 
         page_size = 5
@@ -137,7 +136,7 @@ class Instruments(unittest.TestCase):
 
         self.assertLessEqual(len(instruments.values), page_size)
 
-    @lusid_feature("F25")
+    @lusid_feature("F21-3")
     def test_list_instruments_by_identifier_type(self):
 
         figis = ["BBG00KTDTF73", "BBG00Y271826", "BBG00L7XVNP1"]
@@ -148,7 +147,7 @@ class Instruments(unittest.TestCase):
         for figi in figis:
             self.assertTrue(figi in instruments.values, msg=f"{figi} not returned")
 
-    @lusid_feature("F26")
+    @lusid_feature("F4-4")
     def test_edit_instrument_property(self):
 
         property_value = models.PropertyValue(label_value="Insurance")

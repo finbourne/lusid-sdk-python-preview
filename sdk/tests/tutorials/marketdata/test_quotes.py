@@ -67,7 +67,7 @@ class Quotes(unittest.TestCase):
 
         self.assertEqual(199.23, quote.metric_value.value)
 
-    @lusid_feature("F30")
+    @lusid_feature("F14-4")
     def test_get_timeseries_quotes(self):
 
         start_date = datetime(2019, 4, 15, tzinfo=pytz.utc)

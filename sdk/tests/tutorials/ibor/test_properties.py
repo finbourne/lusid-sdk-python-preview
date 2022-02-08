@@ -36,7 +36,7 @@ class Properties(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F14")
+    @lusid_feature("F1-5")
     def test_create_portfolio_with_label_property(self):
         # Details of property to be created
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
@@ -100,7 +100,7 @@ class Properties(unittest.TestCase):
         self.assertEqual(portfolio_request.id.code, create_portfolio_request.code)
         self.assertEqual(label_property.value.label_value, property_value.label_value)
 
-    @lusid_feature("F15")
+    @lusid_feature("F1-6")
     def test_create_portfolio_with_metric_property(self):
 
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)

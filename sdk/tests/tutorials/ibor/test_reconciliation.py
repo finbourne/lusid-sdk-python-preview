@@ -33,7 +33,7 @@ class Reconciliation(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F16")
+    @lusid_feature("F20-1")
     def test_reconcile_portfolio(self):
         # create the portfolio
         scope = TestDataUtilities.tutorials_scope

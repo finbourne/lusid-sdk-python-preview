@@ -35,7 +35,7 @@ class ReferencePortfolio(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F39")
+    @lusid_feature("F6-1")
     def test_create_reference_portfolio(self):
 
         _, _, portfolio_code = self.id_generator.generate_scope_and_code("portfolio")
@@ -55,7 +55,7 @@ class ReferencePortfolio(unittest.TestCase):
 
         self.assertEqual(result.id.code, request.code)
 
-    @lusid_feature("F40")
+    @lusid_feature("F6-2")
     def test_upsert_reference_portfolio_constituents(self):
 
         constituent_weights = [10, 20, 30, 15, 25]
