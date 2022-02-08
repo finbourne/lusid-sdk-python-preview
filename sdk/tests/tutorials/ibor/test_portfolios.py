@@ -124,7 +124,7 @@ class Portfolios(unittest.TestCase):
         self.assertEqual(portfolio_properties.properties[property_definition_result.key].value.label_value,
                          property_value)
 
-    @lusid_feature("F10")
+    @lusid_feature("F13-8")
     def test_add_transaction_to_portfolio(self):
         # effective date of the portfolio, this is the date the portfolio was created and became live.  All dates/times
         # must be supplied in UTC

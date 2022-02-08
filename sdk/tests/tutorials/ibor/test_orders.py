@@ -64,7 +64,7 @@ class Orders(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F4")
+    @lusid_feature("F9-1")
     def test_upsert_simple_order(self):
         """Makes a request for a single order."""
 
