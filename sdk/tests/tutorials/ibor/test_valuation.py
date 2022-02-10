@@ -37,7 +37,7 @@ class Valuation(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F20")
+    @lusid_feature("F10-5")
     def test_portfolio_aggregation(self):
 
         effective_date = datetime(2019, 4, 15, tzinfo=pytz.utc)

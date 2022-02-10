@@ -34,7 +34,7 @@ class CutLabels(unittest.TestCase):
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
 
-    @lusid_feature("F32")
+    @lusid_feature("F16-1")
     def test_cut_labels(self):
         def get_guid():
             return str(uuid.uuid4())[:4]

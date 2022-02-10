@@ -219,7 +219,7 @@ class CorporateActions(unittest.TestCase):
             instrument_updated_figi,
         )
 
-    @lusid_feature("F33")
+    @lusid_feature("F12-6")
     def test_list_corporate_action_sources(self):
 
         _, scope, code, = self.id_generator.generate_scope_and_code(
