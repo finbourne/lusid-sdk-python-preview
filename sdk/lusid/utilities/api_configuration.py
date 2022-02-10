@@ -43,9 +43,9 @@ class ApiConfiguration:
             """
             if (url is not None and
                     # and it's an Okta oauth2 URL
-                    re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', url, flags=re.IGNORECASE) is not None and
+                    re.search('^http(s)?:\/\/.*\.okta\.com\/oauth2\/.+', url, flags = re.IGNORECASE) is not None and
                     # and it's missing the token suffix
-                    re.search('\/v\d+\/token$', url, flags=re.IGNORECASE) is None):
+                    re.search('\/v\d+\/token$', url, flags = re.IGNORECASE) is None):
                 return url.rstrip('/') + '/v1/token'
             return url
 

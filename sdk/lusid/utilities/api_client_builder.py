@@ -37,7 +37,7 @@ class ApiClientBuilder:
 
     @classmethod
     def build(cls, api_secrets_filename=None, id_provider_response_handler=None, api_configuration=None,
-              token=None, correlation_id=None, tcp_keep_alive=False):
+              token=None, correlation_id=None, tcp_keep_alive=False, flag_to_use_decimal=False):
         """
         :param str api_secrets_filename: The full path to the JSON file containing the API credentials and optional proxy details
         :param typing.callable id_provider_response_handler: An optional function to handle the Okta response
@@ -81,7 +81,7 @@ class ApiClientBuilder:
             )
 
         # Initialise the API client using the token so that it can be included in all future requests
-        config = Configuration(tcp_keep_alive=tcp_keep_alive)
+        config = Configuration(tcp_keep_alive=tcp_keep_alive,flag_to_use_decimal=flag_to_use_decimal)
         config.access_token = api_token
         config.host = configuration.api_url
 
