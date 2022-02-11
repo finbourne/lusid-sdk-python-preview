@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3954",
+    "version": "0.11.3955",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:60547"
     }
   ],
   "paths": {
@@ -61478,7 +61478,7 @@
           "Transaction Portfolios"
         ],
         "summary": "[EXPERIMENTAL] PatchPortfolioDetails: Patch portfolio details",
-        "description": "Create or update certain details for a particular transaction portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nCurrently supported properties are: SubHoldingKeys",
+        "description": "Create or update certain details for a particular transaction portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nCurrently supported properties are: SubHoldingKeys, BaseCurrency",
         "operationId": "PatchPortfolioDetails",
         "parameters": [
           {
@@ -61537,7 +61537,12 @@
                   "value": [
                     "Transaction/Client/AccountType"
                   ],
-                  "path": "/SubHoldingKeys",
+                  "path": "/subHoldingKeys",
+                  "op": "add"
+                },
+                {
+                  "value": "GBP",
+                  "path": "/baseCurrency",
                   "op": "add"
                 }
               ]
@@ -61555,7 +61560,12 @@
                   "value": [
                     "Transaction/Client/AccountType"
                   ],
-                  "path": "/SubHoldingKeys",
+                  "path": "/subHoldingKeys",
+                  "op": "add"
+                },
+                {
+                  "value": "GBP",
+                  "path": "/baseCurrency",
                   "op": "add"
                 }
               ]
@@ -61573,7 +61583,12 @@
                   "value": [
                     "Transaction/Client/AccountType"
                   ],
-                  "path": "/SubHoldingKeys",
+                  "path": "/subHoldingKeys",
+                  "op": "add"
+                },
+                {
+                  "value": "GBP",
+                  "path": "/baseCurrency",
                   "op": "add"
                 }
               ]
@@ -61591,7 +61606,12 @@
                   "value": [
                     "Transaction/Client/AccountType"
                   ],
-                  "path": "/SubHoldingKeys",
+                  "path": "/subHoldingKeys",
+                  "op": "add"
+                },
+                {
+                  "value": "GBP",
+                  "path": "/baseCurrency",
                   "op": "add"
                 }
               ]
@@ -87316,7 +87336,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
