@@ -1,12 +1,12 @@
 # lusid.LegalEntitiesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:38042*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_legal_entity**](LegalEntitiesApi.md#delete_legal_entity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
 [**delete_legal_entity_access_metadata**](LegalEntitiesApi.md#delete_legal_entity_access_metadata) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
-[**delete_legal_entity_identifiers**](LegalEntitiesApi.md#delete_legal_entity_identifiers) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
+[**delete_legal_entity_identifiers**](LegalEntitiesApi.md#delete_legal_entity_identifiers) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
 [**delete_legal_entity_properties**](LegalEntitiesApi.md#delete_legal_entity_properties) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeleteLegalEntityProperties: Delete Legal Entity Properties
 [**get_all_legal_entity_access_metadata**](LegalEntitiesApi.md#get_all_legal_entity_access_metadata) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
 [**get_legal_entity**](LegalEntitiesApi.md#get_legal_entity) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetLegalEntity: Get Legal Entity
@@ -15,8 +15,8 @@ Method | HTTP request | Description
 [**get_legal_entity_relations**](LegalEntitiesApi.md#get_legal_entity_relations) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
 [**get_legal_entity_relationships**](LegalEntitiesApi.md#get_legal_entity_relationships) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetLegalEntityRelationships: Get Relationships for Legal Entity
 [**list_legal_entities**](LegalEntitiesApi.md#list_legal_entities) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] ListLegalEntities: List Legal Entities
-[**set_legal_entity_identifiers**](LegalEntitiesApi.md#set_legal_entity_identifiers) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
-[**set_legal_entity_properties**](LegalEntitiesApi.md#set_legal_entity_properties) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] SetLegalEntityProperties: Set Legal Entity Properties
+[**set_legal_entity_identifiers**](LegalEntitiesApi.md#set_legal_entity_identifiers) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
+[**set_legal_entity_properties**](LegalEntitiesApi.md#set_legal_entity_properties) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
 [**upsert_legal_entity**](LegalEntitiesApi.md#upsert_legal_entity) | **POST** /api/legalentities | [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
 [**upsert_legal_entity_access_metadata**](LegalEntitiesApi.md#upsert_legal_entity_access_metadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
@@ -37,10 +37,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -50,7 +50,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -116,10 +116,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -129,7 +129,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 # **delete_legal_entity_identifiers**
 > DeletedEntityResponse delete_legal_entity_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
 
-[EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
+[EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
 
 Delete identifiers that belong to the given property keys of the legal entity.
 
@@ -199,10 +199,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -212,7 +212,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -227,7 +227,7 @@ property_keys = ['property_keys_example'] # list[str] | The property keys of the
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)
 
     try:
-        # [EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
+        # [EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
         api_response = api_instance.delete_legal_entity_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -282,10 +282,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -295,7 +295,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -365,10 +365,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -378,7 +378,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -448,10 +448,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -461,7 +461,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -533,10 +533,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -546,7 +546,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -618,10 +618,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -631,7 +631,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -707,10 +707,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -720,7 +720,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -794,10 +794,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -807,7 +807,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -881,10 +881,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -894,7 +894,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 # **set_legal_entity_identifiers**
 > LegalEntity set_legal_entity_identifiers(id_type_scope, id_type_code, code, set_legal_entity_identifiers_request)
 
-[EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
+[EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
 
 Set identifiers of the Legal Entity.
 
@@ -970,10 +970,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -983,7 +983,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -997,7 +997,7 @@ code = 'code_example' # str | Code of the legal entity under specified identifie
 set_legal_entity_identifiers_request = {"identifiers":{"legalEntity/ExternalIdentifier/LEI":{"key":"LegalEntity/ExternalIdentifier/LEI","value":{"labelValue":"LEI_12345678"}},"legalEntity/InternalIdentifier/InternalLeiId":{"key":"LegalEntity/InternalIdentifier/InternalLeiId","value":{"labelValue":"Internal_XHSP2038"}}}} # SetLegalEntityIdentifiersRequest | Request containing identifiers to set for the legal entity. Identifiers not specified in request will not be changed.
 
     try:
-        # [EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
+        # [EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
         api_response = api_instance.set_legal_entity_identifiers(id_type_scope, id_type_code, code, set_legal_entity_identifiers_request)
         pprint(api_response)
     except ApiException as e:
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 # **set_legal_entity_properties**
 > LegalEntity set_legal_entity_properties(id_type_scope, id_type_code, code, set_legal_entity_properties_request)
 
-[EXPERIMENTAL] SetLegalEntityProperties: Set Legal Entity Properties
+[EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
 
 Set properties of the legal entity.
 
@@ -1051,10 +1051,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1064,7 +1064,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1078,7 +1078,7 @@ code = 'code_example' # str | Code of the legal entity under specified identifie
 set_legal_entity_properties_request = {"properties":{"legalEntity/Details/Name":{"key":"LegalEntity/Details/Name","value":{"labelValue":"John Smith"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"},"legalEntity/Details/Country":{"key":"LegalEntity/Details/Country","value":{"labelValue":"United Kingdom"},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}}} # SetLegalEntityPropertiesRequest | Request containing properties to set for the legal entity. Properties not specified in request will not be changed.
 
     try:
-        # [EXPERIMENTAL] SetLegalEntityProperties: Set Legal Entity Properties
+        # [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
         api_response = api_instance.set_legal_entity_properties(id_type_scope, id_type_code, code, set_legal_entity_properties_request)
         pprint(api_response)
     except ApiException as e:
@@ -1132,10 +1132,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1145,7 +1145,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1207,10 +1207,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:38042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1220,7 +1220,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:38042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

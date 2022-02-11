@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3955",
+    "version": "0.11.3958",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:38042"
     }
   ],
   "paths": {
@@ -19024,7 +19024,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers",
+        "summary": "[EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers",
         "description": "Delete identifiers that belong to the given property keys of the legal entity.",
         "operationId": "DeleteLegalEntityIdentifiers",
         "parameters": [
@@ -19153,13 +19153,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers",
+        "summary": "[EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers",
         "description": "Set identifiers of the Legal Entity.",
         "operationId": "SetLegalEntityIdentifiers",
         "parameters": [
@@ -19536,7 +19536,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata": {
@@ -20303,7 +20303,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] SetLegalEntityProperties: Set Legal Entity Properties",
+        "summary": "[EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties",
         "description": "Set properties of the legal entity.",
         "operationId": "SetLegalEntityProperties",
         "parameters": [
@@ -20667,7 +20667,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties/time-series": {
@@ -76292,7 +76292,7 @@
                 "items": {
                   "$ref": "#/components/schemas/InstrumentLeg"
                 },
-                "description": "The set of instrument legs that define the swap instrument."
+                "description": "The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg."
               },
               "settlementCcy": {
                 "type": "string",
@@ -76337,7 +76337,7 @@
             }
           }
         ],
-        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument.\r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations."
+        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument.\r\n            \r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations.\r\n\r\nThe implementation supports the following swap types:\r\n\r\n  * Vanilla (single currency fixed-float non-amortising)\r\n  * CrossCurrency (>1 currency is used by the swap legs)\r\n  * Basis (single currency, floating-floating legs of different tenors)\r\n  * Amortising (the swap has 1+ leg with amortised notional)"
       },
       "InterestRateSwaption": {
         "allOf": [
@@ -87336,7 +87336,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
