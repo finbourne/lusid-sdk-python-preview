@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.3984",
+    "version": "0.11.3985",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:48293"
     }
   ],
   "paths": {
@@ -26,7 +26,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[BETA] GetValuation: Perform valuation for a list of portfolios and/or portfolio groups",
+        "summary": "GetValuation: Perform valuation for a list of portfolios and/or portfolio groups",
         "description": "Perform valuation on specified list of portfolio and/or portfolio groups for a set of dates.",
         "operationId": "GetValuation",
         "requestBody": {
@@ -303,7 +303,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/aggregation/$valuationinlined": {
@@ -311,7 +311,7 @@
         "tags": [
           "Aggregation"
         ],
-        "summary": "[BETA] GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio",
+        "summary": "GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio",
         "description": "Perform valuation on the portfolio that is defined by the weighted set of instruments passed to the request.",
         "operationId": "GetValuationOfWeightedInstruments",
         "requestBody": {
@@ -588,7 +588,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/aggregation/{scope}/{code}/$generateconfigurationrecipe": {
@@ -44408,7 +44408,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.",
+        "summary": "UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.",
         "description": "Update or insert one Configuration Recipe in a single scope. An item will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Configuration Recipe or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertConfigurationRecipe",
         "requestBody": {
@@ -44726,13 +44726,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       },
       "get": {
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] ListConfigurationRecipes: List the set of Configuration Recipes",
+        "summary": "ListConfigurationRecipes: List the set of Configuration Recipes",
         "description": "List the set of configuration recipes at the specified date/time and scope",
         "operationId": "ListConfigurationRecipes",
         "parameters": [
@@ -45239,7 +45239,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/recipes/{scope}/{code}": {
@@ -45247,7 +45247,7 @@
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] GetConfigurationRecipe: Get Configuration Recipe",
+        "summary": "GetConfigurationRecipe: Get Configuration Recipe",
         "description": "Get a Configuration Recipe from a single scope.\r\n            \r\nThe response will return either the recipe that has been stored, or a failure explaining why the request was unsuccessful.\r\n            \r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetConfigurationRecipe",
         "parameters": [
@@ -45554,13 +45554,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       },
       "delete": {
         "tags": [
           "Configuration Recipe"
         ],
-        "summary": "[EXPERIMENTAL] DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.",
+        "summary": "DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.",
         "description": "Delete the specified Configuration Recipe from a single scope.\r\n            \r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteConfigurationRecipe",
         "parameters": [
@@ -45648,7 +45648,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/referenceportfolios/{scope}": {
@@ -87338,7 +87338,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
