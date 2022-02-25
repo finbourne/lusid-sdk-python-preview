@@ -1,6 +1,6 @@
 # lusid.FeesAndCommissionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55638*
+All URIs are relative to *http://local-unit-test-server.lusid.com:30880*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55638
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30880
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +40,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -112,10 +112,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55638
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30880
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -125,7 +125,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -191,10 +191,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55638
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30880
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -204,7 +204,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -268,10 +268,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55638
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30880
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -281,7 +281,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -351,10 +351,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55638
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30880
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -364,7 +364,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55638"
+    host = "http://local-unit-test-server.lusid.com:30880"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -372,7 +372,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.FeesAndCommissionsApi(api_client)
-    request_body = {"update":{"code":"FeeRule_1","transactionPropertyKey":"Transaction/default/fee","transactionType":"*","country":"UK","counterparty":"*","transactionCurrency":"*","settlementCurrency":"*","executionBroker":"*","custodian":"*","exchange":"My Exchange","fee":{"calculationMethod":"BasisPoints","multiplier":"Value","calculationAmount":10},"additionalKeys":{"office":"London"},"description":"Basic fee rule to be updated."},"create":{"transactionPropertyKey":"Transaction/default/fee","transactionType":"*","country":"UK","counterparty":"*","transactionCurrency":"*","settlementCurrency":"*","executionBroker":"*","custodian":"*","exchange":"My Exchange","fee":{"calculationMethod":"BasisPoints","multiplier":"Value","calculationAmount":10},"minFee":{"calculationMethod":"Flat","multiplier":"Value","calculationAmount":5},"maxFee":{"calculationMethod":"Flat","multiplier":"Value","calculationAmount":25},"additionalKeys":{"office":"London"},"description":"Basic fee rule with minimum/maximum to be created"}} # dict(str, FeeRuleUpsertRequest) | A dictionary of upsert request identifiers to rule upsert requests. The request               identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a               created fee rule.
+    request_body = {"update":{"code":"Fee_1","transactionPropertyKey":"Transaction/default/fee","transactionType":"*","country":"UK","counterparty":"*","transactionCurrency":"*","settlementCurrency":"*","executionBroker":"*","custodian":"*","exchange":"My Exchange","fee":{"calculationMethod":"BasisPoints","multiplier":"Value","calculationAmount":10},"additionalKeys":{"office":"London"},"description":"Basic fee rule to be updated."},"create":{"transactionPropertyKey":"Transaction/default/fee","transactionType":"*","country":"UK","counterparty":"*","transactionCurrency":"*","settlementCurrency":"*","executionBroker":"*","custodian":"*","exchange":"My Exchange","fee":{"calculationMethod":"BasisPoints","multiplier":"Value","calculationAmount":10},"minFee":{"calculationMethod":"Flat","multiplier":"Value","calculationAmount":5},"maxFee":{"calculationMethod":"Flat","multiplier":"Value","calculationAmount":25},"additionalKeys":{"office":"London"},"description":"Basic fee rule with minimum/maximum to be created"}} # dict(str, FeeRuleUpsertRequest) | A dictionary of upsert request identifiers to rule upsert requests. The request               identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a               created fee rule.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label for rule to begin to be effective from. Defaults to the current LUSID  system datetime if not specified. In the case of updates, the update rule will be valid from this time until  the next upserted effective from time. For example, if a rule is due to change from the first of the next  month, values upserted effective from the current time will only be valid until the end of the month, after  which the scheduled changes will take over, as they were due to before this latest upsert. (optional)
 
     try:

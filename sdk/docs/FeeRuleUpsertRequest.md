@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** |  | [optional] 
+**code** | **str** |  | 
 **transaction_property_key** | **str** |  | 
 **transaction_type** | **str** |  | 
 **country** | **str** |  | 
