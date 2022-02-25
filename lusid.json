@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4013",
+    "version": "0.11.4014",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:34341"
+      "url": "http://local-unit-test-server.lusid.com:55638"
     }
   ],
   "paths": {
@@ -19624,6 +19624,232 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      },
+      "patch": {
+        "tags": [
+          "Legal Entities"
+        ],
+        "summary": "[EXPERIMENTAL] PatchLegalEntityAccessMetadata: Patch Access Metadata rules for a Legal Entity.",
+        "description": "Patch Legal Entity Access Metadata Rules in a single scope.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently only 'add' is a supported operation on the patch document\r\nCurrently only valid metadata keys are supported paths on the patch document\r\n            \r\nThe response will return any affected Legal Entity Access Metadata rules or a failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
+        "operationId": "PatchLegalEntityAccessMetadata",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the Legal Entity identifier.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the Legal Entity under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the Legal Entity under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Json Patch document",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully patched items.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}": {
@@ -27952,6 +28178,226 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      },
+      "patch": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "[EXPERIMENTAL] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.",
+        "description": "Patch Person Access Metadata Rules in a single scope.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently only 'add' is a supported operation on the patch document\r\nCurrently only valid metadata keys are supported paths on the patch document\r\n            \r\nThe response will return any affected Person Access Metadata rules or a failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
+        "operationId": "PatchPersonAccessMetadata",
+        "parameters": [
+          {
+            "name": "idTypeScope",
+            "in": "path",
+            "description": "Scope of the person identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Scope of the person identifier."
+            }
+          },
+          {
+            "name": "idTypeCode",
+            "in": "path",
+            "description": "Code of the person identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Code of the person identifier."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code of the person under specified identifier type's scope and code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of the person under specified identifier type's scope and code."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+            "schema": {
+              "type": "string",
+              "description": "The effectiveAt datetime at which to upsert the Access Metadata",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Json Patch document",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully patched items.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey}": {
@@ -33259,6 +33705,219 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      },
+      "patch": {
+        "tags": [
+          "Portfolio Groups"
+        ],
+        "summary": "[EXPERIMENTAL] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.",
+        "description": "Patch Portfolio Group Access Metadata Rules in a single scope.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently only 'add' is a supported operation on the patch document\r\nCurrently only valid metadata keys are supported paths on the patch document\r\n            \r\nThe response will return any affected Portfolio Group Access Metadata rules or a failure message if unsuccessful.\r\n            \r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.",
+        "operationId": "PatchPortfolioGroupAccessMetadata",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Portfolio Group",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the Portfolio Group"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The Portfolio Group code",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The Portfolio Group code"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The date this rule will be effective from",
+            "schema": {
+              "type": "string",
+              "description": "The date this rule will be effective from",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Json patch document",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully patched items.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/metadata/{metadataKey}": {
@@ -39629,6 +40288,219 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      },
+      "patch": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.",
+        "description": "Patch Portfolio Access Metadata Rules in a single scope.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently only 'add' is a supported operation on the patch document\r\nCurrently only valid metadata keys are supported paths on the patch document\r\n\r\nThe response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.\r\n\r\nIt is important to always check to verify success (or failure).\r\n            \r\nMultiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched",
+        "operationId": "PatchPortfolioAccessMetadata",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Portfolio Access Metadata Rule.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the Portfolio Access Metadata Rule."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Portfolio code",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Portfolio code"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The date this rule will effective from",
+            "schema": {
+              "type": "string",
+              "description": "The date this rule will effective from",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Json Patch document",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The Json Patch document"
+              },
+              "example": [
+                {
+                  "value": [
+                    {
+                      "value": "SilverLicence",
+                      "provider": "TestDataProvider"
+                    }
+                  ],
+                  "path": "/exampleMetadataKey",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully patched items.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AccessMetadataValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/metadata/{metadataKey}": {
