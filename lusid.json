@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4012",
+    "version": "0.11.4013",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33435"
+      "url": "http://local-unit-test-server.lusid.com:34341"
     }
   ],
   "paths": {
@@ -14251,7 +14251,7 @@
                 "example": {
                   "values": [
                     {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14276,7 +14276,7 @@
                       }
                     },
                     {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14321,7 +14321,7 @@
                 "example": {
                   "values": [
                     {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14346,7 +14346,7 @@
                       }
                     },
                     {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14391,7 +14391,7 @@
                 "example": {
                   "values": [
                     {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14416,7 +14416,7 @@
                       }
                     },
                     {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14527,7 +14527,7 @@
               },
               "example": {
                 "update": {
-                  "code": "Fee_1",
+                  "code": "FeeRule_1",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -14589,7 +14589,7 @@
               },
               "example": {
                 "update": {
-                  "code": "Fee_1",
+                  "code": "FeeRule_1",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -14651,7 +14651,7 @@
               },
               "example": {
                 "update": {
-                  "code": "Fee_1",
+                  "code": "FeeRule_1",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -14713,7 +14713,7 @@
               },
               "example": {
                 "update": {
-                  "code": "Fee_1",
+                  "code": "FeeRule_1",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -14779,7 +14779,7 @@
                 "example": {
                   "values": {
                     "update": {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14804,7 +14804,7 @@
                       }
                     },
                     "create": {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14848,7 +14848,7 @@
                 "example": {
                   "values": {
                     "update": {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14873,7 +14873,7 @@
                       }
                     },
                     "create": {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14917,7 +14917,7 @@
                 "example": {
                   "values": {
                     "update": {
-                      "code": "FEE_1",
+                      "code": "FeeRule_1",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -14942,7 +14942,7 @@
                       }
                     },
                     "create": {
-                      "code": "FEE_2",
+                      "code": "FeeRule_2",
                       "transactionPropertyKey": "Transaction/default/fee",
                       "transactionType": "*",
                       "country": "UK",
@@ -15075,7 +15075,7 @@
                   "$ref": "#/components/schemas/FeeRule"
                 },
                 "example": {
-                  "code": "FEE_2",
+                  "code": "FeeRule_2",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -15115,7 +15115,7 @@
                   "$ref": "#/components/schemas/FeeRule"
                 },
                 "example": {
-                  "code": "FEE_2",
+                  "code": "FeeRule_2",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -15155,7 +15155,7 @@
                   "$ref": "#/components/schemas/FeeRule"
                 },
                 "example": {
-                  "code": "FEE_2",
+                  "code": "FeeRule_2",
                   "transactionPropertyKey": "Transaction/default/fee",
                   "transactionType": "*",
                   "country": "UK",
@@ -68814,23 +68814,12 @@
         "type": "object",
         "properties": {
           "calculationMethod": {
-            "enum": [
-              "Rate",
-              "BasisPoints",
-              "Percentage",
-              "Flat"
-            ],
             "type": "string",
-            "description": "Method of calculating the fees or commission among: BasisPoints, Percentage, Rate, Flat etc. The available values are: Rate, BasisPoints, Percentage, Flat"
+            "description": "Method of calculating the fees or commission among: BasisPoints, Percentage, Rate, Flat etc."
           },
           "multiplier": {
-            "enum": [
-              "None",
-              "Quantity",
-              "Value"
-            ],
             "type": "string",
-            "description": ". The available values are: None, Quantity, Value"
+            "description": "Field by which to multiply the numerical amount. Eg: Quantity, Value"
           },
           "calculationAmount": {
             "type": "number",
@@ -68839,15 +68828,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "CalculationMethod": {
-        "enum": [
-          "Rate",
-          "BasisPoints",
-          "Percentage",
-          "Flat"
-        ],
-        "type": "string"
       },
       "Calendar": {
         "required": [
@@ -73492,7 +73472,6 @@
       },
       "FeeRuleUpsertRequest": {
         "required": [
-          "code",
           "counterparty",
           "country",
           "custodian",
@@ -73511,7 +73490,8 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": ""
+            "description": "",
+            "nullable": true
           },
           "transactionPropertyKey": {
             "type": "string",
@@ -77580,14 +77560,6 @@
           "UnsettledCashTypes",
           "Carry",
           "CarryAsPnl"
-        ],
-        "type": "string"
-      },
-      "Multiplier": {
-        "enum": [
-          "None",
-          "Quantity",
-          "Value"
         ],
         "type": "string"
       },
