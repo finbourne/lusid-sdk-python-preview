@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4011",
+    "version": "0.11.4010",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33599"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -9851,13 +9851,13 @@
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of entity for which to retrieve the CustomEntityDefinition.",
+            "description": "The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of entity for which to retrieve the CustomEntityDefinition."
+              "description": "The type of entity for which to retrieve the CustomEntityDefinition. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest)."
             }
           },
           {
@@ -10044,13 +10044,13 @@
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
+            "description": "The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
+              "description": "The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint."
             }
           }
         ],
@@ -10064,6 +10064,7 @@
               "example": {
                 "displayName": "Issue",
                 "description": "Issue with loading data",
+                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
                 "identifiers": [
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10079,28 +10080,23 @@
                 "fields": [
                   {
                     "name": "IssueName",
-                    "value": "InstrumentNotFound",
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                    "value": "InstrumentNotFound"
                   },
                   {
                     "name": "Status",
-                    "value": "InProgress",
-                    "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00"
+                    "value": "InProgress"
                   },
                   {
                     "name": "StoryPointEstimate",
-                    "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": 1
                   },
                   {
                     "name": "Assigned",
-                    "value": true,
-                    "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00"
+                    "value": true
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10112,6 +10108,7 @@
               "example": {
                 "displayName": "Issue",
                 "description": "Issue with loading data",
+                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
                 "identifiers": [
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10127,28 +10124,23 @@
                 "fields": [
                   {
                     "name": "IssueName",
-                    "value": "InstrumentNotFound",
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                    "value": "InstrumentNotFound"
                   },
                   {
                     "name": "Status",
-                    "value": "InProgress",
-                    "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00"
+                    "value": "InProgress"
                   },
                   {
                     "name": "StoryPointEstimate",
-                    "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": 1
                   },
                   {
                     "name": "Assigned",
-                    "value": true,
-                    "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00"
+                    "value": true
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10160,6 +10152,7 @@
               "example": {
                 "displayName": "Issue",
                 "description": "Issue with loading data",
+                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
                 "identifiers": [
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10175,28 +10168,23 @@
                 "fields": [
                   {
                     "name": "IssueName",
-                    "value": "InstrumentNotFound",
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                    "value": "InstrumentNotFound"
                   },
                   {
                     "name": "Status",
-                    "value": "InProgress",
-                    "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00"
+                    "value": "InProgress"
                   },
                   {
                     "name": "StoryPointEstimate",
-                    "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": 1
                   },
                   {
                     "name": "Assigned",
-                    "value": true,
-                    "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00"
+                    "value": true
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10208,6 +10196,7 @@
               "example": {
                 "displayName": "Issue",
                 "description": "Issue with loading data",
+                "effectiveAt": "2021-07-23T12:00:00.0000000+00:00",
                 "identifiers": [
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10223,28 +10212,23 @@
                 "fields": [
                   {
                     "name": "IssueName",
-                    "value": "InstrumentNotFound",
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                    "value": "InstrumentNotFound"
                   },
                   {
                     "name": "Status",
-                    "value": "InProgress",
-                    "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00"
+                    "value": "InProgress"
                   },
                   {
                     "name": "StoryPointEstimate",
-                    "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": 1
                   },
                   {
                     "name": "Assigned",
-                    "value": true,
-                    "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00"
+                    "value": true
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10263,9 +10247,10 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
                   "description": "Issue with loading data",
@@ -10274,47 +10259,59 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     }
                   ],
                   "fields": [
                     {
                       "name": "IssueName",
-                      "value": "InstrumentNotFound",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InstrumentNotFound"
                     },
                     {
                       "name": "Status",
-                      "value": "InProgress",
-                      "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InProgress"
                     },
                     {
                       "name": "StoryPointEstimate",
-                      "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": 1
                     },
                     {
                       "name": "Assigned",
-                      "value": true,
-                      "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": true
                     },
                     {
                       "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00",
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "2021-07-13T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  }
                 }
               },
               "application/json": {
@@ -10324,9 +10321,10 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
                   "description": "Issue with loading data",
@@ -10335,47 +10333,59 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     }
                   ],
                   "fields": [
                     {
                       "name": "IssueName",
-                      "value": "InstrumentNotFound",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InstrumentNotFound"
                     },
                     {
                       "name": "Status",
-                      "value": "InProgress",
-                      "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InProgress"
                     },
                     {
                       "name": "StoryPointEstimate",
-                      "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": 1
                     },
                     {
                       "name": "Assigned",
-                      "value": true,
-                      "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": true
                     },
                     {
                       "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00",
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "2021-07-13T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  }
                 }
               },
               "text/json": {
@@ -10385,9 +10395,10 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
                   "entityType": "~issue",
+                  "customEntityId": "0059d745-c65a-48c9-b87b-4f996819c6c2",
                   "version": {
                     "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                    "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
+                    "asAtDate": "2021-07-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
                   "description": "Issue with loading data",
@@ -10396,47 +10407,59 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                        "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                      }
                     }
                   ],
                   "fields": [
                     {
                       "name": "IssueName",
-                      "value": "InstrumentNotFound",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InstrumentNotFound"
                     },
                     {
                       "name": "Status",
-                      "value": "InProgress",
-                      "effectiveFrom": "2022-07-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "InProgress"
                     },
                     {
                       "name": "StoryPointEstimate",
-                      "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": 1
                     },
                     {
                       "name": "Assigned",
-                      "value": true,
-                      "effectiveFrom": "2021-12-23T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": true
                     },
                     {
                       "name": "DateCreated",
-                      "value": "2021-07-13T12:00:00.0000000+00:00",
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "value": "2021-07-13T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2021-07-23T12:00:00.0000000+00:00",
+                    "untilDate": "9999-12-31T23:59:59.9999999+00:00"
+                  }
                 }
               }
             }
@@ -10635,13 +10658,13 @@
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
+            "description": "The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
+              "description": "The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest)."
             }
           },
           {
@@ -10694,17 +10717,6 @@
               "nullable": true
             },
             "x-nullable": true
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to get the CustomEntity. Defaults to the current LUSID system datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to get the CustomEntity. Defaults to the current LUSID system datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
           }
         ],
         "responses": {
@@ -10718,8 +10730,9 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "The Frames",
@@ -10729,13 +10742,23 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     }
                   ],
                   "fields": [
@@ -10759,7 +10782,13 @@
                       "name": "Date Created",
                       "value": "2019-01-23T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                  }
                 }
               },
               "application/json": {
@@ -10769,8 +10798,9 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "The Frames",
@@ -10780,13 +10810,23 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     }
                   ],
                   "fields": [
@@ -10810,7 +10850,13 @@
                       "name": "Date Created",
                       "value": "2019-01-23T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                  }
                 }
               },
               "text/json": {
@@ -10820,8 +10866,9 @@
                 "example": {
                   "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
                   "entityType": "~branch",
+                  "customEntityId": "43968036e117446dbac7986605084ab7",
                   "version": {
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                    "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
                     "asAtDate": "2020-01-23T12:00:00.0000000+00:00"
                   },
                   "displayName": "The Frames",
@@ -10831,13 +10878,23 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveRange": {
+                        "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                      },
+                      "asAtRange": {
+                        "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                      }
                     }
                   ],
                   "fields": [
@@ -10861,7 +10918,13 @@
                       "name": "Date Created",
                       "value": "2019-01-23T12:00:00.0000000+00:00"
                     }
-                  ]
+                  ],
+                  "effectiveRange": {
+                    "fromDate": "2020-01-23T12:00:00.0000000+00:00"
+                  },
+                  "asAtRange": {
+                    "fromDate": "2020-01-22T12:00:00.0000000+00:00"
+                  }
                 }
               }
             }
@@ -71655,16 +71718,6 @@
           "value": {
             "type": "object",
             "additionalProperties": false
-          },
-          "effectiveFrom": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveUntil": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -71693,7 +71746,7 @@
         },
         "additionalProperties": false
       },
-      "CustomEntityId": {
+      "CustomEntityIdRequest": {
         "required": [
           "identifierScope",
           "identifierType",
@@ -71709,16 +71762,34 @@
           },
           "identifierValue": {
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomEntityIdResponse": {
+        "required": [
+          "asAtRange",
+          "effectiveRange",
+          "identifierScope",
+          "identifierType",
+          "identifierValue"
+        ],
+        "type": "object",
+        "properties": {
+          "identifierScope": {
+            "type": "string"
           },
-          "effectiveFrom": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+          "identifierType": {
+            "type": "string"
           },
-          "effectiveUntil": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+          "identifierValue": {
+            "type": "string"
+          },
+          "effectiveRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "asAtRange": {
+            "$ref": "#/components/schemas/DateRange"
           }
         },
         "additionalProperties": false
@@ -71737,10 +71808,14 @@
           "description": {
             "type": "string"
           },
+          "effectiveAt": {
+            "type": "string",
+            "nullable": true
+          },
           "identifiers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CustomEntityId"
+              "$ref": "#/components/schemas/CustomEntityIdRequest"
             }
           },
           "fields": {
@@ -71755,7 +71830,10 @@
       },
       "CustomEntityResponse": {
         "required": [
+          "asAtRange",
+          "customEntityId",
           "displayName",
+          "effectiveRange",
           "entityType",
           "fields",
           "identifiers",
@@ -71773,6 +71851,10 @@
             "type": "string",
             "description": "The EntityType to be used when relations are created to the CustomEntity"
           },
+          "customEntityId": {
+            "type": "string",
+            "description": "A unique identifier for the CustomEntity"
+          },
           "version": {
             "$ref": "#/components/schemas/Version"
           },
@@ -71788,7 +71870,7 @@
           "identifiers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CustomEntityId"
+              "$ref": "#/components/schemas/CustomEntityIdResponse"
             },
             "description": "A collection of CustomEntityIdentifiers that can identify the CustomEntity"
           },
@@ -71798,6 +71880,12 @@
               "$ref": "#/components/schemas/CustomEntityField"
             },
             "description": "A collection of CustomEntityFields that decorate the CustomEntity"
+          },
+          "effectiveRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "asAtRange": {
+            "$ref": "#/components/schemas/DateRange"
           },
           "links": {
             "type": "array",
@@ -87595,7 +87683,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }

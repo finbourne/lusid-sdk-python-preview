@@ -1,6 +1,6 @@
 # lusid.CustomEntitiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:33599*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **get_custom_entity**
-> CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
+> CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at)
 
 [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:33599
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -47,16 +47,15 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntitiesApi(api_client)
-    entity_type = 'entity_type_example' # str | The type of entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
+    entity_type = 'entity_type_example' # str | The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest).
 identifier_type = 'identifier_type_example' # str | An identifier type attached to the CustomEntity.
 identifier_value = 'identifier_value_example' # str | The identifier value.
 identifier_scope = 'identifier_scope_example' # str | The identifier scope.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt at which to retrieve the CustomEntity. (optional)
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get the CustomEntity. Defaults to the current LUSID system datetime if not specified. (optional)
 
     try:
         # [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
-        api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
+        api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity: %s\n" % e)
@@ -66,12 +65,11 @@ effective_at = 'effective_at_example' # str | The effective datetime or cut labe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity_type** | **str**| The type of entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
+ **entity_type** | **str**| The type of entity to retrieve. This is included in the response from M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.CreateCustomEntityDefinition(Finbourne.WebApi.Interface.Dto.CustomEntityDefinitions.CustomEntityDefinitionRequest). | 
  **identifier_type** | **str**| An identifier type attached to the CustomEntity. | 
  **identifier_value** | **str**| The identifier value. | 
  **identifier_scope** | **str**| The identifier scope. | 
  **as_at** | **datetime**| The AsAt at which to retrieve the CustomEntity. | [optional] 
- **effective_at** | **str**| The effective datetime or cut label at which to get the CustomEntity. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -111,10 +109,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:33599
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -124,7 +122,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -200,10 +198,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:33599
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -213,7 +211,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -285,10 +283,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:33599
+# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -298,7 +296,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:33599"
+    host = "https://fbn-prd.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -306,8 +304,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntitiesApi(api_client)
-    entity_type = 'entity_type_example' # str | The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
-custom_entity_request = {"displayName":"Issue","description":"Issue with loading data","identifiers":[{"identifierScope":"DataLoadingIssues","identifierType":"InternalId","identifierValue":"188ce1eaecaf43efa6b33b680b75b40c"},{"identifierScope":"DataLoadingIssues","identifierType":"JiraID","identifierValue":"PLAT-250"}],"fields":[{"name":"IssueName","value":"InstrumentNotFound","effectiveFrom":"2021-07-23T12:00:00.0000000+00:00"},{"name":"Status","value":"InProgress","effectiveFrom":"2022-07-23T12:00:00.0000000+00:00"},{"name":"StoryPointEstimate","value":1,"effectiveFrom":"0001-01-01T00:00:00.0000000+00:00"},{"name":"Assigned","value":true,"effectiveFrom":"2021-12-23T12:00:00.0000000+00:00"},{"name":"DateCreated","value":"2021-07-13T12:00:00.0000000+00:00","effectiveFrom":"0001-01-01T00:00:00.0000000+00:00"}]} # CustomEntityRequest | The CustomEntity to be created.
+    entity_type = 'entity_type_example' # str | The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint.
+custom_entity_request = {"displayName":"Issue","description":"Issue with loading data","effectiveAt":"2021-07-23T12:00:00.0000000+00:00","identifiers":[{"identifierScope":"DataLoadingIssues","identifierType":"InternalId","identifierValue":"188ce1eaecaf43efa6b33b680b75b40c"},{"identifierScope":"DataLoadingIssues","identifierType":"JiraID","identifierValue":"PLAT-250"}],"fields":[{"name":"IssueName","value":"InstrumentNotFound"},{"name":"Status","value":"InProgress"},{"name":"StoryPointEstimate","value":1},{"name":"Assigned","value":true},{"name":"DateCreated","value":"2021-07-13T12:00:00.0000000+00:00"}]} # CustomEntityRequest | The CustomEntity to be created.
 
     try:
         # [EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
@@ -321,7 +319,7 @@ custom_entity_request = {"displayName":"Issue","description":"Issue with loading
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity_type** | **str**| The type of the CustomEntity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
+ **entity_type** | **str**| The type of the CustomEntity to be created. An entityType can be created using the M:Finbourne.WebApi.Controllers.CustomEntityDefinitionController.GetDefinition(System.String,System.Nullable{System.DateTimeOffset}) endpoint. | 
  **custom_entity_request** | [**CustomEntityRequest**](CustomEntityRequest.md)| The CustomEntity to be created. | 
 
 ### Return type
