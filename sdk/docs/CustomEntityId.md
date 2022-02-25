@@ -1,13 +1,14 @@
-# CustomEntityRequest
+# CustomEntityId
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** |  | 
-**description** | **str** |  | 
-**identifiers** | [**list[CustomEntityId]**](CustomEntityId.md) |  | 
-**fields** | [**list[CustomEntityField]**](CustomEntityField.md) |  | [optional] 
+**identifier_scope** | **str** |  | 
+**identifier_type** | **str** |  | 
+**identifier_value** | **str** |  | 
+**effective_from** | **datetime** |  | [optional] 
+**effective_until** | **datetime** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
