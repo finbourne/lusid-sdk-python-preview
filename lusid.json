@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4031",
+    "version": "0.11.4032",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:48328"
+      "url": "http://local-unit-test-server.lusid.com:44111"
     }
   ],
   "paths": {
@@ -30809,7 +30809,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] CreatePortfolioGroup: Create portfolio group",
+        "summary": "CreatePortfolioGroup: Create portfolio group",
         "description": "Create a portfolio group in a specific scope.",
         "operationId": "CreatePortfolioGroup",
         "parameters": [
@@ -31002,7 +31002,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       },
       "get": {
         "tags": [
@@ -31374,7 +31374,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] GetPortfolioGroup: Get portfolio group",
+        "summary": "GetPortfolioGroup: Get portfolio group",
         "description": "Retrieve the definition of a single portfolio group.",
         "operationId": "GetPortfolioGroup",
         "parameters": [
@@ -31488,7 +31488,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/a2b": {
@@ -33017,7 +33017,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands",
+        "summary": "GetPortfolioGroupCommands: Get portfolio group commands",
         "description": "Gets all the commands that modified a single portfolio group.",
         "operationId": "GetPortfolioGroupCommands",
         "parameters": [
@@ -33144,7 +33144,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/expansion": {
@@ -33289,7 +33289,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group",
+        "summary": "GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group",
         "description": "Get the holdings of transaction portfolios in specified portfolio group.",
         "operationId": "GetHoldingsForPortfolioGroup",
         "parameters": [
@@ -33567,7 +33567,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/metadata": {
@@ -36099,7 +36099,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group",
+        "summary": "GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group",
         "description": "Get transactions for transaction portfolios in a portfolio group over a given interval of effective time.\r\n            \r\nWhen the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the\r\nunion set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.",
         "operationId": "GetTransactionsForPortfolioGroup",
         "parameters": [
@@ -36438,7 +36438,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/transactions/$build": {
@@ -36446,7 +36446,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group",
+        "summary": "BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group",
         "description": "Build transactions for transaction portfolios in a portfolio group over a given interval of effective time.\r\n            \r\nWhen the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the\r\nunion set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.",
         "operationId": "BuildTransactionsForPortfolioGroup",
         "parameters": [
@@ -37302,7 +37302,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfolios": {
