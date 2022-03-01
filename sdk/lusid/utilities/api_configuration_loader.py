@@ -40,7 +40,7 @@ class ApiConfigurationLoader:
             # If there is a secrets file specified and it does not exist log a warning to indicate that the specified file
             # could not be found and create an empty config
             elif api_secrets_filename is not None and (not os.path.exists(api_secrets_filename) or not os.path.isfile(api_secrets_filename)):
-                logging.warning(f"Provided secrets file of {api_secrets_filename} can not be found, please ensure you "
+                logging.debug(f"Provided secrets file of {api_secrets_filename} can not be found, please ensure you "
                                  f"have correctly specified the full path to the file or don't provide a secrets file to use "
                                  f"environment variables instead.")
                 config = {}
