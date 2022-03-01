@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **start_date** | **datetime** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **option_maturity_date** | **datetime** | The maturity date of the option. | 
 **option_settlement_date** | **datetime** | The settlement date of the option. | 
-**delivery_type** | **str** | The available values are: Cash, Physical | 
-**option_type** | **str** | The available values are: None, Call, Put | 
+**delivery_type** | **str** | is the option cash settled or physical delivery of option  Supported string (enumeration) values are: [Cash, Physical]. | 
+**option_type** | **str** | Type of optionality for the option  Supported string (enumeration) values are: [Call, Put]. | 
 **strike** | **float** | The strike of the option. | 
 **dom_ccy** | **str** | The domestic currency of the instrument. | 
-**underlying_identifier** | **str** | The available values are: LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode | 
+**underlying_identifier** | **str** | The market identifier type of the underlying code, e.g RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. | 
 **code** | **str** | The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. | 
 **instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption | 
 

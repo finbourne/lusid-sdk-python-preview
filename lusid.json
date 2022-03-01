@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4029",
+    "version": "0.11.4030",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:37607"
+      "url": "http://local-unit-test-server.lusid.com:30778"
     }
   ],
   "paths": {
@@ -70153,29 +70153,12 @@
         "type": "object",
         "properties": {
           "seniority": {
-            "enum": [
-              "Unknown",
-              "SNR",
-              "SUB",
-              "JRSUBUT2",
-              "PREFT1",
-              "SECDOM",
-              "SNRFOR",
-              "SUBLT2"
-            ],
             "type": "string",
-            "description": "The available values are: Unknown, SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2"
+            "description": "The seniority level of the CDS.\r\nSupported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]."
           },
           "restructuringType": {
-            "enum": [
-              "Unknown",
-              "CR",
-              "MR",
-              "MM",
-              "XR"
-            ],
             "type": "string",
-            "description": "The available values are: Unknown, CR, MR, MM, XR"
+            "description": "The restructuring clause.\r\nSupported string (enumeration) values are: [CR, MR, MM, XR]."
           },
           "protectStartDay": {
             "type": "boolean",
@@ -70188,29 +70171,6 @@
         },
         "additionalProperties": false,
         "description": "CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.\r\nThis class gathers a number of common features which may deviate. These will default to the market standard when\r\nno overrides are provided."
-      },
-      "CdsRestructuringType": {
-        "enum": [
-          "Unknown",
-          "CR",
-          "MR",
-          "MM",
-          "XR"
-        ],
-        "type": "string"
-      },
-      "CdsSeniority": {
-        "enum": [
-          "Unknown",
-          "SNR",
-          "SUB",
-          "JRSUBUT2",
-          "PREFT1",
-          "SECDOM",
-          "SNRFOR",
-          "SUBLT2"
-        ],
-        "type": "string"
       },
       "Change": {
         "required": [
@@ -73209,13 +73169,6 @@
         },
         "additionalProperties": false
       },
-      "DeliveryType": {
-        "enum": [
-          "Cash",
-          "Physical"
-        ],
-        "type": "string"
-      },
       "DependencySourceFilter": {
         "type": "object",
         "properties": {
@@ -73467,21 +73420,12 @@
                 "format": "date-time"
               },
               "deliveryType": {
-                "enum": [
-                  "Cash",
-                  "Physical"
-                ],
                 "type": "string",
-                "description": "The available values are: Cash, Physical"
+                "description": "is the option cash settled or physical delivery of option\r\nSupported string (enumeration) values are: [Cash, Physical]."
               },
               "optionType": {
-                "enum": [
-                  "None",
-                  "Call",
-                  "Put"
-                ],
                 "type": "string",
-                "description": "The available values are: None, Call, Put"
+                "description": "Type of optionality for the option\r\nSupported string (enumeration) values are: [Call, Put]."
               },
               "strike": {
                 "type": "number",
@@ -73493,21 +73437,8 @@
                 "description": "The domestic currency of the instrument."
               },
               "underlyingIdentifier": {
-                "enum": [
-                  "LusidInstrumentId",
-                  "Isin",
-                  "Sedol",
-                  "Cusip",
-                  "ClientInternal",
-                  "Figi",
-                  "RIC",
-                  "QuotePermId",
-                  "REDCode",
-                  "BBGId",
-                  "ICECode"
-                ],
                 "type": "string",
-                "description": "The available values are: LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode"
+                "description": "The market identifier type of the underlying code, e.g RIC.\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
               },
               "code": {
                 "type": "string",
@@ -78215,22 +78146,6 @@
         "type": "string",
         "description": "The format of the complex market data stored. Complex market data is used to store any\r\ndata which requires more context than just a simple single point as is the case with a\r\nquote.\r\nExamples of such complex market data are Discount Curve and Volatility Surfaces."
       },
-      "MarketIdentifier": {
-        "enum": [
-          "LusidInstrumentId",
-          "Isin",
-          "Sedol",
-          "Cusip",
-          "ClientInternal",
-          "Figi",
-          "RIC",
-          "QuotePermId",
-          "REDCode",
-          "BBGId",
-          "ICECode"
-        ],
-        "type": "string"
-      },
       "MarketObservableType": {
         "enum": [
           "ForwardPoints",
@@ -78590,14 +78505,6 @@
           "LessThan",
           "LessThanOrEqualTo",
           "In"
-        ],
-        "type": "string"
-      },
-      "OptionType": {
-        "enum": [
-          "None",
-          "Call",
-          "Put"
         ],
         "type": "string"
       },
