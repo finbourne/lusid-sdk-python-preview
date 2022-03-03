@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4041",
+    "version": "0.11.4044",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:55985"
     }
   ],
   "paths": {
@@ -67214,6 +67214,211 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/unitresults/resultvalue/{scope}": {
+      "post": {
+        "tags": [
+          "Structured Result Data"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertResultValue: Upsert result value",
+        "description": "Create or update one or more Upsert one or more result values in a particular scope. An item is updated if it already exists\r\nand created if it does not.\r\n            \r\nIn the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.\r\nIt serves only to easily identify each data item in the response.\r\n            \r\nThe response returns both the collection of successfully created or updated data items, as well as those that failed.\r\nFor each failure, a reason is provided.\r\n            \r\nIt is important to check the failed set for any unsuccessful results.",
+        "operationId": "UpsertResultValue",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope in which to construct the virtual documents.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope in which to construct the virtual documents."
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertResultValuesDataRequest"
+                },
+                "description": "The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID."
+              },
+              "example": {
+                "someCorrelationId1": {
+                  "documentId": {
+                    "source": "MiddleOffice",
+                    "code": "MyUploadedRiskResults",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "resultType": "UnitResult/Analytic"
+                  },
+                  "key": {
+                    "unitResult/LusidInstrumentId": "LUID_0000ABCD"
+                  },
+                  "dataAddress": "UnitResult/Accrual",
+                  "resultValue": {
+                    "units": "USD",
+                    "value": 0.0102,
+                    "dimension": 0,
+                    "resultValueType": "ResultValue0D"
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertResultValuesDataRequest"
+                },
+                "description": "The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID."
+              },
+              "example": {
+                "someCorrelationId1": {
+                  "documentId": {
+                    "source": "MiddleOffice",
+                    "code": "MyUploadedRiskResults",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "resultType": "UnitResult/Analytic"
+                  },
+                  "key": {
+                    "unitResult/LusidInstrumentId": "LUID_0000ABCD"
+                  },
+                  "dataAddress": "UnitResult/Accrual",
+                  "resultValue": {
+                    "units": "USD",
+                    "value": 0.0102,
+                    "dimension": 0,
+                    "resultValueType": "ResultValue0D"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertResultValuesDataRequest"
+                },
+                "description": "The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID."
+              },
+              "example": {
+                "someCorrelationId1": {
+                  "documentId": {
+                    "source": "MiddleOffice",
+                    "code": "MyUploadedRiskResults",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "resultType": "UnitResult/Analytic"
+                  },
+                  "key": {
+                    "unitResult/LusidInstrumentId": "LUID_0000ABCD"
+                  },
+                  "dataAddress": "UnitResult/Accrual",
+                  "resultValue": {
+                    "units": "USD",
+                    "value": 0.0102,
+                    "dimension": 0,
+                    "resultValueType": "ResultValue0D"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertResultValuesDataRequest"
+                },
+                "description": "The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID."
+              },
+              "example": {
+                "someCorrelationId1": {
+                  "documentId": {
+                    "source": "MiddleOffice",
+                    "code": "MyUploadedRiskResults",
+                    "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                    "resultType": "UnitResult/Analytic"
+                  },
+                  "key": {
+                    "unitResult/LusidInstrumentId": "LUID_0000ABCD"
+                  },
+                  "dataAddress": "UnitResult/Accrual",
+                  "resultValue": {
+                    "units": "USD",
+                    "value": 0.0102,
+                    "dimension": 0,
+                    "resultValueType": "ResultValue0D"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved virtual documents along with any failures.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertStructuredDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/unitresults/virtualdocument/{scope}/$get": {
       "post": {
         "tags": [
@@ -69028,174 +69233,6 @@
         ],
         "type": "string"
       },
-      "AtomValue": {
-        "required": [
-          "atomValueType"
-        ],
-        "type": "object",
-        "properties": {
-          "atomValueType": {
-            "enum": [
-              "AtomValueInt",
-              "AtomValueDecimal",
-              "AtomValueString",
-              "AtomValue0D",
-              "AtomValue"
-            ],
-            "type": "string",
-            "description": "The available values are: AtomValueInt, AtomValueDecimal, AtomValueString, AtomValue0D, AtomValue"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Top/Parent class of individual atom values",
-        "discriminator": {
-          "propertyName": "atomValueType"
-        }
-      },
-      "AtomValue0D": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AtomValue"
-          },
-          {
-            "required": [
-              "atomValueType"
-            ],
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "number",
-                "description": "The value",
-                "format": "double"
-              },
-              "units": {
-                "type": "string",
-                "description": "The unit",
-                "nullable": true
-              },
-              "atomValueType": {
-                "enum": [
-                  "AtomValueInt",
-                  "AtomValueDecimal",
-                  "AtomValueString",
-                  "AtomValue0D",
-                  "AtomValue"
-                ],
-                "type": "string",
-                "description": "The available values are: AtomValueInt, AtomValueDecimal, AtomValueString, AtomValue0D, AtomValue"
-              }
-            }
-          }
-        ],
-        "description": "Holder class for a point/0D atom value. Consists of a decimal and a unit."
-      },
-      "AtomValueDecimal": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AtomValue"
-          },
-          {
-            "required": [
-              "atomValueType"
-            ],
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "number",
-                "description": "The value itself",
-                "format": "double"
-              },
-              "atomValueType": {
-                "enum": [
-                  "AtomValueInt",
-                  "AtomValueDecimal",
-                  "AtomValueString",
-                  "AtomValue0D",
-                  "AtomValue"
-                ],
-                "type": "string",
-                "description": "The available values are: AtomValueInt, AtomValueDecimal, AtomValueString, AtomValue0D, AtomValue"
-              }
-            }
-          }
-        ],
-        "description": "Holder class for the decimal atom value"
-      },
-      "AtomValueInt": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AtomValue"
-          },
-          {
-            "required": [
-              "atomValueType"
-            ],
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "integer",
-                "description": "The value itself",
-                "format": "int32"
-              },
-              "atomValueType": {
-                "enum": [
-                  "AtomValueInt",
-                  "AtomValueDecimal",
-                  "AtomValueString",
-                  "AtomValue0D",
-                  "AtomValue"
-                ],
-                "type": "string",
-                "description": "The available values are: AtomValueInt, AtomValueDecimal, AtomValueString, AtomValue0D, AtomValue"
-              }
-            }
-          }
-        ],
-        "description": "Holder class for the integer atom values"
-      },
-      "AtomValueString": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AtomValue"
-          },
-          {
-            "required": [
-              "atomValueType"
-            ],
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "string",
-                "description": "The value itself",
-                "nullable": true
-              },
-              "atomValueType": {
-                "enum": [
-                  "AtomValueInt",
-                  "AtomValueDecimal",
-                  "AtomValueString",
-                  "AtomValue0D",
-                  "AtomValue"
-                ],
-                "type": "string",
-                "description": "The available values are: AtomValueInt, AtomValueDecimal, AtomValueString, AtomValue0D, AtomValue"
-              }
-            }
-          }
-        ],
-        "description": "Holder class for a string atom value"
-      },
-      "AtomValueType": {
-        "enum": [
-          "AtomValueInt",
-          "AtomValueDecimal",
-          "AtomValueString",
-          "AtomValue0D",
-          "AtomValue"
-        ],
-        "type": "string",
-        "description": "Enum of atom values types. Used to discriminate the individual classes"
-      },
       "Basket": {
         "allOf": [
           {
@@ -69866,6 +69903,102 @@
           }
         ],
         "description": "Interest rate Cap, Floor or Collar\r\nDerivative instrument on an underlying interest rate index.\r\nCap Type: Buyer will receive payments at the end of each period when floating rate is above the CapStrike level.\r\nFloor Type: Buyer will receive payments at the end of each period when floating rate is below the FloorStrike level.\r\nCollar Type: Strategy of buying one Cap and selling one Floor where FloorStrike is less than CapStrike."
+      },
+      "CashFlowLineage": {
+        "type": "object",
+        "additionalProperties": false,
+        "description": "Lineage for cash flow value"
+      },
+      "CashFlowValue": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "paymentAmount",
+              "paymentCcy",
+              "paymentDate",
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "paymentDate": {
+                "type": "string",
+                "description": "The payment date of the cash flow",
+                "format": "date-time"
+              },
+              "diagnostics": {
+                "$ref": "#/components/schemas/ResultValueDictionary"
+              },
+              "cashFlowLineage": {
+                "$ref": "#/components/schemas/CashFlowLineage"
+              },
+              "paymentAmount": {
+                "type": "number",
+                "description": "The amount paid or received",
+                "format": "double"
+              },
+              "paymentCcy": {
+                "type": "string",
+                "description": "The currency of the transaction"
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "Result class for a cash flow value"
+      },
+      "CashFlowValueSet": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "cashflows": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CashFlowValue"
+                },
+                "description": "The set of cash flows in the result",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "Result value for a collection of cash flow values"
       },
       "CashLadderRecord": {
         "required": [
@@ -71902,7 +72035,7 @@
           },
           "relationshipCardinality": {
             "type": "string",
-            "description": "Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are 'ManyToMany' and 'OneToMany', defaults to 'ManyToMany' if not specified.",
+            "description": "Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are 'ManyToMany' and 'ManyToOne', defaults to 'ManyToMany' if not specified.",
             "nullable": true
           }
         },
@@ -73443,6 +73576,11 @@
               "code": {
                 "type": "string",
                 "description": "The identifying code for the equity underlying, e.g. 'IBM.N'."
+              },
+              "equityOptionType": {
+                "type": "string",
+                "description": "Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.\r\nSupported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
@@ -76316,7 +76454,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AtomValue"
+              "$ref": "#/components/schemas/ResultValue"
             },
             "description": "The values for the list of results",
             "nullable": true
@@ -85129,6 +85267,248 @@
         },
         "additionalProperties": false
       },
+      "ResultValue": {
+        "required": [
+          "resultValueType"
+        ],
+        "type": "object",
+        "properties": {
+          "resultValueType": {
+            "enum": [
+              "ResultValue",
+              "ResultValueDictionary",
+              "ResultValue0D",
+              "ResultValueDecimal",
+              "ResultValueInt",
+              "ResultValueString",
+              "CashFlowValue",
+              "CashFlowValueSet"
+            ],
+            "type": "string",
+            "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The base class of the result values",
+        "discriminator": {
+          "propertyName": "resultValueType"
+        }
+      },
+      "ResultValue0D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "units": {
+                "type": "string",
+                "description": "Unit of the result",
+                "nullable": true
+              },
+              "value": {
+                "type": "number",
+                "description": "The value of the result",
+                "format": "double"
+              },
+              "dimension": {
+                "type": "integer",
+                "description": "The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be\r\npopulate by the user on upsertion.",
+                "format": "int32",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "Result value representing a 0D result. These results can be equipped with a unit"
+      },
+      "ResultValueDecimal": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value itself",
+                "format": "double"
+              },
+              "dimension": {
+                "type": "integer",
+                "description": "The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be\r\npopulate by the user on upsertion.",
+                "format": "int32",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "A simple result for a decimal value"
+      },
+      "ResultValueDictionary": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "elements": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ResultValue"
+                },
+                "description": "The dictionary elements",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "Result value for a collection of key-value pairs. Used for diagnostics associated to a cash flow, etc."
+      },
+      "ResultValueInt": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "description": "The value itself",
+                "format": "int32"
+              },
+              "dimension": {
+                "type": "integer",
+                "description": "The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be\r\npopulate by the user on upsertion.",
+                "format": "int32",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "A simple result type which holds an integer"
+      },
+      "ResultValueString": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "the value itself",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+              }
+            }
+          }
+        ],
+        "description": "A simple result value holding a string"
+      },
+      "ResultValueType": {
+        "enum": [
+          "ResultValue",
+          "ResultValueDictionary",
+          "ResultValue0D",
+          "ResultValueDecimal",
+          "ResultValueInt",
+          "ResultValueString",
+          "CashFlowValue",
+          "CashFlowValueSet"
+        ],
+        "type": "string",
+        "description": "Enum of possible result value type. Used discriminate the result values"
+      },
       "ScalingMethodology": {
         "enum": [
           "Sum",
@@ -87434,6 +87814,34 @@
         },
         "additionalProperties": false
       },
+      "UpsertResultValuesDataRequest": {
+        "required": [
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "$ref": "#/components/schemas/StructuredResultDataId"
+          },
+          "key": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The structured unit result data key.",
+            "nullable": true
+          },
+          "dataAddress": {
+            "type": "string",
+            "description": "The address of the piece of unit result data",
+            "nullable": true
+          },
+          "resultValue": {
+            "$ref": "#/components/schemas/ResultValue"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpsertReturnsResponse": {
         "required": [
           "version"
@@ -88346,7 +88754,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
