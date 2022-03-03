@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4044",
+    "version": "0.11.4045",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:55985"
+      "url": "http://local-unit-test-server.lusid.com:31896"
     }
   ],
   "paths": {
@@ -9546,19 +9546,19 @@
                   {
                     "name": "Assigned",
                     "lifetime": "TimeVariant",
-                    "type": "bool",
+                    "type": "boolean",
                     "required": true
                   },
                   {
                     "name": "Status",
                     "lifetime": "TimeVariant",
-                    "type": "string",
+                    "type": "text",
                     "required": true
                   },
                   {
-                    "name": "Effort In Days",
+                    "name": "EffortInDays",
                     "lifetime": "Perpetual",
-                    "type": "number",
+                    "type": "decimal",
                     "required": false
                   },
                   {
@@ -9582,19 +9582,19 @@
                   {
                     "name": "Assigned",
                     "lifetime": "TimeVariant",
-                    "type": "bool",
+                    "type": "boolean",
                     "required": true
                   },
                   {
                     "name": "Status",
                     "lifetime": "TimeVariant",
-                    "type": "string",
+                    "type": "text",
                     "required": true
                   },
                   {
-                    "name": "Effort In Days",
+                    "name": "EffortInDays",
                     "lifetime": "Perpetual",
-                    "type": "number",
+                    "type": "decimal",
                     "required": false
                   },
                   {
@@ -9618,19 +9618,19 @@
                   {
                     "name": "Assigned",
                     "lifetime": "TimeVariant",
-                    "type": "bool",
+                    "type": "boolean",
                     "required": true
                   },
                   {
                     "name": "Status",
                     "lifetime": "TimeVariant",
-                    "type": "string",
+                    "type": "text",
                     "required": true
                   },
                   {
-                    "name": "Effort In Days",
+                    "name": "EffortInDays",
                     "lifetime": "Perpetual",
-                    "type": "number",
+                    "type": "decimal",
                     "required": false
                   },
                   {
@@ -9654,19 +9654,19 @@
                   {
                     "name": "Assigned",
                     "lifetime": "TimeVariant",
-                    "type": "bool",
+                    "type": "boolean",
                     "required": true
                   },
                   {
                     "name": "Status",
                     "lifetime": "TimeVariant",
-                    "type": "string",
+                    "type": "text",
                     "required": true
                   },
                   {
-                    "name": "Effort In Days",
+                    "name": "EffortInDays",
                     "lifetime": "Perpetual",
-                    "type": "number",
+                    "type": "decimal",
                     "required": false
                   },
                   {
@@ -9678,7 +9678,8 @@
                 ]
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -9689,7 +9690,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9698,19 +9699,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -9727,7 +9728,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9736,19 +9737,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -9765,7 +9766,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9774,19 +9775,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -9882,7 +9883,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9891,19 +9892,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -9920,7 +9921,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9929,19 +9930,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -9958,7 +9959,7 @@
                   "$ref": "#/components/schemas/CustomEntityDefinition"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/customentities/entitytypes/issue",
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~issue?asAt=2022-02-28T14:27:01.2728000+00:00",
                   "entityTypeName": "issue",
                   "displayName": "Issue",
                   "description": "Represents an issue in the system",
@@ -9967,19 +9968,19 @@
                     {
                       "name": "Assigned",
                       "lifetime": "TimeVariant",
-                      "type": "bool",
+                      "type": "boolean",
                       "required": true
                     },
                     {
                       "name": "Status",
                       "lifetime": "TimeVariant",
-                      "type": "string",
+                      "type": "text",
                       "required": true
                     },
                     {
-                      "name": "Effort In Days",
+                      "name": "EffortInDays",
                       "lifetime": "Perpetual",
-                      "type": "number",
+                      "type": "decimal",
                       "required": false
                     },
                     {
@@ -10068,7 +10069,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
+                    "identifierValue": "139cab7ea74b4af7b00de6f5137b5207"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10090,7 +10091,7 @@
                   {
                     "name": "StoryPointEstimate",
                     "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00"
                   },
                   {
                     "name": "Assigned",
@@ -10099,8 +10100,7 @@
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10116,7 +10116,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
+                    "identifierValue": "139cab7ea74b4af7b00de6f5137b5207"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10138,7 +10138,7 @@
                   {
                     "name": "StoryPointEstimate",
                     "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00"
                   },
                   {
                     "name": "Assigned",
@@ -10147,8 +10147,7 @@
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10164,7 +10163,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
+                    "identifierValue": "139cab7ea74b4af7b00de6f5137b5207"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10186,7 +10185,7 @@
                   {
                     "name": "StoryPointEstimate",
                     "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00"
                   },
                   {
                     "name": "Assigned",
@@ -10195,8 +10194,7 @@
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10212,7 +10210,7 @@
                   {
                     "identifierScope": "DataLoadingIssues",
                     "identifierType": "InternalId",
-                    "identifierValue": "188ce1eaecaf43efa6b33b680b75b40c"
+                    "identifierValue": "139cab7ea74b4af7b00de6f5137b5207"
                   },
                   {
                     "identifierScope": "DataLoadingIssues",
@@ -10234,7 +10232,7 @@
                   {
                     "name": "StoryPointEstimate",
                     "value": 1,
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00"
                   },
                   {
                     "name": "Assigned",
@@ -10243,8 +10241,7 @@
                   },
                   {
                     "name": "DateCreated",
-                    "value": "2021-07-13T12:00:00.0000000+00:00",
-                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00"
+                    "value": "2021-07-13T12:00:00.0000000+00:00"
                   }
                 ]
               }
@@ -10261,10 +10258,10 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
+                  "href": "https://myco.lusid.com/api/api/customentities/~issue",
                   "entityType": "~issue",
                   "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
+                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
                     "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
@@ -10274,13 +10271,15 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
@@ -10299,7 +10298,7 @@
                     {
                       "name": "StoryPointEstimate",
                       "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
@@ -10322,10 +10321,10 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
+                  "href": "https://myco.lusid.com/api/api/customentities/~issue",
                   "entityType": "~issue",
                   "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
+                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
                     "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
@@ -10335,13 +10334,15 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
@@ -10360,7 +10361,7 @@
                     {
                       "name": "StoryPointEstimate",
                       "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
@@ -10383,10 +10384,10 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~issue/JiraId/PLAT-250?identifierScope=DataLoadingIssues",
+                  "href": "https://myco.lusid.com/api/api/customentities/~issue",
                   "entityType": "~issue",
                   "version": {
-                    "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00",
+                    "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
                     "asAtDate": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "displayName": "Issue",
@@ -10396,13 +10397,15 @@
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "InternalId",
                       "identifierValue": "139cab7ea74b4af7b00de6f5137b5207",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "DataLoadingIssues",
                       "identifierType": "JiraId",
                       "identifierValue": "PLAT-250",
-                      "effectiveFrom": "2021-07-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
@@ -10421,7 +10424,7 @@
                     {
                       "name": "StoryPointEstimate",
                       "value": 1,
-                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveFrom": "2021-07-24T12:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
@@ -10716,7 +10719,7 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
+                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket/?identifierScope=locations",
                   "entityType": "~branch",
                   "version": {
                     "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
@@ -10729,35 +10732,47 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
                     {
                       "name": "Name of building",
-                      "value": "Frames Building"
+                      "value": "Frames Building",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Town",
-                      "value": "Shoreditch"
+                      "value": "Shoreditch",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "CurrentOffice",
-                      "value": 1
+                      "value": 1,
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Moved in",
-                      "value": true
+                      "value": true,
+                      "effectiveFrom": "2021-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
+                      "value": "2019-01-23T12:00:00.0000000+00:00",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ]
                 }
@@ -10767,7 +10782,7 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
+                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket/?identifierScope=locations",
                   "entityType": "~branch",
                   "version": {
                     "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
@@ -10780,35 +10795,47 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
                     {
                       "name": "Name of building",
-                      "value": "Frames Building"
+                      "value": "Frames Building",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Town",
-                      "value": "Shoreditch"
+                      "value": "Shoreditch",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "CurrentOffice",
-                      "value": 1
+                      "value": 1,
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Moved in",
-                      "value": true
+                      "value": true,
+                      "effectiveFrom": "2021-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
+                      "value": "2019-01-23T12:00:00.0000000+00:00",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ]
                 }
@@ -10818,7 +10845,7 @@
                   "$ref": "#/components/schemas/CustomEntityResponse"
                 },
                 "example": {
-                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket",
+                  "href": "https://myco.lusid.com/api/api/customentities/~branch/what3words/loaf.fires.basket/?identifierScope=locations",
                   "entityType": "~branch",
                   "version": {
                     "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
@@ -10831,35 +10858,47 @@
                       "identifierScope": "locations",
                       "identifierType": "what3words",
                       "identifierValue": "loaf.fires.basket",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "identifierScope": "locations",
                       "identifierType": "Coordinates",
                       "identifierValue": "51.52356,-0.08192",
-                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00"
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ],
                   "fields": [
                     {
                       "name": "Name of building",
-                      "value": "Frames Building"
+                      "value": "Frames Building",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Town",
-                      "value": "Shoreditch"
+                      "value": "Shoreditch",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "CurrentOffice",
-                      "value": 1
+                      "value": 1,
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Moved in",
-                      "value": true
+                      "value": true,
+                      "effectiveFrom": "2021-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     },
                     {
                       "name": "Date Created",
-                      "value": "2019-01-23T12:00:00.0000000+00:00"
+                      "value": "2019-01-23T12:00:00.0000000+00:00",
+                      "effectiveFrom": "2020-01-23T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ]
                 }
@@ -72566,6 +72605,8 @@
         "type": "object",
         "properties": {
           "entityTypeName": {
+            "maxLength": 64,
+            "minLength": 1,
             "type": "string"
           },
           "displayName": {
@@ -72647,12 +72688,21 @@
         "type": "object",
         "properties": {
           "identifierScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "identifierType": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "identifierValue": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string"
           },
           "effectiveFrom": {

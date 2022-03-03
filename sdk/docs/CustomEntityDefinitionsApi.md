@@ -1,6 +1,6 @@
 # lusid.CustomEntityDefinitionsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55985*
+All URIs are relative to *http://local-unit-test-server.lusid.com:31896*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **create_custom_entity_definition**
-> CustomEntityDefinition create_custom_entity_definition(custom_entity_definition_request=custom_entity_definition_request)
+> CustomEntityDefinition create_custom_entity_definition(custom_entity_definition_request)
 
 [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
 
@@ -24,10 +24,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55985
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:31896
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55985"
+    host = "http://local-unit-test-server.lusid.com:31896"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55985"
+    host = "http://local-unit-test-server.lusid.com:31896"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -45,11 +45,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntityDefinitionsApi(api_client)
-    custom_entity_definition_request = {"entityTypeName":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","lifetime":"TimeVariant","type":"bool","required":true},{"name":"Status","lifetime":"TimeVariant","type":"string","required":true},{"name":"Effort In Days","lifetime":"Perpetual","type":"number","required":false},{"name":"DateCreated","lifetime":"Perpetual","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest (optional)
+    custom_entity_definition_request = {"entityTypeName":"issue","displayName":"Issue","description":"Represents an issue in the system","fieldSchema":[{"name":"Assigned","lifetime":"TimeVariant","type":"boolean","required":true},{"name":"Status","lifetime":"TimeVariant","type":"text","required":true},{"name":"EffortInDays","lifetime":"Perpetual","type":"decimal","required":false},{"name":"DateCreated","lifetime":"Perpetual","type":"datetime","required":true}]} # CustomEntityDefinitionRequest | The CustomEntityDefinitionRequest
 
     try:
         # [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
-        api_response = api_instance.create_custom_entity_definition(custom_entity_definition_request=custom_entity_definition_request)
+        api_response = api_instance.create_custom_entity_definition(custom_entity_definition_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CustomEntityDefinitionsApi->create_custom_entity_definition: %s\n" % e)
@@ -59,7 +59,7 @@ with lusid.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **custom_entity_definition_request** | [**CustomEntityDefinitionRequest**](CustomEntityDefinitionRequest.md)| The CustomEntityDefinitionRequest | [optional] 
+ **custom_entity_definition_request** | [**CustomEntityDefinitionRequest**](CustomEntityDefinitionRequest.md)| The CustomEntityDefinitionRequest | 
 
 ### Return type
 
@@ -99,10 +99,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:55985
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:31896
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55985"
+    host = "http://local-unit-test-server.lusid.com:31896"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,7 +112,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:55985"
+    host = "http://local-unit-test-server.lusid.com:31896"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
