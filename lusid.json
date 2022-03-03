@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4041",
+    "version": "0.11.4042",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:46459"
+      "url": "http://local-unit-test-server.lusid.com:31796"
     }
   ],
   "paths": {
@@ -71902,7 +71902,7 @@
           },
           "relationshipCardinality": {
             "type": "string",
-            "description": "Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are 'ManyToMany' and 'OneToMany', defaults to 'ManyToMany' if not specified.",
+            "description": "Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are 'ManyToMany' and 'ManyToOne', defaults to 'ManyToMany' if not specified.",
             "nullable": true
           }
         },
@@ -73443,6 +73443,11 @@
               "code": {
                 "type": "string",
                 "description": "The identifying code for the equity underlying, e.g. 'IBM.N'."
+              },
+              "equityOptionType": {
+                "type": "string",
+                "description": "Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.\r\nSupported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
