@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4063",
+    "version": "0.11.4064",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:32196"
     }
   ],
   "paths": {
@@ -13734,397 +13734,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/feesandcommissions/$GetApplicableFees": {
-      "post": {
-        "tags": [
-          "FeesAndCommissions"
-        ],
-        "summary": "[EXPERIMENTAL] GetApplicableFeesNew: Get the Fees and Commissions that may be applicable to a transaction.",
-        "description": "Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.",
-        "operationId": "GetApplicableFeesNew",
-        "parameters": [
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "instrumentIdentifierType",
-            "in": "query",
-            "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string",
-              "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "instrumentIdentifier",
-            "in": "query",
-            "description": "Optional. The Instrument Identifier to get properties for.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string",
-              "description": "Optional. The Instrument Identifier to get properties for.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "portfolioScope",
-            "in": "query",
-            "description": "Optional. The scope of the portfolio to fetch properties from.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Optional. The scope of the portfolio to fetch properties from.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "portfolioCode",
-            "in": "query",
-            "description": "Optional. The code of the portfolio to fetch properties from.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Optional. The code of the portfolio to fetch properties from.",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
-                "nullable": true
-              },
-              "example": {
-                "settlementCurrency": "GBP",
-                "country": "UK",
-                "office": "London"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
-                "nullable": true
-              },
-              "example": {
-                "settlementCurrency": "GBP",
-                "country": "UK",
-                "office": "London"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
-                "nullable": true
-              },
-              "example": {
-                "settlementCurrency": "GBP",
-                "country": "UK",
-                "office": "London"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
-                "nullable": true
-              },
-              "example": {
-                "settlementCurrency": "GBP",
-                "country": "UK",
-                "office": "London"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The list of applicable fee rules.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_5",
-                      "transactionPropertyKey": "Transaction/default/commission",
-                      "transactionType": "GBP",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created"
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_5",
-                      "transactionPropertyKey": "Transaction/default/commission",
-                      "transactionType": "GBP",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created"
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_5",
-                      "transactionPropertyKey": "Transaction/default/commission",
-                      "transactionType": "GBP",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created"
-                    }
-                  ],
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/feesandcommissions/rules": {
       "get": {
         "tags": [
@@ -14324,1070 +13933,6 @@
                   ],
                   "href": "https://example.com",
                   "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/feesandcommissions/rules-dev": {
-      "get": {
-        "tags": [
-          "FeesAndCommissions"
-        ],
-        "summary": "[EXPERIMENTAL] ListFeeRules: List fee rules, with optional filtering.",
-        "description": "For more information about filtering results,\r\nsee https://support.lusid.com/knowledgebase/article/KA-01914.",
-        "operationId": "ListFeeRules",
-        "parameters": [
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the results.",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the results.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A filtered list of fee rules available.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
-      "post": {
-        "tags": [
-          "FeesAndCommissions"
-        ],
-        "summary": "[EXPERIMENTAL] UpsertFeeRules: Upsert fee rules.",
-        "description": "To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part\r\nof the response. To update an existing rule, include the fee code. It is possible to both create and update\r\nfee rules in the same request.\r\n            \r\nThe upsert is transactional - either all create/update operations will succeed or none of them will.",
-        "operationId": "UpsertFeeRules",
-        "parameters": [
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
-                },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
-              },
-              "example": {
-                "update": {
-                  "code": "FeeRule_1",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule to be updated."
-                },
-                "create": {
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created"
-                }
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
-                },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
-              },
-              "example": {
-                "update": {
-                  "code": "FeeRule_1",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule to be updated."
-                },
-                "create": {
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created"
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
-                },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
-              },
-              "example": {
-                "update": {
-                  "code": "FeeRule_1",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule to be updated."
-                },
-                "create": {
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created"
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
-                },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
-              },
-              "example": {
-                "update": {
-                  "code": "FeeRule_1",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule to be updated."
-                },
-                "create": {
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Upsert fee rules. New fee rules must have an empty code field. Where a code is given, this rule must already exist and will be updated.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
-                },
-                "example": {
-                  "values": {
-                    "update": {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    "create": {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
-                },
-                "example": {
-                  "values": {
-                    "update": {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    "create": {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
-                },
-                "example": {
-                  "values": {
-                    "update": {
-                      "code": "FeeRule_1",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule to be updated.",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    },
-                    "create": {
-                      "code": "FeeRule_2",
-                      "transactionPropertyKey": "Transaction/default/fee",
-                      "transactionType": "*",
-                      "country": "UK",
-                      "counterparty": "*",
-                      "transactionCurrency": "*",
-                      "settlementCurrency": "*",
-                      "executionBroker": "*",
-                      "custodian": "*",
-                      "exchange": "My Exchange",
-                      "fee": {
-                        "calculationMethod": "BasisPoints",
-                        "multiplier": "Value",
-                        "calculationAmount": 10
-                      },
-                      "minFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 5
-                      },
-                      "maxFee": {
-                        "calculationMethod": "Flat",
-                        "multiplier": "Value",
-                        "calculationAmount": 25
-                      },
-                      "additionalKeys": {
-                        "office": "London"
-                      },
-                      "description": "Basic fee rule with minimum/maximum to be created",
-                      "version": {
-                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/feesandcommissions/rules-dev/{code}": {
-      "get": {
-        "tags": [
-          "FeesAndCommissions"
-        ],
-        "summary": "[EXPERIMENTAL] GetFeeRule: Retrieve the definition of single fee rule.",
-        "description": "Retrieves the fee rule definition at the given effective and as at times.",
-        "operationId": "GetFeeRule",
-        "parameters": [
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The fee rule code.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The fee rule code."
-            }
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of one fee rule.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRule"
-                },
-                "example": {
-                  "code": "FeeRule_2",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created",
-                  "version": {
-                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRule"
-                },
-                "example": {
-                  "code": "FeeRule_2",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created",
-                  "version": {
-                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeRule"
-                },
-                "example": {
-                  "code": "FeeRule_2",
-                  "transactionPropertyKey": "Transaction/default/fee",
-                  "transactionType": "*",
-                  "country": "UK",
-                  "counterparty": "*",
-                  "transactionCurrency": "*",
-                  "settlementCurrency": "*",
-                  "executionBroker": "*",
-                  "custodian": "*",
-                  "exchange": "My Exchange",
-                  "fee": {
-                    "calculationMethod": "BasisPoints",
-                    "multiplier": "Value",
-                    "calculationAmount": 10
-                  },
-                  "minFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 5
-                  },
-                  "maxFee": {
-                    "calculationMethod": "Flat",
-                    "multiplier": "Value",
-                    "calculationAmount": 25
-                  },
-                  "additionalKeys": {
-                    "office": "London"
-                  },
-                  "description": "Basic fee rule with minimum/maximum to be created",
-                  "version": {
-                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
-                  }
                 }
               }
             }
@@ -66958,6 +65503,1461 @@
         "x-fbn-apistatus": "Beta"
       }
     },
+    "/api/transactions/fees/$GetApplicableFees": {
+      "post": {
+        "tags": [
+          "Transaction Fees"
+        ],
+        "summary": "[EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.",
+        "description": "Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.",
+        "operationId": "GetApplicableTransactionFees",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "instrumentIdentifierType",
+            "in": "query",
+            "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "Optional. The unique identifier type to use, eg 'Figi' or 'LusidInstrumentId'.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "instrumentIdentifier",
+            "in": "query",
+            "description": "Optional. The Instrument Identifier to get properties for.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "Optional. The Instrument Identifier to get properties for.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioScope",
+            "in": "query",
+            "description": "Optional. The scope of the portfolio to fetch properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The scope of the portfolio to fetch properties from.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portfolioCode",
+            "in": "query",
+            "description": "Optional. The code of the portfolio to fetch properties from.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. The code of the portfolio to fetch properties from.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
+                "nullable": true
+              },
+              "example": {
+                "settlementCurrency": "GBP",
+                "country": "UK",
+                "office": "London"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
+                "nullable": true
+              },
+              "example": {
+                "settlementCurrency": "GBP",
+                "country": "UK",
+                "office": "London"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
+                "nullable": true
+              },
+              "example": {
+                "settlementCurrency": "GBP",
+                "country": "UK",
+                "office": "London"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Any other property keys or fields, including the top-level fields of the\r\n            fee rule (e.g. \"ExecutionBroker\" and \"SettlementCurrency\" ) and those defined in AdditionalKeys, along with\r\n            their corresponding values that should be matched for fees. Eg. \"Instrument/default/Name=exampleValue\" or\r\n            \"AdditionalKey2=Value2\".",
+                "nullable": true
+              },
+              "example": {
+                "settlementCurrency": "GBP",
+                "country": "UK",
+                "office": "London"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The list of applicable fee rules.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_5",
+                      "transactionPropertyKey": "Transaction/default/commission",
+                      "transactionType": "GBP",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_5",
+                      "transactionPropertyKey": "Transaction/default/commission",
+                      "transactionType": "GBP",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_5",
+                      "transactionPropertyKey": "Transaction/default/commission",
+                      "transactionType": "GBP",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created"
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactions/fees/rules": {
+      "get": {
+        "tags": [
+          "Transaction Fees"
+        ],
+        "summary": "[EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.",
+        "description": "For more information about filtering results,\r\nsee https://support.lusid.com/knowledgebase/article/KA-01914.",
+        "operationId": "ListTransactionFeeRules",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the results.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A filtered list of fee rules available.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfFeeRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "post": {
+        "tags": [
+          "Transaction Fees"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.",
+        "description": "To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part\r\nof the response. To update an existing rule, include the fee code. It is possible to both create and update\r\nfee rules in the same request.\r\n            \r\nThe upsert is transactional - either all create/update operations will succeed or none of them will.",
+        "operationId": "UpsertTransactionFeeRules",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+              },
+              "example": {
+                "update": {
+                  "code": "FeeRule_1",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule to be updated."
+                },
+                "create": {
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+              },
+              "example": {
+                "update": {
+                  "code": "FeeRule_1",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule to be updated."
+                },
+                "create": {
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+              },
+              "example": {
+                "update": {
+                  "code": "FeeRule_1",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule to be updated."
+                },
+                "create": {
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+              },
+              "example": {
+                "update": {
+                  "code": "FeeRule_1",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule to be updated."
+                },
+                "create": {
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Upsert fee rules. New fee rules must have an empty code field. Where a code is given, this rule must already exist and will be updated.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    "create": {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    "create": {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "code": "FeeRule_1",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule to be updated.",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    },
+                    "create": {
+                      "code": "FeeRule_2",
+                      "transactionPropertyKey": "Transaction/default/fee",
+                      "transactionType": "*",
+                      "country": "UK",
+                      "counterparty": "*",
+                      "transactionCurrency": "*",
+                      "settlementCurrency": "*",
+                      "executionBroker": "*",
+                      "custodian": "*",
+                      "exchange": "My Exchange",
+                      "fee": {
+                        "calculationMethod": "BasisPoints",
+                        "multiplier": "Value",
+                        "calculationAmount": 10
+                      },
+                      "minFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 5
+                      },
+                      "maxFee": {
+                        "calculationMethod": "Flat",
+                        "multiplier": "Value",
+                        "calculationAmount": 25
+                      },
+                      "additionalKeys": {
+                        "office": "London"
+                      },
+                      "description": "Basic fee rule with minimum/maximum to be created",
+                      "version": {
+                        "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                        "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactions/fees/rules/{code}": {
+      "get": {
+        "tags": [
+          "Transaction Fees"
+        ],
+        "summary": "[EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.",
+        "description": "Retrieves the fee rule definition at the given effective and as at times.",
+        "operationId": "GetTransactionFeeRule",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The fee rule code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The fee rule code."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of one fee rule.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRule"
+                },
+                "example": {
+                  "code": "FeeRule_2",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created",
+                  "version": {
+                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRule"
+                },
+                "example": {
+                  "code": "FeeRule_2",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created",
+                  "version": {
+                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRule"
+                },
+                "example": {
+                  "code": "FeeRule_2",
+                  "transactionPropertyKey": "Transaction/default/fee",
+                  "transactionType": "*",
+                  "country": "UK",
+                  "counterparty": "*",
+                  "transactionCurrency": "*",
+                  "settlementCurrency": "*",
+                  "executionBroker": "*",
+                  "custodian": "*",
+                  "exchange": "My Exchange",
+                  "fee": {
+                    "calculationMethod": "BasisPoints",
+                    "multiplier": "Value",
+                    "calculationAmount": 10
+                  },
+                  "minFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 5
+                  },
+                  "maxFee": {
+                    "calculationMethod": "Flat",
+                    "multiplier": "Value",
+                    "calculationAmount": 25
+                  },
+                  "additionalKeys": {
+                    "office": "London"
+                  },
+                  "description": "Basic fee rule with minimum/maximum to be created",
+                  "version": {
+                    "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
+                    "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/translation/instrumentdefinitions": {
       "post": {
         "tags": [
@@ -70895,7 +70895,7 @@
         "properties": {
           "compoundingMethod": {
             "type": "string",
-            "description": "If the interest rate is simple or compounded.\r\nSupported string (enumeration) values are: [Average, Compounded, None]."
+            "description": "If the interest rate is simple or compounded.\r\nSupported string (enumeration) values are: [Average, Compounded]."
           },
           "resetFrequency": {
             "type": "string",
@@ -70903,7 +70903,7 @@
           },
           "spreadCompoundingMethod": {
             "type": "string",
-            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [IsdaCompounding, NoCompounding, IsdaFlatCompounding]."
+            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\nSupported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]."
           }
         },
         "additionalProperties": false,
@@ -88965,7 +88965,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -89153,6 +89153,10 @@
       "description": "LUSID is a transaction-based system. Every transaction in a particular instrument should belong to a transaction type in order that it might contribute to measuring your holding (position) in that instrument. Transaction types are a fundamental building block of LUSID, and care should be exercised when changing them. For more information, see https://support.lusid.com/knowledgebase/article/KA-01872/."
     },
     {
+      "name": "Transaction Fees",
+      "description": "Methods to retrieve applicable fees for a transaction, and manage the rules that defined them"
+    },
+    {
       "name": "Transaction Portfolios",
       "description": "A transaction portfolio stores transactions and calculates instrument holdings and cash balances, enabling valuation, analytic, profit & loss, risk assessment and other operations to be performed. Note that a transaction portfolio is a type of portfolio, so endpoints in the Portfolios API can also be called. For more information, see https://support.lusid.com/knowledgebase/article/KA-01851."
     },
@@ -89208,6 +89212,7 @@
       "Sequences",
       "Structured Result Data",
       "System Configuration",
+      "Transaction Fees",
       "Transaction Portfolios",
       "Translation"
     ]
