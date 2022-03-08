@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4068",
+    "version": "0.11.4066",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:61916"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -51711,116 +51711,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/transactionconfiguration/types/{source}/{type}": {
-      "get": {
-        "tags": [
-          "Transaction Configuration"
-        ],
-        "summary": "[EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type",
-        "description": "Get a single transaction type. Returns failure if not found",
-        "operationId": "GetTransactionType",
-        "parameters": [
-          {
-            "name": "source",
-            "in": "path",
-            "description": "The source that the type is in",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The source that the type is in",
-              "nullable": true
-            }
-          },
-          {
-            "name": "type",
-            "in": "path",
-            "description": "One of the type's aliases",
-            "required": true,
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "pattern": "^[^\\\\<>&\"]+$",
-              "type": "string",
-              "description": "One of the type's aliases",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the transaction configuration.\r\n            Defaults to returning the latest version of the transaction configuration type if not specified",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the transaction configuration.\r\n            Defaults to returning the latest version of the transaction configuration type if not specified",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionType"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionType"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionType"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/transactionportfolios/{scope}": {
       "post": {
         "tags": [
@@ -86737,21 +86627,21 @@
             "items": {
               "$ref": "#/components/schemas/TransactionConfigurationTypeAlias"
             },
-            "description": "List of transaction types that map to this specific transaction configuration"
+            "description": "List of transaction codes that map to this specific transaction model"
           },
           "movements": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TransactionConfigurationMovementData"
             },
-            "description": "Movement data for the transaction type"
+            "description": "Movement data for the transaction code"
           },
           "properties": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/PerpetualProperty"
             },
-            "description": "Properties attached to the transaction type",
+            "description": "Properties attached to the underlying holding.",
             "nullable": true
           }
         },
@@ -86822,11 +86712,11 @@
           },
           "side": {
             "type": "string",
-            "description": "The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the 'security' side of the transaction, ie the Instrument and Units; Side2 means the 'cash' side, ie the Total Consideration"
+            "description": "The movement side"
           },
           "direction": {
             "type": "integer",
-            "description": " A multiplier to apply to Transaction amounts; the values are -1 to indicate to reverse the signs and 1 to indicate to use the signed values from the Transaction directly. For a typical Transaction with unsigned values, 1 means increase, -1 means decrease",
+            "description": "The movement direction",
             "format": "int32"
           },
           "properties": {
@@ -86834,7 +86724,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/PerpetualProperty"
             },
-            "description": "The properties associated with the underlying Movement",
+            "description": "The properties associated with the underlying Movement.",
             "nullable": true
           },
           "mappings": {
@@ -86842,7 +86732,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionPropertyMapping"
             },
-            "description": "This allows you to map a transaction property to a property on the underlying holding",
+            "description": "This allows you to map a transaction property to a property on the underlying holding.",
             "nullable": true
           },
           "name": {
@@ -87007,17 +86897,17 @@
         "properties": {
           "propertyKey": {
             "type": "string",
-            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}"
+            "description": "Uniquely identifies the property definiton and consists of a Domain, Scope and Code."
           },
           "mapFrom": {
             "type": "string",
-            "description": "The Property Key of the Property to map from",
+            "description": "The Property Key of the Property to map from.",
             "nullable": true
           },
           "setTo": {
             "type": "object",
             "additionalProperties": false,
-            "description": "A pointer to the Property being mapped from",
+            "description": "A pointer to the Property being mapped from.",
             "nullable": true
           }
         },
@@ -87244,156 +87134,6 @@
           "Cancelled"
         ],
         "type": "string"
-      },
-      "TransactionType": {
-        "required": [
-          "aliases",
-          "movements"
-        ],
-        "type": "object",
-        "properties": {
-          "aliases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransactionTypeAlias"
-            },
-            "description": "List of transaction types that map to this specific transaction configuration"
-          },
-          "movements": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransactionTypeMovement"
-            },
-            "description": "Movement data for the transaction type"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/PerpetualProperty"
-            },
-            "description": "Properties attached to the transaction type",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TransactionTypeAlias": {
-        "required": [
-          "description",
-          "transactionClass",
-          "transactionRoles",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "The transaction type"
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 1,
-            "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": "Brief description of the transaction"
-          },
-          "transactionClass": {
-            "maxLength": 256,
-            "minLength": 1,
-            "pattern": "^[^\\\\<>&\"]+$",
-            "type": "string",
-            "description": "Relates types of a similar class. E.g. Buy/Sell, StockIn/StockOut"
-          },
-          "transactionRoles": {
-            "type": "string",
-            "description": "Transactions role within a class. E.g. Increase a long position"
-          },
-          "isDefault": {
-            "type": "boolean",
-            "description": "IsDefault is a flag that denotes the default alias for a source. There can only be, at most, one per source."
-          }
-        },
-        "additionalProperties": false
-      },
-      "TransactionTypeMovement": {
-        "required": [
-          "direction",
-          "movementTypes",
-          "side"
-        ],
-        "type": "object",
-        "properties": {
-          "movementTypes": {
-            "type": "string",
-            "description": "Movement types determine the impact of the movement on the holdings"
-          },
-          "side": {
-            "type": "string",
-            "description": "The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the 'security' side of the transaction, ie the Instrument and Units; Side2 means the 'cash' side, ie the Total Consideration"
-          },
-          "direction": {
-            "type": "integer",
-            "description": " A multiplier to apply to Transaction amounts; the values are -1 to indicate to reverse the signs and 1 to indicate to use the signed values from the Transaction directly. For a typical Transaction with unsigned values, 1 means increase, -1 means decrease",
-            "format": "int32"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/PerpetualProperty"
-            },
-            "description": "The properties associated with the underlying Movement",
-            "nullable": true
-          },
-          "mappings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransactionTypePropertyMapping"
-            },
-            "description": "This allows you to map a transaction property to a property on the underlying holding",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The movement name (optional)",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TransactionTypePropertyMapping": {
-        "required": [
-          "propertyKey"
-        ],
-        "type": "object",
-        "properties": {
-          "propertyKey": {
-            "type": "string",
-            "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}"
-          },
-          "mapFrom": {
-            "type": "string",
-            "description": "The Property Key of the Property to map from",
-            "nullable": true
-          },
-          "setTo": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "A pointer to the Property being mapped from",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "TranslateInstrumentDefinitionsRequest": {
         "required": [
@@ -89263,7 +89003,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
@@ -89451,10 +89191,6 @@
       "description": "LUSID is a transaction-based system. Every transaction in a particular instrument should belong to a transaction type in order that it might contribute to measuring your holding (position) in that instrument. Transaction types are a fundamental building block of LUSID, and care should be exercised when changing them. For more information, see https://support.lusid.com/knowledgebase/article/KA-01872/."
     },
     {
-      "name": "Transaction Configuration",
-      "description": "LUSID is a transaction-based system. Every transaction in a particular instrument should belong to a transaction type in order that it might contribute to measuring your holding (position) in that instrument. Transaction types are a fundamental building block of LUSID, and care should be exercised when changing them. For more information, see https://support.lusid.com/knowledgebase/article/KA-01872/."
-    },
-    {
       "name": "Transaction Fees",
       "description": "Methods to retrieve applicable fees for a transaction, and manage the rules that defined them"
     },
@@ -89514,7 +89250,6 @@
       "Sequences",
       "Structured Result Data",
       "System Configuration",
-      "Transaction Configuration",
       "Transaction Fees",
       "Transaction Portfolios",
       "Translation"
