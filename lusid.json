@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4071",
+    "version": "0.11.4072",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50719"
+      "url": "http://local-unit-test-server.lusid.com:48588"
     }
   ],
   "paths": {
@@ -51740,9 +51740,9 @@
             "description": "One of the type's aliases",
             "required": true,
             "schema": {
-              "maxLength": 256,
+              "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[^\\\\<>&\"]+$",
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "One of the type's aliases",
               "nullable": true
