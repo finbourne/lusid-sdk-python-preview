@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4064",
+    "version": "0.11.4066",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:53933"
     }
   ],
   "paths": {
@@ -73622,10 +73622,11 @@
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
                   "IndexModelOptions",
-                  "FxForwardModelOptions"
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
               }
             }
           }
@@ -75314,6 +75315,38 @@
         ],
         "description": "IL FundingLeg Instrument; Lusid-ibor internal representation of a funding leg with variable notional.\r\nThis instrument is a hybrid between a single leg swap and a bank account, in that the notional is not fixed but\r\ncan be changed over it's life. The use case for this is to represent the funding leg of a basket of instruments\r\n(e.g. equities) where the contents of the basket can change over time.\r\nThe actual notional history is stored in the FundingLegHistory object (implements IHistory) and this can be updated\r\nexternally or in some circumstances automatically by LUSID.\r\nThe main analytic calculated for this instrument is Accrual rather than PV."
       },
+      "FundingLegOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "expectedFundingLegNotional",
+              "modelOptionsType"
+            ],
+            "type": "object",
+            "properties": {
+              "expectedFundingLegNotional": {
+                "type": "string",
+                "description": "Assumption made on future expected notional of the funding leg."
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions",
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions"
+                ],
+                "type": "string",
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+              }
+            }
+          }
+        ]
+      },
       "Future": {
         "allOf": [
           {
@@ -75754,10 +75787,11 @@
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
                   "IndexModelOptions",
-                  "FxForwardModelOptions"
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
               }
             }
           }
@@ -77002,10 +77036,11 @@
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
                   "IndexModelOptions",
-                  "FxForwardModelOptions"
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
               }
             }
           }
@@ -78613,10 +78648,11 @@
               "OpaqueModelOptions",
               "EmptyModelOptions",
               "IndexModelOptions",
-              "FxForwardModelOptions"
+              "FxForwardModelOptions",
+              "FundingLegModelOptions"
             ],
             "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
           }
         },
         "additionalProperties": false,
@@ -78630,7 +78666,8 @@
           "OpaqueModelOptions",
           "EmptyModelOptions",
           "IndexModelOptions",
-          "FxForwardModelOptions"
+          "FxForwardModelOptions",
+          "FundingLegModelOptions"
         ],
         "type": "string"
       },
@@ -78806,10 +78843,11 @@
                   "OpaqueModelOptions",
                   "EmptyModelOptions",
                   "IndexModelOptions",
-                  "FxForwardModelOptions"
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
               }
             }
           }
@@ -88965,7 +89003,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
