@@ -18,7 +18,7 @@ class InstrumentLoader:
     def __init__(self, instruments_api: lusid.InstrumentsApi):
         self.instruments_api = instruments_api
 
-    def load_instruments(self):
+    def load_instruments(self, return_luids=True, alternate_id="Figi"):
         instruments_to_create = {
             i.Figi: models.InstrumentDefinition(
                 name=i.Name,
@@ -32,7 +32,12 @@ class InstrumentLoader:
 
         assert (len(response.failed) == 0)
 
-        return sorted([i.lusid_instrument_id for i in response.values.values()])
+        if return_luids:
+            identifiers = sorted([i.lusid_instrument_id for i in response.values.values()])
+        else:
+            identifiers = sorted([i.identifiers[alternate_id] for i in response.values.values()])
+
+        return identifiers
 
     def delete_instruments(self):
         for i in self.__instruments:

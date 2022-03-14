@@ -35,17 +35,17 @@ class TestDataUtilities:
                     cls._api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
         return cls._api_client
 
-    def create_transaction_portfolio(self, scope):
-        guid = str(uuid.uuid4())
+    def create_transaction_portfolio(self, scope, code=None, currency="GBP"):
+        guid = code if code else str(uuid.uuid4())
 
         # Effective date of the portfolio, this is the date the portfolio was created and became live.
         # All dates/times must be supplied in UTC
         effective_date = datetime(2018, 1, 1, tzinfo=pytz.utc)
 
         # Details of the new portfolio to be created, created here with the minimum set of mandatory fields
-        request = models.CreateTransactionPortfolioRequest(display_name="Portfolio-{}".format(guid),
-                                                           code="Id-{}".format(guid),
-                                                           base_currency="GBP",
+        request = models.CreateTransactionPortfolioRequest(display_name=f"Portfolio-{guid}",
+                                                           code=guid,
+                                                           base_currency=currency,
                                                            created=effective_date)
 
         # Create the portfolio in LUSID
@@ -55,10 +55,10 @@ class TestDataUtilities:
 
         return portfolio.id.code
 
-    def build_transaction_request(self, instrument_id, units, price, currency, trade_date, transaction_type):
+    def build_transaction_request(self, instrument_id, units, price, currency, trade_date, transaction_type, id_type="LusidInstrumentId"):
         return models.TransactionRequest(transaction_id=str(uuid.uuid4()),
                                          type=transaction_type,
-                                         instrument_identifiers={self.lusid_luid_identifier: instrument_id},
+                                         instrument_identifiers={f"Instrument/default/{id_type}": instrument_id},
                                          transaction_date=trade_date,
                                          settlement_date=trade_date,
                                          units=units,
