@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4098",
+    "version": "0.11.4099",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:62418"
+      "url": "http://local-unit-test-server.lusid.com:30109"
     }
   ],
   "paths": {
@@ -10852,7 +10852,14 @@
                           "identifierValue": "idValue"
                         },
                         "displayName": "RelatedEntityDisplayName",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "idScope",
+                            "identifierType": "idType",
+                            "identifierValue": "idValue"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "Outward relationship description",
@@ -10881,7 +10888,14 @@
                           "identifierValue": "idValue"
                         },
                         "displayName": "RelatedEntityDisplayName",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "idScope",
+                            "identifierType": "idType",
+                            "identifierValue": "idValue"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "Outward relationship description",
@@ -10910,7 +10924,14 @@
                           "identifierValue": "idValue"
                         },
                         "displayName": "RelatedEntityDisplayName",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "idScope",
+                            "identifierType": "idType",
+                            "identifierValue": "idValue"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "Outward relationship description",
@@ -20110,7 +20131,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
@@ -20140,7 +20168,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
@@ -20170,7 +20205,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
@@ -28545,7 +28587,14 @@
                           "code": "PortfolioId-148176"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "UkPortfolio",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioId-148176"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -28573,7 +28622,14 @@
                           "code": "PortfolioId-148176"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "UkPortfolio",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioId-148176"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -28601,7 +28657,14 @@
                           "code": "PortfolioId-148176"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "UkPortfolio",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioId-148176"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -34447,7 +34510,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -34476,7 +34546,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -34505,7 +34582,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -40933,7 +41017,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -40951,7 +41042,14 @@
                           "code": "PortfolioGroupId-867312"
                         },
                         "displayName": "UK Portfolios",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "PortfolioGroupEmea",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioGroupId-867312"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -40980,7 +41078,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -40998,7 +41103,14 @@
                           "code": "PortfolioGroupId-867312"
                         },
                         "displayName": "UK Portfolios",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "PortfolioGroupEmea",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioGroupId-867312"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -41027,7 +41139,14 @@
                           "code": "XY10001111"
                         },
                         "displayName": "James Smith",
-                        "properties": {}
+                        "properties": {},
+                        "identifiers": [
+                          {
+                            "identifierScope": "HrSystem1",
+                            "identifierType": "InternalId",
+                            "identifierValue": "XY10001111"
+                          }
+                        ]
                       },
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
@@ -41045,7 +41164,14 @@
                           "code": "PortfolioGroupId-867312"
                         },
                         "displayName": "UK Portfolios",
-                        "properties": {}
+                        "properties": {},
+                        "scope": "PortfolioGroupEmea",
+                        "identifiers": [
+                          {
+                            "identifierType": "code",
+                            "identifierValue": "PortfolioGroupId-867312"
+                          }
+                        ]
                       },
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
@@ -47560,7 +47686,14 @@
                       "code": "PortfolioId-148176"
                     },
                     "displayName": "UK Portfolios",
-                    "properties": {}
+                    "properties": {},
+                    "scope": "UkPortfolio",
+                    "identifiers": [
+                      {
+                        "identifierType": "code",
+                        "identifierValue": "PortfolioId-148176"
+                      }
+                    ]
                   },
                   "targetEntity": {
                     "entityType": "Person",
@@ -47570,7 +47703,14 @@
                       "code": "XY10001111"
                     },
                     "displayName": "James Smith",
-                    "properties": {}
+                    "properties": {},
+                    "identifiers": [
+                      {
+                        "identifierScope": "HrSystem1",
+                        "identifierType": "InternalId",
+                        "identifierValue": "XY10001111"
+                      }
+                    ]
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
@@ -47593,7 +47733,14 @@
                       "code": "PortfolioId-148176"
                     },
                     "displayName": "UK Portfolios",
-                    "properties": {}
+                    "properties": {},
+                    "scope": "UkPortfolio",
+                    "identifiers": [
+                      {
+                        "identifierType": "code",
+                        "identifierValue": "PortfolioId-148176"
+                      }
+                    ]
                   },
                   "targetEntity": {
                     "entityType": "Person",
@@ -47603,7 +47750,14 @@
                       "code": "XY10001111"
                     },
                     "displayName": "James Smith",
-                    "properties": {}
+                    "properties": {},
+                    "identifiers": [
+                      {
+                        "identifierScope": "HrSystem1",
+                        "identifierType": "InternalId",
+                        "identifierValue": "XY10001111"
+                      }
+                    ]
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
@@ -47626,7 +47780,14 @@
                       "code": "PortfolioId-148176"
                     },
                     "displayName": "UK Portfolios",
-                    "properties": {}
+                    "properties": {},
+                    "scope": "UkPortfolio",
+                    "identifiers": [
+                      {
+                        "identifierType": "code",
+                        "identifierValue": "PortfolioId-148176"
+                      }
+                    ]
                   },
                   "targetEntity": {
                     "entityType": "Person",
@@ -47636,7 +47797,14 @@
                       "code": "XY10001111"
                     },
                     "displayName": "James Smith",
-                    "properties": {}
+                    "properties": {},
+                    "identifiers": [
+                      {
+                        "identifierScope": "HrSystem1",
+                        "identifierType": "InternalId",
+                        "identifierValue": "XY10001111"
+                      }
+                    ]
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
@@ -73749,6 +73917,30 @@
           }
         ]
       },
+      "EntityIdentifier": {
+        "required": [
+          "identifierType",
+          "identifierValue"
+        ],
+        "type": "object",
+        "properties": {
+          "identifierScope": {
+            "type": "string",
+            "description": "The scope of the identifier",
+            "nullable": true
+          },
+          "identifierType": {
+            "type": "string",
+            "description": "The type of the identifier"
+          },
+          "identifierValue": {
+            "type": "string",
+            "description": "The value of the identifier"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Dto to expose mapped keys to new standardised format"
+      },
       "Equity": {
         "allOf": [
           {
@@ -83400,7 +83592,8 @@
         "required": [
           "displayName",
           "entityId",
-          "entityType"
+          "entityType",
+          "identifiers"
         ],
         "type": "object",
         "properties": {
@@ -83425,6 +83618,24 @@
               "$ref": "#/components/schemas/Property"
             },
             "description": "The properties of the entity. This field is empty until further notice.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The scope of the identifier",
+            "nullable": true
+          },
+          "identifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityIdentifier"
+            },
+            "description": "The identifiers of the related entity in the relationship."
+          },
+          "href": {
+            "type": "string",
+            "description": "The link to the entity.",
+            "format": "uri",
             "nullable": true
           }
         },
