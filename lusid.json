@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4108",
+    "version": "0.11.4109",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:63618"
+      "url": "http://local-unit-test-server.lusid.com:63112"
     }
   ],
   "paths": {
@@ -50725,7 +50725,8 @@
                         "type": "Simple-Sell",
                         "description": "Sale",
                         "transactionClass": "MyDefault",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -50754,7 +50755,8 @@
                         "type": "Sell-FIFO",
                         "description": "Sale using FIFO logic",
                         "transactionClass": "FIFO",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -50824,7 +50826,8 @@
                         "type": "Simple-Sell",
                         "description": "Sale",
                         "transactionClass": "MyDefault",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -50853,7 +50856,8 @@
                         "type": "Sell-FIFO",
                         "description": "Sale using FIFO logic",
                         "transactionClass": "FIFO",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -50923,7 +50927,8 @@
                         "type": "Simple-Sell",
                         "description": "Sale",
                         "transactionClass": "MyDefault",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -50952,7 +50957,8 @@
                         "type": "Sell-FIFO",
                         "description": "Sale using FIFO logic",
                         "transactionClass": "FIFO",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -51022,7 +51028,8 @@
                         "type": "Simple-Sell",
                         "description": "Sale",
                         "transactionClass": "MyDefault",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -51051,7 +51058,8 @@
                         "type": "Sell-FIFO",
                         "description": "Sale using FIFO logic",
                         "transactionClass": "FIFO",
-                        "transactionGroup": "MyGroup",
+                        "transactionGroup": "mysource",
+                        "source": "mysource",
                         "transactionRoles": "LongShorter",
                         "isDefault": false
                       }
@@ -51397,7 +51405,8 @@
                     "type": "Another-Sell",
                     "description": "Sale",
                     "transactionClass": "MyDefault",
-                    "transactionGroup": "MyGroup",
+                    "transactionGroup": "mysource",
+                    "source": "mysource",
                     "transactionRoles": "LongShorter",
                     "isDefault": false
                   }
@@ -51431,7 +51440,8 @@
                     "type": "Another-Sell",
                     "description": "Sale",
                     "transactionClass": "MyDefault",
-                    "transactionGroup": "MyGroup",
+                    "transactionGroup": "mysource",
+                    "source": "mysource",
                     "transactionRoles": "LongShorter",
                     "isDefault": false
                   }
@@ -51465,7 +51475,8 @@
                     "type": "Another-Sell",
                     "description": "Sale",
                     "transactionClass": "MyDefault",
-                    "transactionGroup": "MyGroup",
+                    "transactionGroup": "mysource",
+                    "source": "mysource",
                     "transactionRoles": "LongShorter",
                     "isDefault": false
                   }
@@ -51499,7 +51510,8 @@
                     "type": "Another-Sell",
                     "description": "Sale",
                     "transactionClass": "MyDefault",
-                    "transactionGroup": "MyGroup",
+                    "transactionGroup": "mysource",
+                    "source": "mysource",
                     "transactionRoles": "LongShorter",
                     "isDefault": false
                   }
@@ -52085,6 +52097,344 @@
             "x-nullable": true
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionType"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionType"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "put": {
+        "tags": [
+          "Transaction Configuration"
+        ],
+        "summary": "[EXPERIMENTAL] SetTransactionType: Set a specific transaction type",
+        "description": "Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created\r\n\r\nWARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.",
+        "operationId": "SetTransactionType",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "path",
+            "description": "The source to set the transaction configuration for",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The source to set the transaction configuration for",
+              "nullable": true
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "One of the transaction configuration alias types to uniquely identify the configuration",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "One of the transaction configuration alias types to uniquely identify the configuration",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The transaction configuration to set",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionTypeRequest"
+              },
+              "example": {
+                "aliases": [
+                  {
+                    "type": "CustomBuy",
+                    "description": "A custom buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  },
+                  {
+                    "type": "BuyAlias",
+                    "description": "A similar buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  }
+                ],
+                "movements": [
+                  {
+                    "movementTypes": "StockMovement",
+                    "side": "Side1",
+                    "direction": -1,
+                    "properties": {
+                      "transactionConfiguration/default/TaxLotSelectionMethod": {
+                        "key": "TransactionConfiguration/default/TaxLotSelectionMethod",
+                        "value": {
+                          "labelValue": "FirstInFirstOut"
+                        }
+                      }
+                    },
+                    "mappings": []
+                  },
+                  {
+                    "movementTypes": "CashCommitment",
+                    "side": "Side1",
+                    "direction": 1,
+                    "properties": {},
+                    "mappings": [
+                      {
+                        "propertyKey": "Transaction/scopeA/Strategy",
+                        "setTo": "Cash"
+                      }
+                    ]
+                  }
+                ],
+                "properties": {
+                  "transactionConfiguration/default/TotalConsiderationPolicy": {
+                    "key": "TransactionConfiguration/default/TotalConsiderationPolicy",
+                    "value": {
+                      "labelValue": "Add"
+                    }
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionTypeRequest"
+              },
+              "example": {
+                "aliases": [
+                  {
+                    "type": "CustomBuy",
+                    "description": "A custom buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  },
+                  {
+                    "type": "BuyAlias",
+                    "description": "A similar buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  }
+                ],
+                "movements": [
+                  {
+                    "movementTypes": "StockMovement",
+                    "side": "Side1",
+                    "direction": -1,
+                    "properties": {
+                      "transactionConfiguration/default/TaxLotSelectionMethod": {
+                        "key": "TransactionConfiguration/default/TaxLotSelectionMethod",
+                        "value": {
+                          "labelValue": "FirstInFirstOut"
+                        }
+                      }
+                    },
+                    "mappings": []
+                  },
+                  {
+                    "movementTypes": "CashCommitment",
+                    "side": "Side1",
+                    "direction": 1,
+                    "properties": {},
+                    "mappings": [
+                      {
+                        "propertyKey": "Transaction/scopeA/Strategy",
+                        "setTo": "Cash"
+                      }
+                    ]
+                  }
+                ],
+                "properties": {
+                  "transactionConfiguration/default/TotalConsiderationPolicy": {
+                    "key": "TransactionConfiguration/default/TotalConsiderationPolicy",
+                    "value": {
+                      "labelValue": "Add"
+                    }
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionTypeRequest"
+              },
+              "example": {
+                "aliases": [
+                  {
+                    "type": "CustomBuy",
+                    "description": "A custom buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  },
+                  {
+                    "type": "BuyAlias",
+                    "description": "A similar buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  }
+                ],
+                "movements": [
+                  {
+                    "movementTypes": "StockMovement",
+                    "side": "Side1",
+                    "direction": -1,
+                    "properties": {
+                      "transactionConfiguration/default/TaxLotSelectionMethod": {
+                        "key": "TransactionConfiguration/default/TaxLotSelectionMethod",
+                        "value": {
+                          "labelValue": "FirstInFirstOut"
+                        }
+                      }
+                    },
+                    "mappings": []
+                  },
+                  {
+                    "movementTypes": "CashCommitment",
+                    "side": "Side1",
+                    "direction": 1,
+                    "properties": {},
+                    "mappings": [
+                      {
+                        "propertyKey": "Transaction/scopeA/Strategy",
+                        "setTo": "Cash"
+                      }
+                    ]
+                  }
+                ],
+                "properties": {
+                  "transactionConfiguration/default/TotalConsiderationPolicy": {
+                    "key": "TransactionConfiguration/default/TotalConsiderationPolicy",
+                    "value": {
+                      "labelValue": "Add"
+                    }
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionTypeRequest"
+              },
+              "example": {
+                "aliases": [
+                  {
+                    "type": "CustomBuy",
+                    "description": "A custom buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  },
+                  {
+                    "type": "BuyAlias",
+                    "description": "A similar buy type",
+                    "transactionClass": "Buy",
+                    "transactionRoles": "Longer",
+                    "isDefault": false
+                  }
+                ],
+                "movements": [
+                  {
+                    "movementTypes": "StockMovement",
+                    "side": "Side1",
+                    "direction": -1,
+                    "properties": {
+                      "transactionConfiguration/default/TaxLotSelectionMethod": {
+                        "key": "TransactionConfiguration/default/TaxLotSelectionMethod",
+                        "value": {
+                          "labelValue": "FirstInFirstOut"
+                        }
+                      }
+                    },
+                    "mappings": []
+                  },
+                  {
+                    "movementTypes": "CashCommitment",
+                    "side": "Side1",
+                    "direction": 1,
+                    "properties": {},
+                    "mappings": [
+                      {
+                        "propertyKey": "Transaction/scopeA/Strategy",
+                        "setTo": "Cash"
+                      }
+                    ]
+                  }
+                ],
+                "properties": {
+                  "transactionConfiguration/default/TotalConsiderationPolicy": {
+                    "key": "TransactionConfiguration/default/TotalConsiderationPolicy",
+                    "value": {
+                      "labelValue": "Add"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "Success",
@@ -87937,6 +88287,9 @@
             "description": "Movement types determine the impact of the movement on the holdings"
           },
           "side": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the 'security' side of the transaction, ie the Instrument and Units; Side2 means the 'cash' side, ie the Total Consideration"
           },
@@ -87954,6 +88307,7 @@
             "nullable": true
           },
           "mappings": {
+            "maxLength": 5000,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TransactionTypePropertyMapping"
@@ -87962,6 +88316,9 @@
             "nullable": true
           },
           "name": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The movement name (optional)",
             "nullable": true
@@ -87985,9 +88342,43 @@
             "nullable": true
           },
           "setTo": {
-            "type": "object",
-            "additionalProperties": false,
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
             "description": "A pointer to the Property being mapped from",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionTypeRequest": {
+        "required": [
+          "aliases",
+          "movements"
+        ],
+        "type": "object",
+        "properties": {
+          "aliases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionTypeAlias"
+            },
+            "description": "List of transaction types that map to this specific transaction configuration"
+          },
+          "movements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionTypeMovement"
+            },
+            "description": "Movement data for the transaction type"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Properties attached to the transaction type",
             "nullable": true
           }
         },
