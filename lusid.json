@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4120",
+    "version": "0.11.4121",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:42566"
+      "url": "http://local-unit-test-server.lusid.com:39045"
     }
   ],
   "paths": {
@@ -52047,6 +52047,144 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/transactionconfiguration/sides/{side}": {
+      "put": {
+        "tags": [
+          "Transaction Configuration"
+        ],
+        "summary": "[EXPERIMENTAL] SetSideDefinition: Set a side definition",
+        "description": "Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.",
+        "operationId": "SetSideDefinition",
+        "parameters": [
+          {
+            "name": "side",
+            "in": "path",
+            "description": "The label to uniquely identify the side.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The label to uniquely identify the side.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The side definition to create or replace.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SideDefinitionRequest"
+              },
+              "example": {
+                "security": "Txn:LusidInstrumentId",
+                "currency": "Txn:TradeCurrency",
+                "rate": "Txn:Units",
+                "units": "1",
+                "amount": "Transaction/MyScope/TradeAmount"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SideDefinitionRequest"
+              },
+              "example": {
+                "security": "Txn:LusidInstrumentId",
+                "currency": "Txn:TradeCurrency",
+                "rate": "Txn:Units",
+                "units": "1",
+                "amount": "Transaction/MyScope/TradeAmount"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SideDefinitionRequest"
+              },
+              "example": {
+                "security": "Txn:LusidInstrumentId",
+                "currency": "Txn:TradeCurrency",
+                "rate": "Txn:Units",
+                "units": "1",
+                "amount": "Transaction/MyScope/TradeAmount"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SideDefinitionRequest"
+              },
+              "example": {
+                "security": "Txn:LusidInstrumentId",
+                "currency": "Txn:TradeCurrency",
+                "rate": "Txn:Units",
+                "units": "1",
+                "amount": "Transaction/MyScope/TradeAmount"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SideDefinition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SideDefinition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SideDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionconfiguration/types/{source}/{type}": {
       "get": {
         "tags": [
@@ -87254,6 +87392,108 @@
         },
         "additionalProperties": false,
         "description": "Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties\r\ncan be used to reference either transaction fields, or transaction properties."
+      },
+      "SideDefinition": {
+        "required": [
+          "amount",
+          "currency",
+          "rate",
+          "security",
+          "side",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "side": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "A unique label identifying the side definition."
+          },
+          "security": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's security, or instrument."
+          },
+          "currency": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's currency."
+          },
+          "rate": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's rate."
+          },
+          "units": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's units."
+          },
+          "amount": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's amount"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SideDefinitionRequest": {
+        "required": [
+          "amount",
+          "currency",
+          "rate",
+          "security",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "security": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's security, or instrument."
+          },
+          "currency": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's currency."
+          },
+          "rate": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The field or property key defining the side's rate."
+          },
+          "units": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's units."
+          },
+          "amount": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's amount"
+          }
+        },
+        "additionalProperties": false
       },
       "SimpleInstrument": {
         "allOf": [
