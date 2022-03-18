@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4116",
+    "version": "0.11.4117",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:43852"
+      "url": "http://local-unit-test-server.lusid.com:59783"
     }
   ],
   "paths": {
@@ -52452,6 +52452,102 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TransactionType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Transaction Configuration"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteTransactionType: Delete a transaction type",
+        "description": "/// WARNING! Changing existing transaction types has a material impact on how data, new and old,\r\nis processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.",
+        "operationId": "DeleteTransactionType",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "path",
+            "description": "The source that the type is in",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The source that the type is in",
+              "nullable": true
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "One of the type's aliases",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "One of the type's aliases",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
