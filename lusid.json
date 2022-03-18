@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4114",
+    "version": "0.11.4116",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:43852"
     }
   ],
   "paths": {
@@ -73523,27 +73523,33 @@
         "properties": {
           "href": {
             "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
             "format": "uri",
             "nullable": true
           },
           "entityTypeName": {
-            "type": "string"
+            "type": "string",
+            "description": "The name provided when the custom entity type was created. This has been prefixed with “~” and returned as “entityType”, which is the identifier for the custom entity type."
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "A display label for the custom entity type."
           },
           "description": {
             "type": "string",
+            "description": "A description for the custom entity type.",
             "nullable": true
           },
           "entityType": {
-            "type": "string"
+            "type": "string",
+            "description": "The identifier for the custom entity type, derived from the “entityTypeName” provided on creation."
           },
           "fieldSchema": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityFieldDefinition"
-            }
+            },
+            "description": "The description of the fields on the custom entity type."
           }
         },
         "additionalProperties": false,
@@ -73559,15 +73565,18 @@
           "entityTypeName": {
             "maxLength": 64,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "A name for the custom entity type. This will be prefixed with “~” and returned as “entityType”, which is the identifier for the custom entity type."
           },
           "displayName": {
             "pattern": "^[\\s\\S]*$",
-            "type": "string"
+            "type": "string",
+            "description": "A display label for the custom entity type."
           },
           "description": {
             "pattern": "^[\\s\\S]*$",
             "type": "string",
+            "description": "A description for the custom entity type.",
             "nullable": true
           },
           "fieldSchema": {
@@ -73575,6 +73584,7 @@
             "items": {
               "$ref": "#/components/schemas/CustomEntityFieldDefinition"
             },
+            "description": "The description of the fields on the custom entity type.",
             "nullable": true
           }
         },
@@ -73588,19 +73598,23 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of the field in the custom entity type definition."
           },
           "value": {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "The value for the field."
           },
           "effectiveFrom": {
             "type": "string",
+            "description": "The effective datetime from which the field's value is valid. For timeVariant fields, this defaults to the beginning of time.",
             "format": "date-time",
             "nullable": true
           },
           "effectiveUntil": {
             "type": "string",
+            "description": "The effective datetime until which the field's value is valid. If not supplied, the value will be valid indefinitely or until the next “effectiveFrom” date of the field.",
             "format": "date-time",
             "nullable": true
           }
@@ -73617,16 +73631,20 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of the field."
           },
           "lifetime": {
-            "type": "string"
+            "type": "string",
+            "description": "Describes how the field’s values can change over time. The available values are: “Perpetual”, “TimeVariant”."
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": "The value type for the field. Available values are: “String”, “Boolean”, “DateTime”, “Decimal”."
           },
           "required": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the field is required or not."
           }
         },
         "additionalProperties": false
@@ -73643,27 +73661,32 @@
             "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "description": "The scope the identifier resides in (the scope of the identifier property definition)."
           },
           "identifierType": {
             "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "description": "What the identifier represents (the code of the identifier property definition)."
           },
           "identifierValue": {
             "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string"
+            "type": "string",
+            "description": "The value of the identifier for this entity."
           },
           "effectiveFrom": {
             "type": "string",
+            "description": "The effective datetime from which the identifier is valid.",
             "format": "date-time",
             "nullable": true
           },
           "effectiveUntil": {
             "type": "string",
+            "description": "The effective datetime until which the identifier is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveFrom' datetime of the identifier.",
             "format": "date-time",
             "nullable": true
           }
@@ -73679,22 +73702,26 @@
         "type": "object",
         "properties": {
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "A display label for the custom entity."
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "A description of the custom entity."
           },
           "identifiers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityId"
-            }
+            },
+            "description": "The identifiers the custom entity will be upserted with."
           },
           "fields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityField"
             },
+            "description": "The fields that decorate the custom entity.",
             "nullable": true
           }
         },
@@ -90252,7 +90279,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
