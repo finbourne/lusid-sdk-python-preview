@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4117",
+    "version": "0.11.4118",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:59783"
+      "url": "http://local-unit-test-server.lusid.com:33645"
     }
   ],
   "paths": {
@@ -87629,6 +87629,11 @@
                 "type": "number",
                 "description": "The fixed rate for the term deposit. Specified as a decimal, e.g 0.03 is meant to be 3% interest",
                 "format": "double"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "DomCcy of the TermDeposit. If provided, must match the currency of FlowConvention.",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
