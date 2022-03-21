@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4130",
+    "version": "0.11.4128",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:51307"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -52083,8 +52083,7 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount",
-                "notionalAmount": "Transaction/default/NotionalAmount"
+                "amount": "Transaction/MyScope/TradeAmount"
               }
             },
             "application/json": {
@@ -52096,8 +52095,7 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount",
-                "notionalAmount": "Transaction/default/NotionalAmount"
+                "amount": "Transaction/MyScope/TradeAmount"
               }
             },
             "text/json": {
@@ -52109,8 +52107,7 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount",
-                "notionalAmount": "Transaction/default/NotionalAmount"
+                "amount": "Transaction/MyScope/TradeAmount"
               }
             },
             "application/*+json": {
@@ -52122,8 +52119,7 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount",
-                "notionalAmount": "Transaction/default/NotionalAmount"
+                "amount": "Transaction/MyScope/TradeAmount"
               }
             }
           },
@@ -87810,13 +87806,6 @@
             "type": "string",
             "description": "The value, field or property key defining the side's amount"
           },
-          "notionalAmount": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The value, field or property key defining the side's notional amount",
-            "nullable": true
-          },
           "links": {
             "type": "array",
             "items": {
@@ -87867,13 +87856,6 @@
             "minLength": 1,
             "type": "string",
             "description": "The value, field or property key defining the side's amount"
-          },
-          "notionalAmount": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The value, field or property key defining the side's notional amount",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -91003,7 +90985,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
