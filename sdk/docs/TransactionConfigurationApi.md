@@ -204,7 +204,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TransactionConfigurationApi(api_client)
     side = 'side_example' # str | The label to uniquely identify the side.
-side_definition_request = {"security":"Txn:LusidInstrumentId","currency":"Txn:TradeCurrency","rate":"Txn:Units","units":"1","amount":"Transaction/MyScope/TradeAmount"} # SideDefinitionRequest | The side definition to create or replace.
+side_definition_request = {"security":"Txn:LusidInstrumentId","currency":"Txn:TradeCurrency","rate":"Txn:Units","units":"1","amount":"Transaction/MyScope/TradeAmount","notionalAmount":"Transaction/default/NotionalAmount"} # SideDefinitionRequest | The side definition to create or replace.
 
     try:
         # [EXPERIMENTAL] SetSideDefinition: Set a side definition

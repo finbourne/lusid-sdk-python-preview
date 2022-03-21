@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4128",
+    "version": "0.11.4130",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -52083,7 +52083,8 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount"
+                "amount": "Transaction/MyScope/TradeAmount",
+                "notionalAmount": "Transaction/default/NotionalAmount"
               }
             },
             "application/json": {
@@ -52095,7 +52096,8 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount"
+                "amount": "Transaction/MyScope/TradeAmount",
+                "notionalAmount": "Transaction/default/NotionalAmount"
               }
             },
             "text/json": {
@@ -52107,7 +52109,8 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount"
+                "amount": "Transaction/MyScope/TradeAmount",
+                "notionalAmount": "Transaction/default/NotionalAmount"
               }
             },
             "application/*+json": {
@@ -52119,7 +52122,8 @@
                 "currency": "Txn:TradeCurrency",
                 "rate": "Txn:Units",
                 "units": "1",
-                "amount": "Transaction/MyScope/TradeAmount"
+                "amount": "Transaction/MyScope/TradeAmount",
+                "notionalAmount": "Transaction/default/NotionalAmount"
               }
             }
           },
@@ -87806,6 +87810,13 @@
             "type": "string",
             "description": "The value, field or property key defining the side's amount"
           },
+          "notionalAmount": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's notional amount",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -87856,6 +87867,13 @@
             "minLength": 1,
             "type": "string",
             "description": "The value, field or property key defining the side's amount"
+          },
+          "notionalAmount": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value, field or property key defining the side's notional amount",
+            "nullable": true
           }
         },
         "additionalProperties": false
