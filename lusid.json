@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4139",
+    "version": "0.11.4141",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:47114"
     }
   ],
   "paths": {
@@ -58666,10 +58666,10 @@
           {
             "name": "windowStart",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified. i.e. it is the minimum date.",
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified. i.e. it is the minimum date.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -58677,10 +58677,10 @@
           {
             "name": "windowEnd",
             "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'max date' if it is not specified",
             "schema": {
               "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'max date' if it is not specified",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -66885,10 +66885,10 @@
           {
             "name": "windowStart",
             "in": "query",
-            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+            "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified. i.e. uses minimum date-time",
             "schema": {
               "type": "string",
-              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified.",
+              "description": "The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             There is no lower bound if this is not specified. i.e. uses minimum date-time",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -66896,10 +66896,10 @@
           {
             "name": "windowEnd",
             "in": "query",
-            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+            "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'max date' if it is not specified",
             "schema": {
               "type": "string",
-              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'today' if it is not specified",
+              "description": "The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.\r\n             The upper bound defaults to 'max date' if it is not specified",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -91166,7 +91166,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
