@@ -1,21 +1,21 @@
 # lusid.CustomEntitiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:53406*
+All URIs are relative to *http://local-unit-test-server.lusid.com:59049*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get a custom entity instance.
+[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
 [**get_custom_entity_relationships**](CustomEntitiesApi.md#get_custom_entity_relationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
-[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List custom entities of the specified entityType.
-[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a custom entity instance
+[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
+[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
 
 
 # **get_custom_entity**
 > CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
 
-[EXPERIMENTAL] GetCustomEntity: Get a custom entity instance.
+[EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
 
-Retrieve a custom entity instance by a specific entity type at a point in AsAt time.
+Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
 
 ### Example
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53406
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59049
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -47,15 +47,15 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntitiesApi(api_client)
-    entity_type = 'entity_type_example' # str | The type of custom entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
-identifier_type = 'identifier_type_example' # str | An identifier type attached to the custom entity instance.
+    entity_type = 'entity_type_example' # str | The type of Custom Entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
+identifier_type = 'identifier_type_example' # str | An identifier type attached to the Custom Entity instance.
 identifier_value = 'identifier_value_example' # str | The identifier value.
 identifier_scope = 'identifier_scope_example' # str | The identifier scope.
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the custom entity instance. (optional)
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get the custom entity instance. Defaults to the current LUSID system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the Custom Entity instance. (optional)
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] GetCustomEntity: Get a custom entity instance.
+        # [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
         api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -66,12 +66,12 @@ effective_at = 'effective_at_example' # str | The effective datetime or cut labe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity_type** | **str**| The type of custom entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
- **identifier_type** | **str**| An identifier type attached to the custom entity instance. | 
+ **entity_type** | **str**| The type of Custom Entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
+ **identifier_type** | **str**| An identifier type attached to the Custom Entity instance. | 
  **identifier_value** | **str**| The identifier value. | 
  **identifier_scope** | **str**| The identifier scope. | 
- **as_at** | **datetime**| The AsAt datetime at which to retrieve the custom entity instance. | [optional] 
- **effective_at** | **str**| The effective datetime or cut label at which to get the custom entity instance. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The AsAt datetime at which to retrieve the Custom Entity instance. | [optional] 
+ **effective_at** | **str**| The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -111,10 +111,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53406
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59049
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -124,7 +124,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -134,7 +134,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.CustomEntitiesApi(api_client)
     entity_type = 'entity_type_example' # str | The type of entity get relationships for.
 identifier_scope = 'identifier_scope_example' # str | The identifier scope.
-identifier_type = 'identifier_type_example' # str | An identifier type attached to the CustomEntity.
+identifier_type = 'identifier_type_example' # str | An identifier type attached to the Custom Entity.
 identifier_value = 'identifier_value_example' # str | The identifier value.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_type** | **str**| The type of entity get relationships for. | 
  **identifier_scope** | **str**| The identifier scope. | 
- **identifier_type** | **str**| An identifier type attached to the CustomEntity. | 
+ **identifier_type** | **str**| An identifier type attached to the Custom Entity. | 
  **identifier_value** | **str**| The identifier value. | 
  **effective_at** | **str**| The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. | [optional] 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 # **list_custom_entities**
 > PagedResourceListOfCustomEntityResponse list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
 
-[EXPERIMENTAL] ListCustomEntities: List custom entities of the specified entityType.
+[EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
 
 List all the Custom Entities matching particular criteria.
 
@@ -200,10 +200,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53406
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59049
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -213,7 +213,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -221,7 +221,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntitiesApi(api_client)
-    entity_type = 'entity_type_example' # str | The type of custom entity to list.
+    entity_type = 'entity_type_example' # str | The type of Custom Entity to list.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the entities. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
@@ -229,7 +229,7 @@ filter = 'filter_example' # str | Expression to filter the results. For more inf
 page = 'page_example' # str | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 
     try:
-        # [EXPERIMENTAL] ListCustomEntities: List custom entities of the specified entityType.
+        # [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
         api_response = api_instance.list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
         pprint(api_response)
     except ApiException as e:
@@ -240,7 +240,7 @@ page = 'page_example' # str | The pagination token to use to continue listing en
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity_type** | **str**| The type of custom entity to list. | 
+ **entity_type** | **str**| The type of Custom Entity to list. | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the entities. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 # **upsert_custom_entity**
 > CustomEntityResponse upsert_custom_entity(entity_type, custom_entity_request)
 
-[EXPERIMENTAL] UpsertCustomEntity: Upsert a custom entity instance
+[EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
 
-Insert the custom entity if it does not exist or update the custom entity with the supplied state if it does exist.
+Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
 
 ### Example
 
@@ -285,10 +285,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:53406
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59049
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -298,7 +298,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:53406"
+    host = "http://local-unit-test-server.lusid.com:59049"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -306,11 +306,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CustomEntitiesApi(api_client)
-    entity_type = 'entity_type_example' # str | The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
-custom_entity_request = {"displayName":"Portfolio Access Denied","description":"User cannot access the portfolio","identifiers":[{"identifierScope":"someScope","identifierType":"supportTicketId","identifierValue":"xyz123pqr"}],"fields":[{"name":"clientId","value":"AcmeLtd"},{"name":"issueDescription","value":"I can't access this portfolio","effectiveFrom":"2023-03-03T09:00:00.0000000+00:00"}]} # CustomEntityRequest | The payload describing the custom entity instance.
+    entity_type = 'entity_type_example' # str | The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
+custom_entity_request = {"displayName":"Portfolio Access Denied","description":"User cannot access the portfolio","identifiers":[{"identifierScope":"someScope","identifierType":"supportTicketId","identifierValue":"xyz123pqr"}],"fields":[{"name":"clientId","value":"AcmeLtd"},{"name":"issueDescription","value":"I can't access this portfolio","effectiveFrom":"2023-03-03T09:00:00.0000000+00:00"}]} # CustomEntityRequest | The payload describing the Custom Entity instance.
 
     try:
-        # [EXPERIMENTAL] UpsertCustomEntity: Upsert a custom entity instance
+        # [EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
         api_response = api_instance.upsert_custom_entity(entity_type, custom_entity_request)
         pprint(api_response)
     except ApiException as e:
@@ -321,8 +321,8 @@ custom_entity_request = {"displayName":"Portfolio Access Denied","description":"
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity_type** | **str**| The type of the CustomEntity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
- **custom_entity_request** | [**CustomEntityRequest**](CustomEntityRequest.md)| The payload describing the custom entity instance. | 
+ **entity_type** | **str**| The type of the Custom Entity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions. | 
+ **custom_entity_request** | [**CustomEntityRequest**](CustomEntityRequest.md)| The payload describing the Custom Entity instance. | 
 
 ### Return type
 

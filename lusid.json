@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4136",
+    "version": "0.11.4137",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:53406"
+      "url": "http://local-unit-test-server.lusid.com:59049"
     }
   ],
   "paths": {
@@ -9528,11 +9528,11 @@
         "tags": [
           "CustomEntityDefinitions"
         ],
-        "summary": "[EXPERIMENTAL] CreateCustomEntityDefinition: Define a new custom entityType.",
-        "description": "The API will return a Bad Request if the custom entityType already exists.",
+        "summary": "[EXPERIMENTAL] CreateCustomEntityDefinition: Define a new Custom Entity type.",
+        "description": "The API will return a Bad Request if the Custom Entity type already exists.",
         "operationId": "CreateCustomEntityDefinition",
         "requestBody": {
-          "description": "The payload containing the description of the custom entityType.",
+          "description": "The payload containing the description of the Custom Entity type.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -9683,7 +9683,7 @@
         },
         "responses": {
           "200": {
-            "description": "The created custom entityType.",
+            "description": "The created Custom Entity type.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -9838,6 +9838,126 @@
           }
         ],
         "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "CustomEntityDefinitions"
+        ],
+        "summary": "[EXPERIMENTAL] ListCustomEntityDefinitions: List the Custom Entity type definitions",
+        "description": "List all Custom Entity type definitions matching particular criteria.",
+        "operationId": "ListCustomEntityDefinitions",
+        "parameters": [
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the entities. Defaults to returning the latest version\r\n            of each portfolio if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the entities. Defaults to returning the latest version\r\n            of each portfolio if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the results. For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, limit\r\n            and asAt fields must not have changed since the original request.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, limit\r\n            and asAt fields must not have changed since the original request.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List Custom Entity type definitions.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityDefinition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityDefinition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustomEntityDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/customentities/entitytypes/{entityType}": {
@@ -9845,20 +9965,20 @@
         "tags": [
           "CustomEntityDefinitions"
         ],
-        "summary": "[EXPERIMENTAL] GetDefinition: Get a custom entityType definition.",
-        "description": "Retrieve a CustomEntityDefinition by a specific EntityType at a point in AsAt time",
+        "summary": "[EXPERIMENTAL] GetDefinition: Get a Custom Entity type definition.",
+        "description": "Retrieve a CustomEntityDefinition by a specific entityType at a point in AsAt time",
         "operationId": "GetDefinition",
         "parameters": [
           {
             "name": "entityType",
             "in": "path",
-            "description": "The identifier for the custom entity type, derived from the \"entityTypeName\" provided on creation.",
+            "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The identifier for the custom entity type, derived from the \"entityTypeName\" provided on creation."
+              "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation."
             }
           },
           {
@@ -9876,7 +9996,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested custom entity definition.",
+            "description": "The requested Custom Entity definition.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -10038,25 +10158,25 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] UpsertCustomEntity: Upsert a custom entity instance",
-        "description": "Insert the custom entity if it does not exist or update the custom entity with the supplied state if it does exist.",
+        "summary": "[EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance",
+        "description": "Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.",
         "operationId": "UpsertCustomEntity",
         "parameters": [
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
+            "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of the CustomEntity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
+              "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
             }
           }
         ],
         "requestBody": {
-          "description": "The payload describing the custom entity instance.",
+          "description": "The payload describing the Custom Entity instance.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -10331,20 +10451,20 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] ListCustomEntities: List custom entities of the specified entityType.",
+        "summary": "[EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.",
         "description": "List all the Custom Entities matching particular criteria.",
         "operationId": "ListCustomEntities",
         "parameters": [
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of custom entity to list.",
+            "description": "The type of Custom Entity to list.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of custom entity to list."
+              "description": "The type of Custom Entity to list."
             }
           },
           {
@@ -10476,33 +10596,33 @@
         "tags": [
           "CustomEntities"
         ],
-        "summary": "[EXPERIMENTAL] GetCustomEntity: Get a custom entity instance.",
-        "description": "Retrieve a custom entity instance by a specific entity type at a point in AsAt time.",
+        "summary": "[EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.",
+        "description": "Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.",
         "operationId": "GetCustomEntity",
         "parameters": [
           {
             "name": "entityType",
             "in": "path",
-            "description": "The type of custom entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
+            "description": "The type of Custom Entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "type": "string",
-              "description": "The type of custom entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
+              "description": "The type of Custom Entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
             }
           },
           {
             "name": "identifierType",
             "in": "path",
-            "description": "An identifier type attached to the custom entity instance.",
+            "description": "An identifier type attached to the Custom Entity instance.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "An identifier type attached to the custom entity instance."
+              "description": "An identifier type attached to the Custom Entity instance."
             }
           },
           {
@@ -10534,10 +10654,10 @@
           {
             "name": "asAt",
             "in": "query",
-            "description": "The AsAt datetime at which to retrieve the custom entity instance.",
+            "description": "The AsAt datetime at which to retrieve the Custom Entity instance.",
             "schema": {
               "type": "string",
-              "description": "The AsAt datetime at which to retrieve the custom entity instance.",
+              "description": "The AsAt datetime at which to retrieve the Custom Entity instance.",
               "format": "date-time",
               "nullable": true
             },
@@ -10546,10 +10666,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to get the custom entity instance. Defaults to the current LUSID system datetime if not specified.",
+            "description": "The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to get the custom entity instance. Defaults to the current LUSID system datetime if not specified.",
+              "description": "The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -10751,14 +10871,14 @@
           {
             "name": "identifierType",
             "in": "path",
-            "description": "An identifier type attached to the CustomEntity.",
+            "description": "An identifier type attached to the Custom Entity.",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "An identifier type attached to the CustomEntity."
+              "description": "An identifier type attached to the Custom Entity."
             }
           },
           {
@@ -81258,6 +81378,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CorporateActionSource"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
+      "PagedResourceListOfCustomEntityDefinition": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomEntityDefinition"
             },
             "description": "The resources to list."
           },
