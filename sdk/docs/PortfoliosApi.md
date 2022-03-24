@@ -1,6 +1,6 @@
 # lusid.PortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:60530*
+All URIs are relative to *http://local-unit-test-server.lusid.com:45042*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -45,10 +45,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -58,7 +58,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -128,10 +128,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -141,7 +141,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -205,10 +205,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -218,7 +218,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -286,10 +286,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -299,7 +299,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -373,10 +373,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -386,7 +386,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -456,10 +456,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -469,7 +469,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -542,7 +542,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_portfolio_aggregated_returns**
-> ResourceListOfAggregatedReturn get_portfolio_aggregated_returns(scope, code, aggregated_returns_request, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at)
+> AggregatedReturnsResponse get_portfolio_aggregated_returns(scope, code, aggregated_returns_request, from_effective_at=from_effective_at, to_effective_at=to_effective_at, as_at=as_at)
 
 [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
 
@@ -557,10 +557,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -570,7 +570,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -580,7 +580,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.PortfoliosApi(api_client)
     scope = 'scope_example' # str | The scope of the Portfolio.
 code = 'code_example' # str | The code of the  Portfolio.
-aggregated_returns_request = {"metrics":[{"type":"Return","window":"1Y","allowPartial":false,"annualised":false,"withFee":true,"alias":"1M"}],"returnId":{"scope":"ReturnsScope","code":"ReturnCode"},"recipeId":{"scope":"TestScope","code":"default"},"compositeMethod":"Asset","period":"Daily","outputFrequency":"Daily","alternativeInceptionDate":"2020-01-01"} # AggregatedReturnsRequest | The request used in the AggregatedReturns.
+aggregated_returns_request = {"metrics":[{"type":"Return","window":"1Y","allowPartial":false,"annualised":false,"withFee":true,"alias":"1M"}],"recipeId":{"scope":"TestScope","code":"default"},"compositeMethod":"Asset","period":"Daily","outputFrequency":"Daily","alternativeInceptionDate":"2020-01-01"} # AggregatedReturnsRequest | The request used in the AggregatedReturns.
 from_effective_at = 'from_effective_at_example' # str | The start date from which to calculate the Returns. (optional)
 to_effective_at = 'to_effective_at_example' # str | The end date for which to calculate the Returns. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional)
@@ -606,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfAggregatedReturn**](ResourceListOfAggregatedReturn.md)
+[**AggregatedReturnsResponse**](AggregatedReturnsResponse.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The aggregated returns. |  -  |
+**200** | The aggregated returns grouped by return stream. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -642,10 +642,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -655,7 +655,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -729,10 +729,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -742,7 +742,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -810,10 +810,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -823,7 +823,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -891,10 +891,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -904,7 +904,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -980,10 +980,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -993,7 +993,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1065,10 +1065,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1078,7 +1078,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1150,10 +1150,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1163,7 +1163,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1239,10 +1239,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1252,7 +1252,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1322,10 +1322,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1335,7 +1335,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1407,10 +1407,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1420,7 +1420,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1496,10 +1496,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1509,7 +1509,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1585,10 +1585,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1598,7 +1598,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1668,10 +1668,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1681,7 +1681,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1749,10 +1749,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1762,7 +1762,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1834,10 +1834,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1847,7 +1847,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -1913,10 +1913,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:60530
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:45042
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1926,7 +1926,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:60530"
+    host = "http://local-unit-test-server.lusid.com:45042"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

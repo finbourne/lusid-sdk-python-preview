@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4147",
+    "version": "0.11.4148",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60530"
+      "url": "http://local-unit-test-server.lusid.com:45042"
     }
   ],
   "paths": {
@@ -41588,10 +41588,6 @@
                     "alias": "1M"
                   }
                 ],
-                "returnId": {
-                  "scope": "ReturnsScope",
-                  "code": "ReturnCode"
-                },
                 "recipeId": {
                   "scope": "TestScope",
                   "code": "default"
@@ -41617,10 +41613,6 @@
                     "alias": "1M"
                   }
                 ],
-                "returnId": {
-                  "scope": "ReturnsScope",
-                  "code": "ReturnCode"
-                },
                 "recipeId": {
                   "scope": "TestScope",
                   "code": "default"
@@ -41646,10 +41638,6 @@
                     "alias": "1M"
                   }
                 ],
-                "returnId": {
-                  "scope": "ReturnsScope",
-                  "code": "ReturnCode"
-                },
                 "recipeId": {
                   "scope": "TestScope",
                   "code": "default"
@@ -41675,10 +41663,6 @@
                     "alias": "1M"
                   }
                 ],
-                "returnId": {
-                  "scope": "ReturnsScope",
-                  "code": "ReturnCode"
-                },
                 "recipeId": {
                   "scope": "TestScope",
                   "code": "default"
@@ -41694,21 +41678,21 @@
         },
         "responses": {
           "200": {
-            "description": "The aggregated returns.",
+            "description": "The aggregated returns grouped by return stream.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                  "$ref": "#/components/schemas/AggregatedReturnsResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                  "$ref": "#/components/schemas/AggregatedReturnsResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfAggregatedReturn"
+                  "$ref": "#/components/schemas/AggregatedReturnsResponse"
                 }
               }
             }
@@ -70399,8 +70383,13 @@
             },
             "description": "A list of metrics to calculate in the AggregatedReturns."
           },
-          "returnId": {
-            "$ref": "#/components/schemas/ResourceId"
+          "returnIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The Scope and code of the returns.",
+            "nullable": true
           },
           "recipeId": {
             "$ref": "#/components/schemas/ResourceId"
@@ -70428,6 +70417,37 @@
         },
         "additionalProperties": false,
         "description": "The request used in the AggregatedReturns."
+      },
+      "AggregatedReturnsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "results": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AggregatedReturn"
+              }
+            },
+            "description": "Aggregated returns grouped by ReturnId",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "AggregateSpec": {
         "required": [
