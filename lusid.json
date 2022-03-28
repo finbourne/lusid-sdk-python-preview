@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4159",
+    "version": "0.11.4158",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33984"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -44434,8 +44434,7 @@
                   "aggregation": {
                     "options": {
                       "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false,
-                      "applyIso4217Rounding": false
+                      "allowPartialEntitlementSuccess": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -44499,8 +44498,7 @@
                   "aggregation": {
                     "options": {
                       "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false,
-                      "applyIso4217Rounding": false
+                      "allowPartialEntitlementSuccess": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -44564,8 +44562,7 @@
                   "aggregation": {
                     "options": {
                       "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false,
-                      "applyIso4217Rounding": false
+                      "allowPartialEntitlementSuccess": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -44629,8 +44626,7 @@
                   "aggregation": {
                     "options": {
                       "useAnsiLikeSyntax": false,
-                      "allowPartialEntitlementSuccess": false,
-                      "applyIso4217Rounding": false
+                      "allowPartialEntitlementSuccess": false
                     }
                   },
                   "inheritedRecipes": [],
@@ -44807,8 +44803,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -44867,8 +44862,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -44956,8 +44950,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -45016,8 +45009,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -45105,8 +45097,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -45165,8 +45156,7 @@
                         "aggregation": {
                           "options": {
                             "useAnsiLikeSyntax": false,
-                            "allowPartialEntitlementSuccess": false,
-                            "applyIso4217Rounding": false
+                            "allowPartialEntitlementSuccess": false
                           }
                         },
                         "inheritedRecipes": [],
@@ -45345,8 +45335,7 @@
                     "aggregation": {
                       "options": {
                         "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false,
-                        "applyIso4217Rounding": false
+                        "allowPartialEntitlementSuccess": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -45421,8 +45410,7 @@
                     "aggregation": {
                       "options": {
                         "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false,
-                        "applyIso4217Rounding": false
+                        "allowPartialEntitlementSuccess": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -45497,8 +45485,7 @@
                     "aggregation": {
                       "options": {
                         "useAnsiLikeSyntax": false,
-                        "allowPartialEntitlementSuccess": false,
-                        "applyIso4217Rounding": false
+                        "allowPartialEntitlementSuccess": false
                       }
                     },
                     "inheritedRecipes": [],
@@ -70603,10 +70590,6 @@
           "allowPartialEntitlementSuccess": {
             "type": "boolean",
             "description": "In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations\r\napplied only to those portfolios where entitlements checks succeeded."
-          },
-          "applyIso4217Rounding": {
-            "type": "boolean",
-            "description": "Various results that are units of currency might need to be rounded.\r\nThis will round according to the ISO4217 standard number of decimal places for a currency."
           }
         },
         "additionalProperties": false,
@@ -91262,7 +91245,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
