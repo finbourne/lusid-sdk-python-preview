@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4170",
+    "version": "0.11.4171",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60149"
+      "url": "http://local-unit-test-server.lusid.com:35176"
     }
   ],
   "paths": {
@@ -16384,6 +16384,265 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/instruments/{identifierType}/{identifier}/relationships": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] GetInstrumentRelationships: Get Instrument relationships",
+        "description": "Get relationships for a particular Instrument.",
+        "operationId": "GetInstrumentRelationships",
+        "parameters": [
+          {
+            "name": "identifierType",
+            "in": "path",
+            "description": "An identifier type attached to the Instrument.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "An identifier type attached to the Instrument.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The identifier value.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The identifier value.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 0,
+              "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+              "type": "string",
+              "description": "The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter relationships. Users should provide null or empty string for this field until further notice.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifierTypes",
+            "in": "query",
+            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "The entity scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The entity scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "default": "default",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The relationships for the specified instrument.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelationship"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationshipDefinitionId": {
+                        "scope": "securityReferenceData",
+                        "code": "issuer"
+                      },
+                      "relatedEntity": {
+                        "entityType": "LegalEntity",
+                        "entityId": {
+                          "identifierScope": "public",
+                          "identifierType": "LEI",
+                          "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                        },
+                        "displayName": "APPLE INC",
+                        "properties": {},
+                        "scope": "uat",
+                        "identifiers": [
+                          {
+                            "identifierType": "LEI",
+                            "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                          }
+                        ]
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "issued by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelationship"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationshipDefinitionId": {
+                        "scope": "securityReferenceData",
+                        "code": "issuer"
+                      },
+                      "relatedEntity": {
+                        "entityType": "LegalEntity",
+                        "entityId": {
+                          "identifierScope": "public",
+                          "identifierType": "LEI",
+                          "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                        },
+                        "displayName": "APPLE INC",
+                        "properties": {},
+                        "scope": "uat",
+                        "identifiers": [
+                          {
+                            "identifierType": "LEI",
+                            "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                          }
+                        ]
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "issued by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfRelationship"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "relationshipDefinitionId": {
+                        "scope": "securityReferenceData",
+                        "code": "issuer"
+                      },
+                      "relatedEntity": {
+                        "entityType": "LegalEntity",
+                        "entityId": {
+                          "identifierScope": "public",
+                          "identifierType": "LEI",
+                          "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                        },
+                        "displayName": "APPLE INC",
+                        "properties": {},
+                        "scope": "uat",
+                        "identifiers": [
+                          {
+                            "identifierType": "LEI",
+                            "identifierValue": "HWUPKR0MPOU8FGXBT394"
+                          }
+                        ]
+                      },
+                      "traversalDirection": "In",
+                      "traversalDescription": "issued by",
+                      "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/legalentities": {
       "post": {
         "tags": [
@@ -20251,14 +20510,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
               "nullable": true
             },
             "x-nullable": true
@@ -28756,14 +29015,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
               "nullable": true
             },
             "x-nullable": true
@@ -34714,14 +34973,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format\r\n            {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.\r\n            Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
               "nullable": true
             },
             "x-nullable": true
@@ -41257,14 +41516,14 @@
           {
             "name": "identifierTypes",
             "in": "query",
-            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These must be from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. Only identifier types provided will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+            "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These must be from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. Only identifier types provided will be used to look up relevant entities in relationships. If not applicable, provide an empty array.",
+              "description": "Identifier types (as property keys) used for referencing Persons or Legal Entities.\r\n            These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example\r\n            'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities.",
               "nullable": true
             },
             "x-nullable": true
