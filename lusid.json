@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4176",
+    "version": "0.11.4177",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:63170"
     }
   ],
   "paths": {
@@ -6063,6 +6063,914 @@
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance",
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/rules": {
+      "get": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.",
+        "description": "For more information about filtering results,\r\nsee https://support.lusid.com/knowledgebase/article/KA-01914.",
+        "operationId": "ListComplianceRules",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the results.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A filtered list of compliance rules available.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRule"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "post": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertComplianceRules: Upsert compliance rules.",
+        "description": "To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part\r\nof the response. To update an existing rule, include the rule code. It is possible to both create and update\r\ncompliance rules in the same request.\r\n            \r\nThe upsert is transactional - either all create/update operations will succeed or none of them will.",
+        "operationId": "UpsertComplianceRules",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID\r\nsystem datetime if not specified. In the case of an update, the changes will take place from this effective\r\ntime until the next effective time that the rule as been upserted at. For example, consider a rule that\r\nalready exists, and has previously had an update applied so that the definition will change on the first day\r\nof the coming month. An upsert effective from the current day will only change the definition until the\r\nfirst day of the coming month. An additional upsert at the same time (first day of the month) is required\r\nif the newly-updated definition is to supersede the future definition.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted compliance rule to the code\r\n             of a created compliance rule.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted compliance rule to the code\r\n             of a created compliance rule."
+              },
+              "example": {
+                "create": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities."
+                },
+                "update": {
+                  "scope": "FundObjectives",
+                  "code": "ComplianceRule_1",
+                  "displayName": "30 percent bonds",
+                  "type": "RangePercentSecurityType",
+                  "value": "Bond",
+                  "lowerBound": 25,
+                  "upperBound": 35,
+                  "schedule": "PostTrade",
+                  "hardRequirement": false,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "Balanced"
+                    }
+                  ],
+                  "description": "Portfolio must contain 30% bonds by value."
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted compliance rule to the code\r\n             of a created compliance rule."
+              },
+              "example": {
+                "create": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities."
+                },
+                "update": {
+                  "scope": "FundObjectives",
+                  "code": "ComplianceRule_1",
+                  "displayName": "30 percent bonds",
+                  "type": "RangePercentSecurityType",
+                  "value": "Bond",
+                  "lowerBound": 25,
+                  "upperBound": 35,
+                  "schedule": "PostTrade",
+                  "hardRequirement": false,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "Balanced"
+                    }
+                  ],
+                  "description": "Portfolio must contain 30% bonds by value."
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted compliance rule to the code\r\n             of a created compliance rule."
+              },
+              "example": {
+                "create": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities."
+                },
+                "update": {
+                  "scope": "FundObjectives",
+                  "code": "ComplianceRule_1",
+                  "displayName": "30 percent bonds",
+                  "type": "RangePercentSecurityType",
+                  "value": "Bond",
+                  "lowerBound": 25,
+                  "upperBound": 35,
+                  "schedule": "PostTrade",
+                  "hardRequirement": false,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "Balanced"
+                    }
+                  ],
+                  "description": "Portfolio must contain 30% bonds by value."
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertRequest"
+                },
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted compliance rule to the code\r\n             of a created compliance rule."
+              },
+              "example": {
+                "create": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities."
+                },
+                "update": {
+                  "scope": "FundObjectives",
+                  "code": "ComplianceRule_1",
+                  "displayName": "30 percent bonds",
+                  "type": "RangePercentSecurityType",
+                  "value": "Bond",
+                  "lowerBound": 25,
+                  "upperBound": 35,
+                  "schedule": "PostTrade",
+                  "hardRequirement": false,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "Balanced"
+                    }
+                  ],
+                  "description": "Portfolio must contain 30% bonds by value."
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Upsert compliance rules. New compliance rules must have an empty code field. Where a codeis given, this rule must already exist and will be updated.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    "create": {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    "create": {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleUpsertResponse"
+                },
+                "example": {
+                  "values": {
+                    "update": {
+                      "scope": "CompanyPolicies",
+                      "displayName": "Max 200 Securities",
+                      "type": "RangeNumberSecurities",
+                      "lowerBound": 0,
+                      "upperBound": 200,
+                      "schedule": "PreAndPostTrade",
+                      "hardRequirement": true,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "UK"
+                        },
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "World"
+                        }
+                      ],
+                      "description": "Portfolio must contain no more than 200 securities.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                      }
+                    },
+                    "create": {
+                      "scope": "FundObjectives",
+                      "code": "ComplianceRule_1",
+                      "displayName": "30 percent bonds",
+                      "type": "RangePercentSecurityType",
+                      "value": "Bond",
+                      "lowerBound": 25,
+                      "upperBound": 35,
+                      "schedule": "PostTrade",
+                      "hardRequirement": false,
+                      "targetPortfolioIds": [
+                        {
+                          "scope": "CorePortfolios",
+                          "code": "Balanced"
+                        }
+                      ],
+                      "description": "Portfolio must contain 30% bonds by value.",
+                      "version": {
+                        "effectiveFrom": "2022-04-01T14:59:45.0261950+00:00",
+                        "asAtDate": "2022-04-01T14:59:45.0261966+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/rules/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] GetComplianceRule: Retrieve the definition of single compliance rule.",
+        "description": "Retrieves the compliance rule definition at the given effective and as at times.",
+        "operationId": "GetComplianceRule",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The compliance rule scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The compliance rule scope."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The compliance rule code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The compliance rule code."
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of one compliance rule.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRule"
+                },
+                "example": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities.",
+                  "version": {
+                    "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                    "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRule"
+                },
+                "example": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities.",
+                  "version": {
+                    "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                    "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRule"
+                },
+                "example": {
+                  "scope": "CompanyPolicies",
+                  "displayName": "Max 200 Securities",
+                  "type": "RangeNumberSecurities",
+                  "lowerBound": 0,
+                  "upperBound": 200,
+                  "schedule": "PreAndPostTrade",
+                  "hardRequirement": true,
+                  "targetPortfolioIds": [
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "UK"
+                    },
+                    {
+                      "scope": "CorePortfolios",
+                      "code": "World"
+                    }
+                  ],
+                  "description": "Portfolio must contain no more than 200 securities.",
+                  "version": {
+                    "effectiveFrom": "2022-04-01T14:59:45.0249997+00:00",
+                    "asAtDate": "2022-04-01T14:59:45.0250026+00:00"
+                  }
                 }
               }
             }
@@ -72662,6 +73570,85 @@
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of complex market data such as an interest rate curve or volatility surface."
       },
+      "ComplianceRule": {
+        "required": [
+          "code",
+          "displayName",
+          "hardRequirement",
+          "lowerBound",
+          "schedule",
+          "scope",
+          "targetPortfolioIds",
+          "type",
+          "upperBound"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": ""
+          },
+          "code": {
+            "type": "string",
+            "description": ""
+          },
+          "displayName": {
+            "type": "string",
+            "description": ""
+          },
+          "type": {
+            "type": "string",
+            "description": ""
+          },
+          "propertyKey": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "value": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "lowerBound": {
+            "type": "number",
+            "description": "",
+            "format": "double"
+          },
+          "upperBound": {
+            "type": "number",
+            "description": "",
+            "format": "double"
+          },
+          "schedule": {
+            "type": "string",
+            "description": ""
+          },
+          "hardRequirement": {
+            "type": "boolean",
+            "description": ""
+          },
+          "targetPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": ""
+          },
+          "description": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          }
+        },
+        "additionalProperties": false
+      },
       "ComplianceRuleResult": {
         "required": [
           "passed",
@@ -72718,6 +73705,109 @@
             "type": "integer",
             "description": "The upper limit of the rule",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceRuleUpsertRequest": {
+        "required": [
+          "hardRequirement",
+          "lowerBound",
+          "schedule",
+          "scope",
+          "targetPortfolioIds",
+          "type",
+          "upperBound"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": ""
+          },
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": ""
+          },
+          "propertyKey": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "value": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "lowerBound": {
+            "type": "number",
+            "description": "",
+            "format": "double"
+          },
+          "upperBound": {
+            "type": "number",
+            "description": "",
+            "format": "double"
+          },
+          "schedule": {
+            "type": "string",
+            "description": ""
+          },
+          "hardRequirement": {
+            "type": "boolean",
+            "description": ""
+          },
+          "targetPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": ""
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceRuleUpsertResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ComplianceRule"
+            }
           }
         },
         "additionalProperties": false
@@ -85957,6 +87047,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfComplianceRule": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRule"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfConstituentsAdjustmentHeader": {
         "required": [
           "values"
@@ -91521,7 +92652,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -91558,7 +92689,7 @@
     },
     {
       "name": "Compliance",
-      "description": "Methods for storage and retrieval of Compliance runs"
+      "description": "Methods for storage and retrieval of compliance data: rules and results."
     },
     {
       "name": "Configuration Recipe",
