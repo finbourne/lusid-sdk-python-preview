@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payment_date** | **datetime** | The payment date of the cash flow | 
 **diagnostics** | [**ResultValueDictionary**](ResultValueDictionary.md) |  | [optional] 
-**cash_flow_lineage** | **object** | Lineage for cash flow value | [optional] 
+**cash_flow_lineage** | [**CashFlowLineage**](CashFlowLineage.md) |  | [optional] 
 **payment_amount** | **float** | The amount paid or received | 
 **payment_ccy** | **str** | The currency of the transaction | 
 **result_value_type** | **str** | The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet | 
