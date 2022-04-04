@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4182",
+    "version": "0.11.4183",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60904"
+      "url": "http://local-unit-test-server.lusid.com:60294"
     }
   ],
   "paths": {
@@ -6209,8 +6209,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     {
@@ -6231,8 +6231,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   ],
@@ -6265,8 +6265,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     {
@@ -6287,8 +6287,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   ],
@@ -6321,8 +6321,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     {
@@ -6343,8 +6343,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   ],
@@ -6643,8 +6643,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     "create": {
@@ -6665,8 +6665,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   }
@@ -6698,8 +6698,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     "create": {
@@ -6720,8 +6720,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   }
@@ -6753,8 +6753,8 @@
                       ],
                       "description": "Portfolio must contain no more than 200 securities.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                       }
                     },
                     "create": {
@@ -6775,8 +6775,8 @@
                       ],
                       "description": "Portfolio must contain 30% bonds by value.",
                       "version": {
-                        "effectiveFrom": "2022-04-04T08:49:54.1597833+00:00",
-                        "asAtDate": "2022-04-04T08:49:54.1597854+00:00"
+                        "effectiveFrom": "2022-04-04T10:55:44.8100851+00:00",
+                        "asAtDate": "2022-04-04T10:55:44.8100864+00:00"
                       }
                     }
                   }
@@ -6910,8 +6910,8 @@
                   ],
                   "description": "Portfolio must contain no more than 200 securities.",
                   "version": {
-                    "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                    "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                    "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                    "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                   }
                 }
               },
@@ -6939,8 +6939,8 @@
                   ],
                   "description": "Portfolio must contain no more than 200 securities.",
                   "version": {
-                    "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                    "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                    "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                    "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                   }
                 }
               },
@@ -6968,8 +6968,8 @@
                   ],
                   "description": "Portfolio must contain no more than 200 securities.",
                   "version": {
-                    "effectiveFrom": "2022-04-04T08:49:54.1583757+00:00",
-                    "asAtDate": "2022-04-04T08:49:54.1583793+00:00"
+                    "effectiveFrom": "2022-04-04T10:55:44.8094663+00:00",
+                    "asAtDate": "2022-04-04T10:55:44.8094689+00:00"
                   }
                 }
               }
@@ -76059,14 +76059,14 @@
             "maxLength": 128,
             "minLength": 0,
             "type": "string",
-            "description": "A member of the set of possible data types, that all data passed under that key is expected to be of.\r\nCurrently limited to one of [string, integer, decimal].",
+            "description": "A member of the set of possible data types, that all data passed under that key is expected to be of.\r\nCurrently limited to one of [string, integer, decimal, result0d].",
             "nullable": true
           },
           "keyType": {
             "maxLength": 128,
             "minLength": 0,
             "type": "string",
-            "description": "Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual 'row' within the list of dictionaries,\r\nor a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf]",
+            "description": "Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual 'row' within the list of dictionaries,\r\nor a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf]",
             "nullable": true
           }
         },
