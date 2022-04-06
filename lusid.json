@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4196",
+    "version": "0.11.4197",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11699,6 +11699,125 @@
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
                   ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "CustomEntities"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteCustomEntity: Delete a Custom Entity instance.",
+        "description": "Delete a Custom Entity instance by a specific entity type.",
+        "operationId": "DeleteCustomEntity",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "description": "The type of Custom Entity to remove.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "The type of Custom Entity to remove."
+            }
+          },
+          {
+            "name": "identifierType",
+            "in": "path",
+            "description": "An identifier type attached to the Custom Entity instance.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "An identifier type attached to the Custom Entity instance."
+            }
+          },
+          {
+            "name": "identifierValue",
+            "in": "path",
+            "description": "The identifier value.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The identifier value."
+            }
+          },
+          {
+            "name": "identifierScope",
+            "in": "query",
+            "description": "The identifier scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The identifier scope."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete a Custom Entity instance.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
