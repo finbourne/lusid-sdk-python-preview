@@ -6,6 +6,7 @@ from lusidfeature import lusid_feature
 
 import lusid
 import lusid.models as models
+from lusid import ApiException
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
 from utilities.id_generator_utilities import delete_entities
@@ -55,12 +56,16 @@ class CutLabels(unittest.TestCase):
             self.id_generator.add_scope_and_code("cut_label", TestDataUtilities.tutorials_scope, cut_label_code)
 
             # Define the parameters of the cut label in a request
-            request = models.CutLabelDefinition(
-                code=cut_label_code,
-                description=description,
-                display_name=display_name,
-                cut_local_time=time,
-                time_zone=time_zone)
+            try:
+                request = models.CutLabelDefinition(
+                    code=cut_label_code,
+                    description=description,
+                    display_name=display_name,
+                    cut_local_time=time,
+                    time_zone=time_zone)
+            except ApiException as ex:
+                if ex.status != 409:
+                    raise
 
             # Add the codes of our cut labels to our dictionary
             code_dict[request.display_name] = request.code
