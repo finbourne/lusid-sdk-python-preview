@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4223",
+    "version": "0.11.4224",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:52735"
     }
   ],
   "paths": {
@@ -8616,7 +8616,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] CreateCorporateActionSource: Create corporate action source",
+        "summary": "[EARLY ACCESS] CreateCorporateActionSource: Create corporate action source",
         "description": "Create a corporate action source.",
         "operationId": "CreateCorporateActionSource",
         "requestBody": {
@@ -8730,13 +8730,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] ListCorporateActionSources: List corporate action sources",
+        "summary": "[EARLY ACCESS] ListCorporateActionSources: List corporate action sources",
         "description": "Gets a list of all corporate action sources",
         "operationId": "ListCorporateActionSources",
         "parameters": [
@@ -8863,7 +8863,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/corporateactionsources/{scope}/{code}": {
@@ -8969,7 +8969,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] BatchUpsertCorporateActions: Upsert corporate actions",
+        "summary": "[EARLY ACCESS] BatchUpsertCorporateActions: Upsert corporate actions",
         "description": "Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.\r\n            \r\nIf a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.",
         "operationId": "BatchUpsertCorporateActions",
         "parameters": [
@@ -9224,13 +9224,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] GetCorporateActions: Get corporate actions",
+        "summary": "[EARLY ACCESS] GetCorporateActions: Get corporate actions",
         "description": "Get corporate actions from a particular corporate action source.",
         "operationId": "GetCorporateActions",
         "parameters": [
@@ -9399,7 +9399,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
@@ -92803,7 +92803,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
