@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **contract_details** | [**FuturesContractDetails**](FuturesContractDetails.md) |  | 
 **contracts** | **float** | The number of contracts held. | [optional] 
 **ref_spot_price** | **float** | The reference spot price for the future at which the contract was entered into. | [optional] 
-**underlying** | [**LusidInstrument**](LusidInstrument.md) |  | 
+**underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
