@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4266",
+    "version": "0.11.4267",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:37918"
+      "url": "http://local-unit-test-server.lusid.com:58504"
     }
   ],
   "paths": {
@@ -81500,6 +81500,24 @@
         "additionalProperties": false,
         "description": "A description of a problem that has arisen during the processing of a request."
       },
+      "LusidUniqueId": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type for the LUSID unique id, this will depend on the type of entity found, for instance 'Instrument' would have a value of 'LusidInstrumentId'"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value for the LUSID unique id"
+          }
+        },
+        "additionalProperties": false
+      },
       "LusidValidationProblemDetails": {
         "required": [
           "code",
@@ -86601,6 +86619,9 @@
             "type": "string",
             "description": "The scope of the identifier",
             "nullable": true
+          },
+          "lusidUniqueId": {
+            "$ref": "#/components/schemas/LusidUniqueId"
           },
           "identifiers": {
             "type": "array",
