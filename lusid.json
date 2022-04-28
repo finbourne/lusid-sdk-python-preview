@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4267",
+    "version": "0.11.4268",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:58504"
+      "url": "http://local-unit-test-server.lusid.com:55600"
     }
   ],
   "paths": {
@@ -79313,6 +79313,21 @@
               },
               "premium": {
                 "$ref": "#/components/schemas/Premium"
+              },
+              "fgnAmount": {
+                "type": "number",
+                "description": "For a vanilla FxOption contract, FgnAmount cannot be set.\r\nIn case of a digital FxOption (IsPayoffDigital==true)\r\na payoff (if the option is in the money) can be either\r\nin domestic or in foreign currency - for the latter\r\nFgnAmount must be set.\r\nNote: It is invalid to have FgnAmount and DomAmount\r\nat the same time.",
+                "format": "double",
+                "nullable": true
+              },
+              "exerciseType": {
+                "type": "string",
+                "description": "Type of optionality that is present; European, Bermudan, American.\r\nSupported string (enumeration) values are: [European, Bermudan, American].",
+                "nullable": true
+              },
+              "isPayoffDigital": {
+                "type": "boolean",
+                "description": "By default IsPayoffDigital is false. If IsPayoffDigital=true,\r\nthe option is 'digital', and the option payoff is 0 or 1 unit of currency,\r\ninstead of a vanilla CallPayoff=max(spot-strike,0) or PutPayoff=max(strike-spot,0)."
               },
               "instrumentType": {
                 "enum": [
