@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4265",
+    "version": "0.11.4266",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:60669"
+      "url": "http://local-unit-test-server.lusid.com:37918"
     }
   ],
   "paths": {
@@ -5102,6 +5102,7 @@
                         "discountFactors": [
                           1
                         ],
+                        "lineage": "SomeLineage",
                         "marketDataType": "DiscountFactorCurveData"
                       }
                     },
@@ -5156,6 +5157,7 @@
                         "discountFactors": [
                           1
                         ],
+                        "lineage": "SomeLineage",
                         "marketDataType": "DiscountFactorCurveData"
                       }
                     },
@@ -5210,6 +5212,7 @@
                         "discountFactors": [
                           1
                         ],
+                        "lineage": "SomeLineage",
                         "marketDataType": "DiscountFactorCurveData"
                       }
                     },
@@ -5333,6 +5336,7 @@
                     "discountFactors": [
                       1
                     ],
+                    "lineage": "SomeLineage",
                     "marketDataType": "DiscountFactorCurveData"
                   }
                 },
@@ -5378,6 +5382,7 @@
                     "discountFactors": [
                       1
                     ],
+                    "lineage": "SomeLineage",
                     "marketDataType": "DiscountFactorCurveData"
                   }
                 },
@@ -5423,6 +5428,7 @@
                     "discountFactors": [
                       1
                     ],
+                    "lineage": "SomeLineage",
                     "marketDataType": "DiscountFactorCurveData"
                   }
                 },
@@ -5468,6 +5474,7 @@
                     "discountFactors": [
                       1
                     ],
+                    "lineage": "SomeLineage",
                     "marketDataType": "DiscountFactorCurveData"
                   }
                 },
@@ -73701,7 +73708,7 @@
             "maxLength": 1024,
             "minLength": 0,
             "type": "string",
-            "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+            "description": "This is obsolete. It is not used, it will not be stored, and has no effects.\r\nIf you wish to attach a Lineage to your ComplexMarketData,\r\nyou should provide it in the optional Lineage field in the ComplexMarketData class.",
             "nullable": true
           },
           "effectiveAt": {
@@ -75721,6 +75728,13 @@
                 "description": "The maturity dates for which the rates apply.\r\nEither tenors or maturities should be provided, not both.",
                 "nullable": true
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -76710,6 +76724,13 @@
                 },
                 "description": "Discount factors to be applied to cashflow on the specified dates"
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -77141,6 +77162,13 @@
                   "$ref": "#/components/schemas/MarketQuote"
                 },
                 "description": "The set of market quotes that define the surface, in NormalVol or LogNormalVol terms."
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
@@ -78840,6 +78868,13 @@
                 },
                 "description": "For each tenor, a list of identifiers. These will be looked up in the quotes store to resolve the actual rates."
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -78907,6 +78942,13 @@
                   "format": "double"
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy)"
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
@@ -79030,6 +79072,13 @@
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -79097,6 +79146,13 @@
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy)"
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -79163,6 +79219,13 @@
                   "format": "double"
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
@@ -79384,6 +79447,13 @@
                   "$ref": "#/components/schemas/MarketQuote"
                 },
                 "description": "The set of market quotes that define the surface, in NormalVol or LogNormalVol terms."
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
@@ -80966,6 +81036,13 @@
                 },
                 "description": "Access the set of quotes that define the cube."
               },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
               "marketDataType": {
                 "enum": [
                   "DiscountFactorCurveData",
@@ -81989,6 +82066,13 @@
               "name": {
                 "type": "string",
                 "description": "Internal name of document. This is not used for search, it is simply a designator that helps identify the document\r\nand could be anything (filename, ftp address or similar)"
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
@@ -92773,6 +92857,13 @@
                   "$ref": "#/components/schemas/MarketQuote"
                 },
                 "description": "The market quotes corresponding to the the instruments used to define the curve"
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
               },
               "marketDataType": {
                 "enum": [
