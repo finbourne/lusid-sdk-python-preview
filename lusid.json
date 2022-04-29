@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4276",
+    "version": "0.11.4277",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:61309"
+      "url": "http://local-unit-test-server.lusid.com:47615"
     }
   ],
   "paths": {
@@ -78720,7 +78720,6 @@
               "instrumentType",
               "legDefinition",
               "maturityDate",
-              "notional",
               "startDate"
             ],
             "type": "object",
@@ -78740,8 +78739,9 @@
               },
               "notional": {
                 "type": "number",
-                "description": "Scaling factor to apply to leg quantities.",
-                "format": "double"
+                "description": "The initial notional of the Funding Leg instrument.\r\nWhen \"RequiresFundingLegHistory\" property key is present in transaction key, during a GetValuation endpoint call (for instance),\r\nthis field would overriden by the Funding Leg history's notional and this notional field would not be used in the pricing and accrual calculations.\r\nAs such, we recommend setting this to 0 or not setting it at all.\r\nPlease see the following Notebook example and Knowledge Base article:\r\nNotebook: https://github.com/finbourne/sample-notebooks/blob/master/examples/use-cases/instruments/Funding%20Leg%20Swap.ipynb\r\nKnowledge Base article: https://support.lusid.com/knowledgebase/article/KA-01764/",
+                "format": "double",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
