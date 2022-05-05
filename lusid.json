@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4301",
+    "version": "0.11.4302",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:37952"
+      "url": "http://local-unit-test-server.lusid.com:47322"
     }
   ],
   "paths": {
@@ -22836,7 +22836,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "Partially placed"
+                      "derivedState": "Partially placed",
+                      "derivedComplianceState": "Compliant"
                     }
                   ],
                   "links": []
@@ -22942,7 +22943,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "Partially placed"
+                      "derivedState": "Partially placed",
+                      "derivedComplianceState": "Compliant"
                     }
                   ],
                   "links": []
@@ -23048,7 +23050,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "Partially placed"
+                      "derivedState": "Partially placed",
+                      "derivedComplianceState": "Compliant"
                     }
                   ],
                   "links": []
@@ -82686,6 +82689,7 @@
           "allocated",
           "allocationIds",
           "block",
+          "derivedComplianceState",
           "derivedState",
           "executed",
           "executionIds",
@@ -82742,6 +82746,10 @@
           "derivedState": {
             "type": "string",
             "description": "A simple description of the overall state of a block."
+          },
+          "derivedComplianceState": {
+            "type": "string",
+            "description": "A simple description of the compliance state of a block. Possible values are [Unchecked, Non-compliant, Compliant]"
           }
         },
         "additionalProperties": false
