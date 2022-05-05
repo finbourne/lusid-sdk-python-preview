@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4298",
+    "version": "0.11.4299",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:30553"
+      "url": "http://local-unit-test-server.lusid.com:59898"
     }
   ],
   "paths": {
@@ -6978,6 +6978,100 @@
                     "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
                     "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.",
+        "description": "Deletes the rule for all effective time.\r\n            \r\nThe rule will remain viewable at previous as at times, and as part of the results of compliance runs, but it\r\nwill no longer be considered in new compliance runs.\r\n            \r\nThis cannot be undone.",
+        "operationId": "DeleteComplianceRule",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The compliance rule scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The compliance rule scope."
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The compliance rule code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The compliance rule code."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
@@ -72317,7 +72411,8 @@
           "settlementDate": {
             "type": "string",
             "description": "The settlement date for this allocation.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "date": {
             "type": "string",
@@ -72335,7 +72430,8 @@
           "settlementCurrencyFxRate": {
             "type": "number",
             "description": "The settlement currency to allocation currency FX rate.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "counterparty": {
             "type": "string",

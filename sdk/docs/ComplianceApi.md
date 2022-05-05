@@ -1,9 +1,10 @@
 # lusid.ComplianceApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:30553*
+All URIs are relative to *http://local-unit-test-server.lusid.com:59898*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_compliance_rule**](ComplianceApi.md#delete_compliance_rule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] GetComplianceRule: Retrieve the definition of single compliance rule.
 [**get_compliance_run**](ComplianceApi.md#get_compliance_run) | **GET** /api/compliance/{runId} | [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.
 [**list_compliance_rules**](ComplianceApi.md#list_compliance_rules) | **GET** /api/compliance/rules | [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
@@ -11,6 +12,83 @@ Method | HTTP request | Description
 [**run_compliance_check**](ComplianceApi.md#run_compliance_check) | **POST** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
 [**upsert_compliance_rules**](ComplianceApi.md#upsert_compliance_rules) | **POST** /api/compliance/rules | [EXPERIMENTAL] UpsertComplianceRules: Upsert compliance rules.
 
+
+# **delete_compliance_rule**
+> DeletedEntityResponse delete_compliance_rule(scope, code)
+
+[EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.
+
+Deletes the rule for all effective time.                The rule will remain viewable at previous as at times, and as part of the results of compliance runs, but it  will no longer be considered in new compliance runs.                This cannot be undone.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:59898"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:59898"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    scope = 'scope_example' # str | The compliance rule scope.
+code = 'code_example' # str | The compliance rule code.
+
+    try:
+        # [EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.
+        api_response = api_instance.delete_compliance_rule(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->delete_compliance_rule: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The compliance rule scope. | 
+ **code** | **str**| The compliance rule code. | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_compliance_rule**
 > ComplianceRule get_compliance_rule(scope, code, effective_at=effective_at, as_at=as_at)
@@ -28,10 +106,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -41,7 +119,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -109,10 +187,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -122,7 +200,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -190,10 +268,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -203,7 +281,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -273,10 +351,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -286,7 +364,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -352,10 +430,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -365,7 +443,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -427,10 +505,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:30553
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59898
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -440,7 +518,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:30553"
+    host = "http://local-unit-test-server.lusid.com:59898"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
