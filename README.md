@@ -17,7 +17,7 @@ We publish two versions of the Python SDK:
 * [lusid-sdk-python](https://github.com/finbourne/lusid-sdk-python) - supports `Production` and `Early Access` API endpoints**
 * **lusid-sdk-python-preview (this one) - supports `Production`, `Early Access`, `Beta` and `Experimental` API endpoints.**
 
-For more details on API endpoint categories, see [What is the LUSID feature release lifecycle?](https://support.lusid.com/knowledgebase/article/KA-01786/en-us).
+**For more details on API endpoint categories, see [What is the LUSID feature release lifecycle?](https://support.lusid.com/knowledgebase/article/KA-01786/en-us).
 To find out which category an API endpoint falls into, see [LUSID API Documentation](https://www.lusid.com/api/swagger/index.html).
 
 
