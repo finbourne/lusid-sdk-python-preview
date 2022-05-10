@@ -5,10 +5,10 @@ In evaluating a left and right hand side holding or valuation set, two data reco
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**left** | [**IDataRecord**](IDataRecord.md) |  | [optional] 
-**right** | [**IDataRecord**](IDataRecord.md) |  | [optional] 
-**difference** | [**IDataRecord**](IDataRecord.md) |  | [optional] 
-**result_comparison** | [**IDataRecord**](IDataRecord.md) |  | [optional] 
+**left** | **dict(str, object)** | Left hand side of the comparison | [optional] 
+**right** | **dict(str, object)** | Right hand side of the comparison | [optional] 
+**difference** | **dict(str, object)** | Difference between LHS and RHS of comparison | [optional] 
+**result_comparison** | **dict(str, object)** | The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

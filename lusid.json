@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4319",
+    "version": "0.11.4320",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:50843"
+      "url": "http://local-unit-test-server.lusid.com:48796"
     }
   ],
   "paths": {
@@ -36668,6 +36668,17 @@
               "description": "The pagination token to use to continue listing transactions from a previous call to GetTransactions.",
               "nullable": true
             }
+          },
+          {
+            "name": "showCancelledTransactions",
+            "in": "query",
+            "description": "Option to specify whether or not to include cancelled transactions,\r\n             including previous versions of transactions which have since been amended.\r\n             Defaults to False if not specified.",
+            "schema": {
+              "type": "boolean",
+              "description": "Option to specify whether or not to include cancelled transactions,\r\n             including previous versions of transactions which have since been amended.\r\n             Defaults to False if not specified.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -36726,7 +36737,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -36785,7 +36797,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -36844,7 +36857,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -61179,7 +61193,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61244,7 +61259,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61309,7 +61325,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61374,7 +61391,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61439,7 +61457,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61504,7 +61523,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61569,7 +61589,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61722,7 +61743,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -61787,7 +61809,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62038,7 +62061,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62103,7 +62127,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62168,7 +62193,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62233,7 +62259,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62298,7 +62325,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62363,7 +62391,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62428,7 +62457,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62581,7 +62611,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62646,7 +62677,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62897,7 +62929,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -62962,7 +62995,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63027,7 +63061,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63092,7 +63127,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63157,7 +63193,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63222,7 +63259,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63287,7 +63325,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63440,7 +63479,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -63505,7 +63545,8 @@
                         },
                         "properties": {},
                         "source": "",
-                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00"
+                        "entryDateTime": "0001-01-01T00:00:00.0000000+00:00",
+                        "transactionStatus": "Active"
                       },
                       "unrealisedGainLossReportingCurrency": {
                         "amount": 0,
@@ -66316,6 +66357,17 @@
               "nullable": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "showCancelledTransactions",
+            "in": "query",
+            "description": "Option to specify whether or not to include cancelled transactions,\r\n             including previous versions of transactions which have since been amended.\r\n             Defaults to False if not specified.",
+            "schema": {
+              "type": "boolean",
+              "description": "Option to specify whether or not to include cancelled transactions,\r\n             including previous versions of transactions which have since been amended.\r\n             Defaults to False if not specified.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -66374,7 +66426,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -66433,7 +66486,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -66492,7 +66546,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -67990,7 +68045,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -68055,7 +68111,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -68120,7 +68177,8 @@
                         }
                       },
                       "source": "",
-                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00"
+                      "entryDateTime": "2018-03-04T23:50:00.0000000+00:00",
+                      "transactionStatus": "Active"
                     }
                   ],
                   "href": "http://example.com",
@@ -80702,17 +80760,6 @@
         "additionalProperties": false,
         "description": "A record of holdings adjustments made on the transaction portfolio."
       },
-      "IDataRecord": {
-        "type": "object",
-        "properties": {
-          "fieldCount": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "IdentifierPartSchema": {
         "required": [
           "description",
@@ -86890,16 +86937,40 @@
         "type": "object",
         "properties": {
           "left": {
-            "$ref": "#/components/schemas/IDataRecord"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "Left hand side of the comparison",
+            "nullable": true
           },
           "right": {
-            "$ref": "#/components/schemas/IDataRecord"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "Right hand side of the comparison",
+            "nullable": true
           },
           "difference": {
-            "$ref": "#/components/schemas/IDataRecord"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "Difference between LHS and RHS of comparison",
+            "nullable": true
           },
           "resultComparison": {
-            "$ref": "#/components/schemas/IDataRecord"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "The logical or semantic description of the difference, e.g. \"Matches\" or \"MatchesWithTolerance\" or \"Failed\".",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -90959,6 +91030,21 @@
           },
           "otcConfirmation": {
             "$ref": "#/components/schemas/OtcConfirmation"
+          },
+          "transactionStatus": {
+            "enum": [
+              "Active",
+              "Amended",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "The status of the transaction. The available values are: Active, Amended, Cancelled"
+          },
+          "cancelDateTime": {
+            "type": "string",
+            "description": "If the transaction has been cancelled, the asAt datetime that the transaction was cancelled.",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false,
