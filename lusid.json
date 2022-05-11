@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4326",
+    "version": "0.11.4327",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:49056"
+      "url": "http://local-unit-test-server.lusid.com:54205"
     }
   ],
   "paths": {
@@ -5976,7 +5976,7 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.",
+        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING - POST TRADE ONLY",
         "description": "Use this endpoint to fetch a list of all historical compliance runs.",
         "operationId": "ListComplianceRuns",
         "parameters": [
@@ -6027,7 +6027,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
                 },
                 "example": {
                   "values": [
@@ -6042,7 +6042,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
                 },
                 "example": {
                   "values": [
@@ -6057,7 +6057,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
                 },
                 "example": {
                   "values": [
@@ -6067,6 +6067,167 @@
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance",
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/results/{runId}": {
+      "get": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.",
+        "description": "Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown\r\nof the passing state of each rule, portfolio combination.",
+        "operationId": "GetComplianceRunResults",
+        "parameters": [
+          {
+            "name": "runId",
+            "in": "path",
+            "description": "The unique identifier of the compliance run requested.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The unique identifier of the compliance run requested."
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rule results of a specific compliance run",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleId": "0897-6574-1324",
+                      "portfolio": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleId": "0897-6574-1324",
+                      "portfolio": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "ruleId": "0897-6574-1324",
+                      "portfolio": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "passed": true,
+                      "resultValue": 0,
+                      "ruleLowerLimit": 0,
+                      "ruleUpperLimit": 0
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
                   "links": []
                 }
               }
@@ -7118,7 +7279,7 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process",
+        "summary": "[EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process -- DEPRECATING - POST TRADE ONLY",
         "description": "Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.",
         "operationId": "RunComplianceCheck",
         "parameters": [
@@ -7213,7 +7374,7 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.",
+        "summary": "[EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run. -- DEPRECATING - POST TRADE ONLY",
         "description": "Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown\r\nof the passing state of each rule, portfolio combination.",
         "operationId": "GetComplianceRun",
         "parameters": [
@@ -7277,7 +7438,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
                 },
                 "example": {
                   "values": [
@@ -7299,7 +7460,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
                 },
                 "example": {
                   "values": [
@@ -7321,7 +7482,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResourceListOfComplianceRuleResult"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
                 },
                 "example": {
                   "values": [
@@ -74342,14 +74503,14 @@
             "description": "The property key matched by the rule"
           },
           "ruleLowerLimit": {
-            "type": "integer",
+            "type": "number",
             "description": "The lower limit of the rule",
-            "format": "int32"
+            "format": "double"
           },
           "ruleUpperLimit": {
-            "type": "integer",
+            "type": "number",
             "description": "The upper limit of the rule",
-            "format": "int32"
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -83614,88 +83775,6 @@
         "additionalProperties": false,
         "description": "A paginated list of resource that can be returned from a request."
       },
-      "PagedResourceListOfComplianceRuleResult": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results.",
-            "nullable": true
-          },
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComplianceRuleResult"
-            },
-            "description": "The resources to list."
-          },
-          "href": {
-            "type": "string",
-            "description": "The URI of the resource list.",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A paginated list of resource that can be returned from a request."
-      },
-      "PagedResourceListOfComplianceRun": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results.",
-            "nullable": true
-          },
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComplianceRun"
-            },
-            "description": "The resources to list."
-          },
-          "href": {
-            "type": "string",
-            "description": "The URI of the resource list.",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A paginated list of resource that can be returned from a request."
-      },
       "PagedResourceListOfCorporateActionSource": {
         "required": [
           "values"
@@ -87982,6 +88061,88 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ComplianceRule"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
+      "ResourceListOfComplianceRuleResult": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRuleResult"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
+      "ResourceListOfComplianceRun": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRun"
             },
             "description": "The resources to list."
           },
