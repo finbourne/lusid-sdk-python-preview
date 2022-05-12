@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4335",
+    "version": "0.11.4339",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:31618"
     }
   ],
   "paths": {
@@ -40616,6 +40616,172 @@
           }
         ],
         "x-fbn-apistatus": "Stable"
+      },
+      "patch": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] PatchPortfolio: Patch portfolio.",
+        "description": "Create or update certain fields for a particular  portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently supported are: CreationDate.",
+        "operationId": "PatchPortfolio",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio. Together with the\r\n             scope this uniquely identifies the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio. Together with the\r\n             scope this uniquely identifies the portfolio.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902."
+              },
+              "example": [
+                {
+                  "value": "2020-01-01",
+                  "path": "/creationDate",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902."
+              },
+              "example": [
+                {
+                  "value": "2020-01-01",
+                  "path": "/creationDate",
+                  "op": "add"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902."
+              },
+              "example": [
+                {
+                  "value": "2020-01-01",
+                  "path": "/creationDate",
+                  "op": "add"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                },
+                "description": "The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902."
+              },
+              "example": [
+                {
+                  "value": "2020-01-01",
+                  "path": "/creationDate",
+                  "op": "add"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The newly patched portfolio",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultOfPortfolio"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultOfPortfolio"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultOfPortfolio"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}/{code}/commands": {
@@ -72121,6 +72287,22 @@
         },
         "additionalProperties": false
       },
+      "ActionResult": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ActionResultOfPortfolio": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/ActionResult"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Portfolio"
+          }
+        },
+        "additionalProperties": false
+      },
       "AddBusinessDaysToDateRequest": {
         "required": [
           "businessDayOffset",
@@ -93814,7 +93996,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
