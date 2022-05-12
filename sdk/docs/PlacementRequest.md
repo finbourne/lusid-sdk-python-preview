@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **limit_price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **stop_price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **counterparty** | **str** | The market entity this placement is placed with. | 
+**execution_system** | **str** | Optionally specifies the execution system in use. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
