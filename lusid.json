@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4345",
+    "version": "0.11.4346",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:54896"
+      "url": "http://local-unit-test-server.lusid.com:33694"
     }
   ],
   "paths": {
@@ -82658,10 +82658,13 @@
               "NormalVol",
               "ParSpread",
               "IsdaSpread",
-              "Upfront"
+              "Upfront",
+              "Index",
+              "Ratio",
+              "Delta"
             ],
             "type": "string",
-            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront"
+            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta"
           },
           "field": {
             "maxLength": 32,
@@ -82739,10 +82742,13 @@
               "NormalVol",
               "ParSpread",
               "IsdaSpread",
-              "Upfront"
+              "Upfront",
+              "Index",
+              "Ratio",
+              "Delta"
             ],
             "type": "string",
-            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront"
+            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta"
           },
           "field": {
             "maxLength": 32,
@@ -82879,10 +82885,13 @@
               "NormalVol",
               "ParSpread",
               "IsdaSpread",
-              "Upfront"
+              "Upfront",
+              "Index",
+              "Ratio",
+              "Delta"
             ],
             "type": "string",
-            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront"
+            "description": "The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta"
           },
           "value": {
             "type": "number",
@@ -86893,10 +86902,13 @@
               "NormalVol",
               "ParSpread",
               "IsdaSpread",
-              "Upfront"
+              "Upfront",
+              "Index",
+              "Ratio",
+              "Delta"
             ],
             "type": "string",
-            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront",
+            "description": "The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta",
             "nullable": true
           },
           "field": {
@@ -86916,7 +86928,10 @@
           "NormalVol",
           "ParSpread",
           "IsdaSpread",
-          "Upfront"
+          "Upfront",
+          "Index",
+          "Ratio",
+          "Delta"
         ],
         "type": "string"
       },
