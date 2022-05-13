@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4346",
+    "version": "0.11.4347",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:33694"
+      "url": "http://local-unit-test-server.lusid.com:57515"
     }
   ],
   "paths": {
@@ -26931,7 +26931,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -26992,7 +26992,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -27053,7 +27053,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -27283,7 +27283,7 @@
                       "displayName": "Person1DisplayName",
                       "description": "Person1Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId1",
+                      "lusidPersonId": "LUID_00003D4V",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27339,7 +27339,7 @@
                       "displayName": "Person2DisplayName",
                       "description": "Person2Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId2",
+                      "lusidPersonId": "LUID_00003D55",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27407,7 +27407,7 @@
                       "displayName": "Person1DisplayName",
                       "description": "Person1Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId1",
+                      "lusidPersonId": "LUID_00003D4V",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27463,7 +27463,7 @@
                       "displayName": "Person2DisplayName",
                       "description": "Person2Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId2",
+                      "lusidPersonId": "LUID_00003D55",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27531,7 +27531,7 @@
                       "displayName": "Person1DisplayName",
                       "description": "Person1Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId1",
+                      "lusidPersonId": "LUID_00003D4V",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27587,7 +27587,7 @@
                       "displayName": "Person2DisplayName",
                       "description": "Person2Description",
                       "href": "https://example.com",
-                      "lusidPersonId": "UniqueLusidPersonId2",
+                      "lusidPersonId": "LUID_00003D55",
                       "identifiers": {
                         "person/HrSystem1/InternalId": {
                           "key": "Person/HrSystem1/InternalId",
@@ -27782,7 +27782,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -27843,7 +27843,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -27904,7 +27904,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -28229,7 +28229,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -28275,7 +28275,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -28321,7 +28321,7 @@
                   "displayName": "Person1DisplayName",
                   "description": "Person1Description",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -29522,7 +29522,7 @@
                   "displayName": "Person1Description",
                   "description": "Person1DisplayName",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -29568,7 +29568,7 @@
                   "displayName": "Person1Description",
                   "description": "Person1DisplayName",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -29614,7 +29614,7 @@
                   "displayName": "Person1Description",
                   "description": "Person1DisplayName",
                   "href": "https://example.com",
-                  "lusidPersonId": "UniqueLusidPersonId1",
+                  "lusidPersonId": "LUID_00003D4V",
                   "identifiers": {
                     "person/HrSystem1/InternalId": {
                       "key": "Person/HrSystem1/InternalId",
@@ -72911,8 +72911,7 @@
           "settlementDate": {
             "type": "string",
             "description": "The settlement date for this allocation.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "date": {
             "type": "string",
@@ -72930,8 +72929,7 @@
           "settlementCurrencyFxRate": {
             "type": "number",
             "description": "The settlement currency to allocation currency FX rate.",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "counterparty": {
             "type": "string",
@@ -85033,7 +85031,7 @@
           },
           "lusidPersonId": {
             "type": "string",
-            "description": "The unique LUSID Person Identifier (LUPID) of the Person.",
+            "description": "The unique LUSID Person Identifier of the Person.",
             "nullable": true
           },
           "identifiers": {
