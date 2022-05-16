@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4353",
+    "version": "0.11.4357",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:57999"
     }
   ],
   "paths": {
@@ -6068,6 +6068,125 @@
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance",
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/pretraderun": {
+      "post": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] RunPreTradeComplianceCheck: Kick off the pre-trade compliance check process",
+        "description": "Use this endpoint to run a pre-trade compliance check, using all existing pre-trade applicable compliance rules",
+        "operationId": "RunPreTradeComplianceCheck",
+        "parameters": [
+          {
+            "name": "recipeScope",
+            "in": "query",
+            "description": "Scope of recipe to be used - required",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Scope of recipe to be used - required"
+            }
+          },
+          {
+            "name": "recipeCode",
+            "in": "query",
+            "description": "Code of recipe to be used - if not provided, default recipe code will be used",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Code of recipe to be used - if not provided, default recipe code will be used",
+              "nullable": true
+            }
+          },
+          {
+            "name": "byTaxlots",
+            "in": "query",
+            "description": "calculate by taxlots or not - Default: False",
+            "schema": {
+              "type": "boolean",
+              "description": "calculate by taxlots or not - Default: False",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The identifying information of a compliance run",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               }
             }
@@ -52393,7 +52512,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] ListSequences: List Sequences",
+        "summary": "[EARLY ACCESS] ListSequences: List Sequences",
         "description": "List sequences which satisfies filtering criteria.",
         "operationId": "ListSequences",
         "parameters": [
@@ -52495,7 +52614,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}": {
@@ -52503,7 +52622,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] CreateSequence: Create a new sequence",
+        "summary": "[EARLY ACCESS] CreateSequence: Create a new sequence",
         "description": "Create a new sequence",
         "operationId": "CreateSequence",
         "parameters": [
@@ -52680,7 +52799,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}/{code}": {
@@ -52688,7 +52807,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] GetSequence: Get a specified sequence",
+        "summary": "[EARLY ACCESS] GetSequence: Get a specified sequence",
         "description": "Return the details of a specified sequence",
         "operationId": "GetSequence",
         "parameters": [
@@ -52817,7 +52936,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}/{code}/next": {
@@ -52825,7 +52944,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] Next: Get next values from sequence",
+        "summary": "[EARLY ACCESS] Next: Get next values from sequence",
         "description": "Get the next set of values from a specified sequence",
         "operationId": "Next",
         "parameters": [
@@ -52950,7 +53069,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/systemconfiguration/cutlabels": {
@@ -77247,14 +77366,14 @@
           },
           "cycle": {
             "type": "boolean",
-            "description": "Indicates if the sequence would start from minimun value once it reaches maximum value. If set to false, a failure would return if the sequence reaches maximum value. Default to false."
+            "description": "Set to true to start the sequence over again when it reaches the end. Defaults to false if not provided."
           },
           "pattern": {
             "maxLength": 44,
             "minLength": 1,
             "pattern": "^[A-Za-z0-9_-]*\\{\\{seqValue\\}\\}[A-Za-z0-9_-]*$",
             "type": "string",
-            "description": "The pattern to be used to generate next values in the sequence. Default to null. Please provide a null value until further notice.",
+            "description": "The pattern to be used to generate next values in the sequence. Defaults to null if not provided.",
             "nullable": true
           }
         },
@@ -95081,7 +95200,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

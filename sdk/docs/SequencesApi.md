@@ -1,19 +1,19 @@
 # lusid.SequencesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57999*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_sequence**](SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EXPERIMENTAL] CreateSequence: Create a new sequence
-[**get_sequence**](SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] GetSequence: Get a specified sequence
-[**list_sequences**](SequencesApi.md#list_sequences) | **GET** /api/sequences | [EXPERIMENTAL] ListSequences: List Sequences
-[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Next: Get next values from sequence
+[**create_sequence**](SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EARLY ACCESS] CreateSequence: Create a new sequence
+[**get_sequence**](SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EARLY ACCESS] GetSequence: Get a specified sequence
+[**list_sequences**](SequencesApi.md#list_sequences) | **GET** /api/sequences | [EARLY ACCESS] ListSequences: List Sequences
+[**next**](SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EARLY ACCESS] Next: Get next values from sequence
 
 
 # **create_sequence**
 > SequenceDefinition create_sequence(scope, create_sequence_request)
 
-[EXPERIMENTAL] CreateSequence: Create a new sequence
+[EARLY ACCESS] CreateSequence: Create a new sequence
 
 Create a new sequence
 
@@ -26,10 +26,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57999
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,7 +39,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
 create_sequence_request = {"code":"TestCode","increment":1,"minValue":0,"maxValue":10,"start":0,"cycle":false,"pattern":"TXN-{{seqValue}}"} # CreateSequenceRequest | Request to create sequence
 
     try:
-        # [EXPERIMENTAL] CreateSequence: Create a new sequence
+        # [EARLY ACCESS] CreateSequence: Create a new sequence
         api_response = api_instance.create_sequence(scope, create_sequence_request)
         pprint(api_response)
     except ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_sequence**
 > SequenceDefinition get_sequence(scope, code)
 
-[EXPERIMENTAL] GetSequence: Get a specified sequence
+[EARLY ACCESS] GetSequence: Get a specified sequence
 
 Return the details of a specified sequence
 
@@ -103,10 +103,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57999
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +116,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -128,7 +128,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
 
     try:
-        # [EXPERIMENTAL] GetSequence: Get a specified sequence
+        # [EARLY ACCESS] GetSequence: Get a specified sequence
         api_response = api_instance.get_sequence(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 # **list_sequences**
 > PagedResourceListOfSequenceDefinition list_sequences(page=page, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListSequences: List Sequences
+[EARLY ACCESS] ListSequences: List Sequences
 
 List sequences which satisfies filtering criteria.
 
@@ -180,10 +180,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57999
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -193,7 +193,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -206,7 +206,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EXPERIMENTAL] ListSequences: List Sequences
+        # [EARLY ACCESS] ListSequences: List Sequences
         api_response = api_instance.list_sequences(page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 # **next**
 > NextValueInSequenceResponse next(scope, code, batch=batch)
 
-[EXPERIMENTAL] Next: Get next values from sequence
+[EARLY ACCESS] Next: Get next values from sequence
 
 Get the next set of values from a specified sequence
 
@@ -259,10 +259,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:57999
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -272,7 +272,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:57999"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -285,7 +285,7 @@ code = 'code_example' # str | Code of the sequence. This together with stated sc
 batch = 56 # int | Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)
 
     try:
-        # [EXPERIMENTAL] Next: Get next values from sequence
+        # [EARLY ACCESS] Next: Get next values from sequence
         api_response = api_instance.next(scope, code, batch=batch)
         pprint(api_response)
     except ApiException as e:
