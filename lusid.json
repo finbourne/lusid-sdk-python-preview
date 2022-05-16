@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4354",
+    "version": "0.11.4355",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:45636"
+      "url": "http://local-unit-test-server.lusid.com:62885"
     }
   ],
   "paths": {
@@ -52393,7 +52393,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] ListSequences: List Sequences",
+        "summary": "[EARLY ACCESS] ListSequences: List Sequences",
         "description": "List sequences which satisfies filtering criteria.",
         "operationId": "ListSequences",
         "parameters": [
@@ -52495,7 +52495,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}": {
@@ -52503,7 +52503,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] CreateSequence: Create a new sequence",
+        "summary": "[EARLY ACCESS] CreateSequence: Create a new sequence",
         "description": "Create a new sequence",
         "operationId": "CreateSequence",
         "parameters": [
@@ -52680,7 +52680,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}/{code}": {
@@ -52688,7 +52688,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] GetSequence: Get a specified sequence",
+        "summary": "[EARLY ACCESS] GetSequence: Get a specified sequence",
         "description": "Return the details of a specified sequence",
         "operationId": "GetSequence",
         "parameters": [
@@ -52817,7 +52817,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/sequences/{scope}/{code}/next": {
@@ -52825,7 +52825,7 @@
         "tags": [
           "Sequences"
         ],
-        "summary": "[EXPERIMENTAL] Next: Get next values from sequence",
+        "summary": "[EARLY ACCESS] Next: Get next values from sequence",
         "description": "Get the next set of values from a specified sequence",
         "operationId": "Next",
         "parameters": [
@@ -52950,7 +52950,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/systemconfiguration/cutlabels": {
@@ -77247,14 +77247,14 @@
           },
           "cycle": {
             "type": "boolean",
-            "description": "Indicates if the sequence would start from minimun value once it reaches maximum value. If set to false, a failure would return if the sequence reaches maximum value. Default to false."
+            "description": "Set to true to start the sequence over again when it reaches the end. Defaults to false if not provided."
           },
           "pattern": {
             "maxLength": 44,
             "minLength": 1,
             "pattern": "^[A-Za-z0-9_-]*\\{\\{seqValue\\}\\}[A-Za-z0-9_-]*$",
             "type": "string",
-            "description": "The pattern to be used to generate next values in the sequence. Default to null. Please provide a null value until further notice.",
+            "description": "The pattern to be used to generate next values in the sequence. Defaults to null if not provided.",
             "nullable": true
           }
         },
