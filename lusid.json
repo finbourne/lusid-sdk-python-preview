@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4359",
+    "version": "0.11.4360",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:52461"
     }
   ],
   "paths": {
@@ -70911,7 +70911,7 @@
           "Transaction Fees"
         ],
         "summary": "[EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.",
-        "description": "To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part\r\nof the response. To update an existing rule, include the fee code. It is possible to both create and update\r\nfee rules in the same request.\r\n            \r\nThe upsert is transactional - either all create/update operations will succeed or none of them will.",
+        "description": "<br>\r\n            To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part\r\n            of the response. To update an existing rule, include the fee code. It is possible to both create and update\r\n            fee rules in the same request.\r\n            \r\n<br>\r\n            The upsert is transactional - either all create/update operations will succeed or none of them will.\r\n            ",
         "operationId": "UpsertTransactionFeeRules",
         "parameters": [
           {
@@ -70927,7 +70927,7 @@
           }
         ],
         "requestBody": {
-          "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule.",
+          "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n            identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n            created fee rule.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -70935,7 +70935,7 @@
                 "additionalProperties": {
                   "$ref": "#/components/schemas/FeeRuleUpsertRequest"
                 },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n            identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n            created fee rule."
               },
               "example": {
                 "update": {
@@ -70997,7 +70997,7 @@
                 "additionalProperties": {
                   "$ref": "#/components/schemas/FeeRuleUpsertRequest"
                 },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n            identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n            created fee rule."
               },
               "example": {
                 "update": {
@@ -71059,7 +71059,7 @@
                 "additionalProperties": {
                   "$ref": "#/components/schemas/FeeRuleUpsertRequest"
                 },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n            identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n            created fee rule."
               },
               "example": {
                 "update": {
@@ -71121,7 +71121,7 @@
                 "additionalProperties": {
                   "$ref": "#/components/schemas/FeeRuleUpsertRequest"
                 },
-                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n             created fee rule."
+                "description": "A dictionary of upsert request identifiers to rule upsert requests. The request\r\n            identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a\r\n            created fee rule."
               },
               "example": {
                 "update": {
@@ -71600,6 +71600,87 @@
                     "effectiveFrom": "2000-01-01T00:00:00.0000000+00:00",
                     "asAtDate": "2020-01-01T00:00:00.0000000+00:00"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Transaction Fees"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.",
+        "description": "<br>\r\n            Deletes the rule for all effective time.\r\n            \r\n<br>\r\n            The rule will remain viewable at previous as at times, but it will no longer be considered by\r\n            GetApplicableFees.\r\n            \r\n<br>\r\n            This cannot be undone.\r\n            ",
+        "operationId": "DeleteFeeRule",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The fee rule code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The fee rule code."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
                 }
               }
             }
@@ -95200,7 +95281,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
