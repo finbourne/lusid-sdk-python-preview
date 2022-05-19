@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4379",
+    "version": "0.11.4370",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:35606"
+      "url": "https://fbn-prd.lusid.com/api"
     }
   ],
   "paths": {
@@ -69415,19 +69415,6 @@
               "nullable": true
             },
             "x-nullable": true
-          },
-          {
-            "name": "quotesScope",
-            "in": "query",
-            "description": "The scope containing the quotes with the FX rates used for currency conversion.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope containing the quotes with the FX rates used for currency conversion.",
-              "nullable": true
-            }
           }
         ],
         "responses": {
@@ -71659,9 +71646,9 @@
         "tags": [
           "Transaction Fees"
         ],
-        "summary": "[EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.",
+        "summary": "[EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.",
         "description": "<br>\r\n            Deletes the rule for all effective time.\r\n            \r\n<br>\r\n            The rule will remain viewable at previous as at times, but it will no longer be considered by\r\n            GetApplicableFees.\r\n            \r\n<br>\r\n            This cannot be undone.\r\n            ",
-        "operationId": "DeleteTransactionFeeRule",
+        "operationId": "DeleteFeeRule",
         "parameters": [
           {
             "name": "code",
@@ -74112,8 +74099,7 @@
           "settlementDate": {
             "type": "string",
             "description": "The settlement date for this allocation.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "date": {
             "type": "string",
@@ -74131,8 +74117,7 @@
           "settlementCurrencyFxRate": {
             "type": "number",
             "description": "The settlement currency to allocation currency FX rate.",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "counterparty": {
             "type": "string",
@@ -95299,7 +95284,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
