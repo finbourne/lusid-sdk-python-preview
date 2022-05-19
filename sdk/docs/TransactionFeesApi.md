@@ -1,20 +1,20 @@
 # lusid.TransactionFeesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:59998*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_fee_rule**](TransactionFeesApi.md#delete_fee_rule) | **DELETE** /api/transactions/fees/rules/{code} | [EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.
+[**delete_transaction_fee_rule**](TransactionFeesApi.md#delete_transaction_fee_rule) | **DELETE** /api/transactions/fees/rules/{code} | [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
 [**get_applicable_transaction_fees**](TransactionFeesApi.md#get_applicable_transaction_fees) | **POST** /api/transactions/fees/$GetApplicableFees | [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
 [**get_transaction_fee_rule**](TransactionFeesApi.md#get_transaction_fee_rule) | **GET** /api/transactions/fees/rules/{code} | [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
 [**list_transaction_fee_rules**](TransactionFeesApi.md#list_transaction_fee_rules) | **GET** /api/transactions/fees/rules | [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
 [**upsert_transaction_fee_rules**](TransactionFeesApi.md#upsert_transaction_fee_rules) | **POST** /api/transactions/fees/rules | [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
 
 
-# **delete_fee_rule**
-> DeletedEntityResponse delete_fee_rule(code)
+# **delete_transaction_fee_rule**
+> DeletedEntityResponse delete_transaction_fee_rule(code)
 
-[EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.
+[EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
 
 <br>              Deletes the rule for all effective time.                <br>              The rule will remain viewable at previous as at times, but it will no longer be considered by              GetApplicableFees.                <br>              This cannot be undone.              
 
@@ -27,10 +27,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59998
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,7 +40,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -51,11 +51,11 @@ with lusid.ApiClient(configuration) as api_client:
     code = 'code_example' # str | The fee rule code.
 
     try:
-        # [EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.
-        api_response = api_instance.delete_fee_rule(code)
+        # [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+        api_response = api_instance.delete_transaction_fee_rule(code)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TransactionFeesApi->delete_fee_rule: %s\n" % e)
+        print("Exception when calling TransactionFeesApi->delete_transaction_fee_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -102,10 +102,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59998
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +115,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -189,10 +189,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59998
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -202,7 +202,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -268,10 +268,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59998
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -281,7 +281,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -351,10 +351,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-prd.lusid.com/api
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:59998
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -364,7 +364,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "https://fbn-prd.lusid.com/api"
+    host = "http://local-unit-test-server.lusid.com:59998"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
