@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4370",
+    "version": "0.11.4371",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:64501"
+      "url": "http://local-unit-test-server.lusid.com:50655"
     }
   ],
   "paths": {
@@ -71646,9 +71646,9 @@
         "tags": [
           "Transaction Fees"
         ],
-        "summary": "[EXPERIMENTAL] DeleteFeeRule: Deletes a fee rule.",
+        "summary": "[EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.",
         "description": "<br>\r\n            Deletes the rule for all effective time.\r\n            \r\n<br>\r\n            The rule will remain viewable at previous as at times, but it will no longer be considered by\r\n            GetApplicableFees.\r\n            \r\n<br>\r\n            This cannot be undone.\r\n            ",
-        "operationId": "DeleteFeeRule",
+        "operationId": "DeleteTransactionFeeRule",
         "parameters": [
           {
             "name": "code",
