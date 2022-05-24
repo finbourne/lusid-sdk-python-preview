@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4390",
+    "version": "0.11.4391",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-prd.lusid.com/api"
+      "url": "http://local-unit-test-server.lusid.com:54507"
     }
   ],
   "paths": {
@@ -14334,7 +14334,8 @@
                     },
                     "settlementCurrency": "GBP",
                     "settlementCurrencyFxRate": 0.67,
-                    "counterparty": "SomeCounterparty"
+                    "counterparty": "SomeCounterparty",
+                    "averagePrice": 12419.2
                   }
                 ]
               }
@@ -14377,7 +14378,8 @@
                     },
                     "settlementCurrency": "GBP",
                     "settlementCurrencyFxRate": 0.67,
-                    "counterparty": "SomeCounterparty"
+                    "counterparty": "SomeCounterparty",
+                    "averagePrice": 12419.2
                   }
                 ]
               }
@@ -14420,7 +14422,8 @@
                     },
                     "settlementCurrency": "GBP",
                     "settlementCurrencyFxRate": 0.67,
-                    "counterparty": "SomeCounterparty"
+                    "counterparty": "SomeCounterparty",
+                    "averagePrice": 12419.2
                   }
                 ]
               }
@@ -14463,7 +14466,8 @@
                     },
                     "settlementCurrency": "GBP",
                     "settlementCurrencyFxRate": 0.67,
-                    "counterparty": "SomeCounterparty"
+                    "counterparty": "SomeCounterparty",
+                    "averagePrice": 12419.2
                   }
                 ]
               }
@@ -14513,6 +14517,7 @@
                       "settlementCurrency": "GBP",
                       "settlementCurrencyFxRate": 0.67,
                       "counterparty": "SomeCounterparty",
+                      "averagePrice": 12419.2,
                       "version": {
                         "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                         "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -14561,6 +14566,7 @@
                       "settlementCurrency": "GBP",
                       "settlementCurrencyFxRate": 0.67,
                       "counterparty": "SomeCounterparty",
+                      "averagePrice": 12419.2,
                       "version": {
                         "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                         "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -14609,6 +14615,7 @@
                       "settlementCurrency": "GBP",
                       "settlementCurrencyFxRate": 0.67,
                       "counterparty": "SomeCounterparty",
+                      "averagePrice": 12419.2,
                       "version": {
                         "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                         "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -14765,6 +14772,7 @@
                   "settlementCurrency": "GBP",
                   "settlementCurrencyFxRate": 0.67,
                   "counterparty": "SomeCounterparty",
+                  "averagePrice": 12419.2,
                   "version": {
                     "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                     "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -14808,6 +14816,7 @@
                   "settlementCurrency": "GBP",
                   "settlementCurrencyFxRate": 0.67,
                   "counterparty": "SomeCounterparty",
+                  "averagePrice": 12419.2,
                   "version": {
                     "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                     "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -14851,6 +14860,7 @@
                   "settlementCurrency": "GBP",
                   "settlementCurrencyFxRate": 0.67,
                   "counterparty": "SomeCounterparty",
+                  "averagePrice": 12419.2,
                   "version": {
                     "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
                     "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
@@ -24048,7 +24058,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "In progress",
+                      "calculatedAveragePrice": 94.4
                     }
                   ],
                   "links": []
@@ -24146,7 +24157,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "In progress",
+                      "calculatedAveragePrice": 94.4
                     }
                   ],
                   "links": []
@@ -24244,7 +24256,8 @@
                       "allocated": {
                         "quantity": 800
                       },
-                      "derivedState": "In progress"
+                      "derivedState": "In progress",
+                      "calculatedAveragePrice": 94.4
                     }
                   ],
                   "links": []
@@ -79501,6 +79514,12 @@
             "type": "string",
             "description": "The market entity this placement is placed with."
           },
+          "averagePrice": {
+            "type": "number",
+            "description": "The latest average price of all executions for a given placement",
+            "format": "double",
+            "nullable": true
+          },
           "version": {
             "$ref": "#/components/schemas/Version"
           },
@@ -79597,6 +79616,12 @@
           "counterparty": {
             "type": "string",
             "description": "The market entity this placement is placed with."
+          },
+          "averagePrice": {
+            "type": "number",
+            "description": "The latest average price of all executions for a given placement",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -95305,7 +95330,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

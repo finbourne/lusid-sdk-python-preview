@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **settlement_currency** | **str** | The execution&#39;s settlement currency. | 
 **settlement_currency_fx_rate** | **float** | The exectuion&#39;s settlement currency rate. | 
 **counterparty** | **str** | The market entity this placement is placed with. | 
+**average_price** | **float** | The latest average price of all executions for a given placement | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
