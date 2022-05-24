@@ -1,17 +1,16 @@
 # lusid.ComplianceApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:36130*
+All URIs are relative to *http://local-unit-test-server.lusid.com:42062*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_compliance_rule**](ComplianceApi.md#delete_compliance_rule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] GetComplianceRule: Retrieve the definition of single compliance rule.
-[**get_compliance_run**](ComplianceApi.md#get_compliance_run) | **GET** /api/compliance/{runId} | [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run. -- DEPRECATING - POST TRADE ONLY
-[**get_compliance_run_results**](ComplianceApi.md#get_compliance_run_results) | **GET** /api/compliance/results/{runId} | [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
+[**get_compliance_run_results**](ComplianceApi.md#get_compliance_run_results) | **GET** /api/compliance/runs/{runId} | [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
 [**list_compliance_rules**](ComplianceApi.md#list_compliance_rules) | **GET** /api/compliance/rules | [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
-[**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING - POST TRADE ONLY
+[**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
+[**run_compliance**](ComplianceApi.md#run_compliance) | **POST** /api/compliance/runs | [EXPERIMENTAL] RunCompliance: Kick off the compliance check process
 [**run_compliance_check**](ComplianceApi.md#run_compliance_check) | **POST** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process -- DEPRECATING - POST TRADE ONLY
-[**run_pre_trade_compliance_check**](ComplianceApi.md#run_pre_trade_compliance_check) | **POST** /api/compliance/pretraderun | [EXPERIMENTAL] RunPreTradeComplianceCheck: Kick off the pre-trade compliance check process
 [**upsert_compliance_rules**](ComplianceApi.md#upsert_compliance_rules) | **POST** /api/compliance/rules | [EXPERIMENTAL] UpsertComplianceRules: Upsert compliance rules.
 
 
@@ -31,10 +30,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,7 +43,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -108,10 +107,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -121,7 +120,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -173,87 +172,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_compliance_run**
-> ResourceListOfComplianceRuleResult get_compliance_run(run_id, page=page, limit=limit, filter=filter)
-
-[EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run. -- DEPRECATING - POST TRADE ONLY
-
-Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown  of the passing state of each rule, portfolio combination.
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ComplianceApi(api_client)
-    run_id = 'run_id_example' # str | The unique identifier of the compliance run requested.
-page = 'page_example' # str | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
-filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-
-    try:
-        # [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run. -- DEPRECATING - POST TRADE ONLY
-        api_response = api_instance.get_compliance_run(run_id, page=page, limit=limit, filter=filter)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ComplianceApi->get_compliance_run: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **run_id** | **str**| The unique identifier of the compliance run requested. | 
- **page** | **str**| The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
-
-### Return type
-
-[**ResourceListOfComplianceRuleResult**](ResourceListOfComplianceRuleResult.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The details of a specific compliance run |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_compliance_run_results**
 > ResourceListOfComplianceRuleResult get_compliance_run_results(run_id, page=page, limit=limit)
 
@@ -270,10 +188,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -283,7 +201,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -349,10 +267,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -362,7 +280,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -419,9 +337,9 @@ Name | Type | Description  | Notes
 # **list_compliance_runs**
 > ResourceListOfComplianceRun list_compliance_runs(page=page, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING - POST TRADE ONLY
+[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
 
-Use this endpoint to fetch a list of all historical compliance runs.
+!! CURRENTLY RETURNS DUMMY DATA !! Use this endpoint to fetch a list of all historical compliance runs.
 
 ### Example
 
@@ -432,10 +350,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -445,7 +363,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -458,7 +376,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING - POST TRADE ONLY
+        # [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
         api_response = api_instance.list_compliance_runs(page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -495,6 +413,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **run_compliance**
+> ComplianceRun run_compliance(is_pre_trade, recipe_id_scope, recipe_id_code=recipe_id_code, by_taxlots=by_taxlots)
+
+[EXPERIMENTAL] RunCompliance: Kick off the compliance check process
+
+Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:42062"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "http://local-unit-test-server.lusid.com:42062"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    is_pre_trade = True # bool | Required: Boolean flag indicating if a run should be PreTrade (Including orders). For post-trade only, set to false
+recipe_id_scope = 'recipe_id_scope_example' # str | Required: the scope of the recipe to be used
+recipe_id_code = 'recipe_id_code_example' # str | Optional: The code of the recipe to be used. If left blank, the default recipe will be used. (optional)
+by_taxlots = True # bool | Optional. (optional)
+
+    try:
+        # [EXPERIMENTAL] RunCompliance: Kick off the compliance check process
+        api_response = api_instance.run_compliance(is_pre_trade, recipe_id_scope, recipe_id_code=recipe_id_code, by_taxlots=by_taxlots)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->run_compliance: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **is_pre_trade** | **bool**| Required: Boolean flag indicating if a run should be PreTrade (Including orders). For post-trade only, set to false | 
+ **recipe_id_scope** | **str**| Required: the scope of the recipe to be used | 
+ **recipe_id_code** | **str**| Optional: The code of the recipe to be used. If left blank, the default recipe will be used. | [optional] 
+ **by_taxlots** | **bool**| Optional. | [optional] 
+
+### Return type
+
+[**ComplianceRun**](ComplianceRun.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The identifying information of a compliance run |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **run_compliance_check**
 > ComplianceRun run_compliance_check(file_name)
 
@@ -511,10 +510,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -524,7 +523,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -570,85 +569,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **run_pre_trade_compliance_check**
-> ComplianceRun run_pre_trade_compliance_check(recipe_scope, recipe_code=recipe_code, by_taxlots=by_taxlots)
-
-[EXPERIMENTAL] RunPreTradeComplianceCheck: Kick off the pre-trade compliance check process
-
-Use this endpoint to run a pre-trade compliance check, using all existing pre-trade applicable compliance rules
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ComplianceApi(api_client)
-    recipe_scope = 'recipe_scope_example' # str | Scope of recipe to be used - required
-recipe_code = 'recipe_code_example' # str | Code of recipe to be used - if not provided, default recipe code will be used (optional)
-by_taxlots = True # bool | calculate by taxlots or not - Default: False (optional)
-
-    try:
-        # [EXPERIMENTAL] RunPreTradeComplianceCheck: Kick off the pre-trade compliance check process
-        api_response = api_instance.run_pre_trade_compliance_check(recipe_scope, recipe_code=recipe_code, by_taxlots=by_taxlots)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ComplianceApi->run_pre_trade_compliance_check: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **recipe_scope** | **str**| Scope of recipe to be used - required | 
- **recipe_code** | **str**| Code of recipe to be used - if not provided, default recipe code will be used | [optional] 
- **by_taxlots** | **bool**| calculate by taxlots or not - Default: False | [optional] 
-
-### Return type
-
-[**ComplianceRun**](ComplianceRun.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The identifying information of a compliance run |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **upsert_compliance_rules**
 > ComplianceRuleUpsertResponse upsert_compliance_rules(request_body, effective_at=effective_at)
 
@@ -665,10 +585,10 @@ import time
 import lusid
 from lusid.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:36130
+# Defining the host is optional and defaults to http://local-unit-test-server.lusid.com:42062
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -678,7 +598,7 @@ configuration = lusid.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid.Configuration(
-    host = "http://local-unit-test-server.lusid.com:36130"
+    host = "http://local-unit-test-server.lusid.com:42062"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

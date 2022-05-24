@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4394",
+    "version": "0.11.4396",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://local-unit-test-server.lusid.com:36130"
+      "url": "http://local-unit-test-server.lusid.com:42062"
     }
   ],
   "paths": {
@@ -5976,8 +5976,8 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING - POST TRADE ONLY",
-        "description": "Use this endpoint to fetch a list of all historical compliance runs.",
+        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.",
+        "description": "!! CURRENTLY RETURNS DUMMY DATA !! Use this endpoint to fetch a list of all historical compliance runs.",
         "operationId": "ListComplianceRuns",
         "parameters": [
           {
@@ -6067,286 +6067,6 @@
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/compliance/pretraderun": {
-      "post": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] RunPreTradeComplianceCheck: Kick off the pre-trade compliance check process",
-        "description": "Use this endpoint to run a pre-trade compliance check, using all existing pre-trade applicable compliance rules",
-        "operationId": "RunPreTradeComplianceCheck",
-        "parameters": [
-          {
-            "name": "recipeScope",
-            "in": "query",
-            "description": "Scope of recipe to be used - required",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Scope of recipe to be used - required"
-            }
-          },
-          {
-            "name": "recipeCode",
-            "in": "query",
-            "description": "Code of recipe to be used - if not provided, default recipe code will be used",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "Code of recipe to be used - if not provided, default recipe code will be used",
-              "nullable": true
-            }
-          },
-          {
-            "name": "byTaxlots",
-            "in": "query",
-            "description": "calculate by taxlots or not - Default: False",
-            "schema": {
-              "type": "boolean",
-              "description": "calculate by taxlots or not - Default: False",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The identifying information of a compliance run",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/compliance/results/{runId}": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.",
-        "description": "Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown\r\nof the passing state of each rule, portfolio combination.",
-        "operationId": "GetComplianceRunResults",
-        "parameters": [
-          {
-            "name": "runId",
-            "in": "path",
-            "description": "The unique identifier of the compliance run requested.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier of the compliance run requested."
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The rule results of a specific compliance run",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true,
-                      "resultValue": 0,
-                      "ruleLowerLimit": 0,
-                      "ruleUpperLimit": 0
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true,
-                      "resultValue": 0,
-                      "ruleLowerLimit": 0,
-                      "ruleUpperLimit": 0
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRuleResult"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "ruleId": "0897-6574-1324",
-                      "portfolio": {
-                        "scope": "MyScope",
-                        "code": "MyPortfolioCode"
-                      },
-                      "passed": true,
-                      "resultValue": 0,
-                      "ruleLowerLimit": 0,
-                      "ruleUpperLimit": 0
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance/some-run-id",
                   "links": []
                 }
               }
@@ -7488,14 +7208,143 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/compliance/{runId}": {
+    "/api/compliance/runs": {
+      "post": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] RunCompliance: Kick off the compliance check process",
+        "description": "Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.",
+        "operationId": "RunCompliance",
+        "parameters": [
+          {
+            "name": "isPreTrade",
+            "in": "query",
+            "description": "Required: Boolean flag indicating if a run should be PreTrade (Including orders). For post-trade only, set to false",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "description": "Required: Boolean flag indicating if a run should be PreTrade (Including orders). For post-trade only, set to false"
+            }
+          },
+          {
+            "name": "recipeIdScope",
+            "in": "query",
+            "description": "Required: the scope of the recipe to be used",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Required: the scope of the recipe to be used"
+            }
+          },
+          {
+            "name": "recipeIdCode",
+            "in": "query",
+            "description": "Optional: The code of the recipe to be used. If left blank, the default recipe will be used.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional: The code of the recipe to be used. If left blank, the default recipe will be used.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "byTaxlots",
+            "in": "query",
+            "description": "Optional.",
+            "schema": {
+              "type": "boolean",
+              "description": "Optional.",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The identifying information of a compliance run",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRun"
+                },
+                "example": {
+                  "runId": "1234-5678-9101",
+                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/runs/{runId}": {
       "get": {
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run. -- DEPRECATING - POST TRADE ONLY",
+        "summary": "[EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.",
         "description": "Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown\r\nof the passing state of each rule, portfolio combination.",
-        "operationId": "GetComplianceRun",
+        "operationId": "GetComplianceRunResults",
         "parameters": [
           {
             "name": "runId",
@@ -7536,24 +7385,11 @@
               "nullable": true
             },
             "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "The details of a specific compliance run",
+            "description": "The rule results of a specific compliance run",
             "content": {
               "text/plain": {
                 "schema": {
@@ -84244,7 +84080,8 @@
           "CashFxForward",
           "UnsettledCashTypes",
           "Carry",
-          "CarryAsPnl"
+          "CarryAsPnl",
+          "VariationMargin"
         ],
         "type": "string"
       },
@@ -92831,10 +92668,11 @@
               "CashFxForward",
               "UnsettledCashTypes",
               "Carry",
-              "CarryAsPnl"
+              "CarryAsPnl",
+              "VariationMargin"
             ],
             "type": "string",
-            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl"
+            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin"
           },
           "side": {
             "type": "string",
@@ -92895,10 +92733,11 @@
               "CashFxForward",
               "UnsettledCashTypes",
               "Carry",
-              "CarryAsPnl"
+              "CarryAsPnl",
+              "VariationMargin"
             ],
             "type": "string",
-            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl"
+            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin"
           },
           "side": {
             "type": "string",
