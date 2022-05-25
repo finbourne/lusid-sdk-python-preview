@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4403",
+    "version": "0.11.4400",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -56260,7 +56260,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "GetA2BData: Get A2B data",
+        "summary": "[EXPERIMENTAL] GetA2BData: Get A2B data",
         "description": "Get an A2B report for the given portfolio.",
         "operationId": "GetA2BData",
         "parameters": [
@@ -60623,7 +60623,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Stable"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/a2bmovements": {
@@ -60631,7 +60631,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "GetA2BMovements: Get an A2B report at the movement level for the given portfolio.",
+        "summary": "[EXPERIMENTAL] GetA2BMovements: Get an A2B report at the movement level for the given portfolio.",
         "description": "Get an A2B report at the movement level for the given portfolio.",
         "operationId": "GetA2BMovements",
         "parameters": [
@@ -61412,7 +61412,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Stable"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/bucketedCashFlows": {
@@ -61755,7 +61755,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "GetPortfolioCashLadder: Get portfolio cash ladder",
+        "summary": "[EXPERIMENTAL] GetPortfolioCashLadder: Get portfolio cash ladder",
         "description": "Get a cash ladder for a transaction portfolio.",
         "operationId": "GetPortfolioCashLadder",
         "parameters": [
@@ -62256,7 +62256,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Stable"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/cashstatement": {
@@ -62264,7 +62264,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "GetPortfolioCashStatement: Get portfolio cash statement",
+        "summary": "[EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement",
         "description": "Get a cash statement for a transaction portfolio.",
         "operationId": "GetPortfolioCashStatement",
         "parameters": [
@@ -65010,7 +65010,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Stable"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/details": {
@@ -95169,7 +95169,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
