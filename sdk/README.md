@@ -1022,7 +1022,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://lusid.okta.com/oauth2/default/v1/authorize
+- **Authorization URL**: https://dummyurl.lusid.com/
 - **Scopes**: N/A
 
 
