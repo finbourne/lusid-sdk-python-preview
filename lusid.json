@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4405",
+    "version": "0.11.4409",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -23895,7 +23895,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
@@ -23994,7 +23994,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
@@ -24093,7 +24093,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
