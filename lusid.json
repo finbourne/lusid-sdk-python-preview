@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4410",
+    "version": "0.11.4414",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -23433,19 +23433,77 @@
                         }
                       ],
                       "ordered": {
-                        "quantity": 1500
+                        "quantity": 1500,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            },
+                            "complianceState": "Passed"
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            },
+                            "complianceState": "Failed"
+                          }
+                        ]
                       },
                       "placed": {
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000456"
+                            }
+                          }
+                        ]
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "Partially placed",
-                      "derivedComplianceState": "Compliant"
+                      "derivedComplianceState": "Failed"
                     }
                   ],
                   "links": []
@@ -23540,19 +23598,77 @@
                         }
                       ],
                       "ordered": {
-                        "quantity": 1500
+                        "quantity": 1500,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            },
+                            "complianceState": "Passed"
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            },
+                            "complianceState": "Failed"
+                          }
+                        ]
                       },
                       "placed": {
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000456"
+                            }
+                          }
+                        ]
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "Partially placed",
-                      "derivedComplianceState": "Compliant"
+                      "derivedComplianceState": "Failed"
                     }
                   ],
                   "links": []
@@ -23647,19 +23763,77 @@
                         }
                       ],
                       "ordered": {
-                        "quantity": 1500
+                        "quantity": 1500,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            },
+                            "complianceState": "Passed"
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            },
+                            "complianceState": "Failed"
+                          }
+                        ]
                       },
                       "placed": {
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "PLAC00000456"
+                            }
+                          }
+                        ]
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "Partially placed",
-                      "derivedComplianceState": "Compliant"
+                      "derivedComplianceState": "Failed"
                     }
                   ],
                   "links": []
@@ -23885,14 +24059,58 @@
                           "code": "EXEC0000456"
                         }
                       ],
+                      "ordered": {
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            }
+                          }
+                        ]
+                      },
                       "placed": {
                         "quantity": 1250
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "In progress",
                       "calculatedAveragePrice": 12401.26
@@ -23984,14 +24202,58 @@
                           "code": "EXEC0000456"
                         }
                       ],
+                      "ordered": {
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            }
+                          }
+                        ]
+                      },
                       "placed": {
                         "quantity": 1250
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "In progress",
                       "calculatedAveragePrice": 12401.26
@@ -24083,14 +24345,58 @@
                           "code": "EXEC0000456"
                         }
                       ],
+                      "ordered": {
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ORD00000456"
+                            }
+                          }
+                        ]
+                      },
                       "placed": {
                         "quantity": 1250
                       },
                       "executed": {
-                        "quantity": 1100
+                        "quantity": 1100,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "EXEC0000456"
+                            }
+                          }
+                        ]
                       },
                       "allocated": {
-                        "quantity": 800
+                        "quantity": 800,
+                        "details": [
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000123"
+                            }
+                          },
+                          {
+                            "id": {
+                              "scope": "MyScope",
+                              "code": "ALLOC00000456"
+                            }
+                          }
+                        ]
                       },
                       "derivedState": "In progress",
                       "calculatedAveragePrice": 12401.26
@@ -84400,40 +84706,40 @@
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers for all the orders in this block."
+            "description": "Identifiers for all the orders in this block - DEPRECATED: see Ordered."
           },
           "placementIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers of all placements for the block."
+            "description": "Identifiers of all placements for the block - DEPRECATED: see Placed."
           },
           "allocationIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers for all allocations of placements to orders in the block."
+            "description": "Identifiers for all allocations of placements to orders in the block - DEPRECATED: see Allocated."
           },
           "executionIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers of all executions against placements in the block."
+            "description": "Identifiers of all executions against placements in the block - DEPRECATED: see Executed."
           },
           "ordered": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphBlockOrderSynopsis"
           },
           "placed": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphBlockPlacementSynopsis"
           },
           "executed": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphBlockExecutionSynopsis"
           },
           "allocated": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphBlockAllocationSynopsis"
           },
           "derivedState": {
             "type": "string",
@@ -84441,7 +84747,148 @@
           },
           "derivedComplianceState": {
             "type": "string",
-            "description": "A simple description of the compliance state of a block. Possible values are [Unchecked, Non-compliant, Compliant]"
+            "description": "The overall compliance state of a block, derived from the block's orders. Possible values are Pending, Failed, and Passed."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockAllocationDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockAllocationSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units allocated.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphBlockAllocationDetail"
+            },
+            "description": "Identifiers for each allocation in this block."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockExecutionDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockExecutionSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units executed.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphBlockExecutionDetail"
+            },
+            "description": "Identifiers for each execution in this block."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockOrderDetail": {
+        "required": [
+          "complianceState",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "complianceState": {
+            "type": "string",
+            "description": "The compliance state of this order."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockOrderSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units ordered.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphBlockOrderDetail"
+            },
+            "description": "Identifiers and other info for each order in this block."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockPlacementDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphBlockPlacementSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units placed.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphBlockPlacementDetail"
+            },
+            "description": "Identifiers for each placement in this block."
           }
         },
         "additionalProperties": false
@@ -84454,6 +84901,7 @@
           "derivedState",
           "executed",
           "executionIds",
+          "ordered",
           "orderIds",
           "placed",
           "placement"
@@ -84471,30 +84919,33 @@
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers for all orders in the block."
+            "description": "Identifiers for all orders in the block - DEPRECATED: see Ordered."
           },
           "allocationIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers for all allocations relating to this placement."
+            "description": "Identifiers for all allocations relating to this placement - DEPRECATED: see Allocated."
           },
           "executionIds": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
             },
-            "description": "Identifiers of all executions against this placement."
+            "description": "Identifiers of all executions against this placement - DEPRECATED: see Executed."
+          },
+          "ordered": {
+            "$ref": "#/components/schemas/OrderGraphPlacementOrderSynopsis"
           },
           "placed": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphPlacementPlacementSynopsis"
           },
           "executed": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphPlacementExecutionSynopsis"
           },
           "allocated": {
-            "$ref": "#/components/schemas/OrderGraphSynopsis"
+            "$ref": "#/components/schemas/OrderGraphPlacementAllocationSynopsis"
           },
           "derivedState": {
             "type": "string",
@@ -84509,7 +84960,103 @@
         },
         "additionalProperties": false
       },
-      "OrderGraphSynopsis": {
+      "OrderGraphPlacementAllocationDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementAllocationSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units allocated.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphPlacementAllocationDetail"
+            },
+            "description": "Identifiers for each allocation in this placement."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementExecutionDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementExecutionSynopsis": {
+        "required": [
+          "details",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Total number of units executed.",
+            "format": "double"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphPlacementExecutionDetail"
+            },
+            "description": "Identifiers info for each execution against this placement."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementOrderDetail": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementOrderSynopsis": {
+        "required": [
+          "details"
+        ],
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderGraphPlacementOrderDetail"
+            },
+            "description": "Identifiers for each order in the block."
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGraphPlacementPlacementSynopsis": {
         "required": [
           "quantity"
         ],
@@ -84517,7 +85064,7 @@
         "properties": {
           "quantity": {
             "type": "number",
-            "description": "Total number of units.",
+            "description": "Total number of units placed.",
             "format": "double"
           }
         },
