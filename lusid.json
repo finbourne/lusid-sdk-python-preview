@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4411",
+    "version": "0.11.4410",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -23895,7 +23895,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
@@ -23994,7 +23994,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
@@ -24093,7 +24093,7 @@
                         "quantity": 800
                       },
                       "derivedState": "In progress",
-                      "calculatedAveragePrice": 94.4
+                      "calculatedAveragePrice": 12401.26
                     }
                   ],
                   "links": []
@@ -25222,7 +25222,7 @@
                       "type": "Limit",
                       "timeInForce": "GoodTilCancel",
                       "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
+                      "stopPrice": {
                         "amount": 534,
                         "currency": "USD"
                       },
@@ -25279,7 +25279,7 @@
                       "type": "Limit",
                       "timeInForce": "GoodTilCancel",
                       "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
+                      "stopPrice": {
                         "amount": 534,
                         "currency": "USD"
                       },
@@ -25336,7 +25336,7 @@
                       "type": "Limit",
                       "timeInForce": "GoodTilCancel",
                       "date": "1999-06-05T00:00:00.0000000+00:00",
-                      "price": {
+                      "stopPrice": {
                         "amount": 534,
                         "currency": "USD"
                       },
@@ -25501,7 +25501,7 @@
                   "type": "Limit",
                   "timeInForce": "GoodTilCancel",
                   "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
+                  "limitPrice": {
                     "amount": 534,
                     "currency": "USD"
                   },
@@ -25553,7 +25553,7 @@
                   "type": "Limit",
                   "timeInForce": "GoodTilCancel",
                   "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
+                  "limitPrice": {
                     "amount": 534,
                     "currency": "USD"
                   },
@@ -25605,7 +25605,7 @@
                   "type": "Limit",
                   "timeInForce": "GoodTilCancel",
                   "date": "1999-06-05T00:00:00.0000000+00:00",
-                  "price": {
+                  "limitPrice": {
                     "amount": 534,
                     "currency": "USD"
                   },
@@ -46103,7 +46103,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] UpsertQuotes: Upsert quotes",
+        "summary": "UpsertQuotes: Upsert quotes",
         "description": "Update or insert one or more quotes in a single scope. A quote will be updated if it already exists\r\nand inserted if it does not.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully updated or inserted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be updated or inserted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.\n\nThe maximum number of quotes that this method can upsert per request is 2,000.",
         "operationId": "UpsertQuotes",
         "parameters": [
@@ -46372,13 +46372,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       },
       "get": {
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] ListQuotesForScope: List quotes for scope",
+        "summary": "ListQuotesForScope: List quotes for scope",
         "description": "List all the quotes from a single scope at the specified date/time",
         "operationId": "ListQuotesForScope",
         "parameters": [
@@ -46516,7 +46516,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/quotes/{scope}/$delete": {
@@ -46524,7 +46524,7 @@
         "tags": [
           "Quotes"
         ],
-        "summary": "[EARLY ACCESS] DeleteQuotes: Delete quotes",
+        "summary": "DeleteQuotes: Delete quotes",
         "description": "Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about\r\nthe type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.\r\n            \r\nIn the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each quote in the response.\r\n            \r\nThe response will return both the collection of successfully deleted quotes, as well as those that failed.\r\nFor the failures a reason will be provided explaining why the quote could not be deleted.\r\n            \r\nIt is important to always check the failed set for any unsuccessful results.",
         "operationId": "DeleteQuotes",
         "parameters": [
@@ -46697,7 +46697,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/quotes/{scope}/$deprecated": {
@@ -56260,7 +56260,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetA2BData: Get A2B data",
+        "summary": "GetA2BData: Get A2B data",
         "description": "Get an A2B report for the given portfolio.",
         "operationId": "GetA2BData",
         "parameters": [
@@ -60623,7 +60623,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/a2bmovements": {
@@ -60631,7 +60631,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetA2BMovements: Get an A2B report at the movement level for the given portfolio.",
+        "summary": "GetA2BMovements: Get an A2B report at the movement level for the given portfolio.",
         "description": "Get an A2B report at the movement level for the given portfolio.",
         "operationId": "GetA2BMovements",
         "parameters": [
@@ -61412,7 +61412,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/bucketedCashFlows": {
@@ -61755,7 +61755,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioCashLadder: Get portfolio cash ladder",
+        "summary": "GetPortfolioCashLadder: Get portfolio cash ladder",
         "description": "Get a cash ladder for a transaction portfolio.",
         "operationId": "GetPortfolioCashLadder",
         "parameters": [
@@ -62256,7 +62256,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/cashstatement": {
@@ -62264,7 +62264,7 @@
         "tags": [
           "Transaction Portfolios"
         ],
-        "summary": "[EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement",
+        "summary": "GetPortfolioCashStatement: Get portfolio cash statement",
         "description": "Get a cash statement for a transaction portfolio.",
         "operationId": "GetPortfolioCashStatement",
         "parameters": [
@@ -65010,7 +65010,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/transactionportfolios/{scope}/{code}/details": {
@@ -84330,6 +84330,12 @@
           "price": {
             "$ref": "#/components/schemas/CurrencyAndAmount"
           },
+          "limitPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "stopPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
           "orderInstructionId": {
             "$ref": "#/components/schemas/ResourceId"
           },
@@ -84649,6 +84655,12 @@
             "format": "date-time"
           },
           "price": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "limitPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "stopPrice": {
             "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "orderInstruction": {
@@ -95169,7 +95181,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
