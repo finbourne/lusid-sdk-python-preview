@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4420",
+    "version": "0.11.4422",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17015,6 +17015,242 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/instruments/{identifierType}/{identifier}/paymentdiary": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary",
+        "description": "Get the payment diary of a single instrument.",
+        "operationId": "GetInstrumentPaymentDiary",
+        "parameters": [
+          {
+            "name": "identifierType",
+            "in": "path",
+            "description": "The identifier being supplied e.g. \"Figi\".",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The identifier being supplied e.g. \"Figi\".",
+              "nullable": true
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The value of the identifier for the requested instrument.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The value of the identifier for the requested instrument.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeScope",
+            "in": "query",
+            "description": "The scope of the valuation recipe being used to generate the payment diary",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the valuation recipe being used to generate the payment diary",
+              "nullable": true
+            }
+          },
+          {
+            "name": "recipeCode",
+            "in": "query",
+            "description": "The code of the valuation recipe being used to generate the payment diary",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the valuation recipe being used to generate the payment diary",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "default": "default",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payment diary of the specified instrument",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentPaymentDiary"
+                },
+                "example": {
+                  "instrumentIdType": "ClientInternal",
+                  "instrumentId": "An-Identifier",
+                  "instrumentScope": "default",
+                  "legs": [
+                    {
+                      "legId": "Recieve",
+                      "rows": [
+                        {
+                          "quantity": 1000,
+                          "currency": "GBP",
+                          "paymentDate": "2022-06-01T00:00:00.0000000+00:00",
+                          "payOrReceive": "Receive",
+                          "accrualStart": "2022-05-01T00:00:00.0000000+00:00",
+                          "accrualEnd": "2022-05-31T00:00:00.0000000+00:00",
+                          "cashFlowType": "Coupon",
+                          "isCashFlowDetermined": true,
+                          "isCashFlowHistoric": false,
+                          "discountFactor": 1,
+                          "discountedExpectedCashFlowAmount": 1000
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentPaymentDiary"
+                },
+                "example": {
+                  "instrumentIdType": "ClientInternal",
+                  "instrumentId": "An-Identifier",
+                  "instrumentScope": "default",
+                  "legs": [
+                    {
+                      "legId": "Recieve",
+                      "rows": [
+                        {
+                          "quantity": 1000,
+                          "currency": "GBP",
+                          "paymentDate": "2022-06-01T00:00:00.0000000+00:00",
+                          "payOrReceive": "Receive",
+                          "accrualStart": "2022-05-01T00:00:00.0000000+00:00",
+                          "accrualEnd": "2022-05-31T00:00:00.0000000+00:00",
+                          "cashFlowType": "Coupon",
+                          "isCashFlowDetermined": true,
+                          "isCashFlowHistoric": false,
+                          "discountFactor": 1,
+                          "discountedExpectedCashFlowAmount": 1000
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentPaymentDiary"
+                },
+                "example": {
+                  "instrumentIdType": "ClientInternal",
+                  "instrumentId": "An-Identifier",
+                  "instrumentScope": "default",
+                  "legs": [
+                    {
+                      "legId": "Recieve",
+                      "rows": [
+                        {
+                          "quantity": 1000,
+                          "currency": "GBP",
+                          "paymentDate": "2022-06-01T00:00:00.0000000+00:00",
+                          "payOrReceive": "Receive",
+                          "accrualStart": "2022-05-01T00:00:00.0000000+00:00",
+                          "accrualEnd": "2022-05-31T00:00:00.0000000+00:00",
+                          "cashFlowType": "Coupon",
+                          "isCashFlowDetermined": true,
+                          "isCashFlowHistoric": false,
+                          "discountFactor": 1,
+                          "discountedExpectedCashFlowAmount": 1000
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/instruments/{identifierType}/{identifier}/properties": {
@@ -65550,7 +65786,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -65569,7 +65806,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -65588,7 +65826,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -65749,7 +65988,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -65768,7 +66008,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -65787,7 +66028,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -65996,7 +66238,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -66015,7 +66258,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -66034,7 +66278,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -83262,6 +83507,157 @@
         "additionalProperties": false,
         "description": "A collection of instrument search results"
       },
+      "InstrumentPaymentDiary": {
+        "type": "object",
+        "properties": {
+          "instrumentIdType": {
+            "type": "string",
+            "description": "The identifier type of the instrument.",
+            "nullable": true
+          },
+          "instrumentId": {
+            "type": "string",
+            "description": "The identifier for the instrument.",
+            "nullable": true
+          },
+          "instrumentScope": {
+            "type": "string",
+            "description": "The scope of the instrument.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "legs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentPaymentDiaryLeg"
+            },
+            "description": "Aggregated sets of Cashflows.",
+            "nullable": true
+          },
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A payment diary containing all the cashflows on a single instrument."
+      },
+      "InstrumentPaymentDiaryLeg": {
+        "type": "object",
+        "properties": {
+          "legId": {
+            "type": "string",
+            "description": "Identifier for the leg of a payment diary.",
+            "nullable": true
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentPaymentDiaryRow"
+            },
+            "description": "List of individual cashflows within the payment diary.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A leg containing a set of cashflows."
+      },
+      "InstrumentPaymentDiaryRow": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "The quantity (amount) that will be paid. Note that this can be empty if the payment is in the future and a model is used that cannot estimate it.",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The payment currency of the cash flow.",
+            "nullable": true
+          },
+          "paymentDate": {
+            "type": "string",
+            "description": "The date at which the given cash flow is due to be paid.",
+            "format": "date-time"
+          },
+          "payOrReceive": {
+            "type": "string",
+            "description": "Does the cash flow belong to the Pay or Receive leg.",
+            "nullable": true
+          },
+          "accrualStart": {
+            "type": "string",
+            "description": "The date on which accruals start for this cashflow.",
+            "format": "date-time"
+          },
+          "accrualEnd": {
+            "type": "string",
+            "description": "The date on which accruals end for this cashflow.",
+            "format": "date-time"
+          },
+          "cashFlowType": {
+            "type": "string",
+            "description": "The type of cashflow.",
+            "nullable": true
+          },
+          "isCashFlowDetermined": {
+            "type": "boolean",
+            "description": "Is the cashflow determined as of the effective date time."
+          },
+          "isCashFlowHistoric": {
+            "type": "boolean",
+            "description": "Has the cashflow been paid, i.e. has it become a historic cashflow, as of the date and time pointed to be effectiveAt."
+          },
+          "discountFactor": {
+            "type": "number",
+            "description": "Weighting factor to discount cashflow to the present value.",
+            "format": "double"
+          },
+          "discountedExpectedCashFlowAmount": {
+            "type": "number",
+            "description": "The expected cashflow amount taking into account the discount factor.",
+            "format": "double"
+          },
+          "dayCountFraction": {
+            "type": "number",
+            "description": "The day count fraction, if appropriate.",
+            "format": "double",
+            "nullable": true
+          },
+          "forwardRate": {
+            "type": "number",
+            "description": "Forward rate for cash flow if appropriate. (as in for a rates fixed or floating leg)",
+            "format": "double",
+            "nullable": true
+          },
+          "resetRate": {
+            "type": "number",
+            "description": "The value of the reset, if any.",
+            "format": "double",
+            "nullable": true
+          },
+          "spread": {
+            "type": "number",
+            "description": "The spread that exists on the payoff.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An individual row containing details of a single cashflow in the diary."
+      },
       "InstrumentProperties": {
         "type": "object",
         "properties": {
@@ -87117,6 +87513,18 @@
             "description": "The instrument scope resolution strategy of this portfolio.",
             "nullable": true
           },
+          "accountingMethod": {
+            "enum": [
+              "Default",
+              "AverageCost",
+              "FirstInFirstOut",
+              "LastInFirstOut",
+              "HighestCostFirst",
+              "LowestCostFirst"
+            ],
+            "type": "string",
+            "description": ". The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -87297,6 +87705,18 @@
             },
             "description": "The resolution strategy used to resolve instruments of transactions/holdings upserted to the transaction portfolio.",
             "nullable": true
+          },
+          "accountingMethod": {
+            "enum": [
+              "Default",
+              "AverageCost",
+              "FirstInFirstOut",
+              "LastInFirstOut",
+              "HighestCostFirst",
+              "LowestCostFirst"
+            ],
+            "type": "string",
+            "description": ". The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst"
           },
           "links": {
             "type": "array",
@@ -95878,7 +96298,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
