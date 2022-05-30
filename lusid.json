@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4424",
+    "version": "0.11.4425",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -70849,7 +70849,7 @@
               "example": {
                 "settlementCurrency": "GBP",
                 "country": "UK",
-                "office": "London"
+                "instrument/default/HeadOffice": "London"
               }
             },
             "application/json": {
@@ -70864,7 +70864,7 @@
               "example": {
                 "settlementCurrency": "GBP",
                 "country": "UK",
-                "office": "London"
+                "instrument/default/HeadOffice": "London"
               }
             },
             "text/json": {
@@ -70879,7 +70879,7 @@
               "example": {
                 "settlementCurrency": "GBP",
                 "country": "UK",
-                "office": "London"
+                "instrument/default/HeadOffice": "London"
               }
             },
             "application/*+json": {
@@ -70894,7 +70894,7 @@
               "example": {
                 "settlementCurrency": "GBP",
                 "country": "UK",
-                "office": "London"
+                "instrument/default/HeadOffice": "London"
               }
             }
           }
@@ -70926,7 +70926,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -70961,7 +70961,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created"
                     }
@@ -70992,7 +70992,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71027,7 +71027,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created"
                     }
@@ -71058,7 +71058,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71093,7 +71093,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created"
                     }
@@ -71242,7 +71242,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71277,7 +71277,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -71312,7 +71312,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71347,7 +71347,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -71382,7 +71382,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71417,7 +71417,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -71518,7 +71518,7 @@
                     "calculationAmount": 10
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule to be updated."
                 },
@@ -71548,7 +71548,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created"
                 }
@@ -71580,7 +71580,7 @@
                     "calculationAmount": 10
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule to be updated."
                 },
@@ -71610,7 +71610,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created"
                 }
@@ -71642,7 +71642,7 @@
                     "calculationAmount": 10
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule to be updated."
                 },
@@ -71672,7 +71672,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created"
                 }
@@ -71704,7 +71704,7 @@
                     "calculationAmount": 10
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule to be updated."
                 },
@@ -71734,7 +71734,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created"
                 }
@@ -71770,7 +71770,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71805,7 +71805,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -71839,7 +71839,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71874,7 +71874,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -71908,7 +71908,7 @@
                         "calculationAmount": 10
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule to be updated.",
                       "version": {
@@ -71943,7 +71943,7 @@
                         "calculationAmount": 25
                       },
                       "additionalKeys": {
-                        "office": "London"
+                        "instrument/default/HeadOffice": "London"
                       },
                       "description": "Basic fee rule with minimum/maximum to be created",
                       "version": {
@@ -72076,7 +72076,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created",
                   "version": {
@@ -72116,7 +72116,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created",
                   "version": {
@@ -72156,7 +72156,7 @@
                     "calculationAmount": 25
                   },
                   "additionalKeys": {
-                    "office": "London"
+                    "instrument/default/HeadOffice": "London"
                   },
                   "description": "Basic fee rule with minimum/maximum to be created",
                   "version": {
