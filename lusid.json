@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4421",
+    "version": "0.11.4423",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -65786,7 +65786,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -65805,7 +65806,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -65824,7 +65826,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -65985,7 +65988,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -66004,7 +66008,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -66023,7 +66028,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -66232,7 +66238,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "application/json": {
@@ -66251,7 +66258,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               },
               "text/json": {
@@ -66270,7 +66278,8 @@
                   },
                   "subHoldingKeys": [
                     "Portfolio/Client/AccountType"
-                  ]
+                  ],
+                  "accountingMethod": "Default"
                 }
               }
             }
@@ -87504,6 +87513,18 @@
             "description": "The instrument scope resolution strategy of this portfolio.",
             "nullable": true
           },
+          "accountingMethod": {
+            "enum": [
+              "Default",
+              "AverageCost",
+              "FirstInFirstOut",
+              "LastInFirstOut",
+              "HighestCostFirst",
+              "LowestCostFirst"
+            ],
+            "type": "string",
+            "description": ". The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -87684,6 +87705,18 @@
             },
             "description": "The resolution strategy used to resolve instruments of transactions/holdings upserted to the transaction portfolio.",
             "nullable": true
+          },
+          "accountingMethod": {
+            "enum": [
+              "Default",
+              "AverageCost",
+              "FirstInFirstOut",
+              "LastInFirstOut",
+              "HighestCostFirst",
+              "LowestCostFirst"
+            ],
+            "type": "string",
+            "description": ". The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst"
           },
           "links": {
             "type": "array",
