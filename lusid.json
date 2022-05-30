@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4420",
+    "version": "0.11.4418",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -5976,8 +5976,8 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING IN FAVOUR OF NEW ENDPOINT",
-        "description": "Use this endpoint to fetch a list of all historical compliance runs.",
+        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.",
+        "description": "!! CURRENTLY RETURNS DUMMY DATA !! Use this endpoint to fetch a list of all historical compliance runs.",
         "operationId": "ListComplianceRuns",
         "parameters": [
           {
@@ -7209,156 +7209,6 @@
       }
     },
     "/api/compliance/runs": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] ListComplianceRunInfo: List historical compliance run ids.",
-        "description": "Use this endpoint to fetch a list of all historical compliance runs.",
-        "operationId": "ListComplianceRunInfo",
-        "parameters": [
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "Optional. The time at which to get results from. Default : latest",
-            "schema": {
-              "type": "string",
-              "description": "Optional. The time at which to get results from. Default : latest",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The List of IDs for all compliance runs completed",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
       "post": {
         "tags": [
           "Compliance"
@@ -78344,7 +78194,7 @@
             "description": "What the identifier represents (the code of the identifier property definition)."
           },
           "identifierValue": {
-            "maxLength": 1024,
+            "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
@@ -95878,7 +95728,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }

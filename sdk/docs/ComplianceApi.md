@@ -8,8 +8,7 @@ Method | HTTP request | Description
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] GetComplianceRule: Retrieve the definition of single compliance rule.
 [**get_compliance_run_results**](ComplianceApi.md#get_compliance_run_results) | **GET** /api/compliance/runs/{runId} | [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
 [**list_compliance_rules**](ComplianceApi.md#list_compliance_rules) | **GET** /api/compliance/rules | [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
-[**list_compliance_run_info**](ComplianceApi.md#list_compliance_run_info) | **GET** /api/compliance/runs | [EXPERIMENTAL] ListComplianceRunInfo: List historical compliance run ids.
-[**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING IN FAVOUR OF NEW ENDPOINT
+[**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
 [**run_compliance**](ComplianceApi.md#run_compliance) | **POST** /api/compliance/runs | [EXPERIMENTAL] RunCompliance: Kick off the compliance check process
 [**run_compliance_check**](ComplianceApi.md#run_compliance_check) | **POST** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process -- DEPRECATING - POST TRADE ONLY
 [**upsert_compliance_rules**](ComplianceApi.md#upsert_compliance_rules) | **POST** /api/compliance/rules | [EXPERIMENTAL] UpsertComplianceRules: Upsert compliance rules.
@@ -335,93 +334,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_compliance_run_info**
-> ResourceListOfComplianceRun list_compliance_run_info(as_at=as_at, page=page, limit=limit, filter=filter)
-
-[EXPERIMENTAL] ListComplianceRunInfo: List historical compliance run ids.
-
-Use this endpoint to fetch a list of all historical compliance runs.
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.lusid.com/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ComplianceApi(api_client)
-    as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The time at which to get results from. Default : latest (optional)
-page = 'page_example' # str | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
-filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-
-    try:
-        # [EXPERIMENTAL] ListComplianceRunInfo: List historical compliance run ids.
-        api_response = api_instance.list_compliance_run_info(as_at=as_at, page=page, limit=limit, filter=filter)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ComplianceApi->list_compliance_run_info: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **as_at** | **datetime**| Optional. The time at which to get results from. Default : latest | [optional] 
- **page** | **str**| The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
-
-### Return type
-
-[**ResourceListOfComplianceRun**](ResourceListOfComplianceRun.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The List of IDs for all compliance runs completed |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **list_compliance_runs**
 > ResourceListOfComplianceRun list_compliance_runs(page=page, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING IN FAVOUR OF NEW ENDPOINT
+[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
 
-Use this endpoint to fetch a list of all historical compliance runs.
+!! CURRENTLY RETURNS DUMMY DATA !! Use this endpoint to fetch a list of all historical compliance runs.
 
 ### Example
 
@@ -458,7 +376,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING IN FAVOUR OF NEW ENDPOINT
+        # [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
         api_response = api_instance.list_compliance_runs(page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
