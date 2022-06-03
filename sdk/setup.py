@@ -32,12 +32,11 @@ from setuptools import setup, find_packages  # noqa: H301
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "urllib3 >= 1.15",
-    "six >= 1.10",
     "certifi >= 14.05.14",
     "python-dateutil >= 2.5.3",
-    "urllib3 >= 1.15.1",
-    "requests >= 2.21.0"
+    "requests >= 2.27.1",
+    "six >= 1.10",
+    "urllib3 >= 1.26.9",
 ]
 
 version = {}
