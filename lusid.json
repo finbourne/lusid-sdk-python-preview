@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4446",
+    "version": "0.11.4447",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -41439,276 +41439,6 @@
           }
         ],
         "x-fbn-apistatus": "Beta"
-      }
-    },
-    "/api/portfolios/preview/$reconcileholdings": {
-      "post": {
-        "tags": [
-          "Reconciliations"
-        ],
-        "summary": "[EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance",
-        "description": "Reconcile the holdings of two portfolios.",
-        "operationId": "ReconcileHoldingsPreview",
-        "parameters": [
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, skip this number of results",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Optional. When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "type": "integer",
-              "description": "Optional. When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Optional. Expression to filter the result set",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Optional. Expression to filter the result set",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The specifications of the inputs to the reconciliation. This request can take tolerance for units and cost.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PortfoliosReconciliationRequestPreview"
-              },
-              "example": {
-                "tolerance": {
-                  "/Holding/Units": {
-                    "value": 0,
-                    "type": "Absolute"
-                  },
-                  "/Holding/Cost": {
-                    "value": 0,
-                    "type": "Relative"
-                  }
-                },
-                "left": {
-                  "portfolioId": {
-                    "scope": "MySourceScope",
-                    "code": "MySourcePortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "right": {
-                  "portfolioId": {
-                    "scope": "MyTargetScope",
-                    "code": "MyTargetPortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "instrumentPropertyKeys": [
-                  "Instrument/default/Name"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PortfoliosReconciliationRequestPreview"
-              },
-              "example": {
-                "tolerance": {
-                  "/Holding/Units": {
-                    "value": 0,
-                    "type": "Absolute"
-                  },
-                  "/Holding/Cost": {
-                    "value": 0,
-                    "type": "Relative"
-                  }
-                },
-                "left": {
-                  "portfolioId": {
-                    "scope": "MySourceScope",
-                    "code": "MySourcePortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "right": {
-                  "portfolioId": {
-                    "scope": "MyTargetScope",
-                    "code": "MyTargetPortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "instrumentPropertyKeys": [
-                  "Instrument/default/Name"
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PortfoliosReconciliationRequestPreview"
-              },
-              "example": {
-                "tolerance": {
-                  "/Holding/Units": {
-                    "value": 0,
-                    "type": "Absolute"
-                  },
-                  "/Holding/Cost": {
-                    "value": 0,
-                    "type": "Relative"
-                  }
-                },
-                "left": {
-                  "portfolioId": {
-                    "scope": "MySourceScope",
-                    "code": "MySourcePortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "right": {
-                  "portfolioId": {
-                    "scope": "MyTargetScope",
-                    "code": "MyTargetPortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "instrumentPropertyKeys": [
-                  "Instrument/default/Name"
-                ]
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PortfoliosReconciliationRequestPreview"
-              },
-              "example": {
-                "tolerance": {
-                  "/Holding/Units": {
-                    "value": 0,
-                    "type": "Absolute"
-                  },
-                  "/Holding/Cost": {
-                    "value": 0,
-                    "type": "Relative"
-                  }
-                },
-                "left": {
-                  "portfolioId": {
-                    "scope": "MySourceScope",
-                    "code": "MySourcePortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "right": {
-                  "portfolioId": {
-                    "scope": "MyTargetScope",
-                    "code": "MyTargetPortfolioCode"
-                  },
-                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
-                  "asAt": "2018-03-05T00:00:00.0000000+00:00"
-                },
-                "instrumentPropertyKeys": [
-                  "Instrument/default/Name"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The requested reconciliation",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReconciliationBreak"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReconciliationBreak"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfReconciliationBreak"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/portfolios/{scope}": {
@@ -88205,39 +87935,6 @@
         },
         "additionalProperties": false
       },
-      "PortfoliosReconciliationRequestPreview": {
-        "required": [
-          "instrumentPropertyKeys",
-          "left",
-          "right"
-        ],
-        "type": "object",
-        "properties": {
-          "tolerance": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Tolerance"
-            },
-            "description": "Tolerance to be included for the units and cost.",
-            "nullable": true
-          },
-          "left": {
-            "$ref": "#/components/schemas/PortfolioReconciliationRequest"
-          },
-          "right": {
-            "$ref": "#/components/schemas/PortfolioReconciliationRequest"
-          },
-          "instrumentPropertyKeys": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
-            },
-            "description": "Instrument properties to be included with any identified breaks. These properties will be in the effective and AsAt dates of the left portfolio"
-          }
-        },
-        "additionalProperties": false
-      },
       "PortfolioType": {
         "enum": [
           "Transaction",
@@ -93567,32 +93264,6 @@
         ],
         "description": "Lusid internal representation of a term deposit."
       },
-      "Tolerance": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "The numerical value of the property.",
-            "format": "double"
-          },
-          "type": {
-            "enum": [
-              "Absolute",
-              "Relative"
-            ],
-            "type": "string",
-            "description": "The available values are: Absolute, Relative"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ToleranceEnum": {
-        "enum": [
-          "Absolute",
-          "Relative"
-        ],
-        "type": "string"
-      },
       "Transaction": {
         "required": [
           "instrumentUid",
@@ -96298,7 +95969,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
