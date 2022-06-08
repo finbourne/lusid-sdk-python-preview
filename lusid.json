@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4449",
+    "version": "0.11.4448",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11904,7 +11904,7 @@
             "description": "The identifier value.",
             "required": true,
             "schema": {
-              "maxLength": 1024,
+              "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
@@ -12145,7 +12145,7 @@
             "description": "The identifier value.",
             "required": true,
             "schema": {
-              "maxLength": 1024,
+              "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
@@ -12279,7 +12279,7 @@
             "description": "The identifier value.",
             "required": true,
             "schema": {
-              "maxLength": 1024,
+              "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
@@ -95969,7 +95969,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
