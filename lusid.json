@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4454",
+    "version": "0.11.4456",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -62359,7 +62359,8 @@
                           },
                           "close": 10510
                         }
-                      ]
+                      ],
+                      "failed": {}
                     },
                     {
                       "currency": "EUR",
@@ -62402,7 +62403,8 @@
                           },
                           "close": 165900
                         }
-                      ]
+                      ],
+                      "failed": {}
                     }
                   ],
                   "links": []
@@ -62475,7 +62477,8 @@
                           },
                           "close": 10510
                         }
-                      ]
+                      ],
+                      "failed": {}
                     },
                     {
                       "currency": "EUR",
@@ -62518,7 +62521,8 @@
                           },
                           "close": 165900
                         }
-                      ]
+                      ],
+                      "failed": {}
                     }
                   ],
                   "links": []
@@ -62591,7 +62595,8 @@
                           },
                           "close": 10510
                         }
-                      ]
+                      ],
+                      "failed": {}
                     },
                     {
                       "currency": "EUR",
@@ -62634,7 +62639,8 @@
                           },
                           "close": 165900
                         }
-                      ]
+                      ],
+                      "failed": {}
                     }
                   ],
                   "links": []
@@ -87382,6 +87388,14 @@
             },
             "description": "A record of cash flows on a specific date."
           },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The records that could not be returned along with a reason for their failure.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -95969,7 +95983,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
