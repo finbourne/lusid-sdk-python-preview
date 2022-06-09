@@ -56,22 +56,22 @@ class CutLabels(unittest.TestCase):
             self.id_generator.add_scope_and_code("cut_label", TestDataUtilities.tutorials_scope, cut_label_code)
 
             # Define the parameters of the cut label in a request
-            try:
-                request = models.CutLabelDefinition(
-                    code=cut_label_code,
-                    description=description,
-                    display_name=display_name,
-                    cut_local_time=time,
-                    time_zone=time_zone)
-            except ApiException as ex:
-                if ex.status != 409:
-                    raise
+            request = models.CutLabelDefinition(
+                code=cut_label_code,
+                description=description,
+                display_name=display_name,
+                cut_local_time=time,
+                time_zone=time_zone)
 
             # Add the codes of our cut labels to our dictionary
             code_dict[request.display_name] = request.code
 
             # Send the request to LUSID to create the cut label
-            result = self.cut_labels.create_cut_label_definition(create_cut_label_definition_request=request)
+            try:
+                result = self.cut_labels.create_cut_label_definition(create_cut_label_definition_request=request)
+            except ApiException as ex:
+                if ex.status != 409:
+                    raise
 
             # Check that result gives same details as input
             self.assertEqual(result.display_name, display_name)
