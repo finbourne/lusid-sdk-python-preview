@@ -21,7 +21,6 @@ from lusid.api.data_types_api import DataTypesApi
 from lusid.api.derived_transaction_portfolios_api import DerivedTransactionPortfoliosApi
 from lusid.api.entities_api import EntitiesApi
 from lusid.api.executions_api import ExecutionsApi
-from lusid.api.fees_and_commissions_api import FeesAndCommissionsApi
 from lusid.api.instrument_events_api import InstrumentEventsApi
 from lusid.api.instruments_api import InstrumentsApi
 from lusid.api.legal_entities_api import LegalEntitiesApi
