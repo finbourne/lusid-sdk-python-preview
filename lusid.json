@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4457",
+    "version": "0.11.4458",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -15475,6 +15475,569 @@
                   ],
                   "href": "https://example.com",
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instrumentevents/$query": {
+      "post": {
+        "tags": [
+          "Instrument Events"
+        ],
+        "summary": "[EXPERIMENTAL] QueryInstrumentEvents: Returns a list of intrinsic and user-upserted instrument events that match the specified query.",
+        "description": "Returns a list of intrinsic and user-upserted instrument events that match the specified query.",
+        "operationId": "QueryInstrumentEvents",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+              "format": "int32",
+              "default": 1000,
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The filter parameters used to retrieve instrument events.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "filterInstrumentEvents": {}
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "filterInstrumentEvents": {}
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "filterInstrumentEvents": {}
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "filterInstrumentEvents": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Instrument Events",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instrumentevents/$queryBucketedCashFlows": {
+      "post": {
+        "tags": [
+          "Instrument Events"
+        ],
+        "summary": "[EXPERIMENTAL] QueryBucketedCashFlows: Returns a list of instrument events that match the specified query, presented as bucketed cashflows.",
+        "description": "Returns a list of instrument events that match the specified query, presented as bucketed cashflows.",
+        "operationId": "QueryBucketedCashFlows",
+        "requestBody": {
+          "description": "The Query Information.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBucketedCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2023-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "roundingMethod": "RoundUp",
+                "bucketingDates": [
+                  "2020-01-01T00:00:00.0000000+00:00",
+                  "2020-07-01T00:00:00.0000000+00:00",
+                  "2021-01-01T00:00:00.0000000+00:00",
+                  "2021-07-01T00:00:00.0000000+00:00"
+                ],
+                "reportCurrency": "USD"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBucketedCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2023-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "roundingMethod": "RoundUp",
+                "bucketingDates": [
+                  "2020-01-01T00:00:00.0000000+00:00",
+                  "2020-07-01T00:00:00.0000000+00:00",
+                  "2021-01-01T00:00:00.0000000+00:00",
+                  "2021-07-01T00:00:00.0000000+00:00"
+                ],
+                "reportCurrency": "USD"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBucketedCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2023-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "roundingMethod": "RoundUp",
+                "bucketingDates": [
+                  "2020-01-01T00:00:00.0000000+00:00",
+                  "2020-07-01T00:00:00.0000000+00:00",
+                  "2021-01-01T00:00:00.0000000+00:00",
+                  "2021-07-01T00:00:00.0000000+00:00"
+                ],
+                "reportCurrency": "USD"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBucketedCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2023-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00",
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "roundingMethod": "RoundUp",
+                "bucketingDates": [
+                  "2020-01-01T00:00:00.0000000+00:00",
+                  "2020-07-01T00:00:00.0000000+00:00",
+                  "2021-01-01T00:00:00.0000000+00:00",
+                  "2021-07-01T00:00:00.0000000+00:00"
+                ],
+                "reportCurrency": "USD"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Query bucketed cashflows across portfolios.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BucketedCashFlowResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BucketedCashFlowResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BucketedCashFlowResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instrumentevents/$queryCashFlows": {
+      "post": {
+        "tags": [
+          "Instrument Events"
+        ],
+        "summary": "[EXPERIMENTAL] QueryCashFlows: Returns a list of instrument events that match the specified query, presented as Instrument cashflows.",
+        "description": "Returns a list of instrument events that match the specified query, presented as Instrument cashflows",
+        "operationId": "QueryCashFlows",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+              "format": "int32",
+              "default": 1000,
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The filter parameters used to retrieve instrument events.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCashFlowsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Instrument Events as Cashflows.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
                 }
               }
             }
@@ -75032,6 +75595,14 @@
           "dataSchema": {
             "$ref": "#/components/schemas/ResultDataSchema"
           },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "Information about where instruments have failed to return cashflows in so far as it is available.\r\ne.g., failure to retrieve a market quote for a floating rate instrument.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -75731,6 +76302,38 @@
         },
         "additionalProperties": false,
         "description": "The time an entity was modified (amendment and/or historical correction)."
+      },
+      "CloseEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "anchorDate": {
+                "type": "string",
+                "description": "The date on which the instrument closes/matures",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+              }
+            }
+          }
+        ],
+        "description": "The termination of an instrument."
       },
       "CompletePortfolio": {
         "required": [
@@ -76854,6 +77457,38 @@
         },
         "additionalProperties": false,
         "description": "The counterpartyAgreement is signed by two parties, one of which is implicitly the LUSID user.\r\nThe CounterpartySignatory represents the 'other side' of the agreement.\r\nIt comprises a name and identifier for a Legal Entity in LUSID."
+      },
+      "CouponEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "anchorDate": {
+                "type": "string",
+                "description": "Date on which the coupon payment occurs.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+              }
+            }
+          }
+        ],
+        "description": "An unfilled cashflow event. Derived from the economic definition of an instrument."
       },
       "CreateCalendarRequest": {
         "required": [
@@ -80403,6 +81038,53 @@
         "additionalProperties": false,
         "description": "Allows a file (represented as a stream) to be returned from an Api call"
       },
+      "FilterInstrumentEvents": {
+        "type": "object",
+        "properties": {
+          "instrumentEventIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The set of instrument events ids.",
+            "nullable": true
+          },
+          "corporateActionSourceIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The corporate action sources in which to search for events.",
+            "nullable": true
+          },
+          "lusidInstrumentIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The lusid identifers for instruments on which the events apply.",
+            "nullable": true
+          },
+          "instrumentScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The set of scopes in which the instruments of interest belong.",
+            "nullable": true
+          },
+          "instrumentEventTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The subset of instrument event types.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Instrument event query structure. The fields in the body act in and AND-wise fashion\r\nfor any instrument event query endpoint."
+      },
       "FixedLeg": {
         "allOf": [
           {
@@ -83013,6 +83695,7 @@
           "paymentDate",
           "sourceInstrumentId",
           "sourceInstrumentScope",
+          "sourcePortfolioId",
           "sourceTransactionId"
         ],
         "type": "object",
@@ -83031,6 +83714,9 @@
           "currency": {
             "type": "string",
             "description": "The payment currency of the cash flow."
+          },
+          "sourcePortfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
           },
           "sourceTransactionId": {
             "type": "string",
@@ -83121,6 +83807,105 @@
         },
         "additionalProperties": false,
         "description": "What is the provenance of an instrument. This defines who creates/owns it, what format it is in (e.g. a proprietary format or a common and known one)\r\n            and what the version of that is."
+      },
+      "InstrumentEvent": {
+        "required": [
+          "instrumentEventType"
+        ],
+        "type": "object",
+        "properties": {
+          "instrumentEventType": {
+            "enum": [
+              "TransitionEvent",
+              "InternalEvent",
+              "CouponEvent",
+              "OpenEvent",
+              "CloseEvent"
+            ],
+            "type": "string",
+            "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The event specific details. A different schema exists for each possible value of InstrumentEventType.",
+        "discriminator": {
+          "propertyName": "instrumentEventType"
+        }
+      },
+      "InstrumentEventHolder": {
+        "required": [
+          "corporateActionSourceId",
+          "description",
+          "instrumentEvent",
+          "instrumentEventId",
+          "instrumentIdentifiers",
+          "instrumentScope",
+          "lusidInstrumentId"
+        ],
+        "type": "object",
+        "properties": {
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The set of identifiers which determine the instrument this event relates to."
+          },
+          "corporateActionSourceId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentEvent": {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The properties attached to this instrument event.",
+            "nullable": true
+          },
+          "anchorDate": {
+            "type": "string",
+            "description": "The date the event is determined to have occured.",
+            "format": "date-time"
+          },
+          "lusidInstrumentId": {
+            "type": "string",
+            "description": "The LUID for the instrument."
+          },
+          "instrumentScope": {
+            "type": "string",
+            "description": "The scope of the instrument."
+          },
+          "instrumentEventId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The unique identifier of this corporate action."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The description of the instrument event."
+          }
+        },
+        "additionalProperties": false,
+        "description": "An instrument event equipped with additional metadata."
+      },
+      "InstrumentEventType": {
+        "enum": [
+          "TransitionEvent",
+          "InternalEvent",
+          "CouponEvent",
+          "OpenEvent",
+          "CloseEvent"
+        ],
+        "type": "string",
+        "description": "The individual event types."
       },
       "InstrumentIdTypeDescriptor": {
         "required": [
@@ -83636,6 +84421,60 @@
           }
         ],
         "description": "A swaption, an option to enter into an interest rate swap."
+      },
+      "InternalEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "eventType": {
+                "type": "string",
+                "description": "What category of event does this represent; instrument opening, closing, transition or other.",
+                "nullable": true,
+                "readOnly": true
+              },
+              "eventCategory": {
+                "type": "string",
+                "description": "What category of event does this represent; instrument opening, closing, transition or other.",
+                "nullable": true
+              },
+              "eventSource": {
+                "type": "string",
+                "description": "What is the event source, what causes it to happen.",
+                "nullable": true
+              },
+              "anchorDate": {
+                "type": "string",
+                "description": "In the case of a point event, the single date on which the event occurs. In the case of an event which is\r\nspread over a window, e.g. a barrier or American option, the start of that window.",
+                "format": "date-time"
+              },
+              "eventWindowEnd": {
+                "type": "string",
+                "description": "In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,\r\nthis is the end of that window.",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+              }
+            }
+          }
+        ],
+        "description": "A generic event which contains a number of possible events derived from the economic definition of an instrument."
       },
       "IrVolCubeData": {
         "allOf": [
@@ -84796,6 +85635,38 @@
             }
           }
         ]
+      },
+      "OpenEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "anchorDate": {
+                "type": "string",
+                "description": "The date on the which the instrument was opened.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+              }
+            }
+          }
+        ],
+        "description": "The opening of an instrument."
       },
       "OperandType": {
         "enum": [
@@ -88620,6 +89491,182 @@
         "additionalProperties": false,
         "description": "The value of the property."
       },
+      "QueryBucketedCashFlowsRequest": {
+        "required": [
+          "asAt",
+          "effectiveAt",
+          "portfolioEntityIds",
+          "recipeId",
+          "reportCurrency",
+          "roundingMethod",
+          "windowEnd",
+          "windowStart"
+        ],
+        "type": "object",
+        "properties": {
+          "asAt": {
+            "type": "string",
+            "description": "The time of the system at which to query for bucketed cashflows.",
+            "format": "date-time"
+          },
+          "windowStart": {
+            "type": "string",
+            "description": "The start date of the window.",
+            "format": "date-time"
+          },
+          "windowEnd": {
+            "type": "string",
+            "description": "The end date of the window.",
+            "format": "date-time"
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolios and portfolio groups to which the instrument events must belong."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows",
+            "format": "date-time"
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "roundingMethod": {
+            "type": "string",
+            "description": "When bucketing, there is not a unique way to allocate the bucket points. RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]."
+          },
+          "bucketingDates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A list of dates to perform cashflow bucketing upon. If this is provided, the list of tenors for bucketing should be empty.",
+            "nullable": true
+          },
+          "bucketingTenors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tenors to perform cashflow bucketing upon. If this is provided, the list of dates for bucketing should be empty.",
+            "nullable": true
+          },
+          "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries."
+          },
+          "groupBy": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies a queryable address in Lusid."
+            },
+            "description": "The set of address keys to use to group the bucketed cash flows.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Query for bucketed cashflows from one or more portfolios."
+      },
+      "QueryCashFlowsRequest": {
+        "required": [
+          "effectiveAt",
+          "portfolioEntityIds",
+          "recipeId",
+          "windowEnd",
+          "windowStart"
+        ],
+        "type": "object",
+        "properties": {
+          "asAt": {
+            "type": "string",
+            "description": "The time of the system at which to query for bucketed cashflows.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "windowStart": {
+            "type": "string",
+            "description": "The start date of the window.",
+            "format": "date-time"
+          },
+          "windowEnd": {
+            "type": "string",
+            "description": "The end date of the window.",
+            "format": "date-time"
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolios and portfolio groups to which the instrument events must belong."
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The Effective date used in the valuation of the cashflows.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Query for cashflows from one or more portfolios"
+      },
+      "QueryInstrumentEventsRequest": {
+        "required": [
+          "asAt",
+          "effectiveAt",
+          "portfolioEntityIds",
+          "recipeId",
+          "windowEnd",
+          "windowStart"
+        ],
+        "type": "object",
+        "properties": {
+          "asAt": {
+            "type": "string",
+            "description": "The time of the system at which to query for bucketed cashflows.",
+            "format": "date-time"
+          },
+          "windowStart": {
+            "type": "string",
+            "description": "The start date of the window.",
+            "format": "date-time"
+          },
+          "windowEnd": {
+            "type": "string",
+            "description": "The end date of the window.",
+            "format": "date-time"
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolios and portfolio groups to which the instrument events must belong."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The Effective date used in the valuation of the cashflows.",
+            "format": "date-time"
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "filterInstrumentEvents": {
+            "$ref": "#/components/schemas/FilterInstrumentEvents"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Instrument event query."
+      },
       "Quote": {
         "required": [
           "asAt",
@@ -90844,6 +91891,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/InstrumentCashFlow"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
+      "ResourceListOfInstrumentEventHolder": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentEventHolder"
             },
             "description": "The resources to list."
           },
@@ -94108,6 +95196,61 @@
         },
         "additionalProperties": false
       },
+      "TransitionEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "announcementDate": {
+                "type": "string",
+                "description": "The announcement date of the corporate action",
+                "format": "date-time"
+              },
+              "exDate": {
+                "type": "string",
+                "description": "The ex date of the corporate action",
+                "format": "date-time"
+              },
+              "recordDate": {
+                "type": "string",
+                "description": "The record date of the corporate action",
+                "format": "date-time"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The payment date of the corporate action",
+                "format": "date-time"
+              },
+              "transitions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CorporateActionTransitionRequest"
+                },
+                "description": "The transitions that result from this corporate action",
+                "nullable": true
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+              }
+            }
+          }
+        ],
+        "description": "A generic event with event consequences modeled as transitions."
+      },
       "TranslateInstrumentDefinitionsRequest": {
         "required": [
           "dialect",
@@ -96071,6 +97214,10 @@
       "description": "Methods for storage and retrieval of Fees and Commissions rules"
     },
     {
+      "name": "Instrument Events",
+      "description": "Methods for querying for instrument events."
+    },
+    {
       "name": "Instruments",
       "description": "An instrument represents a financial asset that an investor owns or has exposure to. Each transaction should be booked against an instrument stored in the LUSID instrument master. For more information, see https://support.lusid.com/knowledgebase/article/KA-01857."
     },
@@ -96209,6 +97356,7 @@
       "Entities",
       "Executions",
       "FeesAndCommissions",
+      "Instrument Events",
       "Instruments",
       "Legal Entities",
       "OrderGraph",
