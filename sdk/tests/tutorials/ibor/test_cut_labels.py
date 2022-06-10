@@ -67,6 +67,7 @@ class CutLabels(unittest.TestCase):
             code_dict[request.display_name] = request.code
 
             # Send the request to LUSID to create the cut label
+            result = request
             try:
                 result = self.cut_labels.create_cut_label_definition(create_cut_label_definition_request=request)
             except ApiException as ex:
