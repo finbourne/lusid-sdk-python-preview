@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **portfolio_entity_ids** | [**list[PortfolioEntityId]**](PortfolioEntityId.md) | The set of portfolios and portfolio groups to which the instrument events must belong. | 
 **effective_at** | **datetime** | The Effective date used in the valuation of the cashflows. | 
 **recipe_id** | [**ResourceId**](ResourceId.md) |  | 
-**filter_instrument_events** | [**FilterInstrumentEvents**](FilterInstrumentEvents.md) |  | [optional] 
+**filter_instrument_events** | **str** | Expression to filter the result set. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

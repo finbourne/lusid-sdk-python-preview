@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4469",
+    "version": "0.11.4470",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -15046,7 +15046,7 @@
                   "scope": "default",
                   "code": "default"
                 },
-                "filterInstrumentEvents": {}
+                "filterInstrumentEvents": ""
               }
             },
             "application/json": {
@@ -15068,7 +15068,7 @@
                   "scope": "default",
                   "code": "default"
                 },
-                "filterInstrumentEvents": {}
+                "filterInstrumentEvents": ""
               }
             },
             "text/json": {
@@ -15090,7 +15090,7 @@
                   "scope": "default",
                   "code": "default"
                 },
-                "filterInstrumentEvents": {}
+                "filterInstrumentEvents": ""
               }
             },
             "application/*+json": {
@@ -15112,7 +15112,7 @@
                   "scope": "default",
                   "code": "default"
                 },
-                "filterInstrumentEvents": {}
+                "filterInstrumentEvents": ""
               }
             }
           }
@@ -80501,53 +80501,6 @@
         "additionalProperties": false,
         "description": "Allows a file (represented as a stream) to be returned from an Api call"
       },
-      "FilterInstrumentEvents": {
-        "type": "object",
-        "properties": {
-          "instrumentEventIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The set of instrument events ids.",
-            "nullable": true
-          },
-          "corporateActionSourceIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "The corporate action sources in which to search for events.",
-            "nullable": true
-          },
-          "lusidInstrumentIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The lusid identifers for instruments on which the events apply.",
-            "nullable": true
-          },
-          "instrumentScopes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The set of scopes in which the instruments of interest belong.",
-            "nullable": true
-          },
-          "instrumentEventTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The subset of instrument event types.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Instrument event query structure. The fields in the body act in and AND-wise fashion\r\nfor any instrument event query endpoint."
-      },
       "FixedLeg": {
         "allOf": [
           {
@@ -89055,7 +89008,7 @@
         "properties": {
           "asAt": {
             "type": "string",
-            "description": "The time of the system at which to query for bucketed cashflows.",
+            "description": "The time of the system at which to query for cashflows.",
             "format": "date-time",
             "nullable": true
           },
@@ -89130,7 +89083,12 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "filterInstrumentEvents": {
-            "$ref": "#/components/schemas/FilterInstrumentEvents"
+            "maxLength": 16384,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "Expression to filter the result set.",
+            "nullable": true
           }
         },
         "additionalProperties": false,

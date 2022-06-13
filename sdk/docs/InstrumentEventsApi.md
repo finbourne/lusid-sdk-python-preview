@@ -202,7 +202,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.InstrumentEventsApi(api_client)
     limit = 1000 # int | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional) (default to 1000)
 page = 'page_example' # str | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)
-query_instrument_events_request = {"windowStart":"2015-01-01T00:00:00.0000000+00:00","windowEnd":"2030-01-01T00:00:00.0000000+00:00","portfolioEntityIds":[{"scope":"portfolioScope","code":"portfolioCode","portfolioEntityType":"SinglePortfolio"}],"effectiveAt":"2022-01-01T00:00:00.0000000+00:00","recipeId":{"scope":"default","code":"default"},"filterInstrumentEvents":{}} # QueryInstrumentEventsRequest | The filter parameters used to retrieve instrument events. (optional)
+query_instrument_events_request = {"windowStart":"2015-01-01T00:00:00.0000000+00:00","windowEnd":"2030-01-01T00:00:00.0000000+00:00","portfolioEntityIds":[{"scope":"portfolioScope","code":"portfolioCode","portfolioEntityType":"SinglePortfolio"}],"effectiveAt":"2022-01-01T00:00:00.0000000+00:00","recipeId":{"scope":"default","code":"default"},"filterInstrumentEvents":""} # QueryInstrumentEventsRequest | The filter parameters used to retrieve instrument events. (optional)
 
     try:
         # [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of intrinsic and user-upserted instrument events that match the specified query.
