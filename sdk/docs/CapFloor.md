@@ -5,7 +5,7 @@ Interest rate Cap, Floor or Collar  Derivative instrument on an underlying inter
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cap_floor_type** | **str** | Determine if it&#39;s CAP, FLOOR, or COLLAR.  Supported string (enumeration) values are: [Cap, Floor, Collar]. | 
+**cap_floor_type** | **str** | Determine if it&#39;s CAP, FLOOR, or COLLAR.    Supported string (enumeration) values are: [Cap, Floor, Collar]. | 
 **cap_strike** | **float** | Strike rate of the Cap. | 
 **floor_strike** | **float** | Strike rate of the Floor. | 
 **include_first_caplet** | **bool** | Include first caplet flag. | 

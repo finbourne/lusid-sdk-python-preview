@@ -6,7 +6,7 @@ Class that models a basket of risky instruments that can default.  Upon default,
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **basket_name** | [**BasketIdentifier**](BasketIdentifier.md) |  | 
-**basket_type** | **str** | What contents does the basket have. The validation will check that the instrument types contained match those expected.  Supported string (enumeration) values are: [Bonds, Credits, Equities, EquitySwap]. | 
+**basket_type** | **str** | What contents does the basket have. The validation will check that the instrument types contained match those expected.    Supported string (enumeration) values are: [Bonds, Credits, Equities, EquitySwap]. | 
 **weighted_instruments** | [**WeightedInstruments**](WeightedInstruments.md) |  | 
 **instrument_type** | **str** | The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond | 
 
