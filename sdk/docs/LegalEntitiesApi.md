@@ -1044,11 +1044,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_legal_entity_access_metadata**
-> dict(str, list[AccessMetadataValue]) patch_legal_entity_access_metadata(id_type_scope, id_type_code, code, access_metadata_operation, effective_at=effective_at, effective_until=effective_until)
+> dict(str, list[AccessMetadataValue]) patch_legal_entity_access_metadata(id_type_scope, id_type_code, code, operation, effective_at=effective_at, effective_until=effective_until)
 
 [EXPERIMENTAL] PatchLegalEntityAccessMetadata: Patch Access Metadata rules for a Legal Entity.
 
-Patch Legal Entity Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only 'add' is a supported operation on the patch document    Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Legal Entity Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+Patch Legal Entity Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only 'add' is a supported operation on the patch document  Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Legal Entity Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
 ### Example
 
@@ -1083,13 +1083,13 @@ with lusid.ApiClient(configuration) as api_client:
     id_type_scope = 'id_type_scope_example' # str | Scope of the Legal Entity identifier.
 id_type_code = 'id_type_code_example' # str | Code of the Legal Entity identifier.
 code = 'code_example' # str | Code of the Legal Entity under specified identifier type's scope and code.
-access_metadata_operation = [{"value":[{"value":"SilverLicence","provider":"TestDataProvider"}],"path":"/exampleMetadataKey","op":"add"}] # list[AccessMetadataOperation] | The Json Patch document
+operation = [{"value":[{"value":"SilverLicence","provider":"TestDataProvider"}],"path":"/exampleMetadataKey","op":"add"}] # list[Operation] | The Json Patch document
 effective_at = 'effective_at_example' # str | The effectiveAt datetime at which to upsert the Access Metadata (optional)
 effective_until = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' datetime of the Access Metadata (optional)
 
     try:
         # [EXPERIMENTAL] PatchLegalEntityAccessMetadata: Patch Access Metadata rules for a Legal Entity.
-        api_response = api_instance.patch_legal_entity_access_metadata(id_type_scope, id_type_code, code, access_metadata_operation, effective_at=effective_at, effective_until=effective_until)
+        api_response = api_instance.patch_legal_entity_access_metadata(id_type_scope, id_type_code, code, operation, effective_at=effective_at, effective_until=effective_until)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LegalEntitiesApi->patch_legal_entity_access_metadata: %s\n" % e)
@@ -1102,7 +1102,7 @@ Name | Type | Description  | Notes
  **id_type_scope** | **str**| Scope of the Legal Entity identifier. | 
  **id_type_code** | **str**| Code of the Legal Entity identifier. | 
  **code** | **str**| Code of the Legal Entity under specified identifier type&#39;s scope and code. | 
- **access_metadata_operation** | [**list[AccessMetadataOperation]**](AccessMetadataOperation.md)| The Json Patch document | 
+ **operation** | [**list[Operation]**](Operation.md)| The Json Patch document | 
  **effective_at** | **str**| The effectiveAt datetime at which to upsert the Access Metadata | [optional] 
  **effective_until** | **datetime**| The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata | [optional] 
 
