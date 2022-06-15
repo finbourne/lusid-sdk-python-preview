@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4476",
+    "version": "0.11.4477",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -84839,10 +84839,11 @@
               "RefinitivQps",
               "RefinitivTracsWeb",
               "VolMaster",
-              "IsdaCds"
+              "IsdaCds",
+              "YieldBook"
             ],
             "type": "string",
-            "description": "The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds"
+            "description": "The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook"
           },
           "model": {
             "enum": [
@@ -95917,7 +95918,8 @@
           "RefinitivQps",
           "RefinitivTracsWeb",
           "VolMaster",
-          "IsdaCds"
+          "IsdaCds",
+          "YieldBook"
         ],
         "type": "string"
       },
@@ -95935,10 +95937,11 @@
               "RefinitivQps",
               "RefinitivTracsWeb",
               "VolMaster",
-              "IsdaCds"
+              "IsdaCds",
+              "YieldBook"
             ],
             "type": "string",
-            "description": "The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds"
+            "description": "The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook"
           },
           "modelName": {
             "maxLength": 128,
