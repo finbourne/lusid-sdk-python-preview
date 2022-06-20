@@ -1,6 +1,6 @@
 # CapFloor
 
-Interest rate Cap, Floor or Collar  Derivative instrument on an underlying interest rate index.  Cap Type: Buyer will receive payments at the end of each period when floating rate is above the CapStrike level.  Floor Type: Buyer will receive payments at the end of each period when floating rate is below the FloorStrike level.  Collar Type: Strategy of buying one Cap and selling one Floor where FloorStrike is less than CapStrike.
+LUSID representation of Cap, Floor, or Collar.
 
 ## Properties
 Name | Type | Description | Notes

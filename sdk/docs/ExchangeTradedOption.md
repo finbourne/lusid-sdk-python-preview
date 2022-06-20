@@ -1,6 +1,6 @@
 # ExchangeTradedOption
 
-Exchange Traded Option Instrument; Lusid-ibor internal representation of an ET Option.
+LUSID representation of an Exchange Traded Option.  Including, but not limited to, Equity Options, Bond Options, Index Options, Future Options, and Interest Rate Options.
 
 ## Properties
 Name | Type | Description | Notes

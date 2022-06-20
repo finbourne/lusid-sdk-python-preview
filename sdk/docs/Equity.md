@@ -1,6 +1,6 @@
 # Equity
 
-An equity instrument.
+LUSID representation of an Equity.
 
 ## Properties
 Name | Type | Description | Notes

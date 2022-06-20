@@ -1,6 +1,6 @@
 # ExoticInstrument
 
-Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,  by a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics  like FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches.
+LUSID representation of a generic OTC Exotic Instrument that is not fully defined within other LUSID models.
 
 ## Properties
 Name | Type | Description | Notes

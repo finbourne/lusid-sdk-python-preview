@@ -1,6 +1,6 @@
 # ContractForDifference
 
-IL CFD Instrument; Lusid-ibor internal representation of a Contract For Difference instrument.
+LUSID representation of a Contract for Difference.
 
 ## Properties
 Name | Type | Description | Notes

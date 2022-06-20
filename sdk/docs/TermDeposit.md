@@ -1,6 +1,6 @@
 # TermDeposit
 
-Lusid internal representation of a term deposit.
+LUSID representation of a Term Deposit.
 
 ## Properties
 Name | Type | Description | Notes
