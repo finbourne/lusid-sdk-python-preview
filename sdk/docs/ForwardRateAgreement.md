@@ -1,6 +1,6 @@
 # ForwardRateAgreement
 
-LUSID representation of a Forward Rate Agreement.
+Lusid-ibor internal representation of a Forward Rate Agreement
 
 ## Properties
 Name | Type | Description | Notes

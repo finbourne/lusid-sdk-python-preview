@@ -1,6 +1,6 @@
 # Basket
 
-LUSID representation of a basket of instruments.
+Class that models a basket of risky instruments that can default.  Upon default, the weight of a defaulting instrument can (will) change and this then affects the behaviour of the basket.
 
 ## Properties
 Name | Type | Description | Notes

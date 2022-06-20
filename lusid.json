@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4493",
+    "version": "0.11.4492",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -74658,7 +74658,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a basket of instruments."
+        "description": "Class that models a basket of risky instruments that can default.\r\nUpon default, the weight of a defaulting instrument can (will) change and this then affects the behaviour of the basket."
       },
       "BasketIdentifier": {
         "required": [
@@ -74976,7 +74976,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Vanilla Fixed Rate Bond."
+        "description": "IL Bond Instrument; Lusid-ibor internal representation of a Bond instrument"
       },
       "BucketedCashFlowRequest": {
         "required": [
@@ -75277,7 +75277,7 @@
             }
           }
         ],
-        "description": "LUSID representation of Cap, Floor, or Collar."
+        "description": "Interest rate Cap, Floor or Collar\r\nDerivative instrument on an underlying interest rate index.\r\nCap Type: Buyer will receive payments at the end of each period when floating rate is above the CapStrike level.\r\nFloor Type: Buyer will receive payments at the end of each period when floating rate is below the FloorStrike level.\r\nCollar Type: Strategy of buying one Cap and selling one Floor where FloorStrike is less than CapStrike."
       },
       "CashFlowLineage": {
         "type": "object",
@@ -75505,7 +75505,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Perpetual Cash Flow."
+        "description": "Cash Instrument; LUSID representation of a perpetual cash instrument."
       },
       "CdsFlowConventions": {
         "required": [
@@ -75685,7 +75685,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Credit Default Swap Index (CDX)."
+        "description": "IL CDS Index Instrument; Lusid-ibor internal representation of a Credit Default Swap Index instrument\r\nCalculation information and reference data can be obtained from Markit, e.g. https://www.markit.com/Documentation/Product/ITraxx"
       },
       "CdsProtectionDetailSpecification": {
         "required": [
@@ -76047,7 +76047,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Complex Bond.\r\nIncluding Floating, Callable, Puttable, Sinkable, and Fixed-to-float."
+        "description": "IL Complex Bond Instrument; Lusid-ibor internal representation of a Bond instrument which has multiple possible schedules and advanced features such\r\nas coupon or notional steps (amortisation or sinking), floating rate payments, call or put schedules and similar items."
       },
       "ComplexMarketData": {
         "required": [
@@ -76644,7 +76644,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Contract for Difference."
+        "description": "IL CFD Instrument; Lusid-ibor internal representation of a Contract For Difference instrument."
       },
       "CorporateAction": {
         "required": [
@@ -78072,7 +78072,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Credit Default Swap (CDS)."
+        "description": "IL CDS Instrument; Lusid-ibor internal representation of a Credit Default Swap instrument"
       },
       "CreditRating": {
         "required": [
@@ -79341,7 +79341,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Equity."
+        "description": "An equity instrument."
       },
       "EquityOption": {
         "allOf": [
@@ -79457,7 +79457,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a plain vanilla OTC Equity Option."
+        "description": "Lusid-ibor internal representation of a plain vanilla equity option instrument."
       },
       "EquitySwap": {
         "allOf": [
@@ -79562,7 +79562,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Equity Swap."
+        "description": "Lusid-ibor internal representation of an Equity Swap instrument."
       },
       "EquityVolSurfaceData": {
         "allOf": [
@@ -79732,7 +79732,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Exchange Traded Option.\r\nIncluding, but not limited to, Equity Options, Bond Options, Index Options, Future Options, and Interest Rate Options."
+        "description": "Exchange Traded Option Instrument; Lusid-ibor internal representation of an ET Option."
       },
       "ExchangeTradedOptionContractDetails": {
         "required": [
@@ -80085,7 +80085,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a generic OTC Exotic Instrument that is not fully defined within other LUSID models."
+        "description": "Class modeling an instrument which is not fully described, in the sense of being able to obtain a price or other analytic result,\r\nby a simple SecurityUid. This would include non-exchange traded instruments such as an interest-rate-swap (IRS) and obviously 3rd generation exotics\r\nlike FX-TARNs or FX-Chooser-Redeemers and Credit instruments like CDS or Tranches."
       },
       "ExpandedGroup": {
         "required": [
@@ -80566,7 +80566,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Fixed Rate Leg."
+        "description": "Lusid-ibor internal representation of a fixed rates leg."
       },
       "FixedSchedule": {
         "allOf": [
@@ -80724,7 +80724,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Floating Rate Leg."
+        "description": "Lusid-ibor internal representation of a floating rates leg."
       },
       "FloatSchedule": {
         "allOf": [
@@ -80988,7 +80988,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Forward Rate Agreement."
+        "description": "Lusid-ibor internal representation of a Forward Rate Agreement"
       },
       "FundingLeg": {
         "allOf": [
@@ -81063,7 +81063,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Funding Leg with variable notional.\r\n\r\nThis Funding Leg is a hybrid between a single leg swap and a loan facility; the notional is not fixed and can vary within a reset period. \r\n            \r\nThe model can be used to represent the funding leg of a basket of instruments (e.g. equities) where the contents\r\nof the basket can change over time. The actual notional history is stored in the FundingLegHistory object. \r\n\r\nThe actual notional history is stored in the FundingLegHistory object.\r\n            \r\nThe main analytic calculated for this instrument is Accrual rather than PV."
+        "description": "IL FundingLeg Instrument; Lusid-ibor internal representation of a funding leg with variable notional.\r\nThis instrument is a hybrid between a single leg swap and a bank account, in that the notional is not fixed but\r\ncan be changed over it's life. The use case for this is to represent the funding leg of a basket of instruments\r\n(e.g. equities) where the contents of the basket can change over time.\r\nThe actual notional history is stored in the FundingLegHistory object (implements IHistory) and this can be updated\r\nexternally or in some circumstances automatically by LUSID.\r\nThe main analytic calculated for this instrument is Accrual rather than PV."
       },
       "FundingLegOptions": {
         "allOf": [
@@ -81185,7 +81185,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Future.\r\nIncluding, but not limited to, Equity Futures, Bond Futures, Index Futures, Currency Futures, and Interest Rate Futures."
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument\r\n            \r\nA future contract, entered into on the start date at an initial reference spot price has zero initial value. It is a commitment to buy a certain number of\r\ncontracts of a certain size at a date in the future."
       },
       "FuturesContractDetails": {
         "required": [
@@ -81368,7 +81368,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an FX Forward.\r\nIncluding FX Spot and Non-Deliverable Forwards."
+        "description": "IL Fx-Forward Instrument; Lusid-ibor internal representation of a Fx Forward instrument."
       },
       "FxForwardCurveByQuoteReference": {
         "allOf": [
@@ -81911,7 +81911,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an FX Option.\r\nIncluding Vanilla, American, European, and Digital (Binary) options."
+        "description": "Lusid-ibor internal representation of a plain vanilla FX Option instrument."
       },
       "FxSwap": {
         "allOf": [
@@ -81972,7 +81972,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an FX Swap. Composed of two FX Forwards."
+        "description": "IL FX Swap Instrument; Lusid-ibor internal representation of an FX Swap instrument."
       },
       "FxVolSurfaceData": {
         "allOf": [
@@ -83731,7 +83731,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Interest Rate Swap, including:\r\n\r\n  * Vanilla (single currency fixed-float non-amortising)\r\n  * CrossCurrency (>1 currency is used by the swap legs)\r\n  * Basis (single currency, floating-floating legs of different tenors)\r\n  * Amortising (the swap has 1+ leg with amortised notional)"
+        "description": "IL Swap Instrument; Lusid-ibor internal representation of a swap instrument.\r\n            \r\nA swap is the exchange of two sets of cashflows, occurring at one or more dates in one or more currencies.\r\nThese may include a notional exchange at the start and, or, maturity of the trade. Depending upon the choice of\r\npayment currency, payment frequency and so on they can be used to match sets of future obligations.\r\n\r\nThe implementation supports the following swap types:\r\n\r\n  * Vanilla (single currency fixed-float non-amortising)\r\n  * CrossCurrency (>1 currency is used by the swap legs)\r\n  * Basis (single currency, floating-floating legs of different tenors)\r\n  * Amortising (the swap has 1+ leg with amortised notional)"
       },
       "InterestRateSwaption": {
         "allOf": [
@@ -83807,7 +83807,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Interest Rate Swaption."
+        "description": "A swaption, an option to enter into an interest rate swap."
       },
       "InternalEvent": {
         "allOf": [
@@ -89804,7 +89804,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a reference to another instrument that has already been loaded (e.g. a lookthrough to a portfolio)."
+        "description": "An abstract class to hold a reference to another (already loaded) instrument (e.g. a lookthrough to a portfolio) be expanded later"
       },
       "ReferencePortfolioConstituent": {
         "required": [
@@ -90265,7 +90265,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a sale and repurchase agreement, supporting haircut, margin or repo rate methods."
+        "description": "IL Repo Instrument; Lusid-ibor internal representation of a Repo instrument\r\nThe repurchase (repo) agreement involves the transfer of instruments (the collateral) from the seller to the buyer.\r\nOwnership is transferred and returns to the seller upon completion of the contract. If the collateral depreciates sharply, it is possible that additional\r\nmargin/collateral will be required depending upon the terms of the agreement. The buyer agrees not to sell the securities unless there is some condition of default\r\nin the repo contract.\r\nRepurchase of the securities is at the purchase price plus the agreed upon fixed repo rate, this is the Repurchase price, which can be passed directly or calculated.\r\nOn the start date, the buyer receives the collateral and pays Cash (PurchasePrice).\r\nOn the maturity date, the buyer returns the collateral and receives Cash (RepurchasePrice)."
       },
       "ResourceId": {
         "required": [
@@ -93387,7 +93387,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Simple Instrument, used as a basic definition of a generic instrument.\r\nNo analytics can be obtained for this."
+        "description": "IL SimpleInstrument Instrument; Lusid-ibor internal representation of a SimpleInstrument instrument."
       },
       "SortOrder": {
         "enum": [
@@ -93719,7 +93719,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Term Deposit."
+        "description": "Lusid internal representation of a term deposit."
       },
       "Transaction": {
         "required": [
@@ -96483,7 +96483,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }

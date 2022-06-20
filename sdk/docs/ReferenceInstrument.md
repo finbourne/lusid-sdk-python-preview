@@ -1,6 +1,6 @@
 # ReferenceInstrument
 
-LUSID representation of a reference to another instrument that has already been loaded (e.g. a lookthrough to a portfolio).
+An abstract class to hold a reference to another (already loaded) instrument (e.g. a lookthrough to a portfolio) be expanded later
 
 ## Properties
 Name | Type | Description | Notes

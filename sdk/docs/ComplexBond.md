@@ -1,6 +1,6 @@
 # ComplexBond
 
-LUSID representation of a Complex Bond.  Including Floating, Callable, Puttable, Sinkable, and Fixed-to-float.
+IL Complex Bond Instrument; Lusid-ibor internal representation of a Bond instrument which has multiple possible schedules and advanced features such  as coupon or notional steps (amortisation or sinking), floating rate payments, call or put schedules and similar items.
 
 ## Properties
 Name | Type | Description | Notes
