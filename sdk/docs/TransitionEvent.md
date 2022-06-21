@@ -1,6 +1,6 @@
 # TransitionEvent
 
-A generic event with event consequences modeled as transitions.
+A 'transition' within a corporate action, representing a set of output movements paired to a single input position
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **ex_date** | **datetime** | The ex date of the corporate action | [optional] 
 **record_date** | **datetime** | The record date of the corporate action | [optional] 
 **payment_date** | **datetime** | The payment date of the corporate action | [optional] 
-**transitions** | [**list[CorporateActionTransitionRequest]**](CorporateActionTransitionRequest.md) | The transitions that result from this corporate action | [optional] 
+**input_transition** | [**InputTransition**](InputTransition.md) |  | [optional] 
+**output_transitions** | [**list[OutputTransition]**](OutputTransition.md) | The resulting transitions from this event | [optional] 
 **instrument_event_type** | **str** | The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4500",
+    "version": "0.11.4501",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -9236,7 +9236,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[BETA] DeleteCorporateActionSource: Delete a corporate action source",
+        "summary": "[BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.",
         "description": "Deletes a single corporate action source",
         "operationId": "DeleteCorporateActionSource",
         "parameters": [
@@ -9334,7 +9334,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[EARLY ACCESS] BatchUpsertCorporateActions: Upsert corporate actions",
+        "summary": "[EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.",
         "description": "Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.\r\n            \r\nIf a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.",
         "operationId": "BatchUpsertCorporateActions",
         "parameters": [
@@ -9595,7 +9595,7 @@
         "tags": [
           "Corporate Action Sources"
         ],
-        "summary": "[EARLY ACCESS] GetCorporateActions: Get corporate actions",
+        "summary": "[EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.",
         "description": "Get corporate actions from a particular corporate action source.",
         "operationId": "GetCorporateActions",
         "parameters": [
@@ -9819,6 +9819,525 @@
         "responses": {
           "200": {
             "description": "Corporate Actions Deleted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/corporateactionsources/{scope}/{code}/instrumentevents": {
+      "post": {
+        "tags": [
+          "Corporate Action Sources"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.",
+        "description": "Batch upsert instrument events to corporate action sources.",
+        "operationId": "UpsertInstrumentEvents",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the corporate action source.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the corporate action source.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the corporate action source.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the corporate action source.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The instrument event definitions.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventRequest"
+                },
+                "description": "The instrument event definitions.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "instrumentEventId": "MyStockSplitId",
+                  "instrumentIdentifiers": {
+                    "instrument/default/Figi": "BBG001S6PJ31"
+                  },
+                  "description": "2-for-1 stock split of instrument BBG001S6PJ31",
+                  "eventDetail": {
+                    "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
+                    "exDate": "2018-06-01T00:00:00.0000000+00:00",
+                    "recordDate": "2018-06-02T00:00:00.0000000+00:00",
+                    "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                    "inputTransition": {
+                      "unitsFactor": 1,
+                      "costFactor": 1
+                    },
+                    "outputTransitions": [
+                      {
+                        "instrumentIdentifiers": {
+                          "instrument/default/Figi": "BBG001S6PJ31"
+                        },
+                        "unitsFactor": 2,
+                        "costFactor": 1
+                      }
+                    ],
+                    "instrumentEventType": "TransitionEvent"
+                  },
+                  "properties": []
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventRequest"
+                },
+                "description": "The instrument event definitions.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "instrumentEventId": "MyStockSplitId",
+                  "instrumentIdentifiers": {
+                    "instrument/default/Figi": "BBG001S6PJ31"
+                  },
+                  "description": "2-for-1 stock split of instrument BBG001S6PJ31",
+                  "eventDetail": {
+                    "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
+                    "exDate": "2018-06-01T00:00:00.0000000+00:00",
+                    "recordDate": "2018-06-02T00:00:00.0000000+00:00",
+                    "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                    "inputTransition": {
+                      "unitsFactor": 1,
+                      "costFactor": 1
+                    },
+                    "outputTransitions": [
+                      {
+                        "instrumentIdentifiers": {
+                          "instrument/default/Figi": "BBG001S6PJ31"
+                        },
+                        "unitsFactor": 2,
+                        "costFactor": 1
+                      }
+                    ],
+                    "instrumentEventType": "TransitionEvent"
+                  },
+                  "properties": []
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventRequest"
+                },
+                "description": "The instrument event definitions.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "instrumentEventId": "MyStockSplitId",
+                  "instrumentIdentifiers": {
+                    "instrument/default/Figi": "BBG001S6PJ31"
+                  },
+                  "description": "2-for-1 stock split of instrument BBG001S6PJ31",
+                  "eventDetail": {
+                    "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
+                    "exDate": "2018-06-01T00:00:00.0000000+00:00",
+                    "recordDate": "2018-06-02T00:00:00.0000000+00:00",
+                    "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                    "inputTransition": {
+                      "unitsFactor": 1,
+                      "costFactor": 1
+                    },
+                    "outputTransitions": [
+                      {
+                        "instrumentIdentifiers": {
+                          "instrument/default/Figi": "BBG001S6PJ31"
+                        },
+                        "unitsFactor": 2,
+                        "costFactor": 1
+                      }
+                    ],
+                    "instrumentEventType": "TransitionEvent"
+                  },
+                  "properties": []
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventRequest"
+                },
+                "description": "The instrument event definitions.",
+                "nullable": true
+              },
+              "example": [
+                {
+                  "instrumentEventId": "MyStockSplitId",
+                  "instrumentIdentifiers": {
+                    "instrument/default/Figi": "BBG001S6PJ31"
+                  },
+                  "description": "2-for-1 stock split of instrument BBG001S6PJ31",
+                  "eventDetail": {
+                    "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
+                    "exDate": "2018-06-01T00:00:00.0000000+00:00",
+                    "recordDate": "2018-06-02T00:00:00.0000000+00:00",
+                    "paymentDate": "2018-08-02T00:00:00.0000000+00:00",
+                    "inputTransition": {
+                      "unitsFactor": 1,
+                      "costFactor": 1
+                    },
+                    "outputTransitions": [
+                      {
+                        "instrumentIdentifiers": {
+                          "instrument/default/Figi": "BBG001S6PJ31"
+                        },
+                        "unitsFactor": 2,
+                        "costFactor": 1
+                      }
+                    ],
+                    "instrumentEventType": "TransitionEvent"
+                  },
+                  "properties": []
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Instrument Events Upserted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertInstrumentEventsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "Corporate Action Sources"
+        ],
+        "summary": "[EXPERIMENTAL] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.",
+        "description": "Retrieves extrinsic corporate actions out of a corporate actions source",
+        "operationId": "GetInstrumentEvents",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "Optional. The AsAt date of the data.",
+            "schema": {
+              "type": "string",
+              "description": "Optional. The AsAt date of the data.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+              "format": "int32",
+              "default": 1000,
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, asAt, filter and limit must not\r\nbe modified.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, asAt, filter and limit must not\r\nbe modified.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Optional. Expression to filter the result set.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Optional. Expression to filter the result set.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument Events",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Corporate Action Sources"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.",
+        "description": "Delete one or more corporate actions from a particular corporate action source.",
+        "operationId": "DeleteInstrumentEvents",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the corporate action source",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the corporate action source",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the corporate action source",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the corporate action source",
+              "nullable": true
+            }
+          },
+          {
+            "name": "instrumentEventIds",
+            "in": "query",
+            "description": "The IDs of the instrument events to delete",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The IDs of the instrument events to delete"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument Events Deleted",
             "content": {
               "text/plain": {
                 "schema": {
@@ -14993,8 +15512,8 @@
         "tags": [
           "Instrument Events"
         ],
-        "summary": "[EXPERIMENTAL] QueryInstrumentEvents: Returns a list of intrinsic and user-upserted instrument events that match the specified query.",
-        "description": "Returns a list of intrinsic and user-upserted instrument events that match the specified query.",
+        "summary": "[EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.",
+        "description": "Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.",
         "operationId": "QueryInstrumentEvents",
         "parameters": [
           {
@@ -15032,6 +15551,7 @@
                 "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
               },
               "example": {
+                "asAt": "2022-06-01T01:01:00.0000000+00:00",
                 "windowStart": "2015-01-01T00:00:00.0000000+00:00",
                 "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
                 "portfolioEntityIds": [
@@ -15054,6 +15574,7 @@
                 "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
               },
               "example": {
+                "asAt": "2022-06-01T01:01:00.0000000+00:00",
                 "windowStart": "2015-01-01T00:00:00.0000000+00:00",
                 "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
                 "portfolioEntityIds": [
@@ -15076,6 +15597,7 @@
                 "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
               },
               "example": {
+                "asAt": "2022-06-01T01:01:00.0000000+00:00",
                 "windowStart": "2015-01-01T00:00:00.0000000+00:00",
                 "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
                 "portfolioEntityIds": [
@@ -15098,6 +15620,7 @@
                 "$ref": "#/components/schemas/QueryInstrumentEventsRequest"
               },
               "example": {
+                "asAt": "2022-06-01T01:01:00.0000000+00:00",
                 "windowStart": "2015-01-01T00:00:00.0000000+00:00",
                 "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
                 "portfolioEntityIds": [
@@ -15182,8 +15705,8 @@
         "tags": [
           "Instrument Events"
         ],
-        "summary": "[EXPERIMENTAL] QueryBucketedCashFlows: Returns a list of instrument events that match the specified query, presented as bucketed cashflows.",
-        "description": "Returns a list of instrument events that match the specified query, presented as bucketed cashflows.",
+        "summary": "[EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.",
+        "description": "Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.",
         "operationId": "QueryBucketedCashFlows",
         "requestBody": {
           "description": "The Query Information.",
@@ -15371,8 +15894,8 @@
         "tags": [
           "Instrument Events"
         ],
-        "summary": "[EXPERIMENTAL] QueryCashFlows: Returns a list of instrument events that match the specified query, presented as Instrument cashflows.",
-        "description": "Returns a list of instrument events that match the specified query, presented as Instrument cashflows",
+        "summary": "[EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.",
+        "description": "Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.",
         "operationId": "QueryCashFlows",
         "parameters": [
           {
@@ -82983,6 +83506,27 @@
         "additionalProperties": false,
         "description": "Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a inline set of instruments\r\nusing an inline aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based\r\ndifference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a set of instruments."
       },
+      "InputTransition": {
+        "required": [
+          "costFactor",
+          "unitsFactor"
+        ],
+        "type": "object",
+        "properties": {
+          "unitsFactor": {
+            "type": "number",
+            "description": "The factor to scale units by",
+            "format": "double"
+          },
+          "costFactor": {
+            "type": "number",
+            "description": "The factor to scale cost by",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The input 'transition' within a corporate action, representing the singular input position"
+      },
       "Instrument": {
         "required": [
           "identifiers",
@@ -83214,7 +83758,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The event specific details. A different schema exists for each possible value of InstrumentEventType.",
+        "description": "The event specific details. A different schema exists for each possible value of InstrumentEventType. Not all InstrumentEventTypes can be upserted",
         "discriminator": {
           "propertyName": "instrumentEventType"
         }
@@ -83231,6 +83775,16 @@
         ],
         "type": "object",
         "properties": {
+          "instrumentEventId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The unique identifier of this corporate action."
+          },
+          "corporateActionSourceId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
           "instrumentIdentifiers": {
             "type": "object",
             "additionalProperties": {
@@ -83238,8 +83792,20 @@
             },
             "description": "The set of identifiers which determine the instrument this event relates to."
           },
-          "corporateActionSourceId": {
-            "$ref": "#/components/schemas/ResourceId"
+          "lusidInstrumentId": {
+            "type": "string",
+            "description": "The LUID for the instrument."
+          },
+          "instrumentScope": {
+            "type": "string",
+            "description": "The scope of the instrument."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The description of the instrument event."
           },
           "instrumentEvent": {
             "$ref": "#/components/schemas/InstrumentEvent"
@@ -83251,33 +83817,6 @@
             },
             "description": "The properties attached to this instrument event.",
             "nullable": true
-          },
-          "anchorDate": {
-            "type": "string",
-            "description": "The date the event is determined to have occured.",
-            "format": "date-time"
-          },
-          "lusidInstrumentId": {
-            "type": "string",
-            "description": "The LUID for the instrument."
-          },
-          "instrumentScope": {
-            "type": "string",
-            "description": "The scope of the instrument."
-          },
-          "instrumentEventId": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "The unique identifier of this corporate action."
-          },
-          "description": {
-            "maxLength": 1024,
-            "minLength": 0,
-            "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": "The description of the instrument event."
           }
         },
         "additionalProperties": false,
@@ -85918,6 +86457,47 @@
         },
         "additionalProperties": false,
         "description": "A list of output transactions."
+      },
+      "OutputTransition": {
+        "required": [
+          "costFactor",
+          "instrumentIdentifiers",
+          "instrumentScope",
+          "lusidInstrumentId",
+          "unitsFactor"
+        ],
+        "type": "object",
+        "properties": {
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Unique instrument identifiers"
+          },
+          "unitsFactor": {
+            "type": "number",
+            "description": "The factor to scale units by",
+            "format": "double"
+          },
+          "costFactor": {
+            "type": "number",
+            "description": "The factor to scale cost by",
+            "format": "double"
+          },
+          "lusidInstrumentId": {
+            "type": "string",
+            "description": "LUSID's internal unique instrument identifier, resolved from the instrument identifiers",
+            "readOnly": true
+          },
+          "instrumentScope": {
+            "type": "string",
+            "description": "The scope in which the instrument lies.",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A 'transition' within a corporate action, representing an output transition."
       },
       "Package": {
         "required": [
@@ -88884,7 +89464,6 @@
       },
       "QueryBucketedCashFlowsRequest": {
         "required": [
-          "asAt",
           "effectiveAt",
           "portfolioEntityIds",
           "recipeId",
@@ -88898,7 +89477,8 @@
           "asAt": {
             "type": "string",
             "description": "The time of the system at which to query for bucketed cashflows.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "windowStart": {
             "type": "string",
@@ -89012,7 +89592,6 @@
       },
       "QueryInstrumentEventsRequest": {
         "required": [
-          "asAt",
           "effectiveAt",
           "portfolioEntityIds",
           "recipeId",
@@ -89024,7 +89603,8 @@
           "asAt": {
             "type": "string",
             "description": "The time of the system at which to query for bucketed cashflows.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "windowStart": {
             "type": "string",
@@ -94582,12 +95162,15 @@
                 "description": "The payment date of the corporate action",
                 "format": "date-time"
               },
-              "transitions": {
+              "inputTransition": {
+                "$ref": "#/components/schemas/InputTransition"
+              },
+              "outputTransitions": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/CorporateActionTransitionRequest"
+                  "$ref": "#/components/schemas/OutputTransition"
                 },
-                "description": "The transitions that result from this corporate action",
+                "description": "The resulting transitions from this event",
                 "nullable": true
               },
               "instrumentEventType": {
@@ -94604,7 +95187,7 @@
             }
           }
         ],
-        "description": "A generic event with event consequences modeled as transitions."
+        "description": "A 'transition' within a corporate action, representing a set of output movements paired to a single input position"
       },
       "TranslateInstrumentDefinitionsRequest": {
         "required": [
@@ -95107,6 +95690,86 @@
         },
         "additionalProperties": false,
         "description": "Index convention that is to be stored in the convention data store.\r\nOnly one of these must be present."
+      },
+      "UpsertInstrumentEventRequest": {
+        "required": [
+          "eventDetail",
+          "instrumentEventId",
+          "instrumentIdentifiers"
+        ],
+        "type": "object",
+        "properties": {
+          "instrumentEventId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "Free string that uniquely identifies the event within the corporate action source"
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The set of identifiers which determine the instrument this event relates to."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The description of the instrument event.",
+            "nullable": true
+          },
+          "eventDetail": {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The properties attached to this instrument event.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertInstrumentEventsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/InstrumentEventHolder"
+            },
+            "description": "The corporate actions which have been successfully updated or inserted.",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The corporate actions that could not be updated or inserted along with a reason for their failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "UpsertInstrumentPropertiesResponse": {
         "required": [
