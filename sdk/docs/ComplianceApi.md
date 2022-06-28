@@ -5,6 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_compliance_rule**](ComplianceApi.md#delete_compliance_rule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] DeleteComplianceRule: Deletes a compliance rule.
+[**get_breached_orders_info**](ComplianceApi.md#get_breached_orders_info) | **GET** /api/compliance/runs/breached/{runId} | [EXPERIMENTAL] GetBreachedOrdersInfo: Get the Ids of Breached orders in a given compliance run and the corresponding list of rules that could have caused it.
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EXPERIMENTAL] GetComplianceRule: Retrieve the definition of single compliance rule.
 [**get_compliance_run_results**](ComplianceApi.md#get_compliance_run_results) | **GET** /api/compliance/runs/{runId} | [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
 [**list_compliance_rules**](ComplianceApi.md#list_compliance_rules) | **GET** /api/compliance/rules | [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
@@ -87,6 +88,87 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_breached_orders_info**
+> ResourceListOfComplianceBreachedOrderInfo get_breached_orders_info(run_id, order_scope=order_scope, order_code=order_code, limit=limit)
+
+[EXPERIMENTAL] GetBreachedOrdersInfo: Get the Ids of Breached orders in a given compliance run and the corresponding list of rules that could have caused it.
+
+Use this endpoint to get a list or breached orders and the set of rules that may have caused the breach.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    run_id = 'run_id_example' # str | The RunId that the results should be checked for
+order_scope = 'order_scope_example' # str | Optional. Find rules related to a specific order by providing an Order Scope/Code combination (optional)
+order_code = 'order_code_example' # str | Optional. Find rules related to a specific order by providing an Order Scope/Code combination (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetBreachedOrdersInfo: Get the Ids of Breached orders in a given compliance run and the corresponding list of rules that could have caused it.
+        api_response = api_instance.get_breached_orders_info(run_id, order_scope=order_scope, order_code=order_code, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->get_breached_orders_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **run_id** | **str**| The RunId that the results should be checked for | 
+ **order_scope** | **str**| Optional. Find rules related to a specific order by providing an Order Scope/Code combination | [optional] 
+ **order_code** | **str**| Optional. Find rules related to a specific order by providing an Order Scope/Code combination | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
+
+### Return type
+
+[**ResourceListOfComplianceBreachedOrderInfo**](ResourceListOfComplianceBreachedOrderInfo.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The potentially breached orders and their rules from a specific compliance run |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 

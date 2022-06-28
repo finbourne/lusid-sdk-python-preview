@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4536",
+    "version": "0.11.4537",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -7444,6 +7444,204 @@
                 "example": {
                   "runId": "1234-5678-9101",
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/compliance/runs/breached/{runId}": {
+      "get": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EXPERIMENTAL] GetBreachedOrdersInfo: Get the Ids of Breached orders in a given compliance run and the corresponding list of rules that could have caused it.",
+        "description": "Use this endpoint to get a list or breached orders and the set of rules that may have caused the breach.",
+        "operationId": "GetBreachedOrdersInfo",
+        "parameters": [
+          {
+            "name": "runId",
+            "in": "path",
+            "description": "The RunId that the results should be checked for",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The RunId that the results should be checked for"
+            }
+          },
+          {
+            "name": "orderScope",
+            "in": "query",
+            "description": "Optional. Find rules related to a specific order by providing an Order Scope/Code combination",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. Find rules related to a specific order by providing an Order Scope/Code combination",
+              "nullable": true
+            }
+          },
+          {
+            "name": "orderCode",
+            "in": "query",
+            "description": "Optional. Find rules related to a specific order by providing an Order Scope/Code combination",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "Optional. Find rules related to a specific order by providing an Order Scope/Code combination",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The potentially breached orders and their rules from a specific compliance run",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceBreachedOrderInfo"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "orderId": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "listRuleResult": [
+                        {
+                          "ruleId": "0897-6574-1324",
+                          "portfolio": {
+                            "scope": "MyScope",
+                            "code": "MyPortfolioCode"
+                          },
+                          "passed": false,
+                          "resultValue": 0,
+                          "ruleLowerLimit": 0,
+                          "ruleUpperLimit": 0
+                        }
+                      ]
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/breached/some-run-id",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceBreachedOrderInfo"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "orderId": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "listRuleResult": [
+                        {
+                          "ruleId": "0897-6574-1324",
+                          "portfolio": {
+                            "scope": "MyScope",
+                            "code": "MyPortfolioCode"
+                          },
+                          "passed": false,
+                          "resultValue": 0,
+                          "ruleLowerLimit": 0,
+                          "ruleUpperLimit": 0
+                        }
+                      ]
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/breached/some-run-id",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfComplianceBreachedOrderInfo"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "orderId": {
+                        "scope": "MyScope",
+                        "code": "MyPortfolioCode"
+                      },
+                      "listRuleResult": [
+                        {
+                          "ruleId": "0897-6574-1324",
+                          "portfolio": {
+                            "scope": "MyScope",
+                            "code": "MyPortfolioCode"
+                          },
+                          "passed": false,
+                          "resultValue": 0,
+                          "ruleLowerLimit": 0,
+                          "ruleUpperLimit": 0
+                        }
+                      ]
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/compliance/breached/some-run-id",
+                  "links": []
                 }
               }
             }
@@ -75362,9 +75560,9 @@
             "description": "The instrument allocated."
           },
           "quantity": {
-            "type": "integer",
+            "type": "number",
             "description": "The quantity of given instrument allocated.",
-            "format": "int32"
+            "format": "double"
           },
           "portfolioId": {
             "$ref": "#/components/schemas/ResourceId"
@@ -77089,6 +77287,26 @@
         },
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of complex market data such as an interest rate curve or volatility surface."
+      },
+      "ComplianceBreachedOrderInfo": {
+        "required": [
+          "listRuleResult",
+          "orderId"
+        ],
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "listRuleResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRuleResult"
+            },
+            "description": "The related list of rule results that may be applicable to this order (applied to portfolio that the order belongs to)"
+          }
+        },
+        "additionalProperties": false
       },
       "ComplianceRule": {
         "required": [
@@ -86689,9 +86907,9 @@
             "description": "The instrument ordered."
           },
           "quantity": {
-            "type": "integer",
+            "type": "number",
             "description": "The quantity of given instrument ordered.",
-            "format": "int32"
+            "format": "double"
           },
           "side": {
             "type": "string",
@@ -91616,6 +91834,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Change"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
+      "ResourceListOfComplianceBreachedOrderInfo": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceBreachedOrderInfo"
             },
             "description": "The resources to list."
           },
