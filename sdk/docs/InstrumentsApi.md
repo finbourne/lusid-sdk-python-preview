@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_instrument**](InstrumentsApi.md#delete_instrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
 [**delete_instrument_properties**](InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
+[**delete_instruments**](InstrumentsApi.md#delete_instruments) | **POST** /api/instruments/$delete | [EXPERIMENTAL] DeleteInstruments: Deletes multiple instruments from a set of specified LusidInstrumentId strings
 [**get_instrument**](InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
 [**get_instrument_identifier_types**](InstrumentsApi.md#get_instrument_identifier_types) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
 [**get_instrument_payment_diary**](InstrumentsApi.md#get_instrument_payment_diary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
@@ -177,6 +178,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The asAt datetime at which properties were deleted. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_instruments**
+> DeleteInstrumentsResponse delete_instruments(request_body, delete_mode=delete_mode, scope=scope)
+
+[EXPERIMENTAL] DeleteInstruments: Deletes multiple instruments from a set of specified LusidInstrumentId strings
+
+Deletes a number of specified instruments (limited to 2000), as identified by LusidInstrumentId identifiers.                For soft deletion, once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.                For Hard delete; with the same behaviour as above, in addition:      (i)     all identifiers are removed      (ii)    the instrument is marked with a state of 'Deleted',      (iii)   the instrument name is pre-pended with 'DELETED '      (iv)    the instrument will not be returned by ListInstruments  The maximum number of instruments that this method can delete per request is 2,000.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.InstrumentsApi(api_client)
+    request_body = ["LUID_12345678","LUID_87654321"] # list[str] | The list of lusidInstrumentId's to delete.
+delete_mode = 'delete_mode_example' # str | The delete mode to use, currently only 'soft' is supported, if left unspecified, this argument is optional. (optional)
+scope = 'default' # str | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
+
+    try:
+        # [EXPERIMENTAL] DeleteInstruments: Deletes multiple instruments from a set of specified LusidInstrumentId strings
+        api_response = api_instance.delete_instruments(request_body, delete_mode=delete_mode, scope=scope)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstrumentsApi->delete_instruments: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request_body** | [**list[str]**](str.md)| The list of lusidInstrumentId&#39;s to delete. | 
+ **delete_mode** | **str**| The delete mode to use, currently only &#39;soft&#39; is supported, if left unspecified, this argument is optional. | [optional] 
+ **scope** | **str**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
+
+### Return type
+
+[**DeleteInstrumentsResponse**](DeleteInstrumentsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the instruments were deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 

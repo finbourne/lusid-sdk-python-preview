@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4542",
+    "version": "0.11.4543",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -16855,6 +16855,162 @@
           }
         ],
         "x-fbn-apistatus": "Stable"
+      }
+    },
+    "/api/instruments/$delete": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteInstruments: Deletes multiple instruments from a set of specified LusidInstrumentId strings",
+        "description": "Deletes a number of specified instruments (limited to 2000), as identified by LusidInstrumentId identifiers.\r\n            \r\nFor soft deletion, once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating\r\ntransactions or holdings. You can still query existing transactions and holdings related to the\r\ndeleted instrument.\r\n            \r\nFor Hard delete; with the same behaviour as above, in addition:\r\n    (i)     all identifiers are removed\r\n    (ii)    the instrument is marked with a state of 'Deleted',\r\n    (iii)   the instrument name is pre-pended with 'DELETED '\r\n    (iv)    the instrument will not be returned by ListInstruments\n\nThe maximum number of instruments that this method can delete per request is 2,000.",
+        "operationId": "DeleteInstruments",
+        "parameters": [
+          {
+            "name": "deleteMode",
+            "in": "query",
+            "description": "The delete mode to use, currently only 'soft' is supported, if left unspecified, this argument is optional.",
+            "schema": {
+              "enum": [
+                "Soft",
+                "Hard"
+              ],
+              "type": "string",
+              "description": "The available values are: Soft, Hard"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "default": "default",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The list of lusidInstrumentId's to delete.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The list of lusidInstrumentId's to delete."
+              },
+              "example": [
+                "LUID_12345678",
+                "LUID_87654321"
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The list of lusidInstrumentId's to delete."
+              },
+              "example": [
+                "LUID_12345678",
+                "LUID_87654321"
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The list of lusidInstrumentId's to delete."
+              },
+              "example": [
+                "LUID_12345678",
+                "LUID_87654321"
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The list of lusidInstrumentId's to delete."
+              },
+              "example": [
+                "LUID_12345678",
+                "LUID_87654321"
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The datetime that the instruments were deleted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteInstrumentsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteInstrumentsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteInstrumentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/instruments/$get": {
@@ -80222,6 +80378,34 @@
         },
         "additionalProperties": false
       },
+      "DeleteInstrumentsResponse": {
+        "required": [
+          "asAt"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The as-at datetime at which the instrument was deleted.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DeleteRelationRequest": {
         "required": [
           "sourceEntityId",
@@ -84401,6 +84585,13 @@
         },
         "additionalProperties": false,
         "description": "What is the provenance of an instrument. This defines who creates/owns it, what format it is in (e.g. a proprietary format or a common and known one)\r\n            and what the version of that is."
+      },
+      "InstrumentDeleteModes": {
+        "enum": [
+          "soft",
+          "hard"
+        ],
+        "type": "string"
       },
       "InstrumentEvent": {
         "required": [
