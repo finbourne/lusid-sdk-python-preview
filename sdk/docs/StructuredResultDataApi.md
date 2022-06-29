@@ -442,7 +442,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope in which to construct the virtual documents.
-request_body = {"someCorrelationId1":{"documentId":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"UnitResult/Analytic"},"key":{"unitResult/LusidInstrumentId":"LUID_0000ABCD"},"dataAddress":"UnitResult/Accrual","resultValue":{"units":"USD","value":0.0102,"dimension":0,"resultValueType":"ResultValue0D"}}} # dict(str, UpsertResultValuesDataRequest) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
+request_body = {"someCorrelationId1":{"documentId":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"UnitResult/Analytic"},"key":{"unitResult/LusidInstrumentId":"LUID_0000ABCD"},"dataAddress":"UnitResult/Valuation/InstrumentAccrued","resultValue":{"units":"USD","value":0.0102,"dimension":0,"resultValueType":"ResultValue0D"}}} # dict(str, UpsertResultValuesDataRequest) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 
     try:
         # [EXPERIMENTAL] UpsertResultValue: Upsert result value
