@@ -586,8 +586,9 @@ class TokenRefresh(unittest.TestCase):
 
     def test_get_access_token_with_special_chars_in_credentials(self):
         # create the problematic credentials
-        self.config.password = "abcd:efg"
-        refreshing_token = RefreshingToken(api_configuration=self.config)
+        config = ApiConfigurationLoader.load(CredentialsSource.secrets_path())
+        config.password = "abcd:efg"
+        refreshing_token = RefreshingToken(api_configuration=config)
 
         with patch("requests.post") as identity_mock:
             identity_mock.side_effect = [
