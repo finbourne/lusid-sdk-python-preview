@@ -622,8 +622,8 @@ class TokenRefresh(unittest.TestCase):
                     status_code=200
                 )]
             self.assertEqual(f"{refreshing_token}", "mock_access_token")
-            expected_password_encoding = "some/random/url%3Fkey%3Dvalue"
+            expected_password_encoding = "some%2Frandom%2Furl%3Fkey%3Dvalue"
             expected_request_body = f"grant_type=password&username=test" \
                                     f"&password={expected_password_encoding}&scope=openid client groups offline_access" \
                                     f"&client_id=test&client_secret=test"
-            identity_mock.assert_called_with(config.token_url, data=expected_request_body, headers=unittest.mock.ANY)
+            self.assertEqual(identity_mock.call_args[1]["data"], expected_request_body)
