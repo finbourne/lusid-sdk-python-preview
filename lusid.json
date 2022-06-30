@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4548",
+    "version": "0.11.4549",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -10131,7 +10131,7 @@
                     "instrument/default/Figi": "BBG001S6PJ31"
                   },
                   "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                  "eventDetail": {
+                  "instrumentEvent": {
                     "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
                     "exDate": "2018-06-01T00:00:00.0000000+00:00",
                     "recordDate": "2018-06-02T00:00:00.0000000+00:00",
@@ -10171,7 +10171,7 @@
                     "instrument/default/Figi": "BBG001S6PJ31"
                   },
                   "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                  "eventDetail": {
+                  "instrumentEvent": {
                     "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
                     "exDate": "2018-06-01T00:00:00.0000000+00:00",
                     "recordDate": "2018-06-02T00:00:00.0000000+00:00",
@@ -10211,7 +10211,7 @@
                     "instrument/default/Figi": "BBG001S6PJ31"
                   },
                   "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                  "eventDetail": {
+                  "instrumentEvent": {
                     "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
                     "exDate": "2018-06-01T00:00:00.0000000+00:00",
                     "recordDate": "2018-06-02T00:00:00.0000000+00:00",
@@ -10251,7 +10251,7 @@
                     "instrument/default/Figi": "BBG001S6PJ31"
                   },
                   "description": "2-for-1 stock split of instrument BBG001S6PJ31",
-                  "eventDetail": {
+                  "instrumentEvent": {
                     "announcementDate": "2018-03-01T00:00:00.0000000+00:00",
                     "exDate": "2018-06-01T00:00:00.0000000+00:00",
                     "recordDate": "2018-06-02T00:00:00.0000000+00:00",
@@ -96619,7 +96619,7 @@
       },
       "UpsertInstrumentEventRequest": {
         "required": [
-          "eventDetail",
+          "instrumentEvent",
           "instrumentEventId",
           "instrumentIdentifiers"
         ],
@@ -96647,7 +96647,7 @@
             "description": "The description of the instrument event.",
             "nullable": true
           },
-          "eventDetail": {
+          "instrumentEvent": {
             "$ref": "#/components/schemas/InstrumentEvent"
           },
           "properties": {
