@@ -583,3 +583,21 @@ class TokenRefresh(unittest.TestCase):
         self.assertGreaterEqual(result[429], 1)
         # And 5 200s eventually
         self.assertEqual(result[200], 5)
+
+    def test_get_access_token_with_special_chars_in_credentials(self):
+        # create the problematic credentials
+        self.config.password = "abcd:efg"
+        refreshing_token = RefreshingToken(api_configuration=self.config)
+
+        with patch("requests.post") as identity_mock:
+            identity_mock.side_effect = [
+                MockApiResponse(
+                    json_data={
+                        "access_token": "mock_access_token",
+                        "refresh_token": "mock_refresh_token",
+                        "expires_in": 60
+                    },
+                    status_code=200
+                )]
+            # Ensure that we were able to get the token
+            self.assertEqual(f"{refreshing_token}", "mock_access_token")
