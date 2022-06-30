@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from datetime import timedelta
 from collections import UserString
-from urllib.request import pathname2url
+from urllib.parse import quote
 
 
 class RefreshingToken(UserString):
@@ -54,9 +54,9 @@ class RefreshingToken(UserString):
         :return: The retrieved access token
         """
 
-        encoded_password = pathname2url(self.api_configuration.password)
-        encoded_client_id = pathname2url(self.api_configuration.client_id)
-        encoded_client_secret = pathname2url(self.api_configuration.client_secret)
+        encoded_password = quote(self.api_configuration.password)
+        encoded_client_id = quote(self.api_configuration.client_id)
+        encoded_client_secret = quote(self.api_configuration.client_secret)
 
         # Prepare our authentication request
         token_request_body = f"grant_type=password&username={self.api_configuration.username}" \
