@@ -1663,7 +1663,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **look_through_holdings**
-> VersionedResourceListOfPortfolioHolding look_through_holdings(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, quotes_scope=quotes_scope)
+> VersionedResourceListOfPortfolioHolding look_through_holdings(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
 
 [EXPERIMENTAL] LookThroughHoldings: Get LookThrough Holdings
 
@@ -1706,10 +1706,12 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\". (optional)
 quotes_scope = 'quotes_scope_example' # str | The scope containing the quotes with the FX rates used for currency conversion. (optional)
+slice = 'slice_example' # str | When running LookThrough, define this slice as the root slice in the portfolio to look through from. (optional)
+share_class = 'share_class_example' # str | When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. (optional)
 
     try:
         # [EXPERIMENTAL] LookThroughHoldings: Get LookThrough Holdings
-        api_response = api_instance.look_through_holdings(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, quotes_scope=quotes_scope)
+        api_response = api_instance.look_through_holdings(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, property_keys=property_keys, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->look_through_holdings: %s\n" % e)
@@ -1726,6 +1728,8 @@ Name | Type | Description  | Notes
  **filter** | **str**| Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
  **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. | [optional] 
  **quotes_scope** | **str**| The scope containing the quotes with the FX rates used for currency conversion. | [optional] 
+ **slice** | **str**| When running LookThrough, define this slice as the root slice in the portfolio to look through from. | [optional] 
+ **share_class** | **str**| When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. | [optional] 
 
 ### Return type
 
@@ -1750,11 +1754,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **look_through_transactions**
-> VersionedResourceListOfTransaction look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope)
+> VersionedResourceListOfTransaction look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
 
 [EXPERIMENTAL] LookThroughTransactions: Look through transactions
 
-Retrieve all the transactions that occurred during a particular time interval.                If the portfolio is part of a fund as defined in Fund Accounting documents, the transactions returned are the  union set of all transactions in portfolios of the same type, in any funds invested in by the portfolio's fund  (and any funds invested in from that fund, etc.).  The transactions will be scaled according to the ratio of the value of the investment in the fund to the NAV of the fund itself.
+Retrieve all the transactions that occurred during a particular time interval.    If the portfolio is part of a fund as defined in Fund Accounting documents, the transactions returned are the  union set of all transactions in portfolios of the same type, in any funds invested in by the portfolio's fund  (and any funds invested in from that fund, etc.).  The transactions will be scaled according to the ratio of the value of the investment in the fund to the NAV of the fund itself.
 
 ### Example
 
@@ -1787,19 +1791,21 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TransactionPortfoliosApi(api_client)
     scope = 'scope_example' # str | The scope of the transaction portfolio.
-code = 'code_example' # str | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
-from_transaction_date = 'from_transaction_date_example' # str | The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no lower bound if this is not specified. (optional)
-to_transaction_date = 'to_transaction_date_example' # str | The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no upper bound if this is not specified. (optional)
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve transactions. Defaults to returning the latest version               of each transaction if not specified. (optional)
-filter = 'filter_example' # str | Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto               transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or               'Transaction/strategy/quantsignal'. (optional)
+code = 'code_example' # str | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+from_transaction_date = 'from_transaction_date_example' # str | The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified. (optional)
+to_transaction_date = 'to_transaction_date_example' # str | The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)
+filter = 'filter_example' # str | Expression with which to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or              'Transaction/strategy/quantsignal'. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing transactions from a previous call to LookThroughTransactions. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. This will default to 1000 if not specified. (optional)
 quotes_scope = 'quotes_scope_example' # str | The scope containing the quotes with the FX rates used for currency conversion. (optional)
+slice = 'slice_example' # str | When running LookThrough, define this slice as the root slice in the portfolio to look through from. (optional)
+share_class = 'share_class_example' # str | When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. (optional)
 
     try:
         # [EXPERIMENTAL] LookThroughTransactions: Look through transactions
-        api_response = api_instance.look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope)
+        api_response = api_instance.look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->look_through_transactions: %s\n" % e)
@@ -1810,15 +1816,17 @@ quotes_scope = 'quotes_scope_example' # str | The scope containing the quotes wi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the transaction portfolio. | 
- **code** | **str**| The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. | 
- **from_transaction_date** | **str**| The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no lower bound if this is not specified. | [optional] 
- **to_transaction_date** | **str**| The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no upper bound if this is not specified. | [optional] 
- **as_at** | **datetime**| The asAt datetime at which to retrieve transactions. Defaults to returning the latest version               of each transaction if not specified. | [optional] 
- **filter** | **str**| Expression with which to filter the result set.               For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;Instrument&#39; or &#39;Transaction&#39; domain to decorate onto               transactions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or               &#39;Transaction/strategy/quantsignal&#39;. | [optional] 
+ **code** | **str**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
+ **from_transaction_date** | **str**| The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no lower bound if this is not specified. | [optional] 
+ **to_transaction_date** | **str**| The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. | [optional] 
+ **filter** | **str**| Expression with which to filter the result set.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;Instrument&#39; or &#39;Transaction&#39; domain to decorate onto              transactions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or              &#39;Transaction/strategy/quantsignal&#39;. | [optional] 
  **page** | **str**| The pagination token to use to continue listing transactions from a previous call to LookThroughTransactions. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. This will default to 1000 if not specified. | [optional] 
  **quotes_scope** | **str**| The scope containing the quotes with the FX rates used for currency conversion. | [optional] 
+ **slice** | **str**| When running LookThrough, define this slice as the root slice in the portfolio to look through from. | [optional] 
+ **share_class** | **str**| When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. | [optional] 
 
 ### Return type
 
