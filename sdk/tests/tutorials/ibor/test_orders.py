@@ -1,3 +1,4 @@
+import datetime
 import json
 import unittest
 
@@ -87,11 +88,15 @@ class Orders(unittest.TestCase):
                           PerpetualProperty(f"Order/{orders_scope}/Strategy", PropertyValue("RiskArb"))}
 
         quantity = 100
+        state = "New"
+        type = "Limit"
+        date = datetime.datetime.fromisoformat("2022-07-05T10:15:30+00:00")
         # Construct request
         order_request = OrderRequest(properties=properties,
                                      instrument_identifiers=instrument_identifiers,
                                      quantity=quantity, side='buy',
-                                     portfolio_id=portfolio_id, id=order_resource_id)
+                                     portfolio_id=portfolio_id, id=order_resource_id,
+                                     state=state, type=type, date=date)
 
         order_set_request = OrderSetRequest(order_requests=[order_request])
 
