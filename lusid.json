@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4568",
+    "version": "0.11.4569",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -76001,6 +76001,36 @@
         ],
         "type": "string"
       },
+      "Barrier": {
+        "required": [
+          "direction",
+          "level",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "direction": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [Down, Up]."
+          },
+          "level": {
+            "type": "number",
+            "description": "Trigger level, which the underlying should (or should not) cross/touch.",
+            "format": "double"
+          },
+          "monitoring": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [European, Bermudan, American].",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [Knockin, Knockout]."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Barrier class for exotic FxOption"
+      },
       "Basket": {
         "allOf": [
           {
@@ -83269,8 +83299,7 @@
               "isDeliveryNotCash",
               "optionMaturityDate",
               "optionSettlementDate",
-              "startDate",
-              "strike"
+              "startDate"
             ],
             "type": "object",
             "properties": {
@@ -83278,29 +83307,6 @@
                 "type": "string",
                 "description": "The start date of the instrument. This is normally synonymous with the trade-date.",
                 "format": "date-time"
-              },
-              "optionMaturityDate": {
-                "type": "string",
-                "description": "The maturity date of the option.",
-                "format": "date-time"
-              },
-              "optionSettlementDate": {
-                "type": "string",
-                "description": "The settlement date of the option.",
-                "format": "date-time"
-              },
-              "isDeliveryNotCash": {
-                "type": "boolean",
-                "description": "True if the option is settled in cash, false if delivery."
-              },
-              "isCallNotPut": {
-                "type": "boolean",
-                "description": "True if the option is a call, false if the option is a put."
-              },
-              "strike": {
-                "type": "number",
-                "description": "The strike of the option.",
-                "format": "double"
               },
               "domCcy": {
                 "type": "string",
@@ -83316,13 +83322,24 @@
                 "type": "string",
                 "description": "The foreign currency of the FX."
               },
-              "premium": {
-                "$ref": "#/components/schemas/Premium"
-              },
               "fgnAmount": {
                 "type": "number",
                 "description": "For a vanilla FxOption contract, FgnAmount cannot be set.\r\nIn case of a digital FxOption (IsPayoffDigital==true)\r\na payoff (if the option is in the money) can be either\r\nin domestic or in foreign currency - for the latter\r\nFgnAmount must be set.\r\nNote: It is invalid to have FgnAmount and DomAmount\r\nat the same time.",
                 "format": "double",
+                "nullable": true
+              },
+              "strike": {
+                "type": "number",
+                "description": "The strike of the option.",
+                "format": "double",
+                "nullable": true
+              },
+              "barriers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Barrier"
+                },
+                "description": "For a barrier option the list should not be empty. Up to two barriers are supported.\r\nAn option cannot be at the same time barrier- and touch-option.\r\nOne (or both) of the lists must be empty.",
                 "nullable": true
               },
               "exerciseType": {
@@ -83330,9 +83347,43 @@
                 "description": "Type of optionality that is present; European, Bermudan, American.\r\n\r\nSupported string (enumeration) values are: [European, Bermudan, American].",
                 "nullable": true
               },
+              "isCallNotPut": {
+                "type": "boolean",
+                "description": "True if the option is a call, false if the option is a put."
+              },
+              "isDeliveryNotCash": {
+                "type": "boolean",
+                "description": "True if the option is settled in cash, false if delivery."
+              },
               "isPayoffDigital": {
                 "type": "boolean",
                 "description": "By default IsPayoffDigital is false. If IsPayoffDigital=true,\r\nthe option is 'digital', and the option payoff is 0 or 1 unit of currency,\r\ninstead of a vanilla CallPayoff=max(spot-strike,0) or PutPayoff=max(strike-spot,0)."
+              },
+              "optionMaturityDate": {
+                "type": "string",
+                "description": "The maturity date of the option.",
+                "format": "date-time"
+              },
+              "optionSettlementDate": {
+                "type": "string",
+                "description": "The settlement date of the option.",
+                "format": "date-time"
+              },
+              "payoutStyle": {
+                "type": "string",
+                "description": "PayoutStyle for touch options.\r\nFor options without touch optionality (IsTouch==false),\r\nPayoutStyle should not be set (ot it can be set to None)\r\nFor options with touch optionality (IsTouch==true),\r\nPayoutStyle cannot be None.\r\n\r\nSupported string (enumeration) values are: [Deferred, Immediate].",
+                "nullable": true
+              },
+              "premium": {
+                "$ref": "#/components/schemas/Premium"
+              },
+              "touches": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Touch"
+                },
+                "description": "For a touch option the list should not be empty. Up to two touches are supported.\r\nAn option cannot be at the same time barrier- and touch-option.\r\nOne (or both) of the lists must be empty.",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
@@ -95326,6 +95377,36 @@
           }
         ],
         "description": "LUSID representation of a Term Deposit."
+      },
+      "Touch": {
+        "required": [
+          "direction",
+          "level",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "direction": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [Down, Up]."
+          },
+          "level": {
+            "type": "number",
+            "description": "Trigger level, which the underlying should (or should not) cross/touch.",
+            "format": "double"
+          },
+          "monitoring": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [European, Bermudan, American].",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported string (enumeration) values are: [Touch, Notouch]."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Touch class for exotic FxOption"
       },
       "Transaction": {
         "required": [
