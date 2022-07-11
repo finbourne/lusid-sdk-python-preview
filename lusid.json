@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4577",
+    "version": "0.11.4578",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -16862,14 +16862,14 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] DeleteInstruments: Deletes multiple instruments from a set of specified LusidInstrumentId strings",
-        "description": "Deletes a number of specified instruments (limited to 2000), as identified by LusidInstrumentId identifiers.\r\n            \r\nFor soft deletion, once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating\r\ntransactions or holdings. You can still query existing transactions and holdings related to the\r\ndeleted instrument.\r\n            \r\nFor Hard delete; with the same behaviour as above, in addition:\r\n    (i)     all identifiers are removed\r\n    (ii)    the instrument is marked with a state of 'Deleted',\r\n    (iii)   the instrument name is pre-pended with 'DELETED '\r\n    (iv)    the instrument will not be returned by ListInstruments\n\nThe maximum number of instruments that this method can delete per request is 2,000.",
+        "summary": "[EXPERIMENTAL] DeleteInstruments: Soft or hard delete multiple instruments",
+        "description": "Deletes a number of instruments identified by LusidInstrumentId.\r\n            \r\nSoft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.\r\n            \r\nIn addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as 'Deleted'; (iii) prepends the instrument's name with 'DELETED '; (iv) prevents the instrument from being returned in list instruments queries.\r\n            \r\nFollowing hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.\n\nThe maximum number of instruments that this method can delete per request is 2,000.",
         "operationId": "DeleteInstruments",
         "parameters": [
           {
             "name": "deleteMode",
             "in": "query",
-            "description": "The delete mode to use, currently only 'soft' is supported, if left unspecified, this argument is optional.",
+            "description": "The delete mode to use (defaults to 'Soft').",
             "schema": {
               "enum": [
                 "Soft",
@@ -16883,13 +16883,13 @@
           {
             "name": "scope",
             "in": "query",
-            "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "description": "The scope in which the instruments lie. When not supplied the scope is 'default'.",
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "description": "The scope in which the instruments lie. When not supplied the scope is 'default'.",
               "default": "default",
               "nullable": true
             }
