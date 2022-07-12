@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4584",
+    "version": "0.11.4585",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -86983,7 +86983,7 @@
           },
           "derivedComplianceState": {
             "type": "string",
-            "description": "The overall compliance state of a block, derived from the block's orders. Possible values are Pending, Failed, 'Manually approved' and Passed."
+            "description": "The overall compliance state of a block, derived from the block's orders. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'."
           }
         },
         "additionalProperties": false
@@ -87068,7 +87068,7 @@
           },
           "complianceState": {
             "type": "string",
-            "description": "The compliance state of this order. Possible values are Pending, Failed, 'Manually approved' and Passed."
+            "description": "The compliance state of this order. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'."
           }
         },
         "additionalProperties": false
