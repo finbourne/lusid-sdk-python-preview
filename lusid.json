@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4583",
+    "version": "0.11.4584",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -76436,6 +76436,70 @@
         ],
         "description": "LUSID representation of a Vanilla Fixed Rate Bond."
       },
+      "BondDefaultEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "amount",
+              "couponPaidDate",
+              "defaultStatus",
+              "defaultType",
+              "graceEndDate",
+              "instrumentEventType",
+              "paymentDate"
+            ],
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "Percentage or amount of each share held to be given to shareholders.",
+                "format": "double"
+              },
+              "couponPaidDate": {
+                "type": "string",
+                "description": "Date that the missed coupon is paid if payment is made within grace period.",
+                "format": "date-time"
+              },
+              "defaultStatus": {
+                "type": "string",
+                "description": "The status of the bond default (i.e., technical or default)\r\n\r\nSupported string (enumeration) values are: [Technical, Default]."
+              },
+              "defaultType": {
+                "type": "string",
+                "description": "The type of the default. (coupon payment, principal payment, covenant ...)\r\n\r\nSupported string (enumeration) values are: [CouponPayment, CouponAndPrincipalPayment, PrincipalPayment, Covenant, Bankruptcy, BuyBackOption]."
+              },
+              "graceEndDate": {
+                "type": "string",
+                "description": "Date the grace period for making coupon payment ends.",
+                "format": "date-time"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date the coupon payment was missed.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+              }
+            }
+          }
+        ],
+        "description": "Indicates when an issuer has defaulted on an obligation due to technical default, missed payments, or bankruptcy filing."
+      },
       "BucketedCashFlowRequest": {
         "required": [
           "roundingMethod"
@@ -76736,6 +76800,54 @@
           }
         ],
         "description": "LUSID representation of Cap, Floor, or Collar."
+      },
+      "CashDividendEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "grossAmount",
+              "instrumentEventType",
+              "paymentDate",
+              "recordDate"
+            ],
+            "type": "object",
+            "properties": {
+              "grossAmount": {
+                "type": "number",
+                "description": "The before tax amount for each share held being paid out to shareholders.",
+                "format": "double"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date the company pays out dividends to shareholders.",
+                "format": "date-time"
+              },
+              "recordDate": {
+                "type": "string",
+                "description": "Date you have to be the holder of record in order to participate in the tender.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+              }
+            }
+          }
+        ],
+        "description": "A cash distribution paid out to shareholders."
       },
       "CashFlowLineage": {
         "type": "object",
@@ -77256,10 +77368,13 @@
                   "InternalEvent",
                   "CouponEvent",
                   "OpenEvent",
-                  "CloseEvent"
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
               }
             }
           }
@@ -78431,10 +78546,13 @@
                   "InternalEvent",
                   "CouponEvent",
                   "OpenEvent",
-                  "CloseEvent"
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
               }
             }
           }
@@ -84771,10 +84889,13 @@
               "InternalEvent",
               "CouponEvent",
               "OpenEvent",
-              "CloseEvent"
+              "CloseEvent",
+              "StockSplitEvent",
+              "BondDefaultEvent",
+              "CashDividendEvent"
             ],
             "type": "string",
-            "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+            "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
           }
         },
         "additionalProperties": false,
@@ -84848,7 +84969,10 @@
           "InternalEvent",
           "CouponEvent",
           "OpenEvent",
-          "CloseEvent"
+          "CloseEvent",
+          "StockSplitEvent",
+          "BondDefaultEvent",
+          "CashDividendEvent"
         ],
         "type": "string",
         "description": "The individual event types."
@@ -85412,10 +85536,13 @@
                   "InternalEvent",
                   "CouponEvent",
                   "OpenEvent",
-                  "CloseEvent"
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
               }
             }
           }
@@ -86605,10 +86732,13 @@
                   "InternalEvent",
                   "CouponEvent",
                   "OpenEvent",
-                  "CloseEvent"
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
               }
             }
           }
@@ -95111,6 +95241,54 @@
         "additionalProperties": false,
         "description": "Schedule that steps at known dated points in time.\r\nUsed in representation of a sinking bond, also called amortisation, steps in coupons for fixed bonds and spreads for floating bonds."
       },
+      "StockSplitEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "equitySplitRatio",
+              "instrumentEventType",
+              "paymentDate",
+              "recordDate"
+            ],
+            "type": "object",
+            "properties": {
+              "equitySplitRatio": {
+                "type": "number",
+                "description": "This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old.",
+                "format": "double"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "Date on which the stock-split takes effect.",
+                "format": "date-time"
+              },
+              "recordDate": {
+                "type": "string",
+                "description": "Date you have to be the holder of record in order to participate in the tender.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InternalEvent",
+                  "CouponEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+              }
+            }
+          }
+        ],
+        "description": "A split in the company's shares. Shareholders are given additional company shares based on the terms of the stock split."
+      },
       "Stream": {
         "type": "object",
         "properties": {
@@ -96312,10 +96490,13 @@
                   "InternalEvent",
                   "CouponEvent",
                   "OpenEvent",
-                  "CloseEvent"
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
               }
             }
           }
