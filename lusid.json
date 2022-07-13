@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4591",
+    "version": "0.11.4592",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17971,26 +17971,26 @@
             "name": "recipeScope",
             "in": "query",
             "description": "The scope of the valuation recipe being used to generate the payment diary",
+            "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope of the valuation recipe being used to generate the payment diary",
-              "nullable": true
+              "description": "The scope of the valuation recipe being used to generate the payment diary"
             }
           },
           {
             "name": "recipeCode",
             "in": "query",
             "description": "The code of the valuation recipe being used to generate the payment diary",
+            "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code of the valuation recipe being used to generate the payment diary",
-              "nullable": true
+              "description": "The code of the valuation recipe being used to generate the payment diary"
             }
           },
           {

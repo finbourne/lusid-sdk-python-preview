@@ -418,7 +418,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument_payment_diary**
-> InstrumentPaymentDiary get_instrument_payment_diary(identifier_type, identifier, recipe_scope=recipe_scope, recipe_code=recipe_code, effective_at=effective_at, as_at=as_at, scope=scope)
+> InstrumentPaymentDiary get_instrument_payment_diary(identifier_type, identifier, recipe_scope, recipe_code, effective_at=effective_at, as_at=as_at, scope=scope)
 
 [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
 
@@ -456,15 +456,15 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.InstrumentsApi(api_client)
     identifier_type = 'identifier_type_example' # str | The identifier being supplied e.g. \"Figi\".
 identifier = 'identifier_example' # str | The value of the identifier for the requested instrument.
-recipe_scope = 'recipe_scope_example' # str | The scope of the valuation recipe being used to generate the payment diary (optional)
-recipe_code = 'recipe_code_example' # str | The code of the valuation recipe being used to generate the payment diary (optional)
+recipe_scope = 'recipe_scope_example' # str | The scope of the valuation recipe being used to generate the payment diary
+recipe_code = 'recipe_code_example' # str | The code of the valuation recipe being used to generate the payment diary
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified. (optional)
 scope = 'default' # str | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
-        api_response = api_instance.get_instrument_payment_diary(identifier_type, identifier, recipe_scope=recipe_scope, recipe_code=recipe_code, effective_at=effective_at, as_at=as_at, scope=scope)
+        api_response = api_instance.get_instrument_payment_diary(identifier_type, identifier, recipe_scope, recipe_code, effective_at=effective_at, as_at=as_at, scope=scope)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_payment_diary: %s\n" % e)
@@ -476,8 +476,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier_type** | **str**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
  **identifier** | **str**| The value of the identifier for the requested instrument. | 
- **recipe_scope** | **str**| The scope of the valuation recipe being used to generate the payment diary | [optional] 
- **recipe_code** | **str**| The code of the valuation recipe being used to generate the payment diary | [optional] 
+ **recipe_scope** | **str**| The scope of the valuation recipe being used to generate the payment diary | 
+ **recipe_code** | **str**| The code of the valuation recipe being used to generate the payment diary | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. | [optional] 
  **scope** | **str**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
