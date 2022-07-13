@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **maturity_date** | **datetime** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. | 
 **dom_ccy** | **str** | The domestic currency of the instrument. | 
 **flow_conventions** | [**FlowConventions**](FlowConventions.md) |  | 
-**principal** | **float** | The face-value or principal for the bond at outset.  This might be reduced through its lifetime in the event of amortization or similar. | 
+**principal** | **float** | The face-value or principal for the bond at outset.  This might be reduced through its lifetime in the event of amortisation or similar. | 
 **coupon_rate** | **float** | Simple coupon rate. | 
 **identifiers** | **dict(str, str)** | External market codes and identifiers for the bond, e.g. ISIN. | [optional] 
 **ex_dividend_days** | **int** | Number of Good Business Days before the next coupon payment, in which the bond goes ex-dividend. This means that if the settlement date falls in the ex-dividend period  then the coupon paid is zero and the accrued interest is negative. The ex-dividend  period is (Next Coupon Payment Date - ExDividendDays, Next Coupon Payment Date). | [optional] 

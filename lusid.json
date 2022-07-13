@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4593",
+    "version": "0.11.4594",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -76355,7 +76355,7 @@
               },
               "principal": {
                 "type": "number",
-                "description": "The face-value or principal for the bond at outset.\r\nThis might be reduced through its lifetime in the event of amortization or similar.",
+                "description": "The face-value or principal for the bond at outset.\r\nThis might be reduced through its lifetime in the event of amortisation or similar.",
                 "format": "double"
               },
               "couponRate": {
@@ -82155,7 +82155,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
+                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortisation schedule is given but otherwise generation is allowed as usual.",
                 "nullable": true
               },
               "instrumentType": {
@@ -82313,7 +82313,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortization schedule is given but otherwise generation is allowed as usual.",
+                "description": "Any overriding data for notionals, spreads or rates that would affect generation of a leg.\r\nThis supports the case where an amortisation schedule is given but otherwise generation is allowed as usual.",
                 "nullable": true
               },
               "instrumentType": {
