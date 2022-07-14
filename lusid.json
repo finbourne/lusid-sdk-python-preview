@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4601",
+    "version": "0.11.4602",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -19696,7 +19696,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] ListAllLegalEntities: List Legal Entities",
+        "summary": "[EARLY ACCESS] ListAllLegalEntities: List Legal Entities",
         "description": "List all legal entities which the user is entitled to see.",
         "operationId": "ListAllLegalEntities",
         "parameters": [
@@ -20175,7 +20175,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}": {
