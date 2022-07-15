@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4611",
+    "version": "0.11.4612",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -5971,146 +5971,6 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
-    "/api/compliance": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] ListComplianceRuns: List historical compliance runs. -- DEPRECATING IN FAVOUR OF NEW ENDPOINT",
-        "description": "Use this endpoint to fetch a list of all historical compliance runs.",
-        "operationId": "ListComplianceRuns",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned results to this many.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many.",
-              "format": "int32",
-              "nullable": true
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The List of all compliance runs completed",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "runId": "1234-5678-9101",
-                      "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                    }
-                  ],
-                  "href": "https://myco.lusid.com/api/api/compliance",
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/compliance/rules": {
       "get": {
         "tags": [
@@ -7113,101 +6973,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/compliance/run": {
-      "post": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process -- DEPRECATING - POST TRADE ONLY",
-        "description": "Use this endpoint to fetch the start a compliance run, based on a pre-set mapping file.",
-        "operationId": "RunComplianceCheck",
-        "parameters": [
-          {
-            "name": "fileName",
-            "in": "query",
-            "description": "The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder",
-            "required": true,
-            "schema": {
-              "maxLength": 50,
-              "minLength": 1,
-              "pattern": "^[A-Za-z0-9_\\-\\.]+[A-Za-z0-9_\\-\\. ]*$",
-              "type": "string",
-              "description": "The name of compliance mappings file to use. Has to exist in drive ComplianceRules folder"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The identifying information of a compliance run",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
-                },
-                "example": {
-                  "runId": "1234-5678-9101",
-                  "asAt": "2020-01-05T00:00:00.0000000+00:00"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/compliance/runs": {
       "get": {
         "tags": [
@@ -7276,12 +7041,16 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRunInfo"
                 },
                 "example": {
                   "values": [
                     {
                       "runId": "1234-5678-9101",
+                      "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                      "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                      "schedule": "PostTrade",
+                      "allRulesPassed": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7291,12 +7060,16 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRunInfo"
                 },
                 "example": {
                   "values": [
                     {
                       "runId": "1234-5678-9101",
+                      "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                      "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                      "schedule": "PostTrade",
+                      "allRulesPassed": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7306,12 +7079,16 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfComplianceRun"
+                  "$ref": "#/components/schemas/ResourceListOfComplianceRunInfo"
                 },
                 "example": {
                   "values": [
                     {
                       "runId": "1234-5678-9101",
+                      "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                      "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                      "schedule": "PostTrade",
+                      "allRulesPassed": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7421,28 +7198,40 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
+                  "$ref": "#/components/schemas/ComplianceRunInfo"
                 },
                 "example": {
                   "runId": "1234-5678-9101",
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PostTrade",
+                  "allRulesPassed": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
+                  "$ref": "#/components/schemas/ComplianceRunInfo"
                 },
                 "example": {
                   "runId": "1234-5678-9101",
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PostTrade",
+                  "allRulesPassed": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRun"
+                  "$ref": "#/components/schemas/ComplianceRunInfo"
                 },
                 "example": {
                   "runId": "1234-5678-9101",
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PostTrade",
+                  "allRulesPassed": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               }
@@ -77958,10 +77747,14 @@
         },
         "additionalProperties": false
       },
-      "ComplianceRun": {
+      "ComplianceRunInfo": {
         "required": [
+          "allRulesPassed",
           "asAt",
-          "runId"
+          "completedAt",
+          "instigatedAt",
+          "runId",
+          "schedule"
         ],
         "type": "object",
         "properties": {
@@ -77969,9 +77762,27 @@
             "type": "string",
             "description": "The unique identifier of a compliance run"
           },
+          "instigatedAt": {
+            "type": "string",
+            "description": "The time the compliance run was launched (e.g. button pressed). Currently it is also both the as at and effective at time in whichthe rule set and portfolio data (including any pending trades if the run is pretrade) is taken for the caluation, although it may be possible to run compliance for historical effective at and as at dates in the future.",
+            "format": "date-time"
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "The time the compliance run calculation was completed",
+            "format": "date-time"
+          },
+          "schedule": {
+            "type": "string",
+            "description": "Whether the compliance run was pre or post trade"
+          },
+          "allRulesPassed": {
+            "type": "boolean",
+            "description": "True if all rules passed, for all the portfolios they were assigned to"
+          },
           "asAt": {
             "type": "string",
-            "description": "The date at time at which the compliance run was run",
+            "description": "Legacy AsAt time for backwards compatibility",
             "format": "date-time"
           }
         },
@@ -92486,7 +92297,7 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
-      "ResourceListOfComplianceRun": {
+      "ResourceListOfComplianceRunInfo": {
         "required": [
           "values"
         ],
@@ -92495,7 +92306,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ComplianceRun"
+              "$ref": "#/components/schemas/ComplianceRunInfo"
             },
             "description": "The resources to list."
           },
