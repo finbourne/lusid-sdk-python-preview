@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**get_portfolio_group_metadata**](PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
 [**get_portfolio_group_property_time_series**](PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
 [**get_portfolio_group_relations**](PortfolioGroupsApi.md#get_portfolio_group_relations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
-[**get_portfolio_group_relationships**](PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
+[**get_portfolio_group_relationships**](PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
 [**get_transactions_for_portfolio_group**](PortfolioGroupsApi.md#get_transactions_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
 [**list_portfolio_groups**](PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
 [**patch_portfolio_group_access_metadata**](PortfolioGroupsApi.md#patch_portfolio_group_access_metadata) | **PATCH** /api/portfoliogroups/{scope}/{code}/metadata | [EXPERIMENTAL] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_group_relationships**
 > ResourceListOfRelationship get_portfolio_group_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
+[EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
 
 Get relationships for the specified Portfolio Group
 
@@ -1656,7 +1656,7 @@ filter = 'filter_example' # str | Expression to filter relationships. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
+        # [EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
         api_response = api_instance.get_portfolio_group_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:

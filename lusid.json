@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4619",
+    "version": "0.11.4620",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -18728,7 +18728,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] GetInstrumentRelationships: Get Instrument relationships",
+        "summary": "[EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships",
         "description": "Get relationships for a particular Instrument.",
         "operationId": "GetInstrumentRelationships",
         "parameters": [
@@ -18982,7 +18982,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities": {
@@ -23249,7 +23249,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] GetLegalEntityRelationships: Get Relationships for Legal Entity",
+        "summary": "[EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity",
         "description": "Get Relationships for the specified Legal Entity",
         "operationId": "GetLegalEntityRelationships",
         "parameters": [
@@ -23506,7 +23506,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/metadata/access/resources": {
@@ -32568,7 +32568,7 @@
         "tags": [
           "Persons"
         ],
-        "summary": "[EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person",
+        "summary": "[EARLY ACCESS] GetPersonRelationships: Get Relationships for Person",
         "description": "Get relationships for the specified person.",
         "operationId": "GetPersonRelationships",
         "parameters": [
@@ -32819,7 +32819,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/placements": {
@@ -38542,7 +38542,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group",
+        "summary": "[EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group",
         "description": "Get relationships for the specified Portfolio Group",
         "operationId": "GetPortfolioGroupRelationships",
         "parameters": [
@@ -38782,7 +38782,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/subgroups": {
@@ -44998,7 +44998,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships",
+        "summary": "[EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships",
         "description": "Get relationships for a particular portfolio.",
         "operationId": "GetPortfolioRelationships",
         "parameters": [
@@ -45316,7 +45316,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/returns/$aggregated": {
@@ -98293,7 +98293,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

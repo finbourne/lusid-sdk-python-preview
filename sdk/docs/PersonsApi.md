@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**get_person_access_metadata_by_key**](PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
 [**get_person_property_time_series**](PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
 [**get_person_relations**](PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
-[**get_person_relationships**](PersonsApi.md#get_person_relationships) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
+[**get_person_relationships**](PersonsApi.md#get_person_relationships) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EARLY ACCESS] GetPersonRelationships: Get Relationships for Person
 [**list_all_persons**](PersonsApi.md#list_all_persons) | **GET** /api/persons | [EXPERIMENTAL] ListAllPersons: List All Persons
 [**list_persons**](PersonsApi.md#list_persons) | **GET** /api/persons/{idTypeScope}/{idTypeCode} | [EXPERIMENTAL] ListPersons: List Persons
 [**patch_person_access_metadata**](PersonsApi.md#patch_person_access_metadata) | **PATCH** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EXPERIMENTAL] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 # **get_person_relationships**
 > ResourceListOfRelationship get_person_relationships(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
+[EARLY ACCESS] GetPersonRelationships: Get Relationships for Person
 
 Get relationships for the specified person.
 
@@ -828,7 +828,7 @@ filter = 'filter_example' # str | Expression to filter relationships. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
+        # [EARLY ACCESS] GetPersonRelationships: Get Relationships for Person
         api_response = api_instance.get_person_relationships(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:

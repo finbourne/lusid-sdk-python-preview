@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**get_portfolio_properties**](PortfoliosApi.md#get_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties
 [**get_portfolio_property_time_series**](PortfoliosApi.md#get_portfolio_property_time_series) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EXPERIMENTAL] GetPortfolioPropertyTimeSeries: Get portfolio property time series
 [**get_portfolio_relations**](PortfoliosApi.md#get_portfolio_relations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
-[**get_portfolio_relationships**](PortfoliosApi.md#get_portfolio_relationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships
+[**get_portfolio_relationships**](PortfoliosApi.md#get_portfolio_relationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
 [**get_portfolio_returns**](PortfoliosApi.md#get_portfolio_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
 [**get_portfolios_access_metadata_by_key**](PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
 [**list_portfolio_properties**](PortfoliosApi.md#list_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 # **get_portfolio_relationships**
 > ResourceListOfRelationship get_portfolio_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships
+[EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
 
 Get relationships for a particular portfolio.
 
@@ -1095,7 +1095,7 @@ filter = 'filter_example' # str | Expression to filter the relationships. Provid
 identifier_types = ['identifier_types_example'] # list[str] | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships
+        # [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
         api_response = api_instance.get_portfolio_relationships(scope, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:

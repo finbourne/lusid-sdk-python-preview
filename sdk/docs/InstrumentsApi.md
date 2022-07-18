@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**get_instrument_payment_diary**](InstrumentsApi.md#get_instrument_payment_diary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
 [**get_instrument_properties**](InstrumentsApi.md#get_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
 [**get_instrument_property_time_series**](InstrumentsApi.md#get_instrument_property_time_series) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
-[**get_instrument_relationships**](InstrumentsApi.md#get_instrument_relationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EXPERIMENTAL] GetInstrumentRelationships: Get Instrument relationships
+[**get_instrument_relationships**](InstrumentsApi.md#get_instrument_relationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
 [**get_instruments**](InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
 [**list_instrument_properties**](InstrumentsApi.md#list_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
 [**list_instruments**](InstrumentsApi.md#list_instruments) | **GET** /api/instruments | ListInstruments: List instruments
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 # **get_instrument_relationships**
 > ResourceListOfRelationship get_instrument_relationships(identifier_type, identifier, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types, scope=scope)
 
-[EXPERIMENTAL] GetInstrumentRelationships: Get Instrument relationships
+[EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
 
 Get relationships for a particular Instrument.
 
@@ -724,7 +724,7 @@ identifier_types = ['identifier_types_example'] # list[str] | Identifier types (
 scope = 'default' # str | The entity scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
-        # [EXPERIMENTAL] GetInstrumentRelationships: Get Instrument relationships
+        # [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
         api_response = api_instance.get_instrument_relationships(identifier_type, identifier, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types, scope=scope)
         pprint(api_response)
     except ApiException as e:
