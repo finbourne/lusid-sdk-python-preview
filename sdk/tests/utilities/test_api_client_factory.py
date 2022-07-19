@@ -279,8 +279,8 @@ class ApiFactory(unittest.TestCase):
     def test_use_apifactory_multiple_threads(self):
 
         with patch.dict('os.environ', self.get_env_vars_without_pat(), clear=True):
+
             api_factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
-            access_token = api_factory.api_client.configuration.access_token
 
             def get_identifier_types(factory):
                 return factory.build(InstrumentsApi).get_instrument_identifier_types()
@@ -292,7 +292,7 @@ class ApiFactory(unittest.TestCase):
             with patch("requests.post") as identity_mock:
                 identity_mock.side_effect = lambda *args, **kwargs: MockApiResponse(
                     json_data={
-                        "access_token": f"{access_token}",
+                        "access_token": f"mock_access_token",
                         "refresh_token": "mock_refresh_token",
                         "expires_in": 3600
                     },
