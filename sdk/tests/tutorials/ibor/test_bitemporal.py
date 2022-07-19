@@ -35,14 +35,17 @@ class Bitemporal(unittest.TestCase):
         delete_entities(cls.id_generator)
 
     def print_transactions(self, as_at, transactions):
-        print("transactions at: {}".format(as_at))
+        # print("transactions at: {}".format(as_at))
+        #
+        # for transaction in transactions:
+        #     print("{}\t{}\t{}\t{}\t{}".format(transaction.instrument_uid,
+        #                                       transaction.transaction_date,
+        #                                       transaction.units,
+        #                                       transaction.transaction_price.price,
+        #                                       transaction.total_consideration.amount))
+        # Do nothing.  We shouldn't be printing stuff out in tests.
+        pass
 
-        for transaction in transactions:
-            print("{}\t{}\t{}\t{}\t{}".format(transaction.instrument_uid,
-                                              transaction.transaction_date,
-                                              transaction.units,
-                                              transaction.transaction_price.price,
-                                              transaction.total_consideration.amount))
 
     @lusid_feature("F13-7")
     def test_apply_bitemporal_portfolio_change(self):

@@ -65,8 +65,8 @@ class ApiClientBuilder:
             cls.__check_required_fields(configuration, ["api_url"])
             api_token = token
 
-        # If there is a token in the env vars, and the user has not provided a secrets file, use the token
-        elif configuration.access_token is not None and api_secrets_filename is None:
+        # If there is a token provided use it
+        elif configuration.access_token is not None:
             # Check that there is an api_url available
             cls.__check_required_fields(configuration, ["api_url"])
             api_token = configuration.access_token

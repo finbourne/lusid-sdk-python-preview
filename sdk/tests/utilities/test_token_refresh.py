@@ -17,6 +17,8 @@ from utilities import MockApiResponse
 source_config_details, config_keys = CredentialsSource.fetch_credentials(), CredentialsSource.fetch_config_keys()
 
 
+
+@unittest.skipIf(CredentialsSource.fetch_credentials().__contains__("access_token"), "do not run on PR's")
 class TokenRefresh(unittest.TestCase):
 
     @classmethod

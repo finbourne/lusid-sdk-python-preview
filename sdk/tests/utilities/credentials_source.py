@@ -35,6 +35,14 @@ class CredentialsSource:
     def fetch_credentials(cls):
         credentials = cls.secrets_path()
 
+        # Allow the Personal Access Token (PAT) to take precedence.
+        if cls.fetch_pat() is not None:
+            vars = {
+                "access_token": cls.fetch_pat(),
+                "api_url": os.getenv("FBN_LUSID_API_URL", None)
+            }
+            return vars
+
         # Get all the required variables available as environment variables
         vars = {
             "token_url": os.getenv("FBN_TOKEN_URL", None),

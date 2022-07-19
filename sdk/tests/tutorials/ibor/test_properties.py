@@ -19,7 +19,7 @@ class Properties(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+        api_client = ApiClientBuilder().build()
 
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)

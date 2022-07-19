@@ -87,6 +87,7 @@ class ApiFactory(unittest.TestCase):
             self.assertIsInstance(api, InstrumentsApi)
             self.validate_api(api)
 
+    @unittest.skipIf(CredentialsSource.fetch_credentials().__contains__("access_token"), "do not run on PR's")
     def test_no_pat_but_good_secrets_file_as_param(self):
 
         with patch.dict(self.os_environ_dict_str, self.get_env_vars_without_pat(), clear=True):
@@ -95,6 +96,7 @@ class ApiFactory(unittest.TestCase):
             self.assertIsInstance(api, InstrumentsApi)
             self.validate_api(api)
 
+    @unittest.skipIf(CredentialsSource.fetch_credentials().__contains__("access_token"), "do not run on PR's")
     def test_none_str_param_pat_but_good_secrets_envs(self):
 
         with patch.dict(self.os_environ_dict_str, self.get_env_vars_without_pat(), clear=True):
@@ -103,6 +105,7 @@ class ApiFactory(unittest.TestCase):
             self.assertIsInstance(api, InstrumentsApi)
             self.validate_api(api)
 
+    @unittest.skipIf(CredentialsSource.fetch_credentials().__contains__("access_token"), "do not run on PR's")
     def test_none_param_pat_but_good_secrets_envs(self):
 
         with patch.dict(self.os_environ_dict_str, self.get_env_vars_without_pat(), clear=True):

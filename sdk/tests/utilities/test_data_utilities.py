@@ -32,7 +32,7 @@ class TestDataUtilities:
         if not cls._api_client:
             with cls._lock:
                 if not cls._api_client:
-                    cls._api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
+                    cls._api_client = ApiClientBuilder().build()
         return cls._api_client
 
     def create_transaction_portfolio(self, scope):
