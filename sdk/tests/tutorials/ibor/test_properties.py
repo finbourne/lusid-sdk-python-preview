@@ -19,7 +19,7 @@ class Properties(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build()
+        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
 
         cls.property_definitions_api = lusid.PropertyDefinitionsApi(api_client)
         cls.transaction_portfolios_api = lusid.TransactionPortfoliosApi(api_client)
@@ -102,7 +102,6 @@ class Properties(unittest.TestCase):
 
     @lusid_feature("F1-6")
     def test_create_portfolio_with_metric_property(self):
-
         effective_date = datetime(year=2018, month=1, day=1, tzinfo=pytz.utc)
 
         _, scope, property_code, _ = self.id_generator.generate_scope_and_code(
@@ -124,7 +123,8 @@ class Properties(unittest.TestCase):
         )
 
         # create property definitions
-        metric_property_definition_result = self.property_definitions_api.create_property_definition(metric_property_definition)
+        metric_property_definition_result = self.property_definitions_api.create_property_definition(
+            metric_property_definition)
 
         # create the property values
         metric_property_value_request = models.PropertyValue(metric_value=models.MetricValue(value=1100000, unit="GBP"))
@@ -163,4 +163,3 @@ class Properties(unittest.TestCase):
         self.assertEqual(list(portfolio_properties.keys())[0], metric_property_definition_result.key)
         self.assertEqual(metric_property.value.metric_value.value, metric_property_value_request.metric_value.value)
         self.assertEqual(metric_property.value.metric_value.unit, metric_property_value_request.metric_value.unit)
-

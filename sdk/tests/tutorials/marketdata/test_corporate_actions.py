@@ -19,7 +19,7 @@ class CorporateActions(unittest.TestCase):
     @classmethod
     def setUp(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build()
+        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
 
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.portfolios_api = lusid.PortfoliosApi(api_client)
@@ -110,7 +110,8 @@ class CorporateActions(unittest.TestCase):
         corporate_action_source_code = "name-change-corporate-actions-source"
         corporate_action_code = "name-change-corporate-action"
 
-        self.id_generator.add_scope_and_code("ca_source", TestDataUtilities.tutorials_scope, corporate_action_source_code)
+        self.id_generator.add_scope_and_code("ca_source", TestDataUtilities.tutorials_scope,
+                                             corporate_action_source_code)
 
         # Create a corporate actions source.
         corporate_action_source = models.CreateCorporateActionSourceRequest(

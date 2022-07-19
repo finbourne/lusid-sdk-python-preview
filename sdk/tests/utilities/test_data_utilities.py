@@ -1,15 +1,14 @@
-from datetime import datetime
-import pytz
 import threading
+import unittest
 import uuid
+from datetime import datetime
+
+import pytz
 
 import lusid
 import lusid.models as models
 from lusid.utilities import ApiClientBuilder
-
 from utilities import CredentialsSource
-
-import unittest
 
 
 class TestDataUtilities:
@@ -32,7 +31,7 @@ class TestDataUtilities:
         if not cls._api_client:
             with cls._lock:
                 if not cls._api_client:
-                    cls._api_client = ApiClientBuilder().build()
+                    cls._api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
         return cls._api_client
 
     def create_transaction_portfolio(self, scope):

@@ -63,7 +63,7 @@ class ApiFactory(unittest.TestCase):
         ["Unknown Implementation", UnknownImpl, "unknown api: UnknownImpl"]
     ])
     def test_get_unknown_api_throws_exception(self, _, api_to_build, error_message):
-        factory = ApiClientFactory()
+        factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
 
         with self.assertRaises(TypeError) as error:
             factory.build(api_to_build)
@@ -117,7 +117,7 @@ class ApiFactory(unittest.TestCase):
         self.validate_api(api)
 
     def test_get_api_with_configuration(self):
-        factory = ApiClientFactory()
+        factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
         api = factory.build(InstrumentsApi)
         self.assertIsInstance(api, InstrumentsApi)
         self.validate_api(api)
@@ -134,7 +134,7 @@ class ApiFactory(unittest.TestCase):
         self.assertIsNotNone(result)
 
     def test_get_info_with_invalid_param_throws_error(self):
-        factory = ApiClientFactory()
+        factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
         api = factory.build(InstrumentsApi)
         self.assertIsInstance(api, InstrumentsApi)
 
@@ -144,7 +144,7 @@ class ApiFactory(unittest.TestCase):
         self.assertEqual(error.exception.args[0], "call_info value must be a lambda")
 
     def test_wrapped_method(self):
-        factory = ApiClientFactory()
+        factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
 
         wrapped_scopes_api = factory.build(InstrumentsApi)
         portfolio = InstrumentsApi(wrapped_scopes_api.api_client)
@@ -226,6 +226,7 @@ class ApiFactory(unittest.TestCase):
 
         with patch.dict('os.environ', env_vars, clear=True):
             factory = ApiClientFactory(
+                api_secrets_filename=CredentialsSource.secrets_path(),
                 correlation_id="param-correlation-id"
             )
             api = factory.build(InstrumentsApi)
@@ -236,6 +237,7 @@ class ApiFactory(unittest.TestCase):
 
     def test_get_api_with_tcp_keep_alive(self):
         api_factory = ApiClientFactory(
+            api_secrets_filename=CredentialsSource.secrets_path(),
             tcp_keep_alive=True
         )
         # Make sure tcp_keep_alive was passed through all of the layers
@@ -277,7 +279,7 @@ class ApiFactory(unittest.TestCase):
     def test_use_apifactory_multiple_threads(self):
 
         with patch.dict('os.environ', self.get_env_vars_without_pat(), clear=True):
-            api_factory = ApiClientFactory()
+            api_factory = ApiClientFactory(api_secrets_filename=CredentialsSource.secrets_path())
             access_token = api_factory.api_client.configuration.access_token
 
             def get_identifier_types(factory):
