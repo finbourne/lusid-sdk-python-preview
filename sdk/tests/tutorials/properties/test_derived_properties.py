@@ -56,8 +56,7 @@ class DerivedPropertyTests(unittest.TestCase):
                         f"Property {property_definition.domain}/{property_definition.scope}/{property_definition.display_name} already exists"
                     )
             finally:
-                self.id_generator.add_scope_and_code("property_definition", property_definition.scope,
-                                                     property_definition.code, ["Instrument"])
+                self.id_generator.add_scope_and_code("property_definition", property_definition.scope, property_definition.code, ["Instrument"])
 
     def upsert_ratings_property(self, figi, fitch_value=None, moodys_value=None):
 
@@ -134,8 +133,7 @@ class DerivedPropertyTests(unittest.TestCase):
                     f"Property {derived_prop_definition_req.domain}{derived_prop_definition_req.scope}/{derived_prop_definition_req.display_name} already exists"
                 )
         finally:
-            self.id_generator.add_scope_and_code("property_definition", derived_prop_definition_req.scope,
-                                                 derived_prop_definition_req.code, ["Instrument"])
+            self.id_generator.add_scope_and_code("property_definition", derived_prop_definition_req.scope, derived_prop_definition_req.code, ["Instrument"])
 
         # test case for derived property with both ratings
         moodys_then_fitch = self.get_instruments_with_derived_prop("BBG00KTDTF73")

@@ -123,8 +123,7 @@ class Properties(unittest.TestCase):
         )
 
         # create property definitions
-        metric_property_definition_result = self.property_definitions_api.create_property_definition(
-            metric_property_definition)
+        metric_property_definition_result = self.property_definitions_api.create_property_definition(metric_property_definition)
 
         # create the property values
         metric_property_value_request = models.PropertyValue(metric_value=models.MetricValue(value=1100000, unit="GBP"))
