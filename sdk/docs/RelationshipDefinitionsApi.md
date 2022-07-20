@@ -4,17 +4,17 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relationship_definition**](RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
-[**delete_relationship_definition**](RelationshipDefinitionsApi.md#delete_relationship_definition) | **DELETE** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
-[**get_relationship_definition**](RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
-[**list_relationship_definitions**](RelationshipDefinitionsApi.md#list_relationship_definitions) | **GET** /api/relationshipdefinitions | [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
-[**update_relationship_definition**](RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
+[**create_relationship_definition**](RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
+[**delete_relationship_definition**](RelationshipDefinitionsApi.md#delete_relationship_definition) | **DELETE** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteRelationshipDefinition: Delete Relationship Definition
+[**get_relationship_definition**](RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
+[**list_relationship_definitions**](RelationshipDefinitionsApi.md#list_relationship_definitions) | **GET** /api/relationshipdefinitions | [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
+[**update_relationship_definition**](RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
 
 
 # **create_relationship_definition**
 > RelationshipDefinition create_relationship_definition(create_relationship_definition_request)
 
-[EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
+[EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
 
 Create a new relationship definition to be used for creating relationships between entities.
 
@@ -51,7 +51,7 @@ with lusid.ApiClient(configuration) as api_client:
     create_relationship_definition_request = {"scope":"PortfolioManagementTeam","code":"Traders","sourceEntityType":"Portfolio","targetEntityType":"Person","displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio","lifeTime":"TimeVariant","relationshipCardinality":"ManyToMany"} # CreateRelationshipDefinitionRequest | The definition of the new relationship.
 
     try:
-        # [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
+        # [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
         api_response = api_instance.create_relationship_definition(create_relationship_definition_request)
         pprint(api_response)
     except ApiException as e:
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **delete_relationship_definition**
 > DeletedEntityResponse delete_relationship_definition(scope, code)
 
-[EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
+[EXPERIMENTAL] DeleteRelationshipDefinition: Delete Relationship Definition
 
 Delete the definition of the specified relationship.
 
@@ -127,7 +127,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.
 
     try:
-        # [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
+        # [EXPERIMENTAL] DeleteRelationshipDefinition: Delete Relationship Definition
         api_response = api_instance.delete_relationship_definition(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 # **get_relationship_definition**
 > RelationshipDefinition get_relationship_definition(scope, code, as_at=as_at)
 
-[EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
+[EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
 
 Retrieve the specified relationship definition
 
@@ -205,7 +205,7 @@ code = 'code_example' # str | The code of the specified relationship definition.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)
 
     try:
-        # [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
+        # [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
         api_response = api_instance.get_relationship_definition(scope, code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 # **list_relationship_definitions**
 > PagedResourceListOfRelationshipDefinition list_relationship_definitions(as_at=as_at, page=page, limit=limit, filter=filter)
 
-[EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
+[EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
 
 Retrieve one or more specified relationship definitions.
 
@@ -285,7 +285,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
+        # [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
         api_response = api_instance.list_relationship_definitions(as_at=as_at, page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 # **update_relationship_definition**
 > RelationshipDefinition update_relationship_definition(scope, code, update_relationship_definition_request)
 
-[EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
+[EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
 
 Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
 
@@ -365,7 +365,7 @@ code = 'code_example' # str | The code of the relationship definition being upda
 update_relationship_definition_request = {"displayName":"Authorised traders to trade for specific portfolio ","outwardDescription":"can be traded by","inwardDescription":"can trade with portfolio"} # UpdateRelationshipDefinitionRequest | The details of relationship definition to update.
 
     try:
-        # [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
+        # [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
         api_response = api_instance.update_relationship_definition(scope, code, update_relationship_definition_request)
         pprint(api_response)
     except ApiException as e:

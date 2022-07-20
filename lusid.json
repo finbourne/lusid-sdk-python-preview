@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4628",
+    "version": "0.11.4627",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -50927,7 +50927,7 @@
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition",
+        "summary": "[EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition",
         "description": "Create a new relationship definition to be used for creating relationships between entities.",
         "operationId": "CreateRelationshipDefinition",
         "requestBody": {
@@ -51108,13 +51108,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       },
       "get": {
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions",
+        "summary": "[EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions",
         "description": "Retrieve one or more specified relationship definitions.",
         "operationId": "ListRelationshipDefinitions",
         "parameters": [
@@ -51226,7 +51226,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/relationshipdefinitions/{scope}/{code}": {
@@ -51234,7 +51234,7 @@
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition",
+        "summary": "[EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition",
         "description": "Update the definition of a specified existing relationship. Not all elements within a relationship definition\r\nare modifiable due to the potential implications for values already stored against the relationship.",
         "operationId": "UpdateRelationshipDefinition",
         "parameters": [
@@ -51421,13 +51421,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       },
       "delete": {
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition",
+        "summary": "[EXPERIMENTAL] DeleteRelationshipDefinition: Delete Relationship Definition",
         "description": "Delete the definition of the specified relationship.",
         "operationId": "DeleteRelationshipDefinition",
         "parameters": [
@@ -51517,13 +51517,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       },
       "get": {
         "tags": [
           "Relationship Definitions"
         ],
-        "summary": "[EARLY ACCESS] GetRelationshipDefinition: Get relationship definition",
+        "summary": "[EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition",
         "description": "Retrieve the specified relationship definition",
         "operationId": "GetRelationshipDefinition",
         "parameters": [
@@ -51676,7 +51676,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/relationshipdefinitions/{scope}/{code}/relationships": {
@@ -51684,7 +51684,7 @@
         "tags": [
           "Relationships"
         ],
-        "summary": "[EARLY ACCESS] CreateRelationship: Create Relationship",
+        "summary": "[EXPERIMENTAL] CreateRelationship: Create Relationship",
         "description": "Create a relationship between two entity objects by their identifiers",
         "operationId": "CreateRelationship",
         "parameters": [
@@ -51973,7 +51973,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/relationshipdefinitions/{scope}/{code}/relationships/$delete": {
@@ -51981,7 +51981,7 @@
         "tags": [
           "Relationships"
         ],
-        "summary": "[EARLY ACCESS] DeleteRelationship: Delete Relationship",
+        "summary": "[EXPERIMENTAL] DeleteRelationship: Delete Relationship",
         "description": "Delete a relationship between two entity objects represented by their identifiers",
         "operationId": "DeleteRelationship",
         "parameters": [
@@ -52145,7 +52145,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "EarlyAccess"
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/results/queryable/keys": {
@@ -98310,7 +98310,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
