@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4621",
+    "version": "0.11.4622",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -18864,7 +18864,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "issued by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -18901,7 +18901,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "issued by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -18938,7 +18938,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "issued by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -23385,7 +23385,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "href": "https://example.com",
@@ -23423,7 +23423,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "href": "https://example.com",
@@ -23461,7 +23461,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "is legal representative for",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "href": "https://example.com",
@@ -32703,7 +32703,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -32739,7 +32739,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -32775,7 +32775,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -38664,7 +38664,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -38701,7 +38701,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -38738,7 +38738,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -45120,7 +45120,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     },
                     {
                       "relationshipDefinitionId": {
@@ -45146,7 +45146,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -45183,7 +45183,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     },
                     {
                       "relationshipDefinitionId": {
@@ -45209,7 +45209,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -45246,7 +45246,7 @@
                       "traversalDirection": "Out",
                       "traversalDescription": "can be traded by",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     },
                     {
                       "relationshipDefinitionId": {
@@ -45272,7 +45272,7 @@
                       "traversalDirection": "In",
                       "traversalDescription": "can trade with portfolio",
                       "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                      "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                     }
                   ],
                   "links": []
@@ -51835,7 +51835,8 @@
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
-                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                  "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                 }
               },
               "application/json": {
@@ -51882,7 +51883,8 @@
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
-                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                  "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                 }
               },
               "text/json": {
@@ -51929,7 +51931,8 @@
                   },
                   "outwardDescription": "can be traded by",
                   "inwardDescription": "can trade with portfolio",
-                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00"
+                  "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                  "effectiveUntil": "2022-01-01T12:00:00.0000000+00:00"
                 }
               }
             }
@@ -77332,6 +77335,11 @@
             "type": "string",
             "description": "The effective datetime from which the relationship is valid.",
             "format": "date-time"
+          },
+          "effectiveUntil": {
+            "type": "string",
+            "description": "The effective datetime to which the relationship is valid until.",
+            "format": "date-time"
           }
         },
         "additionalProperties": false,
@@ -79220,6 +79228,15 @@
             "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
             "type": "string",
             "description": "The effective date of the relationship to be created",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "effectiveUntil": {
+            "maxLength": 256,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
+            "type": "string",
+            "description": "The effective datetime until which the relationship is valid. If not supplied this will be valid indefinitely.",
             "format": "dateorcutlabel",
             "nullable": true
           }
