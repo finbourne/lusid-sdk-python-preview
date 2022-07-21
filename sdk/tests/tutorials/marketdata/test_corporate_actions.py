@@ -19,7 +19,7 @@ class CorporateActions(unittest.TestCase):
     @classmethod
     def setUp(cls):
         # create a configured API client
-        api_client = ApiClientBuilder().build(str(CredentialsSource.secrets_path()))
+        api_client = ApiClientBuilder().build(CredentialsSource.secrets_path())
 
         cls.instruments_api = lusid.InstrumentsApi(api_client)
         cls.portfolios_api = lusid.PortfoliosApi(api_client)

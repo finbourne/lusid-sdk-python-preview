@@ -1,15 +1,14 @@
-from datetime import datetime
-import pytz
 import threading
+import unittest
 import uuid
+from datetime import datetime
+
+import pytz
 
 import lusid
 import lusid.models as models
 from lusid.utilities import ApiClientBuilder
-
 from utilities import CredentialsSource
-
-import unittest
 
 
 class TestDataUtilities:

@@ -3,11 +3,9 @@ from datetime import datetime
 from time import sleep
 
 import pytz
-
-import lusid
 from lusidfeature import lusid_feature
 
-from lusid import ApiException
+import lusid
 from utilities import InstrumentLoader, IdGenerator
 from utilities import TestDataUtilities
 from utilities.id_generator_utilities import delete_entities
@@ -33,16 +31,6 @@ class Bitemporal(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         delete_entities(cls.id_generator)
-
-    def print_transactions(self, as_at, transactions):
-        print("transactions at: {}".format(as_at))
-
-        for transaction in transactions:
-            print("{}\t{}\t{}\t{}\t{}".format(transaction.instrument_uid,
-                                              transaction.transaction_date,
-                                              transaction.units,
-                                              transaction.transaction_price.price,
-                                              transaction.total_consideration.amount))
 
     @lusid_feature("F13-7")
     def test_apply_bitemporal_portfolio_change(self):
@@ -112,24 +100,20 @@ class Bitemporal(unittest.TestCase):
                                                                         code=portfolio_code,
                                                                         as_at=as_at_1)
         self.assertEqual(len(transactions.values), 3)
-        self.print_transactions(as_at_1, transactions.values)
 
         transactions = self.transaction_portfolios_api.get_transactions(scope=TestDataUtilities.tutorials_scope,
                                                                         code=portfolio_code,
                                                                         as_at=as_at_2)
 
         self.assertEqual(len(transactions.values), 4)
-        self.print_transactions(as_at_2, transactions.values)
 
         transactions = self.transaction_portfolios_api.get_transactions(scope=TestDataUtilities.tutorials_scope,
                                                                         code=portfolio_code,
                                                                         as_at=as_at_3)
 
         self.assertEqual(len(transactions.values), 5)
-        self.print_transactions(as_at_3, transactions.values)
 
         transactions = self.transaction_portfolios_api.get_transactions(scope=TestDataUtilities.tutorials_scope,
                                                                         code=portfolio_code)
 
         self.assertEqual(len(transactions.values), 5)
-        self.print_transactions(datetime.now(), transactions.values)
