@@ -1,8 +1,8 @@
-from urllib3 import make_headers
 import os
 
-from lusid import Configuration, ApiClient
+from urllib3 import make_headers
 
+from lusid import Configuration, ApiClient
 from .api_configuration_loader import ApiConfigurationLoader
 from .refreshing_token import RefreshingToken
 
@@ -36,8 +36,7 @@ class ApiClientBuilder:
                 f"variables")
 
     @classmethod
-    def resolve_api_token(cls, token=None, api_secrets_filename=None, configuration=None,
-                          id_provider_response_handler=None):
+    def resolve_api_token(cls, token=None, configuration=None, id_provider_response_handler=None):
 
         """
         Description:
@@ -53,7 +52,6 @@ class ApiClientBuilder:
         secrets files are used in preference to environment variables.
 
         :param str token: The pre-populated access token to use instead of asking Okta for a token
-        :param str api_secrets_filename: The full path to the JSON file containing the API credentials and optional proxy details
         :param ApiConfiguration configuration: configuration object containing secrets loaded from env vars
         :param typing.callable id_provider_response_handler: An optional function to handle the Okta response
 
@@ -114,7 +112,7 @@ class ApiClientBuilder:
                 if value is not None:
                     setattr(configuration, key, value)
 
-        api_token = cls.resolve_api_token(token, api_secrets_filename, configuration, id_provider_response_handler)
+        api_token = cls.resolve_api_token(token, configuration, id_provider_response_handler)
 
         # Initialise the API client using the token so that it can be included in all future requests
         config = Configuration(tcp_keep_alive=tcp_keep_alive)
