@@ -742,7 +742,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TransactionPortfoliosApi(api_client)
     scope = 'scope_example' # str | The scope of the transaction portfolio.
 code = 'code_example' # str | The code of the transaction portfolio. Together with the scope this uniquely identifies the portfolio.
-bucketed_cash_flow_request = {"roundingMethod":"RoundUp","bucketingDates":["2020-01-01T00:00:00.0000000+00:00","2020-07-01T00:00:00.0000000+00:00","2021-01-01T00:00:00.0000000+00:00","2021-07-01T00:00:00.0000000+00:00"]} # BucketedCashFlowRequest | Request specifying the bucketing of cashflows (optional)
+bucketed_cash_flow_request = {"roundingMethod":"RoundUp","bucketingDates":["2020-01-01T00:00:00.0000000+00:00","2020-07-01T00:00:00.0000000+00:00","2021-01-01T00:00:00.0000000+00:00","2021-07-01T00:00:00.0000000+00:00"],"equipWithSubtotals":false} # BucketedCashFlowRequest | Request specifying the bucketing of cashflows (optional)
 
     try:
         # [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
