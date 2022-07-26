@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4640",
+    "version": "0.11.4641",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -83443,6 +83443,11 @@
               "farFxForward": {
                 "$ref": "#/components/schemas/FxForward"
               },
+              "notionalSymmetry": {
+                "type": "string",
+                "description": "The NotionalSymmetry allows for even and uneven FxSwaps to be supported.\r\nAn even FxSwap is one where the near and far fx forwards have the same notional value on at least one of the\r\nlegs. An uneven FxSwap is one where near and far fx forwards don't have the same notional on both the\r\ndomestic and foreign legs.\r\nBy default NotionalSymmetry will be set as even.\r\n\r\nSupported string (enumeration) values are: [Even, Uneven].",
+                "nullable": true
+              },
               "instrumentType": {
                 "enum": [
                   "QuotedSecurity",
@@ -98353,7 +98358,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
