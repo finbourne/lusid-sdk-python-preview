@@ -47,7 +47,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.RelationshipsApi(api_client)
     scope = 'scope_example' # str | The scope of the relationship
 code = 'code_example' # str | The code of the relationship
-create_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"}} # CreateRelationshipRequest | The details of the relationship to create.
+create_relationship_request = {"sourceEntityId":{"scope":"UkPortfolio","code":"PortfolioId-148176"},"targetEntityId":{"idTypeScope":"HrSystem1","idTypeCode":"InternalId","code":"XY10001111"},"effectiveFrom":"2019-01-01T12:00:00.0000000+00:00","effectiveUntil":"2022-01-01T12:00:00.0000000+00:00"} # CreateRelationshipRequest | The details of the relationship to create.
 
     try:
         # [EARLY ACCESS] CreateRelationship: Create Relationship
