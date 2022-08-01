@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4659",
+    "version": "0.11.4660",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -81038,6 +81038,11 @@
               "underlyingIdentifier": {
                 "type": "string",
                 "description": "external market codes and identifiers for the EquitySwap, e.g. RIC.\r\n\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
+              },
+              "equitySwapDividendPaymentTiming": {
+                "type": "string",
+                "description": "Determines how the payment of dividends is handled for the equity swap.\r\nDefaults to paying at the next Equity coupon date.\r\n            \r\nSupported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].",
+                "nullable": true
               },
               "instrumentType": {
                 "enum": [
