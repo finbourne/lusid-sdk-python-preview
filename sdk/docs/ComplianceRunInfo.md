@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **completed_at** | **datetime** | The time the compliance run calculation was completed | 
 **schedule** | **str** | Whether the compliance run was pre or post trade | 
 **all_rules_passed** | **bool** | True if all rules passed, for all the portfolios they were assigned to | 
-**has_results** | **bool** | False when no results have been returned eg. when no rules exist | 
 **as_at** | **datetime** | Legacy AsAt time for backwards compatibility | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
