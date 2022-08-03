@@ -27,7 +27,7 @@ class ApiFactory(unittest.TestCase):
 
         pat_env_vars = {
             "FBN_LUSID_API_URL": self.source_config_details["api_url"],
-            "FBN_LUSID_ACCESS_TOKEN": self.pat_token
+            "FBN_ACCESS_TOKEN": self.pat_token
         }
 
         return pat_env_vars
@@ -35,7 +35,7 @@ class ApiFactory(unittest.TestCase):
     def get_env_vars_without_pat(self):
         env_vars = {self.config_keys[key]["env"]: value for key, value in self.source_config_details.items() if
                     value is not None}
-        env_vars_wout_pat = {k: env_vars[k] for k in env_vars if k != "FBN_LUSID_ACCESS_TOKEN"}
+        env_vars_wout_pat = {k: env_vars[k] for k in env_vars if k != "FBN_ACCESS_TOKEN"}
         return env_vars_wout_pat
 
     @unittest.skipIf(not CredentialsSource.fetch_credentials().__contains__("access_token"), "do not run if no token present")
@@ -57,7 +57,7 @@ class ApiFactory(unittest.TestCase):
     def test_bad_secrets_file_in_param_but_good_pat_in_env_vars(self):
 
         all_env_vars = self.get_env_vars_without_pat()
-        all_env_vars["FBN_LUSID_ACCESS_TOKEN"] = self.pat_token
+        all_env_vars["FBN_ACCESS_TOKEN"] = self.pat_token
 
         with patch.dict(self.os_environ_dict_str, all_env_vars, clear=True):
             with self.assertLogs() as context_manager:

@@ -49,7 +49,7 @@ class ApiFactory(unittest.TestCase):
 
     def get_env_vars_without_pat(self):
         env_vars = {config_keys[key]["env"]: value for key, value in source_config_details.items() if value is not None}
-        env_vars_without_pat = {k: env_vars[k] for k in env_vars if k != "FBN_LUSID_ACCESS_TOKEN"}
+        env_vars_without_pat = {k: env_vars[k] for k in env_vars if k != "FBN_ACCESS_TOKEN"}
         return env_vars_without_pat
 
     def validate_api(self, api):
