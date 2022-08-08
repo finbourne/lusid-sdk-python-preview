@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The List of IDs and information for all compliance runs completed |  -  |
+**200** | The List of IDs for all compliance runs completed |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
