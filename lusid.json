@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4681",
+    "version": "0.11.4682",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -36347,7 +36347,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -36394,7 +36395,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -36441,7 +36443,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -67740,7 +67743,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -67787,7 +67791,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -67834,7 +67839,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -68068,7 +68074,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -68129,7 +68136,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -68190,7 +68198,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     }
                   ],
                   "links": []
@@ -68821,7 +68830,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     },
                     {
                       "instrumentScope": "default",
@@ -68854,7 +68864,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Order"
                     },
                     {
                       "instrumentScope": "default",
@@ -68870,7 +68881,8 @@
                         "amount": 1,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "OrderContra"
                     }
                   ],
                   "links": []
@@ -68917,7 +68929,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     },
                     {
                       "instrumentScope": "default",
@@ -68950,7 +68963,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Order"
                     },
                     {
                       "instrumentScope": "default",
@@ -68966,7 +68980,8 @@
                         "amount": 1,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "OrderContra"
                     }
                   ],
                   "links": []
@@ -69013,7 +69028,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Position"
                     },
                     {
                       "instrumentScope": "default",
@@ -69046,7 +69062,8 @@
                         "amount": 2.5,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "Order"
                     },
                     {
                       "instrumentScope": "default",
@@ -69062,7 +69079,8 @@
                         "amount": 1,
                         "currency": "GBP"
                       },
-                      "currency": "ZZZ"
+                      "currency": "ZZZ",
+                      "holdingTypeName": "OrderContra"
                     }
                   ],
                   "links": []
@@ -74723,7 +74741,7 @@
           },
           "holdingType": {
             "type": "string",
-            "description": "The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "description": "The code for the type of the holding e.g. P, B, C, R, F etc.",
             "nullable": true
           },
           "instrumentScope": {
@@ -74794,7 +74812,7 @@
           },
           "holdingType": {
             "type": "string",
-            "description": "The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "description": "The code for the type of the holding e.g. P, B, C, R, F etc.",
             "nullable": true
           },
           "instrumentScope": {
@@ -89712,6 +89730,7 @@
           "cost",
           "costPortfolioCcy",
           "holdingType",
+          "holdingTypeName",
           "instrumentUid",
           "settledUnits",
           "units"
@@ -89745,7 +89764,7 @@
           },
           "holdingType": {
             "type": "string",
-            "description": "The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc."
+            "description": "The code for the type of the holding e.g. P, B, C, R, F etc."
           },
           "units": {
             "type": "number",
@@ -89770,6 +89789,10 @@
             "type": "string",
             "description": "The holding currency.",
             "nullable": true
+          },
+          "holdingTypeName": {
+            "type": "string",
+            "description": "The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc."
           }
         },
         "additionalProperties": false,
