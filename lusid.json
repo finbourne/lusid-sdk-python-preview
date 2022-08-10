@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4692",
+    "version": "0.11.4693",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -14264,7 +14264,6 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -14288,7 +14287,6 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -14312,7 +14310,6 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -14336,7 +14333,6 @@
                   "scope": "MyParentPortfolioScope",
                   "code": "MyParentPortfolioCode"
                 },
-                "created": "2018-03-05T00:00:00.0000000+00:00",
                 "corporateActionSourceId": {
                   "scope": "MyScope",
                   "code": "MyCorporateActionSourceId"
@@ -78842,7 +78838,7 @@
           },
           "created": {
             "type": "string",
-            "description": "The effective datetime at which to create the derived transaction portfolio. No transactions can be added to the derived transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified.",
+            "description": "This will be auto-populated to be the parent portfolio creation date.",
             "format": "date-time",
             "nullable": true
           },
@@ -98579,7 +98575,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
