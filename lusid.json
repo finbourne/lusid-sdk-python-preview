@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4693",
+    "version": "0.11.4694",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -77496,10 +77496,11 @@
               "FxForwardTenorCurveData",
               "FxForwardTenorPipsCurveData",
               "FxForwardCurveByQuoteReference",
-              "CreditSpreadCurveData"
+              "CreditSpreadCurveData",
+              "EquityCurveByPricesData"
             ],
             "type": "string",
-            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
           }
         },
         "additionalProperties": false,
@@ -79663,10 +79664,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -80704,10 +80706,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -80740,10 +80743,11 @@
                   "EmptyModelOptions",
                   "IndexModelOptions",
                   "FxForwardModelOptions",
-                  "FundingLegModelOptions"
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
               }
             }
           }
@@ -80872,6 +80876,106 @@
           }
         ],
         "description": "LUSID representation of an Equity."
+      },
+      "EquityCurveByPricesData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "baseDate",
+              "dates",
+              "marketDataType",
+              "prices"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "EffectiveAt date of the provided prices",
+                "format": "date-time"
+              },
+              "dates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "description": "Dates provided for the forward price of the Equity at the corresponding price in Prices.\r\nThese dates should be in the future with respect to the BaseDate."
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
+              "prices": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Prices provided for the forward price of the Equity at the corresponding date in Dates."
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData",
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+              }
+            }
+          }
+        ],
+        "description": "Contains data (i.e. dates and prices + metadata) for building Equity curves"
+      },
+      "EquityModelOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "equityForwardProjectionType",
+              "modelOptionsType"
+            ],
+            "type": "object",
+            "properties": {
+              "equityForwardProjectionType": {
+                "type": "string",
+                "description": "Determines how forward equity prices should be projected.\r\n            \r\nSupported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve]."
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions",
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
+                ],
+                "type": "string",
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
+              }
+            }
+          }
+        ],
+        "description": "Model options for equity related pricing."
       },
       "EquityOption": {
         "allOf": [
@@ -81154,10 +81258,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -82631,10 +82736,11 @@
                   "EmptyModelOptions",
                   "IndexModelOptions",
                   "FxForwardModelOptions",
-                  "FundingLegModelOptions"
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
               }
             }
           }
@@ -82975,10 +83081,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -83050,10 +83157,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -83105,10 +83213,11 @@
                   "EmptyModelOptions",
                   "IndexModelOptions",
                   "FxForwardModelOptions",
-                  "FundingLegModelOptions"
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
               }
             }
           }
@@ -83179,10 +83288,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -83253,10 +83363,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -83327,10 +83438,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -83600,10 +83712,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -84418,10 +84531,11 @@
                   "EmptyModelOptions",
                   "IndexModelOptions",
                   "FxForwardModelOptions",
-                  "FundingLegModelOptions"
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
               }
             }
           }
@@ -85672,10 +85786,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -86439,7 +86554,8 @@
           "FxForwardTenorCurveData",
           "FxForwardTenorPipsCurveData",
           "FxForwardCurveByQuoteReference",
-          "CreditSpreadCurveData"
+          "CreditSpreadCurveData",
+          "EquityCurveByPricesData"
         ],
         "type": "string",
         "description": "The format of the complex market data stored. Complex market data is used to store any\r\ndata which requires more context than just a simple single point as is the case with a\r\nquote.\r\nExamples of such complex market data are Discount Curve and Volatility Surfaces."
@@ -86566,10 +86682,11 @@
               "EmptyModelOptions",
               "IndexModelOptions",
               "FxForwardModelOptions",
-              "FundingLegModelOptions"
+              "FundingLegModelOptions",
+              "EquityModelOptions"
             ],
             "type": "string",
-            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+            "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
           }
         },
         "additionalProperties": false,
@@ -86584,7 +86701,8 @@
           "EmptyModelOptions",
           "IndexModelOptions",
           "FxForwardModelOptions",
-          "FundingLegModelOptions"
+          "FundingLegModelOptions",
+          "EquityModelOptions"
         ],
         "type": "string"
       },
@@ -86736,10 +86854,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
@@ -86772,10 +86891,11 @@
                   "EmptyModelOptions",
                   "IndexModelOptions",
                   "FxForwardModelOptions",
-                  "FundingLegModelOptions"
+                  "FundingLegModelOptions",
+                  "EquityModelOptions"
                 ],
                 "type": "string",
-                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions"
+                "description": "The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions"
               }
             }
           }
@@ -98558,10 +98678,11 @@
                   "FxForwardTenorCurveData",
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
-                  "CreditSpreadCurveData"
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
               }
             }
           }
