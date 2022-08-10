@@ -1,6 +1,6 @@
 # Schedule
 
-Schedule represents a base class for creation of schedules.
+Base class for representing schedules in LUSID.  This base class should not be directly instantiated; each supported ScheduleType has a corresponding inherited class.
 
 ## Properties
 Name | Type | Description | Notes
