@@ -3,6 +3,6 @@ six >= 1.10
 python-dateutil >= 2.5.3
 setuptools >= 21.0.0
 urllib3 >= 1.26.9
-pytz >= 2019.1
 requests >= 2.27.1
+pytz >= 2019.1
 lusidfeature
