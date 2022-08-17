@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4706",
+    "version": "0.11.4707",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -34632,7 +34632,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -34697,7 +34698,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -34772,7 +34774,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -34850,7 +34853,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -34975,7 +34979,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -35084,7 +35089,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35149,7 +35155,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35224,7 +35231,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35302,7 +35310,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35427,7 +35436,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -35536,7 +35546,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35601,7 +35612,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35676,7 +35688,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35754,7 +35767,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -35879,7 +35893,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -57698,7 +57713,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -57763,7 +57779,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -57838,7 +57855,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -57916,7 +57934,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58041,7 +58060,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58143,7 +58163,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp6"
+                      "groupId": "Grp6",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58268,7 +58289,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp7"
+                      "groupId": "Grp7",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58388,7 +58410,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp8"
+                      "groupId": "Grp8",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58476,7 +58499,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp9"
+                      "groupId": "Grp9",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58583,7 +58607,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp10"
+                      "groupId": "Grp10",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58708,7 +58733,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp11"
+                      "groupId": "Grp11",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58796,7 +58822,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp12"
+                      "groupId": "Grp12",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58903,7 +58930,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp13"
+                      "groupId": "Grp13",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -58991,7 +59019,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp14"
+                      "groupId": "Grp14",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -59100,7 +59129,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59165,7 +59195,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59240,7 +59271,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59318,7 +59350,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59443,7 +59476,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59545,7 +59579,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp6"
+                      "groupId": "Grp6",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59670,7 +59705,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp7"
+                      "groupId": "Grp7",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59790,7 +59826,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp8"
+                      "groupId": "Grp8",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59878,7 +59915,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp9"
+                      "groupId": "Grp9",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -59985,7 +60023,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp10"
+                      "groupId": "Grp10",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60110,7 +60149,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp11"
+                      "groupId": "Grp11",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60198,7 +60238,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp12"
+                      "groupId": "Grp12",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60305,7 +60346,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp13"
+                      "groupId": "Grp13",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60393,7 +60435,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp14"
+                      "groupId": "Grp14",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -60502,7 +60545,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp1"
+                      "groupId": "Grp1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60567,7 +60611,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp2"
+                      "groupId": "Grp2",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60642,7 +60687,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp3"
+                      "groupId": "Grp3",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60720,7 +60766,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp4"
+                      "groupId": "Grp4",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60845,7 +60892,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp5"
+                      "groupId": "Grp5",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -60947,7 +60995,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp6"
+                      "groupId": "Grp6",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61072,7 +61121,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp7"
+                      "groupId": "Grp7",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61192,7 +61242,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp8"
+                      "groupId": "Grp8",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61280,7 +61331,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp9"
+                      "groupId": "Grp9",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61387,7 +61439,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp10"
+                      "groupId": "Grp10",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61512,7 +61565,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp11"
+                      "groupId": "Grp11",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61600,7 +61654,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp12"
+                      "groupId": "Grp12",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61707,7 +61762,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp13"
+                      "groupId": "Grp13",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -61795,7 +61851,8 @@
                           }
                         }
                       },
-                      "groupId": "Grp14"
+                      "groupId": "Grp14",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -62028,7 +62085,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62097,7 +62155,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62168,7 +62227,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -62236,7 +62296,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62305,7 +62366,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62376,7 +62438,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -62444,7 +62507,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62513,7 +62577,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     },
                     {
                       "portfolioId": {
@@ -62584,7 +62649,8 @@
                           }
                         }
                       },
-                      "groupId": "g1"
+                      "groupId": "g1",
+                      "errors": []
                     }
                   ],
                   "links": []
@@ -73473,6 +73539,252 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/translation/tradeticket": {
+      "post": {
+        "tags": [
+          "Translation"
+        ],
+        "summary": "[EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket",
+        "description": "Translates one or more trade tickets into the given target dialect.\r\n            \r\nIn the request each trade ticket definition should be keyed by a unique correlation id. This id is ephemeral\r\nand is not stored by LUSID. It serves only as a way to easily identify each trade ticket in the response.\r\n            \r\nThe response will return both the collection of successfully translated trade tickets in the target dialect,\r\nas well as those that failed.\r\nFor the failures a reason will be provided explaining why the trade ticket could not be updated or inserted.",
+        "operationId": "TranslateTradeTickets",
+        "requestBody": {
+          "description": "The definitions of the trade ticket to translate along with the target dialect.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateTradeTicketRequest"
+              },
+              "example": {
+                "tickets": {
+                  "myTicket": {
+                    "transactionId": "TradeTicket-1111111",
+                    "type": "OpenTradeTicket",
+                    "source": "default",
+                    "transactionDate": "2020-01-01T09:00:00.00Z",
+                    "settlementDate": "2020-01-01T09:00:00.00Z",
+                    "totalConsideration": {
+                      "amount": 1020000,
+                      "currency": "GBP"
+                    },
+                    "units": 1000000,
+                    "instrumentIdentifiers": {
+                      "instrument/default/ClientInternal": "my-bond"
+                    },
+                    "instrumentScope": "myScope",
+                    "instrumentName": "my_bond",
+                    "instrumentDefinition": {
+                      "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                      "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                      "domAmount": 1,
+                      "domCcy": "GBP",
+                      "fgnAmount": -1.5,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    },
+                    "counterpartyAgreementId": {
+                      "scope": "demoScope",
+                      "code": "myCounterparty"
+                    }
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateTradeTicketRequest"
+              },
+              "example": {
+                "tickets": {
+                  "myTicket": {
+                    "transactionId": "TradeTicket-1111111",
+                    "type": "OpenTradeTicket",
+                    "source": "default",
+                    "transactionDate": "2020-01-01T09:00:00.00Z",
+                    "settlementDate": "2020-01-01T09:00:00.00Z",
+                    "totalConsideration": {
+                      "amount": 1020000,
+                      "currency": "GBP"
+                    },
+                    "units": 1000000,
+                    "instrumentIdentifiers": {
+                      "instrument/default/ClientInternal": "my-bond"
+                    },
+                    "instrumentScope": "myScope",
+                    "instrumentName": "my_bond",
+                    "instrumentDefinition": {
+                      "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                      "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                      "domAmount": 1,
+                      "domCcy": "GBP",
+                      "fgnAmount": -1.5,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    },
+                    "counterpartyAgreementId": {
+                      "scope": "demoScope",
+                      "code": "myCounterparty"
+                    }
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateTradeTicketRequest"
+              },
+              "example": {
+                "tickets": {
+                  "myTicket": {
+                    "transactionId": "TradeTicket-1111111",
+                    "type": "OpenTradeTicket",
+                    "source": "default",
+                    "transactionDate": "2020-01-01T09:00:00.00Z",
+                    "settlementDate": "2020-01-01T09:00:00.00Z",
+                    "totalConsideration": {
+                      "amount": 1020000,
+                      "currency": "GBP"
+                    },
+                    "units": 1000000,
+                    "instrumentIdentifiers": {
+                      "instrument/default/ClientInternal": "my-bond"
+                    },
+                    "instrumentScope": "myScope",
+                    "instrumentName": "my_bond",
+                    "instrumentDefinition": {
+                      "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                      "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                      "domAmount": 1,
+                      "domCcy": "GBP",
+                      "fgnAmount": -1.5,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    },
+                    "counterpartyAgreementId": {
+                      "scope": "demoScope",
+                      "code": "myCounterparty"
+                    }
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateTradeTicketRequest"
+              },
+              "example": {
+                "tickets": {
+                  "myTicket": {
+                    "transactionId": "TradeTicket-1111111",
+                    "type": "OpenTradeTicket",
+                    "source": "default",
+                    "transactionDate": "2020-01-01T09:00:00.00Z",
+                    "settlementDate": "2020-01-01T09:00:00.00Z",
+                    "totalConsideration": {
+                      "amount": 1020000,
+                      "currency": "GBP"
+                    },
+                    "units": 1000000,
+                    "instrumentIdentifiers": {
+                      "instrument/default/ClientInternal": "my-bond"
+                    },
+                    "instrumentScope": "myScope",
+                    "instrumentName": "my_bond",
+                    "instrumentDefinition": {
+                      "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                      "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                      "domAmount": 1,
+                      "domCcy": "GBP",
+                      "fgnAmount": -1.5,
+                      "fgnCcy": "USD",
+                      "refSpotRate": 1.5,
+                      "isNdf": false,
+                      "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "instrumentType": "FxForward"
+                    },
+                    "counterpartyAgreementId": {
+                      "scope": "demoScope",
+                      "code": "myCounterparty"
+                    }
+                  }
+                },
+                "dialect": "targetDialect"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully translated trade ticket along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateTradeTicketsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateTradeTicketsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateTradeTicketsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/unitresults/datamap/{scope}": {
       "post": {
         "tags": [
@@ -74795,6 +75107,14 @@
             "type": "string",
             "description": "Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon.",
             "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseMetaData"
+            },
+            "description": "Any errors with the record are reported here.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -74880,6 +75200,14 @@
           "groupId": {
             "type": "string",
             "description": "Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon.",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseMetaData"
+            },
+            "description": "Any errors with the record are reported here.",
             "nullable": true
           }
         },
@@ -95826,6 +96154,87 @@
         "additionalProperties": false,
         "description": "Touch class for exotic FxOption"
       },
+      "TradeTicket": {
+        "required": [
+          "instrumentIdentifiers",
+          "settlementDate",
+          "totalConsideration",
+          "transactionDate",
+          "transactionId",
+          "type",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique identifier of the transaction."
+          },
+          "type": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "The type of the transaction, for example 'Buy' or 'Sell'. The transaction type must have been pre-configured using the System Configuration API. If not, this operation will succeed but you are not able to calculate holdings for the portfolio that include this transaction."
+          },
+          "source": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration.",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "description": "The date of the transaction.",
+            "format": "dateorcutlabel"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "The settlement date of the transaction.",
+            "format": "dateorcutlabel"
+          },
+          "totalConsideration": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "units": {
+            "type": "number",
+            "description": "The number of units of the transacted instrument.",
+            "format": "double"
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The set of identifiers that can be used to identify the instrument."
+          },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope in which the instrument lies.",
+            "nullable": true
+          },
+          "instrumentName": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the instrument.",
+            "nullable": true
+          },
+          "instrumentDefinition": {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          "counterpartyAgreementId": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Trade Ticket comprising of an instrument, a transaction and a counterparty."
+      },
       "Transaction": {
         "required": [
           "instrumentUid",
@@ -96755,6 +97164,68 @@
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/LusidInstrument"
+            },
+            "description": "The instruments which have been successfully translated.",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The instruments that could not be translated along with a reason for their failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A response from a request to translate a collection of instruments to a given target dialect."
+      },
+      "TranslateTradeTicketRequest": {
+        "required": [
+          "dialect",
+          "tickets"
+        ],
+        "type": "object",
+        "properties": {
+          "tickets": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TradeTicket"
+            },
+            "description": "The collection of trade tickets to translate.\r\n            \r\nEach trade ticket should be keyed by a unique correlation id. This id is ephemeral\r\nand is not stored by LUSID. It serves only as a way to easily identify each instrument in the response."
+          },
+          "dialect": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z]*$",
+            "type": "string",
+            "description": "The target dialect that the given instruments should be translated to."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of instruments to translate, along with the target dialect to translate into."
+      },
+      "TranslateTradeTicketsResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TradeTicket"
             },
             "description": "The instruments which have been successfully translated.",
             "nullable": true
@@ -98697,7 +99168,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
