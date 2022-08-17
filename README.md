@@ -23,6 +23,8 @@ To find out which category an API endpoint falls into, see [LUSID API Documentat
 
 ## Documentation 
 
+Sets of working examples for using this SDK are available in the [Python examples repo](https://github.com/finbourne/lusid-sdk-examples-python).
+
 For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-python-preview/wiki).
 
 Documentation for classes, methods, attributes and other members of the SDK is [available to view online](https://lusid-sdk-python-preview.readthedocs.io/en/latest/_autosummary/sdk.lusid.html).
