@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4710",
+    "version": "0.11.4711",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -7037,7 +7037,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The List of IDs for all compliance runs completed",
+            "description": "The List of IDs and information for all compliance runs completed",
             "content": {
               "text/plain": {
                 "schema": {
@@ -7051,6 +7051,7 @@
                       "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                       "schedule": "PostTrade",
                       "allRulesPassed": true,
+                      "hasResults": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7070,6 +7071,7 @@
                       "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                       "schedule": "PostTrade",
                       "allRulesPassed": true,
+                      "hasResults": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7089,6 +7091,7 @@
                       "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                       "schedule": "PostTrade",
                       "allRulesPassed": true,
+                      "hasResults": true,
                       "asAt": "2020-01-05T00:00:00.0000000+00:00"
                     }
                   ],
@@ -7206,6 +7209,7 @@
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PostTrade",
                   "allRulesPassed": true,
+                  "hasResults": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               },
@@ -7219,6 +7223,7 @@
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PostTrade",
                   "allRulesPassed": true,
+                  "hasResults": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               },
@@ -7232,6 +7237,7 @@
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PostTrade",
                   "allRulesPassed": true,
+                  "hasResults": true,
                   "asAt": "2020-01-05T00:00:00.0000000+00:00"
                 }
               }
@@ -77901,6 +77907,7 @@
           "allRulesPassed",
           "asAt",
           "completedAt",
+          "hasResults",
           "instigatedAt",
           "runId",
           "schedule"
@@ -77928,6 +77935,10 @@
           "allRulesPassed": {
             "type": "boolean",
             "description": "True if all rules passed, for all the portfolios they were assigned to"
+          },
+          "hasResults": {
+            "type": "boolean",
+            "description": "False when no results have been returned eg. when no rules exist"
           },
           "asAt": {
             "type": "string",
