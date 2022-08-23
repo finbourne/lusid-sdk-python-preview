@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4718",
+    "version": "0.11.4719",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -2613,7 +2613,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.",
+        "summary": "[EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.",
         "description": "A Business day is defined as a point in time that:\r\n    * Does not represent a day in the calendar's weekend\r\n    * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)\r\n             \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive\r\n             \r\ne.g. From: 2020-12-24-00-00-00:\r\n     Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.\r\n     Adding -2 business days returns 2020-12-22 under the same assumptions.\r\n            \r\nIf the provided number of days to add is zero, returns a failure.",
         "operationId": "AddBusinessDaysToDate",
         "parameters": [
@@ -2751,7 +2751,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/businessday/{scope}/{code}": {
@@ -2759,7 +2759,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"",
+        "summary": "[EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"",
         "description": "A Business DateTime is defined as a point in time that:\r\n    * Does not represent a day that overlaps with the calendars WeekendMask\r\n    * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar\r\n    * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar\r\n            \r\nAll dates specified must be UTC and the upper bound of a calendar is not inclusive \r\ne.g. From: 2020-12-25-00-00-00 \r\n     To: 2020-12-26-00-00-00\r\nIsBusinessDay(2020-12-26-00-00-00) == false",
         "operationId": "IsBusinessDateTime",
         "parameters": [
@@ -2883,7 +2883,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/generic": {
@@ -2891,7 +2891,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] ListCalendars: List Calendars",
+        "summary": "[EARLY ACCESS] ListCalendars: List Calendars",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendars",
         "parameters": [
@@ -3167,13 +3167,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] CreateCalendar: Create a calendar in its generic form",
+        "summary": "[EARLY ACCESS] CreateCalendar: Create a calendar in its generic form",
         "description": "Create a calendar in a generic form which can be used to store date events.",
         "operationId": "CreateCalendar",
         "requestBody": {
@@ -3423,7 +3423,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/generic/{scope}": {
@@ -3431,7 +3431,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] ListCalendarsInScope: List all calenders in a specified scope",
+        "summary": "[EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope",
         "description": "List calendars at a point in AsAt time.",
         "operationId": "ListCalendarsInScope",
         "parameters": [
@@ -3732,7 +3732,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/generic/{scope}/{code}": {
@@ -3740,7 +3740,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] GetCalendar: Get a calendar in its generic form",
+        "summary": "[EARLY ACCESS] GetCalendar: Get a calendar in its generic form",
         "description": "Retrieve a generic calendar by a specific ID at a point in AsAt time",
         "operationId": "GetCalendar",
         "parameters": [
@@ -3912,13 +3912,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] UpdateCalendar: Update a calendar",
+        "summary": "[EARLY ACCESS] UpdateCalendar: Update a calendar",
         "description": "Update the calendars WeekendMask, SourceProvider or Properties",
         "operationId": "UpdateCalendar",
         "parameters": [
@@ -4176,13 +4176,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] DeleteCalendar: Delete a calendar",
+        "summary": "[EARLY ACCESS] DeleteCalendar: Delete a calendar",
         "description": "Delete a calendar and all of its respective dates",
         "operationId": "DeleteCalendar",
         "parameters": [
@@ -4342,7 +4342,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/generic/{scope}/{code}/dates": {
@@ -4350,7 +4350,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] GetDates: Get dates for a specific calendar",
+        "summary": "[EARLY ACCESS] GetDates: Get dates for a specific calendar",
         "description": "Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.\r\nProviding an id filter can further refine the results.",
         "operationId": "GetDates",
         "parameters": [
@@ -4540,13 +4540,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "put": {
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] AddDateToCalendar: Add a date to a calendar",
+        "summary": "[EARLY ACCESS] AddDateToCalendar: Add a date to a calendar",
         "description": "Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.\r\nA local date will be calculated by the system and applied to the calendar before processing.",
         "operationId": "AddDateToCalendar",
         "parameters": [
@@ -4729,7 +4729,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/generic/{scope}/{code}/dates/{dateId}": {
@@ -4737,7 +4737,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[BETA] DeleteDateFromCalendar: Remove a date from a calendar",
+        "summary": "[EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar",
         "description": "Remove a date from a calendar.",
         "operationId": "DeleteDateFromCalendar",
         "parameters": [
@@ -4871,7 +4871,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/calendars/schedule/{scope}": {
@@ -4879,7 +4879,7 @@
         "tags": [
           "Calendars"
         ],
-        "summary": "[EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.",
+        "summary": "[EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.",
         "description": "Returns an ordered array of dates. The dates will only fall on business\r\ndays as defined by the scope and calendar codes in the valuation schedule.\r\n            \r\nValuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),\r\nevery other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's\r\nrollConvention.",
         "operationId": "GenerateSchedule",
         "parameters": [
@@ -5048,7 +5048,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/complexmarketdata": {
@@ -98800,7 +98800,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
