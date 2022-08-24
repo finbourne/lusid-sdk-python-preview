@@ -4,19 +4,19 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_data_type**](DataTypesApi.md#create_data_type) | **POST** /api/datatypes | [BETA] CreateDataType: Create data type definition
+[**create_data_type**](DataTypesApi.md#create_data_type) | **POST** /api/datatypes | [EARLY ACCESS] CreateDataType: Create data type definition
 [**get_data_type**](DataTypesApi.md#get_data_type) | **GET** /api/datatypes/{scope}/{code} | GetDataType: Get data type definition
 [**get_units_from_data_type**](DataTypesApi.md#get_units_from_data_type) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-[**list_data_type_summaries**](DataTypesApi.md#list_data_type_summaries) | **GET** /api/datatypes | [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+[**list_data_type_summaries**](DataTypesApi.md#list_data_type_summaries) | **GET** /api/datatypes | [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
 [**list_data_types**](DataTypesApi.md#list_data_types) | **GET** /api/datatypes/{scope} | ListDataTypes: List data types
-[**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
-[**update_reference_values**](DataTypesApi.md#update_reference_values) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+[**update_data_type**](DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EARLY ACCESS] UpdateDataType: Update data type definition
+[**update_reference_values**](DataTypesApi.md#update_reference_values) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
 
 
 # **create_data_type**
 > DataType create_data_type(create_data_type_request=create_data_type_request)
 
-[BETA] CreateDataType: Create data type definition
+[EARLY ACCESS] CreateDataType: Create data type definition
 
 Create a new data type definition    Data types cannot be created in either the \"default\" or \"system\" scopes.
 
@@ -53,7 +53,7 @@ with lusid.ApiClient(configuration) as api_client:
     create_data_type_request = {"scope":"TestScope","code":"MyType","typeValueRange":"Open","displayName":"My data format","description":"Data type description","valueType":"String","unitSchema":"Basic","acceptableUnits":[{"code":"Ap","displayName":"Apples","description":"A quantity of apples"},{"code":"Bn","displayName":"Bananas","description":"A quantity of bananas"},{"code":"Ch","displayName":"Cherry","description":"A quantity of cherries"}],"referenceData":{"fieldDefinitions":[{"key":"english_short_name","isRequired":true,"isUnique":true},{"key":"continent","isRequired":true,"isUnique":false}],"values":[{"value":"FRA","fields":{"english_short_name":"France","continent":"Europe"}},{"value":"DEU","fields":{"english_short_name":"Germany","continent":"Europe"}}]}} # CreateDataTypeRequest | The definition of the new data type (optional)
 
     try:
-        # [BETA] CreateDataType: Create data type definition
+        # [EARLY ACCESS] CreateDataType: Create data type definition
         api_response = api_instance.create_data_type(create_data_type_request=create_data_type_request)
         pprint(api_response)
     except ApiException as e:
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 # **list_data_type_summaries**
 > PagedResourceListOfDataTypeSummary list_data_type_summaries(as_at=as_at, page=page, start=start, limit=limit, filter=filter, sort_by=sort_by)
 
-[EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+[EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
 
 List all data type summaries
 
@@ -295,7 +295,7 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set.
 sort_by = ['sort_by_example'] # list[str] | Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName. (optional)
 
     try:
-        # [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+        # [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
         api_response = api_instance.list_data_type_summaries(as_at=as_at, page=page, start=start, limit=limit, filter=filter, sort_by=sort_by)
         pprint(api_response)
     except ApiException as e:
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 # **update_data_type**
 > DataType update_data_type(scope, code, update_data_type_request)
 
-[EXPERIMENTAL] UpdateDataType: Update data type definition
+[EARLY ACCESS] UpdateDataType: Update data type definition
 
 Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
 
@@ -464,7 +464,7 @@ code = 'code_example' # str | The code of the data type
 update_data_type_request = {"displayName":"My data format","description":"Data type description","acceptableValues":["Apples, Bananas, Cherry"]} # UpdateDataTypeRequest | The updated definition of the data type
 
     try:
-        # [EXPERIMENTAL] UpdateDataType: Update data type definition
+        # [EARLY ACCESS] UpdateDataType: Update data type definition
         api_response = api_instance.update_data_type(scope, code, update_data_type_request)
         pprint(api_response)
     except ApiException as e:
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 # **update_reference_values**
 > DataType update_reference_values(scope, code, field_value)
 
-[EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+[EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
 
 Replaces the whole set of reference values
 
@@ -543,7 +543,7 @@ code = 'code_example' # str | The code of the data type
 field_value = [{"value":"FRA","fields":{"english_short_name":"France","continent":"Europe"}},{"value":"DEU","fields":{"english_short_name":"Germany","continent":"Europe"}}] # list[FieldValue] | The updated reference values
 
     try:
-        # [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+        # [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
         api_response = api_instance.update_reference_values(scope, code, field_value)
         pprint(api_response)
     except ApiException as e:

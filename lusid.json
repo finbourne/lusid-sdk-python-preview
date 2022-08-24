@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4724",
+    "version": "0.11.4726",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13014,7 +13014,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[BETA] CreateDataType: Create data type definition",
+        "summary": "[EARLY ACCESS] CreateDataType: Create data type definition",
         "description": "Create a new data type definition\r\n\r\nData types cannot be created in either the \"default\" or \"system\" scopes.",
         "operationId": "CreateDataType",
         "requestBody": {
@@ -13323,13 +13323,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Data Types"
         ],
-        "summary": "[EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data",
+        "summary": "[EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data",
         "description": "List all data type summaries",
         "operationId": "ListDataTypeSummaries",
         "parameters": [
@@ -13469,7 +13469,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/datatypes/{scope}": {
@@ -13635,7 +13635,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[EXPERIMENTAL] UpdateDataType: Update data type definition",
+        "summary": "[EARLY ACCESS] UpdateDataType: Update data type definition",
         "description": "Update the definition of the specified existing data type\r\n\r\nNot all elements within a data type definition are modifiable due to the potential implications for data\r\nalready stored against the types",
         "operationId": "UpdateDataType",
         "parameters": [
@@ -13779,7 +13779,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
@@ -13895,7 +13895,7 @@
         "tags": [
           "Data Types"
         ],
-        "summary": "[EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type",
+        "summary": "[EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type",
         "description": "Replaces the whole set of reference values",
         "operationId": "UpdateReferenceValues",
         "parameters": [
@@ -14091,7 +14091,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/datatypes/{scope}/{code}/units": {
@@ -98800,7 +98800,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
