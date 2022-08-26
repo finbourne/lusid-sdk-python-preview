@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4734",
+    "version": "0.11.4735",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -14638,7 +14638,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] ListExecutions: List Executions",
+        "summary": "[EARLY ACCESS] ListExecutions: List Executions",
         "description": "Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).",
         "operationId": "ListExecutions",
         "parameters": [
@@ -14781,13 +14781,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] UpsertExecutions: Upsert Execution",
+        "summary": "[EARLY ACCESS] UpsertExecutions: Upsert Execution",
         "description": "Upsert; update existing executions with given ids, or create new executions otherwise.",
         "operationId": "UpsertExecutions",
         "requestBody": {
@@ -15160,7 +15160,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/executions/{scope}/{code}": {
@@ -15168,7 +15168,7 @@
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] GetExecution: Get Execution",
+        "summary": "[EARLY ACCESS] GetExecution: Get Execution",
         "description": "Fetch a Execution that matches the specified identifier",
         "operationId": "GetExecution",
         "parameters": [
@@ -15402,13 +15402,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Executions"
         ],
-        "summary": "[EXPERIMENTAL] DeleteExecution: Delete execution",
+        "summary": "[EARLY ACCESS] DeleteExecution: Delete execution",
         "description": "Delete an execution. Deletion will be valid from the execution's creation datetime.\r\nThis means that the execution will no longer exist at any effective datetime from the asAt datetime of deletion.",
         "operationId": "DeleteExecution",
         "parameters": [
@@ -15496,7 +15496,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instrumentevents/$query": {
@@ -81851,7 +81851,7 @@
           },
           "averagePrice": {
             "type": "number",
-            "description": "The latest average price of all executions for a given placement",
+            "description": "The average price of all executions for a given placement at the time of upsert",
             "format": "double",
             "nullable": true
           },
@@ -81954,7 +81954,7 @@
           },
           "averagePrice": {
             "type": "number",
-            "description": "The latest average price of all executions for a given placement",
+            "description": "The average price of all executions for a given placement at the time of upsert",
             "format": "double",
             "nullable": true
           }
@@ -99057,7 +99057,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
