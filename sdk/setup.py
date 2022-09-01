@@ -45,9 +45,9 @@ with open("./lusid/__version__.py") as fp:
     exec(fp.read(), version)
 
 setup(
-
     name='lusid-sdk-preview',
     version=version['__version__'],
+    python_requires='>=3.7',
     description='Python Preview SDK for LUSID API',
     url='https://github.com/finbourne/lusid-sdk-python-preview',
     author='FINBOURNE Technology',
