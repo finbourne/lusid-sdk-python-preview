@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EARLY ACCESS] InstrumentsSearch: Instruments search
+[**instruments_search**](SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EXPERIMENTAL] InstrumentsSearch: Instruments search
 [**search_portfolio_groups**](SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | SearchPortfolioGroups: Search Portfolio Groups
 [**search_portfolios**](SearchApi.md#search_portfolios) | **GET** /api/search/portfolios | SearchPortfolios: Search Portfolios
 [**search_properties**](SearchApi.md#search_properties) | **GET** /api/search/propertydefinitions | SearchProperties: Search Property Definitions
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **instruments_search**
 > list[InstrumentMatch] instruments_search(instrument_search_property, mastered_effective_at=mastered_effective_at, mastered_only=mastered_only, scope=scope)
 
-[EARLY ACCESS] InstrumentsSearch: Instruments search
+[EXPERIMENTAL] InstrumentsSearch: Instruments search
 
 Search across all instruments that have been mastered in LUSID. Optionally augment the results with instruments from an external symbology service,  currently OpenFIGI.
 
@@ -53,7 +53,7 @@ mastered_only = False # bool | If set to true, only search over instruments that
 scope = 'scope_example' # str | The scope in which the instrument lies. (optional)
 
     try:
-        # [EARLY ACCESS] InstrumentsSearch: Instruments search
+        # [EXPERIMENTAL] InstrumentsSearch: Instruments search
         api_response = api_instance.instruments_search(instrument_search_property, mastered_effective_at=mastered_effective_at, mastered_only=mastered_only, scope=scope)
         pprint(api_response)
     except ApiException as e:
