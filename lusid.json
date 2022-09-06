@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4758",
+    "version": "0.11.4759",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -34420,7 +34420,7 @@
         "tags": [
           "Portfolio Groups"
         ],
-        "summary": "[EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group",
+        "summary": "[EARLY ACCESS] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group",
         "description": "Get an A2B report for all Transaction Portfolios within the given portfolio group.",
         "operationId": "GetA2BDataForPortfolioGroup",
         "parameters": [
@@ -35948,7 +35948,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfoliogroups/{scope}/{code}/commands": {
@@ -42741,7 +42741,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] PatchPortfolio: Patch portfolio.",
+        "summary": "[EARLY ACCESS] PatchPortfolio: Patch portfolio.",
         "description": "Create or update certain fields for a particular  portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nCurrently supported are: CreationDate.",
         "operationId": "PatchPortfolio",
         "parameters": [
@@ -42901,7 +42901,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/commands": {
@@ -44400,7 +44400,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties",
+        "summary": "[EARLY ACCESS] ListPortfolioProperties: Get portfolio properties",
         "description": "List all the properties of a particular portfolio.",
         "operationId": "ListPortfolioProperties",
         "parameters": [
@@ -44600,7 +44600,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/properties/time-series": {
@@ -99480,7 +99480,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

@@ -19,10 +19,10 @@ Method | HTTP request | Description
 [**get_portfolio_relationships**](PortfoliosApi.md#get_portfolio_relationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
 [**get_portfolio_returns**](PortfoliosApi.md#get_portfolio_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
 [**get_portfolios_access_metadata_by_key**](PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
-[**list_portfolio_properties**](PortfoliosApi.md#list_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
+[**list_portfolio_properties**](PortfoliosApi.md#list_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
 [**list_portfolios**](PortfoliosApi.md#list_portfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios
 [**list_portfolios_for_scope**](PortfoliosApi.md#list_portfolios_for_scope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope
-[**patch_portfolio**](PortfoliosApi.md#patch_portfolio) | **PATCH** /api/portfolios/{scope}/{code} | [EXPERIMENTAL] PatchPortfolio: Patch portfolio.
+[**patch_portfolio**](PortfoliosApi.md#patch_portfolio) | **PATCH** /api/portfolios/{scope}/{code} | [EARLY ACCESS] PatchPortfolio: Patch portfolio.
 [**patch_portfolio_access_metadata**](PortfoliosApi.md#patch_portfolio_access_metadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EXPERIMENTAL] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
 [**update_portfolio**](PortfoliosApi.md#update_portfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
 [**upsert_portfolio_access_metadata**](PortfoliosApi.md#upsert_portfolio_access_metadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
@@ -1310,7 +1310,7 @@ Name | Type | Description  | Notes
 # **list_portfolio_properties**
 > ResourceListOfProperty list_portfolio_properties(scope, code, effective_at=effective_at, as_at=as_at, page=page, limit=limit)
 
-[EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
+[EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
 
 List all the properties of a particular portfolio.
 
@@ -1352,7 +1352,7 @@ page = 'page_example' # str | The pagination token to use to continue listing co
 limit = 56 # int | When paginating, limit the results per page to this number. (optional)
 
     try:
-        # [EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
+        # [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
         api_response = api_instance.list_portfolio_properties(scope, code, effective_at=effective_at, as_at=as_at, page=page, limit=limit)
         pprint(api_response)
     except ApiException as e:
@@ -1573,7 +1573,7 @@ Name | Type | Description  | Notes
 # **patch_portfolio**
 > ActionResultOfPortfolio patch_portfolio(scope, code, operation)
 
-[EXPERIMENTAL] PatchPortfolio: Patch portfolio.
+[EARLY ACCESS] PatchPortfolio: Patch portfolio.
 
 Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate.
 
@@ -1612,7 +1612,7 @@ code = 'code_example' # str | The code of the portfolio. Together with the      
 operation = [{"value":"2020-01-01","path":"/creationDate","op":"add"}] # list[Operation] | The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.
 
     try:
-        # [EXPERIMENTAL] PatchPortfolio: Patch portfolio.
+        # [EARLY ACCESS] PatchPortfolio: Patch portfolio.
         api_response = api_instance.patch_portfolio(scope, code, operation)
         pprint(api_response)
     except ApiException as e:
