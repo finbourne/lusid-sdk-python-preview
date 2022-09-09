@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4775",
+    "version": "0.11.4776",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -16031,6 +16031,191 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfInstrumentCashFlow"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/instrumentevents/$queryTradeTickets": {
+      "post": {
+        "tags": [
+          "Instrument Events"
+        ],
+        "summary": "[EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.",
+        "description": "Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.\r\n\r\nThese trade tickets are derived from events that involve transition of instrument states, such as transitions\r\non exercise or default of an instrument. The trade tickets are to allow the new position to be created given the\r\nexisting portfolio configuration.",
+        "operationId": "QueryTradeTickets",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+            "schema": {
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many. If not specified, a default\r\nof 1000 is used.",
+              "format": "int32",
+              "default": 1000,
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "Optional. The pagination token to use to continue listing items from a previous call. Page values are\r\nreturn from list calls, and must be supplied exactly as returned. Additionally, when specifying this\r\nvalue, queryBody, and limit must not\r\nbe modified.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The filter parameters used to retrieve instrument events.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryTradeTicketsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryTradeTicketsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryTradeTicketsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryTradeTicketsRequest"
+              },
+              "example": {
+                "windowStart": "2015-01-01T00:00:00.0000000+00:00",
+                "windowEnd": "2030-01-01T00:00:00.0000000+00:00",
+                "portfolioEntityIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "recipeId": {
+                  "scope": "default",
+                  "code": "default"
+                },
+                "effectiveAt": "2022-01-01T00:00:00.0000000+00:00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Instrument Events as Upsertable TradeTickets.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
                 }
               }
             }
@@ -57500,6 +57685,360 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/$tradeticket": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket",
+        "description": "Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally\r\na transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users\r\nwith OTC systems than flow and equity trading ones.",
+        "operationId": "CreateTradeTicket",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope of the transaction portfolio.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the trade ticket to upsert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "type": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "type": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "type": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "type": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created trade ticket, possibly populated with created LUID and identifiers if missing on the request.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "type": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "type": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "type": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/a2b": {
       "get": {
         "tags": [
@@ -73674,7 +74213,7 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/translation/tradeticket": {
+    "/api/translation/tradetickets": {
       "post": {
         "tags": [
           "Translation"
@@ -91620,6 +92159,51 @@
         "additionalProperties": false,
         "description": "Instrument event query."
       },
+      "QueryTradeTicketsRequest": {
+        "required": [
+          "effectiveAt",
+          "portfolioEntityIds",
+          "recipeId",
+          "windowEnd",
+          "windowStart"
+        ],
+        "type": "object",
+        "properties": {
+          "asAt": {
+            "type": "string",
+            "description": "The time of the system at which to query for tradetickets.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "windowStart": {
+            "type": "string",
+            "description": "The start date of the window.",
+            "format": "date-time"
+          },
+          "windowEnd": {
+            "type": "string",
+            "description": "The end date of the window.",
+            "format": "date-time"
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The set of portfolios and portfolio groups to which the instrument events must belong."
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The Effective date used in the valuation of the tradetickets.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Query for tradetickets resulting from events on instrument that are taken from one or more portfolios"
+      },
       "Quote": {
         "required": [
           "asAt",
@@ -95030,6 +95614,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfTradeTicket": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TradeTicket"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfTransaction": {
         "required": [
           "values"
@@ -96553,6 +97178,22 @@
           },
           "counterpartyAgreementId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The set of instrument properties wanted on the instrument from the trade ticket.",
+            "nullable": true
+          },
+          "transactionProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The set of transaction properties wanted on the transaction from the trade ticket.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
