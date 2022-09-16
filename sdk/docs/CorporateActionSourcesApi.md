@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument_events**
-> ResourceListOfInstrumentEventHolder get_instrument_events(scope, code, as_at=as_at, limit=limit, page=page, filter=filter)
+> PagedResourceListOfInstrumentEventHolder get_instrument_events(scope, code, as_at=as_at, limit=limit, page=page, filter=filter)
 
 [EXPERIMENTAL] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfInstrumentEventHolder**](ResourceListOfInstrumentEventHolder.md)
+[**PagedResourceListOfInstrumentEventHolder**](PagedResourceListOfInstrumentEventHolder.md)
 
 ### Authorization
 

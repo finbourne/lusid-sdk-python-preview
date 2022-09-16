@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4795",
+    "version": "0.11.4796",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -10225,17 +10225,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                  "$ref": "#/components/schemas/PagedResourceListOfInstrumentEventHolder"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                  "$ref": "#/components/schemas/PagedResourceListOfInstrumentEventHolder"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfInstrumentEventHolder"
+                  "$ref": "#/components/schemas/PagedResourceListOfInstrumentEventHolder"
                 }
               }
             }
@@ -90140,6 +90140,47 @@
         "additionalProperties": false,
         "description": "A paginated list of resource that can be returned from a request."
       },
+      "PagedResourceListOfInstrumentEventHolder": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstrumentEventHolder"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
       "PagedResourceListOfLegalEntity": {
         "required": [
           "values"
@@ -99392,7 +99433,7 @@
           "properties": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Property"
+              "$ref": "#/components/schemas/PerpetualProperty"
             },
             "description": "The properties attached to this instrument event.",
             "nullable": true
