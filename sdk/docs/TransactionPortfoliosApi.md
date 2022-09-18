@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_trade_ticket**
-> TradeTicket create_trade_ticket(scope, code, trade_ticket=trade_ticket)
+> LusidTradeTicket create_trade_ticket(scope, code, lusid_trade_ticket=lusid_trade_ticket)
 
 [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
 
@@ -481,11 +481,11 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TransactionPortfoliosApi(api_client)
     scope = 'scope_example' # str | The scope of the transaction portfolio.
 code = 'code_example' # str | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-trade_ticket = {"transactionId":"TradeTicket-1111111","type":"OpenTradeTicket","source":"default","transactionDate":"2020-01-01T09:00:00.00Z","settlementDate":"2020-01-01T09:00:00.00Z","totalConsideration":{"amount":1020000,"currency":"GBP"},"units":1000000,"instrumentIdentifiers":{"instrument/default/ClientInternal":"my-bond"},"instrumentScope":"myScope","instrumentName":"my_bond","instrumentDefinition":{"startDate":"2018-01-01T00:00:00.0000000+00:00","maturityDate":"2019-01-01T00:00:00.0000000+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"},"counterpartyAgreementId":{"scope":"demoScope","code":"myCounterparty"}} # TradeTicket | the trade ticket to upsert (optional)
+lusid_trade_ticket = {"transactionId":"TradeTicket-1111111","transactionType":"OpenTradeTicket","source":"default","transactionDate":"2020-01-01T09:00:00.00Z","settlementDate":"2020-01-01T09:00:00.00Z","totalConsideration":{"amount":1020000,"currency":"GBP"},"units":1000000,"instrumentIdentifiers":{"instrument/default/ClientInternal":"my-bond"},"instrumentScope":"myScope","instrumentName":"my_bond","instrumentDefinition":{"startDate":"2018-01-01T00:00:00.0000000+00:00","maturityDate":"2019-01-01T00:00:00.0000000+00:00","domAmount":1,"domCcy":"GBP","fgnAmount":-1.5,"fgnCcy":"USD","refSpotRate":1.5,"isNdf":false,"fixingDate":"0001-01-01T00:00:00.0000000+00:00","instrumentType":"FxForward"},"counterpartyAgreementId":{"scope":"demoScope","code":"myCounterparty"},"tradeTicketType":"LusidTradeTicket"} # LusidTradeTicket | the trade ticket to upsert (optional)
 
     try:
         # [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
-        api_response = api_instance.create_trade_ticket(scope, code, trade_ticket=trade_ticket)
+        api_response = api_instance.create_trade_ticket(scope, code, lusid_trade_ticket=lusid_trade_ticket)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->create_trade_ticket: %s\n" % e)
@@ -497,11 +497,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the transaction portfolio. | 
  **code** | **str**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **trade_ticket** | [**TradeTicket**](TradeTicket.md)| the trade ticket to upsert | [optional] 
+ **lusid_trade_ticket** | [**LusidTradeTicket**](LusidTradeTicket.md)| the trade ticket to upsert | [optional] 
 
 ### Return type
 
-[**TradeTicket**](TradeTicket.md)
+[**LusidTradeTicket**](LusidTradeTicket.md)
 
 ### Authorization
 

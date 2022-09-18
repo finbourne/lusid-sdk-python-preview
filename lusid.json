@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4797",
+    "version": "0.11.4798",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -16205,17 +16205,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioTradeTicket"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioTradeTicket"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTradeTicket"
+                  "$ref": "#/components/schemas/ResourceListOfPortfolioTradeTicket"
                 }
               }
             }
@@ -57734,11 +57734,11 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/TradeTicket"
+                "$ref": "#/components/schemas/LusidTradeTicket"
               },
               "example": {
                 "transactionId": "TradeTicket-1111111",
-                "type": "OpenTradeTicket",
+                "transactionType": "OpenTradeTicket",
                 "source": "default",
                 "transactionDate": "2020-01-01T09:00:00.00Z",
                 "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57767,16 +57767,17 @@
                 "counterpartyAgreementId": {
                   "scope": "demoScope",
                   "code": "myCounterparty"
-                }
+                },
+                "tradeTicketType": "LusidTradeTicket"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TradeTicket"
+                "$ref": "#/components/schemas/LusidTradeTicket"
               },
               "example": {
                 "transactionId": "TradeTicket-1111111",
-                "type": "OpenTradeTicket",
+                "transactionType": "OpenTradeTicket",
                 "source": "default",
                 "transactionDate": "2020-01-01T09:00:00.00Z",
                 "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57805,16 +57806,17 @@
                 "counterpartyAgreementId": {
                   "scope": "demoScope",
                   "code": "myCounterparty"
-                }
+                },
+                "tradeTicketType": "LusidTradeTicket"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TradeTicket"
+                "$ref": "#/components/schemas/LusidTradeTicket"
               },
               "example": {
                 "transactionId": "TradeTicket-1111111",
-                "type": "OpenTradeTicket",
+                "transactionType": "OpenTradeTicket",
                 "source": "default",
                 "transactionDate": "2020-01-01T09:00:00.00Z",
                 "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57843,16 +57845,17 @@
                 "counterpartyAgreementId": {
                   "scope": "demoScope",
                   "code": "myCounterparty"
-                }
+                },
+                "tradeTicketType": "LusidTradeTicket"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TradeTicket"
+                "$ref": "#/components/schemas/LusidTradeTicket"
               },
               "example": {
                 "transactionId": "TradeTicket-1111111",
-                "type": "OpenTradeTicket",
+                "transactionType": "OpenTradeTicket",
                 "source": "default",
                 "transactionDate": "2020-01-01T09:00:00.00Z",
                 "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57881,7 +57884,8 @@
                 "counterpartyAgreementId": {
                   "scope": "demoScope",
                   "code": "myCounterparty"
-                }
+                },
+                "tradeTicketType": "LusidTradeTicket"
               }
             }
           }
@@ -57892,11 +57896,11 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/TradeTicket"
+                  "$ref": "#/components/schemas/LusidTradeTicket"
                 },
                 "example": {
                   "transactionId": "TradeTicket-1111111",
-                  "type": "OpenTradeTicket",
+                  "transactionType": "OpenTradeTicket",
                   "source": "default",
                   "transactionDate": "2020-01-01T09:00:00.00Z",
                   "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57925,16 +57929,17 @@
                   "counterpartyAgreementId": {
                     "scope": "demoScope",
                     "code": "myCounterparty"
-                  }
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TradeTicket"
+                  "$ref": "#/components/schemas/LusidTradeTicket"
                 },
                 "example": {
                   "transactionId": "TradeTicket-1111111",
-                  "type": "OpenTradeTicket",
+                  "transactionType": "OpenTradeTicket",
                   "source": "default",
                   "transactionDate": "2020-01-01T09:00:00.00Z",
                   "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -57963,16 +57968,17 @@
                   "counterpartyAgreementId": {
                     "scope": "demoScope",
                     "code": "myCounterparty"
-                  }
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TradeTicket"
+                  "$ref": "#/components/schemas/LusidTradeTicket"
                 },
                 "example": {
                   "transactionId": "TradeTicket-1111111",
-                  "type": "OpenTradeTicket",
+                  "transactionType": "OpenTradeTicket",
                   "source": "default",
                   "transactionDate": "2020-01-01T09:00:00.00Z",
                   "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -58001,7 +58007,8 @@
                   "counterpartyAgreementId": {
                     "scope": "demoScope",
                     "code": "myCounterparty"
-                  }
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
                 }
               }
             }
@@ -74238,7 +74245,7 @@
                 "tickets": {
                   "myTicket": {
                     "transactionId": "TradeTicket-1111111",
-                    "type": "OpenTradeTicket",
+                    "transactionType": "OpenTradeTicket",
                     "source": "default",
                     "transactionDate": "2020-01-01T09:00:00.00Z",
                     "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -74267,7 +74274,8 @@
                     "counterpartyAgreementId": {
                       "scope": "demoScope",
                       "code": "myCounterparty"
-                    }
+                    },
+                    "tradeTicketType": "LusidTradeTicket"
                   }
                 },
                 "dialect": "targetDialect"
@@ -74281,7 +74289,7 @@
                 "tickets": {
                   "myTicket": {
                     "transactionId": "TradeTicket-1111111",
-                    "type": "OpenTradeTicket",
+                    "transactionType": "OpenTradeTicket",
                     "source": "default",
                     "transactionDate": "2020-01-01T09:00:00.00Z",
                     "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -74310,7 +74318,8 @@
                     "counterpartyAgreementId": {
                       "scope": "demoScope",
                       "code": "myCounterparty"
-                    }
+                    },
+                    "tradeTicketType": "LusidTradeTicket"
                   }
                 },
                 "dialect": "targetDialect"
@@ -74324,7 +74333,7 @@
                 "tickets": {
                   "myTicket": {
                     "transactionId": "TradeTicket-1111111",
-                    "type": "OpenTradeTicket",
+                    "transactionType": "OpenTradeTicket",
                     "source": "default",
                     "transactionDate": "2020-01-01T09:00:00.00Z",
                     "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -74353,7 +74362,8 @@
                     "counterpartyAgreementId": {
                       "scope": "demoScope",
                       "code": "myCounterparty"
-                    }
+                    },
+                    "tradeTicketType": "LusidTradeTicket"
                   }
                 },
                 "dialect": "targetDialect"
@@ -74367,7 +74377,7 @@
                 "tickets": {
                   "myTicket": {
                     "transactionId": "TradeTicket-1111111",
-                    "type": "OpenTradeTicket",
+                    "transactionType": "OpenTradeTicket",
                     "source": "default",
                     "transactionDate": "2020-01-01T09:00:00.00Z",
                     "settlementDate": "2020-01-01T09:00:00.00Z",
@@ -74396,7 +74406,8 @@
                     "counterpartyAgreementId": {
                       "scope": "demoScope",
                       "code": "myCounterparty"
-                    }
+                    },
+                    "tradeTicketType": "LusidTradeTicket"
                   }
                 },
                 "dialect": "targetDialect"
@@ -87959,6 +87970,99 @@
         "additionalProperties": false,
         "description": "A description of a problem that has arisen during the processing of a request."
       },
+      "LusidTradeTicket": {
+        "required": [
+          "instrumentIdentifiers",
+          "settlementDate",
+          "totalConsideration",
+          "tradeTicketType",
+          "transactionDate",
+          "transactionId",
+          "transactionType",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string"
+          },
+          "transactionType": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string"
+          },
+          "source": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string"
+          },
+          "settlementDate": {
+            "type": "string"
+          },
+          "totalConsideration": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "units": {
+            "type": "number",
+            "format": "double"
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "nullable": true
+          },
+          "instrumentName": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "instrumentDefinition": {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          "counterpartyAgreementId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "nullable": true
+          },
+          "transactionProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "nullable": true
+          },
+          "tradeTicketType": {
+            "enum": [
+              "LusidTradeTicket",
+              "ExternalTradeTicket"
+            ],
+            "type": "string",
+            "description": "The available values are: LusidTradeTicket, ExternalTradeTicket"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A LUSID Trade Ticket comprising an instrument, a transaction, and a counterparty."
+      },
       "LusidUniqueId": {
         "required": [
           "type",
@@ -91976,6 +92080,19 @@
         },
         "additionalProperties": false
       },
+      "PortfolioTradeTicket": {
+        "type": "object",
+        "properties": {
+          "sourcePortfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "tradeTicket": {
+            "$ref": "#/components/schemas/LusidTradeTicket"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response for querying trade tickets"
+      },
       "PortfolioType": {
         "enum": [
           "Transaction",
@@ -95906,6 +96023,47 @@
         "additionalProperties": false,
         "description": "A collection of resources that can be returned from requests."
       },
+      "ResourceListOfPortfolioTradeTicket": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioTradeTicket"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A collection of resources that can be returned from requests."
+      },
       "ResourceListOfProcessedCommand": {
         "required": [
           "values"
@@ -96326,47 +96484,6 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "description": "The resources to list."
-          },
-          "href": {
-            "type": "string",
-            "description": "The URI of the resource list.",
-            "format": "uri",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "description": "Collection of links.",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A collection of resources that can be returned from requests."
-      },
-      "ResourceListOfTradeTicket": {
-        "required": [
-          "values"
-        ],
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TradeTicket"
             },
             "description": "The resources to list."
           },
@@ -97847,100 +97964,28 @@
       },
       "TradeTicket": {
         "required": [
-          "instrumentIdentifiers",
-          "settlementDate",
-          "totalConsideration",
-          "transactionDate",
-          "transactionId",
-          "type",
-          "units"
+          "tradeTicketType"
         ],
         "type": "object",
         "properties": {
-          "transactionId": {
-            "maxLength": 256,
-            "minLength": 0,
+          "tradeTicketType": {
+            "enum": [
+              "LusidTradeTicket",
+              "ExternalTradeTicket"
+            ],
             "type": "string",
-            "description": "The unique identifier of the transaction."
-          },
-          "type": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "description": "The type of the transaction, for example 'Buy' or 'Sell'. The transaction type must have been pre-configured using the System Configuration API. If not, this operation will succeed but you are not able to calculate holdings for the portfolio that include this transaction."
-          },
-          "source": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "description": "The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration.",
-            "nullable": true
-          },
-          "transactionDate": {
-            "type": "string",
-            "description": "The date of the transaction.",
-            "format": "dateorcutlabel"
-          },
-          "settlementDate": {
-            "type": "string",
-            "description": "The settlement date of the transaction.",
-            "format": "dateorcutlabel"
-          },
-          "totalConsideration": {
-            "$ref": "#/components/schemas/CurrencyAndAmount"
-          },
-          "units": {
-            "type": "number",
-            "description": "The number of units of the transacted instrument.",
-            "format": "double"
-          },
-          "instrumentIdentifiers": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "The set of identifiers that can be used to identify the instrument."
-          },
-          "instrumentScope": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "The scope in which the instrument lies.",
-            "nullable": true
-          },
-          "instrumentName": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "description": "The name of the instrument.",
-            "nullable": true
-          },
-          "instrumentDefinition": {
-            "$ref": "#/components/schemas/LusidInstrument"
-          },
-          "counterpartyAgreementId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "instrumentProperties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Property"
-            },
-            "description": "The set of instrument properties wanted on the instrument from the trade ticket.",
-            "nullable": true
-          },
-          "transactionProperties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Property"
-            },
-            "description": "The set of transaction properties wanted on the transaction from the trade ticket.",
-            "nullable": true
+            "description": "The available values are: LusidTradeTicket, ExternalTradeTicket"
           }
         },
         "additionalProperties": false,
-        "description": "A Trade Ticket comprising of an instrument, a transaction and a counterparty."
+        "description": "The base class for representing a Trade Ticket in LUSID."
+      },
+      "TradeTicketType": {
+        "enum": [
+          "LusidTradeTicket",
+          "ExternalTradeTicket"
+        ],
+        "type": "string"
       },
       "Transaction": {
         "required": [

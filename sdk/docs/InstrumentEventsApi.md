@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_trade_tickets**
-> ResourceListOfTradeTicket query_trade_tickets(limit=limit, page=page, query_trade_tickets_request=query_trade_tickets_request)
+> ResourceListOfPortfolioTradeTicket query_trade_tickets(limit=limit, page=page, query_trade_tickets_request=query_trade_tickets_request)
 
 [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfTradeTicket**](ResourceListOfTradeTicket.md)
+[**ResourceListOfPortfolioTradeTicket**](ResourceListOfPortfolioTradeTicket.md)
 
 ### Authorization
 
