@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4816",
+    "version": "0.11.4817",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -24681,46 +24681,6 @@
                           "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
                         }
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "quantity": 1500,
                         "details": [
@@ -24846,46 +24806,6 @@
                           "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
                         }
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "quantity": 1500,
                         "details": [
@@ -25011,46 +24931,6 @@
                           "asAtDate": "2018-03-05T10:10:10.0000000+00:00"
                         }
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "placementIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "PLAC00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "quantity": 1500,
                         "details": [
@@ -25318,36 +25198,6 @@
                         "scope": "MyScope",
                         "code": "BLOC00000123"
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "details": [
                           {
@@ -25461,36 +25311,6 @@
                         "scope": "MyScope",
                         "code": "BLOC00000123"
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "details": [
                           {
@@ -25604,36 +25424,6 @@
                         "scope": "MyScope",
                         "code": "BLOC00000123"
                       },
-                      "orderIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ORD00000456"
-                        }
-                      ],
-                      "allocationIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "ALLOC00000456"
-                        }
-                      ],
-                      "executionIds": [
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000123"
-                        },
-                        {
-                          "scope": "MyScope",
-                          "code": "EXEC0000456"
-                        }
-                      ],
                       "ordered": {
                         "details": [
                           {
@@ -89000,49 +88790,17 @@
       "OrderGraphBlock": {
         "required": [
           "allocated",
-          "allocationIds",
           "block",
           "derivedComplianceState",
           "derivedState",
           "executed",
-          "executionIds",
           "ordered",
-          "orderIds",
-          "placed",
-          "placementIds"
+          "placed"
         ],
         "type": "object",
         "properties": {
           "block": {
             "$ref": "#/components/schemas/Block"
-          },
-          "orderIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers for all the orders in this block - DEPRECATED: see Ordered."
-          },
-          "placementIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers of all placements for the block - DEPRECATED: see Placed."
-          },
-          "allocationIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers for all allocations of placements to orders in the block - DEPRECATED: see Allocated."
-          },
-          "executionIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers of all executions against placements in the block - DEPRECATED: see Executed."
           },
           "ordered": {
             "$ref": "#/components/schemas/OrderGraphBlockOrderSynopsis"
@@ -89211,13 +88969,10 @@
       "OrderGraphPlacement": {
         "required": [
           "allocated",
-          "allocationIds",
           "blockId",
           "derivedState",
           "executed",
-          "executionIds",
           "ordered",
-          "orderIds",
           "placed",
           "placement"
         ],
@@ -89228,27 +88983,6 @@
           },
           "blockId": {
             "$ref": "#/components/schemas/ResourceId"
-          },
-          "orderIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers for all orders in the block - DEPRECATED: see Ordered."
-          },
-          "allocationIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers for all allocations relating to this placement - DEPRECATED: see Allocated."
-          },
-          "executionIds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "Identifiers of all executions against this placement - DEPRECATED: see Executed."
           },
           "ordered": {
             "$ref": "#/components/schemas/OrderGraphPlacementOrderSynopsis"
@@ -101073,7 +100807,7 @@
     },
     {
       "name": "OrderGraph",
-      "description": "The order graph is a way of looking at orders with the various entities relating to the order, such as blocks, orders, placements, allocations and executions in one place. It also contains some state information which can not be obtained any other way."
+      "description": "The order graph is a way of looking at orders with the various entities relating to the order, such as blocks, orders, placements, allocations and executions in one place. It also contains some state information which cannot be obtained any other way."
     },
     {
       "name": "OrderInstructions",

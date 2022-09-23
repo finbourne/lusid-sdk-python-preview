@@ -6,9 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **placement** | [**Placement**](Placement.md) |  | 
 **block_id** | [**ResourceId**](ResourceId.md) |  | 
-**order_ids** | [**list[ResourceId]**](ResourceId.md) | Identifiers for all orders in the block - DEPRECATED: see Ordered. | 
-**allocation_ids** | [**list[ResourceId]**](ResourceId.md) | Identifiers for all allocations relating to this placement - DEPRECATED: see Allocated. | 
-**execution_ids** | [**list[ResourceId]**](ResourceId.md) | Identifiers of all executions against this placement - DEPRECATED: see Executed. | 
 **ordered** | [**OrderGraphPlacementOrderSynopsis**](OrderGraphPlacementOrderSynopsis.md) |  | 
 **placed** | [**OrderGraphPlacementPlacementSynopsis**](OrderGraphPlacementPlacementSynopsis.md) |  | 
 **executed** | [**OrderGraphPlacementExecutionSynopsis**](OrderGraphPlacementExecutionSynopsis.md) |  | 
