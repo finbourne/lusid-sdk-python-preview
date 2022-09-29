@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4834",
+    "version": "0.11.4833",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -87776,58 +87776,49 @@
           "transactionId": {
             "maxLength": 256,
             "minLength": 0,
-            "type": "string",
-            "description": "Transaction ID. Must be unique."
+            "type": "string"
           },
           "transactionType": {
             "maxLength": 256,
             "minLength": 0,
-            "type": "string",
-            "description": "Type of transaction for processing. Referenced by Transaction Configuration."
+            "type": "string"
           },
           "source": {
             "maxLength": 256,
             "minLength": 0,
             "type": "string",
-            "description": "Transaction Source. Referenced by Transaction Configuration.",
             "nullable": true
           },
           "transactionDate": {
-            "type": "string",
-            "description": "Transaction Date. Date at which transaction is known."
+            "type": "string"
           },
           "settlementDate": {
-            "type": "string",
-            "description": "Transaction settlement. Date at which transaction is finalised and realised into the system."
+            "type": "string"
           },
           "totalConsideration": {
             "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "units": {
             "type": "number",
-            "description": "Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the\r\ninstrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.\r\nArguably either the unit or holding is best unitised.",
             "format": "double"
           },
           "instrumentIdentifiers": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            },
-            "description": "Identifiers for the instrument."
+            }
           },
           "instrumentScope": {
             "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "Scope of instrument",
             "nullable": true
           },
           "instrumentName": {
             "maxLength": 256,
             "minLength": 0,
             "type": "string",
-            "description": "Name of instrument",
             "nullable": true
           },
           "instrumentDefinition": {
@@ -87841,7 +87832,6 @@
             "items": {
               "$ref": "#/components/schemas/Property"
             },
-            "description": "Set of instrument properties (as defined by client/user).",
             "nullable": true
           },
           "transactionProperties": {
@@ -87849,7 +87839,6 @@
             "items": {
               "$ref": "#/components/schemas/Property"
             },
-            "description": "Set of transaction properties (as defined by client/user).",
             "nullable": true
           },
           "tradeTicketType": {
@@ -100721,7 +100710,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
