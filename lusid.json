@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4837",
+    "version": "0.11.4838",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -83502,10 +83502,11 @@
                   "Optionality",
                   "Step",
                   "Exercise",
+                  "FxRate",
                   "Invalid"
                 ],
                 "type": "string",
-                "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, Invalid"
+                "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid"
               }
             }
           }
@@ -83670,10 +83671,11 @@
                   "Optionality",
                   "Step",
                   "Exercise",
+                  "FxRate",
                   "Invalid"
                 ],
                 "type": "string",
-                "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, Invalid"
+                "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid"
               }
             }
           }
@@ -84941,6 +84943,58 @@
           }
         ],
         "description": "LUSID representation of an FX Option.\r\nIncluding Vanilla, American, European, and Digital (Binary) options."
+      },
+      "FxRateSchedule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Schedule"
+          },
+          {
+            "required": [
+              "scheduleType"
+            ],
+            "type": "object",
+            "properties": {
+              "fixingLag": {
+                "type": "integer",
+                "description": "If rate is not known upfront then will need a fixing rate. Can be fixed x number of days before payment date.",
+                "format": "int32"
+              },
+              "fxConversionTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of flags to indicate if coupon payments, principal payments or both are converted",
+                "nullable": true
+              },
+              "rate": {
+                "type": "number",
+                "description": "FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate",
+                "format": "double"
+              },
+              "toCurrency": {
+                "type": "string",
+                "description": "Currency that payments are converted to",
+                "nullable": true
+              },
+              "scheduleType": {
+                "enum": [
+                  "Fixed",
+                  "Float",
+                  "Optionality",
+                  "Step",
+                  "Exercise",
+                  "FxRate",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid"
+              }
+            }
+          }
+        ],
+        "description": "Schedule to define fx conversion of cashflows on complex bonds. If an fx schedule is defined then\r\non payment schedule generation the coupon and principal payoffs will be wrapped in an fx rate payoff method.\r\nEither the fx rate is predefined (fixed) or relies on fx resets (floating).\r\nUsed in representation of dual currency bond."
       },
       "FxSwap": {
         "allOf": [
@@ -96755,10 +96809,11 @@
               "Optionality",
               "Step",
               "Exercise",
+              "FxRate",
               "Invalid"
             ],
             "type": "string",
-            "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, Invalid"
+            "description": "The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid"
           }
         },
         "additionalProperties": false,
@@ -96774,6 +96829,7 @@
           "Optionality",
           "Step",
           "Exercise",
+          "FxRate",
           "Invalid"
         ],
         "type": "string"

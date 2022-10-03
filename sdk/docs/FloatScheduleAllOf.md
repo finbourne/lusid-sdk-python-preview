@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **payment_currency** | **str** | Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. | [optional] 
 **spread** | **float** | Spread over floating rate given as a fraction. | [optional] 
 **stub_type** | **str** | StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]. | [optional] 
-**schedule_type** | **str** | The available values are: Fixed, Float, Optionality, Step, Exercise, Invalid | 
+**schedule_type** | **str** | The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
