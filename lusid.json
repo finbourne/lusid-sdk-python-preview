@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4847",
+    "version": "0.11.4848",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -86256,7 +86256,7 @@
             "items": {
               "$ref": "#/components/schemas/AggregateSpec"
             },
-            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Holding/default/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
+            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Valuation/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
           },
           "groupBy": {
             "type": "array",
@@ -99994,7 +99994,7 @@
             "items": {
               "$ref": "#/components/schemas/AggregateSpec"
             },
-            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Holding/default/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
+            "description": "The set of specifications to calculate or retrieve during the valuation and present in the results. For example:\r\nAggregateSpec('Valuation/PV','Sum') for returning the PV (present value) of holdings\r\nAggregateSpec('Holding/default/Units','Sum') for returning the units of holidays\r\nAggregateSpec('Instrument/default/LusidInstrumentId','Value') for returning the Lusid Instrument identifier"
           },
           "groupBy": {
             "type": "array",
@@ -100777,7 +100777,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
