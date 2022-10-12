@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4860",
+    "version": "0.11.4861",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -63,6 +63,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -116,6 +117,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -169,6 +171,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -222,6 +225,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "portfolioEntityIds": [
                   {
                     "scope": "PortfolioScope1",
@@ -342,6 +346,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -395,6 +400,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -448,6 +454,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -501,6 +508,7 @@
                 ],
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
+                "returnResultAsExpandedTypes": false,
                 "valuationSchedule": {
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -40531,6 +40539,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40574,6 +40583,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40639,6 +40649,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40682,6 +40693,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40747,6 +40759,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40790,6 +40803,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40855,6 +40869,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -40898,6 +40913,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41265,6 +41281,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41313,6 +41330,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41370,6 +41388,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41418,6 +41437,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41475,6 +41495,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41523,6 +41544,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41580,6 +41602,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41628,6 +41651,7 @@
                   ],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "valuationSchedule": {
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
@@ -41759,6 +41783,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41802,6 +41827,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41856,6 +41882,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41899,6 +41926,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41953,6 +41981,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -41996,6 +42025,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -42050,6 +42080,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -42093,6 +42124,7 @@
                   "sort": [],
                   "reportCurrency": "USD",
                   "equipWithSubtotals": false,
+                  "returnResultAsExpandedTypes": false,
                   "portfolioEntityIds": [
                     {
                       "scope": "PortfolioScope1",
@@ -76360,12 +76392,13 @@
               "DateTime",
               "Boolean",
               "ResultValue",
+              "Result0D",
               "Array",
               "Map",
               "Json"
             ],
             "type": "string",
-            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Array, Map, Json"
+            "description": "The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Array, Map, Json"
           },
           "scalesWithHoldingQuantity": {
             "type": "boolean",
@@ -76395,6 +76428,7 @@
           "DateTime",
           "Boolean",
           "ResultValue",
+          "Result0D",
           "Array",
           "Map",
           "Json"
@@ -86373,6 +86407,10 @@
           "equipWithSubtotals": {
             "type": "boolean",
             "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
+          },
+          "returnResultAsExpandedTypes": {
+            "type": "boolean",
+            "description": "For complex results or financially meaningful results,\r\nthere is a need for a result to contain metadata about its currency and/or units\r\nor to have a more complicated 1D or 2D structure"
           },
           "valuationSchedule": {
             "$ref": "#/components/schemas/ValuationSchedule"
@@ -100124,6 +100162,10 @@
             "type": "boolean",
             "description": "Flag directing the Valuation call to populate the results with subtotals of aggregates."
           },
+          "returnResultAsExpandedTypes": {
+            "type": "boolean",
+            "description": "For complex results or financially meaningful results,\r\nthere is a need for a result to contain metadata about its currency and/or units\r\nor to have a more complicated 1D or 2D structure"
+          },
           "portfolioEntityIds": {
             "type": "array",
             "items": {
@@ -100869,7 +100911,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
