@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4909",
+    "version": "0.11.4910",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11930,6 +11930,331 @@
         "responses": {
           "200": {
             "description": "The requested Custom Entity definition.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~SupportTicket?asAt=2022-02-28T14:27:01.2728000+00:00",
+                  "entityTypeName": "SupportTicket",
+                  "displayName": "Support Ticket",
+                  "description": "Support Ticket",
+                  "entityType": "~SupportTicket",
+                  "fieldSchema": [
+                    {
+                      "name": "clientId",
+                      "lifetime": "Perpetual",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "issueDescription",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "internalNotes",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": false
+                    },
+                    {
+                      "name": "isResolved",
+                      "lifetime": "TimeVariant",
+                      "type": "Boolean",
+                      "required": false
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~SupportTicket?asAt=2022-02-28T14:27:01.2728000+00:00",
+                  "entityTypeName": "SupportTicket",
+                  "displayName": "Support Ticket",
+                  "description": "Support Ticket",
+                  "entityType": "~SupportTicket",
+                  "fieldSchema": [
+                    {
+                      "name": "clientId",
+                      "lifetime": "Perpetual",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "issueDescription",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "internalNotes",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": false
+                    },
+                    {
+                      "name": "isResolved",
+                      "lifetime": "TimeVariant",
+                      "type": "Boolean",
+                      "required": false
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomEntityDefinition"
+                },
+                "example": {
+                  "href": "https://myco.lusid.com/api/customentities/entitytypes/~SupportTicket?asAt=2022-02-28T14:27:01.2728000+00:00",
+                  "entityTypeName": "SupportTicket",
+                  "displayName": "Support Ticket",
+                  "description": "Support Ticket",
+                  "entityType": "~SupportTicket",
+                  "fieldSchema": [
+                    {
+                      "name": "clientId",
+                      "lifetime": "Perpetual",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "issueDescription",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": true
+                    },
+                    {
+                      "name": "internalNotes",
+                      "lifetime": "TimeVariant",
+                      "type": "String",
+                      "required": false
+                    },
+                    {
+                      "name": "isResolved",
+                      "lifetime": "TimeVariant",
+                      "type": "Boolean",
+                      "required": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "put": {
+        "tags": [
+          "CustomEntityDefinitions"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.",
+        "description": "The API will return a Bad Request if the Custom Entity type does not exist.",
+        "operationId": "UpdateCustomEntityDefinition",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation."
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The payload containing the description of the Custom Entity type.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomEntityDefinitionRequest"
+              },
+              "example": {
+                "displayName": "Support Ticket",
+                "description": "Support Ticket",
+                "fieldSchema": [
+                  {
+                    "name": "clientId",
+                    "lifetime": "Perpetual",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "issueDescription",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "internalNotes",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": false
+                  },
+                  {
+                    "name": "isResolved",
+                    "lifetime": "TimeVariant",
+                    "type": "Boolean",
+                    "required": false
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomEntityDefinitionRequest"
+              },
+              "example": {
+                "displayName": "Support Ticket",
+                "description": "Support Ticket",
+                "fieldSchema": [
+                  {
+                    "name": "clientId",
+                    "lifetime": "Perpetual",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "issueDescription",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "internalNotes",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": false
+                  },
+                  {
+                    "name": "isResolved",
+                    "lifetime": "TimeVariant",
+                    "type": "Boolean",
+                    "required": false
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomEntityDefinitionRequest"
+              },
+              "example": {
+                "displayName": "Support Ticket",
+                "description": "Support Ticket",
+                "fieldSchema": [
+                  {
+                    "name": "clientId",
+                    "lifetime": "Perpetual",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "issueDescription",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "internalNotes",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": false
+                  },
+                  {
+                    "name": "isResolved",
+                    "lifetime": "TimeVariant",
+                    "type": "Boolean",
+                    "required": false
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomEntityDefinitionRequest"
+              },
+              "example": {
+                "displayName": "Support Ticket",
+                "description": "Support Ticket",
+                "fieldSchema": [
+                  {
+                    "name": "clientId",
+                    "lifetime": "Perpetual",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "issueDescription",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": true
+                  },
+                  {
+                    "name": "internalNotes",
+                    "lifetime": "TimeVariant",
+                    "type": "String",
+                    "required": false
+                  },
+                  {
+                    "name": "isResolved",
+                    "lifetime": "TimeVariant",
+                    "type": "Boolean",
+                    "required": false
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated Custom Entity type.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -81137,8 +81462,10 @@
       },
       "CustomEntityDefinitionRequest": {
         "required": [
+          "description",
           "displayName",
-          "entityTypeName"
+          "entityTypeName",
+          "fieldSchema"
         ],
         "type": "object",
         "properties": {
@@ -81156,16 +81483,14 @@
           "description": {
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "A description for the custom entity type.",
-            "nullable": true
+            "description": "A description for the custom entity type."
           },
           "fieldSchema": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomEntityFieldDefinition"
             },
-            "description": "The description of the fields on the custom entity type.",
-            "nullable": true
+            "description": "The description of the fields on the custom entity type."
           }
         },
         "additionalProperties": false
@@ -99448,6 +99773,34 @@
             "items": {
               "$ref": "#/components/schemas/Property"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCustomEntityDefinitionRequest": {
+        "required": [
+          "description",
+          "displayName",
+          "fieldSchema"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "A display label for the custom entity type."
+          },
+          "description": {
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "A description for the custom entity type."
+          },
+          "fieldSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomEntityFieldDefinition"
+            },
+            "description": "The description of the fields on the custom entity type."
           }
         },
         "additionalProperties": false
