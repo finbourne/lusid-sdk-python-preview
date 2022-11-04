@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_compliance_run_results**
-> ResourceListOfComplianceRuleResult get_compliance_run_results(run_id, page=page, limit=limit)
+> ResourceListOfComplianceRuleResult get_compliance_run_results(run_id, page=page, limit=limit, filter=filter)
 
 [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
 
@@ -293,10 +293,11 @@ with lusid.ApiClient(configuration) as api_client:
     run_id = 'run_id_example' # str | The unique identifier of the compliance run requested.
 page = 'page_example' # str | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
+filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
         # [EXPERIMENTAL] GetComplianceRunResults: Get the details of a single compliance run.
-        api_response = api_instance.get_compliance_run_results(run_id, page=page, limit=limit)
+        api_response = api_instance.get_compliance_run_results(run_id, page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ComplianceApi->get_compliance_run_results: %s\n" % e)
@@ -309,6 +310,7 @@ Name | Type | Description  | Notes
  **run_id** | **str**| The unique identifier of the compliance run requested. | 
  **page** | **str**| The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. | [optional] 
+ **filter** | **str**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -333,7 +335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_compliance_rules**
-> ResourceListOfComplianceRule list_compliance_rules(effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
+> ResourceListOfComplianceRule list_compliance_rules(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter)
 
 [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
 
@@ -371,13 +373,13 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.ComplianceApi(api_client)
     effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results. (optional)
-page = 'page_example' # str | The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)
 
     try:
         # [EXPERIMENTAL] ListComplianceRules: List compliance rules, with optional filtering.
-        api_response = api_instance.list_compliance_rules(effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
+        api_response = api_instance.list_compliance_rules(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ComplianceApi->list_compliance_rules: %s\n" % e)
@@ -389,9 +391,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results. | [optional] 
- **page** | **str**| The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. | [optional] 
 
 ### Return type
 

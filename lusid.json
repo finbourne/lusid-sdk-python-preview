@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4927",
+    "version": "0.11.4930",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -6152,6 +6152,19 @@
             "x-nullable": true
           },
           {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
+              "nullable": true
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
@@ -6175,19 +6188,6 @@
               "pattern": "^[\\s\\S]*$",
               "type": "string",
               "description": "Expression to filter the results.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing entities; this value is returned from the previous call. If\r\na pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the\r\noriginal request.",
               "nullable": true
             }
           }
@@ -7676,6 +7676,19 @@
               "nullable": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -12586,7 +12599,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               },
               "application/json": {
@@ -12624,7 +12638,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               },
               "text/json": {
@@ -12662,7 +12677,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               }
             }
@@ -12972,7 +12988,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               },
               "application/json": {
@@ -13010,7 +13027,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               },
               "text/json": {
@@ -13048,7 +13066,8 @@
                       "effectiveFrom": "2022-03-03T09:00:00.0000000+00:00",
                       "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
                     }
-                  ]
+                  ],
+                  "relationships": []
                 }
               }
             }
@@ -19956,6 +19975,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -20022,6 +20042,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -20088,6 +20109,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -20287,6 +20309,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -20348,6 +20371,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -20405,6 +20429,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -20466,6 +20491,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -20523,6 +20549,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -20584,6 +20611,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -20805,6 +20833,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -20866,6 +20895,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -20923,6 +20953,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -20984,6 +21015,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -21041,6 +21073,7 @@
                           "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "counterpartyRiskInformation": {
                         "countryOfRisk": "UnitedKingdom",
                         "creditRatings": [
@@ -21102,6 +21135,7 @@
                           "effectiveFrom": "2016-04-01T00:00:00.0000000+00:00"
                         }
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -21295,6 +21329,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -21361,6 +21396,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -21427,6 +21463,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -21922,6 +21959,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -21988,6 +22026,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -22054,6 +22093,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -23329,6 +23369,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -23388,6 +23429,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -23447,6 +23489,7 @@
                       "effectiveFrom": "2016-07-01T00:00:00.0000000+00:00"
                     }
                   },
+                  "relationships": [],
                   "counterpartyRiskInformation": {
                     "countryOfRisk": "UnitedKingdom",
                     "creditRatings": [
@@ -29289,6 +29332,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29350,6 +29394,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29411,6 +29456,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29605,6 +29651,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29662,6 +29709,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29729,6 +29777,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29786,6 +29835,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29853,6 +29903,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -29910,6 +29961,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30144,6 +30196,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30201,6 +30254,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30268,6 +30322,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30325,6 +30380,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30392,6 +30448,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30449,6 +30506,7 @@
                           }
                         ]
                       },
+                      "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                         "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30643,6 +30701,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30704,6 +30763,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -30765,6 +30825,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -31075,6 +31136,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -31121,6 +31183,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -31167,6 +31230,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -32368,6 +32432,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -32414,6 +32479,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -32460,6 +32526,7 @@
                       }
                     ]
                   },
+                  "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
                     "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
@@ -81650,6 +81717,7 @@
           "entityType",
           "fields",
           "identifiers",
+          "relationships",
           "version"
         ],
         "type": "object",
@@ -81689,6 +81757,13 @@
               "$ref": "#/components/schemas/CustomEntityField"
             },
             "description": "The fields that decorate the custom entity."
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the custom entity."
           },
           "links": {
             "type": "array",
@@ -87290,6 +87365,14 @@
             "description": "The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD.",
             "nullable": true
           },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the instrument.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -88329,6 +88412,14 @@
               "$ref": "#/components/schemas/Property"
             },
             "description": "A set of properties associated to the Legal Entity.",
+            "nullable": true
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the Legal Entity.",
             "nullable": true
           },
           "counterpartyRiskInformation": {
@@ -91732,6 +91823,14 @@
             "description": "A set of properties associated to the Person. There can be multiple properties associated with a property key.",
             "nullable": true
           },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the Person.",
+            "nullable": true
+          },
           "version": {
             "$ref": "#/components/schemas/Version"
           }
@@ -92003,6 +92102,14 @@
               "$ref": "#/components/schemas/Property"
             },
             "description": "The requested portfolio properties. These will be from the 'Portfolio' domain.",
+            "nullable": true
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the portfolio.",
             "nullable": true
           },
           "instrumentScopes": {
@@ -92321,6 +92428,14 @@
               "$ref": "#/components/schemas/ResourceId"
             },
             "description": "The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.",
+            "nullable": true
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "description": "A set of relationships associated to the portfolio group.",
             "nullable": true
           },
           "version": {
@@ -101722,7 +101837,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
