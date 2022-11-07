@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4934",
+    "version": "0.11.4935",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -12822,6 +12822,476 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedResourceListOfCustomEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/customentities/{entityType}/$batchUpsert": {
+      "post": {
+        "tags": [
+          "CustomEntities"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertCustomEntities: Batch upsert instances of Custom Entities",
+        "description": "Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code",
+        "operationId": "UpsertCustomEntities",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions."
+            }
+          },
+          {
+            "name": "successMode",
+            "in": "query",
+            "description": "Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "description": "Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The payload describing the Custom Entity instances",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CustomEntityRequest"
+                },
+                "description": "The payload describing the Custom Entity instances"
+              },
+              "example": {
+                "customEntity1": {
+                  "displayName": "CustomEntity1",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "xyz123pqr"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "I can't access this portfolio",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                },
+                "customEntity2": {
+                  "displayName": "CustomEntity2",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "yazr1531"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "Having trouble adding identifiers",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CustomEntityRequest"
+                },
+                "description": "The payload describing the Custom Entity instances"
+              },
+              "example": {
+                "customEntity1": {
+                  "displayName": "CustomEntity1",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "xyz123pqr"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "I can't access this portfolio",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                },
+                "customEntity2": {
+                  "displayName": "CustomEntity2",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "yazr1531"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "Having trouble adding identifiers",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CustomEntityRequest"
+                },
+                "description": "The payload describing the Custom Entity instances"
+              },
+              "example": {
+                "customEntity1": {
+                  "displayName": "CustomEntity1",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "xyz123pqr"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "I can't access this portfolio",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                },
+                "customEntity2": {
+                  "displayName": "CustomEntity2",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "yazr1531"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "Having trouble adding identifiers",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CustomEntityRequest"
+                },
+                "description": "The payload describing the Custom Entity instances"
+              },
+              "example": {
+                "customEntity1": {
+                  "displayName": "CustomEntity1",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "xyz123pqr"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "I can't access this portfolio",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                },
+                "customEntity2": {
+                  "displayName": "CustomEntity2",
+                  "description": "MyFirstCustomEntity",
+                  "identifiers": [
+                    {
+                      "identifierScope": "scope1",
+                      "identifierType": "supportTicketId",
+                      "identifierValue": "yazr1531"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "clientId",
+                      "value": "AcmeLtd",
+                      "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    },
+                    {
+                      "name": "issueDescription",
+                      "value": "Having trouble adding identifiers",
+                      "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                      "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The upserted custom entity instance",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertCustomEntitiesResponse"
+                },
+                "example": {
+                  "values": {
+                    "customEntity1": {
+                      "entityType": "Issue",
+                      "version": {
+                        "effectiveFrom": "2022-11-07T09:22:11.6473542+00:00",
+                        "asAtDate": "2022-11-07T09:22:11.6473545+00:00"
+                      },
+                      "displayName": "CustomEntity1",
+                      "description": "MyFirstCustomEntity",
+                      "identifiers": [
+                        {
+                          "identifierScope": "scope1",
+                          "identifierType": "supportTicketId",
+                          "identifierValue": "xyz123pqr"
+                        }
+                      ],
+                      "fields": [
+                        {
+                          "name": "clientId",
+                          "value": "AcmeLtd",
+                          "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        },
+                        {
+                          "name": "issueDescription",
+                          "value": "I can't access this portfolio",
+                          "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        }
+                      ],
+                      "relationships": []
+                    }
+                  },
+                  "failed": {
+                    "customEntity2": {
+                      "id": "Error1",
+                      "type": "IdentifiersNotValidFailure",
+                      "detail": "One or more of the supplied identifiers was invalid"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertCustomEntitiesResponse"
+                },
+                "example": {
+                  "values": {
+                    "customEntity1": {
+                      "entityType": "Issue",
+                      "version": {
+                        "effectiveFrom": "2022-11-07T09:22:11.6473542+00:00",
+                        "asAtDate": "2022-11-07T09:22:11.6473545+00:00"
+                      },
+                      "displayName": "CustomEntity1",
+                      "description": "MyFirstCustomEntity",
+                      "identifiers": [
+                        {
+                          "identifierScope": "scope1",
+                          "identifierType": "supportTicketId",
+                          "identifierValue": "xyz123pqr"
+                        }
+                      ],
+                      "fields": [
+                        {
+                          "name": "clientId",
+                          "value": "AcmeLtd",
+                          "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        },
+                        {
+                          "name": "issueDescription",
+                          "value": "I can't access this portfolio",
+                          "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        }
+                      ],
+                      "relationships": []
+                    }
+                  },
+                  "failed": {
+                    "customEntity2": {
+                      "id": "Error1",
+                      "type": "IdentifiersNotValidFailure",
+                      "detail": "One or more of the supplied identifiers was invalid"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertCustomEntitiesResponse"
+                },
+                "example": {
+                  "values": {
+                    "customEntity1": {
+                      "entityType": "Issue",
+                      "version": {
+                        "effectiveFrom": "2022-11-07T09:22:11.6473542+00:00",
+                        "asAtDate": "2022-11-07T09:22:11.6473545+00:00"
+                      },
+                      "displayName": "CustomEntity1",
+                      "description": "MyFirstCustomEntity",
+                      "identifiers": [
+                        {
+                          "identifierScope": "scope1",
+                          "identifierType": "supportTicketId",
+                          "identifierValue": "xyz123pqr"
+                        }
+                      ],
+                      "fields": [
+                        {
+                          "name": "clientId",
+                          "value": "AcmeLtd",
+                          "effectiveFrom": "0001-01-01T00:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        },
+                        {
+                          "name": "issueDescription",
+                          "value": "I can't access this portfolio",
+                          "effectiveFrom": "2020-01-01T12:00:00.0000000+00:00",
+                          "effectiveUntil": "9999-12-31T23:59:59.9999999+00:00"
+                        }
+                      ],
+                      "relationships": []
+                    }
+                  },
+                  "failed": {
+                    "customEntity2": {
+                      "id": "Error1",
+                      "type": "IdentifiersNotValidFailure",
+                      "detail": "One or more of the supplied identifiers was invalid"
+                    }
+                  }
                 }
               }
             }
@@ -100277,6 +100747,42 @@
         "additionalProperties": false,
         "description": "Credit Support Annex information. The interaction in terms of margining requirements between a set of trades for a given counterparty."
       },
+      "UpsertCustomEntitiesResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CustomEntityResponse"
+            },
+            "description": "The custom-entities which have been successfully updated or created.",
+            "nullable": true
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpsertFlowConventionsRequest": {
         "type": "object",
         "properties": {
@@ -101837,7 +102343,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
