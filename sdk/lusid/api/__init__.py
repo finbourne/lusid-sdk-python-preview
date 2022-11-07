@@ -50,5 +50,4 @@ from lusid.api.system_configuration_api import SystemConfigurationApi
 from lusid.api.transaction_configuration_api import TransactionConfigurationApi
 from lusid.api.transaction_fees_api import TransactionFeesApi
 from lusid.api.transaction_portfolios_api import TransactionPortfoliosApi
-from lusid.api.transaction_tax_rules_api import TransactionTaxRulesApi
 from lusid.api.translation_api import TranslationApi
