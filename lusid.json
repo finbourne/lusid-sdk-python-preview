@@ -13162,8 +13162,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-07T22:19:32.7762261+00:00",
-                        "asAtDate": "2022-11-07T22:19:32.7762301+00:00"
+                        "effectiveFrom": "2022-11-08T08:30:16.2104733+00:00",
+                        "asAtDate": "2022-11-08T08:30:16.2104735+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13209,8 +13209,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-07T22:19:32.7762261+00:00",
-                        "asAtDate": "2022-11-07T22:19:32.7762301+00:00"
+                        "effectiveFrom": "2022-11-08T08:30:16.2104733+00:00",
+                        "asAtDate": "2022-11-08T08:30:16.2104735+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13256,8 +13256,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-07T22:19:32.7762261+00:00",
-                        "asAtDate": "2022-11-07T22:19:32.7762301+00:00"
+                        "effectiveFrom": "2022-11-08T08:30:16.2104733+00:00",
+                        "asAtDate": "2022-11-08T08:30:16.2104735+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -103880,7 +103880,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
