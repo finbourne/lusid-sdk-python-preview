@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4949",
+    "version": "0.11.4950",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13162,8 +13162,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:09:08.5831642+00:00",
-                        "asAtDate": "2022-11-09T17:09:08.5831645+00:00"
+                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
+                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13209,8 +13209,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:09:08.5831642+00:00",
-                        "asAtDate": "2022-11-09T17:09:08.5831645+00:00"
+                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
+                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13256,8 +13256,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:09:08.5831642+00:00",
-                        "asAtDate": "2022-11-09T17:09:08.5831645+00:00"
+                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
+                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
