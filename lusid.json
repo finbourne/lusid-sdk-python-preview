@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4950",
+    "version": "0.11.4949",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13162,8 +13162,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
-                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
+                        "effectiveFrom": "2022-11-09T19:02:55.2761817+00:00",
+                        "asAtDate": "2022-11-09T19:02:55.2761819+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13209,8 +13209,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
-                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
+                        "effectiveFrom": "2022-11-09T19:02:55.2761817+00:00",
+                        "asAtDate": "2022-11-09T19:02:55.2761819+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13256,8 +13256,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-09T17:43:51.3884552+00:00",
-                        "asAtDate": "2022-11-09T17:43:51.3884554+00:00"
+                        "effectiveFrom": "2022-11-09T19:02:55.2761817+00:00",
+                        "asAtDate": "2022-11-09T19:02:55.2761819+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -103896,7 +103896,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
