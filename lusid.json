@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4956",
+    "version": "0.11.4957",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13162,8 +13162,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-11T13:19:19.0354363+00:00",
-                        "asAtDate": "2022-11-11T13:19:19.0354375+00:00"
+                        "effectiveFrom": "2022-11-11T15:29:53.6220686+00:00",
+                        "asAtDate": "2022-11-11T15:29:53.6220737+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13209,8 +13209,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-11T13:19:19.0354363+00:00",
-                        "asAtDate": "2022-11-11T13:19:19.0354375+00:00"
+                        "effectiveFrom": "2022-11-11T15:29:53.6220686+00:00",
+                        "asAtDate": "2022-11-11T15:29:53.6220737+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13256,8 +13256,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-11T13:19:19.0354363+00:00",
-                        "asAtDate": "2022-11-11T13:19:19.0354375+00:00"
+                        "effectiveFrom": "2022-11-11T15:29:53.6220686+00:00",
+                        "asAtDate": "2022-11-11T15:29:53.6220737+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -41524,7 +41524,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.\r\n            \r\nThe output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,\r\nand elision of resulting differences where they are 'empty' or null or zero.",
+        "summary": "ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.\r\n            \r\nThe output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,\r\nand elision of resulting differences where they are 'empty' or null or zero.",
         "description": "Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.\r\nProduce a breakdown of the resulting differences in evaluation that can be iterated through.",
         "operationId": "ReconcileGeneric",
         "requestBody": {
@@ -42029,7 +42029,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfolios/$reconcileholdings": {
@@ -42267,7 +42267,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.",
+        "summary": "ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of inline instruments using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileInline",
         "requestBody": {
@@ -42760,7 +42760,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfolios/$reconcileValuation": {
@@ -42768,7 +42768,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
+        "summary": "ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.",
         "description": "Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.",
         "operationId": "ReconcileValuation",
         "requestBody": {
@@ -43229,7 +43229,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Beta"
+        "x-fbn-apistatus": "Stable"
       }
     },
     "/api/portfolios/{scope}": {
@@ -103896,7 +103896,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
