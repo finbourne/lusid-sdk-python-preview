@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4963",
+    "version": "0.11.4964",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13162,8 +13162,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-14T12:20:42.9840172+00:00",
-                        "asAtDate": "2022-11-14T12:20:42.9840204+00:00"
+                        "effectiveFrom": "2018-12-08T13:30:00.0000000+00:00",
+                        "asAtDate": "2018-12-08T13:30:01.0000000+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13209,8 +13209,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-14T12:20:42.9840172+00:00",
-                        "asAtDate": "2022-11-14T12:20:42.9840204+00:00"
+                        "effectiveFrom": "2018-12-08T13:30:00.0000000+00:00",
+                        "asAtDate": "2018-12-08T13:30:01.0000000+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -13256,8 +13256,8 @@
                     "customEntity1": {
                       "entityType": "Issue",
                       "version": {
-                        "effectiveFrom": "2022-11-14T12:20:42.9840172+00:00",
-                        "asAtDate": "2022-11-14T12:20:42.9840204+00:00"
+                        "effectiveFrom": "2018-12-08T13:30:00.0000000+00:00",
+                        "asAtDate": "2018-12-08T13:30:01.0000000+00:00"
                       },
                       "displayName": "CustomEntity1",
                       "description": "MyFirstCustomEntity",
@@ -21702,7 +21702,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -22037,7 +22036,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_.]*$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with defined\r\n            identifier type uniquely identifies the legal entity to delete."
             }
@@ -22148,7 +22146,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -22283,7 +22280,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -23557,7 +23553,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -23692,7 +23687,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -24067,7 +24061,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the legal entity.",
               "nullable": true
@@ -24241,7 +24234,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
@@ -24470,7 +24462,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "Code of the legal entity under specified identifier type's scope and code. This together with stated identifier type uniquely\r\n            identifies the legal entity.",
               "nullable": true
