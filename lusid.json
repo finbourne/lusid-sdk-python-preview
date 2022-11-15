@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4969",
+    "version": "0.11.4970",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -57310,7 +57310,8 @@
                               "setTo": "examplevalue"
                             }
                           ],
-                          "name": "Movement name"
+                          "name": "Movement name",
+                          "movementOptions": []
                         },
                         {
                           "movementTypes": "CashSettlement",
@@ -57318,7 +57319,8 @@
                           "direction": 1,
                           "properties": {},
                           "mappings": [],
-                          "name": "Other movement name"
+                          "name": "Other movement name",
+                          "movementOptions": []
                         }
                       ],
                       "properties": {
@@ -57374,7 +57376,8 @@
                               "setTo": "examplevalue"
                             }
                           ],
-                          "name": "Movement name"
+                          "name": "Movement name",
+                          "movementOptions": []
                         },
                         {
                           "movementTypes": "CashSettlement",
@@ -57382,7 +57385,8 @@
                           "direction": 1,
                           "properties": {},
                           "mappings": [],
-                          "name": "Other movement name"
+                          "name": "Other movement name",
+                          "movementOptions": []
                         }
                       ],
                       "properties": {
@@ -57438,7 +57442,8 @@
                               "setTo": "examplevalue"
                             }
                           ],
-                          "name": "Movement name"
+                          "name": "Movement name",
+                          "movementOptions": []
                         },
                         {
                           "movementTypes": "CashSettlement",
@@ -57446,7 +57451,8 @@
                           "direction": 1,
                           "properties": {},
                           "mappings": [],
-                          "name": "Other movement name"
+                          "name": "Other movement name",
+                          "movementOptions": []
                         }
                       ],
                       "properties": {
@@ -57685,7 +57691,8 @@
                         }
                       }
                     },
-                    "mappings": []
+                    "mappings": [],
+                    "movementOptions": []
                   },
                   {
                     "movementTypes": "CashCommitment",
@@ -57697,7 +57704,8 @@
                         "propertyKey": "Transaction/scopeA/Strategy",
                         "setTo": "Cash"
                       }
-                    ]
+                    ],
+                    "movementOptions": []
                   }
                 ],
                 "properties": {
@@ -57744,7 +57752,8 @@
                         }
                       }
                     },
-                    "mappings": []
+                    "mappings": [],
+                    "movementOptions": []
                   },
                   {
                     "movementTypes": "CashCommitment",
@@ -57756,7 +57765,8 @@
                         "propertyKey": "Transaction/scopeA/Strategy",
                         "setTo": "Cash"
                       }
-                    ]
+                    ],
+                    "movementOptions": []
                   }
                 ],
                 "properties": {
@@ -57803,7 +57813,8 @@
                         }
                       }
                     },
-                    "mappings": []
+                    "mappings": [],
+                    "movementOptions": []
                   },
                   {
                     "movementTypes": "CashCommitment",
@@ -57815,7 +57826,8 @@
                         "propertyKey": "Transaction/scopeA/Strategy",
                         "setTo": "Cash"
                       }
-                    ]
+                    ],
+                    "movementOptions": []
                   }
                 ],
                 "properties": {
@@ -57862,7 +57874,8 @@
                         }
                       }
                     },
-                    "mappings": []
+                    "mappings": [],
+                    "movementOptions": []
                   },
                   {
                     "movementTypes": "CashCommitment",
@@ -57874,7 +57887,8 @@
                         "propertyKey": "Transaction/scopeA/Strategy",
                         "setTo": "Cash"
                       }
-                    ]
+                    ],
+                    "movementOptions": []
                   }
                 ],
                 "properties": {
@@ -101557,6 +101571,14 @@
             "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The movement name (optional)",
+            "nullable": true
+          },
+          "movementOptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Allows extra specifications for the movement. The only option currently available is 'DirectAdjustment'. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the unitsof a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction.",
             "nullable": true
           }
         },
