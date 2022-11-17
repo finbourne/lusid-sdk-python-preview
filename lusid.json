@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4977",
+    "version": "0.11.4978",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -10554,7 +10554,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] ListCounterpartyAgreements: List the set of Counterparty Agreements",
+        "summary": "[EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements",
         "description": "List the set of Counterparty Agreements at the specified AsAt date/time",
         "operationId": "ListCounterpartyAgreements",
         "parameters": [
@@ -10628,13 +10628,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] UpsertCounterpartyAgreement: Upsert Counterparty Agreement",
+        "summary": "[EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement",
         "description": "Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCounterpartyAgreement",
         "requestBody": {
@@ -10812,7 +10812,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/counterparties/counterpartyagreements/{scope}/{code}": {
@@ -10820,7 +10820,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] GetCounterpartyAgreement: Get Counterparty Agreement",
+        "summary": "[EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement",
         "description": "Get a Counterparty Agreement from a single scope.\r\nThe response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCounterpartyAgreement",
         "parameters": [
@@ -10920,13 +10920,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code",
+        "summary": "[EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code",
         "description": "Delete the specified Counterparty Agreement from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCounterpartyAgreement",
         "parameters": [
@@ -11014,7 +11014,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/counterparties/creditsupportannexes": {
@@ -11022,7 +11022,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] ListCreditSupportAnnexes: List the set of Credit Support Annexes",
+        "summary": "[EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes",
         "description": "List the set of Credit Support Annexes at the specified AsAt date/time",
         "operationId": "ListCreditSupportAnnexes",
         "parameters": [
@@ -11096,13 +11096,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] UpsertCreditSupportAnnex: Upsert Credit Support Annex",
+        "summary": "[EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex",
         "description": "Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.\r\n            \r\nThe response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful\r\n            \r\nIt is important to always check to verify success (or failure).",
         "operationId": "UpsertCreditSupportAnnex",
         "requestBody": {
@@ -11264,7 +11264,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/counterparties/creditsupportannexes/{scope}/{code}": {
@@ -11272,7 +11272,7 @@
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] GetCreditSupportAnnex: Get Credit Support Annex",
+        "summary": "[EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex",
         "description": "Get a Credit Support Annex from a single scope.\r\nThe response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.\r\nIt is important to always check for any unsuccessful requests (failures).",
         "operationId": "GetCreditSupportAnnex",
         "parameters": [
@@ -11372,13 +11372,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Counterparties"
         ],
-        "summary": "[EXPERIMENTAL] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code",
+        "summary": "[EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code",
         "description": "Delete the specified Credit Support Annex from a single scope.\r\nThe response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.\r\n            \r\nIt is important to always check for any unsuccessful response.",
         "operationId": "DeleteCreditSupportAnnex",
         "parameters": [
@@ -11466,7 +11466,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/customentities/entitytypes": {
