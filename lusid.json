@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4975",
+    "version": "0.11.4976",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -57101,6 +57101,1225 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
+    "/api/tax/rulesets": {
+      "get": {
+        "tags": [
+          "Tax Rule Sets"
+        ],
+        "summary": "[EXPERIMENTAL] ListTaxRuleSets: List tax rule sets.",
+        "description": "Retrieves all tax rule set definitions at the given effective and as at times",
+        "operationId": "ListTaxRuleSets",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of rule sets available.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "myScope",
+                        "code": "RuleSetName"
+                      },
+                      "displayName": "Rule set display name",
+                      "description": "Rule set description",
+                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "rules": [
+                        {
+                          "name": "UKTaxRule",
+                          "description": "Rule for the UK tax rate",
+                          "rate": 30,
+                          "matchCriteria": [
+                            {
+                              "propertyKey": "Instrument/myScope/market",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            },
+                            {
+                              "propertyKey": "Portfolio/myScope/taxDomicile",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            }
+                          ]
+                        }
+                      ],
+                      "version": {
+                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "myScope",
+                        "code": "RuleSetName"
+                      },
+                      "displayName": "Rule set display name",
+                      "description": "Rule set description",
+                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "rules": [
+                        {
+                          "name": "UKTaxRule",
+                          "description": "Rule for the UK tax rate",
+                          "rate": 30,
+                          "matchCriteria": [
+                            {
+                              "propertyKey": "Instrument/myScope/market",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            },
+                            {
+                              "propertyKey": "Portfolio/myScope/taxDomicile",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            }
+                          ]
+                        }
+                      ],
+                      "version": {
+                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "myScope",
+                        "code": "RuleSetName"
+                      },
+                      "displayName": "Rule set display name",
+                      "description": "Rule set description",
+                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "rules": [
+                        {
+                          "name": "UKTaxRule",
+                          "description": "Rule for the UK tax rate",
+                          "rate": 30,
+                          "matchCriteria": [
+                            {
+                              "propertyKey": "Instrument/myScope/market",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            },
+                            {
+                              "propertyKey": "Portfolio/myScope/taxDomicile",
+                              "value": "GB",
+                              "criterionType": "PropertyValueEquals"
+                            }
+                          ]
+                        }
+                      ],
+                      "version": {
+                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                      }
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "post": {
+        "tags": [
+          "Tax Rule Sets"
+        ],
+        "summary": "[EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.",
+        "description": "Creates a tax rule set definition at the given effective time.\r\nThe user must be entitled to read any properties specified in each rule.",
+        "operationId": "CreateTaxRuleSet",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The contents of the rule set.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
+              },
+              "example": {
+                "id": {
+                  "scope": "myScope",
+                  "code": "RuleSetName"
+                },
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
+              },
+              "example": {
+                "id": {
+                  "scope": "myScope",
+                  "code": "RuleSetName"
+                },
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
+              },
+              "example": {
+                "id": {
+                  "scope": "myScope",
+                  "code": "RuleSetName"
+                },
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
+              },
+              "example": {
+                "id": {
+                  "scope": "myScope",
+                  "code": "RuleSetName"
+                },
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Create a rule set for tax calculations.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/tax/rulesets/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Tax Rule Sets"
+        ],
+        "summary": "[EXPERIMENTAL] GetTaxRuleSet: Retrieve the definition of single tax rule set.",
+        "description": "Retrieves the tax rule set definition at the given effective and as at times.",
+        "operationId": "GetTaxRuleSet",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The rule set scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set scope.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The rule set code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set code.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of one rule set.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "put": {
+        "tags": [
+          "Tax Rule Sets"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.",
+        "description": "Updates the tax rule set definition at the given effective time.\r\nThe user must be entitled to read any properties specified in each rule.",
+        "operationId": "UpdateTaxRuleSet",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The rule set scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set scope.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The rule set code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set code.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The contents of the rule set.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
+              },
+              "example": {
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "EUReclaimRate",
+                    "description": "Rule for applying the reclaim rate to instruments in the European market",
+                    "rate": -10,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/Market",
+                        "value": [
+                          "FR",
+                          "NL",
+                          "DE"
+                        ],
+                        "criterionType": "PropertyValueIn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
+              },
+              "example": {
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "EUReclaimRate",
+                    "description": "Rule for applying the reclaim rate to instruments in the European market",
+                    "rate": -10,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/Market",
+                        "value": [
+                          "FR",
+                          "NL",
+                          "DE"
+                        ],
+                        "criterionType": "PropertyValueIn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
+              },
+              "example": {
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "EUReclaimRate",
+                    "description": "Rule for applying the reclaim rate to instruments in the European market",
+                    "rate": -10,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/Market",
+                        "value": [
+                          "FR",
+                          "NL",
+                          "DE"
+                        ],
+                        "criterionType": "PropertyValueIn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
+              },
+              "example": {
+                "displayName": "Rule set display name",
+                "description": "Rule set description",
+                "outputPropertyKey": "Transaction/default/TaxRate",
+                "rules": [
+                  {
+                    "name": "UKTaxRule",
+                    "description": "Rule for the UK tax rate",
+                    "rate": 30,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/market",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      },
+                      {
+                        "propertyKey": "Portfolio/myScope/taxDomicile",
+                        "value": "GB",
+                        "criterionType": "PropertyValueEquals"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "EUReclaimRate",
+                    "description": "Rule for applying the reclaim rate to instruments in the European market",
+                    "rate": -10,
+                    "matchCriteria": [
+                      {
+                        "propertyKey": "Instrument/myScope/Market",
+                        "value": [
+                          "FR",
+                          "NL",
+                          "DE"
+                        ],
+                        "criterionType": "PropertyValueIn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update rules for tax calculations.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxRuleSet"
+                },
+                "example": {
+                  "id": {
+                    "scope": "myScope",
+                    "code": "RuleSetName"
+                  },
+                  "displayName": "Rule set display name",
+                  "description": "Rule set description",
+                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "rules": [
+                    {
+                      "name": "UKTaxRule",
+                      "description": "Rule for the UK tax rate",
+                      "rate": 30,
+                      "matchCriteria": [
+                        {
+                          "propertyKey": "Instrument/myScope/market",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        },
+                        {
+                          "propertyKey": "Portfolio/myScope/taxDomicile",
+                          "value": "GB",
+                          "criterionType": "PropertyValueEquals"
+                        }
+                      ]
+                    }
+                  ],
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Tax Rule Sets"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.",
+        "description": "<br>\r\n            Deletes the rule set for all effective time.\r\n            \r\n<br>\r\n            The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.\r\n            \r\n<br>\r\n            This cannot be undone.\r\n            ",
+        "operationId": "DeleteTaxRuleSet",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The rule set scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set scope.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The rule set code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The rule set code.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionconfiguration/sides/{side}": {
       "put": {
         "tags": [
@@ -74957,1225 +76176,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/transactions/taxrules": {
-      "get": {
-        "tags": [
-          "Transaction Tax Rules"
-        ],
-        "summary": "[EXPERIMENTAL] ListTaxRuleSets: List tax rules.",
-        "description": "Retrieves all tax rule set definitions at the given effective and as at times",
-        "operationId": "ListTaxRuleSets",
-        "parameters": [
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not\r\nspecified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of rule sets available.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "id": {
-                        "scope": "myScope",
-                        "code": "RuleSetName"
-                      },
-                      "displayName": "Rule set display name",
-                      "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
-                      "rules": [
-                        {
-                          "name": "UKTaxRule",
-                          "description": "Rule for the UK tax rate",
-                          "rate": 30,
-                          "criteria": [
-                            {
-                              "key": "Instrument/myScope/market",
-                              "value": "GB",
-                              "op": "Equals"
-                            },
-                            {
-                              "key": "Portfolio/myScope/taxDomicile",
-                              "value": "GB",
-                              "op": "Equals"
-                            }
-                          ]
-                        }
-                      ],
-                      "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "id": {
-                        "scope": "myScope",
-                        "code": "RuleSetName"
-                      },
-                      "displayName": "Rule set display name",
-                      "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
-                      "rules": [
-                        {
-                          "name": "UKTaxRule",
-                          "description": "Rule for the UK tax rate",
-                          "rate": 30,
-                          "criteria": [
-                            {
-                              "key": "Instrument/myScope/market",
-                              "value": "GB",
-                              "op": "Equals"
-                            },
-                            {
-                              "key": "Portfolio/myScope/taxDomicile",
-                              "value": "GB",
-                              "op": "Equals"
-                            }
-                          ]
-                        }
-                      ],
-                      "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceListOfTaxRuleSet"
-                },
-                "example": {
-                  "values": [
-                    {
-                      "id": {
-                        "scope": "myScope",
-                        "code": "RuleSetName"
-                      },
-                      "displayName": "Rule set display name",
-                      "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
-                      "rules": [
-                        {
-                          "name": "UKTaxRule",
-                          "description": "Rule for the UK tax rate",
-                          "rate": 30,
-                          "criteria": [
-                            {
-                              "key": "Instrument/myScope/market",
-                              "value": "GB",
-                              "op": "Equals"
-                            },
-                            {
-                              "key": "Portfolio/myScope/taxDomicile",
-                              "value": "GB",
-                              "op": "Equals"
-                            }
-                          ]
-                        }
-                      ],
-                      "version": {
-                        "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                      }
-                    }
-                  ],
-                  "links": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
-      "post": {
-        "tags": [
-          "Transaction Tax Rules"
-        ],
-        "summary": "[EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.",
-        "description": "Creates a tax rule set definition at the given effective time.\r\nThe user must be entitled to read any properties specified in each rule.",
-        "operationId": "CreateTaxRuleSet",
-        "parameters": [
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The contents of the rule set.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
-              },
-              "example": {
-                "id": {
-                  "scope": "myScope",
-                  "code": "RuleSetName"
-                },
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
-              },
-              "example": {
-                "id": {
-                  "scope": "myScope",
-                  "code": "RuleSetName"
-                },
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
-              },
-              "example": {
-                "id": {
-                  "scope": "myScope",
-                  "code": "RuleSetName"
-                },
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTaxRuleSetRequest"
-              },
-              "example": {
-                "id": {
-                  "scope": "myScope",
-                  "code": "RuleSetName"
-                },
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Create a rule set for tax calculations.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
-    "/api/transactions/taxrules/{scope}/{code}": {
-      "get": {
-        "tags": [
-          "Transaction Tax Rules"
-        ],
-        "summary": "[EXPERIMENTAL] GetTaxRuleSet: Retrieve the definition of single tax rule set.",
-        "description": "Retrieves the tax rule set definition at the given effective and as at times.",
-        "operationId": "GetTaxRuleSet",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The rule set scope.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set scope.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The rule set code.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set code.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
-            "schema": {
-              "type": "string",
-              "description": "The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not\r\nspecified.",
-              "format": "date-time",
-              "nullable": true
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of one rule set.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
-      "put": {
-        "tags": [
-          "Transaction Tax Rules"
-        ],
-        "summary": "[EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.",
-        "description": "Updates the tax rule set definition at the given effective time.\r\nThe user must be entitled to read any properties specified in each rule.",
-        "operationId": "UpdateTaxRuleSet",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The rule set scope.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set scope.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The rule set code.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set code.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "effectiveAt",
-            "in": "query",
-            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
-            "schema": {
-              "type": "string",
-              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
-              "format": "dateorcutlabel",
-              "nullable": true
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The contents of the rule set.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
-              },
-              "example": {
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "op": "In"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
-              },
-              "example": {
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "op": "In"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
-              },
-              "example": {
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "op": "In"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTaxRuleSetRequest"
-              },
-              "example": {
-                "displayName": "Rule set display name",
-                "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
-                "rules": [
-                  {
-                    "name": "UKTaxRule",
-                    "description": "Rule for the UK tax rate",
-                    "rate": 30,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/market",
-                        "value": "GB",
-                        "op": "Equals"
-                      },
-                      {
-                        "key": "Portfolio/myScope/taxDomicile",
-                        "value": "GB",
-                        "op": "Equals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "criteria": [
-                      {
-                        "key": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "op": "In"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Update rules for tax calculations.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxRuleSet"
-                },
-                "example": {
-                  "id": {
-                    "scope": "myScope",
-                    "code": "RuleSetName"
-                  },
-                  "displayName": "Rule set display name",
-                  "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
-                  "rules": [
-                    {
-                      "name": "UKTaxRule",
-                      "description": "Rule for the UK tax rate",
-                      "rate": 30,
-                      "criteria": [
-                        {
-                          "key": "Instrument/myScope/market",
-                          "value": "GB",
-                          "op": "Equals"
-                        },
-                        {
-                          "key": "Portfolio/myScope/taxDomicile",
-                          "value": "GB",
-                          "op": "Equals"
-                        }
-                      ]
-                    }
-                  ],
-                  "version": {
-                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      },
-      "delete": {
-        "tags": [
-          "Transaction Tax Rules"
-        ],
-        "summary": "[EXPERIMENTAL] DeleteTaxRuleSet: Deletes a tax rule.",
-        "description": "<br>\r\n            Deletes the rule for all effective time.\r\n            \r\n<br>\r\n            The rule will remain viewable at previous as at times, but it will no longer be considered applicable.\r\n            \r\n<br>\r\n            This cannot be undone.\r\n            ",
-        "operationId": "DeleteTaxRuleSet",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The rule set scope.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set scope.",
-              "nullable": true
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The rule set code.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The rule set code.",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedEntityResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedEntityResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeletedEntityResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/translation/instrumentdefinitions": {
       "post": {
         "tags": [
@@ -82799,7 +82799,8 @@
           "description",
           "displayName",
           "id",
-          "outputPropertyKey"
+          "outputPropertyKey",
+          "rules"
         ],
         "type": "object",
         "properties": {
@@ -82830,8 +82831,7 @@
             "items": {
               "$ref": "#/components/schemas/TaxRule"
             },
-            "description": "",
-            "nullable": true
+            "description": ""
           }
         },
         "additionalProperties": false
@@ -83233,13 +83233,13 @@
         "additionalProperties": false,
         "description": "Entity to capture the calculable and queryable methods and practices of determining and transferring collateral\r\nto a counterparty as part of margining of transactions. These typically come from a particular ISDA agreement\r\nthat is in place between the two counterparties."
       },
-      "CriterionOp": {
+      "CriterionType": {
         "enum": [
-          "Equals",
-          "In"
+          "PropertyValueEquals",
+          "PropertyValueIn"
         ],
         "type": "string",
-        "description": "Discriminator for PropertyCriterion."
+        "description": "Discriminator for MatchCriterion."
       },
       "CurrencyAndAmount": {
         "type": "object",
@@ -91061,6 +91061,27 @@
         "additionalProperties": false,
         "description": "The market quote for an observable which will be used to calibrate the market data,\r\nincluding the format of the quote.\r\ne.g. a volatility quote for a specific strike and expiry\r\nthe par rate of a swap\r\n            \r\nThis is a slimmed down version of a full Quote that can be stored in our QuoteStore to\r\nremove lineage, price source etc. for ease of use when creating complex market data."
       },
+      "MatchCriterion": {
+        "required": [
+          "criterionType"
+        ],
+        "type": "object",
+        "properties": {
+          "criterionType": {
+            "enum": [
+              "PropertyValueEquals",
+              "PropertyValueIn"
+            ],
+            "type": "string",
+            "description": "The available values are: PropertyValueEquals, PropertyValueIn"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A condition to be evaluated.\r\nEach supported CriterionType has a corresponding schema.",
+        "discriminator": {
+          "propertyName": "criterionType"
+        }
+      },
       "MetricValue": {
         "type": "object",
         "properties": {
@@ -94809,26 +94830,6 @@
         },
         "additionalProperties": false
       },
-      "PropertyCriterion": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
-        "properties": {
-          "op": {
-            "enum": [
-              "Equals",
-              "In"
-            ],
-            "type": "string",
-            "description": "The available values are: Equals, In"
-          }
-        },
-        "additionalProperties": false,
-        "discriminator": {
-          "propertyName": "criterionOp"
-        }
-      },
       "PropertyDefinition": {
         "type": "object",
         "properties": {
@@ -95315,6 +95316,77 @@
         },
         "additionalProperties": false,
         "description": "The value of the property."
+      },
+      "PropertyValueEquals": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MatchCriterion"
+          },
+          {
+            "required": [
+              "criterionType",
+              "propertyKey",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "propertyKey": {
+                "type": "string",
+                "description": "The property key whose value will form the left-hand side of the operation"
+              },
+              "value": {
+                "type": "string",
+                "description": "The value to be compared against"
+              },
+              "criterionType": {
+                "enum": [
+                  "PropertyValueEquals",
+                  "PropertyValueIn"
+                ],
+                "type": "string",
+                "description": "The available values are: PropertyValueEquals, PropertyValueIn"
+              }
+            }
+          }
+        ],
+        "description": "A criterion that checks whether a Property Value is equal to the given string value"
+      },
+      "PropertyValueIn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MatchCriterion"
+          },
+          {
+            "required": [
+              "criterionType",
+              "propertyKey",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "propertyKey": {
+                "type": "string",
+                "description": "The property key whose value will form the left-hand side of the operation"
+              },
+              "value": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The value to be compared against"
+              },
+              "criterionType": {
+                "enum": [
+                  "PropertyValueEquals",
+                  "PropertyValueIn"
+                ],
+                "type": "string",
+                "description": "The available values are: PropertyValueEquals, PropertyValueIn"
+              }
+            }
+          }
+        ],
+        "description": "A criterion that checks whether a Property Value is equal to one of the given string values"
       },
       "QueryBucketedCashFlowsRequest": {
         "required": [
@@ -100287,75 +100359,6 @@
         "type": "string",
         "description": "Comparison types for strings"
       },
-      "StringEqualsCriterion": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PropertyCriterion"
-          },
-          {
-            "required": [
-              "key",
-              "op",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "key": {
-                "type": "string",
-                "description": "The property key whose value will form the left-hand side of the operation"
-              },
-              "value": {
-                "type": "string",
-                "description": "The value to be compared against"
-              },
-              "op": {
-                "enum": [
-                  "Equals",
-                  "In"
-                ],
-                "type": "string",
-                "description": "The available values are: Equals, In"
-              }
-            }
-          }
-        ]
-      },
-      "StringInCriterion": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PropertyCriterion"
-          },
-          {
-            "required": [
-              "key",
-              "op",
-              "value"
-            ],
-            "type": "object",
-            "properties": {
-              "key": {
-                "type": "string",
-                "description": "The property key whose value will form the left-hand side of the operation"
-              },
-              "value": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "The value to be compared against"
-              },
-              "op": {
-                "enum": [
-                  "Equals",
-                  "In"
-                ],
-                "type": "string",
-                "description": "The available values are: Equals, In"
-              }
-            }
-          }
-        ]
-      },
       "StructuredResultData": {
         "required": [
           "document",
@@ -100551,8 +100554,8 @@
       },
       "TaxRule": {
         "required": [
-          "criteria",
           "description",
+          "matchCriteria",
           "name",
           "rate"
         ],
@@ -100574,16 +100577,16 @@
           },
           "rate": {
             "type": "number",
-            "description": "The rate to be applied if all conditions are met",
+            "description": "The rate to be applied if all criteria are met",
             "format": "double"
           },
-          "criteria": {
+          "matchCriteria": {
             "maxLength": 20,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PropertyCriterion"
+              "$ref": "#/components/schemas/MatchCriterion"
             },
-            "description": "A set of conditions to be met for this rule to be applied"
+            "description": "A set of criteria to be met for this rule to be applied"
           },
           "links": {
             "type": "array",
@@ -100601,7 +100604,8 @@
           "description",
           "displayName",
           "id",
-          "outputPropertyKey"
+          "outputPropertyKey",
+          "rules"
         ],
         "type": "object",
         "properties": {
@@ -100632,8 +100636,7 @@
             "items": {
               "$ref": "#/components/schemas/TaxRule"
             },
-            "description": "The rules of this rule set, which stipulate what rate to apply (i.e. write to the OutputPropertyKey) under certain conditions",
-            "nullable": true
+            "description": "The rules of this rule set, which stipulate what rate to apply (i.e. write to the OutputPropertyKey) under certain conditions"
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -102110,7 +102113,8 @@
         "required": [
           "description",
           "displayName",
-          "outputPropertyKey"
+          "outputPropertyKey",
+          "rules"
         ],
         "type": "object",
         "properties": {
@@ -102138,8 +102142,7 @@
             "items": {
               "$ref": "#/components/schemas/TaxRule"
             },
-            "description": "",
-            "nullable": true
+            "description": ""
           }
         },
         "additionalProperties": false
@@ -103909,7 +103912,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
@@ -104097,6 +104100,10 @@
       "description": "LUSID is a transaction-based system. Every transaction in a particular instrument should belong to a transaction type in order that it might contribute to measuring your holding (position) in that instrument. Transaction types are a fundamental building block of LUSID, and care should be exercised when changing them. For more information, see https://support.lusid.com/knowledgebase/article/KA-01872/."
     },
     {
+      "name": "Tax Rule Sets",
+      "description": "Methods to manage rule sets defining tax rates for transactions"
+    },
+    {
       "name": "Transaction Configuration",
       "description": "LUSID is a transaction-based system. Every transaction in a particular instrument should belong to a transaction type in order that it might contribute to measuring your holding (position) in that instrument. Transaction types are a fundamental building block of LUSID, and care should be exercised when changing them. For more information, see https://support.lusid.com/knowledgebase/article/KA-01872/."
     },
@@ -104107,10 +104114,6 @@
     {
       "name": "Transaction Portfolios",
       "description": "A transaction portfolio stores transactions and calculates instrument holdings and cash balances, enabling valuation, analytic, profit & loss, risk assessment and other operations to be performed. Note that a transaction portfolio is a type of portfolio, so endpoints in the Portfolios API can also be called. For more information, see https://support.lusid.com/knowledgebase/article/KA-01851."
-    },
-    {
-      "name": "Transaction Tax Rules",
-      "description": "Methods to retrieve applicable rates for a transaction, and manage the rules that defined them"
     },
     {
       "name": "Translation",
@@ -104164,10 +104167,10 @@
       "Sequences",
       "Structured Result Data",
       "System Configuration",
+      "Tax Rule Sets",
       "Transaction Configuration",
       "Transaction Fees",
       "Transaction Portfolios",
-      "Transaction Tax Rules",
       "Translation"
     ]
   }

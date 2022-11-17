@@ -47,8 +47,8 @@ from lusid.api.search_api import SearchApi
 from lusid.api.sequences_api import SequencesApi
 from lusid.api.structured_result_data_api import StructuredResultDataApi
 from lusid.api.system_configuration_api import SystemConfigurationApi
+from lusid.api.tax_rule_sets_api import TaxRuleSetsApi
 from lusid.api.transaction_configuration_api import TransactionConfigurationApi
 from lusid.api.transaction_fees_api import TransactionFeesApi
 from lusid.api.transaction_portfolios_api import TransactionPortfoliosApi
-from lusid.api.transaction_tax_rules_api import TransactionTaxRulesApi
 from lusid.api.translation_api import TranslationApi
