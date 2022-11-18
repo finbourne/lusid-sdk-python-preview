@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_person**
-> Person get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
+> Person get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at, relationship_definition_ids=relationship_definition_ids)
 
 [EXPERIMENTAL] GetPerson: Get Person
 
@@ -476,13 +476,14 @@ with lusid.ApiClient(configuration) as api_client:
     id_type_scope = 'id_type_scope_example' # str | Scope of the person identifier type.
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 code = 'code_example' # str | Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)
+relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
         # [EXPERIMENTAL] GetPerson: Get Person
-        api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at)
+        api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PersonsApi->get_person: %s\n" % e)
@@ -495,9 +496,10 @@ Name | Type | Description  | Notes
  **id_type_scope** | **str**| Scope of the person identifier type. | 
  **id_type_code** | **str**| Code of the person identifier type. | 
  **code** | **str**| Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person. | 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. Defaults to include all properties if not specified. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional] 
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. | [optional] 
+ **relationship_definition_ids** | [**list[str]**](str.md)| A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
 
 ### Return type
 
@@ -870,7 +872,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_all_persons**
-> ResourceListOfPerson list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys)
+> ResourceListOfPerson list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
 
 [EXPERIMENTAL] ListAllPersons: List All Persons
 
@@ -908,14 +910,15 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.PersonsApi(api_client)
     effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)
-page = 'page_example' # str | The pagination token to use to continue listing persons from a previous call to list persons. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.               For example, to filter on the display name, use \"displayName eq 'John'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
+relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
         # [EXPERIMENTAL] ListAllPersons: List All Persons
-        api_response = api_instance.list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys)
+        api_response = api_instance.list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PersonsApi->list_all_persons: %s\n" % e)
@@ -927,10 +930,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **effective_at** | **str**| The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. | [optional] 
- **page** | **str**| The pagination token to use to continue listing persons from a previous call to list persons. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional] 
+ **relationship_definition_ids** | [**list[str]**](str.md)| A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
 
 ### Return type
 
@@ -955,7 +959,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_persons**
-> PagedResourceListOfPerson list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
+> PagedResourceListOfPerson list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
 
 [EXPERIMENTAL] ListPersons: List Persons
 
@@ -995,15 +999,16 @@ with lusid.ApiClient(configuration) as api_client:
 id_type_code = 'id_type_code_example' # str | Code of the person identifier type.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)
-page = 'page_example' # str | The pagination token to use to continue listing persons from a previous call to list persons. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the result set.               For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the \"Person\" domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional)
+relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
         # [EXPERIMENTAL] ListPersons: List Persons
-        api_response = api_instance.list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
+        api_response = api_instance.list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PersonsApi->list_persons: %s\n" % e)
@@ -1017,11 +1022,12 @@ Name | Type | Description  | Notes
  **id_type_code** | **str**| Code of the person identifier type. | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. | [optional] 
- **page** | **str**| The pagination token to use to continue listing persons from a previous call to list persons. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
  **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional] 
+ **relationship_definition_ids** | [**list[str]**](str.md)| A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
 
 ### Return type
 

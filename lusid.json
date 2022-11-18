@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4982",
+    "version": "0.11.4983",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -12803,6 +12803,36 @@
               "description": "The pagination token to use to continue listing entities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
               "nullable": true
             }
+          },
+          {
+            "name": "relatedEntityPropertyKeys",
+            "in": "query",
+            "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -13417,6 +13447,36 @@
               "format": "dateorcutlabel",
               "nullable": true
             }
+          },
+          {
+            "name": "relatedEntityPropertyKeys",
+            "in": "query",
+            "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -17719,14 +17779,14 @@
           {
             "name": "instrumentPropertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             instruments. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+            "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             instruments, or from any domain that supports relationships to decorate onto related entities.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             instruments. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+              "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             instruments, or from any domain that supports relationships to decorate onto related entities.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
               "nullable": true
             },
             "x-nullable": true
@@ -17744,6 +17804,21 @@
               "default": "default",
               "nullable": true
             }
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n             onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n             onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -18007,14 +18082,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Instrument' domain to decorate onto the instrument.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+            "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             each instrument, or from any domain that supports relationships to decorate onto related entities.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Instrument' domain to decorate onto the instrument.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+              "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n             each instrument, or from any domain that supports relationships to decorate onto related entities.\r\n             These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
               "nullable": true
             },
             "x-nullable": true
@@ -18032,6 +18107,21 @@
               "default": "default",
               "nullable": true
             }
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n             onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n             onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -18535,14 +18625,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Instrument' domain to decorate onto the instrument.\r\n            These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+            "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n            the instrument, or from any domain that supports relationships to decorate onto related entities.\r\n            These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Instrument' domain to decorate onto the instrument.\r\n            These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
+              "description": "A list of property keys from the 'Instrument' domain to decorate onto\r\n            the instrument, or from any domain that supports relationships to decorate onto related entities.\r\n            These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.",
               "nullable": true
             },
             "x-nullable": true
@@ -18560,6 +18650,21 @@
               "default": "default",
               "nullable": true
             }
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -20715,14 +20820,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for each legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for each legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto each portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto each portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -21239,14 +21359,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for each legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for each legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for each legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto each portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto each portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -21710,14 +21845,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+            "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for found legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain to include for found legal entity.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
+              "description": "A list of property keys or identifier types (as property keys) from the \"LegalEntity\" domain\r\n            to include for found legal entity, or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"LegalEntity/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -21744,6 +21879,21 @@
               "type": "string",
               "description": "The asAt datetime at which to retrieve the legal entity. Defaults to return the latest version of the legal entity if not specified.",
               "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the legal entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the legal entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -29998,13 +30148,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
-              "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+              "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
             }
           },
@@ -30038,14 +30188,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+            "description": "A list of property keys from the \"Person\" domain to decorate onto each person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+              "description": "A list of property keys from the \"Person\" domain to decorate onto each person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -30531,13 +30696,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string",
-              "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\nvalue is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+              "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
               "nullable": true
             }
           },
@@ -30583,14 +30748,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+            "description": "A list of property keys from the \"Person\" domain to decorate onto each person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+              "description": "A list of property keys from the \"Person\" domain to decorate onto each person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -31067,14 +31247,14 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified.",
+            "description": "A list of property keys from the \"Person\" domain to decorate onto the person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the \"Person\" domain to decorate onto each person.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". Defaults to include all properties if not specified.",
+              "description": "A list of property keys from the \"Person\" domain to decorate onto the person, \r\n            or from any domain that supports relationships to decorate onto related entities.\r\n            These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\".",
               "nullable": true
             },
             "x-nullable": true
@@ -31098,6 +31278,21 @@
               "type": "string",
               "description": "The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified.",
               "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -34964,6 +35159,36 @@
               "description": "Expression to filter the result set.\r\n            For example, to filter on the Display Name, use \"displayName eq 'string'\"\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
               "nullable": true
             }
+          },
+          {
+            "name": "relatedEntityPropertyKeys",
+            "in": "query",
+            "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+              "nullable": true
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -35332,6 +35557,36 @@
               "type": "string",
               "description": "The asAt datetime at which to retrieve the portfolio group definition. Defaults to return\r\n            the latest version of the portfolio group definition if not specified.",
               "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relatedEntityPropertyKeys",
+            "in": "query",
+            "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              },
+              "description": "A list of property keys from any domain that supports relationships\r\n            to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -41437,14 +41692,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the\r\n            format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the\r\n            format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -43324,14 +43594,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the\r\n            format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "description": "A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the\r\n            format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true
@@ -43460,14 +43745,29 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+            "description": "A list of property keys from the 'Portfolio' domain to decorate onto the portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the format\r\n            {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string",
                 "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
               },
-              "description": "A list of property keys from the 'Portfolio' domain to decorate onto the portfolio.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "description": "A list of property keys from the 'Portfolio' domain to decorate onto the portfolio,\r\n            or from any domain that supports relationships to decorate onto related entities. These must take the format\r\n            {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "relationshipDefinitionIds",
+            "in": "query",
+            "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Identifiers of an entity"
+              },
+              "description": "A list of relationship definitions that are used to decorate related entities\r\n            onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}.",
               "nullable": true
             },
             "x-nullable": true

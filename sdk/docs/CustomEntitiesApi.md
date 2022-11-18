@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_custom_entity**
-> CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
+> CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
 
 [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
 
@@ -136,10 +136,12 @@ identifier_value = 'identifier_value_example' # str | The identifier value.
 identifier_scope = 'identifier_scope_example' # str | The identifier scope.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt datetime at which to retrieve the Custom Entity instance. (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)
+related_entity_property_keys = ['related_entity_property_keys_example'] # list[str] | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional)
+relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
         # [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
-        api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at)
+        api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity: %s\n" % e)
@@ -155,6 +157,8 @@ Name | Type | Description  | Notes
  **identifier_scope** | **str**| The identifier scope. | 
  **as_at** | **datetime**| The AsAt datetime at which to retrieve the Custom Entity instance. | [optional] 
  **effective_at** | **str**| The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **related_entity_property_keys** | [**list[str]**](str.md)| A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional] 
+ **relationship_definition_ids** | [**list[str]**](str.md)| A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
 
 ### Return type
 
@@ -268,7 +272,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_custom_entities**
-> PagedResourceListOfCustomEntityResponse list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
+> PagedResourceListOfCustomEntityResponse list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
 
 [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
 
@@ -310,10 +314,12 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
+related_entity_property_keys = ['related_entity_property_keys_example'] # list[str] | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional)
+relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
         # [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
-        api_response = api_instance.list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page)
+        api_response = api_instance.list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CustomEntitiesApi->list_custom_entities: %s\n" % e)
@@ -329,6 +335,8 @@ Name | Type | Description  | Notes
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
  **page** | **str**| The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional] 
+ **related_entity_property_keys** | [**list[str]**](str.md)| A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional] 
+ **relationship_definition_ids** | [**list[str]**](str.md)| A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
 
 ### Return type
 
