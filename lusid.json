@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4998",
+    "version": "0.11.4999",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -18583,7 +18583,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "startDate": "2022-11-23T16:44:35.4531334+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18593,8 +18593,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
-                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "optionMaturityDate": "2023-11-23T16:44:35.4531335+00:00",
+                "optionSettlementDate": "2023-11-25T16:44:35.4531348+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18605,7 +18605,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "startDate": "2022-11-23T16:44:35.4531334+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18615,8 +18615,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
-                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "optionMaturityDate": "2023-11-23T16:44:35.4531335+00:00",
+                "optionSettlementDate": "2023-11-25T16:44:35.4531348+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18627,7 +18627,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "startDate": "2022-11-23T16:44:35.4531334+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18637,8 +18637,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
-                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "optionMaturityDate": "2023-11-23T16:44:35.4531335+00:00",
+                "optionSettlementDate": "2023-11-25T16:44:35.4531348+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18649,7 +18649,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "startDate": "2022-11-23T16:44:35.4531334+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18659,8 +18659,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
-                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "optionMaturityDate": "2023-11-23T16:44:35.4531335+00:00",
+                "optionSettlementDate": "2023-11-25T16:44:35.4531348+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18697,12 +18697,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "date": "2022-11-23T16:44:35.4731290+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "date": "2022-11-23T16:44:35.4731311+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18732,12 +18732,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "date": "2022-11-23T16:44:35.4731290+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "date": "2022-11-23T16:44:35.4731311+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18767,12 +18767,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "date": "2022-11-23T16:44:35.4731290+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "date": "2022-11-23T16:44:35.4731311+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20647,12 +20647,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "date": "2022-11-23T16:44:34.5561197+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "date": "2022-11-23T16:44:34.5561319+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20682,12 +20682,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "date": "2022-11-23T16:44:34.5561197+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "date": "2022-11-23T16:44:34.5561319+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20717,12 +20717,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "date": "2022-11-23T16:44:34.5561197+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "date": "2022-11-23T16:44:34.5561319+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
