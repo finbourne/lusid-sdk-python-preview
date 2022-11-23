@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4997",
+    "version": "0.11.4998",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1530,8 +1530,7 @@
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope to which the allocation belongs.",
-              "nullable": true
+              "description": "The scope to which the allocation belongs."
             }
           },
           {
@@ -1542,10 +1541,8 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The allocation's unique identifier.",
-              "nullable": true
+              "description": "The allocation's unique identifier."
             }
           },
           {
@@ -1808,7 +1805,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete."
             }
@@ -18520,6 +18516,309 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/instruments/capabilities": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] PostInstrumentCapabilities: Given an example instrument provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.",
+        "description": "Returns instrument capabilities containing useful information about the instrument and the model. This includes\r\n- features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked\r\n- supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued\r\n- economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS",
+        "operationId": "PostInstrumentCapabilities",
+        "parameters": [
+          {
+            "name": "model",
+            "in": "query",
+            "description": "A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "description": "A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the instrument.\r\n            Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the instrument.\r\n            Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the instrument. Defaults to\r\n            returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the instrument. Defaults to\r\n            returning the latest version if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "default": "default",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The definition of the instrument.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "example": {
+                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "domCcy": "GBP",
+                "domAmount": 1,
+                "fgnCcy": "USD",
+                "strike": 1,
+                "barriers": [],
+                "exerciseType": "European",
+                "isCallNotPut": true,
+                "isDeliveryNotCash": true,
+                "isPayoffDigital": false,
+                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
+                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "payoutStyle": "None",
+                "touches": [],
+                "instrumentType": "FxOption"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "example": {
+                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "domCcy": "GBP",
+                "domAmount": 1,
+                "fgnCcy": "USD",
+                "strike": 1,
+                "barriers": [],
+                "exerciseType": "European",
+                "isCallNotPut": true,
+                "isDeliveryNotCash": true,
+                "isPayoffDigital": false,
+                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
+                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "payoutStyle": "None",
+                "touches": [],
+                "instrumentType": "FxOption"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "example": {
+                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "domCcy": "GBP",
+                "domAmount": 1,
+                "fgnCcy": "USD",
+                "strike": 1,
+                "barriers": [],
+                "exerciseType": "European",
+                "isCallNotPut": true,
+                "isDeliveryNotCash": true,
+                "isPayoffDigital": false,
+                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
+                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "payoutStyle": "None",
+                "touches": [],
+                "instrumentType": "FxOption"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "example": {
+                "startDate": "2022-11-23T16:04:39.6603505+00:00",
+                "domCcy": "GBP",
+                "domAmount": 1,
+                "fgnCcy": "USD",
+                "strike": 1,
+                "barriers": [],
+                "exerciseType": "European",
+                "isCallNotPut": true,
+                "isDeliveryNotCash": true,
+                "isPayoffDigital": false,
+                "optionMaturityDate": "2023-11-23T16:04:39.6603506+00:00",
+                "optionSettlementDate": "2023-11-25T16:04:39.6603516+00:00",
+                "payoutStyle": "None",
+                "touches": [],
+                "instrumentType": "FxOption"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Capabilities for a given instrument, with more details should the model be provided.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.6724095+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.6724114+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/instruments/identifierTypes": {
       "get": {
         "tags": [
@@ -20245,6 +20544,229 @@
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/instruments/{identifier}/capabilities": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "[EXPERIMENTAL] GetInstrumentCapabilities: Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.",
+        "description": "Returns instrument capabilities containing useful information about the instrument and the model. This includes\r\n- features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked\r\n- supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued\r\n- economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS",
+        "operationId": "GetInstrumentCapabilities",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "A lusid instrument id identifying the instrument.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "A lusid instrument id identifying the instrument.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "model",
+            "in": "query",
+            "description": "A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "description": "A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the instrument.\r\n            Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The effective datetime or cut label at which to retrieve the instrument.\r\n            Defaults to the current LUSID system datetime if not specified.",
+              "format": "dateorcutlabel",
+              "nullable": true
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the instrument. Defaults to\r\n            returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "description": "The asAt datetime at which to retrieve the instrument. Defaults to\r\n            returning the latest version if not specified.",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
+              "default": "default",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Capabilities for a given instrument, with more details should the model be provided.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "LUID_00003D4X",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "LUID_00003D4X",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCapabilities"
+                },
+                "example": {
+                  "instrumentId": "LUID_00003D4X",
+                  "model": "Discounting",
+                  "features": [
+                    "Other:Option",
+                    "Other:Callable",
+                    "Other:Delivery",
+                    "Optionality:European"
+                  ],
+                  "supportedAddresses": [
+                    "Valuation/InstrumentPv",
+                    "Valuation/PV",
+                    "Valuation/DirtyPriceKey",
+                    "Valuation/InstrumentAccrued",
+                    "Valuation/Accrued",
+                    "Valuation/EffectiveAt"
+                  ],
+                  "economicDependencies": [
+                    {
+                      "currency": "GBP",
+                      "date": "2022-11-23T16:04:39.0849239+00:00",
+                      "dependencyType": "Discounting"
+                    },
+                    {
+                      "currency": "USD",
+                      "date": "2022-11-23T16:04:39.0849353+00:00",
+                      "dependencyType": "Cash"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
       }
     },
     "/api/legalentities": {
@@ -27925,8 +28447,7 @@
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope to which the order belongs.",
-              "nullable": true
+              "description": "The scope to which the order belongs."
             }
           },
           {
@@ -27937,10 +28458,8 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The order's unique identifier.",
-              "nullable": true
+              "description": "The order's unique identifier."
             }
           },
           {
@@ -28200,7 +28719,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The order's code. This, together with the scope uniquely identifies the order to delete."
             }
@@ -90107,6 +90625,55 @@
         },
         "additionalProperties": false,
         "description": "A list of instruments."
+      },
+      "InstrumentCapabilities": {
+        "type": "object",
+        "properties": {
+          "instrumentId": {
+            "type": "string",
+            "description": "The Lusid insturment id for the instrument e.g. 'LUID_00003D4X'.",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "description": "The pricing model e.g. 'Discounting'.",
+            "nullable": true
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Features of the instrument describing its optionality, payoff type and more e.g. 'Other:Callable', 'Other:Delivery', 'Optionality:European'",
+            "nullable": true
+          },
+          "supportedAddresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Queryable addresses supported by the model, e.g. 'Valuation/Pv', 'Valuation/Accrued'.",
+            "nullable": true
+          },
+          "economicDependencies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EconomicDependency"
+            },
+            "description": "Economic dependencies for the model, e.g. 'Fx:GBP.USD', 'Cash:GBP', 'Rates:GBP.GBPOIS'.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Instrument capabilities containing useful information about the instrument and the model. This includes\r\n- features corresponding to the instrument i.e. Optionality:American, Other:InflationLinked\r\n- supported addresses (if model provided) i.e. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued\r\n- economic dependencies (if model provided) i.e. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS"
       },
       "InstrumentCashFlow": {
         "required": [
