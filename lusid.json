@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4996",
+    "version": "0.11.4997",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11493,15 +11493,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -11531,15 +11529,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -11569,15 +11565,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -11607,15 +11601,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -11654,15 +11646,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -11694,15 +11684,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -11734,15 +11722,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -11973,15 +11959,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -12013,15 +11997,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -12053,15 +12035,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -12154,15 +12134,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -12191,15 +12169,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -12228,15 +12204,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -12265,15 +12239,13 @@
                     "name": "clientId",
                     "lifetime": "Perpetual",
                     "type": "String",
-                    "required": true,
-                    "description": "Client's Id"
+                    "required": true
                   },
                   {
                     "name": "issueDescription",
                     "lifetime": "TimeVariant",
                     "type": "String",
-                    "required": true,
-                    "description": "Description of Issue"
+                    "required": true
                   },
                   {
                     "name": "internalNotes",
@@ -12312,15 +12284,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -12352,15 +12322,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -12392,15 +12360,13 @@
                       "name": "clientId",
                       "lifetime": "Perpetual",
                       "type": "String",
-                      "required": true,
-                      "description": "Client's Id"
+                      "required": true
                     },
                     {
                       "name": "issueDescription",
                       "lifetime": "TimeVariant",
                       "type": "String",
-                      "required": true,
-                      "description": "Description of Issue"
+                      "required": true
                     },
                     {
                       "name": "internalNotes",
@@ -84324,13 +84290,6 @@
           "required": {
             "type": "boolean",
             "description": "Whether the field is required or not."
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 1,
-            "type": "string",
-            "description": "An optional description for the field.",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -84535,12 +84494,14 @@
         "additionalProperties": false
       },
       "DataDefinition": {
+        "required": [
+          "address"
+        ],
         "type": "object",
         "properties": {
           "address": {
             "type": "string",
-            "description": "The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item",
-            "nullable": true
+            "description": "The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item"
           },
           "name": {
             "maxLength": 256,
