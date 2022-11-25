@@ -1156,7 +1156,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.InstrumentsApi(api_client)
-    lusid_instrument = {"startDate":"2022-11-25T08:59:04.7724878+00:00","domCcy":"GBP","domAmount":1,"fgnCcy":"USD","strike":1,"barriers":[],"exerciseType":"European","isCallNotPut":true,"isDeliveryNotCash":true,"isPayoffDigital":false,"optionMaturityDate":"2023-11-25T08:59:04.7724879+00:00","optionSettlementDate":"2023-11-27T08:59:04.7724922+00:00","payoutStyle":"None","touches":[],"instrumentType":"FxOption"} # LusidInstrument | The definition of the instrument.
+    lusid_instrument = {"startDate":"2022-11-25T10:13:34.6077046+00:00","domCcy":"GBP","domAmount":1,"fgnCcy":"USD","strike":1,"barriers":[],"exerciseType":"European","isCallNotPut":true,"isDeliveryNotCash":true,"isPayoffDigital":false,"optionMaturityDate":"2023-11-25T10:13:34.6077046+00:00","optionSettlementDate":"2023-11-27T10:13:34.6077061+00:00","payoutStyle":"None","touches":[],"instrumentType":"FxOption"} # LusidInstrument | The definition of the instrument.
 model = 'model_example' # str | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)
