@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5008",
+    "version": "0.11.5009",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -18583,7 +18583,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T11:00:21.4698190+00:00",
+                "startDate": "2022-11-28T12:22:51.7504551+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18593,8 +18593,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
-                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
+                "optionMaturityDate": "2023-11-28T12:22:51.7504552+00:00",
+                "optionSettlementDate": "2023-11-30T12:22:51.7504568+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18605,7 +18605,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T11:00:21.4698190+00:00",
+                "startDate": "2022-11-28T12:22:51.7504551+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18615,8 +18615,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
-                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
+                "optionMaturityDate": "2023-11-28T12:22:51.7504552+00:00",
+                "optionSettlementDate": "2023-11-30T12:22:51.7504568+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18627,7 +18627,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T11:00:21.4698190+00:00",
+                "startDate": "2022-11-28T12:22:51.7504551+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18637,8 +18637,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
-                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
+                "optionMaturityDate": "2023-11-28T12:22:51.7504552+00:00",
+                "optionSettlementDate": "2023-11-30T12:22:51.7504568+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18649,7 +18649,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T11:00:21.4698190+00:00",
+                "startDate": "2022-11-28T12:22:51.7504551+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18659,8 +18659,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
-                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
+                "optionMaturityDate": "2023-11-28T12:22:51.7504552+00:00",
+                "optionSettlementDate": "2023-11-30T12:22:51.7504568+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18697,12 +18697,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:21.4974325+00:00",
+                      "date": "2022-11-28T12:22:51.7705776+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:21.4974346+00:00",
+                      "date": "2022-11-28T12:22:51.7705793+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18732,12 +18732,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:21.4974325+00:00",
+                      "date": "2022-11-28T12:22:51.7705776+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:21.4974346+00:00",
+                      "date": "2022-11-28T12:22:51.7705793+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18767,12 +18767,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:21.4974325+00:00",
+                      "date": "2022-11-28T12:22:51.7705776+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:21.4974346+00:00",
+                      "date": "2022-11-28T12:22:51.7705793+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20647,12 +20647,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:20.6903415+00:00",
+                      "date": "2022-11-28T12:22:51.1703501+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:20.6903529+00:00",
+                      "date": "2022-11-28T12:22:51.1703581+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20682,12 +20682,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:20.6903415+00:00",
+                      "date": "2022-11-28T12:22:51.1703501+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:20.6903529+00:00",
+                      "date": "2022-11-28T12:22:51.1703581+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20717,12 +20717,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T11:00:20.6903415+00:00",
+                      "date": "2022-11-28T12:22:51.1703501+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T11:00:20.6903529+00:00",
+                      "date": "2022-11-28T12:22:51.1703581+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -85018,12 +85018,14 @@
         "additionalProperties": false
       },
       "DataDefinition": {
+        "required": [
+          "address"
+        ],
         "type": "object",
         "properties": {
           "address": {
             "type": "string",
-            "description": "The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item",
-            "nullable": true
+            "description": "The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item"
           },
           "name": {
             "maxLength": 256,
