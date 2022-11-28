@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5007",
+    "version": "0.11.5008",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1530,8 +1530,7 @@
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope to which the allocation belongs.",
-              "nullable": true
+              "description": "The scope to which the allocation belongs."
             }
           },
           {
@@ -1542,10 +1541,8 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The allocation's unique identifier.",
-              "nullable": true
+              "description": "The allocation's unique identifier."
             }
           },
           {
@@ -1808,7 +1805,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The allocation's code. This, together with the scope uniquely identifies the allocation to delete."
             }
@@ -18587,7 +18583,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T09:40:14.7420273+00:00",
+                "startDate": "2022-11-28T11:00:21.4698190+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18597,8 +18593,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T09:40:14.7420274+00:00",
-                "optionSettlementDate": "2023-11-30T09:40:14.7420285+00:00",
+                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
+                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18609,7 +18605,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T09:40:14.7420273+00:00",
+                "startDate": "2022-11-28T11:00:21.4698190+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18619,8 +18615,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T09:40:14.7420274+00:00",
-                "optionSettlementDate": "2023-11-30T09:40:14.7420285+00:00",
+                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
+                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18631,7 +18627,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T09:40:14.7420273+00:00",
+                "startDate": "2022-11-28T11:00:21.4698190+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18641,8 +18637,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T09:40:14.7420274+00:00",
-                "optionSettlementDate": "2023-11-30T09:40:14.7420285+00:00",
+                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
+                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18653,7 +18649,7 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "example": {
-                "startDate": "2022-11-28T09:40:14.7420273+00:00",
+                "startDate": "2022-11-28T11:00:21.4698190+00:00",
                 "domCcy": "GBP",
                 "domAmount": 1,
                 "fgnCcy": "USD",
@@ -18663,8 +18659,8 @@
                 "isCallNotPut": true,
                 "isDeliveryNotCash": true,
                 "isPayoffDigital": false,
-                "optionMaturityDate": "2023-11-28T09:40:14.7420274+00:00",
-                "optionSettlementDate": "2023-11-30T09:40:14.7420285+00:00",
+                "optionMaturityDate": "2023-11-28T11:00:21.4698190+00:00",
+                "optionSettlementDate": "2023-11-30T11:00:21.4698215+00:00",
                 "payoutStyle": "None",
                 "touches": [],
                 "instrumentType": "FxOption"
@@ -18701,12 +18697,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.7526223+00:00",
+                      "date": "2022-11-28T11:00:21.4974325+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.7526247+00:00",
+                      "date": "2022-11-28T11:00:21.4974346+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18736,12 +18732,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.7526223+00:00",
+                      "date": "2022-11-28T11:00:21.4974325+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.7526247+00:00",
+                      "date": "2022-11-28T11:00:21.4974346+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -18771,12 +18767,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.7526223+00:00",
+                      "date": "2022-11-28T11:00:21.4974325+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.7526247+00:00",
+                      "date": "2022-11-28T11:00:21.4974346+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20651,12 +20647,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.1780623+00:00",
+                      "date": "2022-11-28T11:00:20.6903415+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.1780710+00:00",
+                      "date": "2022-11-28T11:00:20.6903529+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20686,12 +20682,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.1780623+00:00",
+                      "date": "2022-11-28T11:00:20.6903415+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.1780710+00:00",
+                      "date": "2022-11-28T11:00:20.6903529+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20721,12 +20717,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-28T09:40:14.1780623+00:00",
+                      "date": "2022-11-28T11:00:20.6903415+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-28T09:40:14.1780710+00:00",
+                      "date": "2022-11-28T11:00:20.6903529+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -28451,8 +28447,7 @@
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope to which the order belongs.",
-              "nullable": true
+              "description": "The scope to which the order belongs."
             }
           },
           {
@@ -28463,10 +28458,8 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The order's unique identifier.",
-              "nullable": true
+              "description": "The order's unique identifier."
             }
           },
           {
@@ -28726,7 +28719,6 @@
             "schema": {
               "maxLength": 64,
               "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "The order's code. This, together with the scope uniquely identifies the order to delete."
             }
