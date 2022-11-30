@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5013",
+    "version": "0.11.5014",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20621,12 +20621,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-29T23:04:14.9767142+00:00",
+                      "date": "2022-11-30T11:11:17.4058224+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-29T23:04:14.9768837+00:00",
+                      "date": "2022-11-30T11:11:17.4058298+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20656,12 +20656,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-29T23:04:14.9767142+00:00",
+                      "date": "2022-11-30T11:11:17.4058224+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-29T23:04:14.9768837+00:00",
+                      "date": "2022-11-30T11:11:17.4058298+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20691,12 +20691,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-29T23:04:14.9767142+00:00",
+                      "date": "2022-11-30T11:11:17.4058224+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-29T23:04:14.9768837+00:00",
+                      "date": "2022-11-30T11:11:17.4058298+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -57940,10 +57940,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "description": "The effective datetime or cut label at which to retrieve the rule definitions.\r\nDefaults to the current LUSID system datetime if not specified.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "description": "The effective datetime or cut label at which to retrieve the rule definitions.\r\nDefaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -57973,17 +57973,17 @@
                   "values": [
                     {
                       "id": {
-                        "scope": "myScope",
+                        "scope": "RuleSetScope",
                         "code": "RuleSetName"
                       },
                       "displayName": "Rule set display name",
                       "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "outputPropertyKey": "Transaction/default/TaxAmount",
                       "rules": [
                         {
                           "name": "UKTaxRule",
                           "description": "Rule for the UK tax rate",
-                          "rate": 30,
+                          "rate": 0.25,
                           "matchCriteria": [
                             {
                               "propertyKey": "Instrument/myScope/market",
@@ -58015,17 +58015,17 @@
                   "values": [
                     {
                       "id": {
-                        "scope": "myScope",
+                        "scope": "RuleSetScope",
                         "code": "RuleSetName"
                       },
                       "displayName": "Rule set display name",
                       "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "outputPropertyKey": "Transaction/default/TaxAmount",
                       "rules": [
                         {
                           "name": "UKTaxRule",
                           "description": "Rule for the UK tax rate",
-                          "rate": 30,
+                          "rate": 0.25,
                           "matchCriteria": [
                             {
                               "propertyKey": "Instrument/myScope/market",
@@ -58057,17 +58057,17 @@
                   "values": [
                     {
                       "id": {
-                        "scope": "myScope",
+                        "scope": "RuleSetScope",
                         "code": "RuleSetName"
                       },
                       "displayName": "Rule set display name",
                       "description": "Rule set description",
-                      "outputPropertyKey": "Transaction/default/TaxRate",
+                      "outputPropertyKey": "Transaction/default/TaxAmount",
                       "rules": [
                         {
                           "name": "UKTaxRule",
                           "description": "Rule for the UK tax rate",
-                          "rate": 30,
+                          "rate": 0.25,
                           "matchCriteria": [
                             {
                               "propertyKey": "Instrument/myScope/market",
@@ -58160,17 +58160,17 @@
               },
               "example": {
                 "id": {
-                  "scope": "myScope",
+                  "scope": "RuleSetScope",
                   "code": "RuleSetName"
                 },
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58193,17 +58193,17 @@
               },
               "example": {
                 "id": {
-                  "scope": "myScope",
+                  "scope": "RuleSetScope",
                   "code": "RuleSetName"
                 },
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58226,17 +58226,17 @@
               },
               "example": {
                 "id": {
-                  "scope": "myScope",
+                  "scope": "RuleSetScope",
                   "code": "RuleSetName"
                 },
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58259,17 +58259,17 @@
               },
               "example": {
                 "id": {
-                  "scope": "myScope",
+                  "scope": "RuleSetScope",
                   "code": "RuleSetName"
                 },
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58299,17 +58299,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58336,17 +58336,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58373,17 +58373,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58485,10 +58485,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+            "description": "The effective datetime or cut label at which to retrieve the rule definition.\r\nDefaults to the current LUSID system datetime if not specified.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID\r\nsystem datetime if not specified.",
+              "description": "The effective datetime or cut label at which to retrieve the rule definition.\r\nDefaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -58516,17 +58516,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58553,17 +58553,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58590,17 +58590,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58666,7 +58666,7 @@
           "Tax Rule Sets"
         ],
         "summary": "[EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.",
-        "description": "Updates the tax rule set definition at the given effective time.\r\nThe user must be entitled to read any properties specified in each rule.",
+        "description": "Updates the tax rule set definition at the given effective time.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.\r\nThe user must be entitled to read any properties specified in each rule.",
         "operationId": "UpdateTaxRuleSet",
         "parameters": [
           {
@@ -58700,10 +58700,10 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
+            "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
             "schema": {
               "type": "string",
-              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.\r\nThe changes will take place from this effective time until the next effective time that the rule has been updated at.\r\nFor example, consider a rule that has been created or updated effective at the first day of the coming month.\r\nAn upsert effective from the current day will only change the definition until that day.\r\nAn additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.",
+              "description": "The effective datetime or cut label at which the rule set will take effect.\r\nDefaults to the current LUSID system datetime if not specified.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -58719,12 +58719,12 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58735,22 +58735,6 @@
                         "propertyKey": "Portfolio/myScope/taxDomicile",
                         "value": "GB",
                         "criterionType": "PropertyValueEquals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "matchCriteria": [
-                      {
-                        "propertyKey": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "criterionType": "PropertyValueIn"
                       }
                     ]
                   }
@@ -58764,12 +58748,12 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58780,22 +58764,6 @@
                         "propertyKey": "Portfolio/myScope/taxDomicile",
                         "value": "GB",
                         "criterionType": "PropertyValueEquals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "matchCriteria": [
-                      {
-                        "propertyKey": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "criterionType": "PropertyValueIn"
                       }
                     ]
                   }
@@ -58809,12 +58777,12 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58825,22 +58793,6 @@
                         "propertyKey": "Portfolio/myScope/taxDomicile",
                         "value": "GB",
                         "criterionType": "PropertyValueEquals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "matchCriteria": [
-                      {
-                        "propertyKey": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "criterionType": "PropertyValueIn"
                       }
                     ]
                   }
@@ -58854,12 +58806,12 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxRate",
+                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
                     "description": "Rule for the UK tax rate",
-                    "rate": 30,
+                    "rate": 0.25,
                     "matchCriteria": [
                       {
                         "propertyKey": "Instrument/myScope/market",
@@ -58870,22 +58822,6 @@
                         "propertyKey": "Portfolio/myScope/taxDomicile",
                         "value": "GB",
                         "criterionType": "PropertyValueEquals"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "EUReclaimRate",
-                    "description": "Rule for applying the reclaim rate to instruments in the European market",
-                    "rate": -10,
-                    "matchCriteria": [
-                      {
-                        "propertyKey": "Instrument/myScope/Market",
-                        "value": [
-                          "FR",
-                          "NL",
-                          "DE"
-                        ],
-                        "criterionType": "PropertyValueIn"
                       }
                     ]
                   }
@@ -58905,17 +58841,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58942,17 +58878,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -58979,17 +58915,17 @@
                 },
                 "example": {
                   "id": {
-                    "scope": "myScope",
+                    "scope": "RuleSetScope",
                     "code": "RuleSetName"
                   },
                   "displayName": "Rule set display name",
                   "description": "Rule set description",
-                  "outputPropertyKey": "Transaction/default/TaxRate",
+                  "outputPropertyKey": "Transaction/default/TaxAmount",
                   "rules": [
                     {
                       "name": "UKTaxRule",
                       "description": "Rule for the UK tax rate",
-                      "rate": 30,
+                      "rate": 0.25,
                       "matchCriteria": [
                         {
                           "propertyKey": "Instrument/myScope/market",
@@ -105445,7 +105381,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

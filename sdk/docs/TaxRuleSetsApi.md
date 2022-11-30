@@ -48,7 +48,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TaxRuleSetsApi(api_client)
-    create_tax_rule_set_request = {"id":{"scope":"myScope","code":"RuleSetName"},"displayName":"Rule set display name","description":"Rule set description","outputPropertyKey":"Transaction/default/TaxRate","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":30,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]}]} # CreateTaxRuleSetRequest | The contents of the rule set.
+    create_tax_rule_set_request = {"id":{"scope":"RuleSetScope","code":"RuleSetName"},"displayName":"Rule set display name","description":"Rule set description","outputPropertyKey":"Transaction/default/TaxAmount","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":0.25,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]}]} # CreateTaxRuleSetRequest | The contents of the rule set.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)
 
     try:
@@ -204,7 +204,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TaxRuleSetsApi(api_client)
     scope = 'scope_example' # str | The rule set scope.
 code = 'code_example' # str | The rule set code.
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)
 
     try:
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The rule set scope. | 
  **code** | **str**| The rule set code. | 
- **effective_at** | **str**| The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. | [optional] 
+ **effective_at** | **str**| The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. | [optional] 
 
 ### Return type
@@ -283,7 +283,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TaxRuleSetsApi(api_client)
-    effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)
+    effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)
 
     try:
@@ -298,7 +298,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **effective_at** | **str**| The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. | [optional] 
+ **effective_at** | **str**| The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. | [optional] 
 
 ### Return type
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
 
-Updates the tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
 
 ### Example
 
@@ -362,8 +362,8 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TaxRuleSetsApi(api_client)
     scope = 'scope_example' # str | The rule set scope.
 code = 'code_example' # str | The rule set code.
-update_tax_rule_set_request = {"displayName":"Rule set display name","description":"Rule set description","outputPropertyKey":"Transaction/default/TaxRate","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":30,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]},{"name":"EUReclaimRate","description":"Rule for applying the reclaim rate to instruments in the European market","rate":-10,"matchCriteria":[{"propertyKey":"Instrument/myScope/Market","value":["FR","NL","DE"],"criterionType":"PropertyValueIn"}]}]} # UpdateTaxRuleSetRequest | The contents of the rule set.
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)
+update_tax_rule_set_request = {"displayName":"Rule set display name","description":"Rule set description","outputPropertyKey":"Transaction/default/TaxAmount","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":0.25,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]}]} # UpdateTaxRuleSetRequest | The contents of the rule set.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)
 
     try:
         # [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The rule set scope. | 
  **code** | **str**| The rule set code. | 
  **update_tax_rule_set_request** | [**UpdateTaxRuleSetRequest**](UpdateTaxRuleSetRequest.md)| The contents of the rule set. | 
- **effective_at** | **str**| The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. | [optional] 
+ **effective_at** | **str**| The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
