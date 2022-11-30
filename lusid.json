@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5017",
+    "version": "0.11.5016",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -18547,33 +18547,6 @@
               "format": "dateorcutlabel",
               "nullable": true
             }
-          },
-          {
-            "name": "recipeScope",
-            "in": "query",
-            "description": "The scope in which the recipe lies. When not supplied the scope is 'default'.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope in which the recipe lies. When not supplied the scope is 'default'.",
-              "default": "default",
-              "nullable": true
-            }
-          },
-          {
-            "name": "recipeCode",
-            "in": "query",
-            "description": "A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided.",
-              "nullable": true
-            }
           }
         ],
         "requestBody": {
@@ -20606,7 +20579,7 @@
             "x-nullable": true
           },
           {
-            "name": "instrumentScope",
+            "name": "scope",
             "in": "query",
             "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
             "schema": {
@@ -20616,33 +20589,6 @@
               "type": "string",
               "description": "The scope in which the instrument lies. When not supplied the scope is 'default'.",
               "default": "default",
-              "nullable": true
-            }
-          },
-          {
-            "name": "recipeScope",
-            "in": "query",
-            "description": "The scope in which the recipe lies. When not supplied the scope is 'default'.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope in which the recipe lies. When not supplied the scope is 'default'.",
-              "default": "default",
-              "nullable": true
-            }
-          },
-          {
-            "name": "recipeCode",
-            "in": "query",
-            "description": "A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided.",
               "nullable": true
             }
           }
@@ -20675,12 +20621,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T15:21:51.5513988+00:00",
+                      "date": "2022-11-30T16:01:21.4893772+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T15:21:51.5514089+00:00",
+                      "date": "2022-11-30T16:01:21.4893871+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20656,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T15:21:51.5513988+00:00",
+                      "date": "2022-11-30T16:01:21.4893772+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T15:21:51.5514089+00:00",
+                      "date": "2022-11-30T16:01:21.4893871+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20691,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T15:21:51.5513988+00:00",
+                      "date": "2022-11-30T16:01:21.4893772+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T15:21:51.5514089+00:00",
+                      "date": "2022-11-30T16:01:21.4893871+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -105435,7 +105381,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
