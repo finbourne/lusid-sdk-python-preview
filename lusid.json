@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5019",
+    "version": "0.11.5020",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T20:18:23.8110586+00:00",
+                      "date": "2022-12-01T09:25:54.8315021+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T20:18:23.8112063+00:00",
+                      "date": "2022-12-01T09:25:54.8315105+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T20:18:23.8110586+00:00",
+                      "date": "2022-12-01T09:25:54.8315021+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T20:18:23.8112063+00:00",
+                      "date": "2022-12-01T09:25:54.8315105+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-11-30T20:18:23.8110586+00:00",
+                      "date": "2022-12-01T09:25:54.8315021+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-11-30T20:18:23.8112063+00:00",
+                      "date": "2022-12-01T09:25:54.8315105+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -80354,6 +80354,66 @@
         "additionalProperties": false,
         "description": "A request to create or update multiple Allocations."
       },
+      "AmortisationEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "amountReduced",
+              "domCcy",
+              "eventStatus",
+              "instrumentEventType",
+              "paymentDate",
+              "payReceive"
+            ],
+            "type": "object",
+            "properties": {
+              "amountReduced": {
+                "type": "number",
+                "description": "The amount reduced in this amortisation event.\r\nThat is, the difference between the previous notional amount and the current notional amount as set in this event.",
+                "format": "double"
+              },
+              "domCcy": {
+                "type": "string",
+                "description": "Domestic currency of the originating instrument"
+              },
+              "payReceive": {
+                "type": "string",
+                "description": "Is this event in relation to the Pay or Receive leg"
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date the principal payment is to be made.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+              }
+            }
+          }
+        ],
+        "description": "Definition of an Amortisation event.\r\nThis is an event that describes the occurence of amortisation."
+      },
       "AnnulQuotesResponse": {
         "type": "object",
         "properties": {
@@ -80975,16 +81035,19 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
@@ -81393,21 +81456,85 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
         ],
         "description": "A cash distribution paid out to shareholders."
+      },
+      "CashFlowEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "currency",
+              "eventStatus",
+              "eventType",
+              "instrumentEventType",
+              "paymentDate"
+            ],
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "The quantity (amount) that will be paid, if known. This value will be negative if it is paid, and positive\r\nif it is received.",
+                "format": "double",
+                "nullable": true
+              },
+              "currency": {
+                "type": "string",
+                "description": "The payment currency of the cash flow."
+              },
+              "eventType": {
+                "type": "string",
+                "description": "What type of internal event does this represent; coupon, principal, premium etc.",
+                "readOnly": true
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date on which the cashflow is scheduled to be paid into the recipient's bank account.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+              }
+            }
+          }
+        ],
+        "description": "Definition of a CashFlow event.\r\nThis is an event that describes the occurence of a cashflow and associated information."
       },
       "CashFlowLineage": {
         "type": "object",
@@ -82024,16 +82151,19 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
@@ -83219,41 +83349,6 @@
         },
         "additionalProperties": false,
         "description": "The counterpartyAgreement is signed by two parties, one of which is implicitly the LUSID user.\r\nThe CounterpartySignatory represents the 'other side' of the agreement.\r\nIt comprises a name and identifier for a Legal Entity in LUSID."
-      },
-      "CouponEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/InstrumentEvent"
-          },
-          {
-            "required": [
-              "instrumentEventType"
-            ],
-            "type": "object",
-            "properties": {
-              "anchorDate": {
-                "type": "string",
-                "description": "Date on which the coupon payment occurs.",
-                "format": "date-time"
-              },
-              "instrumentEventType": {
-                "enum": [
-                  "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
-                  "OpenEvent",
-                  "CloseEvent",
-                  "StockSplitEvent",
-                  "BondDefaultEvent",
-                  "CashDividendEvent"
-                ],
-                "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
-              }
-            }
-          }
-        ],
-        "description": "An unfilled cashflow event. Derived from the economic definition of an instrument."
       },
       "CreateCalendarRequest": {
         "required": [
@@ -86820,6 +86915,60 @@
         "additionalProperties": false,
         "description": "A request to create or update multiple Executions."
       },
+      "ExerciseEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "anchorDate",
+              "eventStatus",
+              "instrument",
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "instrument": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "anchorDate": {
+                "type": "string",
+                "description": "The date the exercise window starts, or point it takes effect on.",
+                "format": "date-time"
+              },
+              "eventWindowEnd": {
+                "type": "string",
+                "description": "The date the exercise window ends, or point it takes effect on.",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+              }
+            }
+          }
+        ],
+        "description": "Definition of an exercise event.\r\nThis is an event that occurs on transformation of an instrument owing to exercise. e.g. an option of\r\nsome type into its underlying."
+      },
       "ExoticInstrument": {
         "allOf": [
           {
@@ -90360,6 +90509,65 @@
         ],
         "description": "LUSID representation of an Inflation Swap.\r\nThe implementation supports the following swap types:\r\n* Zero Coupon inflation swap, with a single payment at maturity.\r\n* LPI Swap (capped and floored)\r\n* Year on Year inflation swap"
       },
+      "InformationalEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "anchorDate",
+              "eventStatus",
+              "eventType",
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "eventType": {
+                "type": "string",
+                "description": "What type of internal event does this represent; reset, exercise, amortisation etc.",
+                "readOnly": true
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "anchorDate": {
+                "type": "string",
+                "description": "In the case of a point event, the single date on which the event occurs. In the case of an event which is\r\nspread over a window, e.g. a barrier or American option, the start of that window.",
+                "format": "date-time"
+              },
+              "eventWindowEnd": {
+                "type": "string",
+                "description": "In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,\r\nthis is the end of that window.",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "diagnostics": {
+                "$ref": "#/components/schemas/ResultValueDictionary"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+              }
+            }
+          }
+        ],
+        "description": "A generic event derived from the economic definition of an instrument. This should be considered purely\r\ninformational; any data provided by this event is not guaranteed to be processable by LUSID."
+      },
       "InlineValuationRequest": {
         "required": [
           "instruments",
@@ -90781,16 +90989,19 @@
           "instrumentEventType": {
             "enum": [
               "TransitionEvent",
-              "InternalEvent",
-              "CouponEvent",
+              "InformationalEvent",
               "OpenEvent",
               "CloseEvent",
               "StockSplitEvent",
               "BondDefaultEvent",
-              "CashDividendEvent"
+              "CashDividendEvent",
+              "AmortisationEvent",
+              "CashFlowEvent",
+              "ExerciseEvent",
+              "ResetEvent"
             ],
             "type": "string",
-            "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
           }
         },
         "additionalProperties": false,
@@ -90801,7 +91012,6 @@
       },
       "InstrumentEventHolder": {
         "required": [
-          "corporateActionSourceId",
           "description",
           "instrumentEvent",
           "instrumentEventId",
@@ -90861,13 +91071,16 @@
       "InstrumentEventType": {
         "enum": [
           "TransitionEvent",
-          "InternalEvent",
-          "CouponEvent",
+          "InformationalEvent",
           "OpenEvent",
           "CloseEvent",
           "StockSplitEvent",
           "BondDefaultEvent",
-          "CashDividendEvent"
+          "CashDividendEvent",
+          "AmortisationEvent",
+          "CashFlowEvent",
+          "ExerciseEvent",
+          "ResetEvent"
         ],
         "type": "string",
         "description": "The individual event types."
@@ -91394,63 +91607,6 @@
           }
         ],
         "description": "LUSID representation of an Interest Rate Swaption."
-      },
-      "InternalEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/InstrumentEvent"
-          },
-          {
-            "required": [
-              "instrumentEventType"
-            ],
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "What category of event does this represent; instrument opening, closing, transition or other.",
-                "nullable": true,
-                "readOnly": true
-              },
-              "eventCategory": {
-                "type": "string",
-                "description": "What category of event does this represent; instrument opening, closing, transition or other.",
-                "nullable": true
-              },
-              "eventSource": {
-                "type": "string",
-                "description": "What is the event source, what causes it to happen.",
-                "nullable": true
-              },
-              "anchorDate": {
-                "type": "string",
-                "description": "In the case of a point event, the single date on which the event occurs. In the case of an event which is\r\nspread over a window, e.g. a barrier or American option, the start of that window.",
-                "format": "date-time"
-              },
-              "eventWindowEnd": {
-                "type": "string",
-                "description": "In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,\r\nthis is the end of that window.",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "instrumentEventType": {
-                "enum": [
-                  "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
-                  "OpenEvent",
-                  "CloseEvent",
-                  "StockSplitEvent",
-                  "BondDefaultEvent",
-                  "CashDividendEvent"
-                ],
-                "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
-              }
-            }
-          }
-        ],
-        "description": "A generic event which contains a number of possible events derived from the economic definition of an instrument."
       },
       "IrVolCubeData": {
         "allOf": [
@@ -92884,16 +93040,19 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
@@ -98399,6 +98558,66 @@
         ],
         "description": "LUSID representation of a sale and repurchase agreement, supporting haircut, margin or repo rate methods."
       },
+      "ResetEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "eventStatus",
+              "fixingDate",
+              "instrumentEventType",
+              "resetType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The quantity associated with the reset. This will only be populated if the information is known.",
+                "format": "double",
+                "nullable": true
+              },
+              "resetType": {
+                "type": "string",
+                "description": "The type of the reset; e.g. RIC, Currency-pair"
+              },
+              "fixingSource": {
+                "type": "string",
+                "description": "Fixing identification source, if available.",
+                "nullable": true
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "fixingDate": {
+                "type": "string",
+                "description": "The date the reset fixes, or is observed upon.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+              }
+            }
+          }
+        ],
+        "description": "Definition of a reset event.\r\nThis is an event that describes a reset or fixing for an instrument such as the floating payment on\r\na swap cash flow."
+      },
       "ResourceId": {
         "required": [
           "code",
@@ -101800,16 +102019,19 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
@@ -103213,16 +103435,19 @@
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
-                  "InternalEvent",
-                  "CouponEvent",
+                  "InformationalEvent",
                   "OpenEvent",
                   "CloseEvent",
                   "StockSplitEvent",
                   "BondDefaultEvent",
-                  "CashDividendEvent"
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InternalEvent, CouponEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
               }
             }
           }
@@ -105435,7 +105660,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
