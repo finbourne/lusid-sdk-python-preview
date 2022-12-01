@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5020",
+    "version": "0.11.5021",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -5914,13 +5914,13 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effective datetime at which to retrieve the complex market data. Defaults to the current LUSID system datetime if not specified.",
+            "description": "The effective datetime at which to retrieve the complex market data.\r\n             Defaults to the current LUSID system datetime if not specified.\r\n             Must match the Effective at of each ComplexMarketDataId given in the request body.",
             "schema": {
               "maxLength": 256,
               "minLength": 0,
               "pattern": "^[a-zA-Z0-9\\-_\\+:\\.]+$",
               "type": "string",
-              "description": "The effective datetime at which to retrieve the complex market data. Defaults to the current LUSID system datetime if not specified.",
+              "description": "The effective datetime at which to retrieve the complex market data.\r\n             Defaults to the current LUSID system datetime if not specified.\r\n             Must match the Effective at of each ComplexMarketDataId given in the request body.",
               "format": "dateorcutlabel",
               "nullable": true
             }
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-01T09:25:54.8315021+00:00",
+                      "date": "2022-12-01T13:05:07.1493204+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-01T09:25:54.8315105+00:00",
+                      "date": "2022-12-01T13:05:07.1493294+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-01T09:25:54.8315021+00:00",
+                      "date": "2022-12-01T13:05:07.1493204+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-01T09:25:54.8315105+00:00",
+                      "date": "2022-12-01T13:05:07.1493294+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-01T09:25:54.8315021+00:00",
+                      "date": "2022-12-01T13:05:07.1493204+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-01T09:25:54.8315105+00:00",
+                      "date": "2022-12-01T13:05:07.1493294+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
