@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-02T08:24:56.0529684+00:00",
+                      "date": "2022-12-02T10:23:15.6830757+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-02T08:24:56.0529777+00:00",
+                      "date": "2022-12-02T10:23:15.6835004+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-02T08:24:56.0529684+00:00",
+                      "date": "2022-12-02T10:23:15.6830757+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-02T08:24:56.0529777+00:00",
+                      "date": "2022-12-02T10:23:15.6835004+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-02T08:24:56.0529684+00:00",
+                      "date": "2022-12-02T10:23:15.6830757+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-02T08:24:56.0529777+00:00",
+                      "date": "2022-12-02T10:23:15.6835004+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -105660,7 +105660,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }
