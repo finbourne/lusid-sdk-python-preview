@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5036",
+    "version": "0.11.5037",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -19522,7 +19522,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] GetInstrumentProperties: Get instrument properties",
+        "summary": "[EARLY ACCESS] GetInstrumentProperties: Get instrument properties",
         "description": "List all the properties of a particular instrument, as identified by a particular unique identifier.",
         "operationId": "GetInstrumentProperties",
         "parameters": [
@@ -19709,7 +19709,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instruments/{identifierType}/{identifier}/properties/$delete": {
@@ -19717,7 +19717,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties",
+        "summary": "[EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties",
         "description": "Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which\r\nto delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.",
         "operationId": "DeleteInstrumentProperties",
         "parameters": [
@@ -19888,7 +19888,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instruments/{identifierType}/{identifier}/properties/list": {
@@ -19896,7 +19896,7 @@
         "tags": [
           "Instruments"
         ],
-        "summary": "[EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)",
+        "summary": "[EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)",
         "description": "List all the properties of a particular instrument, as identified by a particular unique identifier.",
         "operationId": "ListInstrumentProperties",
         "parameters": [
@@ -20104,7 +20104,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instruments/{identifierType}/{identifier}/properties/time-series": {
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T12:44:14.0643871+00:00",
+                      "date": "2022-12-06T14:32:21.0406820+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T12:44:14.0644018+00:00",
+                      "date": "2022-12-06T14:32:21.0406934+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T12:44:14.0643871+00:00",
+                      "date": "2022-12-06T14:32:21.0406820+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T12:44:14.0644018+00:00",
+                      "date": "2022-12-06T14:32:21.0406934+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T12:44:14.0643871+00:00",
+                      "date": "2022-12-06T14:32:21.0406820+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T12:44:14.0644018+00:00",
+                      "date": "2022-12-06T14:32:21.0406934+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -24213,7 +24213,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] DeleteLegalEntityProperties: Delete Legal Entity Properties",
+        "summary": "[EARLY ACCESS] DeleteLegalEntityProperties: Delete Legal Entity Properties",
         "description": "Delete all properties that belong to the given property keys of the legal entity.",
         "operationId": "DeleteLegalEntityProperties",
         "parameters": [
@@ -24341,7 +24341,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "post": {
         "tags": [
@@ -24721,7 +24721,7 @@
         "tags": [
           "Legal Entities"
         ],
-        "summary": "[EXPERIMENTAL] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series",
+        "summary": "[EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series",
         "description": "List the complete time series of a legal entity property.",
         "operationId": "GetLegalEntityPropertyTimeSeries",
         "parameters": [
@@ -24886,7 +24886,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations": {
@@ -46494,7 +46494,7 @@
         "tags": [
           "Portfolios"
         ],
-        "summary": "[EXPERIMENTAL] GetPortfolioPropertyTimeSeries: Get portfolio property time series",
+        "summary": "[EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series",
         "description": "Show the complete time series (history) for a particular portfolio property.",
         "operationId": "GetPortfolioPropertyTimeSeries",
         "parameters": [
@@ -46656,7 +46656,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}/{code}/relations": {

@@ -5,17 +5,17 @@ All URIs are relative to *https://www.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_instrument**](InstrumentsApi.md#delete_instrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
-[**delete_instrument_properties**](InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
+[**delete_instrument_properties**](InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
 [**delete_instruments**](InstrumentsApi.md#delete_instruments) | **POST** /api/instruments/$delete | [EXPERIMENTAL] DeleteInstruments: Soft or hard delete multiple instruments
 [**get_instrument**](InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
 [**get_instrument_capabilities**](InstrumentsApi.md#get_instrument_capabilities) | **GET** /api/instruments/{identifier}/capabilities | [EXPERIMENTAL] GetInstrumentCapabilities: Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
 [**get_instrument_identifier_types**](InstrumentsApi.md#get_instrument_identifier_types) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
 [**get_instrument_payment_diary**](InstrumentsApi.md#get_instrument_payment_diary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
-[**get_instrument_properties**](InstrumentsApi.md#get_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
+[**get_instrument_properties**](InstrumentsApi.md#get_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
 [**get_instrument_property_time_series**](InstrumentsApi.md#get_instrument_property_time_series) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
 [**get_instrument_relationships**](InstrumentsApi.md#get_instrument_relationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
 [**get_instruments**](InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
-[**list_instrument_properties**](InstrumentsApi.md#list_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
+[**list_instrument_properties**](InstrumentsApi.md#list_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
 [**list_instruments**](InstrumentsApi.md#list_instruments) | **GET** /api/instruments | ListInstruments: List instruments
 [**post_instrument_capabilities**](InstrumentsApi.md#post_instrument_capabilities) | **POST** /api/instruments/capabilities | [EXPERIMENTAL] PostInstrumentCapabilities: Given an example instrument provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
 [**update_instrument_identifier**](InstrumentsApi.md#update_instrument_identifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 # **delete_instrument_properties**
 > DeleteInstrumentPropertiesResponse delete_instrument_properties(identifier_type, identifier, request_body, effective_at=effective_at, scope=scope)
 
-[EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
+[EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
 
 Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
 
@@ -146,7 +146,7 @@ effective_at = 'effective_at_example' # str | The effective datetime or cut labe
 scope = 'default' # str | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
-        # [EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
+        # [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
         api_response = api_instance.delete_instrument_properties(identifier_type, identifier, request_body, effective_at=effective_at, scope=scope)
         pprint(api_response)
     except ApiException as e:
@@ -598,7 +598,7 @@ Name | Type | Description  | Notes
 # **get_instrument_properties**
 > InstrumentProperties get_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at, scope=scope)
 
-[EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
+[EARLY ACCESS] GetInstrumentProperties: Get instrument properties
 
 List all the properties of a particular instrument, as identified by a particular unique identifier.
 
@@ -639,7 +639,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 scope = 'default' # str | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
-        # [EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
+        # [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
         api_response = api_instance.get_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at, scope=scope)
         pprint(api_response)
     except ApiException as e:
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 # **list_instrument_properties**
 > ResourceListOfProperty list_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at, page=page, limit=limit, scope=scope)
 
-[EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
+[EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
 
 List all the properties of a particular instrument, as identified by a particular unique identifier.
 
@@ -989,7 +989,7 @@ limit = 56 # int | When paginating, limit the results per page to this number. (
 scope = 'default' # str | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
-        # [EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
+        # [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
         api_response = api_instance.list_instrument_properties(identifier_type, identifier, effective_at=effective_at, as_at=as_at, page=page, limit=limit, scope=scope)
         pprint(api_response)
     except ApiException as e:
