@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5035",
+    "version": "0.11.5036",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T11:22:58.6662427+00:00",
+                      "date": "2022-12-06T12:44:14.0643871+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T11:22:58.6662544+00:00",
+                      "date": "2022-12-06T12:44:14.0644018+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T11:22:58.6662427+00:00",
+                      "date": "2022-12-06T12:44:14.0643871+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T11:22:58.6662544+00:00",
+                      "date": "2022-12-06T12:44:14.0644018+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T11:22:58.6662427+00:00",
+                      "date": "2022-12-06T12:44:14.0643871+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T11:22:58.6662544+00:00",
+                      "date": "2022-12-06T12:44:14.0644018+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -75038,6 +75038,28 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
               "description": "When running LookThrough, use this along with the slice parameter to specify\r\n            the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite\r\n            for this parameter to be valid.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "useAlternateScalingLogic",
+            "in": "query",
+            "description": "When running LookThrough, set this flag to use the same scaling logic as for LT Holdings",
+            "schema": {
+              "type": "boolean",
+              "description": "When running LookThrough, set this flag to use the same scaling logic as for LT Holdings",
+              "default": false
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "alternateEffectiveAt",
+            "in": "query",
+            "description": "This effectiveAt field is required when using alternate scaling logic to determine which fund and currency data is used for scaling",
+            "schema": {
+              "type": "string",
+              "description": "This effectiveAt field is required when using alternate scaling logic to determine which fund and currency data is used for scaling",
+              "format": "dateorcutlabel",
               "nullable": true
             }
           }

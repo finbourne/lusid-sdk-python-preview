@@ -2000,7 +2000,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **look_through_transactions**
-> VersionedResourceListOfTransaction look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
+> VersionedResourceListOfTransaction look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class, use_alternate_scaling_logic=use_alternate_scaling_logic, alternate_effective_at=alternate_effective_at)
 
 [EXPERIMENTAL] LookThroughTransactions: Look through transactions
 
@@ -2048,10 +2048,12 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 quotes_scope = 'quotes_scope_example' # str | The scope containing the quotes with the FX rates used for currency conversion. (optional)
 slice = 'slice_example' # str | When running LookThrough, define this slice as the root slice in the portfolio to look through from. (optional)
 share_class = 'share_class_example' # str | When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. (optional)
+use_alternate_scaling_logic = False # bool | When running LookThrough, set this flag to use the same scaling logic as for LT Holdings (optional) (default to False)
+alternate_effective_at = 'alternate_effective_at_example' # str | This effectiveAt field is required when using alternate scaling logic to determine which fund and currency data is used for scaling (optional)
 
     try:
         # [EXPERIMENTAL] LookThroughTransactions: Look through transactions
-        api_response = api_instance.look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class)
+        api_response = api_instance.look_through_transactions(scope, code, from_transaction_date=from_transaction_date, to_transaction_date=to_transaction_date, as_at=as_at, filter=filter, property_keys=property_keys, page=page, limit=limit, quotes_scope=quotes_scope, slice=slice, share_class=share_class, use_alternate_scaling_logic=use_alternate_scaling_logic, alternate_effective_at=alternate_effective_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->look_through_transactions: %s\n" % e)
@@ -2073,6 +2075,8 @@ Name | Type | Description  | Notes
  **quotes_scope** | **str**| The scope containing the quotes with the FX rates used for currency conversion. | [optional] 
  **slice** | **str**| When running LookThrough, define this slice as the root slice in the portfolio to look through from. | [optional] 
  **share_class** | **str**| When running LookThrough, use this along with the slice parameter to specify              the root share class in the slice in the portfolio to look through from. The slice parameter is a prerequisite              for this parameter to be valid. | [optional] 
+ **use_alternate_scaling_logic** | **bool**| When running LookThrough, set this flag to use the same scaling logic as for LT Holdings | [optional] [default to False]
+ **alternate_effective_at** | **str**| This effectiveAt field is required when using alternate scaling logic to determine which fund and currency data is used for scaling | [optional] 
 
 ### Return type
 
