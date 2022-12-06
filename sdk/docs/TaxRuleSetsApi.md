@@ -362,7 +362,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TaxRuleSetsApi(api_client)
     scope = 'scope_example' # str | The rule set scope.
 code = 'code_example' # str | The rule set code.
-update_tax_rule_set_request = {"displayName":"Rule set display name","description":"Rule set description","outputPropertyKey":"Transaction/default/TaxAmount","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":0.25,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]}]} # UpdateTaxRuleSetRequest | The contents of the rule set.
+update_tax_rule_set_request = {"displayName":"Rule set display name","description":"Rule set description","rules":[{"name":"UKTaxRule","description":"Rule for the UK tax rate","rate":0.25,"matchCriteria":[{"propertyKey":"Instrument/myScope/market","value":"GB","criterionType":"PropertyValueEquals"},{"propertyKey":"Portfolio/myScope/taxDomicile","value":"GB","criterionType":"PropertyValueEquals"}]}]} # UpdateTaxRuleSetRequest | The contents of the rule set.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)
 
     try:

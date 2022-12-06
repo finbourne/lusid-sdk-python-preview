@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5037",
+    "version": "0.11.5038",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T14:32:21.0406820+00:00",
+                      "date": "2022-12-06T17:21:07.8064939+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T14:32:21.0406934+00:00",
+                      "date": "2022-12-06T17:21:07.8065040+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T14:32:21.0406820+00:00",
+                      "date": "2022-12-06T17:21:07.8064939+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T14:32:21.0406934+00:00",
+                      "date": "2022-12-06T17:21:07.8065040+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T14:32:21.0406820+00:00",
+                      "date": "2022-12-06T17:21:07.8064939+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T14:32:21.0406934+00:00",
+                      "date": "2022-12-06T17:21:07.8065040+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -50154,7 +50154,8 @@
                         "dataScope": "SomeScopeToLookAt",
                         "quoteType": "Rate",
                         "field": "Mid",
-                        "priceSource": ""
+                        "priceSource": "",
+                        "sourceSystem": "Lusid"
                       }
                     ],
                     "suppliers": {},
@@ -50219,7 +50220,8 @@
                         "dataScope": "SomeScopeToLookAt",
                         "quoteType": "Rate",
                         "field": "Mid",
-                        "priceSource": ""
+                        "priceSource": "",
+                        "sourceSystem": "Lusid"
                       }
                     ],
                     "suppliers": {},
@@ -50284,7 +50286,8 @@
                         "dataScope": "SomeScopeToLookAt",
                         "quoteType": "Rate",
                         "field": "Mid",
-                        "priceSource": ""
+                        "priceSource": "",
+                        "sourceSystem": "Lusid"
                       }
                     ],
                     "suppliers": {},
@@ -50349,7 +50352,8 @@
                         "dataScope": "SomeScopeToLookAt",
                         "quoteType": "Rate",
                         "field": "Mid",
-                        "priceSource": ""
+                        "priceSource": "",
+                        "sourceSystem": "Lusid"
                       }
                     ],
                     "suppliers": {},
@@ -50516,7 +50520,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Price",
                               "field": "Ask",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -50587,7 +50592,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Spread",
                               "field": "Bid",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -50665,7 +50671,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Price",
                               "field": "Ask",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -50736,7 +50743,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Spread",
                               "field": "Bid",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -50814,7 +50822,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Price",
                               "field": "Ask",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -50885,7 +50894,8 @@
                               "dataScope": "SomeScopeToLookAt",
                               "quoteType": "Spread",
                               "field": "Bid",
-                              "priceSource": ""
+                              "priceSource": "",
+                              "sourceSystem": "Lusid"
                             }
                           ],
                           "suppliers": {},
@@ -51054,7 +51064,8 @@
                           "dataScope": "SomeScopeToLookAt",
                           "quoteType": "Price",
                           "field": "Ask",
-                          "priceSource": ""
+                          "priceSource": "",
+                          "sourceSystem": "Lusid"
                         }
                       ],
                       "suppliers": {},
@@ -51130,7 +51141,8 @@
                           "dataScope": "SomeScopeToLookAt",
                           "quoteType": "Price",
                           "field": "Ask",
-                          "priceSource": ""
+                          "priceSource": "",
+                          "sourceSystem": "Lusid"
                         }
                       ],
                       "suppliers": {},
@@ -51206,7 +51218,8 @@
                           "dataScope": "SomeScopeToLookAt",
                           "quoteType": "Price",
                           "field": "Ask",
-                          "priceSource": ""
+                          "priceSource": "",
+                          "sourceSystem": "Lusid"
                         }
                       ],
                       "suppliers": {},
@@ -58779,7 +58792,6 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
@@ -58808,7 +58820,6 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
@@ -58837,7 +58848,6 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
@@ -58866,7 +58876,6 @@
               "example": {
                 "displayName": "Rule set display name",
                 "description": "Rule set description",
-                "outputPropertyKey": "Transaction/default/TaxAmount",
                 "rules": [
                   {
                     "name": "UKTaxRule",
@@ -92521,6 +92530,13 @@
             "type": "string",
             "description": "Allows for partial or complete override of the market asset resolved for a dependency\r\nEither a named override or a dot separated string (A.B.C.D.*).\r\ne.g. for Rates curve 'EUR.*' will replace the resolve MarketAsset 'GBP/12M', 'GBP/3M' with the EUR equivalent, if there\r\nare no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule.",
             "nullable": true
+          },
+          "sourceSystem": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Determines from where LUSID should attempt to find the data. Optional and, if omitted, will default to \"Lusid\".\r\nThis means that data will be retrieved from the Quote store and the ComplexMarketData store.\r\nThese can be populated using the Quotes and ComplexMarketData endpoints.\r\n            \r\nThis can be set to \"MarketDataOverrides\" if Supplier is set to \"Client\".",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -92631,6 +92647,13 @@
           },
           "dependencySourceFilter": {
             "$ref": "#/components/schemas/DependencySourceFilter"
+          },
+          "sourceSystem": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Determines from where LUSID should attempt to find the data. Optional and, if omitted, will default to \"Lusid\".\r\nThis means that data will be retrieved from the Quotes store and the ComplexMarketData store.\r\nThese can be populated using the Quotes and ComplexMarketData endpoints.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -103899,7 +103922,6 @@
         "required": [
           "description",
           "displayName",
-          "outputPropertyKey",
           "rules"
         ],
         "type": "object",
@@ -103915,10 +103937,6 @@
             "maxLength": 1024,
             "minLength": 0,
             "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": ""
-          },
-          "outputPropertyKey": {
             "type": "string",
             "description": ""
           },
