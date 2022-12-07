@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5038",
+    "version": "0.11.5039",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T22:00:24.0803703+00:00",
+                      "date": "2022-12-07T11:30:49.1138335+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T22:00:24.0806701+00:00",
+                      "date": "2022-12-07T11:30:49.1138425+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T22:00:24.0803703+00:00",
+                      "date": "2022-12-07T11:30:49.1138335+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T22:00:24.0806701+00:00",
+                      "date": "2022-12-07T11:30:49.1138425+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-06T22:00:24.0803703+00:00",
+                      "date": "2022-12-07T11:30:49.1138335+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-06T22:00:24.0806701+00:00",
+                      "date": "2022-12-07T11:30:49.1138425+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -105716,7 +105716,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }
