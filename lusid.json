@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5041",
+    "version": "0.11.5042",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T15:28:27.4773477+00:00",
+                      "date": "2022-12-07T16:08:21.9897579+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T15:28:27.4773557+00:00",
+                      "date": "2022-12-07T16:08:21.9897681+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T15:28:27.4773477+00:00",
+                      "date": "2022-12-07T16:08:21.9897579+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T15:28:27.4773557+00:00",
+                      "date": "2022-12-07T16:08:21.9897681+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T15:28:27.4773477+00:00",
+                      "date": "2022-12-07T16:08:21.9897579+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T15:28:27.4773557+00:00",
+                      "date": "2022-12-07T16:08:21.9897681+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -71968,7 +71968,7 @@
           "Transaction Portfolios"
         ],
         "summary": "[EXPERIMENTAL] PatchPortfolioDetails: Patch portfolio details",
-        "description": "Create or update certain details for a particular transaction portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nCurrently supported properties are: SubHoldingKeys, BaseCurrency",
+        "description": "Create or update certain details for a particular transaction portfolio.\r\nThe behaviour is defined by the JSON Patch specification.\r\n            \r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nCurrently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod",
         "operationId": "PatchPortfolioDetails",
         "parameters": [
           {
