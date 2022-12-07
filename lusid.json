@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5039",
+    "version": "0.11.5040",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T11:30:49.1138335+00:00",
+                      "date": "2022-12-07T13:28:58.5977301+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T11:30:49.1138425+00:00",
+                      "date": "2022-12-07T13:28:58.5977413+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T11:30:49.1138335+00:00",
+                      "date": "2022-12-07T13:28:58.5977301+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T11:30:49.1138425+00:00",
+                      "date": "2022-12-07T13:28:58.5977413+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-07T11:30:49.1138335+00:00",
+                      "date": "2022-12-07T13:28:58.5977301+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-07T11:30:49.1138425+00:00",
+                      "date": "2022-12-07T13:28:58.5977413+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -84914,6 +84914,12 @@
           "required": {
             "type": "boolean",
             "description": "Whether the field is required or not."
+          },
+          "description": {
+            "maxLength": 512,
+            "type": "string",
+            "description": "An optional description for the field.",
+            "nullable": true
           }
         },
         "additionalProperties": false
