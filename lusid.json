@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5044",
+    "version": "0.11.5045",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20675,12 +20675,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-08T08:13:54.9471525+00:00",
+                      "date": "2022-12-08T08:35:32.4310677+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-08T08:13:54.9471538+00:00",
+                      "date": "2022-12-08T08:35:32.4314242+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20710,12 +20710,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-08T08:13:54.9471525+00:00",
+                      "date": "2022-12-08T08:35:32.4310677+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-08T08:13:54.9471538+00:00",
+                      "date": "2022-12-08T08:35:32.4314242+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
@@ -20745,12 +20745,12 @@
                   "economicDependencies": [
                     {
                       "currency": "GBP",
-                      "date": "2022-12-08T08:13:54.9471525+00:00",
+                      "date": "2022-12-08T08:35:32.4310677+00:00",
                       "dependencyType": "Discounting"
                     },
                     {
                       "currency": "USD",
-                      "date": "2022-12-08T08:13:54.9471538+00:00",
+                      "date": "2022-12-08T08:35:32.4314242+00:00",
                       "dependencyType": "Cash"
                     }
                   ]
