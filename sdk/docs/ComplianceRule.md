@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **type** | **str** |  | 
 **property_key** | **str** |  | [optional] 
 **value** | **str** |  | [optional] 
-**address_key** | **str** |  | [optional] 
 **lower_bound** | **float** |  | 
 **upper_bound** | **float** |  | 
 **schedule** | **str** |  | 

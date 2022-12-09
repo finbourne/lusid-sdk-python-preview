@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **hard_requirement** | **bool** |  | 
 **target_portfolio_ids** | [**list[ResourceId]**](ResourceId.md) |  | 
 **description** | **str** |  | [optional] 
-**address_key** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
