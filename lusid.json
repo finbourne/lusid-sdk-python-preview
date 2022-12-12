@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5054",
+    "version": "0.11.5058",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -82253,10 +82253,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -82893,10 +82895,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -83314,10 +83318,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -83375,10 +83381,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -83465,10 +83473,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -83503,10 +83513,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -84009,10 +84021,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -88830,10 +88844,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -90032,14 +90048,8 @@
           "contractCode",
           "contractMonth",
           "contractSize",
-          "convention",
-          "country",
-          "description",
           "domCcy",
-          "exchangeCode",
-          "exchangeName",
-          "tickerStep",
-          "unitValue"
+          "exchangeCode"
         ],
         "type": "object",
         "properties": {
@@ -90067,20 +90077,23 @@
           },
           "contractSize": {
             "type": "number",
-            "description": "Size of a single contract. By default this should be set to 1000 if otherwise unknown and is defaulted to such.",
+            "description": "Size of a single contract.",
             "format": "double"
           },
           "convention": {
             "type": "string",
-            "description": "If appropriate, the day count convention method used in pricing (rates futures).\r\nFor more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)\r\n            \r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]."
+            "description": "If appropriate, the day count convention method used in pricing (rates futures).\r\nFor more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)\r\n            \r\nSupported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].",
+            "nullable": true
           },
           "country": {
             "type": "string",
-            "description": "Country (code) for the exchange."
+            "description": "Country (code) for the exchange.",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Description of contract."
+            "description": "Description of contract.",
+            "nullable": true
           },
           "exchangeCode": {
             "type": "string",
@@ -90088,7 +90101,8 @@
           },
           "exchangeName": {
             "type": "string",
-            "description": "Exchange name (for when code is not automatically recognised)."
+            "description": "Exchange name (for when code is not automatically recognised).",
+            "nullable": true
           },
           "tickerStep": {
             "type": "number",
@@ -92380,6 +92394,57 @@
         ],
         "description": "LUSID representation of an Inflation Swap.\r\nThe implementation supports the following swap types:\r\n* Zero Coupon inflation swap, with a single payment at maturity.\r\n* LPI Swap (capped and floored)\r\n* Year on Year inflation swap"
       },
+      "InformationalErrorEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "effectiveAt",
+              "errorDetail",
+              "errorReason",
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "errorDetail": {
+                "type": "string",
+                "description": "The details of the error"
+              },
+              "errorReason": {
+                "type": "string",
+                "description": "The error reason"
+              },
+              "effectiveAt": {
+                "type": "string",
+                "description": "The effective date of the evaulation",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
+              }
+            }
+          }
+        ],
+        "description": "Event holder containing error information"
+      },
       "InformationalEvent": {
         "allOf": [
           {
@@ -92429,10 +92494,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -92869,10 +92936,12 @@
               "AmortisationEvent",
               "CashFlowEvent",
               "ExerciseEvent",
-              "ResetEvent"
+              "ResetEvent",
+              "RawVendorEvent",
+              "InformationalErrorEvent"
             ],
             "type": "string",
-            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
           }
         },
         "additionalProperties": false,
@@ -92951,7 +93020,9 @@
           "AmortisationEvent",
           "CashFlowEvent",
           "ExerciseEvent",
-          "ResetEvent"
+          "ResetEvent",
+          "RawVendorEvent",
+          "InformationalErrorEvent"
         ],
         "type": "string",
         "description": "The individual event types."
@@ -93800,6 +93871,81 @@
         },
         "additionalProperties": false,
         "description": "Item which is stepped in level/quantity."
+      },
+      "LifeCycleEventLineage": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The type of the event",
+            "nullable": true
+          },
+          "instrumentType": {
+            "type": "string",
+            "description": "The instrument type of the instrument for the event.",
+            "nullable": true
+          },
+          "instrumentId": {
+            "type": "string",
+            "description": "The LUID of the instrument for the event.",
+            "nullable": true
+          },
+          "legId": {
+            "type": "string",
+            "description": "Leg id for the event.",
+            "nullable": true
+          },
+          "sourceTransactionId": {
+            "type": "string",
+            "description": "The source transaction of the instrument for the event.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The lineage of the event value"
+      },
+      "LifeCycleEventValue": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "effectiveDate": {
+                "type": "string",
+                "description": "The effective date of the event",
+                "format": "date-time"
+              },
+              "eventValues": {
+                "$ref": "#/components/schemas/ResultValueDictionary"
+              },
+              "eventLineage": {
+                "$ref": "#/components/schemas/LifeCycleEventLineage"
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+              }
+            }
+          }
+        ],
+        "description": "The instrument life cycle event result value type"
       },
       "Link": {
         "required": [
@@ -95042,10 +95188,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -99574,6 +99722,61 @@
         ],
         "type": "string"
       },
+      "RawVendorEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "effectiveAt",
+              "eventStatus",
+              "eventType",
+              "eventValue",
+              "instrumentEventType"
+            ],
+            "type": "object",
+            "properties": {
+              "effectiveAt": {
+                "type": "string",
+                "description": "The effective date of the event",
+                "format": "date-time"
+              },
+              "eventValue": {
+                "$ref": "#/components/schemas/LifeCycleEventValue"
+              },
+              "eventType": {
+                "type": "string",
+                "description": "What type of internal event does this represent; reset, exercise, amortisation etc."
+              },
+              "eventStatus": {
+                "type": "string",
+                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
+              }
+            }
+          }
+        ],
+        "description": "A generic event derived from the economic definition of an instrument. This should be considered purely\r\ninformational; any data provided by this event is not guaranteed to be processable by LUSID."
+      },
       "RealisedGainLoss": {
         "required": [
           "costPortfolioCcy",
@@ -100636,10 +100839,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -103225,10 +103430,12 @@
               "ResultValueInt",
               "ResultValueString",
               "CashFlowValue",
-              "CashFlowValueSet"
+              "CashFlowValueSet",
+              "ResultValueLifeCycleEventValue",
+              "ResultValueDateTimeOffset"
             ],
             "type": "string",
-            "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+            "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
           }
         },
         "additionalProperties": false,
@@ -103273,15 +103480,60 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
         ],
         "description": "Result value representing a 0D result. These results can be equipped with a unit"
+      },
+      "ResultValueDateTimeOffset": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The value itself",
+                "format": "date-time"
+              },
+              "dimension": {
+                "type": "integer",
+                "description": "The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be\r\npopulate by the user on upsertion.",
+                "format": "int32",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "CashFlowValue",
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+              }
+            }
+          }
+        ],
+        "description": "A simple result for a date time value"
       },
       "ResultValueDecimal": {
         "allOf": [
@@ -103314,10 +103566,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -103352,10 +103606,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -103393,10 +103649,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -103428,10 +103686,12 @@
                   "ResultValueInt",
                   "ResultValueString",
                   "CashFlowValue",
-                  "CashFlowValueSet"
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -103447,7 +103707,9 @@
           "ResultValueInt",
           "ResultValueString",
           "CashFlowValue",
-          "CashFlowValueSet"
+          "CashFlowValueSet",
+          "ResultValueLifeCycleEventValue",
+          "ResultValueDateTimeOffset"
         ],
         "type": "string",
         "description": "Enum of possible result value type. Used discriminate the result values"
@@ -104097,10 +104359,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -105573,10 +105837,12 @@
                   "AmortisationEvent",
                   "CashFlowEvent",
                   "ExerciseEvent",
-                  "ResetEvent"
+                  "ResetEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent"
               }
             }
           }
@@ -107784,7 +108050,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
+            "authorizationUrl": "https://dummyurl.lusid.com/",
             "scopes": {}
           }
         }

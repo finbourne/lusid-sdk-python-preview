@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **event_type** | **str** | What type of internal event does this represent; coupon, principal, premium etc. | [readonly] 
 **event_status** | **str** | What is the event status, is it a known (ie historic) or unknown (ie projected) event? | 
 **payment_date** | **datetime** | The date on which the cashflow is scheduled to be paid into the recipient&#39;s bank account. | 
-**instrument_event_type** | **str** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent | 
+**instrument_event_type** | **str** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, RawVendorEvent, InformationalErrorEvent | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
