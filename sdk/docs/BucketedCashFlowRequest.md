@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **addresses** | **list[str]** | The set of items that the user wishes to see in the results. If empty, will be defaulted to standard ones. | [optional] 
 **equip_with_subtotals** | **bool** | Flag directing the Valuation call to populate the results with subtotals of aggregates. | [optional] 
 **as_at** | **datetime** | The asAt date to use | [optional] 
+**exclude_unsettled_trades** | **bool** | Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
