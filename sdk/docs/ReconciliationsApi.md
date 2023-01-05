@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **delete_reconciliation_mapping**
-> bool delete_reconciliation_mapping(scope, code)
+> str delete_reconciliation_mapping(scope, code)
 
 [EXPERIMENTAL] DeleteReconciliationMapping: Delete a mapping
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool**
+**str**
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A flag that will be true if a mapping was deleted, false if it didn&#39;t exist. |  -  |
+**200** | A string specifying the scope and code that were deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
