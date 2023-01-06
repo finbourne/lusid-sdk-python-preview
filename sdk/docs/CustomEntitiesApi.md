@@ -4,18 +4,18 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_custom_entity**](CustomEntitiesApi.md#delete_custom_entity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] DeleteCustomEntity: Delete a Custom Entity instance.
-[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
-[**get_custom_entity_relationships**](CustomEntitiesApi.md#get_custom_entity_relationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
-[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
+[**delete_custom_entity**](CustomEntitiesApi.md#delete_custom_entity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+[**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
+[**get_custom_entity_relationships**](CustomEntitiesApi.md#get_custom_entity_relationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
+[**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
 [**upsert_custom_entities**](CustomEntitiesApi.md#upsert_custom_entities) | **POST** /api/customentities/{entityType}/$batchUpsert | [EXPERIMENTAL] UpsertCustomEntities: Batch upsert instances of Custom Entities
-[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
+[**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
 
 
 # **delete_custom_entity**
 > DeletedEntityResponse delete_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope)
 
-[EXPERIMENTAL] DeleteCustomEntity: Delete a Custom Entity instance.
+[EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
 
 Delete a Custom Entity instance by a specific entity type.
 
@@ -55,7 +55,7 @@ identifier_value = 'identifier_value_example' # str | The identifier value.
 identifier_scope = 'identifier_scope_example' # str | The identifier scope.
 
     try:
-        # [EXPERIMENTAL] DeleteCustomEntity: Delete a Custom Entity instance.
+        # [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
         api_response = api_instance.delete_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope)
         pprint(api_response)
     except ApiException as e:
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **get_custom_entity**
 > CustomEntityResponse get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
 
-[EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
+[EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
 
 Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
 
@@ -140,7 +140,7 @@ related_entity_property_keys = ['related_entity_property_keys_example'] # list[s
 relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
-        # [EXPERIMENTAL] GetCustomEntity: Get a Custom Entity instance.
+        # [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
         api_response = api_instance.get_custom_entity(entity_type, identifier_type, identifier_value, identifier_scope, as_at=as_at, effective_at=effective_at, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 # **get_custom_entity_relationships**
 > ResourceListOfRelationship get_custom_entity_relationships(entity_type, identifier_scope, identifier_type, identifier_value, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
+[EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
 
 Get relationships for the specified Custom Entity.
 
@@ -229,7 +229,7 @@ filter = 'filter_example' # str | Expression to filter relationships. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relationships. If not applicable, provide an empty array. (optional)
 
     try:
-        # [EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
+        # [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
         api_response = api_instance.get_custom_entity_relationships(entity_type, identifier_scope, identifier_type, identifier_value, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 # **list_custom_entities**
 > PagedResourceListOfCustomEntityResponse list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
 
-[EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
+[EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
 
 List all the Custom Entities matching particular criteria.
 
@@ -318,7 +318,7 @@ related_entity_property_keys = ['related_entity_property_keys_example'] # list[s
 relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
-        # [EXPERIMENTAL] ListCustomEntities: List Custom Entities of the specified entityType.
+        # [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
         api_response = api_instance.list_custom_entities(entity_type, effective_at=effective_at, as_at=as_at, limit=limit, filter=filter, page=page, related_entity_property_keys=related_entity_property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 # **upsert_custom_entity**
 > CustomEntityResponse upsert_custom_entity(entity_type, custom_entity_request)
 
-[EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
+[EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
 
 Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
 
@@ -480,7 +480,7 @@ with lusid.ApiClient(configuration) as api_client:
 custom_entity_request = {"displayName":"Portfolio Access Denied","description":"User cannot access the portfolio","identifiers":[{"identifierScope":"someScope","identifierType":"supportTicketId","identifierValue":"xyz123pqr"}],"fields":[{"name":"clientId","value":"AcmeLtd"},{"name":"issueDescription","value":"I can't access this portfolio","effectiveFrom":"2023-03-03T09:00:00.0000000+00:00"}]} # CustomEntityRequest | The payload describing the Custom Entity instance.
 
     try:
-        # [EXPERIMENTAL] UpsertCustomEntity: Upsert a Custom Entity instance
+        # [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
         api_response = api_instance.upsert_custom_entity(entity_type, custom_entity_request)
         pprint(api_response)
     except ApiException as e:
