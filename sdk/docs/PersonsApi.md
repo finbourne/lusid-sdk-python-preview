@@ -4,29 +4,29 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_person**](PersonsApi.md#delete_person) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] DeletePerson: Delete person
+[**delete_person**](PersonsApi.md#delete_person) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeletePerson: Delete person
 [**delete_person_access_metadata**](PersonsApi.md#delete_person_access_metadata) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
-[**delete_person_identifiers**](PersonsApi.md#delete_person_identifiers) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
-[**delete_person_properties**](PersonsApi.md#delete_person_properties) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
+[**delete_person_identifiers**](PersonsApi.md#delete_person_identifiers) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] DeletePersonIdentifiers: Delete Person Identifiers
+[**delete_person_properties**](PersonsApi.md#delete_person_properties) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] DeletePersonProperties: Delete Person Properties
 [**get_all_person_access_metadata**](PersonsApi.md#get_all_person_access_metadata) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
-[**get_person**](PersonsApi.md#get_person) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] GetPerson: Get Person
+[**get_person**](PersonsApi.md#get_person) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetPerson: Get Person
 [**get_person_access_metadata_by_key**](PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
-[**get_person_property_time_series**](PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
-[**get_person_relations**](PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
+[**get_person_property_time_series**](PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EARLY ACCESS] GetPersonPropertyTimeSeries: Get Person Property Time Series
+[**get_person_relations**](PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EARLY ACCESS] GetPersonRelations: Get Relations for Person
 [**get_person_relationships**](PersonsApi.md#get_person_relationships) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EARLY ACCESS] GetPersonRelationships: Get Relationships for Person
-[**list_all_persons**](PersonsApi.md#list_all_persons) | **GET** /api/persons | [EXPERIMENTAL] ListAllPersons: List All Persons
-[**list_persons**](PersonsApi.md#list_persons) | **GET** /api/persons/{idTypeScope}/{idTypeCode} | [EXPERIMENTAL] ListPersons: List Persons
-[**patch_person_access_metadata**](PersonsApi.md#patch_person_access_metadata) | **PATCH** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EXPERIMENTAL] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
-[**set_person_identifiers**](PersonsApi.md#set_person_identifiers) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
-[**set_person_properties**](PersonsApi.md#set_person_properties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] SetPersonProperties: Set Person Properties
-[**upsert_person**](PersonsApi.md#upsert_person) | **POST** /api/persons | [EXPERIMENTAL] UpsertPerson: Upsert Person
+[**list_all_persons**](PersonsApi.md#list_all_persons) | **GET** /api/persons | [EARLY ACCESS] ListAllPersons: List All Persons
+[**list_persons**](PersonsApi.md#list_persons) | **GET** /api/persons/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] ListPersons: List Persons
+[**patch_person_access_metadata**](PersonsApi.md#patch_person_access_metadata) | **PATCH** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
+[**set_person_identifiers**](PersonsApi.md#set_person_identifiers) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] SetPersonIdentifiers: Set Person Identifiers
+[**set_person_properties**](PersonsApi.md#set_person_properties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] SetPersonProperties: Set Person Properties
+[**upsert_person**](PersonsApi.md#upsert_person) | **POST** /api/persons | [EARLY ACCESS] UpsertPerson: Upsert Person
 [**upsert_person_access_metadata**](PersonsApi.md#upsert_person_access_metadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
 
 # **delete_person**
 > DeletedEntityResponse delete_person(id_type_scope, id_type_code, code)
 
-[EXPERIMENTAL] DeletePerson: Delete person
+[EARLY ACCESS] DeletePerson: Delete person
 
 Delete a person. Deletion will be valid from the person's creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -65,7 +65,7 @@ id_type_code = 'id_type_code_example' # str | The code of the person identifier 
 code = 'code_example' # str | Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.
 
     try:
-        # [EXPERIMENTAL] DeletePerson: Delete person
+        # [EARLY ACCESS] DeletePerson: Delete person
         api_response = api_instance.delete_person(id_type_scope, id_type_code, code)
         pprint(api_response)
     except ApiException as e:
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 # **delete_person_identifiers**
 > DeletedEntityResponse delete_person_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
 
-[EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
+[EARLY ACCESS] DeletePersonIdentifiers: Delete Person Identifiers
 
 Delete identifiers that belong to the given property keys of the person.
 
@@ -231,7 +231,7 @@ property_keys = ['property_keys_example'] # list[str] | The property keys of the
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)
 
     try:
-        # [EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
+        # [EARLY ACCESS] DeletePersonIdentifiers: Delete Person Identifiers
         api_response = api_instance.delete_person_identifiers(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 # **delete_person_properties**
 > DeletedEntityResponse delete_person_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
 
-[EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
+[EARLY ACCESS] DeletePersonProperties: Delete Person Properties
 
 Delete all properties that belong to the given property keys of the person.
 
@@ -314,7 +314,7 @@ property_keys = ['property_keys_example'] # list[str] | The property keys of the
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)
 
     try:
-        # [EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
+        # [EARLY ACCESS] DeletePersonProperties: Delete Person Properties
         api_response = api_instance.delete_person_properties(id_type_scope, id_type_code, code, property_keys, effective_at=effective_at)
         pprint(api_response)
     except ApiException as e:
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 # **get_person**
 > Person get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at, relationship_definition_ids=relationship_definition_ids)
 
-[EXPERIMENTAL] GetPerson: Get Person
+[EARLY ACCESS] GetPerson: Get Person
 
 Retrieve the definition of a person.
 
@@ -482,7 +482,7 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to r
 relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPerson: Get Person
+        # [EARLY ACCESS] GetPerson: Get Person
         api_response = api_instance.get_person(id_type_scope, id_type_code, code, property_keys=property_keys, effective_at=effective_at, as_at=as_at, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 # **get_person_property_time_series**
 > ResourceListOfPropertyInterval get_person_property_time_series(id_type_scope, id_type_code, code, property_key, as_at=as_at, filter=filter, page=page, limit=limit)
 
-[EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
+[EARLY ACCESS] GetPersonPropertyTimeSeries: Get Person Property Time Series
 
 List the complete time series of a person property.
 
@@ -655,7 +655,7 @@ page = 'page_example' # str | The pagination token to use to continue listing pr
 limit = 56 # int | When paginating, limit the number of returned results to this many. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
+        # [EARLY ACCESS] GetPersonPropertyTimeSeries: Get Person Property Time Series
         api_response = api_instance.get_person_property_time_series(id_type_scope, id_type_code, code, property_key, as_at=as_at, filter=filter, page=page, limit=limit)
         pprint(api_response)
     except ApiException as e:
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 # **get_person_relations**
 > ResourceListOfRelation get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
 
-[EXPERIMENTAL] GetPersonRelations: Get Relations for Person
+[EARLY ACCESS] GetPersonRelations: Get Relations for Person
 
 Get relations for the specified person.
 
@@ -743,7 +743,7 @@ filter = 'filter_example' # str | Expression to filter the relations. Users shou
 identifier_types = ['identifier_types_example'] # list[str] | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)
 
     try:
-        # [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
+        # [EARLY ACCESS] GetPersonRelations: Get Relations for Person
         api_response = api_instance.get_person_relations(id_type_scope, id_type_code, code, effective_at=effective_at, as_at=as_at, filter=filter, identifier_types=identifier_types)
         pprint(api_response)
     except ApiException as e:
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 # **list_all_persons**
 > ResourceListOfPerson list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
 
-[EXPERIMENTAL] ListAllPersons: List All Persons
+[EARLY ACCESS] ListAllPersons: List All Persons
 
 List all persons which the user is entitled to see.
 
@@ -917,7 +917,7 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
-        # [EXPERIMENTAL] ListAllPersons: List All Persons
+        # [EARLY ACCESS] ListAllPersons: List All Persons
         api_response = api_instance.list_all_persons(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
@@ -961,7 +961,7 @@ Name | Type | Description  | Notes
 # **list_persons**
 > PagedResourceListOfPerson list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
 
-[EXPERIMENTAL] ListPersons: List Persons
+[EARLY ACCESS] ListPersons: List Persons
 
 List persons which have identifiers of a specific identifier type's scope and code, and satisfies filter criteria.
 
@@ -1007,7 +1007,7 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 relationship_definition_ids = ['relationship_definition_ids_example'] # list[str] | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)
 
     try:
-        # [EXPERIMENTAL] ListPersons: List Persons
+        # [EARLY ACCESS] ListPersons: List Persons
         api_response = api_instance.list_persons(id_type_scope, id_type_code, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys, relationship_definition_ids=relationship_definition_ids)
         pprint(api_response)
     except ApiException as e:
@@ -1054,7 +1054,7 @@ Name | Type | Description  | Notes
 # **patch_person_access_metadata**
 > dict(str, list[AccessMetadataValue]) patch_person_access_metadata(id_type_scope, id_type_code, code, access_metadata_operation, effective_at=effective_at, effective_until=effective_until)
 
-[EXPERIMENTAL] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
+[EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
 
 Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only 'add' is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
@@ -1096,7 +1096,7 @@ effective_at = 'effective_at_example' # str | The effectiveAt datetime at which 
 effective_until = '2013-10-20T19:20:30+01:00' # datetime | The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' datetime of the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
+        # [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
         api_response = api_instance.patch_person_access_metadata(id_type_scope, id_type_code, code, access_metadata_operation, effective_at=effective_at, effective_until=effective_until)
         pprint(api_response)
     except ApiException as e:
@@ -1139,7 +1139,7 @@ Name | Type | Description  | Notes
 # **set_person_identifiers**
 > Person set_person_identifiers(id_type_scope, id_type_code, code, set_person_identifiers_request)
 
-[EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
+[EARLY ACCESS] SetPersonIdentifiers: Set Person Identifiers
 
 Set identifiers of the person.
 
@@ -1179,7 +1179,7 @@ code = 'code_example' # str | Code of the person under specified identifier type
 set_person_identifiers_request = {"identifiers":{"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453333"}}}} # SetPersonIdentifiersRequest | Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.
 
     try:
-        # [EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
+        # [EARLY ACCESS] SetPersonIdentifiers: Set Person Identifiers
         api_response = api_instance.set_person_identifiers(id_type_scope, id_type_code, code, set_person_identifiers_request)
         pprint(api_response)
     except ApiException as e:
@@ -1220,7 +1220,7 @@ Name | Type | Description  | Notes
 # **set_person_properties**
 > Person set_person_properties(id_type_scope, id_type_code, code, set_person_properties_request)
 
-[EXPERIMENTAL] SetPersonProperties: Set Person Properties
+[EARLY ACCESS] SetPersonProperties: Set Person Properties
 
 Set properties of the person.
 
@@ -1260,7 +1260,7 @@ code = 'code_example' # str | Code of the person under specified identifier type
 set_person_properties_request = {"properties":{"person/ContactDetails/Phone":{"key":"Person/ContactDetails/Phone","value":{"labelValue":"01156786789"},"effectiveFrom":"2019-07-01T00:00:00.0000000+00:00"}}} # SetPersonPropertiesRequest | Request containing properties to set for the person. Properties not specified in request will not be changed.
 
     try:
-        # [EXPERIMENTAL] SetPersonProperties: Set Person Properties
+        # [EARLY ACCESS] SetPersonProperties: Set Person Properties
         api_response = api_instance.set_person_properties(id_type_scope, id_type_code, code, set_person_properties_request)
         pprint(api_response)
     except ApiException as e:
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 # **upsert_person**
 > Person upsert_person(upsert_person_request)
 
-[EXPERIMENTAL] UpsertPerson: Upsert Person
+[EARLY ACCESS] UpsertPerson: Upsert Person
 
 Create or update a new person under the specified scope.
 
@@ -1338,7 +1338,7 @@ with lusid.ApiClient(configuration) as api_client:
     upsert_person_request = {"identifiers":{"person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"person/PersonalDetails/Name":{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}},"person/CompanyDetails/Role":{"key":"Person/CompanyDetails/Role","value":{"labelValueSet":{"values":["CustomerServiceRepresentative","SalesRepresentative"]}},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}},"displayName":"Person1DisplayName","description":"Person1Description"} # UpsertPersonRequest | Request to create or update a person.
 
     try:
-        # [EXPERIMENTAL] UpsertPerson: Upsert Person
+        # [EARLY ACCESS] UpsertPerson: Upsert Person
         api_response = api_instance.upsert_person(upsert_person_request)
         pprint(api_response)
     except ApiException as e:

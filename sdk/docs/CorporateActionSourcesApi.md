@@ -7,12 +7,12 @@ Method | HTTP request | Description
 [**batch_upsert_corporate_actions**](CorporateActionSourcesApi.md#batch_upsert_corporate_actions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
 [**create_corporate_action_source**](CorporateActionSourcesApi.md#create_corporate_action_source) | **POST** /api/corporateactionsources | [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
 [**delete_corporate_action_source**](CorporateActionSourcesApi.md#delete_corporate_action_source) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
-[**delete_corporate_actions**](CorporateActionSourcesApi.md#delete_corporate_actions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions
-[**delete_instrument_events**](CorporateActionSourcesApi.md#delete_instrument_events) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EXPERIMENTAL] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+[**delete_corporate_actions**](CorporateActionSourcesApi.md#delete_corporate_actions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+[**delete_instrument_events**](CorporateActionSourcesApi.md#delete_instrument_events) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
 [**get_corporate_actions**](CorporateActionSourcesApi.md#get_corporate_actions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
-[**get_instrument_events**](CorporateActionSourcesApi.md#get_instrument_events) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EXPERIMENTAL] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+[**get_instrument_events**](CorporateActionSourcesApi.md#get_instrument_events) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 [**list_corporate_action_sources**](CorporateActionSourcesApi.md#list_corporate_action_sources) | **GET** /api/corporateactionsources | [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
-[**upsert_instrument_events**](CorporateActionSourcesApi.md#upsert_instrument_events) | **POST** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EXPERIMENTAL] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+[**upsert_instrument_events**](CorporateActionSourcesApi.md#upsert_instrument_events) | **POST** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
 
 
 # **batch_upsert_corporate_actions**
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 # **delete_corporate_actions**
 > DeletedEntityResponse delete_corporate_actions(scope, code, corporate_action_ids)
 
-[EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions
+[EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
 
 Delete one or more corporate actions from a particular corporate action source.
 
@@ -288,7 +288,7 @@ code = 'code_example' # str | The code of the corporate action source
 corporate_action_ids = ['corporate_action_ids_example'] # list[str] | The IDs of the corporate actions to delete
 
     try:
-        # [EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions
+        # [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
         api_response = api_instance.delete_corporate_actions(scope, code, corporate_action_ids)
         pprint(api_response)
     except ApiException as e:
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 # **delete_instrument_events**
 > DeletedEntityResponse delete_instrument_events(scope, code, instrument_event_ids)
 
-[EXPERIMENTAL] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+[EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
 
 Delete one or more corporate actions from a particular corporate action source.
 
@@ -367,7 +367,7 @@ code = 'code_example' # str | The code of the corporate action source
 instrument_event_ids = ['instrument_event_ids_example'] # list[str] | The IDs of the instrument events to delete
 
     try:
-        # [EXPERIMENTAL] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+        # [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
         api_response = api_instance.delete_instrument_events(scope, code, instrument_event_ids)
         pprint(api_response)
     except ApiException as e:
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 # **get_instrument_events**
 > PagedResourceListOfInstrumentEventHolder get_instrument_events(scope, code, as_at=as_at, limit=limit, page=page, filter=filter)
 
-[EXPERIMENTAL] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+[EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 
 Retrieves extrinsic corporate actions out of a corporate actions source
 
@@ -538,7 +538,7 @@ page = 'page_example' # str | Optional. The pagination token to use to continue 
 filter = 'filter_example' # str | Optional. Expression to filter the result set. (optional)
 
     try:
-        # [EXPERIMENTAL] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+        # [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
         api_response = api_instance.get_instrument_events(scope, code, as_at=as_at, limit=limit, page=page, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 # **upsert_instrument_events**
 > UpsertInstrumentEventsResponse upsert_instrument_events(scope, code, upsert_instrument_event_request=upsert_instrument_event_request)
 
-[EXPERIMENTAL] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+[EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
 
 Batch upsert instrument events to corporate action sources.
 
@@ -703,7 +703,7 @@ code = 'code_example' # str | The code of the corporate action source.
 upsert_instrument_event_request = [{"instrumentEventId":"MyStockSplitId","instrumentIdentifiers":{"instrument/default/Figi":"BBG001S6PJ31"},"description":"2-for-1 stock split of instrument BBG001S6PJ31","instrumentEvent":{"announcementDate":"2018-03-01T00:00:00.0000000+00:00","exDate":"2018-06-01T00:00:00.0000000+00:00","recordDate":"2018-06-02T00:00:00.0000000+00:00","paymentDate":"2018-08-02T00:00:00.0000000+00:00","inputTransition":{"unitsFactor":1,"costFactor":1},"outputTransitions":[{"instrumentIdentifiers":{"instrument/default/Figi":"BBG001S6PJ31"},"unitsFactor":2,"costFactor":1}],"instrumentEventType":"TransitionEvent"},"properties":[]}] # list[UpsertInstrumentEventRequest] | The instrument event definitions. (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+        # [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         api_response = api_instance.upsert_instrument_events(scope, code, upsert_instrument_event_request=upsert_instrument_event_request)
         pprint(api_response)
     except ApiException as e:
