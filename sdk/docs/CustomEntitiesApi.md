@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**get_custom_entity**](CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
 [**get_custom_entity_relationships**](CustomEntitiesApi.md#get_custom_entity_relationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
 [**list_custom_entities**](CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
-[**upsert_custom_entities**](CustomEntitiesApi.md#upsert_custom_entities) | **POST** /api/customentities/{entityType}/$batchUpsert | [EXPERIMENTAL] UpsertCustomEntities: Batch upsert instances of Custom Entities
+[**upsert_custom_entities**](CustomEntitiesApi.md#upsert_custom_entities) | **POST** /api/customentities/{entityType}/$batchUpsert | [EARLY ACCESS] UpsertCustomEntities: Batch upsert instances of Custom Entities
 [**upsert_custom_entity**](CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
 
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 # **upsert_custom_entities**
 > UpsertCustomEntitiesResponse upsert_custom_entities(entity_type, success_mode, request_body)
 
-[EXPERIMENTAL] UpsertCustomEntities: Batch upsert instances of Custom Entities
+[EARLY ACCESS] UpsertCustomEntities: Batch upsert instances of Custom Entities
 
 Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
 
@@ -402,7 +402,7 @@ success_mode = 'success_mode_example' # str | Whether the batch request should f
 request_body = {"customEntity1":{"displayName":"CustomEntity1","description":"MyFirstCustomEntity","identifiers":[{"identifierScope":"scope1","identifierType":"supportTicketId","identifierValue":"xyz123pqr"}],"fields":[{"name":"clientId","value":"AcmeLtd","effectiveFrom":"0001-01-01T00:00:00.0000000+00:00","effectiveUntil":"9999-12-31T23:59:59.9999999+00:00"},{"name":"issueDescription","value":"I can't access this portfolio","effectiveFrom":"2020-01-01T12:00:00.0000000+00:00","effectiveUntil":"9999-12-31T23:59:59.9999999+00:00"}]},"customEntity2":{"displayName":"CustomEntity2","description":"MyFirstCustomEntity","identifiers":[{"identifierScope":"scope1","identifierType":"supportTicketId","identifierValue":"yazr1531"}],"fields":[{"name":"clientId","value":"AcmeLtd","effectiveFrom":"0001-01-01T00:00:00.0000000+00:00","effectiveUntil":"9999-12-31T23:59:59.9999999+00:00"},{"name":"issueDescription","value":"Having trouble adding identifiers","effectiveFrom":"2020-01-01T12:00:00.0000000+00:00","effectiveUntil":"9999-12-31T23:59:59.9999999+00:00"}]}} # dict(str, CustomEntityRequest) | The payload describing the Custom Entity instances
 
     try:
-        # [EXPERIMENTAL] UpsertCustomEntities: Batch upsert instances of Custom Entities
+        # [EARLY ACCESS] UpsertCustomEntities: Batch upsert instances of Custom Entities
         api_response = api_instance.upsert_custom_entities(entity_type, success_mode, request_body)
         pprint(api_response)
     except ApiException as e:
