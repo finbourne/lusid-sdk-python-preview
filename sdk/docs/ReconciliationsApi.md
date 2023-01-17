@@ -206,7 +206,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ReconciliationsApi(api_client)
-    reconciliation_type = 'reconciliation_type_example' # str | Optional parameter to specify which type of mappings should be returned.              Currently only supports Transaction types (optional)
+    reconciliation_type = 'reconciliation_type_example' # str | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)
 
     try:
         # [EXPERIMENTAL] ListReconciliationMappings: List the reconciliation mappings
@@ -220,7 +220,7 @@ with lusid.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reconciliation_type** | **str**| Optional parameter to specify which type of mappings should be returned.              Currently only supports Transaction types | [optional] 
+ **reconciliation_type** | **str**| Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. | [optional] 
 
 ### Return type
 
