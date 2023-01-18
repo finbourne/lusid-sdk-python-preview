@@ -73,7 +73,7 @@ class TaxRule(object):
         :type rate: float
         :param match_criteria:  A set of criteria to be met for this rule to be applied (required)
         :type match_criteria: list[lusid.MatchCriterion]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -216,7 +216,6 @@ class TaxRule(object):
     def links(self):
         """Gets the links of this TaxRule.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this TaxRule.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -227,7 +226,6 @@ class TaxRule(object):
     def links(self, links):
         """Sets the links of this TaxRule.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this TaxRule.  # noqa: E501
         :type links: list[lusid.Link]
