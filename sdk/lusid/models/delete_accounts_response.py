@@ -63,7 +63,7 @@ class DeleteAccountsResponse(object):
         :type version: lusid.Version
         :param account_ids:  The Accounts which have been soft/hard deleted.
         :type account_ids: list[str]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -129,7 +129,6 @@ class DeleteAccountsResponse(object):
     def links(self):
         """Gets the links of this DeleteAccountsResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this DeleteAccountsResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -140,7 +139,6 @@ class DeleteAccountsResponse(object):
     def links(self, links):
         """Sets the links of this DeleteAccountsResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this DeleteAccountsResponse.  # noqa: E501
         :type links: list[lusid.Link]
