@@ -128,7 +128,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope from which to delete data items.
-request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The data IDs to delete, each keyed by a unique, ephemeral correlation ID.
+request_body = {"SomeCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The data IDs to delete, each keyed by a unique, ephemeral correlation ID.
 
     try:
         # [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
@@ -282,7 +282,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope from which to retrieve data items.
-request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
+request_body = {"SomeCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)
 max_age = 'max_age_example' # str | The duration of the look-back window in ISO8601 time interval format, for example 'P1Y2M3DT4H30M' (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)
 
@@ -363,7 +363,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope in which to construct the virtual documents.
-request_body = {"someCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
+request_body = {"SomeCorrelationId1":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"}} # dict(str, StructuredResultDataId) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)
 
     try:
@@ -442,7 +442,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope in which to construct the virtual documents.
-request_body = {"someCorrelationId1":{"documentId":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"UnitResult/Analytic"},"key":{"unitResult/LusidInstrumentId":"LUID_0000ABCD"},"dataAddress":"UnitResult/Valuation/InstrumentAccrued","resultValue":{"units":"USD","value":0.0102,"dimension":0,"resultValueType":"ResultValue0D"}}} # dict(str, UpsertResultValuesDataRequest) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
+request_body = {"SomeCorrelationId1":{"documentId":{"source":"MiddleOffice","code":"MyUploadedRiskResults","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"UnitResult/Analytic"},"key":{"UnitResult/LusidInstrumentId":"LUID_0000ABCD"},"dataAddress":"UnitResult/Valuation/InstrumentAccrued","resultValue":{"units":"USD","value":0.0102,"dimension":0,"resultValueType":"ResultValue0D"}}} # dict(str, UpsertResultValuesDataRequest) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 
     try:
         # [EXPERIMENTAL] UpsertResultValue: Upsert result value
