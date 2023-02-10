@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5225",
+    "version": "0.11.5226",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -44154,7 +44154,7 @@
                     "scope": "default",
                     "code": "TransactionReconciliationMapping",
                     "name": "Mapping Name",
-                    "for": "Transaction",
+                    "reconciliationType": "Transaction",
                     "rules": [
                       {
                         "left": "TransactionId",
@@ -44319,7 +44319,7 @@
                     "scope": "default",
                     "code": "TransactionReconciliationMapping",
                     "name": "Mapping Name",
-                    "for": "Transaction",
+                    "reconciliationType": "Transaction",
                     "rules": [
                       {
                         "left": "TransactionId",
@@ -44484,7 +44484,7 @@
                     "scope": "default",
                     "code": "TransactionReconciliationMapping",
                     "name": "Mapping Name",
-                    "for": "Transaction",
+                    "reconciliationType": "Transaction",
                     "rules": [
                       {
                         "left": "TransactionId",
@@ -45169,7 +45169,7 @@
                 "scope": "default",
                 "code": "TransactionReconciliationMapping",
                 "name": "Mapping Name",
-                "for": "Transaction",
+                "reconciliationType": "Transaction",
                 "rules": [
                   {
                     "left": "TransactionId",
@@ -45254,7 +45254,7 @@
                 "scope": "default",
                 "code": "TransactionReconciliationMapping",
                 "name": "Mapping Name",
-                "for": "Transaction",
+                "reconciliationType": "Transaction",
                 "rules": [
                   {
                     "left": "TransactionId",
@@ -45339,7 +45339,7 @@
                 "scope": "default",
                 "code": "TransactionReconciliationMapping",
                 "name": "Mapping Name",
-                "for": "Transaction",
+                "reconciliationType": "Transaction",
                 "rules": [
                   {
                     "left": "TransactionId",
@@ -45424,7 +45424,7 @@
                 "scope": "default",
                 "code": "TransactionReconciliationMapping",
                 "name": "Mapping Name",
-                "for": "Transaction",
+                "reconciliationType": "Transaction",
                 "rules": [
                   {
                     "left": "TransactionId",
@@ -45515,7 +45515,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -45600,7 +45600,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -45685,7 +45685,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -45925,7 +45925,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -46010,7 +46010,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -46095,7 +46095,7 @@
                   "scope": "default",
                   "code": "TransactionReconciliationMapping",
                   "name": "Mapping Name",
-                  "for": "Transaction",
+                  "reconciliationType": "Transaction",
                   "rules": [
                     {
                       "left": "TransactionId",
@@ -94921,6 +94921,12 @@
         "additionalProperties": false
       },
       "Mapping": {
+        "required": [
+          "code",
+          "name",
+          "reconciliationType",
+          "scope"
+        ],
         "type": "object",
         "properties": {
           "scope": {
@@ -94928,27 +94934,25 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The scope for this mapping.",
-            "nullable": true
+            "description": "The scope for this mapping."
           },
           "code": {
             "maxLength": 64,
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The code for this mapping.",
-            "nullable": true
+            "description": "The code for this mapping."
           },
           "name": {
+            "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The mapping name",
-            "nullable": true
+            "description": "The mapping name"
           },
-          "for": {
+          "reconciliationType": {
+            "minLength": 1,
             "type": "string",
-            "description": "What type of reconciliation this mapping is for",
-            "nullable": true
+            "description": "What type of reconciliation this mapping is for"
           },
           "rules": {
             "type": "array",
