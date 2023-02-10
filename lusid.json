@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5223",
+    "version": "0.11.5224",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -31439,7 +31439,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -31495,7 +31500,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -31551,7 +31561,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
@@ -31741,7 +31756,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -31793,7 +31813,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -31855,7 +31880,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -31907,7 +31937,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -31969,7 +32004,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -32021,7 +32061,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -32245,7 +32290,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -32297,7 +32347,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -32359,7 +32414,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -32411,7 +32471,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -32473,7 +32538,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     },
                     {
@@ -32525,7 +32595,12 @@
                       "relationships": [],
                       "version": {
                         "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                        "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                        "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdCreated": "UserId1",
+                        "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                        "userIdModified": "UserId1",
+                        "asAtVersionNumber": 1
                       }
                     }
                   ],
@@ -32715,7 +32790,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -32771,7 +32851,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -32827,7 +32912,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
@@ -33127,7 +33217,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -33172,7 +33267,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -33217,7 +33317,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
@@ -34352,7 +34457,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -34397,7 +34507,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -34442,7 +34557,12 @@
                   "relationships": [],
                   "version": {
                     "effectiveFrom": "2019-07-01T00:00:00.0000000+00:00",
-                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00"
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
