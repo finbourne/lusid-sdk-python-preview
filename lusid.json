@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5233",
+    "version": "0.11.5235",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -13365,7 +13365,7 @@
             "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -13553,7 +13553,7 @@
             "description": "The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -13879,7 +13879,7 @@
             "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -14174,7 +14174,7 @@
             "description": "The type of Custom Entity to list.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -14334,7 +14334,7 @@
             "description": "The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -14798,7 +14798,7 @@
             "description": "The type of Custom Entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -15071,7 +15071,7 @@
             "description": "An identifier type attached to the Custom Entity instance.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
@@ -15177,7 +15177,7 @@
             "description": "The type of entity get relationships for.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 65,
               "minLength": 1,
               "type": "string"
             }
@@ -86998,60 +86998,6 @@
         "additionalProperties": false,
         "description": "An amount of a specific currency, specifying a value and an associated unit"
       },
-      "CustodianAccount": {
-        "required": [
-          "accountingMethod",
-          "accountName",
-          "accountNumber",
-          "currency",
-          "custodian",
-          "custodianAccountId",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "custodianAccountId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "status": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The account status. Can be Active, Inactive or Deleted. Defaults to Active."
-          },
-          "accountNumber": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The Custodian Account Number"
-          },
-          "accountName": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The identifiable name given to the Custodian Account"
-          },
-          "accountingMethod": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The Accounting method to be used"
-          },
-          "currency": {
-            "type": "string",
-            "description": "The Currency for the Account"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Property"
-            },
-            "description": "Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the 'CustodianAccount' domain.",
-            "nullable": true
-          },
-          "custodian": {
-            "$ref": "#/components/schemas/LegalEntity"
-          }
-        },
-        "additionalProperties": false
-      },
       "CustomEntityDefinition": {
         "required": [
           "displayName",
@@ -105729,9 +105675,6 @@
           },
           "allocationId": {
             "$ref": "#/components/schemas/ResourceId"
-          },
-          "custodianAccount": {
-            "$ref": "#/components/schemas/CustodianAccount"
           }
         },
         "additionalProperties": false,
@@ -106250,9 +106193,6 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "allocationId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "custodianAccountId": {
             "$ref": "#/components/schemas/ResourceId"
           }
         },
