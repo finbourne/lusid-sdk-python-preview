@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5238",
+    "version": "0.11.5239",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -84548,13 +84548,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -84588,13 +84590,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -95332,13 +95336,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -104967,13 +104973,15 @@
               "ResultValueDecimal",
               "ResultValueInt",
               "ResultValueString",
+              "ResultValueBool",
+              "ResultValueCurrency",
               "CashFlowValue",
               "CashFlowValueSet",
               "ResultValueLifeCycleEventValue",
               "ResultValueDateTimeOffset"
             ],
             "type": "string",
-            "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+            "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
           }
         },
         "additionalProperties": false,
@@ -105017,18 +105025,97 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
         ],
         "description": "Result value representing a 0D result. These results can be equipped with a unit"
+      },
+      "ResultValueBool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "boolean",
+                "description": "The value itself"
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
+                  "CashFlowValue",
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+              }
+            }
+          }
+        ],
+        "description": "A simple result for a boolean value"
+      },
+      "ResultValueCurrency": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResultValue"
+          },
+          {
+            "required": [
+              "resultValueType"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The value itself",
+                "nullable": true
+              },
+              "resultValueType": {
+                "enum": [
+                  "ResultValue",
+                  "ResultValueDictionary",
+                  "ResultValue0D",
+                  "ResultValueDecimal",
+                  "ResultValueInt",
+                  "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
+                  "CashFlowValue",
+                  "CashFlowValueSet",
+                  "ResultValueLifeCycleEventValue",
+                  "ResultValueDateTimeOffset"
+                ],
+                "type": "string",
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+              }
+            }
+          }
+        ],
+        "description": "A simple result for a currency value"
       },
       "ResultValueDateTimeOffset": {
         "allOf": [
@@ -105060,13 +105147,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -105103,13 +105192,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -105143,13 +105234,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -105186,13 +105279,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -105223,13 +105318,15 @@
                   "ResultValueDecimal",
                   "ResultValueInt",
                   "ResultValueString",
+                  "ResultValueBool",
+                  "ResultValueCurrency",
                   "CashFlowValue",
                   "CashFlowValueSet",
                   "ResultValueLifeCycleEventValue",
                   "ResultValueDateTimeOffset"
                 ],
                 "type": "string",
-                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
+                "description": "The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset"
               }
             }
           }
@@ -105244,6 +105341,8 @@
           "ResultValueDecimal",
           "ResultValueInt",
           "ResultValueString",
+          "ResultValueBool",
+          "ResultValueCurrency",
           "CashFlowValue",
           "CashFlowValueSet",
           "ResultValueLifeCycleEventValue",
