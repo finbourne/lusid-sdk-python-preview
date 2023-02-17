@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5248",
+    "version": "0.11.5249",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -39685,7 +39685,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".",
+            "description": "A list of property keys from the \"Instrument\", \"Holding\" or \"Portfolio\" domain to decorate onto\r\n            the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".",
             "schema": {
               "type": "array",
               "items": {
@@ -72356,6 +72356,1057 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/custodianaccounts": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts",
+        "description": "Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated\r\nif it already exists and created if it does not.\n\nThe batch limit per request is 2,000.",
+        "operationId": "UpsertCustodianAccounts",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Transaction Portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Transaction Portfolio. Together with the scope this uniquely identifies\r\n            the Transaction Portfolios.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A list of Custodian Accounts to be created or updated.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CustodianAccountRequest"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "Account1",
+                  "status": "Active",
+                  "accountNumber": "10003786BGBP",
+                  "accountName": "Account1 Sterling",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "GBP",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode1",
+                    "code": "LegalEntityValue1"
+                  }
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "Account2",
+                  "status": "Active",
+                  "accountNumber": "10003786BEUR",
+                  "accountName": "Account2 Euro",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "EUR",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode2",
+                    "code": "LegalEntityValue2"
+                  }
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CustodianAccountRequest"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "Account1",
+                  "status": "Active",
+                  "accountNumber": "10003786BGBP",
+                  "accountName": "Account1 Sterling",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "GBP",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode1",
+                    "code": "LegalEntityValue1"
+                  }
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "Account2",
+                  "status": "Active",
+                  "accountNumber": "10003786BEUR",
+                  "accountName": "Account2 Euro",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "EUR",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode2",
+                    "code": "LegalEntityValue2"
+                  }
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CustodianAccountRequest"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "Account1",
+                  "status": "Active",
+                  "accountNumber": "10003786BGBP",
+                  "accountName": "Account1 Sterling",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "GBP",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode1",
+                    "code": "LegalEntityValue1"
+                  }
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "Account2",
+                  "status": "Active",
+                  "accountNumber": "10003786BEUR",
+                  "accountName": "Account2 Euro",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "EUR",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode2",
+                    "code": "LegalEntityValue2"
+                  }
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CustodianAccountRequest"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "Account1",
+                  "status": "Active",
+                  "accountNumber": "10003786BGBP",
+                  "accountName": "Account1 Sterling",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "GBP",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode1",
+                    "code": "LegalEntityValue1"
+                  }
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "Account2",
+                  "status": "Active",
+                  "accountNumber": "10003786BEUR",
+                  "accountName": "Account2 Euro",
+                  "accountingMethod": "FirstInFirstOut",
+                  "currency": "EUR",
+                  "properties": {},
+                  "custodianIdentifier": {
+                    "idTypeScope": "ScopeA",
+                    "idTypeCode": "LegalEntityCode2",
+                    "code": "LegalEntityValue2"
+                  }
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The newly upserted custodian accounts.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountsUpsertResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountsUpsertResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountsUpsertResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts",
+        "description": "List the custodian accounts in a Transaction Portfolios",
+        "operationId": "ListCustodianAccounts",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Transaction Portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Transaction Portfolio. Together with the scope this uniquely identifies\r\n            the Transaction Portfolios.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the TimeVariant properties decorated on Custodian Accounts. Defaults to the current LUSID\r\n            system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the instrument. Defaults to\r\n            returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing custodian accounts; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "When paginating, skip this number of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results.\r\n            For example, to filter on the Custodian Account type, specify \"code eq '001'\". For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must have the format {domain}/{scope}/{code}, for example 'CustodianAccount/system/Name'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The custodian accounts in the give Transaction Portfolios.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustodianAccount"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustodianAccount"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfCustodianAccount"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/custodianaccounts/$delete": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts",
+        "description": "Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive\r\nWhile the Hard deletion is deleting the custodian account.\n\nThe batch limit per request is 2,000.",
+        "operationId": "DeleteCustodianAccounts",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Transaction Portfolios.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Transaction Portfolios. Together with the scope this uniquely identifies\r\n            the Transaction Portfolios.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "deleteMode",
+            "in": "query",
+            "description": "The delete mode to use (defaults to 'Soft').",
+            "schema": {
+              "enum": [
+                "Soft",
+                "Hard"
+              ],
+              "type": "string",
+              "description": "The available values are: Soft, Hard"
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The scope and codes of the custodian accounts to delete.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "AccountCode1"
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "AccountCode2"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "AccountCode1"
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "AccountCode2"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "AccountCode1"
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "AccountCode2"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              },
+              "example": [
+                {
+                  "scope": "ScopeA",
+                  "code": "AccountCode1"
+                },
+                {
+                  "scope": "ScopeB",
+                  "code": "AccountCode2"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The datetime that the custodian accounts were deleted.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCustodianAccountsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCustodianAccountsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCustodianAccountsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode}": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] GetCustodianAccount: Get Custodian Account",
+        "description": "Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.",
+        "operationId": "GetCustodianAccount",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Transaction Portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Transaction Portfolio. Together with the scope this uniquely identifies the Transaction Portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "custodianAccountScope",
+            "in": "path",
+            "description": "The scope of the Custodian Account.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "custodianAccountCode",
+            "in": "path",
+            "description": "The code of the Custodian Account.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the Custodian Account properties. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Custodian Account definition. Defaults to returning the latest version of the Custodian Account definition if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must take the format {domain}/{scope}/{code}, for example 'CustodianAccount/Manager/Id'. If not provided will return all the entitled properties for that Custodian Account.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Custodian Account definition",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccount"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccount"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccount"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode}/properties/$upsert": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties",
+        "description": "Update or insert one or more properties onto a single custodian account. A property will be updated if it\r\nalready exists and inserted if it does not. All properties must be of the domain 'CustodianAccount'.\r\n            \r\nUpserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.\r\n            \r\nProperties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
+        "operationId": "UpsertCustodianAccountsProperties",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Transaction Portfolios to update or insert the properties onto.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Transaction Portfolios to update or insert the properties onto. Together with the scope this uniquely identifies the Transaction Portfolios.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "custodianAccountScope",
+            "in": "path",
+            "description": "The scope of the Custodian Account to update or insert the properties onto.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "custodianAccountCode",
+            "in": "path",
+            "description": "The unique ID of the custodian account to create or update properties for.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The properties to be updated or inserted onto the Transaction Portfolio. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"CustodianAccount/Manager/Id\".",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "CustodianAccount/MyScope/FundManagerName": {
+                  "key": "CustodianAccount/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/SomeProperty": {
+                  "key": "CustodianAccount/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/AnotherProperty": {
+                  "key": "CustodianAccount/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/ReBalanceInterval": {
+                  "key": "CustodianAccount/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "CustodianAccount/MyScope/FundManagerName": {
+                  "key": "CustodianAccount/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/SomeProperty": {
+                  "key": "CustodianAccount/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/AnotherProperty": {
+                  "key": "CustodianAccount/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/ReBalanceInterval": {
+                  "key": "CustodianAccount/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "CustodianAccount/MyScope/FundManagerName": {
+                  "key": "CustodianAccount/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/SomeProperty": {
+                  "key": "CustodianAccount/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/AnotherProperty": {
+                  "key": "CustodianAccount/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/ReBalanceInterval": {
+                  "key": "CustodianAccount/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "CustodianAccount/MyScope/FundManagerName": {
+                  "key": "CustodianAccount/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/SomeProperty": {
+                  "key": "CustodianAccount/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/AnotherProperty": {
+                  "key": "CustodianAccount/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "CustodianAccount/MyScope/ReBalanceInterval": {
+                  "key": "CustodianAccount/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated or inserted properties",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountProperties"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountProperties"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustodianAccountProperties"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/details": {
       "get": {
         "tags": [
@@ -73726,7 +74777,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".",
+            "description": "A list of property keys from the \"Instrument\", \"Holding\" or \"Portfolio\" domain to decorate onto\r\n            holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".",
             "schema": {
               "type": "array",
               "items": {
@@ -74461,7 +75512,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".",
+            "description": "A list of property keys from the \"Instrument\", \"Holding\" or \"Portfolio\" domain to decorate onto\r\n            holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".",
             "schema": {
               "type": "array",
               "items": {
@@ -75201,7 +76252,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".",
+            "description": "A list of property keys from the \"Instrument\", \"Holding\" or \"Portfolio\" domain to decorate onto\r\n            the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".",
             "schema": {
               "type": "array",
               "items": {
@@ -87943,6 +88994,190 @@
         "additionalProperties": false,
         "description": "An amount of a specific currency, specifying a value and an associated unit"
       },
+      "CustodianAccount": {
+        "required": [
+          "accountingMethod",
+          "accountName",
+          "accountNumber",
+          "currency",
+          "custodian",
+          "custodianAccountId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "custodianAccountId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The account status. Can be Active, Inactive or Deleted. Defaults to Active."
+          },
+          "accountNumber": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Custodian Account Number"
+          },
+          "accountName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifiable name given to the Custodian Account"
+          },
+          "accountingMethod": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Accounting method to be used"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The Currency for the Account"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the 'CustodianAccount' domain.",
+            "nullable": true
+          },
+          "custodian": {
+            "$ref": "#/components/schemas/LegalEntity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustodianAccountProperties": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The Custodian Account properties. These will be from the 'CustodianAccount' domain.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustodianAccountRequest": {
+        "required": [
+          "accountingMethod",
+          "accountName",
+          "accountNumber",
+          "code",
+          "currency",
+          "custodianIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used",
+            "nullable": true
+          },
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "Unique Code representing the Custodian Account"
+          },
+          "status": {
+            "type": "string",
+            "description": "The account status. Can be Active, Inactive or Deleted. Defaults to Active.",
+            "nullable": true
+          },
+          "accountNumber": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Custodian Account Number"
+          },
+          "accountName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The identifiable name given to the Custodian Account"
+          },
+          "accountingMethod": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Accounting method to be used"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The Currency for the Account"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the 'CustodianAccount' domain.",
+            "nullable": true
+          },
+          "custodianIdentifier": {
+            "$ref": "#/components/schemas/TypedResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustodianAccountsUpsertResponse": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "custodianAccounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustodianAccount"
+            },
+            "description": "The Custodian Accounts which have been upserted.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The upsert accounts response"
+      },
       "CustomEntityDefinition": {
         "required": [
           "displayName",
@@ -88692,6 +89927,32 @@
         },
         "additionalProperties": false,
         "description": "The delete accounts response"
+      },
+      "DeleteCustodianAccountsResponse": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "custodianAccountIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The Custodian Accounts which have been soft/hard deleted.",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The delete custodian accounts response"
       },
       "DeletedEntityResponse": {
         "required": [
@@ -97868,6 +99129,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CorporateActionSource"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
+      "PagedResourceListOfCustodianAccount": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustodianAccount"
             },
             "description": "The resources to list."
           },
