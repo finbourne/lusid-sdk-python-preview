@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5261",
+    "version": "0.11.5262",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -107512,6 +107512,9 @@
           },
           "allocationId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "custodianAccount": {
+            "$ref": "#/components/schemas/CustodianAccount"
           }
         },
         "additionalProperties": false,
@@ -108030,6 +108033,9 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "allocationId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "custodianAccountId": {
             "$ref": "#/components/schemas/ResourceId"
           }
         },
