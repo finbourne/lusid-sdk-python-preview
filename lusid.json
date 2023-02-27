@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5273",
+    "version": "0.11.5274",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -45,11 +45,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -99,11 +101,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -153,11 +157,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -207,11 +213,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -334,11 +342,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -388,11 +398,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -442,11 +454,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -496,11 +510,13 @@
                 "metrics": [
                   {
                     "key": "Instrument/default/Name",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   },
                   {
                     "key": "Holding/default/PV",
-                    "op": "Value"
+                    "op": "Value",
+                    "options": {}
                   }
                 ],
                 "groupBy": [
@@ -44105,11 +44121,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44149,11 +44167,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44191,7 +44211,8 @@
                     "tolerance": 1.2345,
                     "appliesTo": {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     },
                     "ruleType": "ReconcileNumericRule"
                   }
@@ -44215,11 +44236,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44259,11 +44282,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44301,7 +44326,8 @@
                     "tolerance": 1.2345,
                     "appliesTo": {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     },
                     "ruleType": "ReconcileNumericRule"
                   }
@@ -44325,11 +44351,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44369,11 +44397,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44411,7 +44441,8 @@
                     "tolerance": 1.2345,
                     "appliesTo": {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     },
                     "ruleType": "ReconcileNumericRule"
                   }
@@ -44435,11 +44466,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44479,11 +44512,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44521,7 +44556,8 @@
                     "tolerance": 1.2345,
                     "appliesTo": {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     },
                     "ruleType": "ReconcileNumericRule"
                   }
@@ -44840,11 +44876,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44889,11 +44927,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44947,11 +44987,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -44996,11 +45038,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -45054,11 +45098,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -45103,11 +45149,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -45161,11 +45209,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -45210,11 +45260,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -45977,11 +46029,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46021,11 +46075,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46076,11 +46132,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46120,11 +46178,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46175,11 +46235,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46219,11 +46281,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46274,11 +46338,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -46318,11 +46384,13 @@
                   "metrics": [
                     {
                       "key": "Instrument/default/Name",
-                      "op": "Value"
+                      "op": "Value",
+                      "options": {}
                     },
                     {
                       "key": "Holding/default/PV",
-                      "op": "Sum"
+                      "op": "Sum",
+                      "options": {}
                     }
                   ],
                   "groupBy": [
@@ -83917,6 +83985,45 @@
         },
         "additionalProperties": false
       },
+      "AddressKeyOptionDefinition": {
+        "required": [
+          "name",
+          "optional",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the option"
+          },
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of the option"
+          },
+          "optional": {
+            "type": "boolean",
+            "description": "Is this option required or optional?"
+          },
+          "allowedValueSet": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "If the option is a string or enum, the allowed set of values it can take.",
+            "nullable": true
+          },
+          "defaultValue": {
+            "type": "string",
+            "description": "If the option is not required, what is the default value?",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The definition of an Address Key Option"
+      },
       "AdjustHolding": {
         "required": [
           "version"
@@ -84230,6 +84337,15 @@
             ],
             "type": "string",
             "description": "The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears"
+          },
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "Additional options to apply when performing computations. Options that do not apply to the Key will be\r\nignored. Option values can be boolean, numeric, string or date-time.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -84429,6 +84545,14 @@
             "type": "string",
             "description": "If the life cycle status is set to deprecated then this will be populated with the date on or after which removal of the address query will happen",
             "format": "date-time",
+            "nullable": true
+          },
+          "applicableOptions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AddressKeyOptionDefinition"
+            },
+            "description": "A mapping from option names to the definition that the corresponding option value must match.",
             "nullable": true
           }
         },
