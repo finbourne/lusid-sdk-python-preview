@@ -4,21 +4,21 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_reconciliation_mapping**](ReconciliationsApi.md#delete_reconciliation_mapping) | **DELETE** /api/portfolios/mapping/{scope}/{code} | [EXPERIMENTAL] DeleteReconciliationMapping: Delete a mapping
-[**get_reconciliation_mapping**](ReconciliationsApi.md#get_reconciliation_mapping) | **GET** /api/portfolios/mapping/{scope}/{code} | [EXPERIMENTAL] GetReconciliationMapping: Get a mapping
-[**list_reconciliation_mappings**](ReconciliationsApi.md#list_reconciliation_mappings) | **GET** /api/portfolios/mapping | [EXPERIMENTAL] ListReconciliationMappings: List the reconciliation mappings
+[**delete_reconciliation_mapping**](ReconciliationsApi.md#delete_reconciliation_mapping) | **DELETE** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
+[**get_reconciliation_mapping**](ReconciliationsApi.md#get_reconciliation_mapping) | **GET** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] GetReconciliationMapping: Get a mapping
+[**list_reconciliation_mappings**](ReconciliationsApi.md#list_reconciliation_mappings) | **GET** /api/portfolios/mapping | [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
 [**reconcile_generic**](ReconciliationsApi.md#reconcile_generic) | **POST** /api/portfolios/$reconcileGeneric | ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
 [**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 [**reconcile_inline**](ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
-[**reconcile_transactions**](ReconciliationsApi.md#reconcile_transactions) | **POST** /api/portfolios/$reconcileTransactions | [EXPERIMENTAL] ReconcileTransactions: Perform a Transactions Reconciliation.
+[**reconcile_transactions**](ReconciliationsApi.md#reconcile_transactions) | **POST** /api/portfolios/$reconcileTransactions | [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
 [**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-[**upsert_reconciliation_mapping**](ReconciliationsApi.md#upsert_reconciliation_mapping) | **POST** /api/portfolios/mapping | [EXPERIMENTAL] UpsertReconciliationMapping: Create or update a mapping
+[**upsert_reconciliation_mapping**](ReconciliationsApi.md#upsert_reconciliation_mapping) | **POST** /api/portfolios/mapping | [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
 
 
 # **delete_reconciliation_mapping**
 > str delete_reconciliation_mapping(scope, code)
 
-[EXPERIMENTAL] DeleteReconciliationMapping: Delete a mapping
+[EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
 
 Deletes the mapping identified by the scope and code
 
@@ -56,7 +56,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The code fof the mapping.
 
     try:
-        # [EXPERIMENTAL] DeleteReconciliationMapping: Delete a mapping
+        # [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
         api_response = api_instance.delete_reconciliation_mapping(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **get_reconciliation_mapping**
 > Mapping get_reconciliation_mapping(scope, code)
 
-[EXPERIMENTAL] GetReconciliationMapping: Get a mapping
+[EARLY ACCESS] GetReconciliationMapping: Get a mapping
 
 Gets a mapping identified by the given scope and code
 
@@ -133,7 +133,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The code fof the mapping.
 
     try:
-        # [EXPERIMENTAL] GetReconciliationMapping: Get a mapping
+        # [EARLY ACCESS] GetReconciliationMapping: Get a mapping
         api_response = api_instance.get_reconciliation_mapping(scope, code)
         pprint(api_response)
     except ApiException as e:
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 # **list_reconciliation_mappings**
 > ResourceListOfMapping list_reconciliation_mappings(reconciliation_type=reconciliation_type)
 
-[EXPERIMENTAL] ListReconciliationMappings: List the reconciliation mappings
+[EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
 
 Lists all mappings this user is entitled to see
 
@@ -209,7 +209,7 @@ with lusid.ApiClient(configuration) as api_client:
     reconciliation_type = 'reconciliation_type_example' # str | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)
 
     try:
-        # [EXPERIMENTAL] ListReconciliationMappings: List the reconciliation mappings
+        # [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
         api_response = api_instance.list_reconciliation_mappings(reconciliation_type=reconciliation_type)
         pprint(api_response)
     except ApiException as e:
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 # **reconcile_transactions**
 > TransactionsReconciliationsResponse reconcile_transactions(transaction_reconciliation_request=transaction_reconciliation_request)
 
-[EXPERIMENTAL] ReconcileTransactions: Perform a Transactions Reconciliation.
+[EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
 
 Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
 
@@ -517,7 +517,7 @@ with lusid.ApiClient(configuration) as api_client:
     transaction_reconciliation_request = {"leftPortfolioId":{"scope":"street","code":"Global-Equity"},"rightPortfolioId":{"scope":"custodian","code":"Global-Equity"},"fromTransactionDate":"2019-04-01T12:00:00.0000000+00:00","toTransactionDate":"2019-05-01T12:00:00.0000000+00:00","propertyKeys":["Instrument/default/Name","Transaction/common/Strategy"]} # TransactionReconciliationRequest |  (optional)
 
     try:
-        # [EXPERIMENTAL] ReconcileTransactions: Perform a Transactions Reconciliation.
+        # [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         api_response = api_instance.reconcile_transactions(transaction_reconciliation_request=transaction_reconciliation_request)
         pprint(api_response)
     except ApiException as e:
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 # **upsert_reconciliation_mapping**
 > Mapping upsert_reconciliation_mapping(mapping=mapping)
 
-[EXPERIMENTAL] UpsertReconciliationMapping: Create or update a mapping
+[EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
 
 If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
 
@@ -667,7 +667,7 @@ with lusid.ApiClient(configuration) as api_client:
     mapping = {"scope":"default","code":"TransactionReconciliationMapping","name":"Mapping Name","reconciliationType":"Transaction","rules":[{"left":"TransactionId","right":"TransactionId","comparisonType":"Equals","weight":10,"isCaseSensitive":false},{"left":"InstrumentUid","right":"InstrumentUid","comparisonType":"Equals","weight":5,"isCaseSensitive":false},{"left":"TransactionPrice","right":"TransactionPrice","comparisonType":"Equals","weight":1,"isCaseSensitive":false},{"left":"TransactionCurrency","right":"TransactionCurrency","comparisonType":"Equals","weight":1,"isCaseSensitive":false},{"left":"TransactionDate","right":"TransactionDate","comparisonType":"SameDate","weight":1,"isCaseSensitive":false},{"left":"SettlementDate","right":"SettlementDate","comparisonType":"SameDate","weight":1,"isCaseSensitive":false},{"left":"CounterpartyId","right":"CounterpartyId","comparisonType":"Equals","weight":1,"isCaseSensitive":false},{"left":"ExchangeRate","right":"ExchangeRate","comparisonType":"WithinPercentage","comparisonValue":0.5,"weight":1,"isCaseSensitive":false},{"left":"Type","right":"Type","comparisonType":"MappedString","weight":1,"mappedStrings":[{"leftValue":"Buy","rightValue":"Purchase","mappingDirection":"BothWays","isCaseSensitive":false}],"isCaseSensitive":false}]} # Mapping | The mapping to be created / updated. (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertReconciliationMapping: Create or update a mapping
+        # [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         api_response = api_instance.upsert_reconciliation_mapping(mapping=mapping)
         pprint(api_response)
     except ApiException as e:

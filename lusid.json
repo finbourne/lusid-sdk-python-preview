@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5282",
+    "version": "0.11.5283",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -45373,7 +45373,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] ReconcileTransactions: Perform a Transactions Reconciliation.",
+        "summary": "[EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.",
         "description": "Evaluates two sets of transactions to determine which transactions from each set likely match\r\nusing the rules of a specified mapping.",
         "operationId": "ReconcileTransactions",
         "requestBody": {
@@ -46001,7 +46001,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/$reconcileValuation": {
@@ -46494,7 +46494,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] UpsertReconciliationMapping: Create or update a mapping",
+        "summary": "[EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping",
         "description": "If no mapping exists with the specified scope and code will create a new one.\r\nElse will update the existing mapping",
         "operationId": "UpsertReconciliationMapping",
         "requestBody": {
@@ -47139,13 +47139,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "get": {
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] ListReconciliationMappings: List the reconciliation mappings",
+        "summary": "[EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings",
         "description": "Lists all mappings this user is entitled to see",
         "operationId": "ListReconciliationMappings",
         "parameters": [
@@ -47215,7 +47215,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/mapping/{scope}/{code}": {
@@ -47223,7 +47223,7 @@
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] GetReconciliationMapping: Get a mapping",
+        "summary": "[EARLY ACCESS] GetReconciliationMapping: Get a mapping",
         "description": "Gets a mapping identified by the given scope and code",
         "operationId": "GetReconciliationMapping",
         "parameters": [
@@ -47549,13 +47549,13 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       },
       "delete": {
         "tags": [
           "Reconciliations"
         ],
-        "summary": "[EXPERIMENTAL] DeleteReconciliationMapping: Delete a mapping",
+        "summary": "[EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping",
         "description": "Deletes the mapping identified by the scope and code",
         "operationId": "DeleteReconciliationMapping",
         "parameters": [
@@ -47641,7 +47641,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/portfolios/{scope}": {
