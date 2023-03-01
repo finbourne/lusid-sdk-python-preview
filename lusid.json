@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5284",
+    "version": "0.11.5285",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -72755,7 +72755,6 @@
                   "accountName": "Account1 Sterling",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "GBP",
-                  "accountType": "Cash",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72771,7 +72770,6 @@
                   "accountName": "Account2 Euro",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "EUR",
-                  "accountType": "Swap",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72797,7 +72795,6 @@
                   "accountName": "Account1 Sterling",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "GBP",
-                  "accountType": "Cash",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72813,7 +72810,6 @@
                   "accountName": "Account2 Euro",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "EUR",
-                  "accountType": "Swap",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72839,7 +72835,6 @@
                   "accountName": "Account1 Sterling",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "GBP",
-                  "accountType": "Cash",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72855,7 +72850,6 @@
                   "accountName": "Account2 Euro",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "EUR",
-                  "accountType": "Swap",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72881,7 +72875,6 @@
                   "accountName": "Account1 Sterling",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "GBP",
-                  "accountType": "Cash",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -72897,7 +72890,6 @@
                   "accountName": "Account2 Euro",
                   "accountingMethod": "FirstInFirstOut",
                   "currency": "EUR",
-                  "accountType": "Swap",
                   "properties": {},
                   "custodianIdentifier": {
                     "idTypeScope": "ScopeA",
@@ -89362,7 +89354,6 @@
           "accountingMethod",
           "accountName",
           "accountNumber",
-          "accountType",
           "currency",
           "custodian",
           "custodianAccountId",
@@ -89397,11 +89388,6 @@
           "currency": {
             "type": "string",
             "description": "The Currency for the Account"
-          },
-          "accountType": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin."
           },
           "properties": {
             "type": "object",
@@ -89500,11 +89486,6 @@
           "currency": {
             "type": "string",
             "description": "The Currency for the Account"
-          },
-          "accountType": {
-            "type": "string",
-            "description": "The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin.",
-            "nullable": true
           },
           "properties": {
             "type": "object",
