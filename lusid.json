@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.5298",
+    "version": "0.11.5299",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -21,6 +21,837 @@
     }
   ],
   "paths": {
+    "/api/abor": {
+      "get": {
+        "tags": [
+          "Abor"
+        ],
+        "summary": "[EXPERIMENTAL] ListAbors: List Abors.",
+        "description": "List all the Abors matching particular criteria.",
+        "operationId": "ListAbors",
+        "parameters": [
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID\r\n            system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing Abor; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "When paginating, skip this number of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results.\r\n            For example, to filter on the Abor type, specify \"id.Code eq 'Abor1'\". For more information about filtering\r\n            results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the 'Abor' domain to decorate onto each Abor.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested abors.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfAbor"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfAbor"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfAbor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/abor/{scope}": {
+      "post": {
+        "tags": [
+          "Abor"
+        ],
+        "summary": "[EXPERIMENTAL] CreateAbor: Create an Abor.",
+        "description": "Create the given Abor.",
+        "operationId": "CreateAbor",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Abor.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The definition of the Abor.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AborRequest"
+              },
+              "example": {
+                "code": "AborCode",
+                "portfolioIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "description": "Standard Abor",
+                "aborConfig": {
+                  "scope": "ConfigScope",
+                  "code": "ConfigCode"
+                },
+                "properties": {
+                  "Abor/MyScope/FundManagerName": {
+                    "key": "Abor/MyScope/FundManagerName",
+                    "value": {
+                      "labelValue": "Smith"
+                    },
+                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AborRequest"
+              },
+              "example": {
+                "code": "AborCode",
+                "portfolioIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "description": "Standard Abor",
+                "aborConfig": {
+                  "scope": "ConfigScope",
+                  "code": "ConfigCode"
+                },
+                "properties": {
+                  "Abor/MyScope/FundManagerName": {
+                    "key": "Abor/MyScope/FundManagerName",
+                    "value": {
+                      "labelValue": "Smith"
+                    },
+                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AborRequest"
+              },
+              "example": {
+                "code": "AborCode",
+                "portfolioIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "description": "Standard Abor",
+                "aborConfig": {
+                  "scope": "ConfigScope",
+                  "code": "ConfigCode"
+                },
+                "properties": {
+                  "Abor/MyScope/FundManagerName": {
+                    "key": "Abor/MyScope/FundManagerName",
+                    "value": {
+                      "labelValue": "Smith"
+                    },
+                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AborRequest"
+              },
+              "example": {
+                "code": "AborCode",
+                "portfolioIds": [
+                  {
+                    "scope": "portfolioScope",
+                    "code": "portfolioCode",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "description": "Standard Abor",
+                "aborConfig": {
+                  "scope": "ConfigScope",
+                  "code": "ConfigCode"
+                },
+                "properties": {
+                  "Abor/MyScope/FundManagerName": {
+                    "key": "Abor/MyScope/FundManagerName",
+                    "value": {
+                      "labelValue": "Smith"
+                    },
+                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The newly created abor.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/abor/{scope}/{code}": {
+      "get": {
+        "tags": [
+          "Abor"
+        ],
+        "summary": "[EXPERIMENTAL] GetAbor: Get Abor.",
+        "description": "Retrieve the definition of a particular Abor.",
+        "operationId": "GetAbor",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Abor.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Abor. Together with the scope this uniquely identifies the Abor.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the 'Abor' domain to decorate onto the Abor.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. If not provided will return all the entitled properties for that Abor.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Abor definition.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Abor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "Abor"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteAbor: Delete an Abor.",
+        "description": "Delete the given Abor.",
+        "operationId": "DeleteAbor",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Abor to be deleted.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The datetime that the Abor was deleted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/abor/{scope}/{code}/properties/$upsert": {
+      "post": {
+        "tags": [
+          "Abor"
+        ],
+        "summary": "[EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties",
+        "description": "Update or insert one or more properties onto a single Abor. A property will be updated if it\r\nalready exists and inserted if it does not. All properties must be of the domain 'Abor'.\r\n            \r\nUpserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.\r\n            \r\nProperties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>\r\ndatetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being\r\nvalid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.",
+        "operationId": "UpsertAborProperties",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Abor to update or insert the properties onto.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The properties to be updated or inserted onto the chart of account. Each property in\r\n             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Abor/Manager/Id\".",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "Abor/MyScope/FundManagerName": {
+                  "key": "Abor/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/SomeProperty": {
+                  "key": "Abor/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/AnotherProperty": {
+                  "key": "Abor/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/ReBalanceInterval": {
+                  "key": "Abor/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "Abor/MyScope/FundManagerName": {
+                  "key": "Abor/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/SomeProperty": {
+                  "key": "Abor/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/AnotherProperty": {
+                  "key": "Abor/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/ReBalanceInterval": {
+                  "key": "Abor/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "Abor/MyScope/FundManagerName": {
+                  "key": "Abor/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/SomeProperty": {
+                  "key": "Abor/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/AnotherProperty": {
+                  "key": "Abor/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/ReBalanceInterval": {
+                  "key": "Abor/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              },
+              "example": {
+                "Abor/MyScope/FundManagerName": {
+                  "key": "Abor/MyScope/FundManagerName",
+                  "value": {
+                    "labelValue": "Smith"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/SomeProperty": {
+                  "key": "Abor/MyScope/SomeProperty",
+                  "value": {
+                    "labelValue": "SomeValue"
+                  },
+                  "effectiveFrom": "2016-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/AnotherProperty": {
+                  "key": "Abor/MyScope/AnotherProperty",
+                  "value": {
+                    "labelValue": "AnotherValue"
+                  },
+                  "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
+                  "effectiveUntil": "2020-01-01T00:00:00.0000000+00:00"
+                },
+                "Abor/MyScope/ReBalanceInterval": {
+                  "key": "Abor/MyScope/ReBalanceInterval",
+                  "value": {
+                    "metricValue": {
+                      "value": 30,
+                      "unit": "Days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated or inserted properties",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AborProperties"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AborProperties"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AborProperties"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
     "/api/aborconfiguration": {
       "get": {
         "tags": [
@@ -84349,6 +85180,60 @@
         "additionalProperties": false,
         "description": "A2B Movement Record - shows A2B category based changes relating to a specific movement"
       },
+      "Abor": {
+        "required": [
+          "id",
+          "portfolioIds"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "id": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "portfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description for the Abor.",
+            "nullable": true
+          },
+          "aborConfig": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Properties to add to the Abor.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An Abor entity."
+      },
       "AborConfiguration": {
         "required": [
           "id"
@@ -84478,6 +85363,81 @@
         },
         "additionalProperties": false,
         "description": "The request used to create an AborConfiguration."
+      },
+      "AborProperties": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The Abor properties. These will be from the 'Abor' domain.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AborRequest": {
+        "required": [
+          "aborConfig",
+          "code",
+          "portfolioIds"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The code given for the Abor."
+          },
+          "portfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "type": "string",
+            "description": "The description for the Abor.",
+            "nullable": true
+          },
+          "aborConfig": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Properties to add to the Abor.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The request used to create an Abor."
       },
       "AccessControlledAction": {
         "required": [
@@ -100236,6 +101196,47 @@
         "additionalProperties": false,
         "description": "A request to create or update multiple Packages."
       },
+      "PagedResourceListOfAbor": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Abor"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Collection of links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of resource that can be returned from a request."
+      },
       "PagedResourceListOfAborConfiguration": {
         "required": [
           "values"
@@ -112620,6 +113621,10 @@
   ],
   "tags": [
     {
+      "name": "Abor",
+      "description": "Methods to create and manage abor."
+    },
+    {
       "name": "AborConfiguration",
       "description": "Methods to create and manage abor configuration."
     },
@@ -112827,6 +113832,7 @@
   "x-tagGroups": {
     "name": "API",
     "tags": [
+      "Abor",
       "AborConfiguration",
       "Aggregation",
       "Allocations",
