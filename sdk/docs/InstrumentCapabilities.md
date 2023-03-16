@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **instrument_id** | **str** | The Lusid insturment id for the instrument e.g. &#39;LUID_00003D4X&#39;. | [optional] 
 **model** | **str** | The pricing model e.g. &#39;Discounting&#39;. | [optional] 
 **features** | **dict(str, str)** | Features of the instrument describing its optionality, payoff type and more e.g. &#39;Instrument/Features/Exercise: American&#39;, &#39;Instrument/Features/Product: Option&#39; | [optional] 
-**supported_addresses** | [**list[DescribedAddressKey]**](DescribedAddressKey.md) | Queryable addresses supported by the model, e.g. &#39;Valuation/Pv&#39;, &#39;Valuation/Accrued&#39;. | [optional] 
+**supported_addresses** | **list[str]** | Queryable addresses supported by the model, e.g. &#39;Valuation/Pv&#39;, &#39;Valuation/Accrued&#39;. | [optional] 
 **economic_dependencies** | [**list[EconomicDependency]**](EconomicDependency.md) | Economic dependencies for the model, e.g. &#39;Fx:GBP.USD&#39;, &#39;Cash:GBP&#39;, &#39;Rates:GBP.GBPOIS&#39;. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
