@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **counterparty** | **str** | The market entity this placement is placed with. | 
 **execution_system** | **str** | Optionally specifies the execution system in use. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
