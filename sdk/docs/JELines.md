@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **source_type** | **str** | So far are 4 types: LusidTxn, LusidValuation, Manual and External. | 
 **source_id** | **str** | For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. | 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Properties to add to the Abor. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
