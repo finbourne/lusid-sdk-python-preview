@@ -6,6 +6,7 @@ An JELines entity.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounting_date** | **datetime** | The JELines accounting date. | 
+**activity_date** | **datetime** | The actual date of the activity. Differs from the accounting date when creating journals that would occur in a closed period. | 
 **portfolio_id** | [**ResourceId**](ResourceId.md) |  | 
 **instrument_id** | **str** | To indicate the instrument of the transaction that the JE line posted for, if applicable. | 
 **instrument_scope** | **str** | The scope in which the JELines instrument is in. | 
@@ -21,6 +22,8 @@ Name | Type | Description | Notes
 **source_type** | **str** | So far are 4 types: LusidTxn, LusidValuation, Manual and External. | 
 **source_id** | **str** | For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. | 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Properties to add to the Abor. | [optional] 
+**movement_name** | **str** | The name of the movement. | 
+**holding_type** | **str** | Defines the broad category holding within the portfolio. | 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

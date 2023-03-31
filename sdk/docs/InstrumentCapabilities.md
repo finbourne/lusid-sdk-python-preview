@@ -5,7 +5,7 @@ Instrument capabilities containing useful information about the instrument and t
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_id** | **str** | The Lusid insturment id for the instrument e.g. &#39;LUID_00003D4X&#39;. | [optional] 
+**instrument_id** | **str** | The Lusid instrument id for the instrument e.g. &#39;LUID_00003D4X&#39;. | [optional] 
 **model** | **str** | The pricing model e.g. &#39;Discounting&#39;. | [optional] 
 **features** | **dict(str, str)** | Features of the instrument describing its optionality, payoff type and more e.g. &#39;Instrument/Features/Exercise: American&#39;, &#39;Instrument/Features/Product: Option&#39; | [optional] 
 **supported_addresses** | [**list[DescribedAddressKey]**](DescribedAddressKey.md) | Queryable addresses supported by the model, e.g. &#39;Valuation/Pv&#39;, &#39;Valuation/Accrued&#39;. | [optional] 
