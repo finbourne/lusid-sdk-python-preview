@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Properties to add to the Abor. | [optional] 
 **movement_name** | **str** | The name of the movement. | 
 **holding_type** | **str** | Defines the broad category holding within the portfolio. | 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
