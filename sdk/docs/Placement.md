@@ -6,7 +6,8 @@ A street order for a quantity of a single instrument placed with a single market
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**ResourceId**](ResourceId.md) |  | 
-**block_ids** | [**list[ResourceId]**](ResourceId.md) | IDs of Blocks associated with this placement. | 
+**parent_placement_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**block_ids** | [**list[ResourceId]**](ResourceId.md) | The IDs of the Blocks associated with this placement. | 
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) | Client-defined properties associated with this placement. | [optional] 
 **instrument_identifiers** | **dict(str, str)** | The instrument ordered. | 
 **lusid_instrument_id** | **str** | The LUSID instrument id for the instrument placement. | 
@@ -18,10 +19,11 @@ Name | Type | Description | Notes
 **created_date** | **datetime** | The active date of this placement. | 
 **limit_price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **stop_price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
-**counterparty** | **str** | The market entity this placement is placed with. | 
+**counterparty** | **str** | Optionally specifies the market entity this placement is placed with. | [optional] 
 **execution_system** | **str** | Optionally specifies the execution system in use. | [optional] 
+**entry_type** | **str** | Optionally specifies the entry type of this placement. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
