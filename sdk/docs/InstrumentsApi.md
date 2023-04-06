@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_instrument_capabilities**
-> InstrumentCapabilities query_instrument_capabilities(lusid_instrument, model=model, effective_at=effective_at, recipe_scope=recipe_scope, recipe_code=recipe_code)
+> InstrumentCapabilities query_instrument_capabilities(lusid_instrument, model=model)
 
 [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
 
@@ -1324,13 +1324,10 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.InstrumentsApi(api_client)
     lusid_instrument = {"startDate":"2022-01-01T05:10:00.0000000+00:00","domCcy":"GBP","domAmount":1,"fgnCcy":"USD","strike":1,"barriers":[],"exerciseType":"European","isCallNotPut":true,"isDeliveryNotCash":true,"isPayoffDigital":false,"optionMaturityDate":"2023-01-01T05:10:00.0000000+00:00","optionSettlementDate":"2023-01-03T05:10:00.0000000+00:00","payoutStyle":"None","touches":[],"instrumentType":"FxOption"} # LusidInstrument | The definition of the instrument.
 model = 'model_example' # str | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)
-recipe_scope = 'default' # str | The scope in which the recipe lies. When not supplied the scope is 'default'. (optional) (default to 'default')
-recipe_code = 'recipe_code_example' # str | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)
 
     try:
         # [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
-        api_response = api_instance.query_instrument_capabilities(lusid_instrument, model=model, effective_at=effective_at, recipe_scope=recipe_scope, recipe_code=recipe_code)
+        api_response = api_instance.query_instrument_capabilities(lusid_instrument, model=model)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstrumentsApi->query_instrument_capabilities: %s\n" % e)
@@ -1342,9 +1339,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **lusid_instrument** | [**LusidInstrument**](LusidInstrument.md)| The definition of the instrument. | 
  **model** | **str**| A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. | [optional] 
- **effective_at** | **str**| The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **recipe_scope** | **str**| The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
- **recipe_code** | **str**| A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. | [optional] 
 
 ### Return type
 
