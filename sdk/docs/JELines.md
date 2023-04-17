@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **movement_name** | **str** | The name of the movement. | 
 **holding_type** | **str** | Defines the broad category holding within the portfolio. | 
 **economic_bucket** | **str** | Raw JE Line details of the economic bucket for the JE Line. | 
-**links** | [**list[Link]**](Link.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
