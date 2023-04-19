@@ -6,6 +6,7 @@ from __future__ import absolute_import
 from lusid.api.abor_api import AborApi
 from lusid.api.abor_configuration_api import AborConfigurationApi
 from lusid.api.aggregation_api import AggregationApi
+from lusid.api.allocation_service_api import AllocationServiceApi
 from lusid.api.allocations_api import AllocationsApi
 from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.blocks_api import BlocksApi
