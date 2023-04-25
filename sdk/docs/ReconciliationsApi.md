@@ -4,16 +4,175 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_scheduled_reconciliation**](ReconciliationsApi.md#create_scheduled_reconciliation) | **POST** /api/portfolios/$scheduledReconciliation/{scope} | [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
+[**delete_reconciliation**](ReconciliationsApi.md#delete_reconciliation) | **DELETE** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
 [**delete_reconciliation_mapping**](ReconciliationsApi.md#delete_reconciliation_mapping) | **DELETE** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
+[**get_reconciliation**](ReconciliationsApi.md#get_reconciliation) | **GET** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
 [**get_reconciliation_mapping**](ReconciliationsApi.md#get_reconciliation_mapping) | **GET** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] GetReconciliationMapping: Get a mapping
 [**list_reconciliation_mappings**](ReconciliationsApi.md#list_reconciliation_mappings) | **GET** /api/portfolios/mapping | [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
+[**list_reconciliations**](ReconciliationsApi.md#list_reconciliations) | **GET** /api/portfolios/$scheduledReconciliation | [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
 [**reconcile_generic**](ReconciliationsApi.md#reconcile_generic) | **POST** /api/portfolios/$reconcileGeneric | ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
 [**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 [**reconcile_inline**](ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
 [**reconcile_transactions**](ReconciliationsApi.md#reconcile_transactions) | **POST** /api/portfolios/$reconcileTransactions | [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
 [**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+[**update_reconciliation**](ReconciliationsApi.md#update_reconciliation) | **POST** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
 [**upsert_reconciliation_mapping**](ReconciliationsApi.md#upsert_reconciliation_mapping) | **POST** /api/portfolios/mapping | [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
 
+
+# **create_scheduled_reconciliation**
+> Reconciliation create_scheduled_reconciliation(scope, create_reconciliation_request=create_reconciliation_request)
+
+[EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
+
+Create a scheduled reconciliation for the given request
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation
+create_reconciliation_request = {"code":"Reconciliation","name":"ReconciliationName","description":"Reconciliation description","isPortfolioGroup":false,"left":{"scope":"MyScope","code":"SideA"},"right":{"scope":"MyScope","code":"SideB"},"transactions":{"transactionWindow":{"fromDate":"2018-03-04T00:00:00.0000000+00:00","untilDate":"2018-03-05T00:00:00.0000000+00:00"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"positions":{"left":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2019-01-01T12:00:00.0000000+00:00","asAt":"2019-01-01T12:00:00.0100000+00:00"},"right":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2019-01-01T12:00:00.0000000+00:00","asAt":"2019-01-01T12:00:00.0100000+00:00"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"valuations":{"left":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2019-01-01T12:00:00.0000000+00:00","asAt":"2019-01-01T12:00:00.0100000+00:00","currency":"GBP"},"right":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2019-01-01T12:00:00.0000000+00:00","asAt":"2019-01-01T12:00:00.0100000+00:00"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"properties":{"Reconciliation/MyScope/BrokerName":{"key":"Reconciliation/MyScope/BrokerName","value":{"labelValue":"BrokerA"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"}}} # CreateReconciliationRequest | The definition of the reconciliation (optional)
+
+    try:
+        # [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
+        api_response = api_instance.create_scheduled_reconciliation(scope, create_reconciliation_request=create_reconciliation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->create_scheduled_reconciliation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation | 
+ **create_reconciliation_request** | [**CreateReconciliationRequest**](CreateReconciliationRequest.md)| The definition of the reconciliation | [optional] 
+
+### Return type
+
+[**Reconciliation**](Reconciliation.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The newly created scheduled reconciliation |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_reconciliation**
+> DeletedEntityResponse delete_reconciliation(scope, code)
+
+[EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
+
+Delete the given scheduled reconciliation
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the scheduled reconciliation
+code = 'code_example' # str | The code of the scheduled reconciliation
+
+    try:
+        # [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
+        api_response = api_instance.delete_reconciliation(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->delete_reconciliation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the scheduled reconciliation | 
+ **code** | **str**| The code of the scheduled reconciliation | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The reconciliation at the requested as at was deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_reconciliation_mapping**
 > str delete_reconciliation_mapping(scope, code)
@@ -92,6 +251,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_reconciliation**
+> Reconciliation get_reconciliation(scope, code, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
+
+[EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
+
+Get the requested scheduled reconciliation
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the scheduled reconciliation
+code = 'code_example' # str | The code of the scheduled reconciliation
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'Reconciliation' property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
+        api_response = api_instance.get_reconciliation(scope, code, effective_at=effective_at, as_at=as_at, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->get_reconciliation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the scheduled reconciliation | 
+ **code** | **str**| The code of the scheduled reconciliation | 
+ **effective_at** | **str**| The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional] 
+
+### Return type
+
+[**Reconciliation**](Reconciliation.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested scheduled reconciliation |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_reconciliation_mapping**
 > Mapping get_reconciliation_mapping(scope, code)
 
@@ -130,7 +372,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ReconciliationsApi(api_client)
     scope = 'scope_example' # str | The scope of the mapping.
-code = 'code_example' # str | The code fof the mapping.
+code = 'code_example' # str | The code of the mapping.
 
     try:
         # [EARLY ACCESS] GetReconciliationMapping: Get a mapping
@@ -145,7 +387,7 @@ code = 'code_example' # str | The code fof the mapping.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the mapping. | 
- **code** | **str**| The code fof the mapping. | 
+ **code** | **str**| The code of the mapping. | 
 
 ### Return type
 
@@ -239,6 +481,93 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The mappings that the caller has access to. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_reconciliations**
+> PagedResourceListOfReconciliation list_reconciliations(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
+
+[EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
+
+List all the scheduled reconciliations matching particular criteria
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+start = 56 # int | When paginating, skip this number of results. (optional)
+limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
+filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the reconciliation type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'Reconciliation' domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
+        api_response = api_instance.list_reconciliations(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->list_reconciliations: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **effective_at** | **str**| The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **start** | **int**| When paginating, skip this number of results. | [optional] 
+ **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
+ **filter** | **str**| Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfReconciliation**](PagedResourceListOfReconciliation.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of all scheduled reconciliations |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -622,6 +951,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested reconciliation |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_reconciliation**
+> Reconciliation update_reconciliation(scope, code, update_reconciliation_request=update_reconciliation_request)
+
+[EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
+
+Update a given scheduled reconciliation
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation to be updated
+code = 'code_example' # str | The code of the reconciliation to be updated
+update_reconciliation_request = {"name":"UpdatedReconciliationName","description":"Updated reconciliation description","isPortfolioGroup":false,"left":{"scope":"MyScope","code":"SideA"},"right":{"scope":"MyScope","code":"SideB"},"transactions":{"transactionWindow":{"fromDate":"2018-03-04T00:00:00.0000000+00:00","untilDate":"2018-03-05T00:00:00.0000000+00:00"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"positions":{"left":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"right":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"valuations":{"left":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00","currency":"GBP"},"right":{"recipeId":{"scope":"MyScope","code":"PMS"},"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","asAt":"2018-03-05T00:00:00.0000000+00:00","currency":"GBP"},"mappingId":{"scope":"MyScope","code":"TestMapping"}},"properties":{"Reconciliation/MyScope/BrokerName":{"key":"Reconciliation/MyScope/BrokerName","value":{"labelValue":"BrokerA"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"}}} # UpdateReconciliationRequest | The updated definition of the reconciliation (optional)
+
+    try:
+        # [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
+        api_response = api_instance.update_reconciliation(scope, code, update_reconciliation_request=update_reconciliation_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->update_reconciliation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation to be updated | 
+ **code** | **str**| The code of the reconciliation to be updated | 
+ **update_reconciliation_request** | [**UpdateReconciliationRequest**](UpdateReconciliationRequest.md)| The updated definition of the reconciliation | [optional] 
+
+### Return type
+
+[**Reconciliation**](Reconciliation.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The updated scheduled reconciliation |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
