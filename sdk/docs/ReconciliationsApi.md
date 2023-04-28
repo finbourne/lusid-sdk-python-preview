@@ -4,24 +4,28 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_scheduled_reconciliation**](ReconciliationsApi.md#create_scheduled_reconciliation) | **POST** /api/portfolios/$scheduledReconciliation/{scope} | [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
-[**delete_reconciliation**](ReconciliationsApi.md#delete_reconciliation) | **DELETE** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
+[**create_scheduled_reconciliation**](ReconciliationsApi.md#create_scheduled_reconciliation) | **POST** /api/portfolios/$scheduledReconciliations/{scope} | [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
+[**delete_reconciliation**](ReconciliationsApi.md#delete_reconciliation) | **DELETE** /api/portfolios/$scheduledReconciliations/{scope}/{code} | [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
+[**delete_reconciliation_break**](ReconciliationsApi.md#delete_reconciliation_break) | **DELETE** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version}/breaks/{breakId} | [EXPERIMENTAL] DeleteReconciliationBreak: Delete reconciliation break
 [**delete_reconciliation_mapping**](ReconciliationsApi.md#delete_reconciliation_mapping) | **DELETE** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
-[**delete_reconciliation_run**](ReconciliationsApi.md#delete_reconciliation_run) | **DELETE** /api/portfolios/$scheduledReconciliation/run/{scope}/{code}/{runDate}/{version} | [EXPERIMENTAL] DeleteReconciliationRun: Delete reconciliation run
-[**get_reconciliation**](ReconciliationsApi.md#get_reconciliation) | **GET** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
+[**delete_reconciliation_run**](ReconciliationsApi.md#delete_reconciliation_run) | **DELETE** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version} | [EXPERIMENTAL] DeleteReconciliationRun: Delete reconciliation run
+[**get_reconciliation**](ReconciliationsApi.md#get_reconciliation) | **GET** /api/portfolios/$scheduledReconciliations/{scope}/{code} | [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
+[**get_reconciliation_break**](ReconciliationsApi.md#get_reconciliation_break) | **GET** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version}/breaks/{breakId} | [EXPERIMENTAL] GetReconciliationBreak: Get reconciliation break
 [**get_reconciliation_mapping**](ReconciliationsApi.md#get_reconciliation_mapping) | **GET** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] GetReconciliationMapping: Get a mapping
-[**get_reconciliation_run**](ReconciliationsApi.md#get_reconciliation_run) | **GET** /api/portfolios/$scheduledReconciliation/run/{scope}/{code}/{runDate}/{version} | [EXPERIMENTAL] GetReconciliationRun: Get a reconciliation run
+[**get_reconciliation_run**](ReconciliationsApi.md#get_reconciliation_run) | **GET** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version} | [EXPERIMENTAL] GetReconciliationRun: Get a reconciliation run
+[**list_reconciliation_breaks**](ReconciliationsApi.md#list_reconciliation_breaks) | **GET** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version}/breaks | [EXPERIMENTAL] ListReconciliationBreaks: List reconciliation breaks
 [**list_reconciliation_mappings**](ReconciliationsApi.md#list_reconciliation_mappings) | **GET** /api/portfolios/mapping | [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
-[**list_reconciliation_runs**](ReconciliationsApi.md#list_reconciliation_runs) | **GET** /api/portfolios/$scheduledReconciliation/run/{scope}/{code} | [EXPERIMENTAL] ListReconciliationRuns: List Reconciliation runs
-[**list_reconciliations**](ReconciliationsApi.md#list_reconciliations) | **GET** /api/portfolios/$scheduledReconciliation | [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
+[**list_reconciliation_runs**](ReconciliationsApi.md#list_reconciliation_runs) | **GET** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs | [EXPERIMENTAL] ListReconciliationRuns: List Reconciliation runs
+[**list_reconciliations**](ReconciliationsApi.md#list_reconciliations) | **GET** /api/portfolios/$scheduledReconciliations | [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
 [**reconcile_generic**](ReconciliationsApi.md#reconcile_generic) | **POST** /api/portfolios/$reconcileGeneric | ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
 [**reconcile_holdings**](ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 [**reconcile_inline**](ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
 [**reconcile_transactions**](ReconciliationsApi.md#reconcile_transactions) | **POST** /api/portfolios/$reconcileTransactions | [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
 [**reconcile_valuation**](ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-[**update_reconciliation**](ReconciliationsApi.md#update_reconciliation) | **POST** /api/portfolios/$scheduledReconciliation/{scope}/{code} | [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
+[**update_reconciliation**](ReconciliationsApi.md#update_reconciliation) | **POST** /api/portfolios/$scheduledReconciliations/{scope}/{code} | [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
+[**upsert_reconciliation_break**](ReconciliationsApi.md#upsert_reconciliation_break) | **POST** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs/{runDate}/{version} | [EXPERIMENTAL] UpsertReconciliationBreak: Upsert a reconciliation break
 [**upsert_reconciliation_mapping**](ReconciliationsApi.md#upsert_reconciliation_mapping) | **POST** /api/portfolios/mapping | [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
-[**upsert_reconciliation_run**](ReconciliationsApi.md#upsert_reconciliation_run) | **POST** /api/portfolios/$scheduledReconciliation/run/{scope}/{code} | [EXPERIMENTAL] UpsertReconciliationRun: Update or Create a reconciliation run
+[**upsert_reconciliation_run**](ReconciliationsApi.md#upsert_reconciliation_run) | **POST** /api/portfolios/$scheduledReconciliations/{scope}/{code}/runs | [EXPERIMENTAL] UpsertReconciliationRun: Update or Create a reconciliation run
 
 
 # **create_scheduled_reconciliation**
@@ -173,6 +177,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The reconciliation at the requested as at was deleted |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_reconciliation_break**
+> DeletedEntityResponse delete_reconciliation_break(scope, code, run_date, version, break_id)
+
+[EXPERIMENTAL] DeleteReconciliationBreak: Delete reconciliation break
+
+Delete the given reconciliation break
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation associated with the break
+code = 'code_example' # str | The code of the reconciliation associated with the break
+run_date = '2013-10-20T19:20:30+01:00' # datetime | The date of the run associated with the break
+version = 56 # int | The version number of the run associated with the break
+break_id = 'break_id_example' # str | The unique identifier for the break
+
+    try:
+        # [EXPERIMENTAL] DeleteReconciliationBreak: Delete reconciliation break
+        api_response = api_instance.delete_reconciliation_break(scope, code, run_date, version, break_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->delete_reconciliation_break: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation associated with the break | 
+ **code** | **str**| The code of the reconciliation associated with the break | 
+ **run_date** | **datetime**| The date of the run associated with the break | 
+ **version** | **int**| The version number of the run associated with the break | 
+ **break_id** | **str**| The unique identifier for the break | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the reconciliation break was deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -419,6 +506,91 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_reconciliation_break**
+> ReconciliationRunBreak get_reconciliation_break(scope, code, run_date, version, break_id, as_at=as_at)
+
+[EXPERIMENTAL] GetReconciliationBreak: Get reconciliation break
+
+Get the requested reconciliation break
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation associated with the break
+code = 'code_example' # str | The code of the reconciliation associated with the break
+run_date = '2013-10-20T19:20:30+01:00' # datetime | The date of the run associated with the break
+version = 56 # int | The version number of the run associated with the break
+break_id = 'break_id_example' # str | The unique identifier for the break
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the reconciliation break. Defaults to returning the latest version of the reconciliation break if not specified. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetReconciliationBreak: Get reconciliation break
+        api_response = api_instance.get_reconciliation_break(scope, code, run_date, version, break_id, as_at=as_at)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->get_reconciliation_break: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation associated with the break | 
+ **code** | **str**| The code of the reconciliation associated with the break | 
+ **run_date** | **datetime**| The date of the run associated with the break | 
+ **version** | **int**| The version number of the run associated with the break | 
+ **break_id** | **str**| The unique identifier for the break | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the reconciliation break. Defaults to returning the latest version of the reconciliation break if not specified. | [optional] 
+
+### Return type
+
+[**ReconciliationRunBreak**](ReconciliationRunBreak.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested reconciliation break |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_reconciliation_mapping**
 > Mapping get_reconciliation_mapping(scope, code)
 
@@ -576,6 +748,99 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested reconciliation run |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_reconciliation_breaks**
+> PagedResourceListOfReconciliationRunBreak list_reconciliation_breaks(scope, code, run_date, version, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+
+[EXPERIMENTAL] ListReconciliationBreaks: List reconciliation breaks
+
+List all reconciliation breaks associated with a given run
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation associated with the break
+code = 'code_example' # str | The code of the reconciliation associated with the break
+run_date = '2013-10-20T19:20:30+01:00' # datetime | The date of the run associated with the break
+version = 56 # int | The version number of the run associated with the break
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the reconciliation runs. Defaults to the current LUSID              system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the reconciliation runs. Defaults to returning the latest version              of each run if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing reconciliation runs; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+start = 56 # int | When paginating, skip this number of results. (optional)
+limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
+filter = 'filter_example' # str | Expression to filter the results. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListReconciliationBreaks: List reconciliation breaks
+        api_response = api_instance.list_reconciliation_breaks(scope, code, run_date, version, effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->list_reconciliation_breaks: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation associated with the break | 
+ **code** | **str**| The code of the reconciliation associated with the break | 
+ **run_date** | **datetime**| The date of the run associated with the break | 
+ **version** | **int**| The version number of the run associated with the break | 
+ **effective_at** | **str**| The effective datetime or cut label at which to list the reconciliation runs. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to list the reconciliation runs. Defaults to returning the latest version              of each run if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing reconciliation runs; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **start** | **int**| When paginating, skip this number of results. | [optional] 
+ **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
+ **filter** | **str**| Expression to filter the results. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfReconciliationRunBreak**](PagedResourceListOfReconciliationRunBreak.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested reconciliation breaks |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -1289,6 +1554,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The updated scheduled reconciliation |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_reconciliation_break**
+> ReconciliationRunBreak upsert_reconciliation_break(scope, code, run_date, version, upsert_reconciliation_break_request=upsert_reconciliation_break_request)
+
+[EXPERIMENTAL] UpsertReconciliationBreak: Upsert a reconciliation break
+
+Update or create a given reconciliation break
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the reconciliation associated with the break
+code = 'code_example' # str | The code of the reconciliation associated with the break
+run_date = '2013-10-20T19:20:30+01:00' # datetime | The date of the run associated with the break
+version = 56 # int | The version number of the run associated with the break
+upsert_reconciliation_break_request = {"leftFields":{"Transaction Price":"8","Type":"Buy","Units":"100,000.00","Instrument Name":"Legal & General Group plc (Ordinary Shares)"},"rightFields":{"Transaction Price":"8","Type":"Buy","Units":"90,000.00","Instrument Name":"Legal & General Group plc (Ordinary Shares)"},"diff":"1,000.00"} # UpsertReconciliationBreakRequest | The definition of the reconciliation break request (optional)
+
+    try:
+        # [EXPERIMENTAL] UpsertReconciliationBreak: Upsert a reconciliation break
+        api_response = api_instance.upsert_reconciliation_break(scope, code, run_date, version, upsert_reconciliation_break_request=upsert_reconciliation_break_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ReconciliationsApi->upsert_reconciliation_break: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the reconciliation associated with the break | 
+ **code** | **str**| The code of the reconciliation associated with the break | 
+ **run_date** | **datetime**| The date of the run associated with the break | 
+ **version** | **int**| The version number of the run associated with the break | 
+ **upsert_reconciliation_break_request** | [**UpsertReconciliationBreakRequest**](UpsertReconciliationBreakRequest.md)| The definition of the reconciliation break request | [optional] 
+
+### Return type
+
+[**ReconciliationRunBreak**](ReconciliationRunBreak.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The newly created reconciliation break |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
