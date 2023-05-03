@@ -201,8 +201,8 @@ class StructuredResultData(object):
         if self.local_vars_configuration.client_side_validation and document is None:  # noqa: E501
             raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                document is not None and len(document) > 256000):
-            raise ValueError("Invalid value for `document`, length must be less than or equal to `256000`")  # noqa: E501
+                document is not None and len(document) > 1000000):
+            raise ValueError("Invalid value for `document`, length must be less than or equal to `1000000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 document is not None and len(document) < 0):
             raise ValueError("Invalid value for `document`, length must be greater than or equal to `0`")  # noqa: E501
