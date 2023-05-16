@@ -1600,7 +1600,7 @@ with lusid.ApiClient(configuration) as api_client:
 code = 'code_example' # str | The code of the reconciliation associated with the break
 run_date = '2013-10-20T19:20:30+01:00' # datetime | The date of the run associated with the break
 version = 56 # int | The version number of the run associated with the break
-upsert_reconciliation_break_request = {"leftFields":{"Instrument Name":"Legal & General Group plc (Ordinary Shares)","Units":"100,000.00","Type":"Buy","Transaction Price":"8"},"rightFields":{"Instrument Name":"Legal & General Group plc (Ordinary Shares)","Units":"90,000.00","Type":"Buy","Transaction Price":"8"},"diff":"1,000.00"} # UpsertReconciliationBreakRequest | The definition of the reconciliation break request (optional)
+upsert_reconciliation_break_request = {"leftFields":{"Instrument Name":"Legal & General Group plc (Ordinary Shares)","Transaction Price":"8","Units":"100,000.00","Type":"Buy"},"rightFields":{"Instrument Name":"Legal & General Group plc (Ordinary Shares)","Transaction Price":"8","Units":"90,000.00","Type":"Buy"},"diff":"1,000.00"} # UpsertReconciliationBreakRequest | The definition of the reconciliation break request (optional)
 
     try:
         # [EXPERIMENTAL] UpsertReconciliationBreak: Upsert a reconciliation break
