@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_transaction_type**
-> DeletedEntityResponse delete_transaction_type(source, type, scope=scope)
+> DeletedEntityResponse delete_transaction_type(source, type)
 
 [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
 
@@ -50,11 +50,10 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TransactionConfigurationApi(api_client)
     source = 'source_example' # str | The source that the type is in
 type = 'type_example' # str | One of the type's aliases
-scope = 'default' # str | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
-        api_response = api_instance.delete_transaction_type(source, type, scope=scope)
+        api_response = api_instance.delete_transaction_type(source, type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionConfigurationApi->delete_transaction_type: %s\n" % e)
@@ -66,7 +65,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source** | **str**| The source that the type is in | 
  **type** | **str**| One of the type&#39;s aliases | 
- **scope** | **str**| The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
 ### Return type
 
@@ -91,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction_type**
-> TransactionType get_transaction_type(source, type, as_at=as_at, scope=scope)
+> TransactionType get_transaction_type(source, type, as_at=as_at)
 
 [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
 
@@ -130,11 +128,10 @@ with lusid.ApiClient(configuration) as api_client:
     source = 'source_example' # str | The source that the type is in
 type = 'type_example' # str | One of the type's aliases
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)
-scope = 'default' # str | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
-        api_response = api_instance.get_transaction_type(source, type, as_at=as_at, scope=scope)
+        api_response = api_instance.get_transaction_type(source, type, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionConfigurationApi->get_transaction_type: %s\n" % e)
@@ -147,7 +144,6 @@ Name | Type | Description  | Notes
  **source** | **str**| The source that the type is in | 
  **type** | **str**| One of the type&#39;s aliases | 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified | [optional] 
- **scope** | **str**| The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
 ### Return type
 
@@ -172,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_transaction_types**
-> dict(str, list[TransactionType]) list_transaction_types(as_at=as_at, scope=scope)
+> dict(str, list[TransactionType]) list_transaction_types(as_at=as_at)
 
 [EXPERIMENTAL] ListTransactionTypes: List transaction types
 
@@ -209,11 +205,10 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TransactionConfigurationApi(api_client)
     as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)
-scope = 'default' # str | The scope in which the side exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] ListTransactionTypes: List transaction types
-        api_response = api_instance.list_transaction_types(as_at=as_at, scope=scope)
+        api_response = api_instance.list_transaction_types(as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionConfigurationApi->list_transaction_types: %s\n" % e)
@@ -224,7 +219,6 @@ scope = 'default' # str | The scope in which the side exists. When not supplied 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **as_at** | **datetime**| The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. | [optional] 
- **scope** | **str**| The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
 ### Return type
 
@@ -249,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_side_definition**
-> SideDefinition set_side_definition(side, side_definition_request, scope=scope)
+> SideDefinition set_side_definition(side, side_definition_request)
 
 [EXPERIMENTAL] SetSideDefinition: Set a side definition
 
@@ -287,11 +281,10 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.TransactionConfigurationApi(api_client)
     side = 'side_example' # str | The label to uniquely identify the side.
 side_definition_request = {"security":"Txn:LusidInstrumentId","currency":"Txn:TradeCurrency","rate":"Txn:Units","units":"1","amount":"Transaction/MyScope/TradeAmount","notionalAmount":"Transaction/default/NotionalAmount"} # SideDefinitionRequest | The side definition to create or replace.
-scope = 'default' # str | The scope in which the side exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] SetSideDefinition: Set a side definition
-        api_response = api_instance.set_side_definition(side, side_definition_request, scope=scope)
+        api_response = api_instance.set_side_definition(side, side_definition_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionConfigurationApi->set_side_definition: %s\n" % e)
@@ -303,7 +296,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **side** | **str**| The label to uniquely identify the side. | 
  **side_definition_request** | [**SideDefinitionRequest**](SideDefinitionRequest.md)| The side definition to create or replace. | 
- **scope** | **str**| The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
 ### Return type
 
@@ -328,7 +320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_transaction_type**
-> TransactionType set_transaction_type(source, type, transaction_type_request, scope=scope)
+> TransactionType set_transaction_type(source, type, transaction_type_request)
 
 [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
 
@@ -367,11 +359,10 @@ with lusid.ApiClient(configuration) as api_client:
     source = 'source_example' # str | The source to set the transaction configuration for
 type = 'type_example' # str | One of the transaction configuration alias types to uniquely identify the configuration
 transaction_type_request = {"aliases":[{"type":"CustomBuy","description":"A custom buy type","transactionClass":"Buy","transactionRoles":"Longer","isDefault":false},{"type":"BuyAlias","description":"A similar buy type","transactionClass":"Buy","transactionRoles":"Longer","isDefault":false}],"movements":[{"movementTypes":"StockMovement","side":"Side1","direction":-1,"properties":{"TransactionConfiguration/default/TaxLotSelectionMethod":{"key":"TransactionConfiguration/default/TaxLotSelectionMethod","value":{"labelValue":"FirstInFirstOut"}}},"mappings":[],"movementOptions":[]},{"movementTypes":"CashCommitment","side":"Side1","direction":1,"properties":{},"mappings":[{"propertyKey":"Transaction/scopeA/Strategy","setTo":"Cash"}],"movementOptions":[]}],"properties":{"TransactionConfiguration/default/TotalConsiderationPolicy":{"key":"TransactionConfiguration/default/TotalConsiderationPolicy","value":{"labelValue":"Add"}}}} # TransactionTypeRequest | The transaction configuration to set
-scope = 'default' # str | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
         # [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
-        api_response = api_instance.set_transaction_type(source, type, transaction_type_request, scope=scope)
+        api_response = api_instance.set_transaction_type(source, type, transaction_type_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionConfigurationApi->set_transaction_type: %s\n" % e)
@@ -384,7 +375,6 @@ Name | Type | Description  | Notes
  **source** | **str**| The source to set the transaction configuration for | 
  **type** | **str**| One of the transaction configuration alias types to uniquely identify the configuration | 
  **transaction_type_request** | [**TransactionTypeRequest**](TransactionTypeRequest.md)| The transaction configuration to set | 
- **scope** | **str**| The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
 ### Return type
 
