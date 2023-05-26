@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**delete_transaction_type_source**](TransactionConfigurationApi.md#delete_transaction_type_source) | **DELETE** /api/transactionconfiguration/types/{source}/$delete | [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
 [**get_side_definition**](TransactionConfigurationApi.md#get_side_definition) | **GET** /api/transactionconfiguration/sides/{side} | [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label)
 [**get_transaction_type**](TransactionConfigurationApi.md#get_transaction_type) | **GET** /api/transactionconfiguration/types/{source}/{type} | [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
-[**list_sides_definition**](TransactionConfigurationApi.md#list_sides_definition) | **GET** /api/transactionconfiguration/sides | [EXPERIMENTAL] ListSidesDefinition: List the side definitions
+[**list_side_definitions**](TransactionConfigurationApi.md#list_side_definitions) | **GET** /api/transactionconfiguration/sides | [EXPERIMENTAL] ListSideDefinitions: List the side definitions
 [**list_transaction_types**](TransactionConfigurationApi.md#list_transaction_types) | **GET** /api/transactionconfiguration/types | [EXPERIMENTAL] ListTransactionTypes: List transaction types
 [**set_side_definition**](TransactionConfigurationApi.md#set_side_definition) | **PUT** /api/transactionconfiguration/sides/{side} | [EXPERIMENTAL] SetSideDefinition: Set a side definition
 [**set_side_definitions**](TransactionConfigurationApi.md#set_side_definitions) | **PUT** /api/transactionconfiguration/sides | [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions
@@ -410,10 +410,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_sides_definition**
-> ResourceListOfSideDefinition list_sides_definition(as_at=as_at, scope=scope)
+# **list_side_definitions**
+> ResourceListOfSideDefinition list_side_definitions(as_at=as_at, scope=scope)
 
-[EXPERIMENTAL] ListSidesDefinition: List the side definitions
+[EXPERIMENTAL] ListSideDefinitions: List the side definitions
 
 List all the side definitions in the given scope
 
@@ -451,11 +451,11 @@ with lusid.ApiClient(configuration) as api_client:
 scope = 'default' # str | The scope in which the side exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
     try:
-        # [EXPERIMENTAL] ListSidesDefinition: List the side definitions
-        api_response = api_instance.list_sides_definition(as_at=as_at, scope=scope)
+        # [EXPERIMENTAL] ListSideDefinitions: List the side definitions
+        api_response = api_instance.list_side_definitions(as_at=as_at, scope=scope)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TransactionConfigurationApi->list_sides_definition: %s\n" % e)
+        print("Exception when calling TransactionConfigurationApi->list_side_definitions: %s\n" % e)
 ```
 
 ### Parameters
