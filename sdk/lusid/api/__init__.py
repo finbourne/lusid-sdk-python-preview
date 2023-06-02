@@ -5,7 +5,6 @@ from __future__ import absolute_import
 # import apis into api package
 from lusid.api.abor_api import AborApi
 from lusid.api.abor_configuration_api import AborConfigurationApi
-from lusid.api.address_key_definition_api import AddressKeyDefinitionApi
 from lusid.api.aggregation_api import AggregationApi
 from lusid.api.allocation_service_api import AllocationServiceApi
 from lusid.api.allocations_api import AllocationsApi
