@@ -42,6 +42,7 @@ from lusid.api.portfolios_api import PortfoliosApi
 from lusid.api.property_definitions_api import PropertyDefinitionsApi
 from lusid.api.quotes_api import QuotesApi
 from lusid.api.reconciliations_api import ReconciliationsApi
+from lusid.api.reference_lists_api import ReferenceListsApi
 from lusid.api.reference_portfolio_api import ReferencePortfolioApi
 from lusid.api.relation_definitions_api import RelationDefinitionsApi
 from lusid.api.relations_api import RelationsApi
