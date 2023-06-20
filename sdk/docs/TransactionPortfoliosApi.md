@@ -2171,7 +2171,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The custodian accounts in the give Transaction Portfolios. |  -  |
+**200** | The custodian accounts in the given Transaction Portfolios. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 

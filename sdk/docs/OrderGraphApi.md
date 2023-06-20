@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_order_graph_blocks**
-> PagedResourceListOfOrderGraphBlock list_order_graph_blocks(as_at=as_at, pagination_token=pagination_token, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
+> PagedResourceListOfOrderGraphBlock list_order_graph_blocks(as_at=as_at, pagination_token=pagination_token, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys, use_compliance_v2=use_compliance_v2)
 
 [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 
@@ -51,10 +51,11 @@ sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. U
 limit = 56 # int | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)
 filter = '' # str | See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional) (default to '')
 property_keys = ['property_keys_example'] # list[str] | Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)
+use_compliance_v2 = False # bool | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional) (default to False)
 
     try:
         # [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
-        api_response = api_instance.list_order_graph_blocks(as_at=as_at, pagination_token=pagination_token, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys)
+        api_response = api_instance.list_order_graph_blocks(as_at=as_at, pagination_token=pagination_token, sort_by=sort_by, limit=limit, filter=filter, property_keys=property_keys, use_compliance_v2=use_compliance_v2)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrderGraphApi->list_order_graph_blocks: %s\n" % e)
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional] 
  **filter** | **str**| See https://support.lusid.com/knowledgebase/article/KA-01914/ | [optional] [default to &#39;&#39;]
  **property_keys** | [**list[str]**](str.md)| Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional] 
+ **use_compliance_v2** | **bool**| Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) | [optional] [default to False]
 
 ### Return type
 

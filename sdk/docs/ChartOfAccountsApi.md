@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**get_account**](ChartOfAccountsApi.md#get_account) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EXPERIMENTAL] GetAccount: Get Account
 [**get_chart_of_accounts**](ChartOfAccountsApi.md#get_chart_of_accounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
 [**list_accounts**](ChartOfAccountsApi.md#list_accounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] ListAccounts: List Accounts
-[**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List charts of accounts
+[**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
 [**upsert_accounts**](ChartOfAccountsApi.md#upsert_accounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
 [**upsert_accounts_properties**](ChartOfAccountsApi.md#upsert_accounts_properties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EXPERIMENTAL] UpsertAccountsProperties: Upsert accounts properties
 [**upsert_chart_of_accounts_properties**](ChartOfAccountsApi.md#upsert_chart_of_accounts_properties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert chart of accounts properties
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The newly created char of accounts. |  -  |
+**201** | The newly created chart of accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -459,7 +459,7 @@ with lusid.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope of the chart of account.
 code = 'code_example' # str | The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the chart of account. | 
  **code** | **str**| The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts. | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. | [optional] 
- **as_at** | **datetime**| The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. | [optional] 
  **page** | **str**| The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The accounts in the give chart of accounts. |  -  |
+**200** | The accounts in the given chart of accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 # **list_charts_of_accounts**
 > PagedResourceListOfChartOfAccounts list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] ListChartsOfAccounts: List charts of accounts
+[EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
 
 List all the charts of accounts matching particular criteria.
 
@@ -556,7 +556,7 @@ filter = 'filter_example' # str | Expression to filter the results.             
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto each chart of accounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. (optional)
 
     try:
-        # [EXPERIMENTAL] ListChartsOfAccounts: List charts of accounts
+        # [EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
         api_response = api_instance.list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
