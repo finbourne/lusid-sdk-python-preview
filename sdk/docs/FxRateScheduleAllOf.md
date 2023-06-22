@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fixing_lag** | **int** | If rate is not known upfront then will need a fixing rate. Can be fixed x number of days before payment date. | [optional] 
+**flow_conventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
 **fx_conversion_types** | **list[str]** | List of flags to indicate if coupon payments, principal payments or both are converted | [optional] 
 **rate** | **float** | FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate | [optional] 
 **to_currency** | **str** | Currency that payments are converted to | [optional] 
