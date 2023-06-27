@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
 
-Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
 
 ### Example
 
