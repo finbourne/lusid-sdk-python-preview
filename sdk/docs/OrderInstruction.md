@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **instrument_scope** | **str** | The scope in which the instrument lies | [optional] 
 **lusid_instrument_id** | **str** | The LUSID instrument id for the instrument ordered. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
