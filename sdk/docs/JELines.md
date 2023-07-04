@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **gl_code** | **str** | Code of general ledger the JE lines posting to. | 
 **local** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **base** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**posting_module_id** | [**ResourceId**](ResourceId.md) |  | 
+**posting_module_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **posting_rule** | **str** | The rule generating the JELinse. | 
 **as_at_date** | **datetime** | The corresponding input date and time of the Transaction generating the JELine. | 
 **activities_description** | **str** | This would be the description of the business activities where these JE lines are posting for. | [optional] 

@@ -456,8 +456,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the chart of account.
-code = 'code_example' # str | The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts.
+    scope = 'scope_example' # str | The scope of the chart of accounts.
+code = 'code_example' # str | The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
@@ -478,8 +478,8 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the chart of account. | 
- **code** | **str**| The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts. | 
+ **scope** | **str**| The scope of the chart of accounts. | 
+ **code** | **str**| The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts. | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. | [optional] 
  **page** | **str**| The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
@@ -634,8 +634,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the chart of account.
-code = 'code_example' # str | The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts.
+    scope = 'scope_example' # str | The scope of the chart of accounts.
+code = 'code_example' # str | The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts.
 account = [{"code":"001456","description":"Cash","type":"Asset","status":"Active","control":"Manual","properties":{}},{"code":"123653","description":"Dividends","type":"Revenue","status":"Inactive","control":"System","properties":{}}] # list[Account] | A list of accounts to be created or updated.
 
     try:
@@ -650,8 +650,8 @@ account = [{"code":"001456","description":"Cash","type":"Asset","status":"Active
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the chart of account. | 
- **code** | **str**| The code of the chart of account. Together with the scope this uniquely identifies              the chart of accounts. | 
+ **scope** | **str**| The scope of the chart of accounts. | 
+ **code** | **str**| The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts. | 
  **account** | [**list[Account]**](Account.md)| A list of accounts to be created or updated. | 
 
 ### Return type
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] UpsertAccountsProperties: Upsert accounts properties
 
-Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Account'.                Upserting a property that exists for a chart of accounts, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
+Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Account'.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 
