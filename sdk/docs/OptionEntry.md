@@ -1,6 +1,6 @@
 # OptionEntry
 
-Item which is stepped in level/quantity.
+Strike price against par and associated date for a bond call.
 
 ## Properties
 Name | Type | Description | Notes
