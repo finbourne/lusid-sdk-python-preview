@@ -7,7 +7,6 @@ from lusid.api.abor_api import AborApi
 from lusid.api.abor_configuration_api import AborConfigurationApi
 from lusid.api.address_key_definition_api import AddressKeyDefinitionApi
 from lusid.api.aggregation_api import AggregationApi
-from lusid.api.allocation_service_api import AllocationServiceApi
 from lusid.api.allocations_api import AllocationsApi
 from lusid.api.application_metadata_api import ApplicationMetadataApi
 from lusid.api.blocks_api import BlocksApi
@@ -33,6 +32,7 @@ from lusid.api.legacy_compliance_api import LegacyComplianceApi
 from lusid.api.legal_entities_api import LegalEntitiesApi
 from lusid.api.order_graph_api import OrderGraphApi
 from lusid.api.order_instructions_api import OrderInstructionsApi
+from lusid.api.order_management_api import OrderManagementApi
 from lusid.api.orders_api import OrdersApi
 from lusid.api.packages_api import PackagesApi
 from lusid.api.participations_api import ParticipationsApi
