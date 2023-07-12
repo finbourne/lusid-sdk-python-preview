@@ -748,7 +748,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ConventionsApi(api_client)
-    upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"6M","currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
+    upsert_cds_flow_conventions_request = {"cdsFlowConventions":{"rollFrequency":"3M","currency":"USD","paymentFrequency":"3M","dayCountConvention":"Act360","rollConvention":"20","paymentCalendars":["NYC"],"resetCalendars":["NYC"],"settleDays":0,"resetDays":0,"businessDayConvention":"Following","scope":"someScope","code":"exampleCdsFlowConventionsName"}} # UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
 
     try:
         # [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
@@ -823,7 +823,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ConventionsApi(api_client)
-    upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"Following","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"leapDaysIncluded":true,"accrualDateAdjustment":"Adjusted","scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
+    upsert_flow_conventions_request = {"flowConventions":{"currency":"GBP","paymentFrequency":"1Y","dayCountConvention":"Act360","rollConvention":"None","paymentCalendars":["LON"],"resetCalendars":["LON"],"settleDays":2,"resetDays":2,"leapDaysIncluded":true,"accrualDateAdjustment":"Adjusted","businessDayConvention":"Following","scope":"someScope","code":"exampleFlowConventionsName"}} # UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
     try:
         # [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
