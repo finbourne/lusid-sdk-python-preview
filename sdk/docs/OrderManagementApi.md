@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **book_transactions**
-> BookTransactionsResponse book_transactions(resource_id)
+> BookTransactionsResponse book_transactions(resource_id, apply_fees_and_commission=apply_fees_and_commission)
 
 [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
 
@@ -46,10 +46,11 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.OrderManagementApi(api_client)
     resource_id = [{"scope":"MyScope","code":"ALLOC00000123"},{"scope":"MyScope","code":"ALLOC00000456"}] # list[ResourceId] | The allocations to create transactions for
+apply_fees_and_commission = True # bool | Whether to apply fees and commissions to transactions (default: true) (optional) (default to True)
 
     try:
         # [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-        api_response = api_instance.book_transactions(resource_id)
+        api_response = api_instance.book_transactions(resource_id, apply_fees_and_commission=apply_fees_and_commission)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrderManagementApi->book_transactions: %s\n" % e)
@@ -60,6 +61,7 @@ with lusid.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resource_id** | [**list[ResourceId]**](ResourceId.md)| The allocations to create transactions for | 
+ **apply_fees_and_commission** | **bool**| Whether to apply fees and commissions to transactions (default: true) | [optional] [default to True]
 
 ### Return type
 
