@@ -14,6 +14,7 @@ from lusid.api.calendars_api import CalendarsApi
 from lusid.api.chart_of_accounts_api import ChartOfAccountsApi
 from lusid.api.complex_market_data_api import ComplexMarketDataApi
 from lusid.api.compliance_api import ComplianceApi
+from lusid.api.compliance___generic_api import ComplianceGenericApi
 from lusid.api.configuration_recipe_api import ConfigurationRecipeApi
 from lusid.api.conventions_api import ConventionsApi
 from lusid.api.corporate_action_sources_api import CorporateActionSourcesApi
