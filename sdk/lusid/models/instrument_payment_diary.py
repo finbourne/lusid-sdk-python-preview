@@ -83,7 +83,7 @@ class InstrumentPaymentDiary(object):
         :type legs: list[lusid.InstrumentPaymentDiaryLeg]
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         :type href: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -249,7 +249,6 @@ class InstrumentPaymentDiary(object):
     def links(self):
         """Gets the links of this InstrumentPaymentDiary.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this InstrumentPaymentDiary.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -260,7 +259,6 @@ class InstrumentPaymentDiary(object):
     def links(self, links):
         """Sets the links of this InstrumentPaymentDiary.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this InstrumentPaymentDiary.  # noqa: E501
         :type links: list[lusid.Link]
