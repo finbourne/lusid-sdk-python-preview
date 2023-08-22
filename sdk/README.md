@@ -161,6 +161,7 @@ Class | Method | HTTP request | Description
 *ComplianceApi* | [**list_compliance_templates**](docs/ComplianceApi.md#list_compliance_templates) | **GET** /api/compliance/templates | [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
 *ComplianceApi* | [**run_compliance**](docs/ComplianceApi.md#run_compliance) | **POST** /api/compliance/runs | [EARLY ACCESS] RunCompliance: Run a compliance check.
 *ComplianceApi* | [**upsert_compliance_rule**](docs/ComplianceApi.md#upsert_compliance_rule) | **POST** /api/compliance/rules | [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
+*ComplianceApi* | [**upsert_compliance_run_summary**](docs/ComplianceApi.md#upsert_compliance_run_summary) | **POST** /api/compliance/runs/summary | [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
 *ConfigurationRecipeApi* | [**delete_configuration_recipe**](docs/ConfigurationRecipeApi.md#delete_configuration_recipe) | **DELETE** /api/recipes/{scope}/{code} | DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
 *ConfigurationRecipeApi* | [**get_configuration_recipe**](docs/ConfigurationRecipeApi.md#get_configuration_recipe) | **GET** /api/recipes/{scope}/{code} | GetConfigurationRecipe: Get Configuration Recipe
 *ConfigurationRecipeApi* | [**list_configuration_recipes**](docs/ConfigurationRecipeApi.md#list_configuration_recipes) | **GET** /api/recipes | ListConfigurationRecipes: List the set of Configuration Recipes
@@ -656,6 +657,7 @@ Class | Method | HTTP request | Description
  - [ComplianceParameterType](docs/ComplianceParameterType.md)
  - [ComplianceRule](docs/ComplianceRule.md)
  - [ComplianceRuleBreakdown](docs/ComplianceRuleBreakdown.md)
+ - [ComplianceRuleBreakdownRequest](docs/ComplianceRuleBreakdownRequest.md)
  - [ComplianceRuleResponse](docs/ComplianceRuleResponse.md)
  - [ComplianceRuleResult](docs/ComplianceRuleResult.md)
  - [ComplianceRuleUpsertRequest](docs/ComplianceRuleUpsertRequest.md)
@@ -664,6 +666,7 @@ Class | Method | HTTP request | Description
  - [ComplianceRunInfoV2](docs/ComplianceRunInfoV2.md)
  - [ComplianceRunSummary](docs/ComplianceRunSummary.md)
  - [ComplianceSummaryRuleResult](docs/ComplianceSummaryRuleResult.md)
+ - [ComplianceSummaryRuleResultRequest](docs/ComplianceSummaryRuleResultRequest.md)
  - [ComplianceTemplate](docs/ComplianceTemplate.md)
  - [ComplianceTemplateParameter](docs/ComplianceTemplateParameter.md)
  - [ComplianceTemplateVariation](docs/ComplianceTemplateVariation.md)
@@ -1378,6 +1381,7 @@ Class | Method | HTTP request | Description
  - [UpsertCdsFlowConventionsRequest](docs/UpsertCdsFlowConventionsRequest.md)
  - [UpsertComplexMarketDataRequest](docs/UpsertComplexMarketDataRequest.md)
  - [UpsertComplianceRuleRequest](docs/UpsertComplianceRuleRequest.md)
+ - [UpsertComplianceRunSummaryRequest](docs/UpsertComplianceRunSummaryRequest.md)
  - [UpsertCorporateActionRequest](docs/UpsertCorporateActionRequest.md)
  - [UpsertCorporateActionsResponse](docs/UpsertCorporateActionsResponse.md)
  - [UpsertCounterpartyAgreementRequest](docs/UpsertCounterpartyAgreementRequest.md)
@@ -1448,7 +1452,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://dummyurl.lusid.com/
+- **Authorization URL**: https://lusid.okta.com/oauth2/default/v1/authorize
 - **Scopes**: N/A
 
 

@@ -208,6 +208,7 @@ from lusid.models.compliance_parameter import ComplianceParameter
 from lusid.models.compliance_parameter_type import ComplianceParameterType
 from lusid.models.compliance_rule import ComplianceRule
 from lusid.models.compliance_rule_breakdown import ComplianceRuleBreakdown
+from lusid.models.compliance_rule_breakdown_request import ComplianceRuleBreakdownRequest
 from lusid.models.compliance_rule_response import ComplianceRuleResponse
 from lusid.models.compliance_rule_result import ComplianceRuleResult
 from lusid.models.compliance_rule_upsert_request import ComplianceRuleUpsertRequest
@@ -216,6 +217,7 @@ from lusid.models.compliance_run_info import ComplianceRunInfo
 from lusid.models.compliance_run_info_v2 import ComplianceRunInfoV2
 from lusid.models.compliance_run_summary import ComplianceRunSummary
 from lusid.models.compliance_summary_rule_result import ComplianceSummaryRuleResult
+from lusid.models.compliance_summary_rule_result_request import ComplianceSummaryRuleResultRequest
 from lusid.models.compliance_template import ComplianceTemplate
 from lusid.models.compliance_template_parameter import ComplianceTemplateParameter
 from lusid.models.compliance_template_variation import ComplianceTemplateVariation
@@ -930,6 +932,7 @@ from lusid.models.update_unit_request import UpdateUnitRequest
 from lusid.models.upsert_cds_flow_conventions_request import UpsertCdsFlowConventionsRequest
 from lusid.models.upsert_complex_market_data_request import UpsertComplexMarketDataRequest
 from lusid.models.upsert_compliance_rule_request import UpsertComplianceRuleRequest
+from lusid.models.upsert_compliance_run_summary_request import UpsertComplianceRunSummaryRequest
 from lusid.models.upsert_corporate_action_request import UpsertCorporateActionRequest
 from lusid.models.upsert_corporate_actions_response import UpsertCorporateActionsResponse
 from lusid.models.upsert_counterparty_agreement_request import UpsertCounterpartyAgreementRequest
