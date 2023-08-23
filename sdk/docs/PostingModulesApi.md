@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**delete_posting_module**](PostingModulesApi.md#delete_posting_module) | **DELETE** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
 [**list_posting_module_rules**](PostingModulesApi.md#list_posting_module_rules) | **GET** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
 [**list_posting_modules**](PostingModulesApi.md#list_posting_modules) | **GET** /api/postingmodule | [EXPERIMENTAL] ListPostingModules: List Posting Modules
-[**update_posting_module_details**](PostingModulesApi.md#update_posting_module_details) | **POST** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
-[**update_posting_module_rules**](PostingModulesApi.md#update_posting_module_rules) | **POST** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+[**set_posting_module_details**](PostingModulesApi.md#set_posting_module_details) | **PUT** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+[**set_posting_module_rules**](PostingModulesApi.md#set_posting_module_rules) | **PUT** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
 
 
 # **create_posting_module**
@@ -50,7 +50,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.PostingModulesApi(api_client)
     scope = 'scope_example' # str | The scope of the Posting Module.
-posting_module_request = {"code":"PostingModuleCode","chartOfAccountsId":{"scope":"ChartOfAccountsScope","code":"ChartOfAccountsCode"},"name":"PostingModuleName","description":"PostingModuleDescription","rules":[{"ruleId":"rule1Id","account":"account 1","ruleFilter":"Transaction.Name eq 'Transaction 1'"}]} # PostingModuleRequest | The definition of the Posting Module.
+posting_module_request = {"code":"PostingModuleCode","chartOfAccountsId":{"scope":"ChartOfAccountsScope","code":"ChartOfAccountsCode"},"name":"PostingModuleName","description":"PostingModuleDescription","rules":[{"ruleId":"rule1Id","account":"account1","ruleFilter":"Transaction.TransactionId eq 'Transaction_1'"}]} # PostingModuleRequest | The definition of the Posting Module.
 
     try:
         # [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -336,10 +336,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_posting_module_details**
-> PostingModuleResponse update_posting_module_details(scope, code, posting_module_details)
+# **set_posting_module_details**
+> PostingModuleResponse set_posting_module_details(scope, code, posting_module_details)
 
-[EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+[EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
 
 Update the given Posting Module details.
 
@@ -375,14 +375,14 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.PostingModulesApi(api_client)
     scope = 'scope_example' # str | The scope of the Posting Module to be updated.
 code = 'code_example' # str | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.
-posting_module_details = {"chartOfAccountsId":{"scope":"PostingModuleScope","code":"PostingModuleCode"},"name":"PostingModuleNameUpdated","description":"PostingModuleDescriptionUpdated","status":"Active"} # PostingModuleDetails | The details to be updated for the posting module.
+posting_module_details = {"chartOfAccountsId":{"scope":"PostingModuleScope","code":"PostingModuleCode"},"name":"PostingModuleNameUpdated","description":"PostingModuleDescriptionUpdated","status":"Active"} # PostingModuleDetails | The new details for the Posting Module.
 
     try:
-        # [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
-        api_response = api_instance.update_posting_module_details(scope, code, posting_module_details)
+        # [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+        api_response = api_instance.set_posting_module_details(scope, code, posting_module_details)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling PostingModulesApi->update_posting_module_details: %s\n" % e)
+        print("Exception when calling PostingModulesApi->set_posting_module_details: %s\n" % e)
 ```
 
 ### Parameters
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Posting Module to be updated. | 
  **code** | **str**| The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module. | 
- **posting_module_details** | [**PostingModuleDetails**](PostingModuleDetails.md)| The details to be updated for the posting module. | 
+ **posting_module_details** | [**PostingModuleDetails**](PostingModuleDetails.md)| The new details for the Posting Module. | 
 
 ### Return type
 
@@ -415,12 +415,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_posting_module_rules**
-> PostingModuleRulesUpdatedResponse update_posting_module_rules(scope, code, posting_module_rule)
+# **set_posting_module_rules**
+> PostingModuleRulesUpdatedResponse set_posting_module_rules(scope, code, posting_module_rule)
 
-[EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+[EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
 
-Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
 
 ### Example
 
@@ -454,14 +454,14 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.PostingModulesApi(api_client)
     scope = 'scope_example' # str | The scope of the Posting Module to be updated.
 code = 'code_example' # str | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.
-posting_module_rule = [{"ruleId":"rule 1","account":"100002354","ruleFilter":"1 eq 1"},{"ruleId":"rule 2","account":"123456789","ruleFilter":"true eq true"}] # list[PostingModuleRule] | The new rule set to be updated for the posting module.
+posting_module_rule = [{"ruleId":"rule 1","account":"100002354","ruleFilter":"1 eq 1"},{"ruleId":"rule 2","account":"123456789","ruleFilter":"true eq true"}] # list[PostingModuleRule] | The new rule set for the Posting Module.
 
     try:
-        # [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
-        api_response = api_instance.update_posting_module_rules(scope, code, posting_module_rule)
+        # [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+        api_response = api_instance.set_posting_module_rules(scope, code, posting_module_rule)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling PostingModulesApi->update_posting_module_rules: %s\n" % e)
+        print("Exception when calling PostingModulesApi->set_posting_module_rules: %s\n" % e)
 ```
 
 ### Parameters
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Posting Module to be updated. | 
  **code** | **str**| The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module. | 
- **posting_module_rule** | [**list[PostingModuleRule]**](PostingModuleRule.md)| The new rule set to be updated for the posting module. | 
+ **posting_module_rule** | [**list[PostingModuleRule]**](PostingModuleRule.md)| The new rule set for the Posting Module. | 
 
 ### Return type
 
