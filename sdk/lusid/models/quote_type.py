@@ -44,8 +44,9 @@ class QuoteType(object):
     RATIO = "Ratio"
     DELTA = "Delta"
     POOLFACTOR = "PoolFactor"
+    INFLATIONASSUMPTION = "InflationAssumption"
 
-    allowable_values = [PRICE, SPREAD, RATE, LOGNORMALVOL, NORMALVOL, PARSPREAD, ISDASPREAD, UPFRONT, INDEX, RATIO, DELTA, POOLFACTOR]  # noqa: E501
+    allowable_values = [PRICE, SPREAD, RATE, LOGNORMALVOL, NORMALVOL, PARSPREAD, ISDASPREAD, UPFRONT, INDEX, RATIO, DELTA, POOLFACTOR, INFLATIONASSUMPTION]  # noqa: E501
 
     """
     Attributes:
