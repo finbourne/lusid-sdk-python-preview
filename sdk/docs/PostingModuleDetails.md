@@ -1,6 +1,6 @@
 # PostingModuleDetails
 
-A Posting Module request definition
+A posting Module request definition
 
 ## Properties
 Name | Type | Description | Notes
