@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** | The code of the Posting Module. | 
 **chart_of_accounts_id** | [**ResourceId**](ResourceId.md) |  | 
-**name** | **str** | The name to identify the Posting Module by | 
+**display_name** | **str** | The name to identify the Posting Module by | 
 **description** | **str** | The description for the Posting Module | [optional] 
 **rules** | [**list[PostingModuleRule]**](PostingModuleRule.md) | The posting rules that apply for the Posting Module | [optional] 
 
