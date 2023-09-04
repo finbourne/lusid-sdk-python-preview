@@ -54,7 +54,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
     scope = 'scope_example' # str | The scope of the Chart of Accounts.
-chart_of_accounts_request = {"code":"ChartOfAccounts","name":"ChartOfAccountsName","description":"Standard COA","properties":{"ChartOfAccounts/MyScope/FundManagerName":{"key":"ChartOfAccounts/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"}}} # ChartOfAccountsRequest | The definition of the Chart of Accounts.
+chart_of_accounts_request = {"code":"ChartOfAccounts","displayName":"ChartOfAccountsName","description":"Standard COA","properties":{"ChartOfAccounts/MyScope/FundManagerName":{"key":"ChartOfAccounts/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"}}} # ChartOfAccountsRequest | The definition of the Chart of Accounts.
 
     try:
         # [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
