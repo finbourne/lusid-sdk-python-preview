@@ -6,7 +6,7 @@ The request used to create a chart of account.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** | The code given for the chart of account. | 
-**display_name** | **str** | The given name for the chart of account. | [optional] 
+**name** | **str** | The given name for the chart of account. | [optional] 
 **description** | **str** | The description for the chart of account. | [optional] 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Chart of Accounts properties to add to the chart of account. | [optional] 
 

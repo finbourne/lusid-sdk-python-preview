@@ -133,7 +133,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.AborApi(api_client)
     scope = 'scope_example' # str | The scope of the Abor.
-abor_request = {"code":"AborCode","displayName":"Standard Abor","description":"A standard Abor","portfolioIds":[{"scope":"portfolioScope","code":"portfolioCode","portfolioEntityType":"SinglePortfolio"}],"aborConfigurationId":{"scope":"ConfigScope","code":"ConfigCode"},"properties":{"Abor/MyScope/FundManagerName":{"key":"Abor/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}}} # AborRequest | The definition of the Abor.
+abor_request = {"code":"AborCode","portfolioIds":[{"scope":"portfolioScope","code":"portfolioCode","portfolioEntityType":"SinglePortfolio"}],"description":"Standard Abor","aborConfig":{"scope":"ConfigScope","code":"ConfigCode"},"properties":{"Abor/MyScope/FundManagerName":{"key":"Abor/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}}} # AborRequest | The definition of the Abor.
 
     try:
         # [EXPERIMENTAL] CreateAbor: Create an Abor.

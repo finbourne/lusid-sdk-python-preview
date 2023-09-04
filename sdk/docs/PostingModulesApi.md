@@ -50,7 +50,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.PostingModulesApi(api_client)
     scope = 'scope_example' # str | The scope of the Posting Module.
-posting_module_request = {"code":"PostingModuleCode","chartOfAccountsId":{"scope":"ChartOfAccountsScope","code":"ChartOfAccountsCode"},"displayName":"PostingModuleName","description":"PostingModuleDescription","rules":[{"ruleId":"rule1Id","account":"account1","ruleFilter":"Transaction.TransactionId eq 'Transaction_1'"}]} # PostingModuleRequest | The definition of the Posting Module.
+posting_module_request = {"code":"PostingModuleCode","chartOfAccountsId":{"scope":"ChartOfAccountsScope","code":"ChartOfAccountsCode"},"name":"PostingModuleName","description":"PostingModuleDescription","rules":[{"ruleId":"rule1Id","account":"account1","ruleFilter":"Transaction.TransactionId eq 'Transaction_1'"}]} # PostingModuleRequest | The definition of the Posting Module.
 
     try:
         # [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -375,7 +375,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.PostingModulesApi(api_client)
     scope = 'scope_example' # str | The scope of the Posting Module to be updated.
 code = 'code_example' # str | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.
-posting_module_details = {"chartOfAccountsId":{"scope":"PostingModuleScope","code":"PostingModuleCode"},"displayName":"PostingModuleNameUpdated","description":"PostingModuleDescriptionUpdated","status":"Active"} # PostingModuleDetails | The new details for the Posting Module.
+posting_module_details = {"chartOfAccountsId":{"scope":"PostingModuleScope","code":"PostingModuleCode"},"name":"PostingModuleNameUpdated","description":"PostingModuleDescriptionUpdated","status":"Active"} # PostingModuleDetails | The new details for the Posting Module.
 
     try:
         # [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
