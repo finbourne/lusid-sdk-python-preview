@@ -10,10 +10,10 @@ Method | HTTP request | Description
 [**get_account**](ChartOfAccountsApi.md#get_account) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EXPERIMENTAL] GetAccount: Get Account
 [**get_chart_of_accounts**](ChartOfAccountsApi.md#get_chart_of_accounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
 [**list_accounts**](ChartOfAccountsApi.md#list_accounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] ListAccounts: List Accounts
-[**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
+[**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
 [**upsert_accounts**](ChartOfAccountsApi.md#upsert_accounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
 [**upsert_accounts_properties**](ChartOfAccountsApi.md#upsert_accounts_properties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EXPERIMENTAL] UpsertAccountsProperties: Upsert accounts properties
-[**upsert_chart_of_accounts_properties**](ChartOfAccountsApi.md#upsert_chart_of_accounts_properties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert chart of accounts properties
+[**upsert_chart_of_accounts_properties**](ChartOfAccountsApi.md#upsert_chart_of_accounts_properties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
 
 
 # **create_chart_of_accounts**
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
 
-Create the given chart of accounts.
+Create the given Chart of Accounts.
 
 ### Example
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The newly created chart of accounts. |  -  |
+**201** | The newly created Chart of Accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
 
-Delete one or more account from the chart of accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
 
 ### Example
 
@@ -130,8 +130,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the chart of accounts.
-code = 'code_example' # str | The code of the chart of accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
 request_body = ["AccountCode1","AccountCode2"] # list[str] | The codes of the accounts to delete.
 delete_mode = 'delete_mode_example' # str | The delete mode to use (defaults to 'Soft'). (optional)
 
@@ -147,8 +147,8 @@ delete_mode = 'delete_mode_example' # str | The delete mode to use (defaults to 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the chart of accounts. | 
- **code** | **str**| The code of the chart of accounts. Together with the scope this uniquely identifies              the Chart of Accounts. | 
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts. | 
  **request_body** | [**list[str]**](str.md)| The codes of the accounts to delete. | 
  **delete_mode** | **str**| The delete mode to use (defaults to &#39;Soft&#39;). | [optional] 
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The datetime that the accounts were deleted. |  -  |
+**200** | The datetime that the Accounts were deleted. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
 
-Delete the given chart of accounts.
+Delete the given Chart of Accounts.
 
 ### Example
 
@@ -212,7 +212,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
     scope = 'scope_example' # str | The scope of the Chart of Accounts to be deleted.
-code = 'code_example' # str | The code of the Chart of Accounts to be deleted.Together with the scope this uniquely identifies the chart of accounts.
+code = 'code_example' # str | The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.
 
     try:
         # [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
@@ -227,7 +227,7 @@ code = 'code_example' # str | The code of the Chart of Accounts to be deleted.To
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Chart of Accounts to be deleted. | 
- **code** | **str**| The code of the Chart of Accounts to be deleted.Together with the scope this uniquely identifies the chart of accounts. | 
+ **code** | **str**| The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts. | 
 
 ### Return type
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The datetime that the chart of accounts was deleted |  -  |
+**200** | The datetime that the Chart of Accounts was deleted. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -288,8 +288,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the ChartOfAccounts.
-code = 'code_example' # str | The code of the ChartOfAccounts. Together with the scope this uniquely identifies the ChartOfAccounts.
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
 account_code = 'account_code_example' # str | The code of the Account.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)
@@ -307,8 +307,8 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the ChartOfAccounts. | 
- **code** | **str**| The code of the ChartOfAccounts. Together with the scope this uniquely identifies the ChartOfAccounts. | 
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. | 
  **account_code** | **str**| The code of the Account. | 
  **effective_at** | **str**| The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. | [optional] 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested Account definition |  -  |
+**200** | The requested Account definition. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
 
-Retrieve the definition of a particular ChartOfAccounts.
+Retrieve the definition of a particular Chart of Accounts.
 
 ### Example
 
@@ -373,11 +373,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the ChartOfAccounts.
-code = 'code_example' # str | The code of the ChartOfAccounts. Together with the scope this uniquely identifies the ChartOfAccounts.
-effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the ChartOfAccounts properties. Defaults to the current LUSID system datetime if not specified. (optional)
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the ChartOfAccounts definition. Defaults to returning the latest version of the ChartOfAccounts definition if not specified. (optional)
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto the ChartOfAccounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. If not provided will return all the entitled properties for that ChartOfAccounts. (optional)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
+effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. If not provided will return all the entitled properties for that Chart of Accounts. (optional)
 
     try:
         # [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
@@ -391,11 +391,11 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the ChartOfAccounts. | 
- **code** | **str**| The code of the ChartOfAccounts. Together with the scope this uniquely identifies the ChartOfAccounts. | 
- **effective_at** | **str**| The effective datetime or cut label at which to retrieve the ChartOfAccounts properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **as_at** | **datetime**| The asAt datetime at which to retrieve the ChartOfAccounts definition. Defaults to returning the latest version of the ChartOfAccounts definition if not specified. | [optional] 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the ChartOfAccounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If not provided will return all the entitled properties for that ChartOfAccounts. | [optional] 
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. | 
+ **effective_at** | **str**| The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If not provided will return all the entitled properties for that Chart of Accounts. | [optional] 
 
 ### Return type
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested ChartOfAccounts definition |  -  |
+**200** | The requested Chart Of Accounts definition. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] ListAccounts: List Accounts
 
-List the accounts in a chart of accounts
+List the accounts in a Chart of Accounts
 
 ### Example
 
@@ -456,8 +456,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the chart of accounts.
-code = 'code_example' # str | The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts.
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
 effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
@@ -478,8 +478,8 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the chart of accounts. | 
- **code** | **str**| The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts. | 
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts. | 
  **effective_at** | **str**| The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **as_at** | **datetime**| The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. | [optional] 
  **page** | **str**| The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The accounts in the given chart of accounts. |  -  |
+**200** | The Accounts in the given Chart of Accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -513,9 +513,9 @@ Name | Type | Description  | Notes
 # **list_charts_of_accounts**
 > PagedResourceListOfChartOfAccounts list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
 
-[EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
+[EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
 
-List all the charts of accounts matching particular criteria.
+List all the Charts of Accounts matching particular criteria.
 
 ### Example
 
@@ -548,15 +548,15 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
     effective_at = 'effective_at_example' # str | The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)
-as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each chart of accounts if not specified. (optional)
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)
 page = 'page_example' # str | The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
-filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the ChartOfAccounts type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
-property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto each chart of accounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. (optional)
+filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. (optional)
 
     try:
-        # [EXPERIMENTAL] ListChartsOfAccounts: List chart of accounts
+        # [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
         api_response = api_instance.list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, start=start, limit=limit, filter=filter, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
@@ -568,12 +568,12 @@ property_keys = ['property_keys_example'] # list[str] | A list of property keys 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **effective_at** | **str**| The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. | [optional] 
- **as_at** | **datetime**| The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each chart of accounts if not specified. | [optional] 
+ **as_at** | **datetime**| The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. | [optional] 
  **page** | **str**| The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
- **filter** | **str**| Expression to filter the results.              For example, to filter on the ChartOfAccounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each chart of accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. | [optional] 
+ **filter** | **str**| Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. | [optional] 
 
 ### Return type
 
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested charts of accounts |  -  |
+**200** | The requested Charts of Accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
 
-Create or update accounts in the chart of accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
 
 ### Example
 
@@ -634,8 +634,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
-    scope = 'scope_example' # str | The scope of the chart of accounts.
-code = 'code_example' # str | The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts.
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
 account = [{"code":"001456","description":"Cash","type":"Asset","status":"Active","control":"Manual","properties":{}},{"code":"123653","description":"Dividends","type":"Revenue","status":"Inactive","control":"System","properties":{}}] # list[Account] | A list of accounts to be created or updated.
 
     try:
@@ -650,8 +650,8 @@ account = [{"code":"001456","description":"Cash","type":"Asset","status":"Active
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the chart of accounts. | 
- **code** | **str**| The code of the chart of accounts. Together with the scope this uniquely identifies              the chart of accounts. | 
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts. | 
  **account** | [**list[Account]**](Account.md)| A list of accounts to be created or updated. | 
 
 ### Return type
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The newly upserted accounts. |  -  |
+**200** | The newly upserted Accounts. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -714,7 +714,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
     scope = 'scope_example' # str | The scope of the Chart of Accounts to update or insert the properties onto.
-code = 'code_example' # str | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the chart of accounts.
+code = 'code_example' # str | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.
 account_code = 'account_code_example' # str | The unique ID of the account to create or update properties for.
 request_body = {"Account/MyScope/FundManagerName":{"key":"Account/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"},"Account/MyScope/SomeProperty":{"key":"Account/MyScope/SomeProperty","value":{"labelValue":"SomeValue"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},"Account/MyScope/AnotherProperty":{"key":"Account/MyScope/AnotherProperty","value":{"labelValue":"AnotherValue"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveUntil":"2020-01-01T00:00:00.0000000+00:00"},"Account/MyScope/ReBalanceInterval":{"key":"Account/MyScope/ReBalanceInterval","value":{"metricValue":{"value":30,"unit":"Days"}}}} # dict(str, ModelProperty) | The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Account/Manager/Id\". (optional)
 
@@ -731,7 +731,7 @@ request_body = {"Account/MyScope/FundManagerName":{"key":"Account/MyScope/FundMa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Chart of Accounts to update or insert the properties onto. | 
- **code** | **str**| The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the chart of accounts. | 
+ **code** | **str**| The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts. | 
  **account_code** | **str**| The unique ID of the account to create or update properties for. | 
  **request_body** | [**dict(str, ModelProperty)**](ModelProperty.md)| The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. | [optional] 
 
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The updated or inserted properties |  -  |
+**200** | The updated or inserted properties. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -760,9 +760,9 @@ Name | Type | Description  | Notes
 # **upsert_chart_of_accounts_properties**
 > ChartOfAccountsProperties upsert_chart_of_accounts_properties(scope, code, request_body=request_body)
 
-[EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert chart of accounts properties
+[EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
 
-Update or insert one or more properties onto a single chart of accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'ChartOfAccounts'.                Upserting a property that exists for a chart of accounts, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
+Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'ChartOfAccounts'.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 
@@ -795,11 +795,11 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ChartOfAccountsApi(api_client)
     scope = 'scope_example' # str | The scope of the Chart of Accounts to update or insert the properties onto.
-code = 'code_example' # str | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the chart of accounts.
+code = 'code_example' # str | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.
 request_body = {"ChartOfAccounts/MyScope/FundManagerName":{"key":"ChartOfAccounts/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00"},"ChartOfAccounts/MyScope/SomeProperty":{"key":"ChartOfAccounts/MyScope/SomeProperty","value":{"labelValue":"SomeValue"},"effectiveFrom":"2016-01-01T00:00:00.0000000+00:00"},"ChartOfAccounts/MyScope/AnotherProperty":{"key":"ChartOfAccounts/MyScope/AnotherProperty","value":{"labelValue":"AnotherValue"},"effectiveFrom":"2018-03-05T00:00:00.0000000+00:00","effectiveUntil":"2020-01-01T00:00:00.0000000+00:00"},"ChartOfAccounts/MyScope/ReBalanceInterval":{"key":"ChartOfAccounts/MyScope/ReBalanceInterval","value":{"metricValue":{"value":30,"unit":"Days"}}}} # dict(str, ModelProperty) | The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"ChartOfAccounts/Manager/Id\". (optional)
 
     try:
-        # [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert chart of accounts properties
+        # [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         api_response = api_instance.upsert_chart_of_accounts_properties(scope, code, request_body=request_body)
         pprint(api_response)
     except ApiException as e:
@@ -811,7 +811,7 @@ request_body = {"ChartOfAccounts/MyScope/FundManagerName":{"key":"ChartOfAccount
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Chart of Accounts to update or insert the properties onto. | 
- **code** | **str**| The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the chart of accounts. | 
+ **code** | **str**| The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts. | 
  **request_body** | [**dict(str, ModelProperty)**](ModelProperty.md)| The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. | [optional] 
 
 ### Return type
@@ -830,7 +830,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The updated or inserted properties |  -  |
+**200** | The updated or inserted properties. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
