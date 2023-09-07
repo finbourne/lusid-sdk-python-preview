@@ -53,7 +53,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope in which to create or update data maps.
-request_body = {} # dict(str, CreateDataMapRequest) | Individual data map creation requests.
+request_body = {"id1":{"id":{"version":"1.0.0","code":"dataMapCode"},"data":{"dataDefinitions":[{"address":"Instrument/default/LusidInstrumentId","name":"luid","dataType":"String","keyType":"Unique","allowNull":false,"allowMissing":false},{"address":"Valuation/PV","dataType":"Result0D","keyType":"Leaf","allowNull":false,"allowMissing":false},{"address":"Valuation/PV/Amount","name":"pv","dataType":"Decimal","keyType":"Leaf","allowNull":false,"allowMissing":false},{"address":"Valuation/PV/Ccy","name":"pv-ccy","dataType":"String","keyType":"Leaf","allowNull":false,"allowMissing":false},{"address":"Instrument/default/Name","name":"instrument-name","dataType":"String","keyType":"Leaf","allowNull":false,"allowMissing":false}]}}} # dict(str, CreateDataMapRequest) | Individual data map creation requests.
 
     try:
         # [EXPERIMENTAL] CreateDataMap: Create data map
@@ -292,7 +292,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope from which to retrieve data maps.
-request_body = {} # dict(str, DataMapKey) | The data map keys to look up, each keyed by a unique, ephemeral correlation ID.
+request_body = {"id1":{"version":"1.0.0","code":"dataMapCode"}} # dict(str, DataMapKey) | The data map keys to look up, each keyed by a unique, ephemeral correlation ID.
 
     try:
         # [EXPERIMENTAL] GetDataMap: Get data map
@@ -697,7 +697,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.StructuredResultDataApi(api_client)
     scope = 'scope_example' # str | The scope in which to create or update data items.
-request_body = {"first-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
+request_body = {"first-item":{"id":{"source":"Client","code":"MyCustomDocument","effectiveAt":"2020-01-01T00:00:00.0000000+00:00","resultType":"UnitResult/Custom"},"data":{"documentFormat":"Csv","version":"1.0.0","name":"my document identifier","document":"luid,pv,pv-ccy,instrument-name\nLUID_11111111,1,GBP,instr1\nLUID_22222222,2,USD,instr2","dataMapKey":{"version":"1.0.0","code":"dataMapCode"}}},"second-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-1","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Xml","version":"1.0.0","name":"free text identifier of document 1","document":"<xml>data</xml>"}},"third-item":{"id":{"source":"Client","code":"MyUploadedRiskResults-2","effectiveAt":"2018-03-05T00:00:00.0000000+00:00","resultType":"Risk"},"data":{"documentFormat":"Json","version":"1.0.0","name":"free text identifier of document 2","document":"{ \"some\":\"valid json\"}"}}} # dict(str, UpsertStructuredResultDataRequest) | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
 
     try:
         # [BETA] UpsertStructuredResultData: Upsert structured result data
