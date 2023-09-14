@@ -758,7 +758,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.TransactionConfigurationApi(api_client)
     source = 'source_example' # str | The source to set the transaction configuration for
-type = 'type_example' # str | One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type
+type = 'type_example' # str | One of the transaction configuration alias types to uniquely identify the configuration
 transaction_type_request = {"aliases":[{"type":"CustomBuy","description":"A custom buy type","transactionClass":"Buy","transactionRoles":"Longer","isDefault":false},{"type":"BuyAlias","description":"A similar buy type","transactionClass":"Buy","transactionRoles":"Longer","isDefault":false}],"movements":[{"movementTypes":"StockMovement","side":"Side1","direction":-1,"properties":{"TransactionConfiguration/default/TaxLotSelectionMethod":{"key":"TransactionConfiguration/default/TaxLotSelectionMethod","value":{"labelValue":"FirstInFirstOut"}}},"mappings":[],"movementOptions":[]},{"movementTypes":"CashCommitment","side":"Side1","direction":1,"properties":{},"mappings":[{"propertyKey":"Transaction/scopeA/Strategy","setTo":"Cash"}],"movementOptions":[]}],"properties":{"TransactionConfiguration/default/TotalConsiderationPolicy":{"key":"TransactionConfiguration/default/TotalConsiderationPolicy","value":{"labelValue":"Add"}}}} # TransactionTypeRequest | The transaction configuration to set
 scope = 'default' # str | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional) (default to 'default')
 
@@ -775,7 +775,7 @@ scope = 'default' # str | The scope in which the transaction types exists. When 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source** | **str**| The source to set the transaction configuration for | 
- **type** | **str**| One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type | 
+ **type** | **str**| One of the transaction configuration alias types to uniquely identify the configuration | 
  **transaction_type_request** | [**TransactionTypeRequest**](TransactionTypeRequest.md)| The transaction configuration to set | 
  **scope** | **str**| The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &#39;default&#39;]
 
