@@ -40,7 +40,6 @@ from lusid.api.persons_api import PersonsApi
 from lusid.api.placements_api import PlacementsApi
 from lusid.api.portfolio_groups_api import PortfolioGroupsApi
 from lusid.api.portfolios_api import PortfoliosApi
-from lusid.api.posting_modules_api import PostingModulesApi
 from lusid.api.property_definitions_api import PropertyDefinitionsApi
 from lusid.api.quotes_api import QuotesApi
 from lusid.api.reconciliations_api import ReconciliationsApi
