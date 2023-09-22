@@ -1,3 +1,9 @@
+# Deprecated
+
+Please note that this repository is deprecated and will be archived early 2024.
+
+All functionality is now contained, in the [lusid-sdk-python](https://github.com/finbourne/lusid-sdk-python) repository on the `main` branch.
+
 # LUSID<sup>®</sup> Python Preview SDK
 This is the Python Preview SDK for [LUSID by FINBOURNE](https://www.finbourne.com/lusid-technology), a bi-temporal investment management data platform with portfolio accounting capabilities. To use it you'll need a LUSID account. [Sign up for free at lusid.com](https://www.lusid.com/app/signup)
 
