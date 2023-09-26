@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**delete_posting_module**](ChartOfAccountsApi.md#delete_posting_module) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
 [**get_account**](ChartOfAccountsApi.md#get_account) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EXPERIMENTAL] GetAccount: Get Account
 [**get_chart_of_accounts**](ChartOfAccountsApi.md#get_chart_of_accounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
+[**get_posting_module**](ChartOfAccountsApi.md#get_posting_module) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] GetPostingModule: Get a Posting Module
 [**list_accounts**](ChartOfAccountsApi.md#list_accounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] ListAccounts: List Accounts
 [**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
 [**list_posting_module_rules**](ChartOfAccountsApi.md#list_posting_module_rules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
@@ -100,7 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_posting_module**
-> PostingModuleCreateResponse create_posting_module(scope, code, posting_module_request)
+> PostingModuleResponse create_posting_module(scope, code, posting_module_request)
 
 [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
 
@@ -158,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostingModuleCreateResponse**](PostingModuleCreateResponse.md)
+[**PostingModuleResponse**](PostingModuleResponse.md)
 
 ### Authorization
 
@@ -578,6 +579,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested Chart Of Accounts definition. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_posting_module**
+> PostingModuleResponse get_posting_module(scope, code, posting_module_code)
+
+[EXPERIMENTAL] GetPostingModule: Get a Posting Module
+
+Retrieve the definition of a Posting Module complete with its rules.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
+posting_module_code = 'posting_module_code_example' # str | The code of the Posting Module.
+
+    try:
+        # [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+        api_response = api_instance.get_posting_module(scope, code, posting_module_code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->get_posting_module: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. | 
+ **posting_module_code** | **str**| The code of the Posting Module. | 
+
+### Return type
+
+[**PostingModuleResponse**](PostingModuleResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The full definition of the Posting Module. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
