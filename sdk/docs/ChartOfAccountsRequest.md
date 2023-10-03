@@ -5,10 +5,10 @@ The request used to create a chart of account.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** | The code given for the chart of account. | 
-**display_name** | **str** | The given name for the chart of account. | [optional] 
-**description** | **str** | The description for the chart of account. | [optional] 
-**properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Chart of Accounts properties to add to the chart of account. | [optional] 
+**code** | **str** | The code given for the Chart of Accounts. | 
+**display_name** | **str** | The name of the Chart of Account. | [optional] 
+**description** | **str** | A description of the Chart of Accounts. | [optional] 
+**properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | A set of properties for the Chart of Accounts. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

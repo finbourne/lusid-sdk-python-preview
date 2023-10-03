@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
-**properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | The AborConfiguration properties. These will be from the &#39;AborConfiguration&#39; domain. | [optional] 
+**properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | The Abor Configuration properties. These will be from the &#39;AborConfiguration&#39; domain. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
