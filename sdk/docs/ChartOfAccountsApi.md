@@ -5,17 +5,22 @@ All URIs are relative to *https://www.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_chart_of_accounts**](ChartOfAccountsApi.md#create_chart_of_accounts) | **POST** /api/chartofaccounts/{scope} | [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
+[**create_general_ledger_profile**](ChartOfAccountsApi.md#create_general_ledger_profile) | **POST** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
 [**create_posting_module**](ChartOfAccountsApi.md#create_posting_module) | **POST** /api/chartofaccounts/{scope}/{code}/postingmodules | [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
 [**delete_accounts**](ChartOfAccountsApi.md#delete_accounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/$delete | [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
 [**delete_chart_of_accounts**](ChartOfAccountsApi.md#delete_chart_of_accounts) | **DELETE** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
+[**delete_general_ledger_profile**](ChartOfAccountsApi.md#delete_general_ledger_profile) | **DELETE** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
 [**delete_posting_module**](ChartOfAccountsApi.md#delete_posting_module) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
 [**get_account**](ChartOfAccountsApi.md#get_account) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EXPERIMENTAL] GetAccount: Get Account
 [**get_chart_of_accounts**](ChartOfAccountsApi.md#get_chart_of_accounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
+[**get_general_ledger_profile**](ChartOfAccountsApi.md#get_general_ledger_profile) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
 [**get_posting_module**](ChartOfAccountsApi.md#get_posting_module) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] GetPostingModule: Get a Posting Module
 [**list_accounts**](ChartOfAccountsApi.md#list_accounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] ListAccounts: List Accounts
 [**list_charts_of_accounts**](ChartOfAccountsApi.md#list_charts_of_accounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
+[**list_general_ledger_profiles**](ChartOfAccountsApi.md#list_general_ledger_profiles) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
 [**list_posting_module_rules**](ChartOfAccountsApi.md#list_posting_module_rules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
 [**list_posting_modules**](ChartOfAccountsApi.md#list_posting_modules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules | [EXPERIMENTAL] ListPostingModules: List Posting Modules
+[**set_general_ledger_profile_mappings**](ChartOfAccountsApi.md#set_general_ledger_profile_mappings) | **PUT** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings | [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
 [**set_posting_module_details**](ChartOfAccountsApi.md#set_posting_module_details) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
 [**set_posting_module_rules**](ChartOfAccountsApi.md#set_posting_module_rules) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
 [**upsert_account_properties**](ChartOfAccountsApi.md#upsert_account_properties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
@@ -95,6 +100,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | The newly created Chart of Accounts. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_general_ledger_profile**
+> GeneralLedgerProfileResponse create_general_ledger_profile(scope, code, general_ledger_profile_request)
+
+[EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+
+Create the given General Ledger profile.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts.
+general_ledger_profile_request = {"generalLedgerProfileCode":"STEM1","displayName":"STEM","description":"STEM profile","generalLedgerProfileMappings":[{"mappingFilter":"Account eq 'INVESTMENTS'","levels":["local.currency"]},{"mappingFilter":"Properties['Account/default/Profile'] eq 'CCY'","levels":["local.currency"]}]} # GeneralLedgerProfileRequest | The definition of the General Ledger Profile.
+
+    try:
+        # [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+        api_response = api_instance.create_general_ledger_profile(scope, code, general_ledger_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->create_general_ledger_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. | 
+ **general_ledger_profile_request** | [**GeneralLedgerProfileRequest**](GeneralLedgerProfileRequest.md)| The definition of the General Ledger Profile. | 
+
+### Return type
+
+[**GeneralLedgerProfileResponse**](GeneralLedgerProfileResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The newly created General Ledger Profile. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -332,6 +416,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The datetime that the Chart of Accounts was deleted. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_general_ledger_profile**
+> DeletedEntityResponse delete_general_ledger_profile(scope, code, general_ledger_profile_code)
+
+[EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+
+Delete the given General Ledger Profile.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts for the General Ledger Profile.
+code = 'code_example' # str | The code of the Chart of Accounts for the General Ledger Profile.
+general_ledger_profile_code = 'general_ledger_profile_code_example' # str | The Code of the General Ledger Profile.
+
+    try:
+        # [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+        api_response = api_instance.delete_general_ledger_profile(scope, code, general_ledger_profile_code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->delete_general_ledger_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts for the General Ledger Profile. | 
+ **code** | **str**| The code of the Chart of Accounts for the General Ledger Profile. | 
+ **general_ledger_profile_code** | **str**| The Code of the General Ledger Profile. | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The datetime that the General Ledger Profile was deleted |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -579,6 +742,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested Chart Of Accounts definition. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_general_ledger_profile**
+> GeneralLedgerProfileResponse get_general_ledger_profile(scope, code, general_ledger_profile_code)
+
+[EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+
+Get the given General Ledger Profile.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts for the General Ledger Profile.
+code = 'code_example' # str | The code of the Chart of Accounts for the General Ledger Profile.
+general_ledger_profile_code = 'general_ledger_profile_code_example' # str | The General Ledger Profile Code of the General Ledger Profile.
+
+    try:
+        # [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+        api_response = api_instance.get_general_ledger_profile(scope, code, general_ledger_profile_code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->get_general_ledger_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts for the General Ledger Profile. | 
+ **code** | **str**| The code of the Chart of Accounts for the General Ledger Profile. | 
+ **general_ledger_profile_code** | **str**| The General Ledger Profile Code of the General Ledger Profile. | 
+
+### Return type
+
+[**GeneralLedgerProfileResponse**](GeneralLedgerProfileResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested General Ledger Profile entry. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -841,6 +1083,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_general_ledger_profiles**
+> PagedResourceListOfGeneralLedgerProfileResponse list_general_ledger_profiles(scope, code, as_at=as_at, start=start, page=page, limit=limit, filter=filter)
+
+[EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+
+List all the General Ledger profiles matching particular criteria.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts
+code = 'code_example' # str | The code of the Chart of Accounts
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)
+start = 56 # int | The start of the pager for the list of General Ledger Profiles (optional)
+page = 'page_example' # str | The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
+filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \"type eq 'PeriodBoundary'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+
+    try:
+        # [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+        api_response = api_instance.list_general_ledger_profiles(scope, code, as_at=as_at, start=start, page=page, limit=limit, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->list_general_ledger_profiles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts | 
+ **code** | **str**| The code of the Chart of Accounts | 
+ **as_at** | **datetime**| The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. | [optional] 
+ **start** | **int**| The start of the pager for the list of General Ledger Profiles | [optional] 
+ **page** | **str**| The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
+ **filter** | **str**| Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfGeneralLedgerProfileResponse**](PagedResourceListOfGeneralLedgerProfileResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested General Ledger Profile entries. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_posting_module_rules**
 > PagedResourceListOfPostingModuleRule list_posting_module_rules(scope, code, posting_module_code, as_at=as_at, page=page, start=start, limit=limit, filter=filter)
 
@@ -1012,6 +1341,87 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested Posting Modules. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_general_ledger_profile_mappings**
+> GeneralLedgerProfileResponse set_general_ledger_profile_mappings(scope, code, general_ledger_profile_code, general_ledger_profile_mapping)
+
+[EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+
+Update the given General Ledger profile Mappings.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ChartOfAccountsApi(api_client)
+    scope = 'scope_example' # str | The scope of the Chart of Accounts.
+code = 'code_example' # str | The code of the Chart of Accounts.
+general_ledger_profile_code = 'general_ledger_profile_code_example' # str | The code of the General Ledger Profile
+general_ledger_profile_mapping = [{"mappingFilter":"Account eq 'INVESTMENTS'","levels":["local.currency"]},{"mappingFilter":"Properties['Account/default/Profile'] eq 'CCY'","levels":["local.currency"]}] # list[GeneralLedgerProfileMapping] | The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.
+
+    try:
+        # [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+        api_response = api_instance.set_general_ledger_profile_mappings(scope, code, general_ledger_profile_code, general_ledger_profile_mapping)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ChartOfAccountsApi->set_general_ledger_profile_mappings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Chart of Accounts. | 
+ **code** | **str**| The code of the Chart of Accounts. | 
+ **general_ledger_profile_code** | **str**| The code of the General Ledger Profile | 
+ **general_ledger_profile_mapping** | [**list[GeneralLedgerProfileMapping]**](GeneralLedgerProfileMapping.md)| The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided. | 
+
+### Return type
+
+[**GeneralLedgerProfileResponse**](GeneralLedgerProfileResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The General Ledger Profile that holds the updated mappings. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_abor**](AborApi.md#get_abor) | **GET** /api/abor/{scope}/{code} | [EXPERIMENTAL] GetAbor: Get Abor.
 [**get_je_lines**](AborApi.md#get_je_lines) | **POST** /api/abor/{scope}/{code}/JELines/$query/$deprecated | [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
 [**get_journal_entry_lines**](AborApi.md#get_journal_entry_lines) | **POST** /api/abor/{scope}/{code}/journalentrylines/$query | [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+[**get_trial_balance**](AborApi.md#get_trial_balance) | **POST** /api/abor/{scope}/{code}/trialbalance/$query | [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
 [**list_abors**](AborApi.md#list_abors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors.
 [**list_diary_entries**](AborApi.md#list_diary_entries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] ListDiaryEntries: List diary entries.
 [**upsert_abor_properties**](AborApi.md#upsert_abor_properties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
@@ -457,7 +458,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.AborApi(api_client)
     scope = 'scope_example' # str | The scope of the Abor.
 code = 'code_example' # str | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.
-journal_entry_lines_query_parameters = {"start":{"date":"2018-03-05T00:00:00.0000000+00:00"},"end":{"diaryEntry":"2023_01"},"dateMode":"ActivityDate","propertyKeys":[]} # JournalEntryLinesQueryParameters | The query parameters used in running the generation of the Journal Entry lines.
+journal_entry_lines_query_parameters = {"propertyKeys":[],"start":{"date":"2018-03-05T00:00:00.0000000+00:00"},"end":{"diaryEntry":"2023_01"},"dateMode":"ActivityDate"} # JournalEntryLinesQueryParameters | The query parameters used in running the generation of the Journal Entry lines.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)
 filter = 'filter_example' # str | \"Expression to filter the result set.\" (optional)
 limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)
@@ -500,6 +501,93 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested Journal Entry lines for the specified Abor. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_trial_balance**
+> VersionedResourceListOfTrialBalance get_trial_balance(scope, code, trial_balance_query_parameters, as_at=as_at, filter=filter, limit=limit, page=page)
+
+[EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+
+Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AborApi(api_client)
+    scope = 'scope_example' # str | The scope of the Abor.
+code = 'code_example' # str | The code of the Abor. Together with the scope is the unique identifier for the given Abor.
+trial_balance_query_parameters = {"start":{"date":"2018-03-05T00:00:00.0000000+00:00"},"end":{"diaryEntry":"2023_01"},"dateMode":"ActivityDate"} # TrialBalanceQueryParameters | The query parameters used in running the generation of the Trial Balance.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)
+filter = 'filter_example' # str | \"Expression to filter the result set.\" (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)
+
+    try:
+        # [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+        api_response = api_instance.get_trial_balance(scope, code, trial_balance_query_parameters, as_at=as_at, filter=filter, limit=limit, page=page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AborApi->get_trial_balance: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Abor. | 
+ **code** | **str**| The code of the Abor. Together with the scope is the unique identifier for the given Abor. | 
+ **trial_balance_query_parameters** | [**TrialBalanceQueryParameters**](TrialBalanceQueryParameters.md)| The query parameters used in running the generation of the Trial Balance. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. | [optional] 
+ **filter** | **str**| \&quot;Expression to filter the result set.\&quot; | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing Trial balance from a previous call to Trial balance. | [optional] 
+
+### Return type
+
+[**VersionedResourceListOfTrialBalance**](VersionedResourceListOfTrialBalance.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested Trial Balance for the specified Abor. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
