@@ -144,7 +144,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.ChartOfAccountsApi(api_client)
     scope = 'scope_example' # str | The scope of the Chart of Accounts.
 code = 'code_example' # str | The code of the Chart of Accounts.
-general_ledger_profile_request = {"generalLedgerProfileCode":"STEM1","displayName":"STEM","description":"STEM profile","generalLedgerProfileMappings":[{"mappingFilter":"Account eq 'INVESTMENTS'","levels":["local.currency"]},{"mappingFilter":"Properties['Account/default/Profile'] eq 'CCY'","levels":["local.currency"]}]} # GeneralLedgerProfileRequest | The definition of the General Ledger Profile.
+general_ledger_profile_request = {"generalLedgerProfileCode":"STEM1","displayName":"STEM","description":"STEM profile","generalLedgerProfileMappings":[{"mappingFilter":"GeneralLedgerAccountCode eq 'INVESTMENTS'","levels":["EconomicBucket","Instrument.Identifiers['ClientInternal']"]},{"mappingFilter":"Properties['Account/default/Profile'] eq 'CCY'","levels":["DefaultCurrency"]},{"mappingFilter":"true","levels":["DefaultCurrency"]}]} # GeneralLedgerProfileRequest | The definition of the General Ledger Profile.
 
     try:
         # [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
