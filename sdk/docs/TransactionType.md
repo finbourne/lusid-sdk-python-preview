@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **movements** | [**list[TransactionTypeMovement]**](TransactionTypeMovement.md) | Movement data for the transaction type | 
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) | Properties attached to the transaction type | [optional] 
 **calculations** | [**list[TransactionTypeCalculation]**](TransactionTypeCalculation.md) | Calculations to be performed for the transaction type | [optional] 
-**links** | [**list[Link]**](Link.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
