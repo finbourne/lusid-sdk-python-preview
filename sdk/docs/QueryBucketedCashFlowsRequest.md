@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **rounding_method** | **str** | When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]. | 
 **bucketing_dates** | **list[datetime]** | A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty. | [optional] 
 **bucketing_tenors** | **list[str]** | A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty. | [optional] 
+**bucketing_schedule** | [**BucketingSchedule**](BucketingSchedule.md) |  | [optional] 
 **report_currency** | **str** | Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. | 
 **group_by** | **list[str]** | The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out. | [optional] 
 **addresses** | **list[str]** | The set of items that the user wishes to see in the results. If empty, will be defaulted to standard ones. | [optional] 
