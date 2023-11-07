@@ -1,3 +1,9 @@
+# Deprecated
+
+Please note that this repository is deprecated and will be archived early 2024.
+
+All functionality is now contained, in the [lusid-sdk-python](https://github.com/finbourne/lusid-sdk-python) repository on the `main` branch.
+
 # LUSID<sup>®</sup> Python Preview SDK
 This is the Python Preview SDK for [LUSID by FINBOURNE](https://www.finbourne.com/lusid-technology), a bi-temporal investment management data platform with portfolio accounting capabilities. To use it you'll need a LUSID account. [Sign up for free at lusid.com](https://www.lusid.com/app/signup)
 
@@ -31,7 +37,4 @@ Documentation for classes, methods, attributes and other members of the SDK is [
 
 ## Build Status
 
-| branch | status |
-| --- | --- |
-| `master` |  ![PyPI](https://img.shields.io/pypi/v/lusid-sdk-preview?color=blue) ![build](https://github.com/finbourne/lusid-sdk-python-preview/workflows/lusid-sdk-python-preview-test/badge.svg) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=finbourne_lusid-sdk-python-preview&metric=alert_status)](https://sonarcloud.io/dashboard?id=finbourne_lusid-sdk-python-preview) |
-| `develop` | ![lusid-sdk-python-preview-test](https://github.com/finbourne/lusid-sdk-python-preview/workflows/lusid-sdk-python-preview-test/badge.svg?branch=develop) |
+![PyPI](https://img.shields.io/pypi/v/lusid-sdk-preview?color=blue) ![build](https://github.com/finbourne/lusid-sdk-python-preview/workflows/lusid-sdk-python-preview-test/badge.svg) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=finbourne_lusid-sdk-python-preview&metric=alert_status)](https://sonarcloud.io/dashboard?id=finbourne_lusid-sdk-python-preview)
