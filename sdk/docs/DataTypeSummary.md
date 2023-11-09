@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **acceptable_values** | **list[str]** | The acceptable set of values for this data type. Only applies to &#39;open&#39; value type range. | [optional] 
 **unit_schema** | **str** | The schema of the data type&#39;s units. The available values are: NoUnits, Basic, Iso4217Currency | [optional] 
 **acceptable_units** | [**list[IUnitDefinitionDto]**](IUnitDefinitionDto.md) | The definitions of the acceptable units. | [optional] 
+**version** | [**Version**](Version.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
