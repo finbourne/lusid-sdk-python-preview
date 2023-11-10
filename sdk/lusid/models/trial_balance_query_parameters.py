@@ -66,7 +66,7 @@ class TrialBalanceQueryParameters(object):
         :type start: lusid.DateOrDiaryEntry
         :param end: 
         :type end: lusid.DateOrDiaryEntry
-        :param date_mode:  The mode of calculation of the journal entry lines.
+        :param date_mode:  The mode of calculation of the journal entry lines. The available values are: ActivityDate.
         :type date_mode: str
         :param general_ledger_profile_code:  The optional code of a general ledger profile used to decorate journal entry lines with levels.
         :type general_ledger_profile_code: str
@@ -135,7 +135,7 @@ class TrialBalanceQueryParameters(object):
     def date_mode(self):
         """Gets the date_mode of this TrialBalanceQueryParameters.  # noqa: E501
 
-        The mode of calculation of the journal entry lines.  # noqa: E501
+        The mode of calculation of the journal entry lines. The available values are: ActivityDate.  # noqa: E501
 
         :return: The date_mode of this TrialBalanceQueryParameters.  # noqa: E501
         :rtype: str
@@ -146,7 +146,7 @@ class TrialBalanceQueryParameters(object):
     def date_mode(self, date_mode):
         """Sets the date_mode of this TrialBalanceQueryParameters.
 
-        The mode of calculation of the journal entry lines.  # noqa: E501
+        The mode of calculation of the journal entry lines. The available values are: ActivityDate.  # noqa: E501
 
         :param date_mode: The date_mode of this TrialBalanceQueryParameters.  # noqa: E501
         :type date_mode: str
