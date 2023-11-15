@@ -40,7 +40,7 @@ class ElectionSpecification(object):
     """
     openapi_types = {
         'election_type': 'str',
-        'cardinality': 'list[str]',
+        'cardinality': 'dict(str, str)',
         'referenced_as': 'list[str]'
     }
 
@@ -62,7 +62,7 @@ class ElectionSpecification(object):
         :param election_type:  (required)
         :type election_type: str
         :param cardinality:  (required)
-        :type cardinality: list[str]
+        :type cardinality: dict(str, str)
         :param referenced_as:  (required)
         :type referenced_as: list[str]
 
@@ -112,7 +112,7 @@ class ElectionSpecification(object):
 
 
         :return: The cardinality of this ElectionSpecification.  # noqa: E501
-        :rtype: list[str]
+        :rtype: dict(str, str)
         """
         return self._cardinality
 
@@ -122,7 +122,7 @@ class ElectionSpecification(object):
 
 
         :param cardinality: The cardinality of this ElectionSpecification.  # noqa: E501
-        :type cardinality: list[str]
+        :type cardinality: dict(str, str)
         """
         if self.local_vars_configuration.client_side_validation and cardinality is None:  # noqa: E501
             raise ValueError("Invalid value for `cardinality`, must not be `None`")  # noqa: E501
