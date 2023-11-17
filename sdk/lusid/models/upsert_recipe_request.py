@@ -39,27 +39,22 @@ class UpsertRecipeRequest(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'configuration_recipe': 'ConfigurationRecipe',
-        'configuration_recipe_snippet': 'ConfigurationRecipeSnippet'
+        'configuration_recipe': 'ConfigurationRecipe'
     }
 
     attribute_map = {
-        'configuration_recipe': 'configurationRecipe',
-        'configuration_recipe_snippet': 'configurationRecipeSnippet'
+        'configuration_recipe': 'configurationRecipe'
     }
 
     required_map = {
-        'configuration_recipe': 'optional',
-        'configuration_recipe_snippet': 'optional'
+        'configuration_recipe': 'optional'
     }
 
-    def __init__(self, configuration_recipe=None, configuration_recipe_snippet=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, configuration_recipe=None, local_vars_configuration=None):  # noqa: E501
         """UpsertRecipeRequest - a model defined in OpenAPI"
         
         :param configuration_recipe: 
         :type configuration_recipe: lusid.ConfigurationRecipe
-        :param configuration_recipe_snippet: 
-        :type configuration_recipe_snippet: lusid.ConfigurationRecipeSnippet
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -67,13 +62,10 @@ class UpsertRecipeRequest(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._configuration_recipe = None
-        self._configuration_recipe_snippet = None
         self.discriminator = None
 
         if configuration_recipe is not None:
             self.configuration_recipe = configuration_recipe
-        if configuration_recipe_snippet is not None:
-            self.configuration_recipe_snippet = configuration_recipe_snippet
 
     @property
     def configuration_recipe(self):
@@ -95,27 +87,6 @@ class UpsertRecipeRequest(object):
         """
 
         self._configuration_recipe = configuration_recipe
-
-    @property
-    def configuration_recipe_snippet(self):
-        """Gets the configuration_recipe_snippet of this UpsertRecipeRequest.  # noqa: E501
-
-
-        :return: The configuration_recipe_snippet of this UpsertRecipeRequest.  # noqa: E501
-        :rtype: lusid.ConfigurationRecipeSnippet
-        """
-        return self._configuration_recipe_snippet
-
-    @configuration_recipe_snippet.setter
-    def configuration_recipe_snippet(self, configuration_recipe_snippet):
-        """Sets the configuration_recipe_snippet of this UpsertRecipeRequest.
-
-
-        :param configuration_recipe_snippet: The configuration_recipe_snippet of this UpsertRecipeRequest.  # noqa: E501
-        :type configuration_recipe_snippet: lusid.ConfigurationRecipeSnippet
-        """
-
-        self._configuration_recipe_snippet = configuration_recipe_snippet
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

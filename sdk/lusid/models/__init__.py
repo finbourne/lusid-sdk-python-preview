@@ -167,7 +167,6 @@ from lusid.models.composite_dispersion import CompositeDispersion
 from lusid.models.composite_dispersion_response import CompositeDispersionResponse
 from lusid.models.compounding import Compounding
 from lusid.models.configuration_recipe import ConfigurationRecipe
-from lusid.models.configuration_recipe_snippet import ConfigurationRecipeSnippet
 from lusid.models.constituents_adjustment_header import ConstituentsAdjustmentHeader
 from lusid.models.contract_for_difference import ContractForDifference
 from lusid.models.contract_for_difference_all_of import ContractForDifferenceAllOf
@@ -316,6 +315,8 @@ from lusid.models.field_definition import FieldDefinition
 from lusid.models.field_schema import FieldSchema
 from lusid.models.field_value import FieldValue
 from lusid.models.file_response import FileResponse
+from lusid.models.filter_predicate_compliance_parameter import FilterPredicateComplianceParameter
+from lusid.models.filter_predicate_compliance_parameter_all_of import FilterPredicateComplianceParameterAllOf
 from lusid.models.fixed_leg import FixedLeg
 from lusid.models.fixed_leg_all_of import FixedLegAllOf
 from lusid.models.fixed_leg_all_of_overrides import FixedLegAllOfOverrides
@@ -823,7 +824,6 @@ from lusid.models.stock_split_event_all_of import StockSplitEventAllOf
 from lusid.models.stream import Stream
 from lusid.models.string_comparison_type import StringComparisonType
 from lusid.models.string_compliance_parameter import StringComplianceParameter
-from lusid.models.string_compliance_parameter_all_of import StringComplianceParameterAllOf
 from lusid.models.string_list import StringList
 from lusid.models.string_list_compliance_parameter import StringListComplianceParameter
 from lusid.models.structured_result_data import StructuredResultData
