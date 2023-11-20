@@ -41,38 +41,38 @@ class TotalReturnSwapAllOf(object):
     openapi_types = {
         'start_date': 'datetime',
         'maturity_date': 'datetime',
-        'payment_leg': 'InstrumentLeg',
-        'underlying_leg': 'UnderlyingLeg',
+        'asset_leg': 'AssetLeg',
+        'funding_leg': 'InstrumentLeg',
         'instrument_type': 'str'
     }
 
     attribute_map = {
         'start_date': 'startDate',
         'maturity_date': 'maturityDate',
-        'payment_leg': 'paymentLeg',
-        'underlying_leg': 'underlyingLeg',
+        'asset_leg': 'assetLeg',
+        'funding_leg': 'fundingLeg',
         'instrument_type': 'instrumentType'
     }
 
     required_map = {
         'start_date': 'required',
         'maturity_date': 'required',
-        'payment_leg': 'required',
-        'underlying_leg': 'required',
+        'asset_leg': 'required',
+        'funding_leg': 'required',
         'instrument_type': 'required'
     }
 
-    def __init__(self, start_date=None, maturity_date=None, payment_leg=None, underlying_leg=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, start_date=None, maturity_date=None, asset_leg=None, funding_leg=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
         """TotalReturnSwapAllOf - a model defined in OpenAPI"
         
         :param start_date:  The start date of the instrument. This is normally synonymous with the trade-date. (required)
         :type start_date: datetime
         :param maturity_date:  The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required)
         :type maturity_date: datetime
-        :param payment_leg:  (required)
-        :type payment_leg: lusid.InstrumentLeg
-        :param underlying_leg:  (required)
-        :type underlying_leg: lusid.UnderlyingLeg
+        :param asset_leg:  (required)
+        :type asset_leg: lusid.AssetLeg
+        :param funding_leg:  (required)
+        :type funding_leg: lusid.InstrumentLeg
         :param instrument_type:  The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required)
         :type instrument_type: str
 
@@ -83,15 +83,15 @@ class TotalReturnSwapAllOf(object):
 
         self._start_date = None
         self._maturity_date = None
-        self._payment_leg = None
-        self._underlying_leg = None
+        self._asset_leg = None
+        self._funding_leg = None
         self._instrument_type = None
         self.discriminator = None
 
         self.start_date = start_date
         self.maturity_date = maturity_date
-        self.payment_leg = payment_leg
-        self.underlying_leg = underlying_leg
+        self.asset_leg = asset_leg
+        self.funding_leg = funding_leg
         self.instrument_type = instrument_type
 
     @property
@@ -145,50 +145,50 @@ class TotalReturnSwapAllOf(object):
         self._maturity_date = maturity_date
 
     @property
-    def payment_leg(self):
-        """Gets the payment_leg of this TotalReturnSwapAllOf.  # noqa: E501
+    def asset_leg(self):
+        """Gets the asset_leg of this TotalReturnSwapAllOf.  # noqa: E501
 
 
-        :return: The payment_leg of this TotalReturnSwapAllOf.  # noqa: E501
-        :rtype: lusid.InstrumentLeg
+        :return: The asset_leg of this TotalReturnSwapAllOf.  # noqa: E501
+        :rtype: lusid.AssetLeg
         """
-        return self._payment_leg
+        return self._asset_leg
 
-    @payment_leg.setter
-    def payment_leg(self, payment_leg):
-        """Sets the payment_leg of this TotalReturnSwapAllOf.
+    @asset_leg.setter
+    def asset_leg(self, asset_leg):
+        """Sets the asset_leg of this TotalReturnSwapAllOf.
 
 
-        :param payment_leg: The payment_leg of this TotalReturnSwapAllOf.  # noqa: E501
-        :type payment_leg: lusid.InstrumentLeg
+        :param asset_leg: The asset_leg of this TotalReturnSwapAllOf.  # noqa: E501
+        :type asset_leg: lusid.AssetLeg
         """
-        if self.local_vars_configuration.client_side_validation and payment_leg is None:  # noqa: E501
-            raise ValueError("Invalid value for `payment_leg`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and asset_leg is None:  # noqa: E501
+            raise ValueError("Invalid value for `asset_leg`, must not be `None`")  # noqa: E501
 
-        self._payment_leg = payment_leg
+        self._asset_leg = asset_leg
 
     @property
-    def underlying_leg(self):
-        """Gets the underlying_leg of this TotalReturnSwapAllOf.  # noqa: E501
+    def funding_leg(self):
+        """Gets the funding_leg of this TotalReturnSwapAllOf.  # noqa: E501
 
 
-        :return: The underlying_leg of this TotalReturnSwapAllOf.  # noqa: E501
-        :rtype: lusid.UnderlyingLeg
+        :return: The funding_leg of this TotalReturnSwapAllOf.  # noqa: E501
+        :rtype: lusid.InstrumentLeg
         """
-        return self._underlying_leg
+        return self._funding_leg
 
-    @underlying_leg.setter
-    def underlying_leg(self, underlying_leg):
-        """Sets the underlying_leg of this TotalReturnSwapAllOf.
+    @funding_leg.setter
+    def funding_leg(self, funding_leg):
+        """Sets the funding_leg of this TotalReturnSwapAllOf.
 
 
-        :param underlying_leg: The underlying_leg of this TotalReturnSwapAllOf.  # noqa: E501
-        :type underlying_leg: lusid.UnderlyingLeg
+        :param funding_leg: The funding_leg of this TotalReturnSwapAllOf.  # noqa: E501
+        :type funding_leg: lusid.InstrumentLeg
         """
-        if self.local_vars_configuration.client_side_validation and underlying_leg is None:  # noqa: E501
-            raise ValueError("Invalid value for `underlying_leg`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and funding_leg is None:  # noqa: E501
+            raise ValueError("Invalid value for `funding_leg`, must not be `None`")  # noqa: E501
 
-        self._underlying_leg = underlying_leg
+        self._funding_leg = funding_leg
 
     @property
     def instrument_type(self):
