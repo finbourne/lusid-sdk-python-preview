@@ -45,6 +45,7 @@ class ComplianceSummaryRuleResult(object):
         'rule_status': 'str',
         'affected_portfolios': 'list[ResourceId]',
         'affected_orders': 'list[ResourceId]',
+        'parameters_used': 'dict(str, str)',
         'rule_breakdown': 'dict(str, ComplianceRuleBreakdown)'
     }
 
@@ -55,6 +56,7 @@ class ComplianceSummaryRuleResult(object):
         'rule_status': 'ruleStatus',
         'affected_portfolios': 'affectedPortfolios',
         'affected_orders': 'affectedOrders',
+        'parameters_used': 'parametersUsed',
         'rule_breakdown': 'ruleBreakdown'
     }
 
@@ -65,10 +67,11 @@ class ComplianceSummaryRuleResult(object):
         'rule_status': 'required',
         'affected_portfolios': 'required',
         'affected_orders': 'required',
+        'parameters_used': 'required',
         'rule_breakdown': 'required'
     }
 
-    def __init__(self, rule_id=None, template_id=None, variation=None, rule_status=None, affected_portfolios=None, affected_orders=None, rule_breakdown=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, rule_id=None, template_id=None, variation=None, rule_status=None, affected_portfolios=None, affected_orders=None, parameters_used=None, rule_breakdown=None, local_vars_configuration=None):  # noqa: E501
         """ComplianceSummaryRuleResult - a model defined in OpenAPI"
         
         :param rule_id:  (required)
@@ -83,6 +86,8 @@ class ComplianceSummaryRuleResult(object):
         :type affected_portfolios: list[lusid.ResourceId]
         :param affected_orders:  (required)
         :type affected_orders: list[lusid.ResourceId]
+        :param parameters_used:  (required)
+        :type parameters_used: dict(str, str)
         :param rule_breakdown:  (required)
         :type rule_breakdown: dict[str, lusid.ComplianceRuleBreakdown]
 
@@ -97,6 +102,7 @@ class ComplianceSummaryRuleResult(object):
         self._rule_status = None
         self._affected_portfolios = None
         self._affected_orders = None
+        self._parameters_used = None
         self._rule_breakdown = None
         self.discriminator = None
 
@@ -106,6 +112,7 @@ class ComplianceSummaryRuleResult(object):
         self.rule_status = rule_status
         self.affected_portfolios = affected_portfolios
         self.affected_orders = affected_orders
+        self.parameters_used = parameters_used
         self.rule_breakdown = rule_breakdown
 
     @property
@@ -251,6 +258,29 @@ class ComplianceSummaryRuleResult(object):
             raise ValueError("Invalid value for `affected_orders`, must not be `None`")  # noqa: E501
 
         self._affected_orders = affected_orders
+
+    @property
+    def parameters_used(self):
+        """Gets the parameters_used of this ComplianceSummaryRuleResult.  # noqa: E501
+
+
+        :return: The parameters_used of this ComplianceSummaryRuleResult.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._parameters_used
+
+    @parameters_used.setter
+    def parameters_used(self, parameters_used):
+        """Sets the parameters_used of this ComplianceSummaryRuleResult.
+
+
+        :param parameters_used: The parameters_used of this ComplianceSummaryRuleResult.  # noqa: E501
+        :type parameters_used: dict(str, str)
+        """
+        if self.local_vars_configuration.client_side_validation and parameters_used is None:  # noqa: E501
+            raise ValueError("Invalid value for `parameters_used`, must not be `None`")  # noqa: E501
+
+        self._parameters_used = parameters_used
 
     @property
     def rule_breakdown(self):

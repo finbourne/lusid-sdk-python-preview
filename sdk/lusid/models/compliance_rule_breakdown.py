@@ -42,7 +42,6 @@ class ComplianceRuleBreakdown(object):
         'group_status': 'str',
         'results_used': 'dict(str, float)',
         'properties_used': 'dict(str, list[ModelProperty])',
-        'parameters_used': 'dict(str, str)',
         'missing_data_information': 'list[str]'
     }
 
@@ -50,7 +49,6 @@ class ComplianceRuleBreakdown(object):
         'group_status': 'groupStatus',
         'results_used': 'resultsUsed',
         'properties_used': 'propertiesUsed',
-        'parameters_used': 'parametersUsed',
         'missing_data_information': 'missingDataInformation'
     }
 
@@ -58,11 +56,10 @@ class ComplianceRuleBreakdown(object):
         'group_status': 'required',
         'results_used': 'required',
         'properties_used': 'required',
-        'parameters_used': 'required',
         'missing_data_information': 'required'
     }
 
-    def __init__(self, group_status=None, results_used=None, properties_used=None, parameters_used=None, missing_data_information=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, group_status=None, results_used=None, properties_used=None, missing_data_information=None, local_vars_configuration=None):  # noqa: E501
         """ComplianceRuleBreakdown - a model defined in OpenAPI"
         
         :param group_status:  (required)
@@ -71,8 +68,6 @@ class ComplianceRuleBreakdown(object):
         :type results_used: dict(str, float)
         :param properties_used:  (required)
         :type properties_used: dict(str, list[ModelProperty])
-        :param parameters_used:  (required)
-        :type parameters_used: dict(str, str)
         :param missing_data_information:  (required)
         :type missing_data_information: list[str]
 
@@ -84,14 +79,12 @@ class ComplianceRuleBreakdown(object):
         self._group_status = None
         self._results_used = None
         self._properties_used = None
-        self._parameters_used = None
         self._missing_data_information = None
         self.discriminator = None
 
         self.group_status = group_status
         self.results_used = results_used
         self.properties_used = properties_used
-        self.parameters_used = parameters_used
         self.missing_data_information = missing_data_information
 
     @property
@@ -165,29 +158,6 @@ class ComplianceRuleBreakdown(object):
             raise ValueError("Invalid value for `properties_used`, must not be `None`")  # noqa: E501
 
         self._properties_used = properties_used
-
-    @property
-    def parameters_used(self):
-        """Gets the parameters_used of this ComplianceRuleBreakdown.  # noqa: E501
-
-
-        :return: The parameters_used of this ComplianceRuleBreakdown.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._parameters_used
-
-    @parameters_used.setter
-    def parameters_used(self, parameters_used):
-        """Sets the parameters_used of this ComplianceRuleBreakdown.
-
-
-        :param parameters_used: The parameters_used of this ComplianceRuleBreakdown.  # noqa: E501
-        :type parameters_used: dict(str, str)
-        """
-        if self.local_vars_configuration.client_side_validation and parameters_used is None:  # noqa: E501
-            raise ValueError("Invalid value for `parameters_used`, must not be `None`")  # noqa: E501
-
-        self._parameters_used = parameters_used
 
     @property
     def missing_data_information(self):
