@@ -45,7 +45,8 @@ class OrderGraphBlock(object):
         'executed': 'OrderGraphBlockExecutionSynopsis',
         'allocated': 'OrderGraphBlockAllocationSynopsis',
         'derived_state': 'str',
-        'derived_compliance_state': 'str'
+        'derived_compliance_state': 'str',
+        'derived_approval_state': 'str'
     }
 
     attribute_map = {
@@ -55,7 +56,8 @@ class OrderGraphBlock(object):
         'executed': 'executed',
         'allocated': 'allocated',
         'derived_state': 'derivedState',
-        'derived_compliance_state': 'derivedComplianceState'
+        'derived_compliance_state': 'derivedComplianceState',
+        'derived_approval_state': 'derivedApprovalState'
     }
 
     required_map = {
@@ -65,10 +67,11 @@ class OrderGraphBlock(object):
         'executed': 'required',
         'allocated': 'required',
         'derived_state': 'required',
-        'derived_compliance_state': 'required'
+        'derived_compliance_state': 'required',
+        'derived_approval_state': 'required'
     }
 
-    def __init__(self, block=None, ordered=None, placed=None, executed=None, allocated=None, derived_state=None, derived_compliance_state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, block=None, ordered=None, placed=None, executed=None, allocated=None, derived_state=None, derived_compliance_state=None, derived_approval_state=None, local_vars_configuration=None):  # noqa: E501
         """OrderGraphBlock - a model defined in OpenAPI"
         
         :param block:  (required)
@@ -85,6 +88,8 @@ class OrderGraphBlock(object):
         :type derived_state: str
         :param derived_compliance_state:  The overall compliance state of a block, derived from the block's orders. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'. (required)
         :type derived_compliance_state: str
+        :param derived_approval_state:  The overall approval state of a block, derived from approval of the block's orders. Possible values are 'Pending', 'Approved' and 'Rejected'. (required)
+        :type derived_approval_state: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -98,6 +103,7 @@ class OrderGraphBlock(object):
         self._allocated = None
         self._derived_state = None
         self._derived_compliance_state = None
+        self._derived_approval_state = None
         self.discriminator = None
 
         self.block = block
@@ -107,6 +113,7 @@ class OrderGraphBlock(object):
         self.allocated = allocated
         self.derived_state = derived_state
         self.derived_compliance_state = derived_compliance_state
+        self.derived_approval_state = derived_approval_state
 
     @property
     def block(self):
@@ -278,6 +285,34 @@ class OrderGraphBlock(object):
             raise ValueError("Invalid value for `derived_compliance_state`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._derived_compliance_state = derived_compliance_state
+
+    @property
+    def derived_approval_state(self):
+        """Gets the derived_approval_state of this OrderGraphBlock.  # noqa: E501
+
+        The overall approval state of a block, derived from approval of the block's orders. Possible values are 'Pending', 'Approved' and 'Rejected'.  # noqa: E501
+
+        :return: The derived_approval_state of this OrderGraphBlock.  # noqa: E501
+        :rtype: str
+        """
+        return self._derived_approval_state
+
+    @derived_approval_state.setter
+    def derived_approval_state(self, derived_approval_state):
+        """Sets the derived_approval_state of this OrderGraphBlock.
+
+        The overall approval state of a block, derived from approval of the block's orders. Possible values are 'Pending', 'Approved' and 'Rejected'.  # noqa: E501
+
+        :param derived_approval_state: The derived_approval_state of this OrderGraphBlock.  # noqa: E501
+        :type derived_approval_state: str
+        """
+        if self.local_vars_configuration.client_side_validation and derived_approval_state is None:  # noqa: E501
+            raise ValueError("Invalid value for `derived_approval_state`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                derived_approval_state is not None and len(derived_approval_state) < 1):
+            raise ValueError("Invalid value for `derived_approval_state`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._derived_approval_state = derived_approval_state
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

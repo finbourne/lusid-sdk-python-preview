@@ -41,6 +41,7 @@ class OrderGraphBlockOrderDetail(object):
     openapi_types = {
         'id': 'ResourceId',
         'compliance_state': 'str',
+        'approval_state': 'str',
         'portfolio_id': 'ResourceId',
         'portfolio_name': 'str'
     }
@@ -48,6 +49,7 @@ class OrderGraphBlockOrderDetail(object):
     attribute_map = {
         'id': 'id',
         'compliance_state': 'complianceState',
+        'approval_state': 'approvalState',
         'portfolio_id': 'portfolioId',
         'portfolio_name': 'portfolioName'
     }
@@ -55,17 +57,20 @@ class OrderGraphBlockOrderDetail(object):
     required_map = {
         'id': 'required',
         'compliance_state': 'required',
+        'approval_state': 'required',
         'portfolio_id': 'optional',
         'portfolio_name': 'optional'
     }
 
-    def __init__(self, id=None, compliance_state=None, portfolio_id=None, portfolio_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, compliance_state=None, approval_state=None, portfolio_id=None, portfolio_name=None, local_vars_configuration=None):  # noqa: E501
         """OrderGraphBlockOrderDetail - a model defined in OpenAPI"
         
         :param id:  (required)
         :type id: lusid.ResourceId
         :param compliance_state:  The compliance state of this order. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'. (required)
         :type compliance_state: str
+        :param approval_state:  The approval state of this order. Possible values are 'Pending', 'Rejected' and 'Approved'. (required)
+        :type approval_state: str
         :param portfolio_id: 
         :type portfolio_id: lusid.ResourceId
         :param portfolio_name:  The name of the order's referenced Portfolio.
@@ -78,12 +83,14 @@ class OrderGraphBlockOrderDetail(object):
 
         self._id = None
         self._compliance_state = None
+        self._approval_state = None
         self._portfolio_id = None
         self._portfolio_name = None
         self.discriminator = None
 
         self.id = id
         self.compliance_state = compliance_state
+        self.approval_state = approval_state
         if portfolio_id is not None:
             self.portfolio_id = portfolio_id
         self.portfolio_name = portfolio_name
@@ -138,6 +145,34 @@ class OrderGraphBlockOrderDetail(object):
             raise ValueError("Invalid value for `compliance_state`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._compliance_state = compliance_state
+
+    @property
+    def approval_state(self):
+        """Gets the approval_state of this OrderGraphBlockOrderDetail.  # noqa: E501
+
+        The approval state of this order. Possible values are 'Pending', 'Rejected' and 'Approved'.  # noqa: E501
+
+        :return: The approval_state of this OrderGraphBlockOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._approval_state
+
+    @approval_state.setter
+    def approval_state(self, approval_state):
+        """Sets the approval_state of this OrderGraphBlockOrderDetail.
+
+        The approval state of this order. Possible values are 'Pending', 'Rejected' and 'Approved'.  # noqa: E501
+
+        :param approval_state: The approval_state of this OrderGraphBlockOrderDetail.  # noqa: E501
+        :type approval_state: str
+        """
+        if self.local_vars_configuration.client_side_validation and approval_state is None:  # noqa: E501
+            raise ValueError("Invalid value for `approval_state`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                approval_state is not None and len(approval_state) < 1):
+            raise ValueError("Invalid value for `approval_state`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._approval_state = approval_state
 
     @property
     def portfolio_id(self):
