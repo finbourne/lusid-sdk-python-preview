@@ -51,6 +51,8 @@ class FloatSchedule(object):
         'spread': 'float',
         'stub_type': 'str',
         'ex_dividend_configuration': 'ExDividendConfiguration',
+        'compounding': 'Compounding',
+        'reset_convention': 'str',
         'schedule_type': 'str'
     }
 
@@ -67,6 +69,8 @@ class FloatSchedule(object):
         'spread': 'spread',
         'stub_type': 'stubType',
         'ex_dividend_configuration': 'exDividendConfiguration',
+        'compounding': 'compounding',
+        'reset_convention': 'resetConvention',
         'schedule_type': 'scheduleType'
     }
 
@@ -83,10 +87,12 @@ class FloatSchedule(object):
         'spread': 'optional',
         'stub_type': 'optional',
         'ex_dividend_configuration': 'optional',
+        'compounding': 'optional',
+        'reset_convention': 'optional',
         'schedule_type': 'required'
     }
 
-    def __init__(self, start_date=None, maturity_date=None, flow_conventions=None, convention_name=None, ex_dividend_days=None, index_convention_name=None, index_conventions=None, notional=None, payment_currency=None, spread=None, stub_type=None, ex_dividend_configuration=None, schedule_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, start_date=None, maturity_date=None, flow_conventions=None, convention_name=None, ex_dividend_days=None, index_convention_name=None, index_conventions=None, notional=None, payment_currency=None, spread=None, stub_type=None, ex_dividend_configuration=None, compounding=None, reset_convention=None, schedule_type=None, local_vars_configuration=None):  # noqa: E501
         """FloatSchedule - a model defined in OpenAPI"
         
         :param start_date:  Date to start generate from
@@ -113,6 +119,10 @@ class FloatSchedule(object):
         :type stub_type: str
         :param ex_dividend_configuration: 
         :type ex_dividend_configuration: lusid.ExDividendConfiguration
+        :param compounding: 
+        :type compounding: lusid.Compounding
+        :param reset_convention:  Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].
+        :type reset_convention: str
         :param schedule_type:  The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required)
         :type schedule_type: str
 
@@ -133,6 +143,8 @@ class FloatSchedule(object):
         self._spread = None
         self._stub_type = None
         self._ex_dividend_configuration = None
+        self._compounding = None
+        self._reset_convention = None
         self._schedule_type = None
         self.discriminator = None
 
@@ -157,6 +169,9 @@ class FloatSchedule(object):
         self.stub_type = stub_type
         if ex_dividend_configuration is not None:
             self.ex_dividend_configuration = ex_dividend_configuration
+        if compounding is not None:
+            self.compounding = compounding
+        self.reset_convention = reset_convention
         self.schedule_type = schedule_type
 
     @property
@@ -424,6 +439,56 @@ class FloatSchedule(object):
         """
 
         self._ex_dividend_configuration = ex_dividend_configuration
+
+    @property
+    def compounding(self):
+        """Gets the compounding of this FloatSchedule.  # noqa: E501
+
+
+        :return: The compounding of this FloatSchedule.  # noqa: E501
+        :rtype: lusid.Compounding
+        """
+        return self._compounding
+
+    @compounding.setter
+    def compounding(self, compounding):
+        """Sets the compounding of this FloatSchedule.
+
+
+        :param compounding: The compounding of this FloatSchedule.  # noqa: E501
+        :type compounding: lusid.Compounding
+        """
+
+        self._compounding = compounding
+
+    @property
+    def reset_convention(self):
+        """Gets the reset_convention of this FloatSchedule.  # noqa: E501
+
+        Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  # noqa: E501
+
+        :return: The reset_convention of this FloatSchedule.  # noqa: E501
+        :rtype: str
+        """
+        return self._reset_convention
+
+    @reset_convention.setter
+    def reset_convention(self, reset_convention):
+        """Sets the reset_convention of this FloatSchedule.
+
+        Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  # noqa: E501
+
+        :param reset_convention: The reset_convention of this FloatSchedule.  # noqa: E501
+        :type reset_convention: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                reset_convention is not None and len(reset_convention) > 16):
+            raise ValueError("Invalid value for `reset_convention`, length must be less than or equal to `16`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                reset_convention is not None and len(reset_convention) < 0):
+            raise ValueError("Invalid value for `reset_convention`, length must be greater than or equal to `0`")  # noqa: E501
+
+        self._reset_convention = reset_convention
 
     @property
     def schedule_type(self):
