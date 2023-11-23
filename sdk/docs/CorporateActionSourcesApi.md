@@ -530,8 +530,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CorporateActionSourcesApi(api_client)
-    scope = 'scope_example' # str | The scope of the portfolio.
-code = 'code_example' # str | The code of the portfolio.
+    scope = 'scope_example' # str | The scope of the corporate action source.
+code = 'code_example' # str | The code of the corporate action source.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | Optional. The AsAt date of the data. (optional)
 limit = 1000 # int | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional) (default to 1000)
 page = 'page_example' # str | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)
@@ -549,8 +549,8 @@ filter = 'filter_example' # str | Optional. Expression to filter the result set.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **str**| The scope of the portfolio. | 
- **code** | **str**| The code of the portfolio. | 
+ **scope** | **str**| The scope of the corporate action source. | 
+ **code** | **str**| The code of the corporate action source. | 
  **as_at** | **datetime**| Optional. The AsAt date of the data. | [optional] 
  **limit** | **int**| Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000]
  **page** | **str**| Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional] 

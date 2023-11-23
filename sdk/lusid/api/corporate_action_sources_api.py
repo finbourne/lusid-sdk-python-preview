@@ -1171,9 +1171,9 @@ class CorporateActionSourcesApi(object):
         >>> thread = api.get_instrument_events(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param scope: The scope of the portfolio. (required)
+        :param scope: The scope of the corporate action source. (required)
         :type scope: str
-        :param code: The code of the portfolio. (required)
+        :param code: The code of the corporate action source. (required)
         :type code: str
         :param as_at: Optional. The AsAt date of the data.
         :type as_at: datetime
@@ -1211,9 +1211,9 @@ class CorporateActionSourcesApi(object):
         >>> thread = api.get_instrument_events_with_http_info(scope, code, async_req=True)
         >>> result = thread.get()
 
-        :param scope: The scope of the portfolio. (required)
+        :param scope: The scope of the corporate action source. (required)
         :type scope: str
-        :param code: The code of the portfolio. (required)
+        :param code: The code of the corporate action source. (required)
         :type code: str
         :param as_at: Optional. The AsAt date of the data.
         :type as_at: datetime

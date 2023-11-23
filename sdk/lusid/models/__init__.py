@@ -270,6 +270,8 @@ from lusid.models.discount_factor_curve_data_all_of import DiscountFactorCurveDa
 from lusid.models.discounting_dependency import DiscountingDependency
 from lusid.models.discounting_dependency_all_of import DiscountingDependencyAllOf
 from lusid.models.discounting_method import DiscountingMethod
+from lusid.models.dividend_reinvestment_event import DividendReinvestmentEvent
+from lusid.models.dividend_reinvestment_event_all_of import DividendReinvestmentEventAllOf
 from lusid.models.economic_dependency import EconomicDependency
 from lusid.models.economic_dependency_type import EconomicDependencyType
 from lusid.models.economic_dependency_with_complex_market_data import EconomicDependencyWithComplexMarketData
@@ -801,6 +803,7 @@ from lusid.models.schedule import Schedule
 from lusid.models.schedule_type import ScheduleType
 from lusid.models.schema import Schema
 from lusid.models.scope_definition import ScopeDefinition
+from lusid.models.security_election import SecurityElection
 from lusid.models.sequence_definition import SequenceDefinition
 from lusid.models.set_legal_entity_identifiers_request import SetLegalEntityIdentifiersRequest
 from lusid.models.set_legal_entity_properties_request import SetLegalEntityPropertiesRequest
