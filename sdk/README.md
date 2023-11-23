@@ -925,6 +925,7 @@ Class | Method | HTTP request | Description
  - [GetReferencePortfolioConstituentsResponse](docs/GetReferencePortfolioConstituentsResponse.md)
  - [GetStructuredResultDataResponse](docs/GetStructuredResultDataResponse.md)
  - [GetVirtualDocumentResponse](docs/GetVirtualDocumentResponse.md)
+ - [GroupOfMarketDataKeyRules](docs/GroupOfMarketDataKeyRules.md)
  - [GroupedResultOfAddressKey](docs/GroupedResultOfAddressKey.md)
  - [HoldingAdjustment](docs/HoldingAdjustment.md)
  - [HoldingAdjustmentWithDate](docs/HoldingAdjustmentWithDate.md)
