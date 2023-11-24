@@ -50,7 +50,8 @@ class CreateTransactionPortfolioRequest(object):
         'properties': 'dict(str, ModelProperty)',
         'instrument_scopes': 'list[str]',
         'amortisation_method': 'str',
-        'transaction_type_scope': 'str'
+        'transaction_type_scope': 'str',
+        'cash_gain_loss_calculation_date': 'str'
     }
 
     attribute_map = {
@@ -65,7 +66,8 @@ class CreateTransactionPortfolioRequest(object):
         'properties': 'properties',
         'instrument_scopes': 'instrumentScopes',
         'amortisation_method': 'amortisationMethod',
-        'transaction_type_scope': 'transactionTypeScope'
+        'transaction_type_scope': 'transactionTypeScope',
+        'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate'
     }
 
     required_map = {
@@ -80,10 +82,11 @@ class CreateTransactionPortfolioRequest(object):
         'properties': 'optional',
         'instrument_scopes': 'optional',
         'amortisation_method': 'optional',
-        'transaction_type_scope': 'optional'
+        'transaction_type_scope': 'optional',
+        'cash_gain_loss_calculation_date': 'optional'
     }
 
-    def __init__(self, display_name=None, description=None, code=None, created=None, base_currency=None, corporate_action_source_id=None, accounting_method=None, sub_holding_keys=None, properties=None, instrument_scopes=None, amortisation_method=None, transaction_type_scope=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, description=None, code=None, created=None, base_currency=None, corporate_action_source_id=None, accounting_method=None, sub_holding_keys=None, properties=None, instrument_scopes=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, local_vars_configuration=None):  # noqa: E501
         """CreateTransactionPortfolioRequest - a model defined in OpenAPI"
         
         :param display_name:  The name of the transaction portfolio. (required)
@@ -110,6 +113,8 @@ class CreateTransactionPortfolioRequest(object):
         :type amortisation_method: str
         :param transaction_type_scope:  The scope of the transaction types.
         :type transaction_type_scope: str
+        :param cash_gain_loss_calculation_date:  The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.
+        :type cash_gain_loss_calculation_date: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -128,6 +133,7 @@ class CreateTransactionPortfolioRequest(object):
         self._instrument_scopes = None
         self._amortisation_method = None
         self._transaction_type_scope = None
+        self._cash_gain_loss_calculation_date = None
         self.discriminator = None
 
         self.display_name = display_name
@@ -144,6 +150,7 @@ class CreateTransactionPortfolioRequest(object):
         self.instrument_scopes = instrument_scopes
         self.amortisation_method = amortisation_method
         self.transaction_type_scope = transaction_type_scope
+        self.cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
 
     @property
     def display_name(self):
@@ -448,6 +455,29 @@ class CreateTransactionPortfolioRequest(object):
             raise ValueError(r"Invalid value for `transaction_type_scope`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
 
         self._transaction_type_scope = transaction_type_scope
+
+    @property
+    def cash_gain_loss_calculation_date(self):
+        """Gets the cash_gain_loss_calculation_date of this CreateTransactionPortfolioRequest.  # noqa: E501
+
+        The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.  # noqa: E501
+
+        :return: The cash_gain_loss_calculation_date of this CreateTransactionPortfolioRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cash_gain_loss_calculation_date
+
+    @cash_gain_loss_calculation_date.setter
+    def cash_gain_loss_calculation_date(self, cash_gain_loss_calculation_date):
+        """Sets the cash_gain_loss_calculation_date of this CreateTransactionPortfolioRequest.
+
+        The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.  # noqa: E501
+
+        :param cash_gain_loss_calculation_date: The cash_gain_loss_calculation_date of this CreateTransactionPortfolioRequest.  # noqa: E501
+        :type cash_gain_loss_calculation_date: str
+        """
+
+        self._cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

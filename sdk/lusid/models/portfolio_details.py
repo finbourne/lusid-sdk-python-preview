@@ -49,6 +49,7 @@ class PortfolioDetails(object):
         'accounting_method': 'str',
         'amortisation_method': 'str',
         'transaction_type_scope': 'str',
+        'cash_gain_loss_calculation_date': 'str',
         'links': 'list[Link]'
     }
 
@@ -63,6 +64,7 @@ class PortfolioDetails(object):
         'accounting_method': 'accountingMethod',
         'amortisation_method': 'amortisationMethod',
         'transaction_type_scope': 'transactionTypeScope',
+        'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate',
         'links': 'links'
     }
 
@@ -77,10 +79,11 @@ class PortfolioDetails(object):
         'accounting_method': 'optional',
         'amortisation_method': 'optional',
         'transaction_type_scope': 'optional',
+        'cash_gain_loss_calculation_date': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, origin_portfolio_id=None, version=None, base_currency=None, corporate_action_source_id=None, sub_holding_keys=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, origin_portfolio_id=None, version=None, base_currency=None, corporate_action_source_id=None, sub_holding_keys=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, links=None, local_vars_configuration=None):  # noqa: E501
         """PortfolioDetails - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -103,6 +106,8 @@ class PortfolioDetails(object):
         :type amortisation_method: str
         :param transaction_type_scope:  The scope of the transaction types.
         :type transaction_type_scope: str
+        :param cash_gain_loss_calculation_date:  The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.
+        :type cash_gain_loss_calculation_date: str
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -121,6 +126,7 @@ class PortfolioDetails(object):
         self._accounting_method = None
         self._amortisation_method = None
         self._transaction_type_scope = None
+        self._cash_gain_loss_calculation_date = None
         self._links = None
         self.discriminator = None
 
@@ -136,6 +142,7 @@ class PortfolioDetails(object):
             self.accounting_method = accounting_method
         self.amortisation_method = amortisation_method
         self.transaction_type_scope = transaction_type_scope
+        self.cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
         self.links = links
 
     @property
@@ -371,6 +378,29 @@ class PortfolioDetails(object):
         """
 
         self._transaction_type_scope = transaction_type_scope
+
+    @property
+    def cash_gain_loss_calculation_date(self):
+        """Gets the cash_gain_loss_calculation_date of this PortfolioDetails.  # noqa: E501
+
+        The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.  # noqa: E501
+
+        :return: The cash_gain_loss_calculation_date of this PortfolioDetails.  # noqa: E501
+        :rtype: str
+        """
+        return self._cash_gain_loss_calculation_date
+
+    @cash_gain_loss_calculation_date.setter
+    def cash_gain_loss_calculation_date(self, cash_gain_loss_calculation_date):
+        """Sets the cash_gain_loss_calculation_date of this PortfolioDetails.
+
+        The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.  # noqa: E501
+
+        :param cash_gain_loss_calculation_date: The cash_gain_loss_calculation_date of this PortfolioDetails.  # noqa: E501
+        :type cash_gain_loss_calculation_date: str
+        """
+
+        self._cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
 
     @property
     def links(self):

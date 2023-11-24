@@ -55,6 +55,7 @@ class Portfolio(object):
         'accounting_method': 'str',
         'amortisation_method': 'str',
         'transaction_type_scope': 'str',
+        'cash_gain_loss_calculation_date': 'str',
         'links': 'list[Link]'
     }
 
@@ -75,6 +76,7 @@ class Portfolio(object):
         'accounting_method': 'accountingMethod',
         'amortisation_method': 'amortisationMethod',
         'transaction_type_scope': 'transactionTypeScope',
+        'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate',
         'links': 'links'
     }
 
@@ -95,10 +97,11 @@ class Portfolio(object):
         'accounting_method': 'optional',
         'amortisation_method': 'optional',
         'transaction_type_scope': 'optional',
+        'cash_gain_loss_calculation_date': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, id=None, type=None, display_name=None, description=None, created=None, parent_portfolio_id=None, version=None, is_derived=None, base_currency=None, properties=None, relationships=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, id=None, type=None, display_name=None, description=None, created=None, parent_portfolio_id=None, version=None, is_derived=None, base_currency=None, properties=None, relationships=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, links=None, local_vars_configuration=None):  # noqa: E501
         """Portfolio - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -133,6 +136,8 @@ class Portfolio(object):
         :type amortisation_method: str
         :param transaction_type_scope:  The scope of the transaction types.
         :type transaction_type_scope: str
+        :param cash_gain_loss_calculation_date:  The scope of the transaction types.
+        :type cash_gain_loss_calculation_date: str
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -157,6 +162,7 @@ class Portfolio(object):
         self._accounting_method = None
         self._amortisation_method = None
         self._transaction_type_scope = None
+        self._cash_gain_loss_calculation_date = None
         self._links = None
         self.discriminator = None
 
@@ -180,6 +186,7 @@ class Portfolio(object):
             self.accounting_method = accounting_method
         self.amortisation_method = amortisation_method
         self.transaction_type_scope = transaction_type_scope
+        self.cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
         self.links = links
 
     @property
@@ -566,6 +573,29 @@ class Portfolio(object):
         """
 
         self._transaction_type_scope = transaction_type_scope
+
+    @property
+    def cash_gain_loss_calculation_date(self):
+        """Gets the cash_gain_loss_calculation_date of this Portfolio.  # noqa: E501
+
+        The scope of the transaction types.  # noqa: E501
+
+        :return: The cash_gain_loss_calculation_date of this Portfolio.  # noqa: E501
+        :rtype: str
+        """
+        return self._cash_gain_loss_calculation_date
+
+    @cash_gain_loss_calculation_date.setter
+    def cash_gain_loss_calculation_date(self, cash_gain_loss_calculation_date):
+        """Sets the cash_gain_loss_calculation_date of this Portfolio.
+
+        The scope of the transaction types.  # noqa: E501
+
+        :param cash_gain_loss_calculation_date: The cash_gain_loss_calculation_date of this Portfolio.  # noqa: E501
+        :type cash_gain_loss_calculation_date: str
+        """
+
+        self._cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
 
     @property
     def links(self):
