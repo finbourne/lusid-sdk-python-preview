@@ -42,27 +42,24 @@ class TrialBalanceQueryParameters(object):
         'start': 'DateOrDiaryEntry',
         'end': 'DateOrDiaryEntry',
         'date_mode': 'str',
-        'general_ledger_profile_code': 'str',
-        'property_keys': 'list[str]'
+        'general_ledger_profile_code': 'str'
     }
 
     attribute_map = {
         'start': 'start',
         'end': 'end',
         'date_mode': 'dateMode',
-        'general_ledger_profile_code': 'generalLedgerProfileCode',
-        'property_keys': 'propertyKeys'
+        'general_ledger_profile_code': 'generalLedgerProfileCode'
     }
 
     required_map = {
         'start': 'optional',
         'end': 'optional',
         'date_mode': 'optional',
-        'general_ledger_profile_code': 'optional',
-        'property_keys': 'optional'
+        'general_ledger_profile_code': 'optional'
     }
 
-    def __init__(self, start=None, end=None, date_mode=None, general_ledger_profile_code=None, property_keys=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, start=None, end=None, date_mode=None, general_ledger_profile_code=None, local_vars_configuration=None):  # noqa: E501
         """TrialBalanceQueryParameters - a model defined in OpenAPI"
         
         :param start: 
@@ -73,8 +70,6 @@ class TrialBalanceQueryParameters(object):
         :type date_mode: str
         :param general_ledger_profile_code:  The optional code of a general ledger profile used to decorate journal entry lines with levels.
         :type general_ledger_profile_code: str
-        :param property_keys:  A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount' domain to decorate onto the journal entry lines.
-        :type property_keys: list[str]
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -85,7 +80,6 @@ class TrialBalanceQueryParameters(object):
         self._end = None
         self._date_mode = None
         self._general_ledger_profile_code = None
-        self._property_keys = None
         self.discriminator = None
 
         if start is not None:
@@ -94,7 +88,6 @@ class TrialBalanceQueryParameters(object):
             self.end = end
         self.date_mode = date_mode
         self.general_ledger_profile_code = general_ledger_profile_code
-        self.property_keys = property_keys
 
     @property
     def start(self):
@@ -192,29 +185,6 @@ class TrialBalanceQueryParameters(object):
             raise ValueError(r"Invalid value for `general_ledger_profile_code`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
 
         self._general_ledger_profile_code = general_ledger_profile_code
-
-    @property
-    def property_keys(self):
-        """Gets the property_keys of this TrialBalanceQueryParameters.  # noqa: E501
-
-        A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount' domain to decorate onto the journal entry lines.  # noqa: E501
-
-        :return: The property_keys of this TrialBalanceQueryParameters.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._property_keys
-
-    @property_keys.setter
-    def property_keys(self, property_keys):
-        """Sets the property_keys of this TrialBalanceQueryParameters.
-
-        A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount' domain to decorate onto the journal entry lines.  # noqa: E501
-
-        :param property_keys: The property_keys of this TrialBalanceQueryParameters.  # noqa: E501
-        :type property_keys: list[str]
-        """
-
-        self._property_keys = property_keys
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
