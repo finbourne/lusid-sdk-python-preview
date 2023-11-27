@@ -47,7 +47,8 @@ class InstrumentEventHolder(object):
         'description': 'str',
         'event_date_range': 'EventDateRange',
         'instrument_event': 'InstrumentEvent',
-        'properties': 'list[PerpetualProperty]'
+        'properties': 'list[PerpetualProperty]',
+        'sequence_number': 'int'
     }
 
     attribute_map = {
@@ -59,7 +60,8 @@ class InstrumentEventHolder(object):
         'description': 'description',
         'event_date_range': 'eventDateRange',
         'instrument_event': 'instrumentEvent',
-        'properties': 'properties'
+        'properties': 'properties',
+        'sequence_number': 'sequenceNumber'
     }
 
     required_map = {
@@ -71,10 +73,11 @@ class InstrumentEventHolder(object):
         'description': 'required',
         'event_date_range': 'required',
         'instrument_event': 'required',
-        'properties': 'optional'
+        'properties': 'optional',
+        'sequence_number': 'optional'
     }
 
-    def __init__(self, instrument_event_id=None, corporate_action_source_id=None, instrument_identifiers=None, lusid_instrument_id=None, instrument_scope=None, description=None, event_date_range=None, instrument_event=None, properties=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, instrument_event_id=None, corporate_action_source_id=None, instrument_identifiers=None, lusid_instrument_id=None, instrument_scope=None, description=None, event_date_range=None, instrument_event=None, properties=None, sequence_number=None, local_vars_configuration=None):  # noqa: E501
         """InstrumentEventHolder - a model defined in OpenAPI"
         
         :param instrument_event_id:  The unique identifier of this corporate action. (required)
@@ -95,6 +98,8 @@ class InstrumentEventHolder(object):
         :type instrument_event: lusid.InstrumentEvent
         :param properties:  The properties attached to this instrument event.
         :type properties: list[lusid.PerpetualProperty]
+        :param sequence_number:  The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.
+        :type sequence_number: int
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -110,6 +115,7 @@ class InstrumentEventHolder(object):
         self._event_date_range = None
         self._instrument_event = None
         self._properties = None
+        self._sequence_number = None
         self.discriminator = None
 
         self.instrument_event_id = instrument_event_id
@@ -122,6 +128,8 @@ class InstrumentEventHolder(object):
         self.event_date_range = event_date_range
         self.instrument_event = instrument_event
         self.properties = properties
+        if sequence_number is not None:
+            self.sequence_number = sequence_number
 
     @property
     def instrument_event_id(self):
@@ -361,6 +369,29 @@ class InstrumentEventHolder(object):
         """
 
         self._properties = properties
+
+    @property
+    def sequence_number(self):
+        """Gets the sequence_number of this InstrumentEventHolder.  # noqa: E501
+
+        The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.  # noqa: E501
+
+        :return: The sequence_number of this InstrumentEventHolder.  # noqa: E501
+        :rtype: int
+        """
+        return self._sequence_number
+
+    @sequence_number.setter
+    def sequence_number(self, sequence_number):
+        """Sets the sequence_number of this InstrumentEventHolder.
+
+        The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.  # noqa: E501
+
+        :param sequence_number: The sequence_number of this InstrumentEventHolder.  # noqa: E501
+        :type sequence_number: int
+        """
+
+        self._sequence_number = sequence_number
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
