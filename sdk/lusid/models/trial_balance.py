@@ -47,6 +47,7 @@ class TrialBalance(object):
         'closing': 'float',
         'debit': 'float',
         'credit': 'float',
+        'properties': 'dict(str, ModelProperty)',
         'links': 'list[Link]'
     }
 
@@ -59,6 +60,7 @@ class TrialBalance(object):
         'closing': 'closing',
         'debit': 'debit',
         'credit': 'credit',
+        'properties': 'properties',
         'links': 'links'
     }
 
@@ -71,10 +73,11 @@ class TrialBalance(object):
         'closing': 'required',
         'debit': 'required',
         'credit': 'required',
+        'properties': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, general_ledger_account_code=None, description=None, levels=None, account_type=None, opening=None, closing=None, debit=None, credit=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, general_ledger_account_code=None, description=None, levels=None, account_type=None, opening=None, closing=None, debit=None, credit=None, properties=None, links=None, local_vars_configuration=None):  # noqa: E501
         """TrialBalance - a model defined in OpenAPI"
         
         :param general_ledger_account_code:  The Account code that the trial balance results have been grouped against (required)
@@ -93,6 +96,8 @@ class TrialBalance(object):
         :type debit: float
         :param credit:  All credits that occured in the period (required)
         :type credit: float
+        :param properties:  Properties found on the mapped 'Account', as specified in request
+        :type properties: dict[str, lusid.ModelProperty]
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -109,6 +114,7 @@ class TrialBalance(object):
         self._closing = None
         self._debit = None
         self._credit = None
+        self._properties = None
         self._links = None
         self.discriminator = None
 
@@ -120,6 +126,7 @@ class TrialBalance(object):
         self.closing = closing
         self.debit = debit
         self.credit = credit
+        self.properties = properties
         self.links = links
 
     @property
@@ -325,6 +332,29 @@ class TrialBalance(object):
             raise ValueError("Invalid value for `credit`, must not be `None`")  # noqa: E501
 
         self._credit = credit
+
+    @property
+    def properties(self):
+        """Gets the properties of this TrialBalance.  # noqa: E501
+
+        Properties found on the mapped 'Account', as specified in request  # noqa: E501
+
+        :return: The properties of this TrialBalance.  # noqa: E501
+        :rtype: dict[str, lusid.ModelProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this TrialBalance.
+
+        Properties found on the mapped 'Account', as specified in request  # noqa: E501
+
+        :param properties: The properties of this TrialBalance.  # noqa: E501
+        :type properties: dict[str, lusid.ModelProperty]
+        """
+
+        self._properties = properties
 
     @property
     def links(self):

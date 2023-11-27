@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **closing** | **float** | The closing balance at the end of the period | 
 **debit** | **float** | All debits that occured in the period | 
 **credit** | **float** | All credits that occured in the period | 
+**properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Properties found on the mapped &#39;Account&#39;, as specified in request | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
