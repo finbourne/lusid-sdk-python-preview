@@ -68,17 +68,17 @@ class Compounding(object):
     def __init__(self, averaging_method=None, calculation_shift_method=None, compounding_method=None, reset_frequency=None, shift=None, spread_compounding_method=None, local_vars_configuration=None):  # noqa: E501
         """Compounding - a model defined in OpenAPI"
         
-        :param averaging_method:  Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted].
+        :param averaging_method:  Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, Weighted].
         :type averaging_method: str
         :param calculation_shift_method:  Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout].
         :type calculation_shift_method: str
-        :param compounding_method:  If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex]. (required)
+        :param compounding_method:  If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex]. (required)
         :type compounding_method: str
         :param reset_frequency:  The interest payment frequency. (required)
         :type reset_frequency: str
         :param shift:  Defines the number of days to lockout or shift observation period by - should be a non-negative integer
         :type shift: int
-        :param spread_compounding_method:  Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounded‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].
+        :param spread_compounding_method:  Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].
         :type spread_compounding_method: str
 
         """  # noqa: E501
@@ -106,7 +106,7 @@ class Compounding(object):
     def averaging_method(self):
         """Gets the averaging_method of this Compounding.  # noqa: E501
 
-        Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted].  # noqa: E501
+        Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, Weighted].  # noqa: E501
 
         :return: The averaging_method of this Compounding.  # noqa: E501
         :rtype: str
@@ -117,7 +117,7 @@ class Compounding(object):
     def averaging_method(self, averaging_method):
         """Sets the averaging_method of this Compounding.
 
-        Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted].  # noqa: E501
+        Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod = ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, Weighted].  # noqa: E501
 
         :param averaging_method: The averaging_method of this Compounding.  # noqa: E501
         :type averaging_method: str
@@ -158,7 +158,7 @@ class Compounding(object):
     def compounding_method(self):
         """Gets the compounding_method of this Compounding.  # noqa: E501
 
-        If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex].  # noqa: E501
+        If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex].  # noqa: E501
 
         :return: The compounding_method of this Compounding.  # noqa: E501
         :rtype: str
@@ -169,7 +169,7 @@ class Compounding(object):
     def compounding_method(self, compounding_method):
         """Sets the compounding_method of this Compounding.
 
-        If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex].  # noqa: E501
+        If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex].  # noqa: E501
 
         :param compounding_method: The compounding_method of this Compounding.  # noqa: E501
         :type compounding_method: str
@@ -237,7 +237,7 @@ class Compounding(object):
     def spread_compounding_method(self):
         """Gets the spread_compounding_method of this Compounding.  # noqa: E501
 
-        Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounded‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  # noqa: E501
+        Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  # noqa: E501
 
         :return: The spread_compounding_method of this Compounding.  # noqa: E501
         :rtype: str
@@ -248,7 +248,7 @@ class Compounding(object):
     def spread_compounding_method(self, spread_compounding_method):
         """Sets the spread_compounding_method of this Compounding.
 
-        Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounded‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  # noqa: E501
+        Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod = ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | ------ | ----------- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  # noqa: E501
 
         :param spread_compounding_method: The spread_compounding_method of this Compounding.  # noqa: E501
         :type spread_compounding_method: str
