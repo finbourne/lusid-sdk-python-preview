@@ -29,6 +29,11 @@ from lusid.models.accounts_upsert_response import AccountsUpsertResponse
 from lusid.models.chart_of_accounts import ChartOfAccounts
 from lusid.models.chart_of_accounts_properties import ChartOfAccountsProperties
 from lusid.models.chart_of_accounts_request import ChartOfAccountsRequest
+from lusid.models.cleardown_module_details import CleardownModuleDetails
+from lusid.models.cleardown_module_request import CleardownModuleRequest
+from lusid.models.cleardown_module_response import CleardownModuleResponse
+from lusid.models.cleardown_module_rule import CleardownModuleRule
+from lusid.models.cleardown_module_rules_updated_response import CleardownModuleRulesUpdatedResponse
 from lusid.models.delete_accounts_response import DeleteAccountsResponse
 from lusid.models.deleted_entity_response import DeletedEntityResponse
 from lusid.models.general_ledger_profile_mapping import GeneralLedgerProfileMapping
@@ -39,6 +44,8 @@ from lusid.models.lusid_validation_problem_details import LusidValidationProblem
 from lusid.models.model_property import ModelProperty
 from lusid.models.paged_resource_list_of_account import PagedResourceListOfAccount
 from lusid.models.paged_resource_list_of_chart_of_accounts import PagedResourceListOfChartOfAccounts
+from lusid.models.paged_resource_list_of_cleardown_module_response import PagedResourceListOfCleardownModuleResponse
+from lusid.models.paged_resource_list_of_cleardown_module_rule import PagedResourceListOfCleardownModuleRule
 from lusid.models.paged_resource_list_of_general_ledger_profile_response import PagedResourceListOfGeneralLedgerProfileResponse
 from lusid.models.paged_resource_list_of_posting_module_response import PagedResourceListOfPostingModuleResponse
 from lusid.models.paged_resource_list_of_posting_module_rule import PagedResourceListOfPostingModuleRule
@@ -212,6 +219,191 @@ class ChartOfAccountsApi(object):
 
         return self.api_client.call_api(
             '/api/chartofaccounts/{scope}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def create_cleardown_module(self, scope, code, cleardown_module_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module  # noqa: E501
+
+        Create the given Cleardown Module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_cleardown_module(scope, code, cleardown_module_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_request: The definition of the Cleardown Module. (required)
+        :type cleardown_module_request: CleardownModuleRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CleardownModuleResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_cleardown_module_with_http_info(scope, code, cleardown_module_request, **kwargs)  # noqa: E501
+
+    def create_cleardown_module_with_http_info(self, scope, code, cleardown_module_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module  # noqa: E501
+
+        Create the given Cleardown Module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_cleardown_module_with_http_info(scope, code, cleardown_module_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_request: The definition of the Cleardown Module. (required)
+        :type cleardown_module_request: CleardownModuleRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (CleardownModuleResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_cleardown_module" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `create_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `create_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_request' is set
+        if self.api_client.client_side_validation and ('cleardown_module_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_request` when calling `create_cleardown_module`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `create_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `create_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `create_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `create_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `create_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `create_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cleardown_module_request' in local_var_params:
+            body_params = local_var_params['cleardown_module_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            201: "CleardownModuleResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules', 'POST',
             path_params,
             query_params,
             header_params,
@@ -945,6 +1137,196 @@ class ChartOfAccountsApi(object):
 
         return self.api_client.call_api(
             '/api/chartofaccounts/{scope}/{code}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def delete_cleardown_module(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.  # noqa: E501
+
+        Delete the given Cleardown Module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_cleardown_module(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be deleted. (required)
+        :type cleardown_module_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: DeletedEntityResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_cleardown_module_with_http_info(scope, code, cleardown_module_code, **kwargs)  # noqa: E501
+
+    def delete_cleardown_module_with_http_info(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.  # noqa: E501
+
+        Delete the given Cleardown Module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_cleardown_module_with_http_info(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be deleted. (required)
+        :type cleardown_module_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (DeletedEntityResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_cleardown_module" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `delete_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `delete_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_code' is set
+        if self.api_client.client_side_validation and ('cleardown_module_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_code` when calling `delete_cleardown_module`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `delete_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `delete_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'cleardown_module_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['cleardown_module_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `delete_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'cleardown_module_code' in local_var_params:
+            path_params['cleardownModuleCode'] = local_var_params['cleardown_module_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -1730,6 +2112,196 @@ class ChartOfAccountsApi(object):
 
         return self.api_client.call_api(
             '/api/chartofaccounts/{scope}/{code}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_cleardown_module(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module  # noqa: E501
+
+        Retrieve the definition of a Cleardown Module complete with its rules.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_cleardown_module(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module. (required)
+        :type cleardown_module_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CleardownModuleResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_cleardown_module_with_http_info(scope, code, cleardown_module_code, **kwargs)  # noqa: E501
+
+    def get_cleardown_module_with_http_info(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module  # noqa: E501
+
+        Retrieve the definition of a Cleardown Module complete with its rules.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_cleardown_module_with_http_info(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module. (required)
+        :type cleardown_module_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (CleardownModuleResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cleardown_module" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `get_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `get_cleardown_module`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_code' is set
+        if self.api_client.client_side_validation and ('cleardown_module_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_code` when calling `get_cleardown_module`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `get_cleardown_module`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `get_cleardown_module`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'cleardown_module_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['cleardown_module_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `get_cleardown_module`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'cleardown_module_code' in local_var_params:
+            path_params['cleardownModuleCode'] = local_var_params['cleardown_module_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "CleardownModuleResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2569,6 +3141,477 @@ class ChartOfAccountsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def list_cleardown_module_rules(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules  # noqa: E501
+
+        List the Rules in a Cleardown Module  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_cleardown_module_rules(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the cleardown module. (required)
+        :type cleardown_module_code: str
+        :param as_at: The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the results to this number. Defaults to 100 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the results.              For example, to filter on the rule id, specify \"ruleId eq 'rule 1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: PagedResourceListOfCleardownModuleRule
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_cleardown_module_rules_with_http_info(scope, code, cleardown_module_code, **kwargs)  # noqa: E501
+
+    def list_cleardown_module_rules_with_http_info(self, scope, code, cleardown_module_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules  # noqa: E501
+
+        List the Rules in a Cleardown Module  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_cleardown_module_rules_with_http_info(scope, code, cleardown_module_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the cleardown module. (required)
+        :type cleardown_module_code: str
+        :param as_at: The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the results to this number. Defaults to 100 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the results.              For example, to filter on the rule id, specify \"ruleId eq 'rule 1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (PagedResourceListOfCleardownModuleRule, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_code',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cleardown_module_rules" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `list_cleardown_module_rules`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `list_cleardown_module_rules`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_code' is set
+        if self.api_client.client_side_validation and ('cleardown_module_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_code` when calling `list_cleardown_module_rules`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `list_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `list_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'cleardown_module_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['cleardown_module_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `list_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) > 500):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_module_rules`, length must be less than or equal to `500`")  # noqa: E501
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\+\/]*={0,3}$/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_cleardown_module_rules`, must be a value less than or equal to `5000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_cleardown_module_rules`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 16384):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_module_rules`, length must be less than or equal to `16384`")  # noqa: E501
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_module_rules`, length must be greater than or equal to `0`")  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_module_rules`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'cleardown_module_code' in local_var_params:
+            path_params['cleardownModuleCode'] = local_var_params['cleardown_module_code']  # noqa: E501
+
+        query_params = []
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+            query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+            query_params.append(('start', local_var_params['start']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+            query_params.append(('filter', local_var_params['filter']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "PagedResourceListOfCleardownModuleRule",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def list_cleardown_modules(self, scope, code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] ListCleardownModules: List Cleardown Modules  # noqa: E501
+
+        List all the Cleardown Modules matching particular criteria.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_cleardown_modules(scope, code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the results to this number. Defaults to 100 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \"status eq 'Active'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: PagedResourceListOfCleardownModuleResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_cleardown_modules_with_http_info(scope, code, **kwargs)  # noqa: E501
+
+    def list_cleardown_modules_with_http_info(self, scope, code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] ListCleardownModules: List Cleardown Modules  # noqa: E501
+
+        List all the Cleardown Modules matching particular criteria.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_cleardown_modules_with_http_info(scope, code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param as_at: The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified.
+        :type as_at: datetime
+        :param page: The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
+        :type page: str
+        :param start: When paginating, skip this number of results.
+        :type start: int
+        :param limit: When paginating, limit the results to this number. Defaults to 100 if not specified.
+        :type limit: int
+        :param filter: Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \"status eq 'Active'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        :type filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (PagedResourceListOfCleardownModuleResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'as_at',
+            'page',
+            'start',
+            'limit',
+            'filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_cleardown_modules" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `list_cleardown_modules`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `list_cleardown_modules`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_modules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_modules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `list_cleardown_modules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_modules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_modules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `list_cleardown_modules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) > 500):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_modules`, length must be less than or equal to `500`")  # noqa: E501
+        if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['page']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_modules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and not re.search(r'^[a-zA-Z0-9\+\/]*={0,3}$', local_var_params['page']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_cleardown_modules`, must conform to the pattern `/^[a-zA-Z0-9\+\/]*={0,3}$/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 5000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_cleardown_modules`, must be a value less than or equal to `5000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_cleardown_modules`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) > 16384):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_modules`, length must be less than or equal to `16384`")  # noqa: E501
+        if self.api_client.client_side_validation and ('filter' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['filter']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_modules`, length must be greater than or equal to `0`")  # noqa: E501
+        if self.api_client.client_side_validation and 'filter' in local_var_params and not re.search(r'^[\s\S]*$', local_var_params['filter']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `filter` when calling `list_cleardown_modules`, must conform to the pattern `/^[\s\S]*$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+            query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
+            query_params.append(('start', local_var_params['start']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+            query_params.append(('filter', local_var_params['filter']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "PagedResourceListOfCleardownModuleResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def list_general_ledger_profiles(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.  # noqa: E501
 
@@ -3251,6 +4294,414 @@ class ChartOfAccountsApi(object):
 
         return self.api_client.call_api(
             '/api/chartofaccounts/{scope}/{code}/postingmodules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def set_cleardown_module_details(self, scope, code, cleardown_module_code, cleardown_module_details, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module  # noqa: E501
+
+        Update the given Cleardown Module details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.set_cleardown_module_details(scope, code, cleardown_module_code, cleardown_module_details, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be updated. (required)
+        :type cleardown_module_code: str
+        :param cleardown_module_details: The new details for the Cleardown Module. (required)
+        :type cleardown_module_details: CleardownModuleDetails
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CleardownModuleResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_cleardown_module_details_with_http_info(scope, code, cleardown_module_code, cleardown_module_details, **kwargs)  # noqa: E501
+
+    def set_cleardown_module_details_with_http_info(self, scope, code, cleardown_module_code, cleardown_module_details, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module  # noqa: E501
+
+        Update the given Cleardown Module details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.set_cleardown_module_details_with_http_info(scope, code, cleardown_module_code, cleardown_module_details, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be updated. (required)
+        :type cleardown_module_code: str
+        :param cleardown_module_details: The new details for the Cleardown Module. (required)
+        :type cleardown_module_details: CleardownModuleDetails
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (CleardownModuleResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_code',
+            'cleardown_module_details'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_cleardown_module_details" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `set_cleardown_module_details`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `set_cleardown_module_details`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_code' is set
+        if self.api_client.client_side_validation and ('cleardown_module_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_code` when calling `set_cleardown_module_details`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_details' is set
+        if self.api_client.client_side_validation and ('cleardown_module_details' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_details'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_details` when calling `set_cleardown_module_details`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_details`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_details`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_details`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_details`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_details`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_details`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'cleardown_module_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['cleardown_module_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_details`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'cleardown_module_code' in local_var_params:
+            path_params['cleardownModuleCode'] = local_var_params['cleardown_module_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cleardown_module_details' in local_var_params:
+            body_params = local_var_params['cleardown_module_details']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "CleardownModuleResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def set_cleardown_module_rules(self, scope, code, cleardown_module_code, cleardown_module_rule, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module  # noqa: E501
+
+        Set the given Cleardown Modules rules, this will replace the existing set of rules for the cleardown module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.set_cleardown_module_rules(scope, code, cleardown_module_code, cleardown_module_rule, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be updated. (required)
+        :type cleardown_module_code: str
+        :param cleardown_module_rule: The new rule set for the Cleardown Module. (required)
+        :type cleardown_module_rule: list[CleardownModuleRule]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CleardownModuleRulesUpdatedResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_cleardown_module_rules_with_http_info(scope, code, cleardown_module_code, cleardown_module_rule, **kwargs)  # noqa: E501
+
+    def set_cleardown_module_rules_with_http_info(self, scope, code, cleardown_module_code, cleardown_module_rule, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module  # noqa: E501
+
+        Set the given Cleardown Modules rules, this will replace the existing set of rules for the cleardown module.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.set_cleardown_module_rules_with_http_info(scope, code, cleardown_module_code, cleardown_module_rule, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Chart of Accounts. (required)
+        :type scope: str
+        :param code: The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. (required)
+        :type code: str
+        :param cleardown_module_code: The code of the Cleardown Module to be updated. (required)
+        :type cleardown_module_code: str
+        :param cleardown_module_rule: The new rule set for the Cleardown Module. (required)
+        :type cleardown_module_rule: list[CleardownModuleRule]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (CleardownModuleRulesUpdatedResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'cleardown_module_code',
+            'cleardown_module_rule'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_cleardown_module_rules" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `set_cleardown_module_rules`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `set_cleardown_module_rules`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_code' is set
+        if self.api_client.client_side_validation and ('cleardown_module_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_code` when calling `set_cleardown_module_rules`")  # noqa: E501
+        # verify the required parameter 'cleardown_module_rule' is set
+        if self.api_client.client_side_validation and ('cleardown_module_rule' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cleardown_module_rule'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cleardown_module_rule` when calling `set_cleardown_module_rules`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `set_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `set_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_rules`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('cleardown_module_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['cleardown_module_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_rules`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'cleardown_module_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['cleardown_module_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `cleardown_module_code` when calling `set_cleardown_module_rules`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'cleardown_module_code' in local_var_params:
+            path_params['cleardownModuleCode'] = local_var_params['cleardown_module_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cleardown_module_rule' in local_var_params:
+            body_params = local_var_params['cleardown_module_rule']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.21'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "CleardownModuleRulesUpdatedResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules', 'PUT',
             path_params,
             query_params,
             header_params,
