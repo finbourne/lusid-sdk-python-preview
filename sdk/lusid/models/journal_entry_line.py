@@ -61,6 +61,8 @@ class JournalEntryLine(object):
         'economic_bucket': 'str',
         'levels': 'list[str]',
         'source_levels': 'list[str]',
+        'movement_sign': 'str',
+        'holding_sign': 'str',
         'links': 'list[Link]'
     }
 
@@ -87,6 +89,8 @@ class JournalEntryLine(object):
         'economic_bucket': 'economicBucket',
         'levels': 'levels',
         'source_levels': 'sourceLevels',
+        'movement_sign': 'movementSign',
+        'holding_sign': 'holdingSign',
         'links': 'links'
     }
 
@@ -113,10 +117,12 @@ class JournalEntryLine(object):
         'economic_bucket': 'required',
         'levels': 'optional',
         'source_levels': 'optional',
+        'movement_sign': 'optional',
+        'holding_sign': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, accounting_date=None, activity_date=None, portfolio_id=None, instrument_id=None, instrument_scope=None, sub_holding_keys=None, tax_lot_id=None, general_ledger_account_code=None, local=None, base=None, posting_module_code=None, posting_rule=None, as_at_date=None, activities_description=None, source_type=None, source_id=None, properties=None, movement_name=None, holding_type=None, economic_bucket=None, levels=None, source_levels=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accounting_date=None, activity_date=None, portfolio_id=None, instrument_id=None, instrument_scope=None, sub_holding_keys=None, tax_lot_id=None, general_ledger_account_code=None, local=None, base=None, posting_module_code=None, posting_rule=None, as_at_date=None, activities_description=None, source_type=None, source_id=None, properties=None, movement_name=None, holding_type=None, economic_bucket=None, levels=None, source_levels=None, movement_sign=None, holding_sign=None, links=None, local_vars_configuration=None):  # noqa: E501
         """JournalEntryLine - a model defined in OpenAPI"
         
         :param accounting_date:  The Journal Entry Line accounting date. (required)
@@ -163,6 +169,10 @@ class JournalEntryLine(object):
         :type levels: list[str]
         :param source_levels:  Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
         :type source_levels: list[str]
+        :param movement_sign:  Indicates if the Journal Entry Line corresponds to a Long or Short movement.
+        :type movement_sign: str
+        :param holding_sign:  Indicates if the Journal Entry Line is operating against a Long or Short holding.
+        :type holding_sign: str
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -193,6 +203,8 @@ class JournalEntryLine(object):
         self._economic_bucket = None
         self._levels = None
         self._source_levels = None
+        self._movement_sign = None
+        self._holding_sign = None
         self._links = None
         self.discriminator = None
 
@@ -218,6 +230,8 @@ class JournalEntryLine(object):
         self.economic_bucket = economic_bucket
         self.levels = levels
         self.source_levels = source_levels
+        self.movement_sign = movement_sign
+        self.holding_sign = holding_sign
         self.links = links
 
     @property
@@ -787,6 +801,52 @@ class JournalEntryLine(object):
         """
 
         self._source_levels = source_levels
+
+    @property
+    def movement_sign(self):
+        """Gets the movement_sign of this JournalEntryLine.  # noqa: E501
+
+        Indicates if the Journal Entry Line corresponds to a Long or Short movement.  # noqa: E501
+
+        :return: The movement_sign of this JournalEntryLine.  # noqa: E501
+        :rtype: str
+        """
+        return self._movement_sign
+
+    @movement_sign.setter
+    def movement_sign(self, movement_sign):
+        """Sets the movement_sign of this JournalEntryLine.
+
+        Indicates if the Journal Entry Line corresponds to a Long or Short movement.  # noqa: E501
+
+        :param movement_sign: The movement_sign of this JournalEntryLine.  # noqa: E501
+        :type movement_sign: str
+        """
+
+        self._movement_sign = movement_sign
+
+    @property
+    def holding_sign(self):
+        """Gets the holding_sign of this JournalEntryLine.  # noqa: E501
+
+        Indicates if the Journal Entry Line is operating against a Long or Short holding.  # noqa: E501
+
+        :return: The holding_sign of this JournalEntryLine.  # noqa: E501
+        :rtype: str
+        """
+        return self._holding_sign
+
+    @holding_sign.setter
+    def holding_sign(self, holding_sign):
+        """Sets the holding_sign of this JournalEntryLine.
+
+        Indicates if the Journal Entry Line is operating against a Long or Short holding.  # noqa: E501
+
+        :param holding_sign: The holding_sign of this JournalEntryLine.  # noqa: E501
+        :type holding_sign: str
+        """
+
+        self._holding_sign = holding_sign
 
     @property
     def links(self):
