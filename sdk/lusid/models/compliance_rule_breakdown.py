@@ -62,13 +62,13 @@ class ComplianceRuleBreakdown(object):
     def __init__(self, group_status=None, results_used=None, properties_used=None, missing_data_information=None, local_vars_configuration=None):  # noqa: E501
         """ComplianceRuleBreakdown - a model defined in OpenAPI"
         
-        :param group_status:  (required)
+        :param group_status:  The status of this subset of results. (required)
         :type group_status: str
-        :param results_used:  (required)
+        :param results_used:  Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. (required)
         :type results_used: dict(str, float)
-        :param properties_used:  (required)
+        :param properties_used:  Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule (required)
         :type properties_used: dict(str, list[ModelProperty])
-        :param missing_data_information:  (required)
+        :param missing_data_information:  List of string information detailing data that was missing from contributions processed in this rule (required)
         :type missing_data_information: list[str]
 
         """  # noqa: E501
@@ -91,6 +91,7 @@ class ComplianceRuleBreakdown(object):
     def group_status(self):
         """Gets the group_status of this ComplianceRuleBreakdown.  # noqa: E501
 
+        The status of this subset of results.  # noqa: E501
 
         :return: The group_status of this ComplianceRuleBreakdown.  # noqa: E501
         :rtype: str
@@ -101,6 +102,7 @@ class ComplianceRuleBreakdown(object):
     def group_status(self, group_status):
         """Sets the group_status of this ComplianceRuleBreakdown.
 
+        The status of this subset of results.  # noqa: E501
 
         :param group_status: The group_status of this ComplianceRuleBreakdown.  # noqa: E501
         :type group_status: str
@@ -117,6 +119,7 @@ class ComplianceRuleBreakdown(object):
     def results_used(self):
         """Gets the results_used of this ComplianceRuleBreakdown.  # noqa: E501
 
+        Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.  # noqa: E501
 
         :return: The results_used of this ComplianceRuleBreakdown.  # noqa: E501
         :rtype: dict(str, float)
@@ -127,6 +130,7 @@ class ComplianceRuleBreakdown(object):
     def results_used(self, results_used):
         """Sets the results_used of this ComplianceRuleBreakdown.
 
+        Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.  # noqa: E501
 
         :param results_used: The results_used of this ComplianceRuleBreakdown.  # noqa: E501
         :type results_used: dict(str, float)
@@ -140,6 +144,7 @@ class ComplianceRuleBreakdown(object):
     def properties_used(self):
         """Gets the properties_used of this ComplianceRuleBreakdown.  # noqa: E501
 
+        Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule  # noqa: E501
 
         :return: The properties_used of this ComplianceRuleBreakdown.  # noqa: E501
         :rtype: dict(str, list[ModelProperty])
@@ -150,6 +155,7 @@ class ComplianceRuleBreakdown(object):
     def properties_used(self, properties_used):
         """Sets the properties_used of this ComplianceRuleBreakdown.
 
+        Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule  # noqa: E501
 
         :param properties_used: The properties_used of this ComplianceRuleBreakdown.  # noqa: E501
         :type properties_used: dict(str, list[ModelProperty])
@@ -163,6 +169,7 @@ class ComplianceRuleBreakdown(object):
     def missing_data_information(self):
         """Gets the missing_data_information of this ComplianceRuleBreakdown.  # noqa: E501
 
+        List of string information detailing data that was missing from contributions processed in this rule  # noqa: E501
 
         :return: The missing_data_information of this ComplianceRuleBreakdown.  # noqa: E501
         :rtype: list[str]
@@ -173,6 +180,7 @@ class ComplianceRuleBreakdown(object):
     def missing_data_information(self, missing_data_information):
         """Sets the missing_data_information of this ComplianceRuleBreakdown.
 
+        List of string information detailing data that was missing from contributions processed in this rule  # noqa: E501
 
         :param missing_data_information: The missing_data_information of this ComplianceRuleBreakdown.  # noqa: E501
         :type missing_data_information: list[str]
