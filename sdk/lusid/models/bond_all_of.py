@@ -111,7 +111,7 @@ class BondAllOf(object):
         :type identifiers: dict(str, str)
         :param ex_dividend_days:  Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration.
         :type ex_dividend_days: int
-        :param initial_coupon_date:  Optional. If set, this is the date at which the bond begins to accrue interest, if not set then the bond begins to accrue on the StartDate.
+        :param initial_coupon_date:  Optional and to be DEPRECATED. If set, this is the date at which the bond begins to accrue interest. Instead, this information should be entered in the field StartDate.
         :type initial_coupon_date: datetime
         :param first_coupon_pay_date:  The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used  as an anchor to compare with the start date and determine if this is a long/short coupon period.
         :type first_coupon_pay_date: datetime
@@ -363,7 +363,7 @@ class BondAllOf(object):
     def initial_coupon_date(self):
         """Gets the initial_coupon_date of this BondAllOf.  # noqa: E501
 
-        Optional. If set, this is the date at which the bond begins to accrue interest, if not set then the bond begins to accrue on the StartDate.  # noqa: E501
+        Optional and to be DEPRECATED. If set, this is the date at which the bond begins to accrue interest. Instead, this information should be entered in the field StartDate.  # noqa: E501
 
         :return: The initial_coupon_date of this BondAllOf.  # noqa: E501
         :rtype: datetime
@@ -374,7 +374,7 @@ class BondAllOf(object):
     def initial_coupon_date(self, initial_coupon_date):
         """Sets the initial_coupon_date of this BondAllOf.
 
-        Optional. If set, this is the date at which the bond begins to accrue interest, if not set then the bond begins to accrue on the StartDate.  # noqa: E501
+        Optional and to be DEPRECATED. If set, this is the date at which the bond begins to accrue interest. Instead, this information should be entered in the field StartDate.  # noqa: E501
 
         :param initial_coupon_date: The initial_coupon_date of this BondAllOf.  # noqa: E501
         :type initial_coupon_date: datetime
