@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_translation_dialect**
-> Dialect upsert_translation_dialect(dialect)
+> Dialect upsert_translation_dialect(upsert_dialect_request)
 
 [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
 
@@ -531,11 +531,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ScriptedTranslationApi(api_client)
-    dialect = {"id":{"scope":"scope-A","vendor":"BigBankCorporation","sourceSystem":"InstrumentMaster","version":"2.1.4","serialisationFormat":"Json","entityType":"Instrument"},"schema":{"type":"JsonSchema","body":"{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"}} # Dialect | The dialect to upsert.
+    upsert_dialect_request = {"id":{"scope":"scope-A","vendor":"BigBankCorporation","sourceSystem":"InstrumentMaster","version":"2.1.4","serialisationFormat":"Json","entityType":"Instrument"},"schema":{"type":"JsonSchema","body":"{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"}} # UpsertDialectRequest | The dialect to upsert.
 
     try:
         # [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
-        api_response = api_instance.upsert_translation_dialect(dialect)
+        api_response = api_instance.upsert_translation_dialect(upsert_dialect_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScriptedTranslationApi->upsert_translation_dialect: %s\n" % e)
@@ -545,7 +545,7 @@ with lusid.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dialect** | [**Dialect**](Dialect.md)| The dialect to upsert. | 
+ **upsert_dialect_request** | [**UpsertDialectRequest**](UpsertDialectRequest.md)| The dialect to upsert. | 
 
 ### Return type
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_translation_script**
-> TranslationScript upsert_translation_script(translation_script)
+> TranslationScript upsert_translation_script(upsert_translation_script_request)
 
 [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
 
@@ -606,11 +606,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ScriptedTranslationApi(api_client)
-    translation_script = {"id":{"scope":"example-scope","code":"example-code","version":"0.0.1"},"body":"export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"} # TranslationScript | The translation script to be upserted.
+    upsert_translation_script_request = {"id":{"scope":"example-scope","code":"example-code","version":"0.0.1"},"body":"export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"} # UpsertTranslationScriptRequest | The translation script to be upserted.
 
     try:
         # [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
-        api_response = api_instance.upsert_translation_script(translation_script)
+        api_response = api_instance.upsert_translation_script(upsert_translation_script_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScriptedTranslationApi->upsert_translation_script: %s\n" % e)
@@ -620,7 +620,7 @@ with lusid.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **translation_script** | [**TranslationScript**](TranslationScript.md)| The translation script to be upserted. | 
+ **upsert_translation_script_request** | [**UpsertTranslationScriptRequest**](UpsertTranslationScriptRequest.md)| The translation script to be upserted. | 
 
 ### Return type
 

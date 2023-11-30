@@ -32,6 +32,8 @@ from lusid.models.translate_entities_inlined_request import TranslateEntitiesInl
 from lusid.models.translate_entities_request import TranslateEntitiesRequest
 from lusid.models.translate_entities_response import TranslateEntitiesResponse
 from lusid.models.translation_script import TranslationScript
+from lusid.models.upsert_dialect_request import UpsertDialectRequest
+from lusid.models.upsert_translation_script_request import UpsertTranslationScriptRequest
 
 
 class ScriptedTranslationApi(object):
@@ -1137,18 +1139,18 @@ class ScriptedTranslationApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def upsert_translation_dialect(self, dialect, **kwargs):  # noqa: E501
+    def upsert_translation_dialect(self, upsert_dialect_request, **kwargs):  # noqa: E501
         """[EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.  # noqa: E501
 
         Upsert the given dialect.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upsert_translation_dialect(dialect, async_req=True)
+        >>> thread = api.upsert_translation_dialect(upsert_dialect_request, async_req=True)
         >>> result = thread.get()
 
-        :param dialect: The dialect to upsert. (required)
-        :type dialect: Dialect
+        :param upsert_dialect_request: The dialect to upsert. (required)
+        :type upsert_dialect_request: UpsertDialectRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1165,20 +1167,20 @@ class ScriptedTranslationApi(object):
         :rtype: Dialect
         """
         kwargs['_return_http_data_only'] = True
-        return self.upsert_translation_dialect_with_http_info(dialect, **kwargs)  # noqa: E501
+        return self.upsert_translation_dialect_with_http_info(upsert_dialect_request, **kwargs)  # noqa: E501
 
-    def upsert_translation_dialect_with_http_info(self, dialect, **kwargs):  # noqa: E501
+    def upsert_translation_dialect_with_http_info(self, upsert_dialect_request, **kwargs):  # noqa: E501
         """[EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.  # noqa: E501
 
         Upsert the given dialect.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upsert_translation_dialect_with_http_info(dialect, async_req=True)
+        >>> thread = api.upsert_translation_dialect_with_http_info(upsert_dialect_request, async_req=True)
         >>> result = thread.get()
 
-        :param dialect: The dialect to upsert. (required)
-        :type dialect: Dialect
+        :param upsert_dialect_request: The dialect to upsert. (required)
+        :type upsert_dialect_request: UpsertDialectRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1205,7 +1207,7 @@ class ScriptedTranslationApi(object):
         local_var_params = locals()
 
         all_params = [
-            'dialect'
+            'upsert_dialect_request'
         ]
         all_params.extend(
             [
@@ -1226,10 +1228,10 @@ class ScriptedTranslationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'dialect' is set
-        if self.api_client.client_side_validation and ('dialect' not in local_var_params or  # noqa: E501
-                                                        local_var_params['dialect'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `dialect` when calling `upsert_translation_dialect`")  # noqa: E501
+        # verify the required parameter 'upsert_dialect_request' is set
+        if self.api_client.client_side_validation and ('upsert_dialect_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_dialect_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upsert_dialect_request` when calling `upsert_translation_dialect`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1243,8 +1245,8 @@ class ScriptedTranslationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'dialect' in local_var_params:
-            body_params = local_var_params['dialect']
+        if 'upsert_dialect_request' in local_var_params:
+            body_params = local_var_params['upsert_dialect_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
@@ -1284,18 +1286,18 @@ class ScriptedTranslationApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def upsert_translation_script(self, translation_script, **kwargs):  # noqa: E501
+    def upsert_translation_script(self, upsert_translation_script_request, **kwargs):  # noqa: E501
         """[EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.  # noqa: E501
 
         Upserts a translation script to be used for translating financial entities.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upsert_translation_script(translation_script, async_req=True)
+        >>> thread = api.upsert_translation_script(upsert_translation_script_request, async_req=True)
         >>> result = thread.get()
 
-        :param translation_script: The translation script to be upserted. (required)
-        :type translation_script: TranslationScript
+        :param upsert_translation_script_request: The translation script to be upserted. (required)
+        :type upsert_translation_script_request: UpsertTranslationScriptRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1312,20 +1314,20 @@ class ScriptedTranslationApi(object):
         :rtype: TranslationScript
         """
         kwargs['_return_http_data_only'] = True
-        return self.upsert_translation_script_with_http_info(translation_script, **kwargs)  # noqa: E501
+        return self.upsert_translation_script_with_http_info(upsert_translation_script_request, **kwargs)  # noqa: E501
 
-    def upsert_translation_script_with_http_info(self, translation_script, **kwargs):  # noqa: E501
+    def upsert_translation_script_with_http_info(self, upsert_translation_script_request, **kwargs):  # noqa: E501
         """[EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.  # noqa: E501
 
         Upserts a translation script to be used for translating financial entities.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upsert_translation_script_with_http_info(translation_script, async_req=True)
+        >>> thread = api.upsert_translation_script_with_http_info(upsert_translation_script_request, async_req=True)
         >>> result = thread.get()
 
-        :param translation_script: The translation script to be upserted. (required)
-        :type translation_script: TranslationScript
+        :param upsert_translation_script_request: The translation script to be upserted. (required)
+        :type upsert_translation_script_request: UpsertTranslationScriptRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1352,7 +1354,7 @@ class ScriptedTranslationApi(object):
         local_var_params = locals()
 
         all_params = [
-            'translation_script'
+            'upsert_translation_script_request'
         ]
         all_params.extend(
             [
@@ -1373,10 +1375,10 @@ class ScriptedTranslationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'translation_script' is set
-        if self.api_client.client_side_validation and ('translation_script' not in local_var_params or  # noqa: E501
-                                                        local_var_params['translation_script'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `translation_script` when calling `upsert_translation_script`")  # noqa: E501
+        # verify the required parameter 'upsert_translation_script_request' is set
+        if self.api_client.client_side_validation and ('upsert_translation_script_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_translation_script_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upsert_translation_script_request` when calling `upsert_translation_script`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1390,8 +1392,8 @@ class ScriptedTranslationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'translation_script' in local_var_params:
-            body_params = local_var_params['translation_script']
+        if 'upsert_translation_script_request' in local_var_params:
+            body_params = local_var_params['upsert_translation_script_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
