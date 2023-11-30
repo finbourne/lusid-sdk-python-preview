@@ -216,7 +216,7 @@ class OrdersApi(object):
     def get_order(self, scope, code, **kwargs):  # noqa: E501
         """[EARLY ACCESS] GetOrder: Get Order  # noqa: E501
 
-        Fetch an Order that matches the specified identifier  # noqa: E501
+        Fetch an Order that matches the specified identifier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -252,7 +252,7 @@ class OrdersApi(object):
     def get_order_with_http_info(self, scope, code, **kwargs):  # noqa: E501
         """[EARLY ACCESS] GetOrder: Get Order  # noqa: E501
 
-        Fetch an Order that matches the specified identifier  # noqa: E501
+        Fetch an Order that matches the specified identifier.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -400,7 +400,7 @@ class OrdersApi(object):
     def list_orders(self, **kwargs):  # noqa: E501
         """[EARLY ACCESS] ListOrders: List Orders  # noqa: E501
 
-        Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).  # noqa: E501
+        Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -442,7 +442,7 @@ class OrdersApi(object):
     def list_orders_with_http_info(self, **kwargs):  # noqa: E501
         """[EARLY ACCESS] ListOrders: List Orders  # noqa: E501
 
-        Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).  # noqa: E501
+        Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
