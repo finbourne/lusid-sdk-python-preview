@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_value_types**
-> ResourceListOfValueType get_value_types(sort_by=sort_by, start=start, limit=limit)
+> ResourceListOfValueType get_value_types(sort_by=sort_by, limit=limit)
 
 [EARLY ACCESS] GetValueTypes: Get value types
 
@@ -200,12 +200,11 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.SchemasApi(api_client)
     sort_by = ['sort_by_example'] # list[str] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional)
-start = 56 # int | Optional. When paginating, skip this number of results (optional)
 limit = 56 # int | Optional. When paginating, limit the number of returned results to this many. (optional)
 
     try:
         # [EARLY ACCESS] GetValueTypes: Get value types
-        api_response = api_instance.get_value_types(sort_by=sort_by, start=start, limit=limit)
+        api_response = api_instance.get_value_types(sort_by=sort_by, limit=limit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling SchemasApi->get_value_types: %s\n" % e)
@@ -216,7 +215,6 @@ limit = 56 # int | Optional. When paginating, limit the number of returned resul
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sort_by** | [**list[str]**](str.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
 
 ### Return type
