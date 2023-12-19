@@ -6,8 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_compliance_rule**](ComplianceApi.md#delete_compliance_rule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] GetComplianceRule: Get compliance rule.
-[**get_compliance_rule_result_details**](ComplianceApi.md#get_compliance_rule_result_details) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
-[**get_compliance_run_summary**](ComplianceApi.md#get_compliance_run_summary) | **GET** /api/compliance/runs/summary/{runScope}/{runCode} | [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
+[**get_compliance_rule_result**](ComplianceApi.md#get_compliance_rule_result) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
 [**get_compliance_template**](ComplianceApi.md#get_compliance_template) | **GET** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
 [**get_decorated_compliance_run_summary**](ComplianceApi.md#get_decorated_compliance_run_summary) | **GET** /api/compliance/runs/summary/{scope}/{code}/$decorate | [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
 [**list_compliance_rules**](ComplianceApi.md#list_compliance_rules) | **GET** /api/compliance/rules | [EARLY ACCESS] ListComplianceRules: List compliance rules.
@@ -176,10 +175,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_compliance_rule_result_details**
-> ComplianceRunSummary get_compliance_rule_result_details(run_scope, run_code, rule_scope, rule_code)
+# **get_compliance_rule_result**
+> ComplianceRuleResultV2 get_compliance_rule_result(run_scope, run_code, rule_scope, rule_code)
 
-[EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+[EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
 
 Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
 
@@ -219,11 +218,11 @@ rule_scope = 'rule_scope_example' # str | Required: Rule Scope.
 rule_code = 'rule_code_example' # str | Required: Rule Code.
 
     try:
-        # [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
-        api_response = api_instance.get_compliance_rule_result_details(run_scope, run_code, rule_scope, rule_code)
+        # [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
+        api_response = api_instance.get_compliance_rule_result(run_scope, run_code, rule_scope, rule_code)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ComplianceApi->get_compliance_rule_result_details: %s\n" % e)
+        print("Exception when calling ComplianceApi->get_compliance_rule_result: %s\n" % e)
 ```
 
 ### Parameters
@@ -237,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComplianceRunSummary**](ComplianceRunSummary.md)
+[**ComplianceRuleResultV2**](ComplianceRuleResultV2.md)
 
 ### Authorization
 
@@ -252,83 +251,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested compliance run summary details for a specific rule. |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_compliance_run_summary**
-> ComplianceRunSummary get_compliance_run_summary(run_scope, run_code)
-
-[EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-
-Specify a run scope and code from a previously run compliance check to get summarised results.
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.lusid.com/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.ComplianceApi(api_client)
-    run_scope = 'run_scope_example' # str | Required: Run Scope.
-run_code = 'run_code_example' # str | Required: Run Code.
-
-    try:
-        # [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-        api_response = api_instance.get_compliance_run_summary(run_scope, run_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ComplianceApi->get_compliance_run_summary: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **run_scope** | **str**| Required: Run Scope. | 
- **run_code** | **str**| Required: Run Code. | 
-
-### Return type
-
-[**ComplianceRunSummary**](ComplianceRunSummary.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | The requested compliance run summary. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -896,7 +818,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_compliance_run_summary**
-> ComplianceRunSummary upsert_compliance_run_summary(upsert_compliance_run_summary_request=upsert_compliance_run_summary_request)
+> UpsertComplianceRunSummaryResult upsert_compliance_run_summary(upsert_compliance_run_summary_request=upsert_compliance_run_summary_request)
 
 [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
 
@@ -950,7 +872,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComplianceRunSummary**](ComplianceRunSummary.md)
+[**UpsertComplianceRunSummaryResult**](UpsertComplianceRunSummaryResult.md)
 
 ### Authorization
 
