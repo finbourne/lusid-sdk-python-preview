@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **affected_portfolios** | [**list[ResourceId]**](ResourceId.md) |  | 
 **affected_orders** | [**list[ResourceId]**](ResourceId.md) |  | 
 **parameters_used** | **dict(str, str)** |  | 
-**rule_breakdown** | [**dict(str, ComplianceRuleBreakdownRequest)**](ComplianceRuleBreakdownRequest.md) |  | 
+**rule_breakdown** | [**list[ComplianceRuleBreakdownRequest]**](ComplianceRuleBreakdownRequest.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
