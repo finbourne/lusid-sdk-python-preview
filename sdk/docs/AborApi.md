@@ -139,7 +139,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.AborApi(api_client)
     scope = 'scope_example' # str | The scope of the Abor.
 code = 'code_example' # str | The code of the Abor.
-close_period_diary_entry_request = {"diaryEntryCode":"2023","name":"2023","effectiveAt":"2023-04-02T15:10:10.0000000+00:00","queryAsAt":"2023-04-15T15:10:10.0000000+00:00","status":"Estimate","properties":{"DiaryEntry/AccountingDiary/Reports":{"key":"DiaryEntry/AccountingDiary/Reports","value":{"labelValue":"Some comments"}}}} # ClosePeriodDiaryEntryRequest | The request body, containing details to apply to the closing/locking period.
+close_period_diary_entry_request = {"diaryEntryCode":"2023","name":"2023","effectiveAt":"2023-04-02T15:10:10.0000000+00:00","queryAsAt":"2023-04-15T15:10:10.0000000+00:00","status":"Estimate","properties":{"DiaryEntry/AccountingDiary/Reports":{"key":"DiaryEntry/AccountingDiary/Reports","value":{"labelValue":"Some comments"}}},"closingOptions":[]} # ClosePeriodDiaryEntryRequest | The request body, containing details to apply to the closing/locking period.
 
     try:
         # [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
@@ -888,7 +888,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.AborApi(api_client)
     scope = 'scope_example' # str | The scope of the Abor.
 code = 'code_example' # str | The code of the Abor.
-lock_period_diary_entry_request = {"diaryEntryCode":"YearEnd2023"} # LockPeriodDiaryEntryRequest | The request body, detailing lock details (optional)
+lock_period_diary_entry_request = {"diaryEntryCode":"YearEnd2023","closingOptions":[]} # LockPeriodDiaryEntryRequest | The request body, detailing lock details (optional)
 
     try:
         # [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
