@@ -5,8 +5,8 @@ All URIs are relative to *https://www.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_transaction_template**](InstrumentEventTypesApi.md#create_transaction_template) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
-[**get_transaction_template**](InstrumentEventTypesApi.md#get_transaction_template) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates | [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
-[**get_transaction_template_specification**](InstrumentEventTypesApi.md#get_transaction_template_specification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification | [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+[**get_transaction_template**](InstrumentEventTypesApi.md#get_transaction_template) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
+[**get_transaction_template_specification**](InstrumentEventTypesApi.md#get_transaction_template_specification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification/{instrumentType} | [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
 
 
 # **create_transaction_template**
@@ -47,9 +47,9 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.InstrumentEventTypesApi(api_client)
     instrument_event_type = 'instrument_event_type_example' # str | The type of instrument events that the template is applied to.
-instrument_type = 'instrument_type_example' # str | The template is applied to events which originate from instruments of this type
+instrument_type = 'instrument_type_example' # str | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
 scope = 'scope_example' # str | The scope in which the template lies.
-transaction_template_request = {"description":"Example Description","componentTransactions":[{"displayName":"Example Display Name","transactionFieldMap":{"transactionId":"Example-Transaction-Id","type":"Example Type","source":"Example Source","lusidInstrumentId":"Example-LUID","instrumentScope":"Example Scope","tradeDate":"2022-12-21T00:00:00.0000000","settlementDate":"2022-12-21T00:00:00.0000000","units":"3","transactionPrice":{"price":"4.2m","type":"Price"},"transactionCurrency":"USD","exchangeRate":"1","totalConsideration":{"currency":"USD","amount":"2.0m"},"settlementCurrency":"USD"}}]} # TransactionTemplateRequest | A request defining a new transaction template to be created.
+transaction_template_request = {"description":"User-created template for overriding the default bond coupon template.","componentTransactions":[{"displayName":"Bond Income Override","transactionFieldMap":{"transactionId":"{{instrumentEventId}}-{{holdingId}}","type":"BondCoupon","source":"MyTransactionTypeScope","lusidInstrumentId":"{{lusidInstrumentId}}","instrumentScope":"{{instrumentScope}}","tradeDate":"{{BondCouponEvent.exDate}}","settlementDate":"{{BondCouponEvent.paymentDate}}","units":"{{eligibleBalance}}","transactionPrice":{"price":"{{BondCouponEvent.couponPerUnit}}","type":"CashFlowPerUnit"},"transactionCurrency":"{{BondCouponEvent.currency}}","exchangeRate":"1","totalConsideration":{"currency":"{{BondCouponEvent.couponAmount}}","amount":"{{BondCouponEvent.currency}}"},"settlementCurrency":"{{BondCouponEvent.couponAmount}}"}}]} # TransactionTemplateRequest | A request defining a new transaction template to be created.
 
     try:
         # [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
@@ -64,7 +64,7 @@ transaction_template_request = {"description":"Example Description","componentTr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instrument_event_type** | **str**| The type of instrument events that the template is applied to. | 
- **instrument_type** | **str**| The template is applied to events which originate from instruments of this type | 
+ **instrument_type** | **str**| The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template | 
  **scope** | **str**| The scope in which the template lies. | 
  **transaction_template_request** | [**TransactionTemplateRequest**](TransactionTemplateRequest.md)| A request defining a new transaction template to be created. | 
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction_template**
-> TransactionTemplate get_transaction_template(instrument_event_type, scope=scope, as_at=as_at)
+> TransactionTemplate get_transaction_template(instrument_event_type, instrument_type, scope, as_at=as_at)
 
 [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
 
@@ -128,12 +128,13 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.InstrumentEventTypesApi(api_client)
     instrument_event_type = 'instrument_event_type_example' # str | The instrument event type of the transaction template
-scope = 'scope_example' # str | The scope in which the template lies. When not supplied the scope is 'default'. (optional)
+instrument_type = 'instrument_type_example' # str | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
+scope = 'scope_example' # str | The scope in which the template lies. When not supplied the scope is 'default'.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt time of the requested Transaction Template (optional)
 
     try:
         # [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
-        api_response = api_instance.get_transaction_template(instrument_event_type, scope=scope, as_at=as_at)
+        api_response = api_instance.get_transaction_template(instrument_event_type, instrument_type, scope, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstrumentEventTypesApi->get_transaction_template: %s\n" % e)
@@ -144,7 +145,8 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The AsAt time of the requested 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instrument_event_type** | **str**| The instrument event type of the transaction template | 
- **scope** | **str**| The scope in which the template lies. When not supplied the scope is &#39;default&#39;. | [optional] 
+ **instrument_type** | **str**| The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template | 
+ **scope** | **str**| The scope in which the template lies. When not supplied the scope is &#39;default&#39;. | 
  **as_at** | **datetime**| The AsAt time of the requested Transaction Template | [optional] 
 
 ### Return type
@@ -170,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction_template_specification**
-> TransactionTemplateSpecification get_transaction_template_specification(instrument_event_type)
+> TransactionTemplateSpecification get_transaction_template_specification(instrument_type, instrument_event_type)
 
 [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
 
@@ -206,11 +208,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.InstrumentEventTypesApi(api_client)
-    instrument_event_type = 'instrument_event_type_example' # str | The requested instrument event type.
+    instrument_type = 'instrument_type_example' # str | The requested instrument type.
+instrument_event_type = 'instrument_event_type_example' # str | The requested instrument event type.
 
     try:
         # [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
-        api_response = api_instance.get_transaction_template_specification(instrument_event_type)
+        api_response = api_instance.get_transaction_template_specification(instrument_type, instrument_event_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling InstrumentEventTypesApi->get_transaction_template_specification: %s\n" % e)
@@ -220,6 +223,7 @@ with lusid.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **instrument_type** | **str**| The requested instrument type. | 
  **instrument_event_type** | **str**| The requested instrument event type. | 
 
 ### Return type
