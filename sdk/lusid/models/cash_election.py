@@ -101,8 +101,7 @@ class CashElection(object):
         self.discriminator = None
 
         self.election_key = election_key
-        if exchange_rate is not None:
-            self.exchange_rate = exchange_rate
+        self.exchange_rate = exchange_rate
         self.dividend_rate = dividend_rate
         if is_chosen is not None:
             self.is_chosen = is_chosen
