@@ -913,7 +913,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cleardown_module**
-> CleardownModuleResponse get_cleardown_module(scope, code, cleardown_module_code)
+> CleardownModuleResponse get_cleardown_module(scope, code, cleardown_module_code, as_at=as_at)
 
 [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
 
@@ -952,10 +952,11 @@ with lusid.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope of the Chart of Accounts.
 code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
 cleardown_module_code = 'cleardown_module_code_example' # str | The code of the Cleardown Module.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)
 
     try:
         # [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
-        api_response = api_instance.get_cleardown_module(scope, code, cleardown_module_code)
+        api_response = api_instance.get_cleardown_module(scope, code, cleardown_module_code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->get_cleardown_module: %s\n" % e)
@@ -968,6 +969,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the Chart of Accounts. | 
  **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. | 
  **cleardown_module_code** | **str**| The code of the Cleardown Module. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. | [optional] 
 
 ### Return type
 
@@ -992,7 +994,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_general_ledger_profile**
-> GeneralLedgerProfileResponse get_general_ledger_profile(scope, code, general_ledger_profile_code)
+> GeneralLedgerProfileResponse get_general_ledger_profile(scope, code, general_ledger_profile_code, as_at=as_at)
 
 [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
 
@@ -1031,10 +1033,11 @@ with lusid.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope of the Chart of Accounts for the General Ledger Profile.
 code = 'code_example' # str | The code of the Chart of Accounts for the General Ledger Profile.
 general_ledger_profile_code = 'general_ledger_profile_code_example' # str | The General Ledger Profile Code of the General Ledger Profile.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)
 
     try:
         # [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
-        api_response = api_instance.get_general_ledger_profile(scope, code, general_ledger_profile_code)
+        api_response = api_instance.get_general_ledger_profile(scope, code, general_ledger_profile_code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->get_general_ledger_profile: %s\n" % e)
@@ -1047,6 +1050,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the Chart of Accounts for the General Ledger Profile. | 
  **code** | **str**| The code of the Chart of Accounts for the General Ledger Profile. | 
  **general_ledger_profile_code** | **str**| The General Ledger Profile Code of the General Ledger Profile. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. | [optional] 
 
 ### Return type
 
@@ -1071,7 +1075,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_posting_module**
-> PostingModuleResponse get_posting_module(scope, code, posting_module_code)
+> PostingModuleResponse get_posting_module(scope, code, posting_module_code, as_at=as_at)
 
 [EXPERIMENTAL] GetPostingModule: Get a Posting Module
 
@@ -1110,10 +1114,11 @@ with lusid.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope of the Chart of Accounts.
 code = 'code_example' # str | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
 posting_module_code = 'posting_module_code_example' # str | The code of the Posting Module.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)
 
     try:
         # [EXPERIMENTAL] GetPostingModule: Get a Posting Module
-        api_response = api_instance.get_posting_module(scope, code, posting_module_code)
+        api_response = api_instance.get_posting_module(scope, code, posting_module_code, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->get_posting_module: %s\n" % e)
@@ -1126,6 +1131,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope of the Chart of Accounts. | 
  **code** | **str**| The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. | 
  **posting_module_code** | **str**| The code of the Posting Module. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. | [optional] 
 
 ### Return type
 
