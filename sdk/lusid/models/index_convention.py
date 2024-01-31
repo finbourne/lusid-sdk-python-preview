@@ -78,7 +78,7 @@ class IndexConvention(object):
         :type fixing_reference: str
         :param publication_day_lag:  Number of days between spot and publication of the rate. (required)
         :type publication_day_lag: int
-        :param payment_tenor:  The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year. (required)
+        :param payment_tenor:  The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type payment_tenor: str
         :param day_count_convention:  when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year  and difference between them.  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365]. (required)
         :type day_count_convention: str
@@ -175,7 +175,7 @@ class IndexConvention(object):
     def payment_tenor(self):
         """Gets the payment_tenor of this IndexConvention.  # noqa: E501
 
-        The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.  # noqa: E501
+        The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The payment_tenor of this IndexConvention.  # noqa: E501
         :rtype: str
@@ -186,7 +186,7 @@ class IndexConvention(object):
     def payment_tenor(self, payment_tenor):
         """Sets the payment_tenor of this IndexConvention.
 
-        The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.  # noqa: E501
+        The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param payment_tenor: The payment_tenor of this IndexConvention.  # noqa: E501
         :type payment_tenor: str

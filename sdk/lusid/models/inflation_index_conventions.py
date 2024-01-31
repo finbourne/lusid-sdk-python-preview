@@ -72,11 +72,11 @@ class InflationIndexConventions(object):
         :type inflation_index_name: str
         :param currency:  Currency of the inflation index convention. (required)
         :type currency: str
-        :param observation_lag:  Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid. (required)
+        :param observation_lag:  Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type observation_lag: str
         :param inflation_interpolation:  Inflation Interpolation. This is optional and defaults to Linear if not set.    Supported string (enumeration) values are: [Linear, Flat].
         :type inflation_interpolation: str
-        :param inflation_frequency:  Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.
+        :param inflation_frequency:  Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         :type inflation_frequency: str
         :param inflation_roll_day:  Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
         :type inflation_roll_day: int
@@ -162,7 +162,7 @@ class InflationIndexConventions(object):
     def observation_lag(self):
         """Gets the observation_lag of this InflationIndexConventions.  # noqa: E501
 
-        Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.  # noqa: E501
+        Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The observation_lag of this InflationIndexConventions.  # noqa: E501
         :rtype: str
@@ -173,7 +173,7 @@ class InflationIndexConventions(object):
     def observation_lag(self, observation_lag):
         """Sets the observation_lag of this InflationIndexConventions.
 
-        Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.  # noqa: E501
+        Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param observation_lag: The observation_lag of this InflationIndexConventions.  # noqa: E501
         :type observation_lag: str
@@ -222,7 +222,7 @@ class InflationIndexConventions(object):
     def inflation_frequency(self):
         """Gets the inflation_frequency of this InflationIndexConventions.  # noqa: E501
 
-        Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.  # noqa: E501
+        Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The inflation_frequency of this InflationIndexConventions.  # noqa: E501
         :rtype: str
@@ -233,7 +233,7 @@ class InflationIndexConventions(object):
     def inflation_frequency(self, inflation_frequency):
         """Sets the inflation_frequency of this InflationIndexConventions.
 
-        Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.  # noqa: E501
+        Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param inflation_frequency: The inflation_frequency of this InflationIndexConventions.  # noqa: E501
         :type inflation_frequency: str

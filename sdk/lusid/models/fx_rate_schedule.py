@@ -73,7 +73,7 @@ class FxRateSchedule(object):
         :type rate: float
         :param to_currency:  Currency that payments are converted to
         :type to_currency: str
-        :param schedule_type:  The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required)
+        :param schedule_type:  The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required)
         :type schedule_type: str
 
         """  # noqa: E501
@@ -190,7 +190,7 @@ class FxRateSchedule(object):
     def schedule_type(self):
         """Gets the schedule_type of this FxRateSchedule.  # noqa: E501
 
-        The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid  # noqa: E501
+        The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid  # noqa: E501
 
         :return: The schedule_type of this FxRateSchedule.  # noqa: E501
         :rtype: str
@@ -201,14 +201,14 @@ class FxRateSchedule(object):
     def schedule_type(self, schedule_type):
         """Sets the schedule_type of this FxRateSchedule.
 
-        The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid  # noqa: E501
+        The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid  # noqa: E501
 
         :param schedule_type: The schedule_type of this FxRateSchedule.  # noqa: E501
         :type schedule_type: str
         """
         if self.local_vars_configuration.client_side_validation and schedule_type is None:  # noqa: E501
             raise ValueError("Invalid value for `schedule_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["FixedSchedule", "FloatSchedule", "OptionalitySchedule", "StepSchedule", "Exercise", "FxRateSchedule", "Invalid"]  # noqa: E501
+        allowed_values = ["FixedSchedule", "FloatSchedule", "OptionalitySchedule", "StepSchedule", "Exercise", "FxRateSchedule", "FxLinkedNotionalSchedule", "Invalid"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and schedule_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `schedule_type` ({0}), must be one of {1}"  # noqa: E501

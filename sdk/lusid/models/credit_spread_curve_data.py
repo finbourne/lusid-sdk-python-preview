@@ -84,7 +84,7 @@ class CreditSpreadCurveData(object):
         :type base_date: datetime
         :param dom_ccy:  Domestic currency of the curve (required)
         :type dom_ccy: str
-        :param tenors:  The tenors for which the rates apply (required)
+        :param tenors:  The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type tenors: list[str]
         :param spreads:  Par spread quotes corresponding to the tenors. (required)
         :type spreads: list[float]
@@ -184,7 +184,7 @@ class CreditSpreadCurveData(object):
     def tenors(self):
         """Gets the tenors of this CreditSpreadCurveData.  # noqa: E501
 
-        The tenors for which the rates apply  # noqa: E501
+        The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The tenors of this CreditSpreadCurveData.  # noqa: E501
         :rtype: list[str]
@@ -195,7 +195,7 @@ class CreditSpreadCurveData(object):
     def tenors(self, tenors):
         """Sets the tenors of this CreditSpreadCurveData.
 
-        The tenors for which the rates apply  # noqa: E501
+        The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param tenors: The tenors of this CreditSpreadCurveData.  # noqa: E501
         :type tenors: list[str]

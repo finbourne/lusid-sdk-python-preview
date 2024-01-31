@@ -53,7 +53,9 @@ class LegDefinition(object):
         'first_regular_payment_date': 'datetime',
         'first_coupon_type': 'str',
         'last_regular_payment_date': 'datetime',
-        'last_coupon_type': 'str'
+        'last_coupon_type': 'str',
+        'fx_linked_notional_schedule': 'FxLinkedNotionalSchedule',
+        'intermediate_notional_exchange': 'bool'
     }
 
     attribute_map = {
@@ -71,7 +73,9 @@ class LegDefinition(object):
         'first_regular_payment_date': 'firstRegularPaymentDate',
         'first_coupon_type': 'firstCouponType',
         'last_regular_payment_date': 'lastRegularPaymentDate',
-        'last_coupon_type': 'lastCouponType'
+        'last_coupon_type': 'lastCouponType',
+        'fx_linked_notional_schedule': 'fxLinkedNotionalSchedule',
+        'intermediate_notional_exchange': 'intermediateNotionalExchange'
     }
 
     required_map = {
@@ -89,10 +93,12 @@ class LegDefinition(object):
         'first_regular_payment_date': 'optional',
         'first_coupon_type': 'optional',
         'last_regular_payment_date': 'optional',
-        'last_coupon_type': 'optional'
+        'last_coupon_type': 'optional',
+        'fx_linked_notional_schedule': 'optional',
+        'intermediate_notional_exchange': 'optional'
     }
 
-    def __init__(self, convention_name=None, conventions=None, index_convention=None, index_convention_name=None, notional_exchange_type=None, pay_receive=None, rate_or_spread=None, reset_convention=None, stub_type=None, compounding=None, amortisation=None, first_regular_payment_date=None, first_coupon_type=None, last_regular_payment_date=None, last_coupon_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, convention_name=None, conventions=None, index_convention=None, index_convention_name=None, notional_exchange_type=None, pay_receive=None, rate_or_spread=None, reset_convention=None, stub_type=None, compounding=None, amortisation=None, first_regular_payment_date=None, first_coupon_type=None, last_regular_payment_date=None, last_coupon_type=None, fx_linked_notional_schedule=None, intermediate_notional_exchange=None, local_vars_configuration=None):  # noqa: E501
         """LegDefinition - a model defined in OpenAPI"
         
         :param convention_name: 
@@ -125,6 +131,10 @@ class LegDefinition(object):
         :type last_regular_payment_date: datetime
         :param last_coupon_type:  Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \"ProRata\" (the default), the coupon year fraction is calculated as normal,  however if set to \"Full\" the year fraction is overwritten with the standard year fraction  for a regular ful\" coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full].
         :type last_coupon_type: str
+        :param fx_linked_notional_schedule: 
+        :type fx_linked_notional_schedule: lusid.FxLinkedNotionalSchedule
+        :param intermediate_notional_exchange:  Indicates whether there are intermediate notional exchanges.
+        :type intermediate_notional_exchange: bool
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -146,6 +156,8 @@ class LegDefinition(object):
         self._first_coupon_type = None
         self._last_regular_payment_date = None
         self._last_coupon_type = None
+        self._fx_linked_notional_schedule = None
+        self._intermediate_notional_exchange = None
         self.discriminator = None
 
         if convention_name is not None:
@@ -169,6 +181,9 @@ class LegDefinition(object):
         self.first_coupon_type = first_coupon_type
         self.last_regular_payment_date = last_regular_payment_date
         self.last_coupon_type = last_coupon_type
+        if fx_linked_notional_schedule is not None:
+            self.fx_linked_notional_schedule = fx_linked_notional_schedule
+        self.intermediate_notional_exchange = intermediate_notional_exchange
 
     @property
     def convention_name(self):
@@ -519,6 +534,50 @@ class LegDefinition(object):
         """
 
         self._last_coupon_type = last_coupon_type
+
+    @property
+    def fx_linked_notional_schedule(self):
+        """Gets the fx_linked_notional_schedule of this LegDefinition.  # noqa: E501
+
+
+        :return: The fx_linked_notional_schedule of this LegDefinition.  # noqa: E501
+        :rtype: lusid.FxLinkedNotionalSchedule
+        """
+        return self._fx_linked_notional_schedule
+
+    @fx_linked_notional_schedule.setter
+    def fx_linked_notional_schedule(self, fx_linked_notional_schedule):
+        """Sets the fx_linked_notional_schedule of this LegDefinition.
+
+
+        :param fx_linked_notional_schedule: The fx_linked_notional_schedule of this LegDefinition.  # noqa: E501
+        :type fx_linked_notional_schedule: lusid.FxLinkedNotionalSchedule
+        """
+
+        self._fx_linked_notional_schedule = fx_linked_notional_schedule
+
+    @property
+    def intermediate_notional_exchange(self):
+        """Gets the intermediate_notional_exchange of this LegDefinition.  # noqa: E501
+
+        Indicates whether there are intermediate notional exchanges.  # noqa: E501
+
+        :return: The intermediate_notional_exchange of this LegDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._intermediate_notional_exchange
+
+    @intermediate_notional_exchange.setter
+    def intermediate_notional_exchange(self, intermediate_notional_exchange):
+        """Sets the intermediate_notional_exchange of this LegDefinition.
+
+        Indicates whether there are intermediate notional exchanges.  # noqa: E501
+
+        :param intermediate_notional_exchange: The intermediate_notional_exchange of this LegDefinition.  # noqa: E501
+        :type intermediate_notional_exchange: bool
+        """
+
+        self._intermediate_notional_exchange = intermediate_notional_exchange
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

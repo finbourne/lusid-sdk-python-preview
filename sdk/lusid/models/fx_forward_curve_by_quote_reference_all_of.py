@@ -81,7 +81,7 @@ class FxForwardCurveByQuoteReferenceAllOf(object):
         :type dom_ccy: str
         :param fgn_ccy:  Foreign currency of the fx forward (required)
         :type fgn_ccy: str
-        :param tenors:  Tenors for which the forward rates apply (required)
+        :param tenors:  Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type tenors: list[str]
         :param quote_references:  For each tenor, a collection of identifiers. These will be looked up in the LUSID Quote Store to resolve the actual rates.  Accepts an array of Dictionary<string, string>. The keys of each dictionary must be chosen from the following enumeration:  [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  For example: <br />  \"quoteReferences\": [{\"ClientInternal\": \"SomeIdentifierForFirstTenor\"},{\"ClientInternal\": \"SomeIdentifierForSecondTenor\"} (required)
         :type quote_references: list[dict(str, str)]
@@ -177,7 +177,7 @@ class FxForwardCurveByQuoteReferenceAllOf(object):
     def tenors(self):
         """Gets the tenors of this FxForwardCurveByQuoteReferenceAllOf.  # noqa: E501
 
-        Tenors for which the forward rates apply  # noqa: E501
+        Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The tenors of this FxForwardCurveByQuoteReferenceAllOf.  # noqa: E501
         :rtype: list[str]
@@ -188,7 +188,7 @@ class FxForwardCurveByQuoteReferenceAllOf(object):
     def tenors(self, tenors):
         """Sets the tenors of this FxForwardCurveByQuoteReferenceAllOf.
 
-        Tenors for which the forward rates apply  # noqa: E501
+        Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param tenors: The tenors of this FxForwardCurveByQuoteReferenceAllOf.  # noqa: E501
         :type tenors: list[str]

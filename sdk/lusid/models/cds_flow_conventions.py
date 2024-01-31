@@ -86,7 +86,7 @@ class CdsFlowConventions(object):
     def __init__(self, roll_frequency=None, currency=None, payment_frequency=None, day_count_convention=None, roll_convention=None, payment_calendars=None, reset_calendars=None, settle_days=None, reset_days=None, business_day_convention=None, scope=None, code=None, local_vars_configuration=None):  # noqa: E501
         """CdsFlowConventions - a model defined in OpenAPI"
         
-        :param roll_frequency:  The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products
+        :param roll_frequency:  The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         :type roll_frequency: str
         :param currency:  Currency of the flow convention. (required)
         :type currency: str
@@ -147,7 +147,7 @@ class CdsFlowConventions(object):
     def roll_frequency(self):
         """Gets the roll_frequency of this CdsFlowConventions.  # noqa: E501
 
-        The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products  # noqa: E501
+        The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The roll_frequency of this CdsFlowConventions.  # noqa: E501
         :rtype: str
@@ -158,7 +158,7 @@ class CdsFlowConventions(object):
     def roll_frequency(self, roll_frequency):
         """Sets the roll_frequency of this CdsFlowConventions.
 
-        The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products  # noqa: E501
+        The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param roll_frequency: The roll_frequency of this CdsFlowConventions.  # noqa: E501
         :type roll_frequency: str

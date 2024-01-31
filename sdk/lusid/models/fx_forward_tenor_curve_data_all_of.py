@@ -86,7 +86,7 @@ class FxForwardTenorCurveDataAllOf(object):
         :type dom_ccy: str
         :param fgn_ccy:  Foreign currency of the fx forward (required)
         :type fgn_ccy: str
-        :param tenors:  Tenors for which the forward rates apply (required)
+        :param tenors:  Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type tenors: list[str]
         :param rates:  Rates provided for the fx forward (price in FgnCcy per unit of DomCcy) (required)
         :type rates: list[float]
@@ -209,7 +209,7 @@ class FxForwardTenorCurveDataAllOf(object):
     def tenors(self):
         """Gets the tenors of this FxForwardTenorCurveDataAllOf.  # noqa: E501
 
-        Tenors for which the forward rates apply  # noqa: E501
+        Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The tenors of this FxForwardTenorCurveDataAllOf.  # noqa: E501
         :rtype: list[str]
@@ -220,7 +220,7 @@ class FxForwardTenorCurveDataAllOf(object):
     def tenors(self, tenors):
         """Sets the tenors of this FxForwardTenorCurveDataAllOf.
 
-        Tenors for which the forward rates apply  # noqa: E501
+        Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param tenors: The tenors of this FxForwardTenorCurveDataAllOf.  # noqa: E501
         :type tenors: list[str]

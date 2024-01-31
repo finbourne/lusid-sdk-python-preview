@@ -74,7 +74,7 @@ class Compounding(object):
         :type calculation_shift_method: str
         :param compounding_method:  If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex]. (required)
         :type compounding_method: str
-        :param reset_frequency:  The interest payment frequency. (required)
+        :param reset_frequency:  The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type reset_frequency: str
         :param shift:  Defines the number of days to lockout or shift observation period by - should be a non-negative integer
         :type shift: int
@@ -186,7 +186,7 @@ class Compounding(object):
     def reset_frequency(self):
         """Gets the reset_frequency of this Compounding.  # noqa: E501
 
-        The interest payment frequency.  # noqa: E501
+        The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The reset_frequency of this Compounding.  # noqa: E501
         :rtype: str
@@ -197,7 +197,7 @@ class Compounding(object):
     def reset_frequency(self, reset_frequency):
         """Sets the reset_frequency of this Compounding.
 
-        The interest payment frequency.  # noqa: E501
+        The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param reset_frequency: The reset_frequency of this Compounding.  # noqa: E501
         :type reset_frequency: str

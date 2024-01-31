@@ -63,7 +63,7 @@ class FlowConventionName(object):
         :type currency: str
         :param index_name:  The index, if present, that is required. e.g. \"IBOR\", \"OIS\" or \"SONIA\".
         :type index_name: str
-        :param tenor:  Tenor for the convention name. (required)
+        :param tenor:  Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required)
         :type tenor: str
 
         """  # noqa: E501
@@ -132,7 +132,7 @@ class FlowConventionName(object):
     def tenor(self):
         """Gets the tenor of this FlowConventionName.  # noqa: E501
 
-        Tenor for the convention name.  # noqa: E501
+        Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :return: The tenor of this FlowConventionName.  # noqa: E501
         :rtype: str
@@ -143,7 +143,7 @@ class FlowConventionName(object):
     def tenor(self, tenor):
         """Sets the tenor of this FlowConventionName.
 
-        Tenor for the convention name.  # noqa: E501
+        Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)  # noqa: E501
 
         :param tenor: The tenor of this FlowConventionName.  # noqa: E501
         :type tenor: str
