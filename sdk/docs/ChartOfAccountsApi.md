@@ -1245,7 +1245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_charts_of_accounts**
-> PagedResourceListOfChartOfAccounts list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys)
+> PagedResourceListOfChartOfAccounts list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by, property_keys=property_keys)
 
 [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
 
@@ -1286,11 +1286,12 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 page = 'page_example' # str | The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+sort_by = ['sort_by_example'] # list[str] | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional)
 property_keys = ['property_keys_example'] # list[str] | A list of property keys from the 'ChartOfAccounts' domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example 'ChartOfAccounts/Manager/Id'. (optional)
 
     try:
         # [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
-        api_response = api_instance.list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, property_keys=property_keys)
+        api_response = api_instance.list_charts_of_accounts(effective_at=effective_at, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by, property_keys=property_keys)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->list_charts_of_accounts: %s\n" % e)
@@ -1305,6 +1306,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **sort_by** | [**list[str]**](str.md)| A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional] 
  **property_keys** | [**list[str]**](str.md)| A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. | [optional] 
 
 ### Return type
@@ -1417,7 +1419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_cleardown_modules**
-> PagedResourceListOfCleardownModuleResponse list_cleardown_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+> PagedResourceListOfCleardownModuleResponse list_cleardown_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
 
 [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
 
@@ -1459,10 +1461,11 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 page = 'page_example' # str | The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \"status eq 'Active'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+sort_by = ['sort_by_example'] # list[str] | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional)
 
     try:
         # [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
-        api_response = api_instance.list_cleardown_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+        api_response = api_instance.list_cleardown_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->list_cleardown_modules: %s\n" % e)
@@ -1478,6 +1481,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **sort_by** | [**list[str]**](str.md)| A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional] 
 
 ### Return type
 
@@ -1502,7 +1506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_general_ledger_profiles**
-> PagedResourceListOfGeneralLedgerProfileResponse list_general_ledger_profiles(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+> PagedResourceListOfGeneralLedgerProfileResponse list_general_ledger_profiles(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
 
 [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
 
@@ -1544,10 +1548,11 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 page = 'page_example' # str | The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \"type eq 'PeriodBoundary'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+sort_by = ['sort_by_example'] # list[str] | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional)
 
     try:
         # [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
-        api_response = api_instance.list_general_ledger_profiles(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+        api_response = api_instance.list_general_ledger_profiles(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->list_general_ledger_profiles: %s\n" % e)
@@ -1563,6 +1568,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **sort_by** | [**list[str]**](str.md)| A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional] 
 
 ### Return type
 
@@ -1674,7 +1680,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_posting_modules**
-> PagedResourceListOfPostingModuleResponse list_posting_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+> PagedResourceListOfPostingModuleResponse list_posting_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
 
 [EXPERIMENTAL] ListPostingModules: List Posting Modules
 
@@ -1716,10 +1722,11 @@ as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to l
 page = 'page_example' # str | The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)
 limit = 56 # int | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the results.              For example, to filter on the Posting Module status, specify \"status eq 'Active'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+sort_by = ['sort_by_example'] # list[str] | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional)
 
     try:
         # [EXPERIMENTAL] ListPostingModules: List Posting Modules
-        api_response = api_instance.list_posting_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter)
+        api_response = api_instance.list_posting_modules(scope, code, as_at=as_at, page=page, limit=limit, filter=filter, sort_by=sort_by)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ChartOfAccountsApi->list_posting_modules: %s\n" % e)
@@ -1735,6 +1742,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional] 
  **limit** | **int**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
  **filter** | **str**| Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **sort_by** | [**list[str]**](str.md)| A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional] 
 
 ### Return type
 
