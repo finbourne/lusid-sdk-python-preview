@@ -24,11 +24,13 @@ from lusid.exceptions import (  # noqa: F401
     ApiValueError
 )
 from lusid.models.allocation_service_run_response import AllocationServiceRunResponse
+from lusid.models.block_and_order_create_request import BlockAndOrderCreateRequest
 from lusid.models.book_transactions_response import BookTransactionsResponse
 from lusid.models.lusid_problem_details import LusidProblemDetails
 from lusid.models.lusid_validation_problem_details import LusidValidationProblemDetails
 from lusid.models.place_blocks_request import PlaceBlocksRequest
 from lusid.models.resource_id import ResourceId
+from lusid.models.resource_list_of_block_and_order import ResourceListOfBlockAndOrder
 from lusid.models.resource_list_of_placement import ResourceListOfPlacement
 
 
@@ -186,6 +188,153 @@ class OrderManagementApi(object):
 
         return self.api_client.call_api(
             '/api/ordermanagement/booktransactions', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def create_orders(self, block_and_order_create_request, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CreateOrders: Create Block and Order pairs  # noqa: E501
+
+        Create new block and order pairs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_orders(block_and_order_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param block_and_order_create_request: The collection of block and order requests. (required)
+        :type block_and_order_create_request: BlockAndOrderCreateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ResourceListOfBlockAndOrder
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_orders_with_http_info(block_and_order_create_request, **kwargs)  # noqa: E501
+
+    def create_orders_with_http_info(self, block_and_order_create_request, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CreateOrders: Create Block and Order pairs  # noqa: E501
+
+        Create new block and order pairs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_orders_with_http_info(block_and_order_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param block_and_order_create_request: The collection of block and order requests. (required)
+        :type block_and_order_create_request: BlockAndOrderCreateRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (ResourceListOfBlockAndOrder, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'block_and_order_create_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_orders" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'block_and_order_create_request' is set
+        if self.api_client.client_side_validation and ('block_and_order_create_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['block_and_order_create_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `block_and_order_create_request` when calling `create_orders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'block_and_order_create_request' in local_var_params:
+            body_params = local_var_params['block_and_order_create_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.73'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            201: "ResourceListOfBlockAndOrder",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/ordermanagement/createorders', 'POST',
             path_params,
             query_params,
             header_params,

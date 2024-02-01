@@ -41,30 +41,35 @@ class PostingModuleRule(object):
     openapi_types = {
         'rule_id': 'str',
         'account': 'str',
-        'rule_filter': 'str'
+        'rule_filter': 'str',
+        'general_ledger_account_code': 'str'
     }
 
     attribute_map = {
         'rule_id': 'ruleId',
         'account': 'account',
-        'rule_filter': 'ruleFilter'
+        'rule_filter': 'ruleFilter',
+        'general_ledger_account_code': 'generalLedgerAccountCode'
     }
 
     required_map = {
         'rule_id': 'required',
-        'account': 'required',
-        'rule_filter': 'required'
+        'account': 'optional',
+        'rule_filter': 'required',
+        'general_ledger_account_code': 'optional'
     }
 
-    def __init__(self, rule_id=None, account=None, rule_filter=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, rule_id=None, account=None, rule_filter=None, general_ledger_account_code=None, local_vars_configuration=None):  # noqa: E501
         """PostingModuleRule - a model defined in OpenAPI"
         
         :param rule_id:  The identifier for the Posting Rule. (required)
         :type rule_id: str
-        :param account:  The account to post the Activity credit or debit to. (required)
+        :param account:  The general ledger account to post the Activity credit or debit to.
         :type account: str
         :param rule_filter:  The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax. (required)
         :type rule_filter: str
+        :param general_ledger_account_code:  The general ledger account to post the Activity credit or debit to.
+        :type general_ledger_account_code: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -74,11 +79,13 @@ class PostingModuleRule(object):
         self._rule_id = None
         self._account = None
         self._rule_filter = None
+        self._general_ledger_account_code = None
         self.discriminator = None
 
         self.rule_id = rule_id
         self.account = account
         self.rule_filter = rule_filter
+        self.general_ledger_account_code = general_ledger_account_code
 
     @property
     def rule_id(self):
@@ -118,7 +125,7 @@ class PostingModuleRule(object):
     def account(self):
         """Gets the account of this PostingModuleRule.  # noqa: E501
 
-        The account to post the Activity credit or debit to.  # noqa: E501
+        The general ledger account to post the Activity credit or debit to.  # noqa: E501
 
         :return: The account of this PostingModuleRule.  # noqa: E501
         :rtype: str
@@ -129,13 +136,11 @@ class PostingModuleRule(object):
     def account(self, account):
         """Sets the account of this PostingModuleRule.
 
-        The account to post the Activity credit or debit to.  # noqa: E501
+        The general ledger account to post the Activity credit or debit to.  # noqa: E501
 
         :param account: The account of this PostingModuleRule.  # noqa: E501
         :type account: str
         """
-        if self.local_vars_configuration.client_side_validation and account is None:  # noqa: E501
-            raise ValueError("Invalid value for `account`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 account is not None and len(account) > 512):
             raise ValueError("Invalid value for `account`, length must be less than or equal to `512`")  # noqa: E501
@@ -181,6 +186,38 @@ class PostingModuleRule(object):
             raise ValueError(r"Invalid value for `rule_filter`, must be a follow pattern or equal to `/^[\s\S]*$/`")  # noqa: E501
 
         self._rule_filter = rule_filter
+
+    @property
+    def general_ledger_account_code(self):
+        """Gets the general_ledger_account_code of this PostingModuleRule.  # noqa: E501
+
+        The general ledger account to post the Activity credit or debit to.  # noqa: E501
+
+        :return: The general_ledger_account_code of this PostingModuleRule.  # noqa: E501
+        :rtype: str
+        """
+        return self._general_ledger_account_code
+
+    @general_ledger_account_code.setter
+    def general_ledger_account_code(self, general_ledger_account_code):
+        """Sets the general_ledger_account_code of this PostingModuleRule.
+
+        The general ledger account to post the Activity credit or debit to.  # noqa: E501
+
+        :param general_ledger_account_code: The general_ledger_account_code of this PostingModuleRule.  # noqa: E501
+        :type general_ledger_account_code: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                general_ledger_account_code is not None and len(general_ledger_account_code) > 512):
+            raise ValueError("Invalid value for `general_ledger_account_code`, length must be less than or equal to `512`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                general_ledger_account_code is not None and len(general_ledger_account_code) < 1):
+            raise ValueError("Invalid value for `general_ledger_account_code`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                general_ledger_account_code is not None and not re.search(r'^[\s\S]*$', general_ledger_account_code)):  # noqa: E501
+            raise ValueError(r"Invalid value for `general_ledger_account_code`, must be a follow pattern or equal to `/^[\s\S]*$/`")  # noqa: E501
+
+        self._general_ledger_account_code = general_ledger_account_code
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -61,7 +61,7 @@ class Account(object):
         'description': 'optional',
         'type': 'required',
         'status': 'required',
-        'control': 'required',
+        'control': 'optional',
         'properties': 'optional'
     }
 
@@ -76,7 +76,7 @@ class Account(object):
         :type type: str
         :param status:  The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted (required)
         :type status: str
-        :param control:  This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”. (required)
+        :param control:  This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.
         :type control: str
         :param properties:  A set of properties for the Account.
         :type properties: dict[str, lusid.ModelProperty]
@@ -246,11 +246,6 @@ class Account(object):
         :param control: The control of this Account.  # noqa: E501
         :type control: str
         """
-        if self.local_vars_configuration.client_side_validation and control is None:  # noqa: E501
-            raise ValueError("Invalid value for `control`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                control is not None and len(control) < 1):
-            raise ValueError("Invalid value for `control`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._control = control
 

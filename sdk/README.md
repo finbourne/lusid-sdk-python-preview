@@ -318,6 +318,7 @@ Class | Method | HTTP request | Description
 *OrderInstructionsApi* | [**list_order_instructions**](docs/OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
 *OrderInstructionsApi* | [**upsert_order_instructions**](docs/OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
 *OrderManagementApi* | [**book_transactions**](docs/OrderManagementApi.md#book_transactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+*OrderManagementApi* | [**create_orders**](docs/OrderManagementApi.md#create_orders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Create Block and Order pairs
 *OrderManagementApi* | [**place_blocks**](docs/OrderManagementApi.md#place_blocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
 *OrderManagementApi* | [**run_allocation_service**](docs/OrderManagementApi.md#run_allocation_service) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
 *OrdersApi* | [**delete_order**](docs/OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
@@ -632,6 +633,9 @@ Class | Method | HTTP request | Description
  - [BatchUpsertPortfolioTransactionsResponse](docs/BatchUpsertPortfolioTransactionsResponse.md)
  - [BatchUpsertPropertyDefinitionPropertiesResponse](docs/BatchUpsertPropertyDefinitionPropertiesResponse.md)
  - [Block](docs/Block.md)
+ - [BlockAndOrder](docs/BlockAndOrder.md)
+ - [BlockAndOrderCreateRequest](docs/BlockAndOrderCreateRequest.md)
+ - [BlockAndOrderRequest](docs/BlockAndOrderRequest.md)
  - [BlockRequest](docs/BlockRequest.md)
  - [BlockSetRequest](docs/BlockSetRequest.md)
  - [Bond](docs/Bond.md)
@@ -1305,6 +1309,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfAggregationQuery](docs/ResourceListOfAggregationQuery.md)
  - [ResourceListOfAllocation](docs/ResourceListOfAllocation.md)
  - [ResourceListOfBlock](docs/ResourceListOfBlock.md)
+ - [ResourceListOfBlockAndOrder](docs/ResourceListOfBlockAndOrder.md)
  - [ResourceListOfCalendarDate](docs/ResourceListOfCalendarDate.md)
  - [ResourceListOfChange](docs/ResourceListOfChange.md)
  - [ResourceListOfChangeHistory](docs/ResourceListOfChangeHistory.md)
