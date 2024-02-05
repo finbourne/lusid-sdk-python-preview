@@ -46,9 +46,9 @@ class AborConfiguration(object):
         'recipe_id': 'ResourceId',
         'chart_of_accounts_id': 'ResourceId',
         'posting_module_codes': 'list[str]',
+        'cleardown_module_codes': 'list[str]',
         'properties': 'dict(str, ModelProperty)',
         'version': 'Version',
-        'cleardown_module_codes': 'list[str]',
         'links': 'list[Link]'
     }
 
@@ -60,9 +60,9 @@ class AborConfiguration(object):
         'recipe_id': 'recipeId',
         'chart_of_accounts_id': 'chartOfAccountsId',
         'posting_module_codes': 'postingModuleCodes',
+        'cleardown_module_codes': 'cleardownModuleCodes',
         'properties': 'properties',
         'version': 'version',
-        'cleardown_module_codes': 'cleardownModuleCodes',
         'links': 'links'
     }
 
@@ -74,13 +74,13 @@ class AborConfiguration(object):
         'recipe_id': 'optional',
         'chart_of_accounts_id': 'required',
         'posting_module_codes': 'optional',
+        'cleardown_module_codes': 'optional',
         'properties': 'optional',
         'version': 'optional',
-        'cleardown_module_codes': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, id=None, display_name=None, description=None, recipe_id=None, chart_of_accounts_id=None, posting_module_codes=None, properties=None, version=None, cleardown_module_codes=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, id=None, display_name=None, description=None, recipe_id=None, chart_of_accounts_id=None, posting_module_codes=None, cleardown_module_codes=None, properties=None, version=None, links=None, local_vars_configuration=None):  # noqa: E501
         """AborConfiguration - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -97,12 +97,12 @@ class AborConfiguration(object):
         :type chart_of_accounts_id: lusid.ResourceId
         :param posting_module_codes:  The Posting Module Codes from which the rules to be applied are retrieved.
         :type posting_module_codes: list[str]
+        :param cleardown_module_codes:  The Cleardown Module Codes from which the rules to be applied are retrieved.
+        :type cleardown_module_codes: list[str]
         :param properties:  A set of properties for the Abor Configuration.
         :type properties: dict[str, lusid.ModelProperty]
         :param version: 
         :type version: lusid.Version
-        :param cleardown_module_codes:  The Cleardown Module Codes from which the rules to be applied are retrieved.
-        :type cleardown_module_codes: list[str]
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -118,9 +118,9 @@ class AborConfiguration(object):
         self._recipe_id = None
         self._chart_of_accounts_id = None
         self._posting_module_codes = None
+        self._cleardown_module_codes = None
         self._properties = None
         self._version = None
-        self._cleardown_module_codes = None
         self._links = None
         self.discriminator = None
 
@@ -132,10 +132,10 @@ class AborConfiguration(object):
             self.recipe_id = recipe_id
         self.chart_of_accounts_id = chart_of_accounts_id
         self.posting_module_codes = posting_module_codes
+        self.cleardown_module_codes = cleardown_module_codes
         self.properties = properties
         if version is not None:
             self.version = version
-        self.cleardown_module_codes = cleardown_module_codes
         self.links = links
 
     @property
@@ -298,6 +298,29 @@ class AborConfiguration(object):
         self._posting_module_codes = posting_module_codes
 
     @property
+    def cleardown_module_codes(self):
+        """Gets the cleardown_module_codes of this AborConfiguration.  # noqa: E501
+
+        The Cleardown Module Codes from which the rules to be applied are retrieved.  # noqa: E501
+
+        :return: The cleardown_module_codes of this AborConfiguration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._cleardown_module_codes
+
+    @cleardown_module_codes.setter
+    def cleardown_module_codes(self, cleardown_module_codes):
+        """Sets the cleardown_module_codes of this AborConfiguration.
+
+        The Cleardown Module Codes from which the rules to be applied are retrieved.  # noqa: E501
+
+        :param cleardown_module_codes: The cleardown_module_codes of this AborConfiguration.  # noqa: E501
+        :type cleardown_module_codes: list[str]
+        """
+
+        self._cleardown_module_codes = cleardown_module_codes
+
+    @property
     def properties(self):
         """Gets the properties of this AborConfiguration.  # noqa: E501
 
@@ -340,29 +363,6 @@ class AborConfiguration(object):
         """
 
         self._version = version
-
-    @property
-    def cleardown_module_codes(self):
-        """Gets the cleardown_module_codes of this AborConfiguration.  # noqa: E501
-
-        The Cleardown Module Codes from which the rules to be applied are retrieved.  # noqa: E501
-
-        :return: The cleardown_module_codes of this AborConfiguration.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._cleardown_module_codes
-
-    @cleardown_module_codes.setter
-    def cleardown_module_codes(self, cleardown_module_codes):
-        """Sets the cleardown_module_codes of this AborConfiguration.
-
-        The Cleardown Module Codes from which the rules to be applied are retrieved.  # noqa: E501
-
-        :param cleardown_module_codes: The cleardown_module_codes of this AborConfiguration.  # noqa: E501
-        :type cleardown_module_codes: list[str]
-        """
-
-        self._cleardown_module_codes = cleardown_module_codes
 
     @property
     def links(self):

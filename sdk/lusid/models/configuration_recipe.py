@@ -44,7 +44,6 @@ class ConfigurationRecipe(object):
         'market': 'MarketContext',
         'pricing': 'PricingContext',
         'aggregation': 'AggregationContext',
-        'inherited_recipes': 'list[ResourceId]',
         'description': 'str',
         'holding': 'HoldingContext',
         'translation': 'TranslationContext'
@@ -56,7 +55,6 @@ class ConfigurationRecipe(object):
         'market': 'market',
         'pricing': 'pricing',
         'aggregation': 'aggregation',
-        'inherited_recipes': 'inheritedRecipes',
         'description': 'description',
         'holding': 'holding',
         'translation': 'translation'
@@ -68,13 +66,12 @@ class ConfigurationRecipe(object):
         'market': 'optional',
         'pricing': 'optional',
         'aggregation': 'optional',
-        'inherited_recipes': 'optional',
         'description': 'optional',
         'holding': 'optional',
         'translation': 'optional'
     }
 
-    def __init__(self, scope=None, code=None, market=None, pricing=None, aggregation=None, inherited_recipes=None, description=None, holding=None, translation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scope=None, code=None, market=None, pricing=None, aggregation=None, description=None, holding=None, translation=None, local_vars_configuration=None):  # noqa: E501
         """ConfigurationRecipe - a model defined in OpenAPI"
         
         :param scope:  The scope used when updating or inserting the Configuration Recipe. (required)
@@ -87,8 +84,6 @@ class ConfigurationRecipe(object):
         :type pricing: lusid.PricingContext
         :param aggregation: 
         :type aggregation: lusid.AggregationContext
-        :param inherited_recipes:  A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options.
-        :type inherited_recipes: list[lusid.ResourceId]
         :param description:  User can assign a description to understand more humanly the recipe.
         :type description: str
         :param holding: 
@@ -106,7 +101,6 @@ class ConfigurationRecipe(object):
         self._market = None
         self._pricing = None
         self._aggregation = None
-        self._inherited_recipes = None
         self._description = None
         self._holding = None
         self._translation = None
@@ -120,7 +114,6 @@ class ConfigurationRecipe(object):
             self.pricing = pricing
         if aggregation is not None:
             self.aggregation = aggregation
-        self.inherited_recipes = inherited_recipes
         self.description = description
         if holding is not None:
             self.holding = holding
@@ -257,29 +250,6 @@ class ConfigurationRecipe(object):
         """
 
         self._aggregation = aggregation
-
-    @property
-    def inherited_recipes(self):
-        """Gets the inherited_recipes of this ConfigurationRecipe.  # noqa: E501
-
-        A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options.  # noqa: E501
-
-        :return: The inherited_recipes of this ConfigurationRecipe.  # noqa: E501
-        :rtype: list[lusid.ResourceId]
-        """
-        return self._inherited_recipes
-
-    @inherited_recipes.setter
-    def inherited_recipes(self, inherited_recipes):
-        """Sets the inherited_recipes of this ConfigurationRecipe.
-
-        A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options.  # noqa: E501
-
-        :param inherited_recipes: The inherited_recipes of this ConfigurationRecipe.  # noqa: E501
-        :type inherited_recipes: list[lusid.ResourceId]
-        """
-
-        self._inherited_recipes = inherited_recipes
 
     @property
     def description(self):

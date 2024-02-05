@@ -45,8 +45,8 @@ class AborConfigurationRequest(object):
         'recipe_id': 'ResourceId',
         'chart_of_accounts_id': 'ResourceId',
         'posting_module_codes': 'list[str]',
-        'properties': 'dict(str, ModelProperty)',
-        'cleardown_module_codes': 'list[str]'
+        'cleardown_module_codes': 'list[str]',
+        'properties': 'dict(str, ModelProperty)'
     }
 
     attribute_map = {
@@ -56,8 +56,8 @@ class AborConfigurationRequest(object):
         'recipe_id': 'recipeId',
         'chart_of_accounts_id': 'chartOfAccountsId',
         'posting_module_codes': 'postingModuleCodes',
-        'properties': 'properties',
-        'cleardown_module_codes': 'cleardownModuleCodes'
+        'cleardown_module_codes': 'cleardownModuleCodes',
+        'properties': 'properties'
     }
 
     required_map = {
@@ -67,11 +67,11 @@ class AborConfigurationRequest(object):
         'recipe_id': 'required',
         'chart_of_accounts_id': 'required',
         'posting_module_codes': 'optional',
-        'properties': 'optional',
-        'cleardown_module_codes': 'optional'
+        'cleardown_module_codes': 'optional',
+        'properties': 'optional'
     }
 
-    def __init__(self, code=None, display_name=None, description=None, recipe_id=None, chart_of_accounts_id=None, posting_module_codes=None, properties=None, cleardown_module_codes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, code=None, display_name=None, description=None, recipe_id=None, chart_of_accounts_id=None, posting_module_codes=None, cleardown_module_codes=None, properties=None, local_vars_configuration=None):  # noqa: E501
         """AborConfigurationRequest - a model defined in OpenAPI"
         
         :param code:  The code given for the Abor Configuration. (required)
@@ -86,10 +86,10 @@ class AborConfigurationRequest(object):
         :type chart_of_accounts_id: lusid.ResourceId
         :param posting_module_codes:  The Posting Module Codes from which the rules to be applied are retrieved.
         :type posting_module_codes: list[str]
-        :param properties:  A set of properties for the Abor Configuration.
-        :type properties: dict[str, lusid.ModelProperty]
         :param cleardown_module_codes:  The Cleardown Module Codes from which the rules to be applied are retrieved.
         :type cleardown_module_codes: list[str]
+        :param properties:  A set of properties for the Abor Configuration.
+        :type properties: dict[str, lusid.ModelProperty]
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -102,8 +102,8 @@ class AborConfigurationRequest(object):
         self._recipe_id = None
         self._chart_of_accounts_id = None
         self._posting_module_codes = None
-        self._properties = None
         self._cleardown_module_codes = None
+        self._properties = None
         self.discriminator = None
 
         self.code = code
@@ -112,8 +112,8 @@ class AborConfigurationRequest(object):
         self.recipe_id = recipe_id
         self.chart_of_accounts_id = chart_of_accounts_id
         self.posting_module_codes = posting_module_codes
-        self.properties = properties
         self.cleardown_module_codes = cleardown_module_codes
+        self.properties = properties
 
     @property
     def code(self):
@@ -280,29 +280,6 @@ class AborConfigurationRequest(object):
         self._posting_module_codes = posting_module_codes
 
     @property
-    def properties(self):
-        """Gets the properties of this AborConfigurationRequest.  # noqa: E501
-
-        A set of properties for the Abor Configuration.  # noqa: E501
-
-        :return: The properties of this AborConfigurationRequest.  # noqa: E501
-        :rtype: dict[str, lusid.ModelProperty]
-        """
-        return self._properties
-
-    @properties.setter
-    def properties(self, properties):
-        """Sets the properties of this AborConfigurationRequest.
-
-        A set of properties for the Abor Configuration.  # noqa: E501
-
-        :param properties: The properties of this AborConfigurationRequest.  # noqa: E501
-        :type properties: dict[str, lusid.ModelProperty]
-        """
-
-        self._properties = properties
-
-    @property
     def cleardown_module_codes(self):
         """Gets the cleardown_module_codes of this AborConfigurationRequest.  # noqa: E501
 
@@ -324,6 +301,29 @@ class AborConfigurationRequest(object):
         """
 
         self._cleardown_module_codes = cleardown_module_codes
+
+    @property
+    def properties(self):
+        """Gets the properties of this AborConfigurationRequest.  # noqa: E501
+
+        A set of properties for the Abor Configuration.  # noqa: E501
+
+        :return: The properties of this AborConfigurationRequest.  # noqa: E501
+        :rtype: dict[str, lusid.ModelProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this AborConfigurationRequest.
+
+        A set of properties for the Abor Configuration.  # noqa: E501
+
+        :param properties: The properties of this AborConfigurationRequest.  # noqa: E501
+        :type properties: dict[str, lusid.ModelProperty]
+        """
+
+        self._properties = properties
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -49,7 +49,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.AborConfigurationApi(api_client)
     scope = 'scope_example' # str | The scope of the AborConfiguration.
-abor_configuration_request = {"code":"AborCode","displayName":"AborConfiguration Name","description":"Standard AborConfigurationRequest","recipeId":{"scope":"RecipeScope","code":"RecipeCode"},"chartOfAccountsId":{"scope":"CoAScope","code":"CoACode"},"postingModuleCodes":["PostingModuleCode"],"properties":{"AborConfiguration/MyScope/FundManagerName":{"key":"AborConfiguration/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}},"cleardownModuleCodes":["CleardownModuleCode"]} # AborConfigurationRequest | The definition of the AborConfiguration.
+abor_configuration_request = {"code":"AborCode","displayName":"AborConfiguration Name","description":"Standard AborConfigurationRequest","recipeId":{"scope":"RecipeScope","code":"RecipeCode"},"chartOfAccountsId":{"scope":"CoAScope","code":"CoACode"},"postingModuleCodes":["PostingModuleCode"],"cleardownModuleCodes":["CleardownModuleCode"],"properties":{"AborConfiguration/MyScope/FundManagerName":{"key":"AborConfiguration/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}}} # AborConfigurationRequest | The definition of the AborConfiguration.
 
     try:
         # [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.
