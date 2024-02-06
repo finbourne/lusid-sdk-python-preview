@@ -44,7 +44,8 @@ class ValuationSchedule(object):
         'tenor': 'str',
         'roll_convention': 'str',
         'holiday_calendars': 'list[str]',
-        'valuation_date_times': 'list[str]'
+        'valuation_date_times': 'list[str]',
+        'business_day_convention': 'str'
     }
 
     attribute_map = {
@@ -53,7 +54,8 @@ class ValuationSchedule(object):
         'tenor': 'tenor',
         'roll_convention': 'rollConvention',
         'holiday_calendars': 'holidayCalendars',
-        'valuation_date_times': 'valuationDateTimes'
+        'valuation_date_times': 'valuationDateTimes',
+        'business_day_convention': 'businessDayConvention'
     }
 
     required_map = {
@@ -62,10 +64,11 @@ class ValuationSchedule(object):
         'tenor': 'optional',
         'roll_convention': 'optional',
         'holiday_calendars': 'optional',
-        'valuation_date_times': 'optional'
+        'valuation_date_times': 'optional',
+        'business_day_convention': 'optional'
     }
 
-    def __init__(self, effective_from=None, effective_at=None, tenor=None, roll_convention=None, holiday_calendars=None, valuation_date_times=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, effective_from=None, effective_at=None, tenor=None, roll_convention=None, holiday_calendars=None, valuation_date_times=None, business_day_convention=None, local_vars_configuration=None):  # noqa: E501
         """ValuationSchedule - a model defined in OpenAPI"
         
         :param effective_from:  If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range.
@@ -74,12 +77,14 @@ class ValuationSchedule(object):
         :type effective_at: str
         :param tenor:  Tenor, e.g \"1D\", \"1M\" to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.
         :type tenor: str
-        :param roll_convention:  When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.
+        :param roll_convention:  When Tenor is given and is \"1M\" or longer, this specifies the rule which should be used to generate the date schedule.    For example, \"EndOfMonth\" to generate end of month dates, or \"1\" to specify the first day of the applicable month.
         :type roll_convention: str
         :param holiday_calendars:  The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \"CoppClark\".   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.
         :type holiday_calendars: list[str]
         :param valuation_date_times:  If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given.
         :type valuation_date_times: list[str]
+        :param business_day_convention:  When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.
+        :type business_day_convention: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -92,6 +97,7 @@ class ValuationSchedule(object):
         self._roll_convention = None
         self._holiday_calendars = None
         self._valuation_date_times = None
+        self._business_day_convention = None
         self.discriminator = None
 
         self.effective_from = effective_from
@@ -100,6 +106,7 @@ class ValuationSchedule(object):
         self.roll_convention = roll_convention
         self.holiday_calendars = holiday_calendars
         self.valuation_date_times = valuation_date_times
+        self.business_day_convention = business_day_convention
 
     @property
     def effective_from(self):
@@ -185,7 +192,7 @@ class ValuationSchedule(object):
     def roll_convention(self):
         """Gets the roll_convention of this ValuationSchedule.  # noqa: E501
 
-        When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.  # noqa: E501
+        When Tenor is given and is \"1M\" or longer, this specifies the rule which should be used to generate the date schedule.    For example, \"EndOfMonth\" to generate end of month dates, or \"1\" to specify the first day of the applicable month.  # noqa: E501
 
         :return: The roll_convention of this ValuationSchedule.  # noqa: E501
         :rtype: str
@@ -196,7 +203,7 @@ class ValuationSchedule(object):
     def roll_convention(self, roll_convention):
         """Sets the roll_convention of this ValuationSchedule.
 
-        When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.  # noqa: E501
+        When Tenor is given and is \"1M\" or longer, this specifies the rule which should be used to generate the date schedule.    For example, \"EndOfMonth\" to generate end of month dates, or \"1\" to specify the first day of the applicable month.  # noqa: E501
 
         :param roll_convention: The roll_convention of this ValuationSchedule.  # noqa: E501
         :type roll_convention: str
@@ -255,6 +262,35 @@ class ValuationSchedule(object):
         """
 
         self._valuation_date_times = valuation_date_times
+
+    @property
+    def business_day_convention(self):
+        """Gets the business_day_convention of this ValuationSchedule.  # noqa: E501
+
+        When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.  # noqa: E501
+
+        :return: The business_day_convention of this ValuationSchedule.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_day_convention
+
+    @business_day_convention.setter
+    def business_day_convention(self, business_day_convention):
+        """Sets the business_day_convention of this ValuationSchedule.
+
+        When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.  # noqa: E501
+
+        :param business_day_convention: The business_day_convention of this ValuationSchedule.  # noqa: E501
+        :type business_day_convention: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                business_day_convention is not None and len(business_day_convention) > 50):
+            raise ValueError("Invalid value for `business_day_convention`, length must be less than or equal to `50`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                business_day_convention is not None and len(business_day_convention) < 0):
+            raise ValueError("Invalid value for `business_day_convention`, length must be greater than or equal to `0`")  # noqa: E501
+
+        self._business_day_convention = business_day_convention
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
