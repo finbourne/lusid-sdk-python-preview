@@ -318,7 +318,7 @@ Class | Method | HTTP request | Description
 *OrderInstructionsApi* | [**list_order_instructions**](docs/OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
 *OrderInstructionsApi* | [**upsert_order_instructions**](docs/OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
 *OrderManagementApi* | [**book_transactions**](docs/OrderManagementApi.md#book_transactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-*OrderManagementApi* | [**create_orders**](docs/OrderManagementApi.md#create_orders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Create Block and Order pairs
+*OrderManagementApi* | [**create_orders**](docs/OrderManagementApi.md#create_orders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
 *OrderManagementApi* | [**place_blocks**](docs/OrderManagementApi.md#place_blocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
 *OrderManagementApi* | [**run_allocation_service**](docs/OrderManagementApi.md#run_allocation_service) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
 *OrdersApi* | [**delete_order**](docs/OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
@@ -425,7 +425,11 @@ Class | Method | HTTP request | Description
 *QuotesApi* | [**list_quotes_for_scope**](docs/QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | ListQuotesForScope: List quotes for scope
 *QuotesApi* | [**upsert_quote_access_metadata_rule**](docs/QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
 *QuotesApi* | [**upsert_quotes**](docs/QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | UpsertQuotes: Upsert quotes
+*RecipeComposerApi* | [**delete_recipe_composer**](docs/RecipeComposerApi.md#delete_recipe_composer) | **DELETE** /api/recipecomposers/{scope}/{code} | [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+*RecipeComposerApi* | [**get_recipe_composer**](docs/RecipeComposerApi.md#get_recipe_composer) | **GET** /api/recipecomposers/{scope}/{code} | [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
 *RecipeComposerApi* | [**get_recipe_composer_resolved_inline**](docs/RecipeComposerApi.md#get_recipe_composer_resolved_inline) | **POST** /api/recipecomposers/inline | [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint shows what configuration recipe it would resolve to, able to access the already upserted configuration recipes as well as plain inline string inputs.
+*RecipeComposerApi* | [**list_recipe_composers**](docs/RecipeComposerApi.md#list_recipe_composers) | **GET** /api/recipecomposers | [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+*RecipeComposerApi* | [**upsert_recipe_composer**](docs/RecipeComposerApi.md#upsert_recipe_composer) | **POST** /api/recipecomposers | [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
 *ReconciliationsApi* | [**create_scheduled_reconciliation**](docs/ReconciliationsApi.md#create_scheduled_reconciliation) | **POST** /api/portfolios/$scheduledReconciliations/{scope} | [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
 *ReconciliationsApi* | [**delete_reconciliation**](docs/ReconciliationsApi.md#delete_reconciliation) | **DELETE** /api/portfolios/$scheduledReconciliations/{scope}/{code} | [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
 *ReconciliationsApi* | [**delete_reconciliation_mapping**](docs/ReconciliationsApi.md#delete_reconciliation_mapping) | **DELETE** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
@@ -547,8 +551,6 @@ Class | Method | HTTP request | Description
 *TransactionPortfoliosApi* | [**get_upsertable_portfolio_cash_flows**](docs/TransactionPortfoliosApi.md#get_upsertable_portfolio_cash_flows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
 *TransactionPortfoliosApi* | [**list_custodian_accounts**](docs/TransactionPortfoliosApi.md#list_custodian_accounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
 *TransactionPortfoliosApi* | [**list_holdings_adjustments**](docs/TransactionPortfoliosApi.md#list_holdings_adjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments
-*TransactionPortfoliosApi* | [**look_through_holdings**](docs/TransactionPortfoliosApi.md#look_through_holdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings/$lookthrough | [EXPERIMENTAL] LookThroughHoldings: Get LookThrough Holdings
-*TransactionPortfoliosApi* | [**look_through_transactions**](docs/TransactionPortfoliosApi.md#look_through_transactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/$lookthrough | [EXPERIMENTAL] LookThroughTransactions: Look through transactions
 *TransactionPortfoliosApi* | [**patch_portfolio_details**](docs/TransactionPortfoliosApi.md#patch_portfolio_details) | **PATCH** /api/transactionportfolios/{scope}/{code}/details | [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details
 *TransactionPortfoliosApi* | [**resolve_instrument**](docs/TransactionPortfoliosApi.md#resolve_instrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] ResolveInstrument: Resolve instrument
 *TransactionPortfoliosApi* | [**set_holdings**](docs/TransactionPortfoliosApi.md#set_holdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings
@@ -633,11 +635,12 @@ Class | Method | HTTP request | Description
  - [BatchUpsertPortfolioTransactionsResponse](docs/BatchUpsertPortfolioTransactionsResponse.md)
  - [BatchUpsertPropertyDefinitionPropertiesResponse](docs/BatchUpsertPropertyDefinitionPropertiesResponse.md)
  - [Block](docs/Block.md)
- - [BlockAndOrder](docs/BlockAndOrder.md)
- - [BlockAndOrderCreateRequest](docs/BlockAndOrderCreateRequest.md)
- - [BlockAndOrderRequest](docs/BlockAndOrderRequest.md)
+ - [BlockAndOrders](docs/BlockAndOrders.md)
+ - [BlockAndOrdersCreateRequest](docs/BlockAndOrdersCreateRequest.md)
+ - [BlockAndOrdersRequest](docs/BlockAndOrdersRequest.md)
  - [BlockRequest](docs/BlockRequest.md)
  - [BlockSetRequest](docs/BlockSetRequest.md)
+ - [BlockedOrderRequest](docs/BlockedOrderRequest.md)
  - [Bond](docs/Bond.md)
  - [BondAllOf](docs/BondAllOf.md)
  - [BondCouponEvent](docs/BondCouponEvent.md)
@@ -955,6 +958,7 @@ Class | Method | HTTP request | Description
  - [GetIndexConventionResponse](docs/GetIndexConventionResponse.md)
  - [GetInstrumentsResponse](docs/GetInstrumentsResponse.md)
  - [GetQuotesResponse](docs/GetQuotesResponse.md)
+ - [GetRecipeComposerResponse](docs/GetRecipeComposerResponse.md)
  - [GetRecipeResponse](docs/GetRecipeResponse.md)
  - [GetReferencePortfolioConstituentsResponse](docs/GetReferencePortfolioConstituentsResponse.md)
  - [GetStructuredResultDataResponse](docs/GetStructuredResultDataResponse.md)
@@ -1309,7 +1313,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfAggregationQuery](docs/ResourceListOfAggregationQuery.md)
  - [ResourceListOfAllocation](docs/ResourceListOfAllocation.md)
  - [ResourceListOfBlock](docs/ResourceListOfBlock.md)
- - [ResourceListOfBlockAndOrder](docs/ResourceListOfBlockAndOrder.md)
+ - [ResourceListOfBlockAndOrders](docs/ResourceListOfBlockAndOrders.md)
  - [ResourceListOfCalendarDate](docs/ResourceListOfCalendarDate.md)
  - [ResourceListOfChange](docs/ResourceListOfChange.md)
  - [ResourceListOfChangeHistory](docs/ResourceListOfChangeHistory.md)
@@ -1327,6 +1331,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfGetCreditSupportAnnexResponse](docs/ResourceListOfGetCreditSupportAnnexResponse.md)
  - [ResourceListOfGetFlowConventionsResponse](docs/ResourceListOfGetFlowConventionsResponse.md)
  - [ResourceListOfGetIndexConventionResponse](docs/ResourceListOfGetIndexConventionResponse.md)
+ - [ResourceListOfGetRecipeComposerResponse](docs/ResourceListOfGetRecipeComposerResponse.md)
  - [ResourceListOfGetRecipeResponse](docs/ResourceListOfGetRecipeResponse.md)
  - [ResourceListOfHoldingsAdjustmentHeader](docs/ResourceListOfHoldingsAdjustmentHeader.md)
  - [ResourceListOfIUnitDefinitionDto](docs/ResourceListOfIUnitDefinitionDto.md)

@@ -39,30 +39,30 @@ class RecipeComposer(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'code': 'str',
         'scope': 'str',
+        'code': 'str',
         'operations': 'list[RecipeBlock]'
     }
 
     attribute_map = {
-        'code': 'code',
         'scope': 'scope',
+        'code': 'code',
         'operations': 'operations'
     }
 
     required_map = {
-        'code': 'required',
         'scope': 'required',
+        'code': 'required',
         'operations': 'optional'
     }
 
-    def __init__(self, code=None, scope=None, operations=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scope=None, code=None, operations=None, local_vars_configuration=None):  # noqa: E501
         """RecipeComposer - a model defined in OpenAPI"
         
-        :param code:  User given string name (code) to identify the recipe. (required)
-        :type code: str
         :param scope:  The scope used when updating or inserting the Recipe Composer. (required)
         :type scope: str
+        :param code:  User given string name (code) to identify the recipe. (required)
+        :type code: str
         :param operations:  Atomic operations used to compose a Configuration Recipe.
         :type operations: list[lusid.RecipeBlock]
 
@@ -71,48 +71,14 @@ class RecipeComposer(object):
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._code = None
         self._scope = None
+        self._code = None
         self._operations = None
         self.discriminator = None
 
-        self.code = code
         self.scope = scope
+        self.code = code
         self.operations = operations
-
-    @property
-    def code(self):
-        """Gets the code of this RecipeComposer.  # noqa: E501
-
-        User given string name (code) to identify the recipe.  # noqa: E501
-
-        :return: The code of this RecipeComposer.  # noqa: E501
-        :rtype: str
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code):
-        """Sets the code of this RecipeComposer.
-
-        User given string name (code) to identify the recipe.  # noqa: E501
-
-        :param code: The code of this RecipeComposer.  # noqa: E501
-        :type code: str
-        """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                code is not None and len(code) > 64):
-            raise ValueError("Invalid value for `code`, length must be less than or equal to `64`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                code is not None and len(code) < 1):
-            raise ValueError("Invalid value for `code`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                code is not None and not re.search(r'^[a-zA-Z0-9\-_]+$', code)):  # noqa: E501
-            raise ValueError(r"Invalid value for `code`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
-
-        self._code = code
 
     @property
     def scope(self):
@@ -147,6 +113,40 @@ class RecipeComposer(object):
             raise ValueError(r"Invalid value for `scope`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
 
         self._scope = scope
+
+    @property
+    def code(self):
+        """Gets the code of this RecipeComposer.  # noqa: E501
+
+        User given string name (code) to identify the recipe.  # noqa: E501
+
+        :return: The code of this RecipeComposer.  # noqa: E501
+        :rtype: str
+        """
+        return self._code
+
+    @code.setter
+    def code(self, code):
+        """Sets the code of this RecipeComposer.
+
+        User given string name (code) to identify the recipe.  # noqa: E501
+
+        :param code: The code of this RecipeComposer.  # noqa: E501
+        :type code: str
+        """
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                code is not None and len(code) > 64):
+            raise ValueError("Invalid value for `code`, length must be less than or equal to `64`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                code is not None and len(code) < 1):
+            raise ValueError("Invalid value for `code`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                code is not None and not re.search(r'^[a-zA-Z0-9\-_]+$', code)):  # noqa: E501
+            raise ValueError(r"Invalid value for `code`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+
+        self._code = code
 
     @property
     def operations(self):

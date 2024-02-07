@@ -24,13 +24,13 @@ from lusid.exceptions import (  # noqa: F401
     ApiValueError
 )
 from lusid.models.allocation_service_run_response import AllocationServiceRunResponse
-from lusid.models.block_and_order_create_request import BlockAndOrderCreateRequest
+from lusid.models.block_and_orders_create_request import BlockAndOrdersCreateRequest
 from lusid.models.book_transactions_response import BookTransactionsResponse
 from lusid.models.lusid_problem_details import LusidProblemDetails
 from lusid.models.lusid_validation_problem_details import LusidValidationProblemDetails
 from lusid.models.place_blocks_request import PlaceBlocksRequest
 from lusid.models.resource_id import ResourceId
-from lusid.models.resource_list_of_block_and_order import ResourceListOfBlockAndOrder
+from lusid.models.resource_list_of_block_and_orders import ResourceListOfBlockAndOrders
 from lusid.models.resource_list_of_placement import ResourceListOfPlacement
 
 
@@ -203,18 +203,18 @@ class OrderManagementApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def create_orders(self, block_and_order_create_request, **kwargs):  # noqa: E501
-        """[EARLY ACCESS] CreateOrders: Create Block and Order pairs  # noqa: E501
+    def create_orders(self, block_and_orders_create_request, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CreateOrders: Upsert a Block and associated orders  # noqa: E501
 
-        Create new block and order pairs.  # noqa: E501
+        Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_orders(block_and_order_create_request, async_req=True)
+        >>> thread = api.create_orders(block_and_orders_create_request, async_req=True)
         >>> result = thread.get()
 
-        :param block_and_order_create_request: The collection of block and order requests. (required)
-        :type block_and_order_create_request: BlockAndOrderCreateRequest
+        :param block_and_orders_create_request: The collection of block and orders requests. (required)
+        :type block_and_orders_create_request: BlockAndOrdersCreateRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -228,23 +228,23 @@ class OrderManagementApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ResourceListOfBlockAndOrder
+        :rtype: ResourceListOfBlockAndOrders
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_orders_with_http_info(block_and_order_create_request, **kwargs)  # noqa: E501
+        return self.create_orders_with_http_info(block_and_orders_create_request, **kwargs)  # noqa: E501
 
-    def create_orders_with_http_info(self, block_and_order_create_request, **kwargs):  # noqa: E501
-        """[EARLY ACCESS] CreateOrders: Create Block and Order pairs  # noqa: E501
+    def create_orders_with_http_info(self, block_and_orders_create_request, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CreateOrders: Upsert a Block and associated orders  # noqa: E501
 
-        Create new block and order pairs.  # noqa: E501
+        Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_orders_with_http_info(block_and_order_create_request, async_req=True)
+        >>> thread = api.create_orders_with_http_info(block_and_orders_create_request, async_req=True)
         >>> result = thread.get()
 
-        :param block_and_order_create_request: The collection of block and order requests. (required)
-        :type block_and_order_create_request: BlockAndOrderCreateRequest
+        :param block_and_orders_create_request: The collection of block and orders requests. (required)
+        :type block_and_orders_create_request: BlockAndOrdersCreateRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -265,13 +265,13 @@ class OrderManagementApi(object):
         :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: (ResourceListOfBlockAndOrder, int, HTTPHeaderDict)
+        :rtype: (ResourceListOfBlockAndOrders, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
 
         all_params = [
-            'block_and_order_create_request'
+            'block_and_orders_create_request'
         ]
         all_params.extend(
             [
@@ -292,10 +292,10 @@ class OrderManagementApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'block_and_order_create_request' is set
-        if self.api_client.client_side_validation and ('block_and_order_create_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['block_and_order_create_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `block_and_order_create_request` when calling `create_orders`")  # noqa: E501
+        # verify the required parameter 'block_and_orders_create_request' is set
+        if self.api_client.client_side_validation and ('block_and_orders_create_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['block_and_orders_create_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `block_and_orders_create_request` when calling `create_orders`")  # noqa: E501
 
         collection_formats = {}
 
@@ -309,8 +309,8 @@ class OrderManagementApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'block_and_order_create_request' in local_var_params:
-            body_params = local_var_params['block_and_order_create_request']
+        if 'block_and_orders_create_request' in local_var_params:
+            body_params = local_var_params['block_and_orders_create_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain', 'application/json', 'text/json'])  # noqa: E501
@@ -329,7 +329,7 @@ class OrderManagementApi(object):
         auth_settings = ['oauth2']  # noqa: E501
 
         response_types_map = {
-            201: "ResourceListOfBlockAndOrder",
+            201: "ResourceListOfBlockAndOrders",
             400: "LusidValidationProblemDetails",
         }
 
