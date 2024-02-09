@@ -41,28 +41,33 @@ class Equity(object):
     openapi_types = {
         'identifiers': 'EquityAllOfIdentifiers',
         'dom_ccy': 'str',
+        'lot_size': 'int',
         'instrument_type': 'str'
     }
 
     attribute_map = {
         'identifiers': 'identifiers',
         'dom_ccy': 'domCcy',
+        'lot_size': 'lotSize',
         'instrument_type': 'instrumentType'
     }
 
     required_map = {
         'identifiers': 'optional',
         'dom_ccy': 'required',
+        'lot_size': 'optional',
         'instrument_type': 'required'
     }
 
-    def __init__(self, identifiers=None, dom_ccy=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, identifiers=None, dom_ccy=None, lot_size=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
         """Equity - a model defined in OpenAPI"
         
         :param identifiers: 
         :type identifiers: lusid.EquityAllOfIdentifiers
         :param dom_ccy:  The domestic currency of the instrument. (required)
         :type dom_ccy: str
+        :param lot_size:  Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.
+        :type lot_size: int
         :param instrument_type:  The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required)
         :type instrument_type: str
 
@@ -73,11 +78,14 @@ class Equity(object):
 
         self._identifiers = None
         self._dom_ccy = None
+        self._lot_size = None
         self._instrument_type = None
         self.discriminator = None
 
         self.identifiers = identifiers
         self.dom_ccy = dom_ccy
+        if lot_size is not None:
+            self.lot_size = lot_size
         self.instrument_type = instrument_type
 
     @property
@@ -125,6 +133,29 @@ class Equity(object):
             raise ValueError("Invalid value for `dom_ccy`, must not be `None`")  # noqa: E501
 
         self._dom_ccy = dom_ccy
+
+    @property
+    def lot_size(self):
+        """Gets the lot_size of this Equity.  # noqa: E501
+
+        Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.  # noqa: E501
+
+        :return: The lot_size of this Equity.  # noqa: E501
+        :rtype: int
+        """
+        return self._lot_size
+
+    @lot_size.setter
+    def lot_size(self, lot_size):
+        """Sets the lot_size of this Equity.
+
+        Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.  # noqa: E501
+
+        :param lot_size: The lot_size of this Equity.  # noqa: E501
+        :type lot_size: int
+        """
+
+        self._lot_size = lot_size
 
     @property
     def instrument_type(self):
