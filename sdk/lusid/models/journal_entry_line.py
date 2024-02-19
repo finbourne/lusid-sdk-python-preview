@@ -103,7 +103,7 @@ class JournalEntryLine(object):
         'instrument_id': 'required',
         'instrument_scope': 'required',
         'sub_holding_keys': 'optional',
-        'tax_lot_id': 'required',
+        'tax_lot_id': 'optional',
         'general_ledger_account_code': 'required',
         'local': 'required',
         'base': 'required',
@@ -114,7 +114,7 @@ class JournalEntryLine(object):
         'source_type': 'required',
         'source_id': 'required',
         'properties': 'optional',
-        'movement_name': 'required',
+        'movement_name': 'optional',
         'holding_type': 'required',
         'economic_bucket': 'required',
         'economic_bucket_component': 'optional',
@@ -140,7 +140,7 @@ class JournalEntryLine(object):
         :type instrument_scope: str
         :param sub_holding_keys:  The sub-holding properties which are part of the AccountingKey.
         :type sub_holding_keys: dict[str, lusid.PerpetualProperty]
-        :param tax_lot_id:  The tax lot Id that the Journal Entry Line is impacting. (required)
+        :param tax_lot_id:  The tax lot Id that the Journal Entry Line is impacting.
         :type tax_lot_id: str
         :param general_ledger_account_code:  The code of the account in the general ledger the Journal Entry was posted to. (required)
         :type general_ledger_account_code: str
@@ -162,7 +162,7 @@ class JournalEntryLine(object):
         :type source_id: str
         :param properties:  A set of properties for the Abor.
         :type properties: dict[str, lusid.ModelProperty]
-        :param movement_name:  The name of the movement. (required)
+        :param movement_name:  The name of the movement.
         :type movement_name: str
         :param holding_type:  Defines the broad category holding within the portfolio. (required)
         :type holding_type: str
@@ -413,11 +413,6 @@ class JournalEntryLine(object):
         :param tax_lot_id: The tax_lot_id of this JournalEntryLine.  # noqa: E501
         :type tax_lot_id: str
         """
-        if self.local_vars_configuration.client_side_validation and tax_lot_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `tax_lot_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tax_lot_id is not None and len(tax_lot_id) < 1):
-            raise ValueError("Invalid value for `tax_lot_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tax_lot_id = tax_lot_id
 
@@ -699,11 +694,6 @@ class JournalEntryLine(object):
         :param movement_name: The movement_name of this JournalEntryLine.  # noqa: E501
         :type movement_name: str
         """
-        if self.local_vars_configuration.client_side_validation and movement_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `movement_name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                movement_name is not None and len(movement_name) < 1):
-            raise ValueError("Invalid value for `movement_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._movement_name = movement_name
 
