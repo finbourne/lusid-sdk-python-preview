@@ -1466,6 +1466,7 @@ Class | Method | HTTP request | Description
  - [TransactionPrice](docs/TransactionPrice.md)
  - [TransactionPriceAndType](docs/TransactionPriceAndType.md)
  - [TransactionPriceType](docs/TransactionPriceType.md)
+ - [TransactionPropertyMap](docs/TransactionPropertyMap.md)
  - [TransactionPropertyMapping](docs/TransactionPropertyMapping.md)
  - [TransactionPropertyMappingRequest](docs/TransactionPropertyMappingRequest.md)
  - [TransactionQueryMode](docs/TransactionQueryMode.md)

@@ -41,22 +41,25 @@ class ComponentTransaction(object):
     openapi_types = {
         'display_name': 'str',
         'condition': 'str',
-        'transaction_field_map': 'TransactionFieldMap'
+        'transaction_field_map': 'TransactionFieldMap',
+        'transaction_property_map': 'list[TransactionPropertyMap]'
     }
 
     attribute_map = {
         'display_name': 'displayName',
         'condition': 'condition',
-        'transaction_field_map': 'transactionFieldMap'
+        'transaction_field_map': 'transactionFieldMap',
+        'transaction_property_map': 'transactionPropertyMap'
     }
 
     required_map = {
         'display_name': 'required',
         'condition': 'optional',
-        'transaction_field_map': 'required'
+        'transaction_field_map': 'required',
+        'transaction_property_map': 'required'
     }
 
-    def __init__(self, display_name=None, condition=None, transaction_field_map=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, condition=None, transaction_field_map=None, transaction_property_map=None, local_vars_configuration=None):  # noqa: E501
         """ComponentTransaction - a model defined in OpenAPI"
         
         :param display_name:  (required)
@@ -65,6 +68,8 @@ class ComponentTransaction(object):
         :type condition: str
         :param transaction_field_map:  (required)
         :type transaction_field_map: lusid.TransactionFieldMap
+        :param transaction_property_map:  (required)
+        :type transaction_property_map: list[lusid.TransactionPropertyMap]
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -74,11 +79,13 @@ class ComponentTransaction(object):
         self._display_name = None
         self._condition = None
         self._transaction_field_map = None
+        self._transaction_property_map = None
         self.discriminator = None
 
         self.display_name = display_name
         self.condition = condition
         self.transaction_field_map = transaction_field_map
+        self.transaction_property_map = transaction_property_map
 
     @property
     def display_name(self):
@@ -158,6 +165,29 @@ class ComponentTransaction(object):
             raise ValueError("Invalid value for `transaction_field_map`, must not be `None`")  # noqa: E501
 
         self._transaction_field_map = transaction_field_map
+
+    @property
+    def transaction_property_map(self):
+        """Gets the transaction_property_map of this ComponentTransaction.  # noqa: E501
+
+
+        :return: The transaction_property_map of this ComponentTransaction.  # noqa: E501
+        :rtype: list[lusid.TransactionPropertyMap]
+        """
+        return self._transaction_property_map
+
+    @transaction_property_map.setter
+    def transaction_property_map(self, transaction_property_map):
+        """Sets the transaction_property_map of this ComponentTransaction.
+
+
+        :param transaction_property_map: The transaction_property_map of this ComponentTransaction.  # noqa: E501
+        :type transaction_property_map: list[lusid.TransactionPropertyMap]
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_property_map is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_property_map`, must not be `None`")  # noqa: E501
+
+        self._transaction_property_map = transaction_property_map
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

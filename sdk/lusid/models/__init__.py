@@ -912,6 +912,7 @@ from lusid.models.transaction_field_map import TransactionFieldMap
 from lusid.models.transaction_price import TransactionPrice
 from lusid.models.transaction_price_and_type import TransactionPriceAndType
 from lusid.models.transaction_price_type import TransactionPriceType
+from lusid.models.transaction_property_map import TransactionPropertyMap
 from lusid.models.transaction_property_mapping import TransactionPropertyMapping
 from lusid.models.transaction_property_mapping_request import TransactionPropertyMappingRequest
 from lusid.models.transaction_query_mode import TransactionQueryMode
