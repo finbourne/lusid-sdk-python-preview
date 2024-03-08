@@ -1471,7 +1471,7 @@ class CustomEntitiesApi(object):
         :type limit: int
         :param filter: Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param page: The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request.
         :type page: str
@@ -1517,7 +1517,7 @@ class CustomEntitiesApi(object):
         :type limit: int
         :param filter: Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param page: The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request.
         :type page: str

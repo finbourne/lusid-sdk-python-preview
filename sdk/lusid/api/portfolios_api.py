@@ -3903,7 +3903,7 @@ class PortfoliosApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',              specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
         :type query: str
@@ -3949,7 +3949,7 @@ class PortfoliosApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param query: Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',              specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\".
         :type query: str
@@ -4132,7 +4132,7 @@ class PortfoliosApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
         :type property_keys: list[str]
@@ -4178,7 +4178,7 @@ class PortfoliosApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param property_keys: A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
         :type property_keys: list[str]

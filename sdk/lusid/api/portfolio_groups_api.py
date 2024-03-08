@@ -4174,7 +4174,7 @@ class PortfolioGroupsApi(object):
         :type page: str
         :param show_cancelled_transactions: Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified.
         :type show_cancelled_transactions: bool
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4224,7 +4224,7 @@ class PortfolioGroupsApi(object):
         :type page: str
         :param show_cancelled_transactions: Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified.
         :type show_cancelled_transactions: bool
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

@@ -595,7 +595,7 @@ class AborConfigurationApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to filter on the AborConfiguration type, specify \"id.Code eq 'AborConfiguration1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param property_keys: A list of property keys from the 'AborConfiguration' domain to decorate onto each AborConfiguration.              These must take the format {domain}/{scope}/{code}, for example 'AborConfiguration/Manager/Id'.
         :type property_keys: list[str]
@@ -637,7 +637,7 @@ class AborConfigurationApi(object):
         :type limit: int
         :param filter: Expression to filter the results.              For example, to filter on the AborConfiguration type, specify \"id.Code eq 'AborConfiguration1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         :type filter: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param property_keys: A list of property keys from the 'AborConfiguration' domain to decorate onto each AborConfiguration.              These must take the format {domain}/{scope}/{code}, for example 'AborConfiguration/Manager/Id'.
         :type property_keys: list[str]

@@ -55,7 +55,7 @@ class OrderGraphApi(object):
         :type as_at: datetime
         :param pagination_token: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type pagination_token: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param limit: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type limit: int
@@ -97,7 +97,7 @@ class OrderGraphApi(object):
         :type as_at: datetime
         :param pagination_token: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type pagination_token: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param limit: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type limit: int
@@ -477,7 +477,7 @@ class OrderGraphApi(object):
         :type as_at: datetime
         :param pagination_token: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type pagination_token: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param limit: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type limit: int
@@ -517,7 +517,7 @@ class OrderGraphApi(object):
         :type as_at: datetime
         :param pagination_token: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type pagination_token: str
-        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\"
+        :param sort_by: A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".
         :type sort_by: list[str]
         :param limit: See https://support.lusid.com/knowledgebase/article/KA-01915/
         :type limit: int
