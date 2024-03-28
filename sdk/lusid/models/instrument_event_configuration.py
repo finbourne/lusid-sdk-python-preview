@@ -39,22 +39,27 @@ class InstrumentEventConfiguration(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'transaction_template_scopes': 'list[str]'
+        'transaction_template_scopes': 'list[str]',
+        'recipe_id': 'ResourceId'
     }
 
     attribute_map = {
-        'transaction_template_scopes': 'transactionTemplateScopes'
+        'transaction_template_scopes': 'transactionTemplateScopes',
+        'recipe_id': 'recipeId'
     }
 
     required_map = {
-        'transaction_template_scopes': 'optional'
+        'transaction_template_scopes': 'optional',
+        'recipe_id': 'optional'
     }
 
-    def __init__(self, transaction_template_scopes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, transaction_template_scopes=None, recipe_id=None, local_vars_configuration=None):  # noqa: E501
         """InstrumentEventConfiguration - a model defined in OpenAPI"
         
         :param transaction_template_scopes: 
         :type transaction_template_scopes: list[str]
+        :param recipe_id: 
+        :type recipe_id: lusid.ResourceId
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -62,9 +67,12 @@ class InstrumentEventConfiguration(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._transaction_template_scopes = None
+        self._recipe_id = None
         self.discriminator = None
 
         self.transaction_template_scopes = transaction_template_scopes
+        if recipe_id is not None:
+            self.recipe_id = recipe_id
 
     @property
     def transaction_template_scopes(self):
@@ -86,6 +94,27 @@ class InstrumentEventConfiguration(object):
         """
 
         self._transaction_template_scopes = transaction_template_scopes
+
+    @property
+    def recipe_id(self):
+        """Gets the recipe_id of this InstrumentEventConfiguration.  # noqa: E501
+
+
+        :return: The recipe_id of this InstrumentEventConfiguration.  # noqa: E501
+        :rtype: lusid.ResourceId
+        """
+        return self._recipe_id
+
+    @recipe_id.setter
+    def recipe_id(self, recipe_id):
+        """Sets the recipe_id of this InstrumentEventConfiguration.
+
+
+        :param recipe_id: The recipe_id of this InstrumentEventConfiguration.  # noqa: E501
+        :type recipe_id: lusid.ResourceId
+        """
+
+        self._recipe_id = recipe_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
