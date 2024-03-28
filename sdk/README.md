@@ -268,6 +268,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**delete_fund**](docs/FundsApi.md#delete_fund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund.
 *FundsApi* | [**get_fund**](docs/FundsApi.md#get_fund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund.
 *FundsApi* | [**list_funds**](docs/FundsApi.md#list_funds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds.
+*FundsApi* | [**set_share_class_instruments**](docs/FundsApi.md#set_share_class_instruments) | **POST** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
 *FundsApi* | [**upsert_fund_properties**](docs/FundsApi.md#upsert_fund_properties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties
 *InstrumentEventTypesApi* | [**create_transaction_template**](docs/InstrumentEventTypesApi.md#create_transaction_template) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
 *InstrumentEventTypesApi* | [**delete_transaction_template**](docs/InstrumentEventTypesApi.md#delete_transaction_template) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
@@ -501,6 +502,11 @@ Class | Method | HTTP request | Description
 *SequencesApi* | [**get_sequence**](docs/SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EARLY ACCESS] GetSequence: Get a specified sequence
 *SequencesApi* | [**list_sequences**](docs/SequencesApi.md#list_sequences) | **GET** /api/sequences | [EARLY ACCESS] ListSequences: List Sequences
 *SequencesApi* | [**next**](docs/SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EARLY ACCESS] Next: Get next values from sequence
+*StagingRuleSetApi* | [**create_staging_rule_set**](docs/StagingRuleSetApi.md#create_staging_rule_set) | **POST** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+*StagingRuleSetApi* | [**delete_staging_rule_set**](docs/StagingRuleSetApi.md#delete_staging_rule_set) | **DELETE** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+*StagingRuleSetApi* | [**get_staging_rule_set**](docs/StagingRuleSetApi.md#get_staging_rule_set) | **GET** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+*StagingRuleSetApi* | [**list_staging_rule_sets**](docs/StagingRuleSetApi.md#list_staging_rule_sets) | **GET** /api/stagingrulesets | [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+*StagingRuleSetApi* | [**update_staging_rule_set**](docs/StagingRuleSetApi.md#update_staging_rule_set) | **PUT** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
 *StructuredResultDataApi* | [**create_data_map**](docs/StructuredResultDataApi.md#create_data_map) | **POST** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] CreateDataMap: Create data map
 *StructuredResultDataApi* | [**delete_structured_result_data**](docs/StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
 *StructuredResultDataApi* | [**get_address_key_definitions_for_document**](docs/StructuredResultDataApi.md#get_address_key_definitions_for_document) | **GET** /api/unitresults/virtualdocument/{scope}/{code}/{source}/{resultType}/addresskeydefinitions | [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
@@ -791,6 +797,7 @@ Class | Method | HTTP request | Description
  - [CreateRelationshipDefinitionRequest](docs/CreateRelationshipDefinitionRequest.md)
  - [CreateRelationshipRequest](docs/CreateRelationshipRequest.md)
  - [CreateSequenceRequest](docs/CreateSequenceRequest.md)
+ - [CreateStagingRuleSetRequest](docs/CreateStagingRuleSetRequest.md)
  - [CreateTaxRuleSetRequest](docs/CreateTaxRuleSetRequest.md)
  - [CreateTradeTicketsResponse](docs/CreateTradeTicketsResponse.md)
  - [CreateTransactionPortfolioRequest](docs/CreateTransactionPortfolioRequest.md)
@@ -1213,6 +1220,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfReferenceListResponse](docs/PagedResourceListOfReferenceListResponse.md)
  - [PagedResourceListOfRelationshipDefinition](docs/PagedResourceListOfRelationshipDefinition.md)
  - [PagedResourceListOfSequenceDefinition](docs/PagedResourceListOfSequenceDefinition.md)
+ - [PagedResourceListOfStagingRuleSet](docs/PagedResourceListOfStagingRuleSet.md)
  - [PagedResourceListOfTransactionTemplate](docs/PagedResourceListOfTransactionTemplate.md)
  - [PagedResourceListOfTransactionTemplateSpecification](docs/PagedResourceListOfTransactionTemplateSpecification.md)
  - [PagedResourceListOfTranslationScriptId](docs/PagedResourceListOfTranslationScriptId.md)
@@ -1448,6 +1456,7 @@ Class | Method | HTTP request | Description
  - [SetLegalEntityPropertiesRequest](docs/SetLegalEntityPropertiesRequest.md)
  - [SetPersonIdentifiersRequest](docs/SetPersonIdentifiersRequest.md)
  - [SetPersonPropertiesRequest](docs/SetPersonPropertiesRequest.md)
+ - [SetShareClassInstrumentsRequest](docs/SetShareClassInstrumentsRequest.md)
  - [SetTransactionConfigurationAlias](docs/SetTransactionConfigurationAlias.md)
  - [SetTransactionConfigurationSourceRequest](docs/SetTransactionConfigurationSourceRequest.md)
  - [SideConfigurationData](docs/SideConfigurationData.md)
@@ -1460,6 +1469,10 @@ Class | Method | HTTP request | Description
  - [SimpleInstrument](docs/SimpleInstrument.md)
  - [SimpleInstrumentAllOf](docs/SimpleInstrumentAllOf.md)
  - [SortOrder](docs/SortOrder.md)
+ - [StagingRule](docs/StagingRule.md)
+ - [StagingRuleApprovalCriteria](docs/StagingRuleApprovalCriteria.md)
+ - [StagingRuleMatchCriteria](docs/StagingRuleMatchCriteria.md)
+ - [StagingRuleSet](docs/StagingRuleSet.md)
  - [StepSchedule](docs/StepSchedule.md)
  - [StepScheduleAllOf](docs/StepScheduleAllOf.md)
  - [StockSplitEvent](docs/StockSplitEvent.md)
@@ -1552,6 +1565,7 @@ Class | Method | HTTP request | Description
  - [UpdatePropertyDefinitionRequest](docs/UpdatePropertyDefinitionRequest.md)
  - [UpdateReconciliationRequest](docs/UpdateReconciliationRequest.md)
  - [UpdateRelationshipDefinitionRequest](docs/UpdateRelationshipDefinitionRequest.md)
+ - [UpdateStagingRuleSetRequest](docs/UpdateStagingRuleSetRequest.md)
  - [UpdateTaxRuleSetRequest](docs/UpdateTaxRuleSetRequest.md)
  - [UpdateUnitRequest](docs/UpdateUnitRequest.md)
  - [UpsertCdsFlowConventionsRequest](docs/UpsertCdsFlowConventionsRequest.md)

@@ -91,7 +91,7 @@ class FundRequest(object):
         :type description: str
         :param abor_id:  (required)
         :type abor_id: lusid.ResourceId
-        :param share_class_instrument_scopes:  The scopes in which the instruments lie.
+        :param share_class_instrument_scopes:  The scopes in which the instruments lie, currently limited to one.
         :type share_class_instrument_scopes: list[str]
         :param share_class_instruments:  Details the user-provided instrument identifiers and the instrument resolved from them.
         :type share_class_instruments: list[lusid.InstrumentResolutionDetail]
@@ -258,7 +258,7 @@ class FundRequest(object):
     def share_class_instrument_scopes(self):
         """Gets the share_class_instrument_scopes of this FundRequest.  # noqa: E501
 
-        The scopes in which the instruments lie.  # noqa: E501
+        The scopes in which the instruments lie, currently limited to one.  # noqa: E501
 
         :return: The share_class_instrument_scopes of this FundRequest.  # noqa: E501
         :rtype: list[str]
@@ -269,7 +269,7 @@ class FundRequest(object):
     def share_class_instrument_scopes(self, share_class_instrument_scopes):
         """Sets the share_class_instrument_scopes of this FundRequest.
 
-        The scopes in which the instruments lie.  # noqa: E501
+        The scopes in which the instruments lie, currently limited to one.  # noqa: E501
 
         :param share_class_instrument_scopes: The share_class_instrument_scopes of this FundRequest.  # noqa: E501
         :type share_class_instrument_scopes: list[str]
