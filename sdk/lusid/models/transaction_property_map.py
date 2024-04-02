@@ -40,26 +40,26 @@ class TransactionPropertyMap(object):
     """
     openapi_types = {
         'property_key': 'str',
-        'property_value': 'PropertyValue'
+        'value': 'str'
     }
 
     attribute_map = {
         'property_key': 'propertyKey',
-        'property_value': 'propertyValue'
+        'value': 'value'
     }
 
     required_map = {
         'property_key': 'optional',
-        'property_value': 'optional'
+        'value': 'optional'
     }
 
-    def __init__(self, property_key=None, property_value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, property_key=None, value=None, local_vars_configuration=None):  # noqa: E501
         """TransactionPropertyMap - a model defined in OpenAPI"
         
         :param property_key:  The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.
         :type property_key: str
-        :param property_value: 
-        :type property_value: lusid.PropertyValue
+        :param value: 
+        :type value: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -67,12 +67,11 @@ class TransactionPropertyMap(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._property_key = None
-        self._property_value = None
+        self._value = None
         self.discriminator = None
 
         self.property_key = property_key
-        if property_value is not None:
-            self.property_value = property_value
+        self.value = value
 
     @property
     def property_key(self):
@@ -98,25 +97,31 @@ class TransactionPropertyMap(object):
         self._property_key = property_key
 
     @property
-    def property_value(self):
-        """Gets the property_value of this TransactionPropertyMap.  # noqa: E501
+    def value(self):
+        """Gets the value of this TransactionPropertyMap.  # noqa: E501
 
 
-        :return: The property_value of this TransactionPropertyMap.  # noqa: E501
-        :rtype: lusid.PropertyValue
+        :return: The value of this TransactionPropertyMap.  # noqa: E501
+        :rtype: str
         """
-        return self._property_value
+        return self._value
 
-    @property_value.setter
-    def property_value(self, property_value):
-        """Sets the property_value of this TransactionPropertyMap.
+    @value.setter
+    def value(self, value):
+        """Sets the value of this TransactionPropertyMap.
 
 
-        :param property_value: The property_value of this TransactionPropertyMap.  # noqa: E501
-        :type property_value: lusid.PropertyValue
+        :param value: The value of this TransactionPropertyMap.  # noqa: E501
+        :type value: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                value is not None and len(value) > 1024):
+            raise ValueError("Invalid value for `value`, length must be less than or equal to `1024`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                value is not None and len(value) < 0):
+            raise ValueError("Invalid value for `value`, length must be greater than or equal to `0`")  # noqa: E501
 
-        self._property_value = property_value
+        self._value = value
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
