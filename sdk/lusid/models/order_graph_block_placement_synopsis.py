@@ -40,24 +40,29 @@ class OrderGraphBlockPlacementSynopsis(object):
     """
     openapi_types = {
         'quantity': 'float',
+        'quantity_by_state': 'dict(str, float)',
         'details': 'list[OrderGraphBlockPlacementDetail]'
     }
 
     attribute_map = {
         'quantity': 'quantity',
+        'quantity_by_state': 'quantityByState',
         'details': 'details'
     }
 
     required_map = {
         'quantity': 'required',
+        'quantity_by_state': 'optional',
         'details': 'required'
     }
 
-    def __init__(self, quantity=None, details=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, quantity=None, quantity_by_state=None, details=None, local_vars_configuration=None):  # noqa: E501
         """OrderGraphBlockPlacementSynopsis - a model defined in OpenAPI"
         
         :param quantity:  Total number of units placed. (required)
         :type quantity: float
+        :param quantity_by_state:  Total number of units placed.
+        :type quantity_by_state: dict(str, float)
         :param details:  Identifiers for each placement in this block. (required)
         :type details: list[lusid.OrderGraphBlockPlacementDetail]
 
@@ -67,10 +72,12 @@ class OrderGraphBlockPlacementSynopsis(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._quantity = None
+        self._quantity_by_state = None
         self._details = None
         self.discriminator = None
 
         self.quantity = quantity
+        self.quantity_by_state = quantity_by_state
         self.details = details
 
     @property
@@ -97,6 +104,29 @@ class OrderGraphBlockPlacementSynopsis(object):
             raise ValueError("Invalid value for `quantity`, must not be `None`")  # noqa: E501
 
         self._quantity = quantity
+
+    @property
+    def quantity_by_state(self):
+        """Gets the quantity_by_state of this OrderGraphBlockPlacementSynopsis.  # noqa: E501
+
+        Total number of units placed.  # noqa: E501
+
+        :return: The quantity_by_state of this OrderGraphBlockPlacementSynopsis.  # noqa: E501
+        :rtype: dict(str, float)
+        """
+        return self._quantity_by_state
+
+    @quantity_by_state.setter
+    def quantity_by_state(self, quantity_by_state):
+        """Sets the quantity_by_state of this OrderGraphBlockPlacementSynopsis.
+
+        Total number of units placed.  # noqa: E501
+
+        :param quantity_by_state: The quantity_by_state of this OrderGraphBlockPlacementSynopsis.  # noqa: E501
+        :type quantity_by_state: dict(str, float)
+        """
+
+        self._quantity_by_state = quantity_by_state
 
     @property
     def details(self):
