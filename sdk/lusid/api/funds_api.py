@@ -24,6 +24,7 @@ from lusid.exceptions import (  # noqa: F401
     ApiValueError
 )
 from lusid.models.deleted_entity_response import DeletedEntityResponse
+from lusid.models.diary_entry import DiaryEntry
 from lusid.models.fund import Fund
 from lusid.models.fund_properties import FundProperties
 from lusid.models.fund_request import FundRequest
@@ -32,6 +33,10 @@ from lusid.models.lusid_validation_problem_details import LusidValidationProblem
 from lusid.models.model_property import ModelProperty
 from lusid.models.paged_resource_list_of_fund import PagedResourceListOfFund
 from lusid.models.set_share_class_instruments_request import SetShareClassInstrumentsRequest
+from lusid.models.upsert_valuation_point_request import UpsertValuationPointRequest
+from lusid.models.valuation_point_data_query_parameters import ValuationPointDataQueryParameters
+from lusid.models.valuation_point_data_request import ValuationPointDataRequest
+from lusid.models.valuation_point_data_response import ValuationPointDataResponse
 
 
 class FundsApi(object):
@@ -45,6 +50,191 @@ class FundsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+    def accept_estimate_point(self, scope, code, valuation_point_data_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] AcceptEstimatePoint: Accepts an Estimate Valuation Point.  # noqa: E501
+
+        Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as 'Candidate', otherwise it will be marked as 'Final'  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.accept_estimate_point(scope, code, valuation_point_data_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_request: The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state. (required)
+        :type valuation_point_data_request: ValuationPointDataRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ValuationPointDataResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.accept_estimate_point_with_http_info(scope, code, valuation_point_data_request, **kwargs)  # noqa: E501
+
+    def accept_estimate_point_with_http_info(self, scope, code, valuation_point_data_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] AcceptEstimatePoint: Accepts an Estimate Valuation Point.  # noqa: E501
+
+        Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as 'Candidate', otherwise it will be marked as 'Final'  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.accept_estimate_point_with_http_info(scope, code, valuation_point_data_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_request: The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state. (required)
+        :type valuation_point_data_request: ValuationPointDataRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (ValuationPointDataResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'valuation_point_data_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method accept_estimate_point" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `accept_estimate_point`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `accept_estimate_point`")  # noqa: E501
+        # verify the required parameter 'valuation_point_data_request' is set
+        if self.api_client.client_side_validation and ('valuation_point_data_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['valuation_point_data_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `valuation_point_data_request` when calling `accept_estimate_point`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `accept_estimate_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `accept_estimate_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `accept_estimate_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `accept_estimate_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `accept_estimate_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `accept_estimate_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'valuation_point_data_request' in local_var_params:
+            body_params = local_var_params['valuation_point_data_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "ValuationPointDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/funds/{scope}/{code}/valuationpoints/$acceptestimate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def create_fund(self, scope, fund_request, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] CreateFund: Create a Fund.  # noqa: E501
@@ -383,6 +573,381 @@ class FundsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def delete_valuation_point(self, scope, code, diary_entry_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.  # noqa: E501
+
+        Deletes the given Valuation Point.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_valuation_point(scope, code, diary_entry_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund for the valuation point to be deleted. (required)
+        :type scope: str
+        :param code: The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param diary_entry_code: The diary entry code for the valuation Point to be deleted. (required)
+        :type diary_entry_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: DeletedEntityResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_valuation_point_with_http_info(scope, code, diary_entry_code, **kwargs)  # noqa: E501
+
+    def delete_valuation_point_with_http_info(self, scope, code, diary_entry_code, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.  # noqa: E501
+
+        Deletes the given Valuation Point.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_valuation_point_with_http_info(scope, code, diary_entry_code, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund for the valuation point to be deleted. (required)
+        :type scope: str
+        :param code: The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param diary_entry_code: The diary entry code for the valuation Point to be deleted. (required)
+        :type diary_entry_code: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (DeletedEntityResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'diary_entry_code'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_valuation_point" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `delete_valuation_point`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `delete_valuation_point`")  # noqa: E501
+        # verify the required parameter 'diary_entry_code' is set
+        if self.api_client.client_side_validation and ('diary_entry_code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['diary_entry_code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `diary_entry_code` when calling `delete_valuation_point`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_valuation_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_valuation_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `delete_valuation_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_valuation_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_valuation_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_valuation_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('diary_entry_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['diary_entry_code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `diary_entry_code` when calling `delete_valuation_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('diary_entry_code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['diary_entry_code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `diary_entry_code` when calling `delete_valuation_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'diary_entry_code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['diary_entry_code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `diary_entry_code` when calling `delete_valuation_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+        if 'diary_entry_code' in local_var_params:
+            path_params['diaryEntryCode'] = local_var_params['diary_entry_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "DeletedEntityResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def finalise_candidate_valuation(self, scope, code, valuation_point_data_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] FinaliseCandidateValuation: Finalise Candidate.  # noqa: E501
+
+        Moves a 'Candidate' status Valuation Point to status 'Final'.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.finalise_candidate_valuation(scope, code, valuation_point_data_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_request: The valuationPointDataRequest which contains the diary entry code to mark as final. (required)
+        :type valuation_point_data_request: ValuationPointDataRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ValuationPointDataResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.finalise_candidate_valuation_with_http_info(scope, code, valuation_point_data_request, **kwargs)  # noqa: E501
+
+    def finalise_candidate_valuation_with_http_info(self, scope, code, valuation_point_data_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] FinaliseCandidateValuation: Finalise Candidate.  # noqa: E501
+
+        Moves a 'Candidate' status Valuation Point to status 'Final'.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.finalise_candidate_valuation_with_http_info(scope, code, valuation_point_data_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_request: The valuationPointDataRequest which contains the diary entry code to mark as final. (required)
+        :type valuation_point_data_request: ValuationPointDataRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (ValuationPointDataResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'valuation_point_data_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method finalise_candidate_valuation" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `finalise_candidate_valuation`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `finalise_candidate_valuation`")  # noqa: E501
+        # verify the required parameter 'valuation_point_data_request' is set
+        if self.api_client.client_side_validation and ('valuation_point_data_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['valuation_point_data_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `valuation_point_data_request` when calling `finalise_candidate_valuation`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `finalise_candidate_valuation`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `finalise_candidate_valuation`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `finalise_candidate_valuation`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `finalise_candidate_valuation`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `finalise_candidate_valuation`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `finalise_candidate_valuation`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'valuation_point_data_request' in local_var_params:
+            body_params = local_var_params['valuation_point_data_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "ValuationPointDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/funds/{scope}/{code}/valuationpoints/$finalisecandidate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def get_fund(self, scope, code, **kwargs):  # noqa: E501
         """[EXPERIMENTAL] GetFund: Get a Fund.  # noqa: E501
 
@@ -561,6 +1126,198 @@ class FundsApi(object):
 
         return self.api_client.call_api(
             '/api/funds/{scope}/{code}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def get_valuation_point_data(self, scope, code, valuation_point_data_query_parameters, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.  # noqa: E501
+
+        Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all 'Assets' and 'Liabilities' from the related ABOR's Trial balance to produce a GAV.  Start date will be assumed from the last 'official' DiaryEntry and EndDate will be as provided.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_valuation_point_data(scope, code, valuation_point_data_query_parameters, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_query_parameters: The arguments to use for querying the Valuation Point data (required)
+        :type valuation_point_data_query_parameters: ValuationPointDataQueryParameters
+        :param as_at: The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ValuationPointDataResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_valuation_point_data_with_http_info(scope, code, valuation_point_data_query_parameters, **kwargs)  # noqa: E501
+
+    def get_valuation_point_data_with_http_info(self, scope, code, valuation_point_data_query_parameters, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.  # noqa: E501
+
+        Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all 'Assets' and 'Liabilities' from the related ABOR's Trial balance to produce a GAV.  Start date will be assumed from the last 'official' DiaryEntry and EndDate will be as provided.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_valuation_point_data_with_http_info(scope, code, valuation_point_data_query_parameters, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param valuation_point_data_query_parameters: The arguments to use for querying the Valuation Point data (required)
+        :type valuation_point_data_query_parameters: ValuationPointDataQueryParameters
+        :param as_at: The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (ValuationPointDataResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'valuation_point_data_query_parameters',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_valuation_point_data" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `get_valuation_point_data`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `get_valuation_point_data`")  # noqa: E501
+        # verify the required parameter 'valuation_point_data_query_parameters' is set
+        if self.api_client.client_side_validation and ('valuation_point_data_query_parameters' not in local_var_params or  # noqa: E501
+                                                        local_var_params['valuation_point_data_query_parameters'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `valuation_point_data_query_parameters` when calling `get_valuation_point_data`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_valuation_point_data`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_valuation_point_data`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `get_valuation_point_data`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_valuation_point_data`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_valuation_point_data`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `get_valuation_point_data`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+            query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'valuation_point_data_query_parameters' in local_var_params:
+            body_params = local_var_params['valuation_point_data_query_parameters']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "ValuationPointDataResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/funds/{scope}/{code}/valuationpoints', 'POST',
             path_params,
             query_params,
             header_params,
@@ -966,7 +1723,7 @@ class FundsApi(object):
             _request_auth=local_var_params.get('_request_auth'))
 
     def upsert_fund_properties(self, scope, code, **kwargs):  # noqa: E501
-        """[EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties  # noqa: E501
+        """[EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.  # noqa: E501
 
         Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fund'.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1000,7 +1757,7 @@ class FundsApi(object):
         return self.upsert_fund_properties_with_http_info(scope, code, **kwargs)  # noqa: E501
 
     def upsert_fund_properties_with_http_info(self, scope, code, **kwargs):  # noqa: E501
-        """[EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties  # noqa: E501
+        """[EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.  # noqa: E501
 
         Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fund'.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1131,6 +1888,191 @@ class FundsApi(object):
 
         return self.api_client.call_api(
             '/api/funds/{scope}/{code}/properties/$upsert', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def upsert_valuation_point(self, scope, code, upsert_valuation_point_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] UpsertValuationPoint: Upsert Valuation Point.  # noqa: E501
+
+        Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.upsert_valuation_point(scope, code, upsert_valuation_point_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param upsert_valuation_point_request: The Valuation Point Estimate definition to Upsert (required)
+        :type upsert_valuation_point_request: UpsertValuationPointRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: DiaryEntry
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.upsert_valuation_point_with_http_info(scope, code, upsert_valuation_point_request, **kwargs)  # noqa: E501
+
+    def upsert_valuation_point_with_http_info(self, scope, code, upsert_valuation_point_request, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] UpsertValuationPoint: Upsert Valuation Point.  # noqa: E501
+
+        Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.upsert_valuation_point_with_http_info(scope, code, upsert_valuation_point_request, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Fund. (required)
+        :type scope: str
+        :param code: The code of the Fund. Together with the scope this uniquely identifies the Fund. (required)
+        :type code: str
+        :param upsert_valuation_point_request: The Valuation Point Estimate definition to Upsert (required)
+        :type upsert_valuation_point_request: UpsertValuationPointRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (DiaryEntry, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'upsert_valuation_point_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method upsert_valuation_point" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `upsert_valuation_point`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `upsert_valuation_point`")  # noqa: E501
+        # verify the required parameter 'upsert_valuation_point_request' is set
+        if self.api_client.client_side_validation and ('upsert_valuation_point_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upsert_valuation_point_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upsert_valuation_point_request` when calling `upsert_valuation_point`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_valuation_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_valuation_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `upsert_valuation_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `upsert_valuation_point`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `upsert_valuation_point`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `upsert_valuation_point`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upsert_valuation_point_request' in local_var_params:
+            body_params = local_var_params['upsert_valuation_point_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "DiaryEntry",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/funds/{scope}/{code}/valuationpoints/$upsert', 'POST',
             path_params,
             query_params,
             header_params,
