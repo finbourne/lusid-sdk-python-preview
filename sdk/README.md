@@ -123,6 +123,11 @@ Class | Method | HTTP request | Description
 *AllocationsApi* | [**get_allocation**](docs/AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
 *AllocationsApi* | [**list_allocations**](docs/AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
 *AllocationsApi* | [**upsert_allocations**](docs/AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+*AmortisationRuleSetsApi* | [**create_amortisation_rule_set**](docs/AmortisationRuleSetsApi.md#create_amortisation_rule_set) | **POST** /api/amortisation/rulesets/{scope} | [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
+*AmortisationRuleSetsApi* | [**delete_amortisation_ruleset**](docs/AmortisationRuleSetsApi.md#delete_amortisation_ruleset) | **DELETE** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
+*AmortisationRuleSetsApi* | [**get_amortisation_rule_set**](docs/AmortisationRuleSetsApi.md#get_amortisation_rule_set) | **GET** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
+*AmortisationRuleSetsApi* | [**list_amortisation_rule_sets**](docs/AmortisationRuleSetsApi.md#list_amortisation_rule_sets) | **GET** /api/amortisation/rulesets | [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
+*AmortisationRuleSetsApi* | [**update_amortisation_rule_set_details**](docs/AmortisationRuleSetsApi.md#update_amortisation_rule_set_details) | **PUT** /api/amortisation/rulesets/{scope}/{code}/details | [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
 *ApplicationMetadataApi* | [**get_excel_addin**](docs/ApplicationMetadataApi.md#get_excel_addin) | **GET** /api/metadata/downloads/exceladdin | GetExcelAddin: Download Excel Addin
 *ApplicationMetadataApi* | [**get_lusid_versions**](docs/ApplicationMetadataApi.md#get_lusid_versions) | **GET** /api/metadata/versions | GetLusidVersions: Get LUSID versions
 *ApplicationMetadataApi* | [**list_access_controlled_resources**](docs/ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
@@ -647,6 +652,8 @@ Class | Method | HTTP request | Description
  - [AllocationSetRequest](docs/AllocationSetRequest.md)
  - [AmortisationEvent](docs/AmortisationEvent.md)
  - [AmortisationEventAllOf](docs/AmortisationEventAllOf.md)
+ - [AmortisationRule](docs/AmortisationRule.md)
+ - [AmortisationRuleSet](docs/AmortisationRuleSet.md)
  - [AnnulQuotesResponse](docs/AnnulQuotesResponse.md)
  - [AnnulSingleStructuredDataResponse](docs/AnnulSingleStructuredDataResponse.md)
  - [AnnulStructuredDataResponse](docs/AnnulStructuredDataResponse.md)
@@ -782,6 +789,7 @@ Class | Method | HTTP request | Description
  - [CounterpartyRiskInformation](docs/CounterpartyRiskInformation.md)
  - [CounterpartySignatory](docs/CounterpartySignatory.md)
  - [CreateAddressKeyDefinitionRequest](docs/CreateAddressKeyDefinitionRequest.md)
+ - [CreateAmortisationRuleSetRequest](docs/CreateAmortisationRuleSetRequest.md)
  - [CreateCalendarRequest](docs/CreateCalendarRequest.md)
  - [CreateCorporateActionSourceRequest](docs/CreateCorporateActionSourceRequest.md)
  - [CreateCustomEntityTypeRequest](docs/CreateCustomEntityTypeRequest.md)
@@ -1183,6 +1191,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfAccount](docs/PagedResourceListOfAccount.md)
  - [PagedResourceListOfAddressKeyDefinition](docs/PagedResourceListOfAddressKeyDefinition.md)
  - [PagedResourceListOfAllocation](docs/PagedResourceListOfAllocation.md)
+ - [PagedResourceListOfAmortisationRuleSet](docs/PagedResourceListOfAmortisationRuleSet.md)
  - [PagedResourceListOfBlock](docs/PagedResourceListOfBlock.md)
  - [PagedResourceListOfCalendar](docs/PagedResourceListOfCalendar.md)
  - [PagedResourceListOfChartOfAccounts](docs/PagedResourceListOfChartOfAccounts.md)
@@ -1558,6 +1567,7 @@ Class | Method | HTTP request | Description
  - [UnitSchema](docs/UnitSchema.md)
  - [UnitsRatio](docs/UnitsRatio.md)
  - [UnmatchedHoldingMethod](docs/UnmatchedHoldingMethod.md)
+ - [UpdateAmortisationRuleSetDetailsRequest](docs/UpdateAmortisationRuleSetDetailsRequest.md)
  - [UpdateCalendarRequest](docs/UpdateCalendarRequest.md)
  - [UpdateCustomEntityDefinitionRequest](docs/UpdateCustomEntityDefinitionRequest.md)
  - [UpdateCustomEntityTypeRequest](docs/UpdateCustomEntityTypeRequest.md)
