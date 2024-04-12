@@ -793,6 +793,8 @@ from lusid.models.property_key_compliance_parameter import PropertyKeyCompliance
 from lusid.models.property_key_compliance_parameter_all_of import PropertyKeyComplianceParameterAllOf
 from lusid.models.property_key_list_compliance_parameter import PropertyKeyListComplianceParameter
 from lusid.models.property_life_time import PropertyLifeTime
+from lusid.models.property_list import PropertyList
+from lusid.models.property_list_all_of import PropertyListAllOf
 from lusid.models.property_schema import PropertySchema
 from lusid.models.property_type import PropertyType
 from lusid.models.property_value import PropertyValue
@@ -958,6 +960,8 @@ from lusid.models.schedule import Schedule
 from lusid.models.schedule_type import ScheduleType
 from lusid.models.schema import Schema
 from lusid.models.scope_definition import ScopeDefinition
+from lusid.models.scrip_dividend_event import ScripDividendEvent
+from lusid.models.scrip_dividend_event_all_of import ScripDividendEventAllOf
 from lusid.models.script_map_reference import ScriptMapReference
 from lusid.models.security_election import SecurityElection
 from lusid.models.sequence_definition import SequenceDefinition

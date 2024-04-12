@@ -58,7 +58,7 @@ class DecimalListAllOf(object):
         
         :param values:  (required)
         :type values: list[float]
-        :param reference_list_type:  The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList (required)
+        :param reference_list_type:  The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required)
         :type reference_list_type: str
 
         """  # noqa: E501
@@ -106,7 +106,7 @@ class DecimalListAllOf(object):
     def reference_list_type(self):
         """Gets the reference_list_type of this DecimalListAllOf.  # noqa: E501
 
-        The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList  # noqa: E501
+        The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList  # noqa: E501
 
         :return: The reference_list_type of this DecimalListAllOf.  # noqa: E501
         :rtype: str
@@ -117,14 +117,14 @@ class DecimalListAllOf(object):
     def reference_list_type(self, reference_list_type):
         """Sets the reference_list_type of this DecimalListAllOf.
 
-        The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList  # noqa: E501
+        The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList  # noqa: E501
 
         :param reference_list_type: The reference_list_type of this DecimalListAllOf.  # noqa: E501
         :type reference_list_type: str
         """
         if self.local_vars_configuration.client_side_validation and reference_list_type is None:  # noqa: E501
             raise ValueError("Invalid value for `reference_list_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["PortfolioGroupIdList", "PortfolioIdList", "AddressKeyList", "StringList", "InstrumentList", "DecimalList"]  # noqa: E501
+        allowed_values = ["PortfolioGroupIdList", "PortfolioIdList", "AddressKeyList", "StringList", "InstrumentList", "DecimalList", "PropertyList"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and reference_list_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `reference_list_type` ({0}), must be one of {1}"  # noqa: E501
