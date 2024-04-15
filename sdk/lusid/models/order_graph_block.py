@@ -44,6 +44,7 @@ class OrderGraphBlock(object):
         'placed': 'OrderGraphBlockPlacementSynopsis',
         'executed': 'OrderGraphBlockExecutionSynopsis',
         'allocated': 'OrderGraphBlockAllocationSynopsis',
+        'booked': 'OrderGraphBlockTransactionSynopsis',
         'derived_state': 'str',
         'derived_compliance_state': 'str',
         'derived_approval_state': 'str'
@@ -55,6 +56,7 @@ class OrderGraphBlock(object):
         'placed': 'placed',
         'executed': 'executed',
         'allocated': 'allocated',
+        'booked': 'booked',
         'derived_state': 'derivedState',
         'derived_compliance_state': 'derivedComplianceState',
         'derived_approval_state': 'derivedApprovalState'
@@ -66,12 +68,13 @@ class OrderGraphBlock(object):
         'placed': 'required',
         'executed': 'required',
         'allocated': 'required',
+        'booked': 'required',
         'derived_state': 'required',
         'derived_compliance_state': 'required',
         'derived_approval_state': 'required'
     }
 
-    def __init__(self, block=None, ordered=None, placed=None, executed=None, allocated=None, derived_state=None, derived_compliance_state=None, derived_approval_state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, block=None, ordered=None, placed=None, executed=None, allocated=None, booked=None, derived_state=None, derived_compliance_state=None, derived_approval_state=None, local_vars_configuration=None):  # noqa: E501
         """OrderGraphBlock - a model defined in OpenAPI"
         
         :param block:  (required)
@@ -84,6 +87,8 @@ class OrderGraphBlock(object):
         :type executed: lusid.OrderGraphBlockExecutionSynopsis
         :param allocated:  (required)
         :type allocated: lusid.OrderGraphBlockAllocationSynopsis
+        :param booked:  (required)
+        :type booked: lusid.OrderGraphBlockTransactionSynopsis
         :param derived_state:  A simple description of the overall state of a block. (required)
         :type derived_state: str
         :param derived_compliance_state:  The overall compliance state of a block, derived from the block's orders. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'. (required)
@@ -101,6 +106,7 @@ class OrderGraphBlock(object):
         self._placed = None
         self._executed = None
         self._allocated = None
+        self._booked = None
         self._derived_state = None
         self._derived_compliance_state = None
         self._derived_approval_state = None
@@ -111,6 +117,7 @@ class OrderGraphBlock(object):
         self.placed = placed
         self.executed = executed
         self.allocated = allocated
+        self.booked = booked
         self.derived_state = derived_state
         self.derived_compliance_state = derived_compliance_state
         self.derived_approval_state = derived_approval_state
@@ -229,6 +236,29 @@ class OrderGraphBlock(object):
             raise ValueError("Invalid value for `allocated`, must not be `None`")  # noqa: E501
 
         self._allocated = allocated
+
+    @property
+    def booked(self):
+        """Gets the booked of this OrderGraphBlock.  # noqa: E501
+
+
+        :return: The booked of this OrderGraphBlock.  # noqa: E501
+        :rtype: lusid.OrderGraphBlockTransactionSynopsis
+        """
+        return self._booked
+
+    @booked.setter
+    def booked(self, booked):
+        """Sets the booked of this OrderGraphBlock.
+
+
+        :param booked: The booked of this OrderGraphBlock.  # noqa: E501
+        :type booked: lusid.OrderGraphBlockTransactionSynopsis
+        """
+        if self.local_vars_configuration.client_side_validation and booked is None:  # noqa: E501
+            raise ValueError("Invalid value for `booked`, must not be `None`")  # noqa: E501
+
+        self._booked = booked
 
     @property
     def derived_state(self):

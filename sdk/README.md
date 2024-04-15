@@ -1166,6 +1166,8 @@ Class | Method | HTTP request | Description
  - [OrderGraphBlockOrderSynopsis](docs/OrderGraphBlockOrderSynopsis.md)
  - [OrderGraphBlockPlacementDetail](docs/OrderGraphBlockPlacementDetail.md)
  - [OrderGraphBlockPlacementSynopsis](docs/OrderGraphBlockPlacementSynopsis.md)
+ - [OrderGraphBlockTransactionDetail](docs/OrderGraphBlockTransactionDetail.md)
+ - [OrderGraphBlockTransactionSynopsis](docs/OrderGraphBlockTransactionSynopsis.md)
  - [OrderGraphPlacement](docs/OrderGraphPlacement.md)
  - [OrderGraphPlacementAllocationDetail](docs/OrderGraphPlacementAllocationDetail.md)
  - [OrderGraphPlacementAllocationSynopsis](docs/OrderGraphPlacementAllocationSynopsis.md)
