@@ -64,6 +64,8 @@ class JournalEntryLine(object):
         'source_levels': 'list[str]',
         'movement_sign': 'str',
         'holding_sign': 'str',
+        'ledger_column': 'str',
+        'journal_entry_line_type': 'str',
         'links': 'list[Link]'
     }
 
@@ -93,6 +95,8 @@ class JournalEntryLine(object):
         'source_levels': 'sourceLevels',
         'movement_sign': 'movementSign',
         'holding_sign': 'holdingSign',
+        'ledger_column': 'ledgerColumn',
+        'journal_entry_line_type': 'journalEntryLineType',
         'links': 'links'
     }
 
@@ -122,10 +126,12 @@ class JournalEntryLine(object):
         'source_levels': 'optional',
         'movement_sign': 'optional',
         'holding_sign': 'optional',
+        'ledger_column': 'optional',
+        'journal_entry_line_type': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, accounting_date=None, activity_date=None, portfolio_id=None, instrument_id=None, instrument_scope=None, sub_holding_keys=None, tax_lot_id=None, general_ledger_account_code=None, local=None, base=None, posting_module_code=None, posting_rule=None, as_at_date=None, activities_description=None, source_type=None, source_id=None, properties=None, movement_name=None, holding_type=None, economic_bucket=None, economic_bucket_component=None, levels=None, source_levels=None, movement_sign=None, holding_sign=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, accounting_date=None, activity_date=None, portfolio_id=None, instrument_id=None, instrument_scope=None, sub_holding_keys=None, tax_lot_id=None, general_ledger_account_code=None, local=None, base=None, posting_module_code=None, posting_rule=None, as_at_date=None, activities_description=None, source_type=None, source_id=None, properties=None, movement_name=None, holding_type=None, economic_bucket=None, economic_bucket_component=None, levels=None, source_levels=None, movement_sign=None, holding_sign=None, ledger_column=None, journal_entry_line_type=None, links=None, local_vars_configuration=None):  # noqa: E501
         """JournalEntryLine - a model defined in OpenAPI"
         
         :param accounting_date:  The Journal Entry Line accounting date. (required)
@@ -178,6 +184,10 @@ class JournalEntryLine(object):
         :type movement_sign: str
         :param holding_sign:  Indicates if the Journal Entry Line is operating against a Long or Short holding.
         :type holding_sign: str
+        :param ledger_column:  Indicates if the Journal Entry Line is credit or debit.
+        :type ledger_column: str
+        :param journal_entry_line_type:  Indicates the Journal Entry Line type
+        :type journal_entry_line_type: str
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -211,6 +221,8 @@ class JournalEntryLine(object):
         self._source_levels = None
         self._movement_sign = None
         self._holding_sign = None
+        self._ledger_column = None
+        self._journal_entry_line_type = None
         self._links = None
         self.discriminator = None
 
@@ -239,6 +251,8 @@ class JournalEntryLine(object):
         self.source_levels = source_levels
         self.movement_sign = movement_sign
         self.holding_sign = holding_sign
+        self.ledger_column = ledger_column
+        self.journal_entry_line_type = journal_entry_line_type
         self.links = links
 
     @property
@@ -867,6 +881,52 @@ class JournalEntryLine(object):
         """
 
         self._holding_sign = holding_sign
+
+    @property
+    def ledger_column(self):
+        """Gets the ledger_column of this JournalEntryLine.  # noqa: E501
+
+        Indicates if the Journal Entry Line is credit or debit.  # noqa: E501
+
+        :return: The ledger_column of this JournalEntryLine.  # noqa: E501
+        :rtype: str
+        """
+        return self._ledger_column
+
+    @ledger_column.setter
+    def ledger_column(self, ledger_column):
+        """Sets the ledger_column of this JournalEntryLine.
+
+        Indicates if the Journal Entry Line is credit or debit.  # noqa: E501
+
+        :param ledger_column: The ledger_column of this JournalEntryLine.  # noqa: E501
+        :type ledger_column: str
+        """
+
+        self._ledger_column = ledger_column
+
+    @property
+    def journal_entry_line_type(self):
+        """Gets the journal_entry_line_type of this JournalEntryLine.  # noqa: E501
+
+        Indicates the Journal Entry Line type  # noqa: E501
+
+        :return: The journal_entry_line_type of this JournalEntryLine.  # noqa: E501
+        :rtype: str
+        """
+        return self._journal_entry_line_type
+
+    @journal_entry_line_type.setter
+    def journal_entry_line_type(self, journal_entry_line_type):
+        """Sets the journal_entry_line_type of this JournalEntryLine.
+
+        Indicates the Journal Entry Line type  # noqa: E501
+
+        :param journal_entry_line_type: The journal_entry_line_type of this JournalEntryLine.  # noqa: E501
+        :type journal_entry_line_type: str
+        """
+
+        self._journal_entry_line_type = journal_entry_line_type
 
     @property
     def links(self):
