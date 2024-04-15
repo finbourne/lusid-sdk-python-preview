@@ -40,26 +40,31 @@ class RelativeDateOffset(object):
     """
     openapi_types = {
         'days': 'int',
-        'business_day_convention': 'str'
+        'business_day_convention': 'str',
+        'day_type': 'str'
     }
 
     attribute_map = {
         'days': 'days',
-        'business_day_convention': 'businessDayConvention'
+        'business_day_convention': 'businessDayConvention',
+        'day_type': 'dayType'
     }
 
     required_map = {
         'days': 'required',
-        'business_day_convention': 'required'
+        'business_day_convention': 'required',
+        'day_type': 'optional'
     }
 
-    def __init__(self, days=None, business_day_convention=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, days=None, business_day_convention=None, day_type=None, local_vars_configuration=None):  # noqa: E501
         """RelativeDateOffset - a model defined in OpenAPI"
         
-        :param days:  The number of business days to add to the anchor date. (required)
+        :param days:  The number of days to add to the anchor date. (required)
         :type days: int
         :param business_day_convention:  The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.    Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. (required)
         :type business_day_convention: str
+        :param day_type:  Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].
+        :type day_type: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -68,16 +73,18 @@ class RelativeDateOffset(object):
 
         self._days = None
         self._business_day_convention = None
+        self._day_type = None
         self.discriminator = None
 
         self.days = days
         self.business_day_convention = business_day_convention
+        self.day_type = day_type
 
     @property
     def days(self):
         """Gets the days of this RelativeDateOffset.  # noqa: E501
 
-        The number of business days to add to the anchor date.  # noqa: E501
+        The number of days to add to the anchor date.  # noqa: E501
 
         :return: The days of this RelativeDateOffset.  # noqa: E501
         :rtype: int
@@ -88,7 +95,7 @@ class RelativeDateOffset(object):
     def days(self, days):
         """Sets the days of this RelativeDateOffset.
 
-        The number of business days to add to the anchor date.  # noqa: E501
+        The number of days to add to the anchor date.  # noqa: E501
 
         :param days: The days of this RelativeDateOffset.  # noqa: E501
         :type days: int
@@ -125,6 +132,29 @@ class RelativeDateOffset(object):
             raise ValueError("Invalid value for `business_day_convention`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._business_day_convention = business_day_convention
+
+    @property
+    def day_type(self):
+        """Gets the day_type of this RelativeDateOffset.  # noqa: E501
+
+        Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].  # noqa: E501
+
+        :return: The day_type of this RelativeDateOffset.  # noqa: E501
+        :rtype: str
+        """
+        return self._day_type
+
+    @day_type.setter
+    def day_type(self, day_type):
+        """Sets the day_type of this RelativeDateOffset.
+
+        Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].  # noqa: E501
+
+        :param day_type: The day_type of this RelativeDateOffset.  # noqa: E501
+        :type day_type: str
+        """
+
+        self._day_type = day_type
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -465,11 +465,11 @@ class PropertyDefinitionsApi(object):
         if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9@+\-_&]+$', local_var_params['scope']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `scope` when calling `delete_property_definition`, must conform to the pattern `/^[a-zA-Z0-9@+\-_&]+$/`")  # noqa: E501
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['code']) > 64):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `delete_property_definition`, length must be less than or equal to `64`")  # noqa: E501
+                                                        len(local_var_params['code']) > 1024):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_property_definition`, length must be less than or equal to `1024`")  # noqa: E501
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['code']) < 1):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `delete_property_definition`, length must be greater than or equal to `1`")  # noqa: E501
+                                                        len(local_var_params['code']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `delete_property_definition`, length must be greater than or equal to `0`")  # noqa: E501
         if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9@+\-_&]+$', local_var_params['code']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_property_definition`, must conform to the pattern `/^[a-zA-Z0-9@+\-_&]+$/`")  # noqa: E501
         collection_formats = {}
