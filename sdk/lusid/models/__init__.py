@@ -912,6 +912,8 @@ from lusid.models.staging_rule_match_criteria import StagingRuleMatchCriteria
 from lusid.models.staging_rule_set import StagingRuleSet
 from lusid.models.step_schedule import StepSchedule
 from lusid.models.step_schedule_all_of import StepScheduleAllOf
+from lusid.models.stock_dividend_event import StockDividendEvent
+from lusid.models.stock_dividend_event_all_of import StockDividendEventAllOf
 from lusid.models.stock_split_event import StockSplitEvent
 from lusid.models.stock_split_event_all_of import StockSplitEventAllOf
 from lusid.models.stream import Stream

@@ -1493,6 +1493,8 @@ Class | Method | HTTP request | Description
  - [StagingRuleSet](docs/StagingRuleSet.md)
  - [StepSchedule](docs/StepSchedule.md)
  - [StepScheduleAllOf](docs/StepScheduleAllOf.md)
+ - [StockDividendEvent](docs/StockDividendEvent.md)
+ - [StockDividendEventAllOf](docs/StockDividendEventAllOf.md)
  - [StockSplitEvent](docs/StockSplitEvent.md)
  - [StockSplitEventAllOf](docs/StockSplitEventAllOf.md)
  - [Stream](docs/Stream.md)
