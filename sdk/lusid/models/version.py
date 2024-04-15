@@ -47,7 +47,8 @@ class Version(object):
         'as_at_modified': 'datetime',
         'user_id_modified': 'str',
         'request_id_modified': 'str',
-        'as_at_version_number': 'int'
+        'as_at_version_number': 'int',
+        'entity_unique_id': 'str'
     }
 
     attribute_map = {
@@ -59,7 +60,8 @@ class Version(object):
         'as_at_modified': 'asAtModified',
         'user_id_modified': 'userIdModified',
         'request_id_modified': 'requestIdModified',
-        'as_at_version_number': 'asAtVersionNumber'
+        'as_at_version_number': 'asAtVersionNumber',
+        'entity_unique_id': 'entityUniqueId'
     }
 
     required_map = {
@@ -71,10 +73,11 @@ class Version(object):
         'as_at_modified': 'optional',
         'user_id_modified': 'optional',
         'request_id_modified': 'optional',
-        'as_at_version_number': 'optional'
+        'as_at_version_number': 'optional',
+        'entity_unique_id': 'optional'
     }
 
-    def __init__(self, effective_from=None, as_at_date=None, as_at_created=None, user_id_created=None, request_id_created=None, as_at_modified=None, user_id_modified=None, request_id_modified=None, as_at_version_number=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, effective_from=None, as_at_date=None, as_at_created=None, user_id_created=None, request_id_created=None, as_at_modified=None, user_id_modified=None, request_id_modified=None, as_at_version_number=None, entity_unique_id=None, local_vars_configuration=None):  # noqa: E501
         """Version - a model defined in OpenAPI"
         
         :param effective_from:  The effective datetime at which this version became valid. Only applies when a single entity is being interacted with. (required)
@@ -95,6 +98,8 @@ class Version(object):
         :type request_id_modified: str
         :param as_at_version_number:  The integer version number for the entity (the entity was created at version 1)
         :type as_at_version_number: int
+        :param entity_unique_id:  The unique id of the entity
+        :type entity_unique_id: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -110,6 +115,7 @@ class Version(object):
         self._user_id_modified = None
         self._request_id_modified = None
         self._as_at_version_number = None
+        self._entity_unique_id = None
         self.discriminator = None
 
         self.effective_from = effective_from
@@ -121,6 +127,7 @@ class Version(object):
         self.user_id_modified = user_id_modified
         self.request_id_modified = request_id_modified
         self.as_at_version_number = as_at_version_number
+        self.entity_unique_id = entity_unique_id
 
     @property
     def effective_from(self):
@@ -332,6 +339,29 @@ class Version(object):
         """
 
         self._as_at_version_number = as_at_version_number
+
+    @property
+    def entity_unique_id(self):
+        """Gets the entity_unique_id of this Version.  # noqa: E501
+
+        The unique id of the entity  # noqa: E501
+
+        :return: The entity_unique_id of this Version.  # noqa: E501
+        :rtype: str
+        """
+        return self._entity_unique_id
+
+    @entity_unique_id.setter
+    def entity_unique_id(self, entity_unique_id):
+        """Sets the entity_unique_id of this Version.
+
+        The unique id of the entity  # noqa: E501
+
+        :param entity_unique_id: The entity_unique_id of this Version.  # noqa: E501
+        :type entity_unique_id: str
+        """
+
+        self._entity_unique_id = entity_unique_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

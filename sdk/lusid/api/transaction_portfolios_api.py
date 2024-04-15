@@ -3312,11 +3312,11 @@ class TransactionPortfoliosApi(object):
         :param holding_id: The unique holding identifier (required)
         :type holding_id: int
         :param effective_date: Effective date
-        :type effective_date: datetime
+        :type effective_date: str
         :param from_trade_date: The from trade date, defaults to first time this holding is opened, lower bound for transactions
-        :type from_trade_date: datetime
+        :type from_trade_date: str
         :param to_trade_date: The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions
-        :type to_trade_date: datetime
+        :type to_trade_date: str
         :param include_historic: If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened.
         :type include_historic: bool
         :param tax_lot_id: Constrains the Holding Contributors to those which contributed to the specified tax lot.
@@ -3362,11 +3362,11 @@ class TransactionPortfoliosApi(object):
         :param holding_id: The unique holding identifier (required)
         :type holding_id: int
         :param effective_date: Effective date
-        :type effective_date: datetime
+        :type effective_date: str
         :param from_trade_date: The from trade date, defaults to first time this holding is opened, lower bound for transactions
-        :type from_trade_date: datetime
+        :type from_trade_date: str
         :param to_trade_date: The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions
-        :type to_trade_date: datetime
+        :type to_trade_date: str
         :param include_historic: If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened.
         :type include_historic: bool
         :param tax_lot_id: Constrains the Holding Contributors to those which contributed to the specified tax lot.
@@ -3465,6 +3465,24 @@ class TransactionPortfoliosApi(object):
             raise ApiValueError("Invalid value for parameter `code` when calling `get_holding_contributors`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         if self.api_client.client_side_validation and 'holding_id' in local_var_params and local_var_params['holding_id'] < 0:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `holding_id` when calling `get_holding_contributors`, must be a value greater than or equal to `0`")  # noqa: E501
+        if self.api_client.client_side_validation and ('effective_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_date']) > 6000):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `effective_date` when calling `get_holding_contributors`, length must be less than or equal to `6000`")  # noqa: E501
+        if self.api_client.client_side_validation and ('effective_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['effective_date']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `effective_date` when calling `get_holding_contributors`, length must be greater than or equal to `0`")  # noqa: E501
+        if self.api_client.client_side_validation and ('from_trade_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_trade_date']) > 6000):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `from_trade_date` when calling `get_holding_contributors`, length must be less than or equal to `6000`")  # noqa: E501
+        if self.api_client.client_side_validation and ('from_trade_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_trade_date']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `from_trade_date` when calling `get_holding_contributors`, length must be greater than or equal to `0`")  # noqa: E501
+        if self.api_client.client_side_validation and ('to_trade_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_trade_date']) > 6000):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `to_trade_date` when calling `get_holding_contributors`, length must be less than or equal to `6000`")  # noqa: E501
+        if self.api_client.client_side_validation and ('to_trade_date' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_trade_date']) < 0):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `to_trade_date` when calling `get_holding_contributors`, length must be greater than or equal to `0`")  # noqa: E501
         if self.api_client.client_side_validation and ('tax_lot_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['tax_lot_id']) > 6000):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `tax_lot_id` when calling `get_holding_contributors`, length must be less than or equal to `6000`")  # noqa: E501
