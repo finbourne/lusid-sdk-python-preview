@@ -39,35 +39,45 @@ class StockSplitEvent(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'equity_split_ratio': 'float',
         'payment_date': 'datetime',
+        'ex_date': 'datetime',
+        'units_ratio': 'UnitsRatio',
         'record_date': 'datetime',
+        'announcement_date': 'datetime',
         'instrument_event_type': 'str'
     }
 
     attribute_map = {
-        'equity_split_ratio': 'equitySplitRatio',
         'payment_date': 'paymentDate',
+        'ex_date': 'exDate',
+        'units_ratio': 'unitsRatio',
         'record_date': 'recordDate',
+        'announcement_date': 'announcementDate',
         'instrument_event_type': 'instrumentEventType'
     }
 
     required_map = {
-        'equity_split_ratio': 'required',
         'payment_date': 'required',
-        'record_date': 'required',
+        'ex_date': 'required',
+        'units_ratio': 'required',
+        'record_date': 'optional',
+        'announcement_date': 'optional',
         'instrument_event_type': 'required'
     }
 
-    def __init__(self, equity_split_ratio=None, payment_date=None, record_date=None, instrument_event_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, payment_date=None, ex_date=None, units_ratio=None, record_date=None, announcement_date=None, instrument_event_type=None, local_vars_configuration=None):  # noqa: E501
         """StockSplitEvent - a model defined in OpenAPI"
         
-        :param equity_split_ratio:  This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old. (required)
-        :type equity_split_ratio: float
-        :param payment_date:  Date on which the stock-split takes effect. (required)
+        :param payment_date:  Date on which the stock split takes effect. (required)
         :type payment_date: datetime
-        :param record_date:  Date you have to be the holder of record in order to participate in the tender. (required)
+        :param ex_date:  The first date on which the shares will trade at the post-split price. (required)
+        :type ex_date: datetime
+        :param units_ratio:  (required)
+        :type units_ratio: lusid.UnitsRatio
+        :param record_date:  Date you have to be the holder of record in order to receive the additional shares.
         :type record_date: datetime
+        :param announcement_date:  Date the stock split was announced.
+        :type announcement_date: datetime
         :param instrument_event_type:  The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent (required)
         :type instrument_event_type: str
 
@@ -76,47 +86,26 @@ class StockSplitEvent(object):
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._equity_split_ratio = None
         self._payment_date = None
+        self._ex_date = None
+        self._units_ratio = None
         self._record_date = None
+        self._announcement_date = None
         self._instrument_event_type = None
         self.discriminator = None
 
-        self.equity_split_ratio = equity_split_ratio
         self.payment_date = payment_date
+        self.ex_date = ex_date
+        self.units_ratio = units_ratio
         self.record_date = record_date
+        self.announcement_date = announcement_date
         self.instrument_event_type = instrument_event_type
-
-    @property
-    def equity_split_ratio(self):
-        """Gets the equity_split_ratio of this StockSplitEvent.  # noqa: E501
-
-        This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old.  # noqa: E501
-
-        :return: The equity_split_ratio of this StockSplitEvent.  # noqa: E501
-        :rtype: float
-        """
-        return self._equity_split_ratio
-
-    @equity_split_ratio.setter
-    def equity_split_ratio(self, equity_split_ratio):
-        """Sets the equity_split_ratio of this StockSplitEvent.
-
-        This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old.  # noqa: E501
-
-        :param equity_split_ratio: The equity_split_ratio of this StockSplitEvent.  # noqa: E501
-        :type equity_split_ratio: float
-        """
-        if self.local_vars_configuration.client_side_validation and equity_split_ratio is None:  # noqa: E501
-            raise ValueError("Invalid value for `equity_split_ratio`, must not be `None`")  # noqa: E501
-
-        self._equity_split_ratio = equity_split_ratio
 
     @property
     def payment_date(self):
         """Gets the payment_date of this StockSplitEvent.  # noqa: E501
 
-        Date on which the stock-split takes effect.  # noqa: E501
+        Date on which the stock split takes effect.  # noqa: E501
 
         :return: The payment_date of this StockSplitEvent.  # noqa: E501
         :rtype: datetime
@@ -127,7 +116,7 @@ class StockSplitEvent(object):
     def payment_date(self, payment_date):
         """Sets the payment_date of this StockSplitEvent.
 
-        Date on which the stock-split takes effect.  # noqa: E501
+        Date on which the stock split takes effect.  # noqa: E501
 
         :param payment_date: The payment_date of this StockSplitEvent.  # noqa: E501
         :type payment_date: datetime
@@ -138,10 +127,58 @@ class StockSplitEvent(object):
         self._payment_date = payment_date
 
     @property
+    def ex_date(self):
+        """Gets the ex_date of this StockSplitEvent.  # noqa: E501
+
+        The first date on which the shares will trade at the post-split price.  # noqa: E501
+
+        :return: The ex_date of this StockSplitEvent.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._ex_date
+
+    @ex_date.setter
+    def ex_date(self, ex_date):
+        """Sets the ex_date of this StockSplitEvent.
+
+        The first date on which the shares will trade at the post-split price.  # noqa: E501
+
+        :param ex_date: The ex_date of this StockSplitEvent.  # noqa: E501
+        :type ex_date: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and ex_date is None:  # noqa: E501
+            raise ValueError("Invalid value for `ex_date`, must not be `None`")  # noqa: E501
+
+        self._ex_date = ex_date
+
+    @property
+    def units_ratio(self):
+        """Gets the units_ratio of this StockSplitEvent.  # noqa: E501
+
+
+        :return: The units_ratio of this StockSplitEvent.  # noqa: E501
+        :rtype: lusid.UnitsRatio
+        """
+        return self._units_ratio
+
+    @units_ratio.setter
+    def units_ratio(self, units_ratio):
+        """Sets the units_ratio of this StockSplitEvent.
+
+
+        :param units_ratio: The units_ratio of this StockSplitEvent.  # noqa: E501
+        :type units_ratio: lusid.UnitsRatio
+        """
+        if self.local_vars_configuration.client_side_validation and units_ratio is None:  # noqa: E501
+            raise ValueError("Invalid value for `units_ratio`, must not be `None`")  # noqa: E501
+
+        self._units_ratio = units_ratio
+
+    @property
     def record_date(self):
         """Gets the record_date of this StockSplitEvent.  # noqa: E501
 
-        Date you have to be the holder of record in order to participate in the tender.  # noqa: E501
+        Date you have to be the holder of record in order to receive the additional shares.  # noqa: E501
 
         :return: The record_date of this StockSplitEvent.  # noqa: E501
         :rtype: datetime
@@ -152,15 +189,36 @@ class StockSplitEvent(object):
     def record_date(self, record_date):
         """Sets the record_date of this StockSplitEvent.
 
-        Date you have to be the holder of record in order to participate in the tender.  # noqa: E501
+        Date you have to be the holder of record in order to receive the additional shares.  # noqa: E501
 
         :param record_date: The record_date of this StockSplitEvent.  # noqa: E501
         :type record_date: datetime
         """
-        if self.local_vars_configuration.client_side_validation and record_date is None:  # noqa: E501
-            raise ValueError("Invalid value for `record_date`, must not be `None`")  # noqa: E501
 
         self._record_date = record_date
+
+    @property
+    def announcement_date(self):
+        """Gets the announcement_date of this StockSplitEvent.  # noqa: E501
+
+        Date the stock split was announced.  # noqa: E501
+
+        :return: The announcement_date of this StockSplitEvent.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._announcement_date
+
+    @announcement_date.setter
+    def announcement_date(self, announcement_date):
+        """Sets the announcement_date of this StockSplitEvent.
+
+        Date the stock split was announced.  # noqa: E501
+
+        :param announcement_date: The announcement_date of this StockSplitEvent.  # noqa: E501
+        :type announcement_date: datetime
+        """
+
+        self._announcement_date = announcement_date
 
     @property
     def instrument_event_type(self):
