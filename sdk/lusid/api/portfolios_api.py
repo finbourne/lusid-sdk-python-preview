@@ -25,7 +25,6 @@ from lusid.exceptions import (  # noqa: F401
 )
 from lusid.models.access_metadata_operation import AccessMetadataOperation
 from lusid.models.access_metadata_value import AccessMetadataValue
-from lusid.models.action_result_of_portfolio import ActionResultOfPortfolio
 from lusid.models.aggregated_returns_dispersion_request import AggregatedReturnsDispersionRequest
 from lusid.models.aggregated_returns_request import AggregatedReturnsRequest
 from lusid.models.aggregated_returns_response import AggregatedReturnsResponse
@@ -4370,7 +4369,7 @@ class PortfoliosApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ActionResultOfPortfolio
+        :rtype: Portfolio
         """
         kwargs['_return_http_data_only'] = True
         return self.patch_portfolio_with_http_info(scope, code, operation, **kwargs)  # noqa: E501
@@ -4411,7 +4410,7 @@ class PortfoliosApi(object):
         :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: (ActionResultOfPortfolio, int, HTTPHeaderDict)
+        :rtype: (Portfolio, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -4505,7 +4504,7 @@ class PortfoliosApi(object):
         auth_settings = ['oauth2']  # noqa: E501
 
         response_types_map = {
-            200: "ActionResultOfPortfolio",
+            200: "Portfolio",
             400: "LusidValidationProblemDetails",
         }
 

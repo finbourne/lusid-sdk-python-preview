@@ -1745,7 +1745,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_portfolio**
-> ActionResultOfPortfolio patch_portfolio(scope, code, operation)
+> Portfolio patch_portfolio(scope, code, operation)
 
 [EARLY ACCESS] PatchPortfolio: Patch portfolio.
 
@@ -1803,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActionResultOfPortfolio**](ActionResultOfPortfolio.md)
+[**Portfolio**](Portfolio.md)
 
 ### Authorization
 

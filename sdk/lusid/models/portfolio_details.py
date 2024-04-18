@@ -51,6 +51,7 @@ class PortfolioDetails(object):
         'transaction_type_scope': 'str',
         'cash_gain_loss_calculation_date': 'str',
         'instrument_event_configuration': 'InstrumentEventConfiguration',
+        'amortisation_rule_set_id': 'ResourceId',
         'links': 'list[Link]'
     }
 
@@ -67,6 +68,7 @@ class PortfolioDetails(object):
         'transaction_type_scope': 'transactionTypeScope',
         'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate',
         'instrument_event_configuration': 'instrumentEventConfiguration',
+        'amortisation_rule_set_id': 'amortisationRuleSetId',
         'links': 'links'
     }
 
@@ -83,10 +85,11 @@ class PortfolioDetails(object):
         'transaction_type_scope': 'optional',
         'cash_gain_loss_calculation_date': 'optional',
         'instrument_event_configuration': 'optional',
+        'amortisation_rule_set_id': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, origin_portfolio_id=None, version=None, base_currency=None, corporate_action_source_id=None, sub_holding_keys=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, instrument_event_configuration=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, origin_portfolio_id=None, version=None, base_currency=None, corporate_action_source_id=None, sub_holding_keys=None, instrument_scopes=None, accounting_method=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, instrument_event_configuration=None, amortisation_rule_set_id=None, links=None, local_vars_configuration=None):  # noqa: E501
         """PortfolioDetails - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -113,6 +116,8 @@ class PortfolioDetails(object):
         :type cash_gain_loss_calculation_date: str
         :param instrument_event_configuration: 
         :type instrument_event_configuration: lusid.InstrumentEventConfiguration
+        :param amortisation_rule_set_id: 
+        :type amortisation_rule_set_id: lusid.ResourceId
         :param links:  Collection of links.
         :type links: list[lusid.Link]
 
@@ -133,6 +138,7 @@ class PortfolioDetails(object):
         self._transaction_type_scope = None
         self._cash_gain_loss_calculation_date = None
         self._instrument_event_configuration = None
+        self._amortisation_rule_set_id = None
         self._links = None
         self.discriminator = None
 
@@ -151,6 +157,8 @@ class PortfolioDetails(object):
         self.cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
         if instrument_event_configuration is not None:
             self.instrument_event_configuration = instrument_event_configuration
+        if amortisation_rule_set_id is not None:
+            self.amortisation_rule_set_id = amortisation_rule_set_id
         self.links = links
 
     @property
@@ -430,6 +438,27 @@ class PortfolioDetails(object):
         """
 
         self._instrument_event_configuration = instrument_event_configuration
+
+    @property
+    def amortisation_rule_set_id(self):
+        """Gets the amortisation_rule_set_id of this PortfolioDetails.  # noqa: E501
+
+
+        :return: The amortisation_rule_set_id of this PortfolioDetails.  # noqa: E501
+        :rtype: lusid.ResourceId
+        """
+        return self._amortisation_rule_set_id
+
+    @amortisation_rule_set_id.setter
+    def amortisation_rule_set_id(self, amortisation_rule_set_id):
+        """Sets the amortisation_rule_set_id of this PortfolioDetails.
+
+
+        :param amortisation_rule_set_id: The amortisation_rule_set_id of this PortfolioDetails.  # noqa: E501
+        :type amortisation_rule_set_id: lusid.ResourceId
+        """
+
+        self._amortisation_rule_set_id = amortisation_rule_set_id
 
     @property
     def links(self):

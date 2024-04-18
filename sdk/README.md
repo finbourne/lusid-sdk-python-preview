@@ -277,7 +277,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**get_fund**](docs/FundsApi.md#get_fund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund.
 *FundsApi* | [**get_valuation_point_data**](docs/FundsApi.md#get_valuation_point_data) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
 *FundsApi* | [**list_funds**](docs/FundsApi.md#list_funds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds.
-*FundsApi* | [**set_share_class_instruments**](docs/FundsApi.md#set_share_class_instruments) | **POST** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+*FundsApi* | [**set_share_class_instruments**](docs/FundsApi.md#set_share_class_instruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
 *FundsApi* | [**upsert_fund_properties**](docs/FundsApi.md#upsert_fund_properties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
 *FundsApi* | [**upsert_valuation_point**](docs/FundsApi.md#upsert_valuation_point) | **POST** /api/funds/{scope}/{code}/valuationpoints/$upsert | [EXPERIMENTAL] UpsertValuationPoint: Upsert Valuation Point.
 *InstrumentEventTypesApi* | [**create_transaction_template**](docs/InstrumentEventTypesApi.md#create_transaction_template) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
@@ -617,7 +617,6 @@ Class | Method | HTTP request | Description
  - [AccumulationEvent](docs/AccumulationEvent.md)
  - [AccumulationEventAllOf](docs/AccumulationEventAllOf.md)
  - [ActionId](docs/ActionId.md)
- - [ActionResultOfPortfolio](docs/ActionResultOfPortfolio.md)
  - [AddBusinessDaysToDateRequest](docs/AddBusinessDaysToDateRequest.md)
  - [AddBusinessDaysToDateResponse](docs/AddBusinessDaysToDateResponse.md)
  - [AdditionalPayment](docs/AdditionalPayment.md)

@@ -50,7 +50,8 @@ class CreateDerivedTransactionPortfolioRequest(object):
         'instrument_scopes': 'list[str]',
         'amortisation_method': 'str',
         'transaction_type_scope': 'str',
-        'cash_gain_loss_calculation_date': 'str'
+        'cash_gain_loss_calculation_date': 'str',
+        'amortisation_rule_set_id': 'ResourceId'
     }
 
     attribute_map = {
@@ -65,7 +66,8 @@ class CreateDerivedTransactionPortfolioRequest(object):
         'instrument_scopes': 'instrumentScopes',
         'amortisation_method': 'amortisationMethod',
         'transaction_type_scope': 'transactionTypeScope',
-        'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate'
+        'cash_gain_loss_calculation_date': 'cashGainLossCalculationDate',
+        'amortisation_rule_set_id': 'amortisationRuleSetId'
     }
 
     required_map = {
@@ -80,10 +82,11 @@ class CreateDerivedTransactionPortfolioRequest(object):
         'instrument_scopes': 'optional',
         'amortisation_method': 'optional',
         'transaction_type_scope': 'optional',
-        'cash_gain_loss_calculation_date': 'optional'
+        'cash_gain_loss_calculation_date': 'optional',
+        'amortisation_rule_set_id': 'optional'
     }
 
-    def __init__(self, display_name=None, description=None, code=None, parent_portfolio_id=None, created=None, corporate_action_source_id=None, accounting_method=None, sub_holding_keys=None, instrument_scopes=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, description=None, code=None, parent_portfolio_id=None, created=None, corporate_action_source_id=None, accounting_method=None, sub_holding_keys=None, instrument_scopes=None, amortisation_method=None, transaction_type_scope=None, cash_gain_loss_calculation_date=None, amortisation_rule_set_id=None, local_vars_configuration=None):  # noqa: E501
         """CreateDerivedTransactionPortfolioRequest - a model defined in OpenAPI"
         
         :param display_name:  The name of the derived transaction portfolio. (required)
@@ -110,6 +113,8 @@ class CreateDerivedTransactionPortfolioRequest(object):
         :type transaction_type_scope: str
         :param cash_gain_loss_calculation_date:  The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.
         :type cash_gain_loss_calculation_date: str
+        :param amortisation_rule_set_id: 
+        :type amortisation_rule_set_id: lusid.ResourceId
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -128,6 +133,7 @@ class CreateDerivedTransactionPortfolioRequest(object):
         self._amortisation_method = None
         self._transaction_type_scope = None
         self._cash_gain_loss_calculation_date = None
+        self._amortisation_rule_set_id = None
         self.discriminator = None
 
         self.display_name = display_name
@@ -144,6 +150,8 @@ class CreateDerivedTransactionPortfolioRequest(object):
         self.amortisation_method = amortisation_method
         self.transaction_type_scope = transaction_type_scope
         self.cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
+        if amortisation_rule_set_id is not None:
+            self.amortisation_rule_set_id = amortisation_rule_set_id
 
     @property
     def display_name(self):
@@ -467,6 +475,27 @@ class CreateDerivedTransactionPortfolioRequest(object):
         """
 
         self._cash_gain_loss_calculation_date = cash_gain_loss_calculation_date
+
+    @property
+    def amortisation_rule_set_id(self):
+        """Gets the amortisation_rule_set_id of this CreateDerivedTransactionPortfolioRequest.  # noqa: E501
+
+
+        :return: The amortisation_rule_set_id of this CreateDerivedTransactionPortfolioRequest.  # noqa: E501
+        :rtype: lusid.ResourceId
+        """
+        return self._amortisation_rule_set_id
+
+    @amortisation_rule_set_id.setter
+    def amortisation_rule_set_id(self, amortisation_rule_set_id):
+        """Sets the amortisation_rule_set_id of this CreateDerivedTransactionPortfolioRequest.
+
+
+        :param amortisation_rule_set_id: The amortisation_rule_set_id of this CreateDerivedTransactionPortfolioRequest.  # noqa: E501
+        :type amortisation_rule_set_id: lusid.ResourceId
+        """
+
+        self._amortisation_rule_set_id = amortisation_rule_set_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
