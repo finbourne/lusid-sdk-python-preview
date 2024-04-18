@@ -342,8 +342,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `add_date_to_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `add_date_to_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -665,8 +663,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `delete_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -845,8 +841,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `delete_date_from_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `delete_date_from_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         if self.api_client.client_side_validation and ('date_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['date_id']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `date_id` when calling `delete_date_from_calendar`, length must be less than or equal to `256`")  # noqa: E501
@@ -1209,8 +1203,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `get_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1405,8 +1397,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `get_dates`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `get_dates`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         if self.api_client.client_side_validation and ('from_effective_at' in local_var_params and  # noqa: E501
                                                         len(local_var_params['from_effective_at']) > 256):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `from_effective_at` when calling `get_dates`, length must be less than or equal to `256`")  # noqa: E501
@@ -1615,8 +1605,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `is_business_date_time`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `is_business_date_time`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -2196,8 +2184,6 @@ class CalendarsApi(object):
         if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
                                                         len(local_var_params['code']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `code` when calling `update_calendar`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `code` when calling `update_calendar`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
