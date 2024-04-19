@@ -1301,6 +1301,7 @@ Class | Method | HTTP request | Description
  - [PropertyLifeTime](docs/PropertyLifeTime.md)
  - [PropertyList](docs/PropertyList.md)
  - [PropertyListAllOf](docs/PropertyListAllOf.md)
+ - [PropertyListComplianceParameter](docs/PropertyListComplianceParameter.md)
  - [PropertySchema](docs/PropertySchema.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyValue](docs/PropertyValue.md)

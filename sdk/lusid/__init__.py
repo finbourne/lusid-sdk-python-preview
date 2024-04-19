@@ -796,6 +796,7 @@ from lusid.models.property_key_list_compliance_parameter import PropertyKeyListC
 from lusid.models.property_life_time import PropertyLifeTime
 from lusid.models.property_list import PropertyList
 from lusid.models.property_list_all_of import PropertyListAllOf
+from lusid.models.property_list_compliance_parameter import PropertyListComplianceParameter
 from lusid.models.property_schema import PropertySchema
 from lusid.models.property_type import PropertyType
 from lusid.models.property_value import PropertyValue

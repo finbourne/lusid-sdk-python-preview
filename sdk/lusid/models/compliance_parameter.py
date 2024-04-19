@@ -58,6 +58,7 @@ class ComplianceParameter(object):
         'PortfolioGroupIdListComplianceParameter': 'PortfolioGroupIdListComplianceParameter',
         'PortfolioIdListComplianceParameter': 'PortfolioIdListComplianceParameter',
         'PropertyKeyComplianceParameter': 'PropertyKeyComplianceParameter',
+        'PropertyListComplianceParameter': 'PropertyListComplianceParameter',
         'InstrumentListComplianceParameter': 'InstrumentListComplianceParameter',
         'BoolComplianceParameter': 'BoolComplianceParameter',
         'FilterPredicateComplianceParameter': 'FilterPredicateComplianceParameter',
@@ -76,7 +77,7 @@ class ComplianceParameter(object):
     def __init__(self, compliance_parameter_type=None, local_vars_configuration=None):  # noqa: E501
         """ComplianceParameter - a model defined in OpenAPI"
         
-        :param compliance_parameter_type:  The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter (required)
+        :param compliance_parameter_type:  The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter (required)
         :type compliance_parameter_type: str
 
         """  # noqa: E501
@@ -93,7 +94,7 @@ class ComplianceParameter(object):
     def compliance_parameter_type(self):
         """Gets the compliance_parameter_type of this ComplianceParameter.  # noqa: E501
 
-        The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter  # noqa: E501
+        The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter  # noqa: E501
 
         :return: The compliance_parameter_type of this ComplianceParameter.  # noqa: E501
         :rtype: str
@@ -104,14 +105,14 @@ class ComplianceParameter(object):
     def compliance_parameter_type(self, compliance_parameter_type):
         """Sets the compliance_parameter_type of this ComplianceParameter.
 
-        The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter  # noqa: E501
+        The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter  # noqa: E501
 
         :param compliance_parameter_type: The compliance_parameter_type of this ComplianceParameter.  # noqa: E501
         :type compliance_parameter_type: str
         """
         if self.local_vars_configuration.client_side_validation and compliance_parameter_type is None:  # noqa: E501
             raise ValueError("Invalid value for `compliance_parameter_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["BoolComplianceParameter", "StringComplianceParameter", "DecimalComplianceParameter", "DateTimeComplianceParameter", "PropertyKeyComplianceParameter", "AddressKeyComplianceParameter", "PortfolioIdComplianceParameter", "PortfolioGroupIdComplianceParameter", "StringListComplianceParameter", "BoolListComplianceParameter", "DateTimeListComplianceParameter", "DecimalListComplianceParameter", "PropertyKeyListComplianceParameter", "AddressKeyListComplianceParameter", "PortfolioIdListComplianceParameter", "PortfolioGroupIdListComplianceParameter", "InstrumentListComplianceParameter", "FilterPredicateComplianceParameter", "GroupFilterPredicateComplianceParameter", "GroupBySelectorComplianceParameter"]  # noqa: E501
+        allowed_values = ["BoolComplianceParameter", "StringComplianceParameter", "DecimalComplianceParameter", "DateTimeComplianceParameter", "PropertyKeyComplianceParameter", "AddressKeyComplianceParameter", "PortfolioIdComplianceParameter", "PortfolioGroupIdComplianceParameter", "StringListComplianceParameter", "BoolListComplianceParameter", "DateTimeListComplianceParameter", "DecimalListComplianceParameter", "PropertyKeyListComplianceParameter", "AddressKeyListComplianceParameter", "PortfolioIdListComplianceParameter", "PortfolioGroupIdListComplianceParameter", "InstrumentListComplianceParameter", "FilterPredicateComplianceParameter", "GroupFilterPredicateComplianceParameter", "GroupBySelectorComplianceParameter", "PropertyListComplianceParameter"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and compliance_parameter_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `compliance_parameter_type` ({0}), must be one of {1}"  # noqa: E501
