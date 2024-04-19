@@ -50,6 +50,7 @@ class FlowConventions(object):
         'leap_days_included': 'bool',
         'accrual_date_adjustment': 'str',
         'business_day_convention': 'str',
+        'accrual_day_count_convention': 'str',
         'scope': 'str',
         'code': 'str'
     }
@@ -66,6 +67,7 @@ class FlowConventions(object):
         'leap_days_included': 'leapDaysIncluded',
         'accrual_date_adjustment': 'accrualDateAdjustment',
         'business_day_convention': 'businessDayConvention',
+        'accrual_day_count_convention': 'accrualDayCountConvention',
         'scope': 'scope',
         'code': 'code'
     }
@@ -82,11 +84,12 @@ class FlowConventions(object):
         'leap_days_included': 'optional',
         'accrual_date_adjustment': 'optional',
         'business_day_convention': 'optional',
+        'accrual_day_count_convention': 'optional',
         'scope': 'optional',
         'code': 'optional'
     }
 
-    def __init__(self, currency=None, payment_frequency=None, day_count_convention=None, roll_convention=None, payment_calendars=None, reset_calendars=None, settle_days=None, reset_days=None, leap_days_included=None, accrual_date_adjustment=None, business_day_convention=None, scope=None, code=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, currency=None, payment_frequency=None, day_count_convention=None, roll_convention=None, payment_calendars=None, reset_calendars=None, settle_days=None, reset_days=None, leap_days_included=None, accrual_date_adjustment=None, business_day_convention=None, accrual_day_count_convention=None, scope=None, code=None, local_vars_configuration=None):  # noqa: E501
         """FlowConventions - a model defined in OpenAPI"
         
         :param currency:  Currency of the flow convention. (required)
@@ -111,6 +114,8 @@ class FlowConventions(object):
         :type accrual_date_adjustment: str
         :param business_day_convention:  When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
         :type business_day_convention: str
+        :param accrual_day_count_convention:  Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation.
+        :type accrual_day_count_convention: str
         :param scope:  The scope used when updating or inserting the convention.
         :type scope: str
         :param code:  The code of the convention.
@@ -132,6 +137,7 @@ class FlowConventions(object):
         self._leap_days_included = None
         self._accrual_date_adjustment = None
         self._business_day_convention = None
+        self._accrual_day_count_convention = None
         self._scope = None
         self._code = None
         self.discriminator = None
@@ -149,6 +155,7 @@ class FlowConventions(object):
         self.leap_days_included = leap_days_included
         self.accrual_date_adjustment = accrual_date_adjustment
         self.business_day_convention = business_day_convention
+        self.accrual_day_count_convention = accrual_day_count_convention
         self.scope = scope
         self.code = code
 
@@ -440,6 +447,35 @@ class FlowConventions(object):
         """
 
         self._business_day_convention = business_day_convention
+
+    @property
+    def accrual_day_count_convention(self):
+        """Gets the accrual_day_count_convention of this FlowConventions.  # noqa: E501
+
+        Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation.  # noqa: E501
+
+        :return: The accrual_day_count_convention of this FlowConventions.  # noqa: E501
+        :rtype: str
+        """
+        return self._accrual_day_count_convention
+
+    @accrual_day_count_convention.setter
+    def accrual_day_count_convention(self, accrual_day_count_convention):
+        """Sets the accrual_day_count_convention of this FlowConventions.
+
+        Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation.  # noqa: E501
+
+        :param accrual_day_count_convention: The accrual_day_count_convention of this FlowConventions.  # noqa: E501
+        :type accrual_day_count_convention: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                accrual_day_count_convention is not None and len(accrual_day_count_convention) > 50):
+            raise ValueError("Invalid value for `accrual_day_count_convention`, length must be less than or equal to `50`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                accrual_day_count_convention is not None and len(accrual_day_count_convention) < 0):
+            raise ValueError("Invalid value for `accrual_day_count_convention`, length must be greater than or equal to `0`")  # noqa: E501
+
+        self._accrual_day_count_convention = accrual_day_count_convention
 
     @property
     def scope(self):
