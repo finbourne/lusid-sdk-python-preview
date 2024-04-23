@@ -1459,6 +1459,8 @@ Class | Method | HTTP request | Description
  - [ResultValueString](docs/ResultValueString.md)
  - [ResultValueStringAllOf](docs/ResultValueStringAllOf.md)
  - [ResultValueType](docs/ResultValueType.md)
+ - [ReverseStockSplitEvent](docs/ReverseStockSplitEvent.md)
+ - [ReverseStockSplitEventAllOf](docs/ReverseStockSplitEventAllOf.md)
  - [RoundingConfiguration](docs/RoundingConfiguration.md)
  - [RoundingConfigurationComponent](docs/RoundingConfigurationComponent.md)
  - [RoundingConvention](docs/RoundingConvention.md)
