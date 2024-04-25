@@ -114,7 +114,7 @@ class InflationLinkedBond(object):
         :type base_cpi: float
         :param base_cpi_date:  BaseCPIDate. This is optional. Gives the date that the BaseCPI is calculated for.                Note this is an un-lagged date (similar to StartDate) so the Bond ObservationLag will  be applied to this date when calculating the CPI.                The BaseCPI of an inflation linked bond is calculated using the following logic:  - If a BaseCPI value is provided, this is used.  - Otherwise, if BaseCPIDate is provided, the CPI for this date is calculated and used.  - Otherwise, the CPI for the StartDate is calculated and used.                Note that if both BaseCPI and BaseCPIDate are set, the BaseCPI value will be used and the BaseCPIDate  will be ignored but can still be added for informative purposes.                Some bonds are issued with a BaseCPI date that does not correspond to the StartDate CPI value, in this  case the value should be provided here or with the actual BaseCPI.
         :type base_cpi_date: datetime
-        :param calculation_type:  The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil].
+        :param calculation_type:  The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil, StandardAccruedOnly, RatioAccruedOnly, StandardWithCappedAccruedInterest].
         :type calculation_type: str
         :param ex_dividend_days:  Number of Good Business Days before the next coupon payment, in which the bond goes ex-dividend.
         :type ex_dividend_days: int
@@ -367,7 +367,7 @@ class InflationLinkedBond(object):
     def calculation_type(self):
         """Gets the calculation_type of this InflationLinkedBond.  # noqa: E501
 
-        The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil].  # noqa: E501
+        The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil, StandardAccruedOnly, RatioAccruedOnly, StandardWithCappedAccruedInterest].  # noqa: E501
 
         :return: The calculation_type of this InflationLinkedBond.  # noqa: E501
         :rtype: str
@@ -378,11 +378,17 @@ class InflationLinkedBond(object):
     def calculation_type(self, calculation_type):
         """Sets the calculation_type of this InflationLinkedBond.
 
-        The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil].  # noqa: E501
+        The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard`.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil, StandardAccruedOnly, RatioAccruedOnly, StandardWithCappedAccruedInterest].  # noqa: E501
 
         :param calculation_type: The calculation_type of this InflationLinkedBond.  # noqa: E501
         :type calculation_type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                calculation_type is not None and len(calculation_type) > 50):
+            raise ValueError("Invalid value for `calculation_type`, length must be less than or equal to `50`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                calculation_type is not None and len(calculation_type) < 0):
+            raise ValueError("Invalid value for `calculation_type`, length must be greater than or equal to `0`")  # noqa: E501
 
         self._calculation_type = calculation_type
 

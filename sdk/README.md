@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *AborApi* | [**list_abors**](docs/AborApi.md#list_abors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors.
 *AborApi* | [**list_diary_entries**](docs/AborApi.md#list_diary_entries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] ListDiaryEntries: List diary entries.
 *AborApi* | [**lock_period**](docs/AborApi.md#lock_period) | **POST** /api/abor/{scope}/{code}/accountingdiary/$lockperiod | [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+*AborApi* | [**patch_abor**](docs/AborApi.md#patch_abor) | **PATCH** /api/abor/{scope}/{code} | [EXPERIMENTAL] PatchAbor: Patch Abor.
 *AborApi* | [**re_open_periods**](docs/AborApi.md#re_open_periods) | **POST** /api/abor/{scope}/{code}/accountingdiary/$reopenperiods | [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
 *AborApi* | [**upsert_abor_properties**](docs/AborApi.md#upsert_abor_properties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
 *AborConfigurationApi* | [**create_abor_configuration**](docs/AborConfigurationApi.md#create_abor_configuration) | **POST** /api/aborconfiguration/{scope} | [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.

@@ -35,6 +35,7 @@ from lusid.models.lock_period_diary_entry_request import LockPeriodDiaryEntryReq
 from lusid.models.lusid_problem_details import LusidProblemDetails
 from lusid.models.lusid_validation_problem_details import LusidValidationProblemDetails
 from lusid.models.model_property import ModelProperty
+from lusid.models.operation import Operation
 from lusid.models.paged_resource_list_of_abor import PagedResourceListOfAbor
 from lusid.models.paged_resource_list_of_diary_entry import PagedResourceListOfDiaryEntry
 from lusid.models.period_diary_entries_reopened_response import PeriodDiaryEntriesReopenedResponse
@@ -2045,6 +2046,191 @@ class AborApi(object):
 
         return self.api_client.call_api(
             '/api/abor/{scope}/{code}/accountingdiary/$lockperiod', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def patch_abor(self, scope, code, operation, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] PatchAbor: Patch Abor.  # noqa: E501
+
+        Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_abor(scope, code, operation, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Abor. (required)
+        :type scope: str
+        :param code: The code of the Abor. Together with the               scope this uniquely identifies the Abor. (required)
+        :type code: str
+        :param operation: The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. (required)
+        :type operation: list[Operation]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Abor
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.patch_abor_with_http_info(scope, code, operation, **kwargs)  # noqa: E501
+
+    def patch_abor_with_http_info(self, scope, code, operation, **kwargs):  # noqa: E501
+        """[EXPERIMENTAL] PatchAbor: Patch Abor.  # noqa: E501
+
+        Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_abor_with_http_info(scope, code, operation, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the Abor. (required)
+        :type scope: str
+        :param code: The code of the Abor. Together with the               scope this uniquely identifies the Abor. (required)
+        :type code: str
+        :param operation: The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. (required)
+        :type operation: list[Operation]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (Abor, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'operation'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method patch_abor" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `patch_abor`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `patch_abor`")  # noqa: E501
+        # verify the required parameter 'operation' is set
+        if self.api_client.client_side_validation and ('operation' not in local_var_params or  # noqa: E501
+                                                        local_var_params['operation'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `operation` when calling `patch_abor`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `patch_abor`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `patch_abor`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `patch_abor`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `patch_abor`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `patch_abor`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `patch_abor`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'operation' in local_var_params:
+            body_params = local_var_params['operation']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.127'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "Abor",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/abor/{scope}/{code}', 'PATCH',
             path_params,
             query_params,
             header_params,

@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**list_abors**](AborApi.md#list_abors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors.
 [**list_diary_entries**](AborApi.md#list_diary_entries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] ListDiaryEntries: List diary entries.
 [**lock_period**](AborApi.md#lock_period) | **POST** /api/abor/{scope}/{code}/accountingdiary/$lockperiod | [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+[**patch_abor**](AborApi.md#patch_abor) | **PATCH** /api/abor/{scope}/{code} | [EXPERIMENTAL] PatchAbor: Patch Abor.
 [**re_open_periods**](AborApi.md#re_open_periods) | **POST** /api/abor/{scope}/{code}/accountingdiary/$reopenperiods | [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
 [**upsert_abor_properties**](AborApi.md#upsert_abor_properties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
 
@@ -841,6 +842,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The updated DiaryEntry as a result of the locking of the Period. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **patch_abor**
+> Abor patch_abor(scope, code, operation)
+
+[EXPERIMENTAL] PatchAbor: Patch Abor.
+
+Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.AborApi(api_client)
+    scope = 'scope_example' # str | The scope of the Abor.
+code = 'code_example' # str | The code of the Abor. Together with the               scope this uniquely identifies the Abor.
+operation = [{"value":[{"scope":"UKScope","code":"Portfolio1","portfolioEntityType":"SinglePortfolio"},{"scope":"UKScope","code":"Portfolio2","portfolioEntityType":"SinglePortfolio"}],"path":"/portfolioids","op":"add"}] # list[Operation] | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
+
+    try:
+        # [EXPERIMENTAL] PatchAbor: Patch Abor.
+        api_response = api_instance.patch_abor(scope, code, operation)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AborApi->patch_abor: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Abor. | 
+ **code** | **str**| The code of the Abor. Together with the               scope this uniquely identifies the Abor. | 
+ **operation** | [**list[Operation]**](Operation.md)| The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. | 
+
+### Return type
+
+[**Abor**](Abor.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The newly patched Abor |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
