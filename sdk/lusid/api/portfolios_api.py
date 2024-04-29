@@ -1466,7 +1466,7 @@ class PortfoliosApi(object):
             _request_auth=local_var_params.get('_request_auth'))
 
     def get_portfolio_aggregate_returns(self, scope, code, return_scope, return_code, **kwargs):  # noqa: E501
-        """[EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).  # noqa: E501
+        """[DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).  # noqa: E501
 
         Aggregate Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1522,7 +1522,7 @@ class PortfoliosApi(object):
         return self.get_portfolio_aggregate_returns_with_http_info(scope, code, return_scope, return_code, **kwargs)  # noqa: E501
 
     def get_portfolio_aggregate_returns_with_http_info(self, scope, code, return_scope, return_code, **kwargs):  # noqa: E501
-        """[EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).  # noqa: E501
+        """[DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).  # noqa: E501
 
         Aggregate Returns which are on the specified portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
