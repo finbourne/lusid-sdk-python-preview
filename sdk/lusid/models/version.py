@@ -48,7 +48,8 @@ class Version(object):
         'user_id_modified': 'str',
         'request_id_modified': 'str',
         'as_at_version_number': 'int',
-        'entity_unique_id': 'str'
+        'entity_unique_id': 'str',
+        'staged_modification_id_modified': 'str'
     }
 
     attribute_map = {
@@ -61,7 +62,8 @@ class Version(object):
         'user_id_modified': 'userIdModified',
         'request_id_modified': 'requestIdModified',
         'as_at_version_number': 'asAtVersionNumber',
-        'entity_unique_id': 'entityUniqueId'
+        'entity_unique_id': 'entityUniqueId',
+        'staged_modification_id_modified': 'stagedModificationIdModified'
     }
 
     required_map = {
@@ -74,10 +76,11 @@ class Version(object):
         'user_id_modified': 'optional',
         'request_id_modified': 'optional',
         'as_at_version_number': 'optional',
-        'entity_unique_id': 'optional'
+        'entity_unique_id': 'optional',
+        'staged_modification_id_modified': 'optional'
     }
 
-    def __init__(self, effective_from=None, as_at_date=None, as_at_created=None, user_id_created=None, request_id_created=None, as_at_modified=None, user_id_modified=None, request_id_modified=None, as_at_version_number=None, entity_unique_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, effective_from=None, as_at_date=None, as_at_created=None, user_id_created=None, request_id_created=None, as_at_modified=None, user_id_modified=None, request_id_modified=None, as_at_version_number=None, entity_unique_id=None, staged_modification_id_modified=None, local_vars_configuration=None):  # noqa: E501
         """Version - a model defined in OpenAPI"
         
         :param effective_from:  The effective datetime at which this version became valid. Only applies when a single entity is being interacted with. (required)
@@ -100,6 +103,8 @@ class Version(object):
         :type as_at_version_number: int
         :param entity_unique_id:  The unique id of the entity
         :type entity_unique_id: str
+        :param staged_modification_id_modified:  The ID of the staged change that resulted in the most recent modification.
+        :type staged_modification_id_modified: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -116,6 +121,7 @@ class Version(object):
         self._request_id_modified = None
         self._as_at_version_number = None
         self._entity_unique_id = None
+        self._staged_modification_id_modified = None
         self.discriminator = None
 
         self.effective_from = effective_from
@@ -128,6 +134,7 @@ class Version(object):
         self.request_id_modified = request_id_modified
         self.as_at_version_number = as_at_version_number
         self.entity_unique_id = entity_unique_id
+        self.staged_modification_id_modified = staged_modification_id_modified
 
     @property
     def effective_from(self):
@@ -362,6 +369,29 @@ class Version(object):
         """
 
         self._entity_unique_id = entity_unique_id
+
+    @property
+    def staged_modification_id_modified(self):
+        """Gets the staged_modification_id_modified of this Version.  # noqa: E501
+
+        The ID of the staged change that resulted in the most recent modification.  # noqa: E501
+
+        :return: The staged_modification_id_modified of this Version.  # noqa: E501
+        :rtype: str
+        """
+        return self._staged_modification_id_modified
+
+    @staged_modification_id_modified.setter
+    def staged_modification_id_modified(self, staged_modification_id_modified):
+        """Sets the staged_modification_id_modified of this Version.
+
+        The ID of the staged change that resulted in the most recent modification.  # noqa: E501
+
+        :param staged_modification_id_modified: The staged_modification_id_modified of this Version.  # noqa: E501
+        :type staged_modification_id_modified: str
+        """
+
+        self._staged_modification_id_modified = staged_modification_id_modified
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

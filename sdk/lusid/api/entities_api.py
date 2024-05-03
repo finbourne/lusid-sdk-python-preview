@@ -146,13 +146,13 @@ class EntitiesApi(object):
             raise ApiValueError("Missing the required parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`")  # noqa: E501
 
         if self.api_client.client_side_validation and ('entity_unique_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['entity_unique_id']) > 64):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, length must be less than or equal to `64`")  # noqa: E501
+                                                        len(local_var_params['entity_unique_id']) > 40):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, length must be less than or equal to `40`")  # noqa: E501
         if self.api_client.client_side_validation and ('entity_unique_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['entity_unique_id']) < 1):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'entity_unique_id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['entity_unique_id']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+                                                        len(local_var_params['entity_unique_id']) < 30):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, length must be greater than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'entity_unique_id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-]+$', local_var_params['entity_unique_id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `entity_unique_id` when calling `get_portfolio_by_entity_unique_id`, must conform to the pattern `/^[a-zA-Z0-9\-]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
