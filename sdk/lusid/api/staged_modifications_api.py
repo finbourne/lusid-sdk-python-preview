@@ -147,13 +147,13 @@ class StagedModificationsApi(object):
             raise ApiValueError("Missing the required parameter `staged_modification_decision_request` when calling `add_decision`")  # noqa: E501
 
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) > 64):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, length must be less than or equal to `64`")  # noqa: E501
+                                                        len(local_var_params['id']) > 40):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, length must be less than or equal to `40`")  # noqa: E501
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) < 1):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+                                                        len(local_var_params['id']) < 30):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, length must be greater than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-]+$', local_var_params['id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `add_decision`, must conform to the pattern `/^[a-zA-Z0-9\-]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -309,13 +309,13 @@ class StagedModificationsApi(object):
             raise ApiValueError("Missing the required parameter `id` when calling `get_staged_modification`")  # noqa: E501
 
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) > 64):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, length must be less than or equal to `64`")  # noqa: E501
+                                                        len(local_var_params['id']) > 40):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, length must be less than or equal to `40`")  # noqa: E501
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) < 1):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+                                                        len(local_var_params['id']) < 30):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, length must be greater than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-]+$', local_var_params['id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `get_staged_modification`, must conform to the pattern `/^[a-zA-Z0-9\-]+$/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -488,13 +488,13 @@ class StagedModificationsApi(object):
             raise ApiValueError("Missing the required parameter `id` when calling `list_requested_changes`")  # noqa: E501
 
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) > 64):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, length must be less than or equal to `64`")  # noqa: E501
+                                                        len(local_var_params['id']) > 40):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, length must be less than or equal to `40`")  # noqa: E501
         if self.api_client.client_side_validation and ('id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['id']) < 1):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['id']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+                                                        len(local_var_params['id']) < 30):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, length must be greater than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'id' in local_var_params and not re.search(r'^[a-zA-Z0-9\-]+$', local_var_params['id']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `id` when calling `list_requested_changes`, must conform to the pattern `/^[a-zA-Z0-9\-]+$/`")  # noqa: E501
         if self.api_client.client_side_validation and ('page' in local_var_params and  # noqa: E501
                                                         len(local_var_params['page']) > 500):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_requested_changes`, length must be less than or equal to `500`")  # noqa: E501
