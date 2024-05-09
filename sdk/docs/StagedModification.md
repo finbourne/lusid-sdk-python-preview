@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **entity_unique_id** | **str** | The unique Id of the entity the staged modification applies to. | [optional] 
 **requested_changes** | [**RequestedChanges**](RequestedChanges.md) |  | [optional] 
 **entity_hrefs** | [**StagedModificationsEntityHrefs**](StagedModificationsEntityHrefs.md) |  | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
