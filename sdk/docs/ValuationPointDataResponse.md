@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **dealing** | **dict(str, float)** | Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period. | 
 **pn_l** | **dict(str, float)** | Bucket of detail for &#39;PnL&#39; that has occured inside the queried period. | 
 **gav** | **float** | The Gross Asset Value of the Fund at the Period end. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. | 
-**fees** | **dict(str, float)** | Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. | 
+**fees** | [**dict(str, FeeAccrual)**](FeeAccrual.md) | Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. | 
 **nav** | **float** | The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period. | 
 **previous_nav** | **float** | The Net Asset Value of the Fund at the End of the last Period. | 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 

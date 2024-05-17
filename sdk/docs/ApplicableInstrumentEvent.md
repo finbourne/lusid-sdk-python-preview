@@ -1,0 +1,21 @@
+# ApplicableInstrumentEvent
+
+Represents applicable instrument event.
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**portfolio_id** | [**ResourceId**](ResourceId.md) |  | 
+**holding_id** | **int** |  | 
+**lusid_instrument_id** | **str** |  | 
+**instrument_scope** | **str** |  | 
+**instrument_type** | **str** |  | 
+**instrument_event_type** | **str** |  | 
+**instrument_event_id** | **str** |  | 
+**generated_event** | [**InstrumentEventHolder**](InstrumentEventHolder.md) |  | 
+**loaded_event** | [**InstrumentEventHolder**](InstrumentEventHolder.md) |  | 
+**transactions** | [**list[Transaction]**](Transaction.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
