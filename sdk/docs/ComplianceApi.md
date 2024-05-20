@@ -4,7 +4,9 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_compliance_template**](ComplianceApi.md#create_compliance_template) | **POST** /api/compliance/templates/{scope} | [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
 [**delete_compliance_rule**](ComplianceApi.md#delete_compliance_rule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
+[**delete_compliance_template**](ComplianceApi.md#delete_compliance_template) | **DELETE** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
 [**get_compliance_rule**](ComplianceApi.md#get_compliance_rule) | **GET** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] GetComplianceRule: Get compliance rule.
 [**get_compliance_rule_result**](ComplianceApi.md#get_compliance_rule_result) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
 [**get_compliance_template**](ComplianceApi.md#get_compliance_template) | **GET** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
@@ -13,9 +15,87 @@ Method | HTTP request | Description
 [**list_compliance_runs**](ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance/runs | [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
 [**list_compliance_templates**](ComplianceApi.md#list_compliance_templates) | **GET** /api/compliance/templates | [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
 [**run_compliance**](ComplianceApi.md#run_compliance) | **POST** /api/compliance/runs | [EARLY ACCESS] RunCompliance: Run a compliance check.
+[**update_compliance_template**](ComplianceApi.md#update_compliance_template) | **PUT** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
 [**upsert_compliance_rule**](ComplianceApi.md#upsert_compliance_rule) | **POST** /api/compliance/rules | [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
 [**upsert_compliance_run_summary**](ComplianceApi.md#upsert_compliance_run_summary) | **POST** /api/compliance/runs/summary | [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
 
+
+# **create_compliance_template**
+> ComplianceRuleTemplate create_compliance_template(scope, create_compliance_template_request)
+
+[EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+
+Use this endpoint to create a compliance template.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    scope = 'scope_example' # str | The scope of the Compliance Rule Template.
+create_compliance_template_request = {"code":"MyCode","description":"Some compliance rule template description","variations":[{"label":"Some variation label","description":"Some variation description","outcomeDescription":"Some outcome description","referencedGroupLabel":"Some referenced group label","steps":[{"label":"ExcludingCash","complianceStepType":"FilterStepRequest"},{"label":"GroupByProperty","complianceStepType":"GroupByStepRequest"},{"label":"BranchByProperty","complianceStepType":"BranchStepRequest"},{"label":"Compare","complianceStepType":"GroupFilterStepRequest"}]}]} # CreateComplianceTemplateRequest | Request to create a compliance rule template.
+
+    try:
+        # [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+        api_response = api_instance.create_compliance_template(scope, create_compliance_template_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->create_compliance_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Compliance Rule Template. | 
+ **create_compliance_template_request** | [**CreateComplianceTemplateRequest**](CreateComplianceTemplateRequest.md)| Request to create a compliance rule template. | 
+
+### Return type
+
+[**ComplianceRuleTemplate**](ComplianceRuleTemplate.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The newly created compliance rule template |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_compliance_rule**
 > DeletedEntityResponse delete_compliance_rule(scope, code)
@@ -89,6 +169,83 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_compliance_template**
+> DeletedEntityResponse delete_compliance_template(scope, code)
+
+[EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+
+Delete the compliance rule template uniquely defined by the scope and code.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    scope = 'scope_example' # str | The scope of the template to be deleted.
+code = 'code_example' # str | The code of the template to be deleted.
+
+    try:
+        # [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+        api_response = api_instance.delete_compliance_template(scope, code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->delete_compliance_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the template to be deleted. | 
+ **code** | **str**| The code of the template to be deleted. | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response from deleting a compliance rule template. |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -737,6 +894,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The identifying information of a compliance run |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_compliance_template**
+> ComplianceRuleTemplate update_compliance_template(scope, code, update_compliance_template_request)
+
+[EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+
+Use this endpoint to update a specified compliance template.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.ComplianceApi(api_client)
+    scope = 'scope_example' # str | The scope of the Compliance Rule Template.
+code = 'code_example' # str | The code of the Compliance Rule Template.
+update_compliance_template_request = {"code":"MyCode","description":"Some compliance rule template description","variations":[{"label":"Some variation label","description":"Some variation description","outcomeDescription":"Some outcome description","referencedGroupLabel":"Some referenced group label","steps":[{"label":"ExcludingCash","complianceStepType":"FilterStepRequest"},{"label":"GroupByProperty","complianceStepType":"GroupByStepRequest"},{"label":"BranchByProperty","complianceStepType":"BranchStepRequest"},{"label":"Compare","complianceStepType":"GroupFilterStepRequest"}]}]} # UpdateComplianceTemplateRequest | Request to update a compliance rule template.
+
+    try:
+        # [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+        api_response = api_instance.update_compliance_template(scope, code, update_compliance_template_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ComplianceApi->update_compliance_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the Compliance Rule Template. | 
+ **code** | **str**| The code of the Compliance Rule Template. | 
+ **update_compliance_template_request** | [**UpdateComplianceTemplateRequest**](UpdateComplianceTemplateRequest.md)| Request to update a compliance rule template. | 
+
+### Return type
+
+[**ComplianceRuleTemplate**](ComplianceRuleTemplate.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The updated compliance rule template |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
