@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**delete_allocation**](AllocationsApi.md#delete_allocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation
 [**get_allocation**](AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
 [**list_allocations**](AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
-[**upsert_allocations**](AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+[**upsert_allocations**](AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | UpsertAllocations: Upsert Allocations
 
 
 # **delete_allocation**
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **upsert_allocations**
 > ResourceListOfAllocation upsert_allocations(allocation_set_request=allocation_set_request)
 
-[EARLY ACCESS] UpsertAllocations: Upsert Allocations
+UpsertAllocations: Upsert Allocations
 
 Upsert; update existing allocations with given ids, or create new allocations otherwise.
 
@@ -293,7 +293,7 @@ with lusid.ApiClient(configuration) as api_client:
     allocation_set_request = {"allocationRequests":[{"properties":{"Allocation/MyScope/SomeAllocationProperty":{"key":"Allocation/MyScope/SomeAllocationProperty","value":{"labelValue":"XYZ000034567"}}},"instrumentIdentifiers":{"Instrument/default/Currency":"GBP"},"quantity":100,"portfolioId":{"scope":"MyScope","code":"UKEquity"},"allocatedOrderId":{"scope":"MyScope","code":"ORD00000123"},"id":{"scope":"MyScope","code":"ALLOC00000123"},"placementIds":[{"scope":"MyScope","code":"SomePlacement"}],"state":"New","side":"Buy","type":"Limit","settlementDate":"2006-04-14T00:00:00.0000000+00:00","date":"2006-04-11T00:00:00.0000000+00:00","price":{"amount":12413.33,"currency":"USD"},"settlementCurrency":"USD","settlementCurrencyFxRate":1,"counterparty":"SomeCounterparty","executionIds":[{"scope":"MyScope","code":"EXEC00000123"}]}]} # AllocationSetRequest | The collection of allocation requests. (optional)
 
     try:
-        # [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+        # UpsertAllocations: Upsert Allocations
         api_response = api_instance.upsert_allocations(allocation_set_request=allocation_set_request)
         pprint(api_response)
     except ApiException as e:
