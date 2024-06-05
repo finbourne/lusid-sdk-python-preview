@@ -61,7 +61,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.FundsApi(api_client)
     scope = 'scope_example' # str | The scope of the Fund.
 code = 'code_example' # str | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-valuation_point_data_request = {"diaryEntryCode":"DiaryEntryCode"} # ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.
+valuation_point_data_request = {"diaryEntryCode":"DiaryEntryCode"} # ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.
 
     try:
         # [EXPERIMENTAL] AcceptEstimatePoint: Accepts an Estimate Valuation Point.
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope of the Fund. | 
  **code** | **str**| The code of the Fund. Together with the scope this uniquely identifies the Fund. | 
- **valuation_point_data_request** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md)| The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state. | 
+ **valuation_point_data_request** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md)| The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state. | 
 
 ### Return type
 
