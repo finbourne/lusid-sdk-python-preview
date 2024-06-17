@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **effective_at_created** | **datetime** | The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt. | [optional] 
 **prevailing_portfolio** | [**PortfolioWithoutHref**](PortfolioWithoutHref.md) |  | [optional] 
 **deleted_portfolio** | [**PortfolioWithoutHref**](PortfolioWithoutHref.md) |  | [optional] 
+**previewed_status** | **str** | The status of the previewed entity. | [optional] 
+**previewed_portfolio** | [**PortfolioWithoutHref**](PortfolioWithoutHref.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
