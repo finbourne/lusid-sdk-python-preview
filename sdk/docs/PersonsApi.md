@@ -21,7 +21,6 @@ Method | HTTP request | Description
 [**set_person_properties**](PersonsApi.md#set_person_properties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] SetPersonProperties: Set Person Properties
 [**upsert_person**](PersonsApi.md#upsert_person) | **POST** /api/persons | [EARLY ACCESS] UpsertPerson: Upsert Person
 [**upsert_person_access_metadata**](PersonsApi.md#upsert_person_access_metadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-[**upsert_persons**](PersonsApi.md#upsert_persons) | **POST** /api/persons/$batchUpsert | [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
 
 
 # **delete_person**
@@ -1454,83 +1453,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The successfully updated or inserted item or any failure. |  -  |
-**400** | The details of the input related failure |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **upsert_persons**
-> UpsertPersonsResponse upsert_persons(success_mode, request_body)
-
-[EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
-
-Create or updates a collection of person(s).
-
-### Example
-
-* OAuth Authentication (oauth2):
-```python
-from __future__ import print_function
-import time
-import lusid
-from lusid.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.lusid.com/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oauth2
-configuration = lusid.Configuration(
-    host = "https://www.lusid.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with lusid.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = lusid.PersonsApi(api_client)
-    success_mode = 'success_mode_example' # str | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial
-request_body = {"firstPersonExample":{"identifiers":{"Person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10001111"}},"Person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"HSI3453456"}},"Person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"johnsmith001"}}},"properties":{"Person/PersonalDetails/Name":{"key":"Person/PersonalDetails/Name","value":{"labelValue":"John Smith"}},"Person/CompanyDetails/Role":{"key":"Person/CompanyDetails/Role","value":{"labelValueSet":{"values":["SalesRepresentative","CustomerServiceRepresentative"]}},"effectiveFrom":"2016-07-01T00:00:00.0000000+00:00"}},"displayName":"Person1DisplayName","description":"Person1Description"},"secondPersonExample":{"identifiers":{"Person/HrSystem1/InternalId":{"key":"Person/HrSystem1/InternalId","value":{"labelValue":"XY10008377"}},"Person/PayrollSystem1/Id":{"key":"Person/PayrollSystem1/Id","value":{"labelValue":"LFK9172001"}},"Person/CompanyIntranet/LoginId":{"key":"Person/CompanyIntranet/LoginId","value":{"labelValue":"emilyevans002"}}},"properties":{"Person/PersonalDetails/Name":{"key":"Person/PersonalDetails/Name","value":{"labelValue":"Emily Evans"}},"Person/ContactDetails/Phone":{"key":"Person/ContactDetails/Phone","value":{"labelValue":"01005675678"}},"Person/CompanyDetails/Role":{"key":"Person/CompanyDetails/Role","value":{"labelValue":"Manager"},"effectiveFrom":"2018-04-01T00:00:00.0000000+00:00"}},"displayName":"Person2DisplayName","description":"Person2Description"}} # dict(str, UpsertPersonRequest) | A collection of requests to create or update Person(s).
-
-    try:
-        # [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
-        api_response = api_instance.upsert_persons(success_mode, request_body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PersonsApi->upsert_persons: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **success_mode** | **str**| Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial | 
- **request_body** | [**dict(str, UpsertPersonRequest)**](UpsertPersonRequest.md)| A collection of requests to create or update Person(s). | 
-
-### Return type
-
-[**UpsertPersonsResponse**](UpsertPersonsResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | The newly created or updated person(s) |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
