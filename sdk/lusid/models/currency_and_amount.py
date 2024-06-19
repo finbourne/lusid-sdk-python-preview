@@ -50,7 +50,7 @@ class CurrencyAndAmount(object):
 
     required_map = {
         'amount': 'optional',
-        'currency': 'optional'
+        'currency': 'required'
     }
 
     def __init__(self, amount=None, currency=None, local_vars_configuration=None):  # noqa: E501
@@ -58,7 +58,7 @@ class CurrencyAndAmount(object):
         
         :param amount: 
         :type amount: float
-        :param currency: 
+        :param currency:  (required)
         :type currency: str
 
         """  # noqa: E501
@@ -113,6 +113,8 @@ class CurrencyAndAmount(object):
         :param currency: The currency of this CurrencyAndAmount.  # noqa: E501
         :type currency: str
         """
+        if self.local_vars_configuration.client_side_validation and currency is None:  # noqa: E501
+            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
 
         self._currency = currency
 
