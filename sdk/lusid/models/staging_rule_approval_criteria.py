@@ -40,26 +40,31 @@ class StagingRuleApprovalCriteria(object):
     """
     openapi_types = {
         'required_approvals': 'int',
-        'deciding_user': 'str'
+        'deciding_user': 'str',
+        'staging_user_can_decide': 'bool'
     }
 
     attribute_map = {
         'required_approvals': 'requiredApprovals',
-        'deciding_user': 'decidingUser'
+        'deciding_user': 'decidingUser',
+        'staging_user_can_decide': 'stagingUserCanDecide'
     }
 
     required_map = {
         'required_approvals': 'optional',
-        'deciding_user': 'optional'
+        'deciding_user': 'optional',
+        'staging_user_can_decide': 'optional'
     }
 
-    def __init__(self, required_approvals=None, deciding_user=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, required_approvals=None, deciding_user=None, staging_user_can_decide=None, local_vars_configuration=None):  # noqa: E501
         """StagingRuleApprovalCriteria - a model defined in OpenAPI"
         
         :param required_approvals: 
         :type required_approvals: int
         :param deciding_user: 
         :type deciding_user: str
+        :param staging_user_can_decide: 
+        :type staging_user_can_decide: bool
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -68,10 +73,12 @@ class StagingRuleApprovalCriteria(object):
 
         self._required_approvals = None
         self._deciding_user = None
+        self._staging_user_can_decide = None
         self.discriminator = None
 
         self.required_approvals = required_approvals
         self.deciding_user = deciding_user
+        self.staging_user_can_decide = staging_user_can_decide
 
     @property
     def required_approvals(self):
@@ -120,6 +127,27 @@ class StagingRuleApprovalCriteria(object):
             raise ValueError("Invalid value for `deciding_user`, length must be greater than or equal to `0`")  # noqa: E501
 
         self._deciding_user = deciding_user
+
+    @property
+    def staging_user_can_decide(self):
+        """Gets the staging_user_can_decide of this StagingRuleApprovalCriteria.  # noqa: E501
+
+
+        :return: The staging_user_can_decide of this StagingRuleApprovalCriteria.  # noqa: E501
+        :rtype: bool
+        """
+        return self._staging_user_can_decide
+
+    @staging_user_can_decide.setter
+    def staging_user_can_decide(self, staging_user_can_decide):
+        """Sets the staging_user_can_decide of this StagingRuleApprovalCriteria.
+
+
+        :param staging_user_can_decide: The staging_user_can_decide of this StagingRuleApprovalCriteria.  # noqa: E501
+        :type staging_user_can_decide: bool
+        """
+
+        self._staging_user_can_decide = staging_user_can_decide
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
