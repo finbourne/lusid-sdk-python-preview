@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **str** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **values** | [**dict(str, Instrument)**](Instrument.md) | The instruments which have been successfully updated or created. | [optional] 
+**staged** | [**dict(str, Instrument)**](Instrument.md) | The instruments that have been staged for updation or creation. | [optional] 
 **failed** | [**dict(str, ErrorDetail)**](ErrorDetail.md) | The instruments that could not be updated or created or were left unchanged without error along with a reason for their failure. | [optional] 
 **metadata** | **dict(str, list[ResponseMetaData])** | Meta data associated with the upsert event. | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
