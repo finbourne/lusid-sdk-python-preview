@@ -28,6 +28,7 @@ from lusid.api.derived_transaction_portfolios_api import DerivedTransactionPortf
 from lusid.api.entities_api import EntitiesApi
 from lusid.api.executions_api import ExecutionsApi
 from lusid.api.fee_types_api import FeeTypesApi
+from lusid.api.fund_configurations_api import FundConfigurationsApi
 from lusid.api.funds_api import FundsApi
 from lusid.api.instrument_event_types_api import InstrumentEventTypesApi
 from lusid.api.instrument_events_api import InstrumentEventsApi
