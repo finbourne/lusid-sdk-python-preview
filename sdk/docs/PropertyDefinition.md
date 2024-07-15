@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **collection_type** | **str** | Describes whether a collection property should behave as a set or as an array. | [optional] 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
+**staged_modifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
