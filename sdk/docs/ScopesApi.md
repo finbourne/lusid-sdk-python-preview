@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_entity_scopes**
-> ResourceListOfScopeDefinition list_entity_scopes(entity_type)
+> ResourceListOfScopeDefinition list_entity_scopes(entity_type, as_at=as_at, page=page, limit=limit)
 
 ListEntityScopes: List Entity Scopes
 
@@ -46,10 +46,13 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.ScopesApi(api_client)
     entity_type = 'entity_type_example' # str | The entity type to list scopes for.
+as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)
+page = 'page_example' # str | The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)
 
     try:
         # ListEntityScopes: List Entity Scopes
-        api_response = api_instance.list_entity_scopes(entity_type)
+        api_response = api_instance.list_entity_scopes(entity_type, as_at=as_at, page=page, limit=limit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScopesApi->list_entity_scopes: %s\n" % e)
@@ -60,6 +63,9 @@ with lusid.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_type** | **str**| The entity type to list scopes for. | 
+ **as_at** | **datetime**| The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. | [optional] 
+ **page** | **str**| The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. | [optional] 
 
 ### Return type
 
