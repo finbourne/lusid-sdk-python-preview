@@ -93,7 +93,7 @@ class ValuationPointDataResponse(object):
         :type href: str
         :param type:  The Type of the associated Diary Entry ('PeriodBoundary','ValuationPoint','Other' or 'Adhoc' when a diary entry wasn't used). (required)
         :type type: str
-        :param status:  The Status of the associated Diary Entry ('Estimate','Final','Candidate' or 'Unofficial'). (required)
+        :param status:  The status of a Diary Entry of Type 'ValuationPoint'. Defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised. The status of a Diary Entry becomes 'Unofficial' when a diary entry wasn't used. (required)
         :type status: str
         :param backout:  DEPRECATED. Bucket of detail for the Valuation Point, where data points have been 'backed out'. (required)
         :type backout: dict(str, float)
@@ -205,7 +205,7 @@ class ValuationPointDataResponse(object):
     def status(self):
         """Gets the status of this ValuationPointDataResponse.  # noqa: E501
 
-        The Status of the associated Diary Entry ('Estimate','Final','Candidate' or 'Unofficial').  # noqa: E501
+        The status of a Diary Entry of Type 'ValuationPoint'. Defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised. The status of a Diary Entry becomes 'Unofficial' when a diary entry wasn't used.  # noqa: E501
 
         :return: The status of this ValuationPointDataResponse.  # noqa: E501
         :rtype: str
@@ -216,7 +216,7 @@ class ValuationPointDataResponse(object):
     def status(self, status):
         """Sets the status of this ValuationPointDataResponse.
 
-        The Status of the associated Diary Entry ('Estimate','Final','Candidate' or 'Unofficial').  # noqa: E501
+        The status of a Diary Entry of Type 'ValuationPoint'. Defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised. The status of a Diary Entry becomes 'Unofficial' when a diary entry wasn't used.  # noqa: E501
 
         :param status: The status of this ValuationPointDataResponse.  # noqa: E501
         :type status: str

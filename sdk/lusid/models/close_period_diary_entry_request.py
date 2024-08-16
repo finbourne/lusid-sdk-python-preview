@@ -79,7 +79,7 @@ class ClosePeriodDiaryEntryRequest(object):
         :type effective_at: datetime
         :param query_as_at:  The query time of the diary entry. Defaults to latest.
         :type query_as_at: datetime
-        :param status:  The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods.
+        :param status:  The status of a Diary Entry of Type 'PeriodBoundary'. Defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.
         :type status: str
         :param properties:  A set of properties for the diary entry.
         :type properties: dict[str, lusid.ModelProperty]
@@ -222,7 +222,7 @@ class ClosePeriodDiaryEntryRequest(object):
     def status(self):
         """Gets the status of this ClosePeriodDiaryEntryRequest.  # noqa: E501
 
-        The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods.  # noqa: E501
+        The status of a Diary Entry of Type 'PeriodBoundary'. Defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.  # noqa: E501
 
         :return: The status of this ClosePeriodDiaryEntryRequest.  # noqa: E501
         :rtype: str
@@ -233,7 +233,7 @@ class ClosePeriodDiaryEntryRequest(object):
     def status(self, status):
         """Sets the status of this ClosePeriodDiaryEntryRequest.
 
-        The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods.  # noqa: E501
+        The status of a Diary Entry of Type 'PeriodBoundary'. Defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.  # noqa: E501
 
         :param status: The status of this ClosePeriodDiaryEntryRequest.  # noqa: E501
         :type status: str

@@ -69,3 +69,4 @@ from lusid.api.transaction_configuration_api import TransactionConfigurationApi
 from lusid.api.transaction_fees_api import TransactionFeesApi
 from lusid.api.transaction_portfolios_api import TransactionPortfoliosApi
 from lusid.api.translation_api import TranslationApi
+from lusid.api.workspace_api import WorkspaceApi

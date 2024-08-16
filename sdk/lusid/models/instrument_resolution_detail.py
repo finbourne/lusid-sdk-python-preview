@@ -41,22 +41,28 @@ class InstrumentResolutionDetail(object):
     openapi_types = {
         'instrument_identifiers': 'dict(str, str)',
         'lusid_instrument_id': 'str',
-        'instrument_scope': 'str'
+        'instrument_scope': 'str',
+        'launch_price': 'float',
+        'launch_date': 'datetime'
     }
 
     attribute_map = {
         'instrument_identifiers': 'instrumentIdentifiers',
         'lusid_instrument_id': 'lusidInstrumentId',
-        'instrument_scope': 'instrumentScope'
+        'instrument_scope': 'instrumentScope',
+        'launch_price': 'launchPrice',
+        'launch_date': 'launchDate'
     }
 
     required_map = {
         'instrument_identifiers': 'required',
         'lusid_instrument_id': 'optional',
-        'instrument_scope': 'optional'
+        'instrument_scope': 'optional',
+        'launch_price': 'optional',
+        'launch_date': 'optional'
     }
 
-    def __init__(self, instrument_identifiers=None, lusid_instrument_id=None, instrument_scope=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, instrument_identifiers=None, lusid_instrument_id=None, instrument_scope=None, launch_price=None, launch_date=None, local_vars_configuration=None):  # noqa: E501
         """InstrumentResolutionDetail - a model defined in OpenAPI"
         
         :param instrument_identifiers:  Unique instrument identifiers (required)
@@ -65,6 +71,10 @@ class InstrumentResolutionDetail(object):
         :type lusid_instrument_id: str
         :param instrument_scope:  The scope in which the instrument lies.
         :type instrument_scope: str
+        :param launch_price:  The launch price set when a shareclass is added to the fund. Defaults to 1.
+        :type launch_price: float
+        :param launch_date:  The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.
+        :type launch_date: datetime
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -74,11 +84,15 @@ class InstrumentResolutionDetail(object):
         self._instrument_identifiers = None
         self._lusid_instrument_id = None
         self._instrument_scope = None
+        self._launch_price = None
+        self._launch_date = None
         self.discriminator = None
 
         self.instrument_identifiers = instrument_identifiers
         self.lusid_instrument_id = lusid_instrument_id
         self.instrument_scope = instrument_scope
+        self.launch_price = launch_price
+        self.launch_date = launch_date
 
     @property
     def instrument_identifiers(self):
@@ -168,6 +182,52 @@ class InstrumentResolutionDetail(object):
             raise ValueError(r"Invalid value for `instrument_scope`, must be a follow pattern or equal to `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
 
         self._instrument_scope = instrument_scope
+
+    @property
+    def launch_price(self):
+        """Gets the launch_price of this InstrumentResolutionDetail.  # noqa: E501
+
+        The launch price set when a shareclass is added to the fund. Defaults to 1.  # noqa: E501
+
+        :return: The launch_price of this InstrumentResolutionDetail.  # noqa: E501
+        :rtype: float
+        """
+        return self._launch_price
+
+    @launch_price.setter
+    def launch_price(self, launch_price):
+        """Sets the launch_price of this InstrumentResolutionDetail.
+
+        The launch price set when a shareclass is added to the fund. Defaults to 1.  # noqa: E501
+
+        :param launch_price: The launch_price of this InstrumentResolutionDetail.  # noqa: E501
+        :type launch_price: float
+        """
+
+        self._launch_price = launch_price
+
+    @property
+    def launch_date(self):
+        """Gets the launch_date of this InstrumentResolutionDetail.  # noqa: E501
+
+        The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.  # noqa: E501
+
+        :return: The launch_date of this InstrumentResolutionDetail.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._launch_date
+
+    @launch_date.setter
+    def launch_date(self, launch_date):
+        """Sets the launch_date of this InstrumentResolutionDetail.
+
+        The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.  # noqa: E501
+
+        :param launch_date: The launch_date of this InstrumentResolutionDetail.  # noqa: E501
+        :type launch_date: datetime
+        """
+
+        self._launch_date = launch_date
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

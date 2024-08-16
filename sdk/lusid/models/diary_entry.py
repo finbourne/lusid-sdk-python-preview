@@ -96,7 +96,7 @@ class DiaryEntry(object):
         :type type: str
         :param name:  The name of the diary entry.
         :type name: str
-        :param status:  The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods. (required)
+        :param status:  The status of the diary entry. Statuses are constrained and defaulted by 'Type' specified.   Type 'Other' defaults to 'Undefined' and supports 'Undefined', 'Estimate', 'Candidate', and 'Final'.  Type 'PeriodBoundary' defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.  Type 'ValuationPoint' defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised. (required)
         :type status: str
         :param effective_at:  The effective time of the diary entry. (required)
         :type effective_at: datetime
@@ -278,7 +278,7 @@ class DiaryEntry(object):
     def status(self):
         """Gets the status of this DiaryEntry.  # noqa: E501
 
-        The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods.  # noqa: E501
+        The status of the diary entry. Statuses are constrained and defaulted by 'Type' specified.   Type 'Other' defaults to 'Undefined' and supports 'Undefined', 'Estimate', 'Candidate', and 'Final'.  Type 'PeriodBoundary' defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.  Type 'ValuationPoint' defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised.  # noqa: E501
 
         :return: The status of this DiaryEntry.  # noqa: E501
         :rtype: str
@@ -289,7 +289,7 @@ class DiaryEntry(object):
     def status(self, status):
         """Sets the status of this DiaryEntry.
 
-        The status of the diary entry. Defaults to 'Undefined' for valuation points and 'Estimate' for closing periods.  # noqa: E501
+        The status of the diary entry. Statuses are constrained and defaulted by 'Type' specified.   Type 'Other' defaults to 'Undefined' and supports 'Undefined', 'Estimate', 'Candidate', and 'Final'.  Type 'PeriodBoundary' defaults to 'Estimate' when closing a period, and supports 'Estimate' and 'Final' for closing periods and 'Final' for locking periods.  Type 'ValuationPoint' defaults to 'Estimate' when upserting a diary entry, moves to 'Candidate' or 'Final' when a ValuationPoint is accepted, and 'Final' when it is finalised.  # noqa: E501
 
         :param status: The status of this DiaryEntry.  # noqa: E501
         :type status: str

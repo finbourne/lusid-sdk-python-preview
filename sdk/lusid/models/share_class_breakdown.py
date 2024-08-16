@@ -40,7 +40,7 @@ class ShareClassBreakdown(object):
     """
     openapi_types = {
         'back_out': 'dict(str, ShareClassAmount)',
-        'dealing': 'dict(str, ShareClassAmount)',
+        'dealing': 'ShareClassDealingBreakdown',
         'pn_l': 'ShareClassPnlBreakdown',
         'gav': 'MultiCurrencyAmounts',
         'fees': 'dict(str, FeeAccrual)',
@@ -85,8 +85,8 @@ class ShareClassBreakdown(object):
         
         :param back_out:  Bucket of detail for the Valuation Point where data points have been 'backed out'. (required)
         :type back_out: dict[str, lusid.ShareClassAmount]
-        :param dealing:  Bucket of detail for any 'Dealing' that has occured inside the queried period. (required)
-        :type dealing: dict[str, lusid.ShareClassAmount]
+        :param dealing:  (required)
+        :type dealing: lusid.ShareClassDealingBreakdown
         :param pn_l:  (required)
         :type pn_l: lusid.ShareClassPnlBreakdown
         :param gav:  (required)
@@ -166,10 +166,9 @@ class ShareClassBreakdown(object):
     def dealing(self):
         """Gets the dealing of this ShareClassBreakdown.  # noqa: E501
 
-        Bucket of detail for any 'Dealing' that has occured inside the queried period.  # noqa: E501
 
         :return: The dealing of this ShareClassBreakdown.  # noqa: E501
-        :rtype: dict[str, lusid.ShareClassAmount]
+        :rtype: lusid.ShareClassDealingBreakdown
         """
         return self._dealing
 
@@ -177,10 +176,9 @@ class ShareClassBreakdown(object):
     def dealing(self, dealing):
         """Sets the dealing of this ShareClassBreakdown.
 
-        Bucket of detail for any 'Dealing' that has occured inside the queried period.  # noqa: E501
 
         :param dealing: The dealing of this ShareClassBreakdown.  # noqa: E501
-        :type dealing: dict[str, lusid.ShareClassAmount]
+        :type dealing: lusid.ShareClassDealingBreakdown
         """
         if self.local_vars_configuration.client_side_validation and dealing is None:  # noqa: E501
             raise ValueError("Invalid value for `dealing`, must not be `None`")  # noqa: E501

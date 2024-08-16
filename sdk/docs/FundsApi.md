@@ -1209,7 +1209,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.FundsApi(api_client)
     scope = 'scope_example' # str | The scope of the Fund.
 code = 'code_example' # str | The code of the Fund.
-set_share_class_instruments_request = {"shareClassInstrumentScopes":["UKInstrumentScope"],"shareClassInstruments":[{"instrumentIdentifiers":{"Instrument/default/ClientInternal":"UK_12345"}}]} # SetShareClassInstrumentsRequest | The scopes and instrument identifiers for the instruments to be set.
+set_share_class_instruments_request = {"shareClassInstrumentScopes":["UKInstrumentScope"],"shareClassInstruments":[{"instrumentIdentifiers":{"Instrument/default/ClientInternal":"UK_12345"},"launchPrice":1}]} # SetShareClassInstrumentsRequest | The scopes and instrument identifiers for the instruments to be set.
 
     try:
         # [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
