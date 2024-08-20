@@ -101,8 +101,7 @@ class OrderUpdateRequest(object):
         self.discriminator = None
 
         self.id = id
-        if quantity is not None:
-            self.quantity = quantity
+        self.quantity = quantity
         if portfolio_id is not None:
             self.portfolio_id = portfolio_id
         self.properties = properties
