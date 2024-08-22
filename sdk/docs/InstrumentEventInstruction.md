@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **holding_id** | **int** | For holding instructions, the id of the holding for which the instruction will apply | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
 **href** | **str** | The uri for this version of this instruction | [optional] 
+**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

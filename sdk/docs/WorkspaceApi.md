@@ -4,32 +4,32 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_personal_item**](WorkspaceApi.md#create_personal_item) | **POST** /api/workspaces/personal/{workspaceName}/items | [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
-[**create_personal_workspace**](WorkspaceApi.md#create_personal_workspace) | **POST** /api/workspaces/personal | [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
-[**create_shared_item**](WorkspaceApi.md#create_shared_item) | **POST** /api/workspaces/shared/{workspaceName}/items | [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
-[**create_shared_workspace**](WorkspaceApi.md#create_shared_workspace) | **POST** /api/workspaces/shared | [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
-[**delete_personal_item**](WorkspaceApi.md#delete_personal_item) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
-[**delete_personal_workspace**](WorkspaceApi.md#delete_personal_workspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
-[**delete_shared_item**](WorkspaceApi.md#delete_shared_item) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
-[**delete_shared_workspace**](WorkspaceApi.md#delete_shared_workspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
-[**get_personal_item**](WorkspaceApi.md#get_personal_item) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
-[**get_personal_workspace**](WorkspaceApi.md#get_personal_workspace) | **GET** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
-[**get_shared_item**](WorkspaceApi.md#get_shared_item) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
-[**get_shared_workspace**](WorkspaceApi.md#get_shared_workspace) | **GET** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
-[**list_personal_items**](WorkspaceApi.md#list_personal_items) | **GET** /api/workspaces/personal/{workspaceName}/items | [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
-[**list_personal_workspaces**](WorkspaceApi.md#list_personal_workspaces) | **GET** /api/workspaces/personal | [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
-[**list_shared_items**](WorkspaceApi.md#list_shared_items) | **GET** /api/workspaces/shared/{workspaceName}/items | [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
-[**list_shared_workspaces**](WorkspaceApi.md#list_shared_workspaces) | **GET** /api/workspaces/shared | [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
-[**update_personal_item**](WorkspaceApi.md#update_personal_item) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
-[**update_personal_workspace**](WorkspaceApi.md#update_personal_workspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
-[**update_shared_item**](WorkspaceApi.md#update_shared_item) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
-[**update_shared_workspace**](WorkspaceApi.md#update_shared_workspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+[**create_personal_item**](WorkspaceApi.md#create_personal_item) | **POST** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
+[**create_personal_workspace**](WorkspaceApi.md#create_personal_workspace) | **POST** /api/workspaces/personal | [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
+[**create_shared_item**](WorkspaceApi.md#create_shared_item) | **POST** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
+[**create_shared_workspace**](WorkspaceApi.md#create_shared_workspace) | **POST** /api/workspaces/shared | [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
+[**delete_personal_item**](WorkspaceApi.md#delete_personal_item) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
+[**delete_personal_workspace**](WorkspaceApi.md#delete_personal_workspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
+[**delete_shared_item**](WorkspaceApi.md#delete_shared_item) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
+[**delete_shared_workspace**](WorkspaceApi.md#delete_shared_workspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
+[**get_personal_item**](WorkspaceApi.md#get_personal_item) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
+[**get_personal_workspace**](WorkspaceApi.md#get_personal_workspace) | **GET** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
+[**get_shared_item**](WorkspaceApi.md#get_shared_item) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
+[**get_shared_workspace**](WorkspaceApi.md#get_shared_workspace) | **GET** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
+[**list_personal_items**](WorkspaceApi.md#list_personal_items) | **GET** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
+[**list_personal_workspaces**](WorkspaceApi.md#list_personal_workspaces) | **GET** /api/workspaces/personal | [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
+[**list_shared_items**](WorkspaceApi.md#list_shared_items) | **GET** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
+[**list_shared_workspaces**](WorkspaceApi.md#list_shared_workspaces) | **GET** /api/workspaces/shared | [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
+[**update_personal_item**](WorkspaceApi.md#update_personal_item) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
+[**update_personal_workspace**](WorkspaceApi.md#update_personal_workspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
+[**update_shared_item**](WorkspaceApi.md#update_shared_item) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
+[**update_shared_workspace**](WorkspaceApi.md#update_shared_workspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
 
 
 # **create_personal_item**
 > WorkspaceItem create_personal_item(workspace_name, workspace_item_creation_request=workspace_item_creation_request)
 
-[EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+[EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
 
 Create a new item in a personal workspace.
 
@@ -67,7 +67,7 @@ with lusid.ApiClient(configuration) as api_client:
 workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content"} # WorkspaceItemCreationRequest | The item to be created. (optional)
 
     try:
-        # [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+        # [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
         api_response = api_instance.create_personal_item(workspace_name, workspace_item_creation_request=workspace_item_creation_request)
         pprint(api_response)
     except ApiException as e:
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 # **create_personal_workspace**
 > Workspace create_personal_workspace(workspace_creation_request=workspace_creation_request)
 
-[EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+[EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
 
 Create a new personal workspace.
 
@@ -143,7 +143,7 @@ with lusid.ApiClient(configuration) as api_client:
     workspace_creation_request = {"name":"example-name","description":"example description"} # WorkspaceCreationRequest | The workspace to be created. (optional)
 
     try:
-        # [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+        # [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
         api_response = api_instance.create_personal_workspace(workspace_creation_request=workspace_creation_request)
         pprint(api_response)
     except ApiException as e:
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **create_shared_item**
 > WorkspaceItem create_shared_item(workspace_name, workspace_item_creation_request=workspace_item_creation_request)
 
-[EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+[EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
 
 Create a new item in a shared workspace.
 
@@ -219,7 +219,7 @@ with lusid.ApiClient(configuration) as api_client:
 workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content"} # WorkspaceItemCreationRequest | The item to be created. (optional)
 
     try:
-        # [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+        # [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
         api_response = api_instance.create_shared_item(workspace_name, workspace_item_creation_request=workspace_item_creation_request)
         pprint(api_response)
     except ApiException as e:
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **create_shared_workspace**
 > Workspace create_shared_workspace(workspace_creation_request=workspace_creation_request)
 
-[EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+[EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
 
 Create a new shared workspace.
 
@@ -295,7 +295,7 @@ with lusid.ApiClient(configuration) as api_client:
     workspace_creation_request = {"name":"example-name","description":"example description"} # WorkspaceCreationRequest | The workspace to be created. (optional)
 
     try:
-        # [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+        # [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
         api_response = api_instance.create_shared_workspace(workspace_creation_request=workspace_creation_request)
         pprint(api_response)
     except ApiException as e:
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 # **delete_personal_item**
 > DeletedEntityResponse delete_personal_item(workspace_name, item_name)
 
-[EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+[EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
 
 Delete an item from a personal workspace.
 
@@ -371,7 +371,7 @@ with lusid.ApiClient(configuration) as api_client:
 item_name = 'item_name_example' # str | The name of the item.
 
     try:
-        # [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+        # [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
         api_response = api_instance.delete_personal_item(workspace_name, item_name)
         pprint(api_response)
     except ApiException as e:
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 # **delete_personal_workspace**
 > DeletedEntityResponse delete_personal_workspace(workspace_name)
 
-[EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+[EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
 
 Delete a personal workspace.
 
@@ -447,7 +447,7 @@ with lusid.ApiClient(configuration) as api_client:
     workspace_name = 'workspace_name_example' # str | The name of the personal workspace.
 
     try:
-        # [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+        # [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
         api_response = api_instance.delete_personal_workspace(workspace_name)
         pprint(api_response)
     except ApiException as e:
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 # **delete_shared_item**
 > DeletedEntityResponse delete_shared_item(workspace_name, item_name)
 
-[EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+[EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
 
 Delete an item from a shared workspace.
 
@@ -523,7 +523,7 @@ with lusid.ApiClient(configuration) as api_client:
 item_name = 'item_name_example' # str | The name of the item.
 
     try:
-        # [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+        # [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
         api_response = api_instance.delete_shared_item(workspace_name, item_name)
         pprint(api_response)
     except ApiException as e:
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 # **delete_shared_workspace**
 > DeletedEntityResponse delete_shared_workspace(workspace_name)
 
-[EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+[EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
 
 Delete a shared workspace.
 
@@ -599,7 +599,7 @@ with lusid.ApiClient(configuration) as api_client:
     workspace_name = 'workspace_name_example' # str | The name of the shared workspace.
 
     try:
-        # [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+        # [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
         api_response = api_instance.delete_shared_workspace(workspace_name)
         pprint(api_response)
     except ApiException as e:
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 # **get_personal_item**
 > WorkspaceItem get_personal_item(workspace_name, item_name, as_at=as_at)
 
-[EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+[EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
 
 Get a single personal workspace item.
 
@@ -676,7 +676,7 @@ item_name = 'item_name_example' # str | The name of the item.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The datetime at which to request the workspace item. If not provided, defaults to 'latest'. (optional)
 
     try:
-        # [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+        # [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
         api_response = api_instance.get_personal_item(workspace_name, item_name, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -716,7 +716,7 @@ Name | Type | Description  | Notes
 # **get_personal_workspace**
 > Workspace get_personal_workspace(workspace_name, as_at=as_at)
 
-[EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+[EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
 
 Get a personal workspace.
 
@@ -754,7 +754,7 @@ with lusid.ApiClient(configuration) as api_client:
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional)
 
     try:
-        # [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+        # [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
         api_response = api_instance.get_personal_workspace(workspace_name, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 # **get_shared_item**
 > WorkspaceItem get_shared_item(workspace_name, item_name, as_at=as_at)
 
-[EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+[EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
 
 Get a single shared workspace item.
 
@@ -832,7 +832,7 @@ item_name = 'item_name_example' # str | The name of the item.
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The datetime at which to request the workspace item. If not provided, defaults to 'latest'. (optional)
 
     try:
-        # [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+        # [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
         api_response = api_instance.get_shared_item(workspace_name, item_name, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -872,7 +872,7 @@ Name | Type | Description  | Notes
 # **get_shared_workspace**
 > Workspace get_shared_workspace(workspace_name, as_at=as_at)
 
-[EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+[EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
 
 Get a shared workspace.
 
@@ -910,7 +910,7 @@ with lusid.ApiClient(configuration) as api_client:
 as_at = '2013-10-20T19:20:30+01:00' # datetime | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional)
 
     try:
-        # [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+        # [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
         api_response = api_instance.get_shared_workspace(workspace_name, as_at=as_at)
         pprint(api_response)
     except ApiException as e:
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 # **list_personal_items**
 > PagedResourceListOfWorkspaceItem list_personal_items(workspace_name, as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
 
-[EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+[EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
 
 List the items in a personal workspace.
 
@@ -991,7 +991,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+        # [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
         api_response = api_instance.list_personal_items(workspace_name, as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 # **list_personal_workspaces**
 > PagedResourceListOfWorkspace list_personal_workspaces(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
 
-[EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+[EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
 
 List personal workspaces.
 
@@ -1075,7 +1075,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+        # [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
         api_response = api_instance.list_personal_workspaces(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 # **list_shared_items**
 > PagedResourceListOfWorkspaceItem list_shared_items(workspace_name, as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
 
-[EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+[EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
 
 List the items in a shared workspace.
 
@@ -1159,7 +1159,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+        # [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
         api_response = api_instance.list_shared_items(workspace_name, as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1202,7 +1202,7 @@ Name | Type | Description  | Notes
 # **list_shared_workspaces**
 > PagedResourceListOfWorkspace list_shared_workspaces(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
 
-[EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+[EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
 
 List shared workspaces.
 
@@ -1243,7 +1243,7 @@ limit = 56 # int | When paginating, limit the number of returned results to this
 filter = 'filter_example' # str | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)
 
     try:
-        # [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+        # [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
         api_response = api_instance.list_shared_workspaces(as_at=as_at, page=page, sort_by=sort_by, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -1285,7 +1285,7 @@ Name | Type | Description  | Notes
 # **update_personal_item**
 > WorkspaceItem update_personal_item(workspace_name, item_name, workspace_item_update_request=workspace_item_update_request)
 
-[EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+[EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
 
 Update an item in a personal workspace.
 
@@ -1324,7 +1324,7 @@ item_name = 'item_name_example' # str | The item name.
 workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content"} # WorkspaceItemUpdateRequest | The new item details. (optional)
 
     try:
-        # [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+        # [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
         api_response = api_instance.update_personal_item(workspace_name, item_name, workspace_item_update_request=workspace_item_update_request)
         pprint(api_response)
     except ApiException as e:
@@ -1364,7 +1364,7 @@ Name | Type | Description  | Notes
 # **update_personal_workspace**
 > Workspace update_personal_workspace(workspace_name, workspace_update_request=workspace_update_request)
 
-[EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+[EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
 
 Update a personal workspace.
 
@@ -1402,7 +1402,7 @@ with lusid.ApiClient(configuration) as api_client:
 workspace_update_request = {"description":"updated example description"} # WorkspaceUpdateRequest | The new workspace details. (optional)
 
     try:
-        # [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+        # [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
         api_response = api_instance.update_personal_workspace(workspace_name, workspace_update_request=workspace_update_request)
         pprint(api_response)
     except ApiException as e:
@@ -1441,7 +1441,7 @@ Name | Type | Description  | Notes
 # **update_shared_item**
 > WorkspaceItem update_shared_item(workspace_name, item_name, workspace_item_update_request=workspace_item_update_request)
 
-[EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+[EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
 
 Update an item in a shared workspace.
 
@@ -1480,7 +1480,7 @@ item_name = 'item_name_example' # str | The item name.
 workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content"} # WorkspaceItemUpdateRequest | The new item details. (optional)
 
     try:
-        # [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+        # [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
         api_response = api_instance.update_shared_item(workspace_name, item_name, workspace_item_update_request=workspace_item_update_request)
         pprint(api_response)
     except ApiException as e:
@@ -1520,7 +1520,7 @@ Name | Type | Description  | Notes
 # **update_shared_workspace**
 > Workspace update_shared_workspace(workspace_name, workspace_update_request=workspace_update_request)
 
-[EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+[EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
 
 Update a shared workspace.
 
@@ -1558,7 +1558,7 @@ with lusid.ApiClient(configuration) as api_client:
 workspace_update_request = {"description":"updated example description"} # WorkspaceUpdateRequest | The new workspace details. (optional)
 
     try:
-        # [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+        # [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
         api_response = api_instance.update_shared_workspace(workspace_name, workspace_update_request=workspace_update_request)
         pprint(api_response)
     except ApiException as e:
