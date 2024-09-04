@@ -4,6 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batch_upsert_portfolio_access_metadata**](PortfoliosApi.md#batch_upsert_portfolio_access_metadata) | **PUT** /api/portfolios/metadata | [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
 [**delete_instrument_event_instruction**](PortfoliosApi.md#delete_instrument_event_instruction) | **DELETE** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
 [**delete_key_from_portfolio_access_metadata**](PortfoliosApi.md#delete_key_from_portfolio_access_metadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
 [**delete_portfolio**](PortfoliosApi.md#delete_portfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
@@ -35,6 +36,85 @@ Method | HTTP request | Description
 [**upsert_portfolio_properties**](PortfoliosApi.md#upsert_portfolio_properties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
 [**upsert_portfolio_returns**](PortfoliosApi.md#upsert_portfolio_returns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | UpsertPortfolioReturns: Upsert Returns
 
+
+# **batch_upsert_portfolio_access_metadata**
+> BatchUpsertPortfolioAccessMetadataResponse batch_upsert_portfolio_access_metadata(batch_upsert_portfolio_access_metadata_request, effective_at=effective_at, effective_until=effective_until)
+
+[EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+
+Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.PortfoliosApi(api_client)
+    batch_upsert_portfolio_access_metadata_request = {"portfoliosWithMetadata":{"Scope:TestScope Code:TestCode":{"metadata":{"metadataKey":[{"value":"SilverLicence","provider":"TestDataProvider"}]}}}} # BatchUpsertPortfolioAccessMetadataRequest | The Portfolio Access Metadata Rule to update or insert
+effective_at = 'effective_at_example' # str | The date this rule will effective from (optional)
+effective_until = '2013-10-20T19:20:30+01:00' # datetime | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional)
+
+    try:
+        # [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+        api_response = api_instance.batch_upsert_portfolio_access_metadata(batch_upsert_portfolio_access_metadata_request, effective_at=effective_at, effective_until=effective_until)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->batch_upsert_portfolio_access_metadata: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_upsert_portfolio_access_metadata_request** | [**BatchUpsertPortfolioAccessMetadataRequest**](BatchUpsertPortfolioAccessMetadataRequest.md)| The Portfolio Access Metadata Rule to update or insert | 
+ **effective_at** | **str**| The date this rule will effective from | [optional] 
+ **effective_until** | **datetime**| The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
+
+### Return type
+
+[**BatchUpsertPortfolioAccessMetadataResponse**](BatchUpsertPortfolioAccessMetadataResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully updated or inserted item or any failure |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_instrument_event_instruction**
 > DeletedEntityResponse delete_instrument_event_instruction(scope, code, instrument_event_instruction_id, portfolio_effective_at=portfolio_effective_at)

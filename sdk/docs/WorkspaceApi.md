@@ -64,7 +64,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.WorkspaceApi(api_client)
     workspace_name = 'workspace_name_example' # str | The item's workspace name.
-workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content"} # WorkspaceItemCreationRequest | The item to be created. (optional)
+workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content","type":"rebalance-config"} # WorkspaceItemCreationRequest | The item to be created. (optional)
 
     try:
         # [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
@@ -216,7 +216,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.WorkspaceApi(api_client)
     workspace_name = 'workspace_name_example' # str | The item's workspace name.
-workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content"} # WorkspaceItemCreationRequest | The item to be created. (optional)
+workspace_item_creation_request = {"format":1,"name":"example-name","description":"example-description","content":"example-content","type":"rebalance-config"} # WorkspaceItemCreationRequest | The item to be created. (optional)
 
     try:
         # [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
@@ -1321,7 +1321,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.WorkspaceApi(api_client)
     workspace_name = 'workspace_name_example' # str | The personal workspace name.
 item_name = 'item_name_example' # str | The item name.
-workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content"} # WorkspaceItemUpdateRequest | The new item details. (optional)
+workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content","type":"rebalance-config"} # WorkspaceItemUpdateRequest | The new item details. (optional)
 
     try:
         # [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
@@ -1477,7 +1477,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.WorkspaceApi(api_client)
     workspace_name = 'workspace_name_example' # str | The shared workspace name.
 item_name = 'item_name_example' # str | The item name.
-workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content"} # WorkspaceItemUpdateRequest | The new item details. (optional)
+workspace_item_update_request = {"format":2,"description":"updated-example-description","content":"updated-example-content","type":"rebalance-config"} # WorkspaceItemUpdateRequest | The new item details. (optional)
 
     try:
         # [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
