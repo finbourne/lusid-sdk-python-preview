@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**batch_upsert_portfolio_access_metadata**](PortfoliosApi.md#batch_upsert_portfolio_access_metadata) | **PUT** /api/portfolios/metadata | [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+[**batch_upsert_portfolio_access_metadata**](PortfoliosApi.md#batch_upsert_portfolio_access_metadata) | **PUT** /api/portfolios/metadata | [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
 [**delete_instrument_event_instruction**](PortfoliosApi.md#delete_instrument_event_instruction) | **DELETE** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
 [**delete_key_from_portfolio_access_metadata**](PortfoliosApi.md#delete_key_from_portfolio_access_metadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
 [**delete_portfolio**](PortfoliosApi.md#delete_portfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
@@ -38,11 +38,11 @@ Method | HTTP request | Description
 
 
 # **batch_upsert_portfolio_access_metadata**
-> BatchUpsertPortfolioAccessMetadataResponse batch_upsert_portfolio_access_metadata(batch_upsert_portfolio_access_metadata_request, effective_at=effective_at, effective_until=effective_until)
+> BatchUpsertPortfolioAccessMetadataResponse batch_upsert_portfolio_access_metadata(request_body, effective_at=effective_at, effective_until=effective_until)
 
-[EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+[EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
 
-Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
 
 ### Example
 
@@ -74,13 +74,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.PortfoliosApi(api_client)
-    batch_upsert_portfolio_access_metadata_request = {"portfoliosWithMetadata":{"Scope:TestScope Code:TestCode":{"metadata":{"metadataKey":[{"value":"SilverLicence","provider":"TestDataProvider"}]}}}} # BatchUpsertPortfolioAccessMetadataRequest | The Portfolio Access Metadata Rule to update or insert
-effective_at = 'effective_at_example' # str | The date this rule will effective from (optional)
-effective_until = '2013-10-20T19:20:30+01:00' # datetime | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional)
+    request_body = {"firstExampleRequest":{"portfolioId":{"scope":"TestScopeA","code":"TestCodeA"},"metadata":{"metadataKey":[{"value":"SilverLicence","provider":"TestDataProvider"}]}},"secondExampleRequest":{"portfolioId":{"scope":"TestScopeB","code":"TestCodeB"},"metadata":{"metadataKey":[{"value":"SilverLicence","provider":"TestDataProvider"}]}}} # dict(str, BatchUpsertPortfolioAccessMetadataRequest) | The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for
+effective_at = 'effective_at_example' # str | The date these rules will be effective from (optional)
+effective_until = 'effective_until_example' # str | The effective date until which the Access Metadata is valid. If not supplied, this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional)
 
     try:
-        # [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
-        api_response = api_instance.batch_upsert_portfolio_access_metadata(batch_upsert_portfolio_access_metadata_request, effective_at=effective_at, effective_until=effective_until)
+        # [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
+        api_response = api_instance.batch_upsert_portfolio_access_metadata(request_body, effective_at=effective_at, effective_until=effective_until)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PortfoliosApi->batch_upsert_portfolio_access_metadata: %s\n" % e)
@@ -90,9 +90,9 @@ effective_until = '2013-10-20T19:20:30+01:00' # datetime | The effective date un
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_upsert_portfolio_access_metadata_request** | [**BatchUpsertPortfolioAccessMetadataRequest**](BatchUpsertPortfolioAccessMetadataRequest.md)| The Portfolio Access Metadata Rule to update or insert | 
- **effective_at** | **str**| The date this rule will effective from | [optional] 
- **effective_until** | **datetime**| The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
+ **request_body** | [**dict(str, BatchUpsertPortfolioAccessMetadataRequest)**](BatchUpsertPortfolioAccessMetadataRequest.md)| The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for | 
+ **effective_at** | **str**| The date these rules will be effective from | [optional] 
+ **effective_until** | **str**| The effective date until which the Access Metadata is valid. If not supplied, this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
 
 ### Return type
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The successfully updated or inserted item or any failure |  -  |
+**200** | The successfully updated or inserted items or any failures |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
