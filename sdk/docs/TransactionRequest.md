@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **order_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **allocation_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **custodian_account_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**transaction_group_id** | **str** | The identifier for grouping economic events across multiple transactions | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
