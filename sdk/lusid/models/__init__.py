@@ -631,6 +631,10 @@ from lusid.models.market_quote import MarketQuote
 from lusid.models.match_criterion import MatchCriterion
 from lusid.models.maturity_event import MaturityEvent
 from lusid.models.maturity_event_all_of import MaturityEventAllOf
+from lusid.models.mbs_coupon_event import MbsCouponEvent
+from lusid.models.mbs_coupon_event_all_of import MbsCouponEventAllOf
+from lusid.models.mbs_principal_event import MbsPrincipalEvent
+from lusid.models.mbs_principal_event_all_of import MbsPrincipalEventAllOf
 from lusid.models.merger_event import MergerEvent
 from lusid.models.merger_event_all_of import MergerEventAllOf
 from lusid.models.metric_value import MetricValue
