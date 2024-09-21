@@ -39,31 +39,31 @@ class CdsCreditEvent(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'default_date': 'datetime',
+        'effective_date': 'datetime',
         'auction_date': 'datetime',
         'recovery_rate': 'float',
         'instrument_event_type': 'str'
     }
 
     attribute_map = {
-        'default_date': 'defaultDate',
+        'effective_date': 'effectiveDate',
         'auction_date': 'auctionDate',
         'recovery_rate': 'recoveryRate',
         'instrument_event_type': 'instrumentEventType'
     }
 
     required_map = {
-        'default_date': 'required',
+        'effective_date': 'required',
         'auction_date': 'optional',
         'recovery_rate': 'optional',
         'instrument_event_type': 'required'
     }
 
-    def __init__(self, default_date=None, auction_date=None, recovery_rate=None, instrument_event_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, effective_date=None, auction_date=None, recovery_rate=None, instrument_event_type=None, local_vars_configuration=None):  # noqa: E501
         """CdsCreditEvent - a model defined in OpenAPI"
         
-        :param default_date:  The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation. (required)
-        :type default_date: datetime
+        :param effective_date:  The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation. (required)
+        :type effective_date: datetime
         :param auction_date:  The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined.
         :type auction_date: datetime
         :param recovery_rate:  The fraction of the defaulted debt that can be recovered.
@@ -76,41 +76,41 @@ class CdsCreditEvent(object):
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._default_date = None
+        self._effective_date = None
         self._auction_date = None
         self._recovery_rate = None
         self._instrument_event_type = None
         self.discriminator = None
 
-        self.default_date = default_date
+        self.effective_date = effective_date
         self.auction_date = auction_date
         self.recovery_rate = recovery_rate
         self.instrument_event_type = instrument_event_type
 
     @property
-    def default_date(self):
-        """Gets the default_date of this CdsCreditEvent.  # noqa: E501
+    def effective_date(self):
+        """Gets the effective_date of this CdsCreditEvent.  # noqa: E501
 
         The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.  # noqa: E501
 
-        :return: The default_date of this CdsCreditEvent.  # noqa: E501
+        :return: The effective_date of this CdsCreditEvent.  # noqa: E501
         :rtype: datetime
         """
-        return self._default_date
+        return self._effective_date
 
-    @default_date.setter
-    def default_date(self, default_date):
-        """Sets the default_date of this CdsCreditEvent.
+    @effective_date.setter
+    def effective_date(self, effective_date):
+        """Sets the effective_date of this CdsCreditEvent.
 
         The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.  # noqa: E501
 
-        :param default_date: The default_date of this CdsCreditEvent.  # noqa: E501
-        :type default_date: datetime
+        :param effective_date: The effective_date of this CdsCreditEvent.  # noqa: E501
+        :type effective_date: datetime
         """
-        if self.local_vars_configuration.client_side_validation and default_date is None:  # noqa: E501
-            raise ValueError("Invalid value for `default_date`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and effective_date is None:  # noqa: E501
+            raise ValueError("Invalid value for `effective_date`, must not be `None`")  # noqa: E501
 
-        self._default_date = default_date
+        self._effective_date = effective_date
 
     @property
     def auction_date(self):

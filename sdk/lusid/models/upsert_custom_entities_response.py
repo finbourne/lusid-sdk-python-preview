@@ -41,6 +41,7 @@ class UpsertCustomEntitiesResponse(object):
     openapi_types = {
         'href': 'str',
         'values': 'dict(str, CustomEntityResponse)',
+        'staged': 'dict(str, CustomEntityResponse)',
         'failed': 'dict(str, ErrorDetail)',
         'links': 'list[Link]'
     }
@@ -48,6 +49,7 @@ class UpsertCustomEntitiesResponse(object):
     attribute_map = {
         'href': 'href',
         'values': 'values',
+        'staged': 'staged',
         'failed': 'failed',
         'links': 'links'
     }
@@ -55,17 +57,20 @@ class UpsertCustomEntitiesResponse(object):
     required_map = {
         'href': 'optional',
         'values': 'optional',
+        'staged': 'optional',
         'failed': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, values=None, failed=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, values=None, staged=None, failed=None, links=None, local_vars_configuration=None):  # noqa: E501
         """UpsertCustomEntitiesResponse - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         :type href: str
         :param values:  The custom-entities which have been successfully updated or created.
         :type values: dict[str, lusid.CustomEntityResponse]
+        :param staged:  The custom-entities that have been staged for update or creation.
+        :type staged: dict[str, lusid.CustomEntityResponse]
         :param failed:  The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.
         :type failed: dict[str, lusid.ErrorDetail]
         :param links:  Collection of links.
@@ -78,12 +83,14 @@ class UpsertCustomEntitiesResponse(object):
 
         self._href = None
         self._values = None
+        self._staged = None
         self._failed = None
         self._links = None
         self.discriminator = None
 
         self.href = href
         self.values = values
+        self.staged = staged
         self.failed = failed
         self.links = links
 
@@ -132,6 +139,29 @@ class UpsertCustomEntitiesResponse(object):
         """
 
         self._values = values
+
+    @property
+    def staged(self):
+        """Gets the staged of this UpsertCustomEntitiesResponse.  # noqa: E501
+
+        The custom-entities that have been staged for update or creation.  # noqa: E501
+
+        :return: The staged of this UpsertCustomEntitiesResponse.  # noqa: E501
+        :rtype: dict[str, lusid.CustomEntityResponse]
+        """
+        return self._staged
+
+    @staged.setter
+    def staged(self, staged):
+        """Sets the staged of this UpsertCustomEntitiesResponse.
+
+        The custom-entities that have been staged for update or creation.  # noqa: E501
+
+        :param staged: The staged of this UpsertCustomEntitiesResponse.  # noqa: E501
+        :type staged: dict[str, lusid.CustomEntityResponse]
+        """
+
+        self._staged = staged
 
     @property
     def failed(self):

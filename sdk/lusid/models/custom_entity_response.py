@@ -42,6 +42,7 @@ class CustomEntityResponse(object):
         'href': 'str',
         'entity_type': 'str',
         'version': 'Version',
+        'staged_modifications': 'StagedModificationsInfo',
         'display_name': 'str',
         'description': 'str',
         'identifiers': 'list[CustomEntityId]',
@@ -54,6 +55,7 @@ class CustomEntityResponse(object):
         'href': 'href',
         'entity_type': 'entityType',
         'version': 'version',
+        'staged_modifications': 'stagedModifications',
         'display_name': 'displayName',
         'description': 'description',
         'identifiers': 'identifiers',
@@ -66,6 +68,7 @@ class CustomEntityResponse(object):
         'href': 'optional',
         'entity_type': 'required',
         'version': 'required',
+        'staged_modifications': 'optional',
         'display_name': 'required',
         'description': 'optional',
         'identifiers': 'required',
@@ -74,7 +77,7 @@ class CustomEntityResponse(object):
         'links': 'optional'
     }
 
-    def __init__(self, href=None, entity_type=None, version=None, display_name=None, description=None, identifiers=None, fields=None, relationships=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, entity_type=None, version=None, staged_modifications=None, display_name=None, description=None, identifiers=None, fields=None, relationships=None, links=None, local_vars_configuration=None):  # noqa: E501
         """CustomEntityResponse - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -83,6 +86,8 @@ class CustomEntityResponse(object):
         :type entity_type: str
         :param version:  (required)
         :type version: lusid.Version
+        :param staged_modifications: 
+        :type staged_modifications: lusid.StagedModificationsInfo
         :param display_name:  A display label for the custom entity. (required)
         :type display_name: str
         :param description:  A description of the custom entity.
@@ -104,6 +109,7 @@ class CustomEntityResponse(object):
         self._href = None
         self._entity_type = None
         self._version = None
+        self._staged_modifications = None
         self._display_name = None
         self._description = None
         self._identifiers = None
@@ -115,6 +121,8 @@ class CustomEntityResponse(object):
         self.href = href
         self.entity_type = entity_type
         self.version = version
+        if staged_modifications is not None:
+            self.staged_modifications = staged_modifications
         self.display_name = display_name
         self.description = description
         self.identifiers = identifiers
@@ -195,6 +203,27 @@ class CustomEntityResponse(object):
             raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
+
+    @property
+    def staged_modifications(self):
+        """Gets the staged_modifications of this CustomEntityResponse.  # noqa: E501
+
+
+        :return: The staged_modifications of this CustomEntityResponse.  # noqa: E501
+        :rtype: lusid.StagedModificationsInfo
+        """
+        return self._staged_modifications
+
+    @staged_modifications.setter
+    def staged_modifications(self, staged_modifications):
+        """Sets the staged_modifications of this CustomEntityResponse.
+
+
+        :param staged_modifications: The staged_modifications of this CustomEntityResponse.  # noqa: E501
+        :type staged_modifications: lusid.StagedModificationsInfo
+        """
+
+        self._staged_modifications = staged_modifications
 
     @property
     def display_name(self):

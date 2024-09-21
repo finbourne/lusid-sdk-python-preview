@@ -41,7 +41,7 @@ class FeeType(object):
     openapi_types = {
         'href': 'str',
         'id': 'ResourceId',
-        'name': 'str',
+        'display_name': 'str',
         'description': 'str',
         'component_transactions': 'list[ComponentTransaction]',
         'version': 'Version',
@@ -51,7 +51,7 @@ class FeeType(object):
     attribute_map = {
         'href': 'href',
         'id': 'id',
-        'name': 'name',
+        'display_name': 'displayName',
         'description': 'description',
         'component_transactions': 'componentTransactions',
         'version': 'version',
@@ -61,25 +61,25 @@ class FeeType(object):
     required_map = {
         'href': 'optional',
         'id': 'required',
-        'name': 'required',
+        'display_name': 'required',
         'description': 'required',
         'component_transactions': 'required',
         'version': 'optional',
         'links': 'optional'
     }
 
-    def __init__(self, href=None, id=None, name=None, description=None, component_transactions=None, version=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, id=None, display_name=None, description=None, component_transactions=None, version=None, links=None, local_vars_configuration=None):  # noqa: E501
         """FeeType - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         :type href: str
         :param id:  (required)
         :type id: lusid.ResourceId
-        :param name:  The name of the fee type. (required)
-        :type name: str
+        :param display_name:  The name of the fee type. (required)
+        :type display_name: str
         :param description:  The description of the fee type. (required)
         :type description: str
-        :param component_transactions:  A set of component transactions that relate to the fee type. (required)
+        :param component_transactions:  A set of component transactions that relate to the fee type to be created. (required)
         :type component_transactions: list[lusid.ComponentTransaction]
         :param version: 
         :type version: lusid.Version
@@ -93,7 +93,7 @@ class FeeType(object):
 
         self._href = None
         self._id = None
-        self._name = None
+        self._display_name = None
         self._description = None
         self._component_transactions = None
         self._version = None
@@ -102,7 +102,7 @@ class FeeType(object):
 
         self.href = href
         self.id = id
-        self.name = name
+        self.display_name = display_name
         self.description = description
         self.component_transactions = component_transactions
         if version is not None:
@@ -156,32 +156,32 @@ class FeeType(object):
         self._id = id
 
     @property
-    def name(self):
-        """Gets the name of this FeeType.  # noqa: E501
+    def display_name(self):
+        """Gets the display_name of this FeeType.  # noqa: E501
 
         The name of the fee type.  # noqa: E501
 
-        :return: The name of this FeeType.  # noqa: E501
+        :return: The display_name of this FeeType.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._display_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this FeeType.
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this FeeType.
 
         The name of the fee type.  # noqa: E501
 
-        :param name: The name of this FeeType.  # noqa: E501
-        :type name: str
+        :param display_name: The display_name of this FeeType.  # noqa: E501
+        :type display_name: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and display_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+                display_name is not None and len(display_name) < 1):
+            raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._name = name
+        self._display_name = display_name
 
     @property
     def description(self):
@@ -215,7 +215,7 @@ class FeeType(object):
     def component_transactions(self):
         """Gets the component_transactions of this FeeType.  # noqa: E501
 
-        A set of component transactions that relate to the fee type.  # noqa: E501
+        A set of component transactions that relate to the fee type to be created.  # noqa: E501
 
         :return: The component_transactions of this FeeType.  # noqa: E501
         :rtype: list[lusid.ComponentTransaction]
@@ -226,7 +226,7 @@ class FeeType(object):
     def component_transactions(self, component_transactions):
         """Sets the component_transactions of this FeeType.
 
-        A set of component transactions that relate to the fee type.  # noqa: E501
+        A set of component transactions that relate to the fee type to be created.  # noqa: E501
 
         :param component_transactions: The component_transactions of this FeeType.  # noqa: E501
         :type component_transactions: list[lusid.ComponentTransaction]

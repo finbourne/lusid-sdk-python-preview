@@ -40,32 +40,32 @@ class FeeTypeRequest(object):
     """
     openapi_types = {
         'code': 'str',
-        'name': 'str',
+        'display_name': 'str',
         'description': 'str',
         'component_transactions': 'list[ComponentTransaction]'
     }
 
     attribute_map = {
         'code': 'code',
-        'name': 'name',
+        'display_name': 'displayName',
         'description': 'description',
         'component_transactions': 'componentTransactions'
     }
 
     required_map = {
         'code': 'required',
-        'name': 'required',
+        'display_name': 'required',
         'description': 'optional',
         'component_transactions': 'required'
     }
 
-    def __init__(self, code=None, name=None, description=None, component_transactions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, code=None, display_name=None, description=None, component_transactions=None, local_vars_configuration=None):  # noqa: E501
         """FeeTypeRequest - a model defined in OpenAPI"
         
         :param code:  (required)
         :type code: str
-        :param name:  The name of the fee type. (required)
-        :type name: str
+        :param display_name:  The name of the fee type. (required)
+        :type display_name: str
         :param description:  The description of the fee type.
         :type description: str
         :param component_transactions:  A set of component transactions that relate to the fee type to be created. (required)
@@ -77,13 +77,13 @@ class FeeTypeRequest(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
-        self._name = None
+        self._display_name = None
         self._description = None
         self._component_transactions = None
         self.discriminator = None
 
         self.code = code
-        self.name = name
+        self.display_name = display_name
         self.description = description
         self.component_transactions = component_transactions
 
@@ -120,35 +120,35 @@ class FeeTypeRequest(object):
         self._code = code
 
     @property
-    def name(self):
-        """Gets the name of this FeeTypeRequest.  # noqa: E501
+    def display_name(self):
+        """Gets the display_name of this FeeTypeRequest.  # noqa: E501
 
         The name of the fee type.  # noqa: E501
 
-        :return: The name of this FeeTypeRequest.  # noqa: E501
+        :return: The display_name of this FeeTypeRequest.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._display_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this FeeTypeRequest.
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this FeeTypeRequest.
 
         The name of the fee type.  # noqa: E501
 
-        :param name: The name of this FeeTypeRequest.  # noqa: E501
-        :type name: str
+        :param display_name: The display_name of this FeeTypeRequest.  # noqa: E501
+        :type display_name: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and display_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 256):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `256`")  # noqa: E501
+                display_name is not None and len(display_name) > 256):
+            raise ValueError("Invalid value for `display_name`, length must be less than or equal to `256`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+                display_name is not None and len(display_name) < 1):
+            raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._name = name
+        self._display_name = display_name
 
     @property
     def description(self):

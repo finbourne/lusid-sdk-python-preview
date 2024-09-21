@@ -41,8 +41,8 @@ class Fee(object):
     openapi_types = {
         'href': 'str',
         'fee_code': 'str',
-        'fee_type': 'ResourceId',
-        'name': 'str',
+        'fee_type_id': 'ResourceId',
+        'display_name': 'str',
         'description': 'str',
         'origin': 'str',
         'calculation_base': 'str',
@@ -64,8 +64,8 @@ class Fee(object):
     attribute_map = {
         'href': 'href',
         'fee_code': 'feeCode',
-        'fee_type': 'feeType',
-        'name': 'name',
+        'fee_type_id': 'feeTypeId',
+        'display_name': 'displayName',
         'description': 'description',
         'origin': 'origin',
         'calculation_base': 'calculationBase',
@@ -87,8 +87,8 @@ class Fee(object):
     required_map = {
         'href': 'optional',
         'fee_code': 'optional',
-        'fee_type': 'required',
-        'name': 'required',
+        'fee_type_id': 'required',
+        'display_name': 'required',
         'description': 'optional',
         'origin': 'optional',
         'calculation_base': 'optional',
@@ -107,17 +107,17 @@ class Fee(object):
         'links': 'optional'
     }
 
-    def __init__(self, href=None, fee_code=None, fee_type=None, name=None, description=None, origin=None, calculation_base=None, accrual_currency=None, treatment=None, total_annual_accrual_amount=None, fee_rate_percentage=None, payable_frequency=None, business_day_convention=None, start_date=None, end_date=None, anchor_date=None, properties=None, version=None, portfolio_id=None, links=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, href=None, fee_code=None, fee_type_id=None, display_name=None, description=None, origin=None, calculation_base=None, accrual_currency=None, treatment=None, total_annual_accrual_amount=None, fee_rate_percentage=None, payable_frequency=None, business_day_convention=None, start_date=None, end_date=None, anchor_date=None, properties=None, version=None, portfolio_id=None, links=None, local_vars_configuration=None):  # noqa: E501
         """Fee - a model defined in OpenAPI"
         
         :param href:  The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         :type href: str
         :param fee_code:  The code of the Fee.
         :type fee_code: str
-        :param fee_type:  (required)
-        :type fee_type: lusid.ResourceId
-        :param name:  The name of the Fee. (required)
-        :type name: str
+        :param fee_type_id:  (required)
+        :type fee_type_id: lusid.ResourceId
+        :param display_name:  The name of the Fee. (required)
+        :type display_name: str
         :param description:  A description for the Fee.
         :type description: str
         :param origin:  The origin or source of the Fee accrual.
@@ -158,8 +158,8 @@ class Fee(object):
 
         self._href = None
         self._fee_code = None
-        self._fee_type = None
-        self._name = None
+        self._fee_type_id = None
+        self._display_name = None
         self._description = None
         self._origin = None
         self._calculation_base = None
@@ -180,8 +180,8 @@ class Fee(object):
 
         self.href = href
         self.fee_code = fee_code
-        self.fee_type = fee_type
-        self.name = name
+        self.fee_type_id = fee_type_id
+        self.display_name = display_name
         self.description = description
         self.origin = origin
         self.calculation_base = calculation_base
@@ -259,58 +259,58 @@ class Fee(object):
         self._fee_code = fee_code
 
     @property
-    def fee_type(self):
-        """Gets the fee_type of this Fee.  # noqa: E501
+    def fee_type_id(self):
+        """Gets the fee_type_id of this Fee.  # noqa: E501
 
 
-        :return: The fee_type of this Fee.  # noqa: E501
+        :return: The fee_type_id of this Fee.  # noqa: E501
         :rtype: lusid.ResourceId
         """
-        return self._fee_type
+        return self._fee_type_id
 
-    @fee_type.setter
-    def fee_type(self, fee_type):
-        """Sets the fee_type of this Fee.
+    @fee_type_id.setter
+    def fee_type_id(self, fee_type_id):
+        """Sets the fee_type_id of this Fee.
 
 
-        :param fee_type: The fee_type of this Fee.  # noqa: E501
-        :type fee_type: lusid.ResourceId
+        :param fee_type_id: The fee_type_id of this Fee.  # noqa: E501
+        :type fee_type_id: lusid.ResourceId
         """
-        if self.local_vars_configuration.client_side_validation and fee_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `fee_type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and fee_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `fee_type_id`, must not be `None`")  # noqa: E501
 
-        self._fee_type = fee_type
+        self._fee_type_id = fee_type_id
 
     @property
-    def name(self):
-        """Gets the name of this Fee.  # noqa: E501
+    def display_name(self):
+        """Gets the display_name of this Fee.  # noqa: E501
 
         The name of the Fee.  # noqa: E501
 
-        :return: The name of this Fee.  # noqa: E501
+        :return: The display_name of this Fee.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._display_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this Fee.
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this Fee.
 
         The name of the Fee.  # noqa: E501
 
-        :param name: The name of this Fee.  # noqa: E501
-        :type name: str
+        :param display_name: The display_name of this Fee.  # noqa: E501
+        :type display_name: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and display_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 50):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
+                display_name is not None and len(display_name) > 50):
+            raise ValueError("Invalid value for `display_name`, length must be less than or equal to `50`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 0):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `0`")  # noqa: E501
+                display_name is not None and len(display_name) < 0):
+            raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `0`")  # noqa: E501
 
-        self._name = name
+        self._display_name = display_name
 
     @property
     def description(self):

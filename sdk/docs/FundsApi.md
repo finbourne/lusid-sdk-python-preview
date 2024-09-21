@@ -142,7 +142,7 @@ with lusid.ApiClient(configuration) as api_client:
     api_instance = lusid.FundsApi(api_client)
     scope = 'scope_example' # str | The scope of the Fund.
 code = 'code_example' # str | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-fee_request = {"code":"FeeCode","feeType":{"scope":"FeeTypeScope","code":"FeeTypeCode"},"name":"Legal Fees","description":"Legal Fees","origin":"Separate Agreement","accrualCurrency":"GBP","treatment":"Monthly","totalAnnualAccrualAmount":75000,"payableFrequency":"Annually","businessDayConvention":"Previous","startDate":"2020-10-25T00:00:00.0000000+00:00","endDate":"2023-10-25T00:00:00.0000000+00:00","anchorDate":{"day":1,"month":1},"properties":{}} # FeeRequest | The Fee to create.
+fee_request = {"code":"FeeCode","feeTypeId":{"scope":"FeeTypeScope","code":"FeeTypeCode"},"displayName":"Legal Fees","description":"Legal Fees","origin":"Separate Agreement","accrualCurrency":"GBP","treatment":"Monthly","totalAnnualAccrualAmount":75000,"payableFrequency":"Annually","businessDayConvention":"Previous","startDate":"2020-10-25T00:00:00.0000000+00:00","endDate":"2023-10-25T00:00:00.0000000+00:00","anchorDate":{"day":1,"month":1},"properties":{}} # FeeRequest | The Fee to create.
 
     try:
         # [EXPERIMENTAL] CreateFee: Create a Fee.

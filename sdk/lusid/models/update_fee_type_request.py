@@ -39,31 +39,31 @@ class UpdateFeeTypeRequest(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'name': 'str',
+        'display_name': 'str',
         'description': 'str',
         'component_transactions': 'list[ComponentTransaction]'
     }
 
     attribute_map = {
-        'name': 'name',
+        'display_name': 'displayName',
         'description': 'description',
         'component_transactions': 'componentTransactions'
     }
 
     required_map = {
-        'name': 'required',
+        'display_name': 'required',
         'description': 'optional',
         'component_transactions': 'required'
     }
 
-    def __init__(self, name=None, description=None, component_transactions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, description=None, component_transactions=None, local_vars_configuration=None):  # noqa: E501
         """UpdateFeeTypeRequest - a model defined in OpenAPI"
         
-        :param name:  The name of the fee type. (required)
-        :type name: str
+        :param display_name:  The name of the fee type. (required)
+        :type display_name: str
         :param description:  The description of the fee type.
         :type description: str
-        :param component_transactions:  A set of component transactions that relate to the fee type to be updated. (required)
+        :param component_transactions:  A set of component transactions that relate to the fee type to be created. (required)
         :type component_transactions: list[lusid.ComponentTransaction]
 
         """  # noqa: E501
@@ -71,45 +71,45 @@ class UpdateFeeTypeRequest(object):
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._name = None
+        self._display_name = None
         self._description = None
         self._component_transactions = None
         self.discriminator = None
 
-        self.name = name
+        self.display_name = display_name
         self.description = description
         self.component_transactions = component_transactions
 
     @property
-    def name(self):
-        """Gets the name of this UpdateFeeTypeRequest.  # noqa: E501
+    def display_name(self):
+        """Gets the display_name of this UpdateFeeTypeRequest.  # noqa: E501
 
         The name of the fee type.  # noqa: E501
 
-        :return: The name of this UpdateFeeTypeRequest.  # noqa: E501
+        :return: The display_name of this UpdateFeeTypeRequest.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._display_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this UpdateFeeTypeRequest.
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this UpdateFeeTypeRequest.
 
         The name of the fee type.  # noqa: E501
 
-        :param name: The name of this UpdateFeeTypeRequest.  # noqa: E501
-        :type name: str
+        :param display_name: The display_name of this UpdateFeeTypeRequest.  # noqa: E501
+        :type display_name: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and display_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 256):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `256`")  # noqa: E501
+                display_name is not None and len(display_name) > 256):
+            raise ValueError("Invalid value for `display_name`, length must be less than or equal to `256`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+                display_name is not None and len(display_name) < 1):
+            raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._name = name
+        self._display_name = display_name
 
     @property
     def description(self):
@@ -147,7 +147,7 @@ class UpdateFeeTypeRequest(object):
     def component_transactions(self):
         """Gets the component_transactions of this UpdateFeeTypeRequest.  # noqa: E501
 
-        A set of component transactions that relate to the fee type to be updated.  # noqa: E501
+        A set of component transactions that relate to the fee type to be created.  # noqa: E501
 
         :return: The component_transactions of this UpdateFeeTypeRequest.  # noqa: E501
         :rtype: list[lusid.ComponentTransaction]
@@ -158,7 +158,7 @@ class UpdateFeeTypeRequest(object):
     def component_transactions(self, component_transactions):
         """Sets the component_transactions of this UpdateFeeTypeRequest.
 
-        A set of component transactions that relate to the fee type to be updated.  # noqa: E501
+        A set of component transactions that relate to the fee type to be created.  # noqa: E501
 
         :param component_transactions: The component_transactions of this UpdateFeeTypeRequest.  # noqa: E501
         :type component_transactions: list[lusid.ComponentTransaction]
