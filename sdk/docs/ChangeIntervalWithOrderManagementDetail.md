@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **attribute_name** | **str** | The name of the field or property that has been changed. | [optional] 
 **previous_value** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 **new_value** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
-**effective_range** | [**StagedModificationEffectiveRange**](StagedModificationEffectiveRange.md) |  | [optional] 
+**effective_range** | [**EffectiveRange**](EffectiveRange.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
