@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**book_transactions**](OrderManagementApi.md#book_transactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
 [**cancel_orders**](OrderManagementApi.md#cancel_orders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders
+[**cancel_orders_and_move_remaining**](OrderManagementApi.md#cancel_orders_and_move_remaining) | **POST** /api/ordermanagement/cancelordersandmoveremaining | [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
 [**cancel_placements**](OrderManagementApi.md#cancel_placements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements
 [**create_orders**](OrderManagementApi.md#create_orders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
 [**get_order_history**](OrderManagementApi.md#get_order_history) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -163,6 +164,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The successfully cancelled orders along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_orders_and_move_remaining**
+> CancelOrdersAndMoveRemainingResponse cancel_orders_and_move_remaining(request_body)
+
+[EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
+
+Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.OrderManagementApi(api_client)
+    request_body = {"request1":{"cancelOrderId":{"scope":"MyScope","code":"Order1"},"moveRemainingToOrderId":{"scope":"MyScope","code":"Order1_Rollover"},"moveRemainingToBlockId":{"scope":"MyScope","code":"Block_Rollover"}},"request2":{"cancelOrderId":{"scope":"MyScope","code":"Order2"},"moveRemainingToOrderId":{"scope":"MyScope","code":"Order2_Rollover"},"moveRemainingToBlockId":{"scope":"MyScope","code":"Block_Rollover"}}} # dict(str, CancelOrdersAndMoveRemainingRequest) | The request containing the orders to be cancelled, and the destinations of remaining quantities.
+
+    try:
+        # [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
+        api_response = api_instance.cancel_orders_and_move_remaining(request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrderManagementApi->cancel_orders_and_move_remaining: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request_body** | [**dict(str, CancelOrdersAndMoveRemainingRequest)**](CancelOrdersAndMoveRemainingRequest.md)| The request containing the orders to be cancelled, and the destinations of remaining quantities. | 
+
+### Return type
+
+[**CancelOrdersAndMoveRemainingResponse**](CancelOrdersAndMoveRemainingResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successfully cancelled and moved orders, along with any failures |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
