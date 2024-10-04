@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | A set of properties associated to the Person. There can be multiple properties associated with a property key. | [optional] 
 **relationships** | [**list[Relationship]**](Relationship.md) | A set of relationships associated to the Person. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

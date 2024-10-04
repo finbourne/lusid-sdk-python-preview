@@ -68,7 +68,7 @@ class BatchUpsertDatesForCalendarResponse(object):
         :type failed: dict[str, lusid.ErrorDetail]
         :param metadata:  Contains warnings related to the upserted dates
         :type metadata: dict(str, list[ResponseMetaData])
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -160,7 +160,6 @@ class BatchUpsertDatesForCalendarResponse(object):
     def links(self):
         """Gets the links of this BatchUpsertDatesForCalendarResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this BatchUpsertDatesForCalendarResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -171,7 +170,6 @@ class BatchUpsertDatesForCalendarResponse(object):
     def links(self, links):
         """Sets the links of this BatchUpsertDatesForCalendarResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this BatchUpsertDatesForCalendarResponse.  # noqa: E501
         :type links: list[lusid.Link]

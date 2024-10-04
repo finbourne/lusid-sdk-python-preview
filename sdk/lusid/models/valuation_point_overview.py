@@ -103,7 +103,7 @@ class ValuationPointOverview(object):
         :type nav: float
         :param properties:  The Fee properties. These will be from the 'Fee' domain.
         :type properties: dict[str, lusid.ModelProperty]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -391,7 +391,6 @@ class ValuationPointOverview(object):
     def links(self):
         """Gets the links of this ValuationPointOverview.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this ValuationPointOverview.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -402,7 +401,6 @@ class ValuationPointOverview(object):
     def links(self, links):
         """Sets the links of this ValuationPointOverview.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this ValuationPointOverview.  # noqa: E501
         :type links: list[lusid.Link]

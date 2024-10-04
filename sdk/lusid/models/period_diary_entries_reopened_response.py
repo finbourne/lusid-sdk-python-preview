@@ -83,7 +83,7 @@ class PeriodDiaryEntriesReopenedResponse(object):
         :type period_diary_entries_from: datetime
         :param period_diary_entries_to:  The end point where periods were removed to (required)
         :type period_diary_entries_to: datetime
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -258,7 +258,6 @@ class PeriodDiaryEntriesReopenedResponse(object):
     def links(self):
         """Gets the links of this PeriodDiaryEntriesReopenedResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this PeriodDiaryEntriesReopenedResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -269,7 +268,6 @@ class PeriodDiaryEntriesReopenedResponse(object):
     def links(self, links):
         """Sets the links of this PeriodDiaryEntriesReopenedResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this PeriodDiaryEntriesReopenedResponse.  # noqa: E501
         :type links: list[lusid.Link]

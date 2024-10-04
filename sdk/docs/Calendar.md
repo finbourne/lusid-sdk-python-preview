@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **source_provider** | **str** |  | 
 **properties** | [**list[ModelProperty]**](ModelProperty.md) |  | 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

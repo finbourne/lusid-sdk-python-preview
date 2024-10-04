@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **description** | **str** | The description of a workspace item. | 
 **content** | **str** | The content associated with a workspace item. | 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -88,7 +88,7 @@ class CustomEntityType(object):
         :type field_schema: list[lusid.CustomEntityFieldDefinition]
         :param version:  (required)
         :type version: lusid.Version
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -297,7 +297,6 @@ class CustomEntityType(object):
     def links(self):
         """Gets the links of this CustomEntityType.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this CustomEntityType.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -308,7 +307,6 @@ class CustomEntityType(object):
     def links(self, links):
         """Sets the links of this CustomEntityType.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this CustomEntityType.  # noqa: E501
         :type links: list[lusid.Link]

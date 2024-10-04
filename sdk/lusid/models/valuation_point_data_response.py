@@ -128,7 +128,7 @@ class ValuationPointDataResponse(object):
         :type valuation_point_code: str
         :param previous_valuation_point_code:  The code of the previous valuation point.
         :type previous_valuation_point_code: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -546,7 +546,6 @@ class ValuationPointDataResponse(object):
     def links(self):
         """Gets the links of this ValuationPointDataResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this ValuationPointDataResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -557,7 +556,6 @@ class ValuationPointDataResponse(object):
     def links(self, links):
         """Sets the links of this ValuationPointDataResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this ValuationPointDataResponse.  # noqa: E501
         :type links: list[lusid.Link]

@@ -78,7 +78,7 @@ class DeletedEntityResponse(object):
         :type entity_type: str
         :param entity_unique_id:  The unique Id of the entity that the deleted response applies to.
         :type entity_unique_id: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -222,7 +222,6 @@ class DeletedEntityResponse(object):
     def links(self):
         """Gets the links of this DeletedEntityResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this DeletedEntityResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -233,7 +232,6 @@ class DeletedEntityResponse(object):
     def links(self, links):
         """Sets the links of this DeletedEntityResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this DeletedEntityResponse.  # noqa: E501
         :type links: list[lusid.Link]

@@ -63,7 +63,7 @@ class BatchUpsertPortfolioAccessMetadataResponse(object):
         :type values: dict[str, lusid.BatchUpsertPortfolioAccessMetadataResponseItem]
         :param failed:  The items that could not be updated or created along with a reason for their failure.
         :type failed: dict[str, lusid.ErrorDetail]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -130,7 +130,6 @@ class BatchUpsertPortfolioAccessMetadataResponse(object):
     def links(self):
         """Gets the links of this BatchUpsertPortfolioAccessMetadataResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this BatchUpsertPortfolioAccessMetadataResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -141,7 +140,6 @@ class BatchUpsertPortfolioAccessMetadataResponse(object):
     def links(self, links):
         """Sets the links of this BatchUpsertPortfolioAccessMetadataResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this BatchUpsertPortfolioAccessMetadataResponse.  # noqa: E501
         :type links: list[lusid.Link]

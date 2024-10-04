@@ -23,6 +23,7 @@ from lusid.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
+from lusid.models.add_business_days_to_date_response import AddBusinessDaysToDateResponse
 from lusid.models.batch_upsert_instrument_properties_response import BatchUpsertInstrumentPropertiesResponse
 from lusid.models.delete_instrument_properties_response import DeleteInstrumentPropertiesResponse
 from lusid.models.delete_instrument_response import DeleteInstrumentResponse
@@ -227,6 +228,206 @@ class InstrumentsApi(object):
 
         return self.api_client.call_api(
             '/api/instruments/$batchupsertproperties', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def calculate_settlement_date(self, identifier_type, identifier, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.  # noqa: E501
+
+        Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.calculate_settlement_date(identifier_type, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param identifier_type: An identifier type attached to the Instrument. (required)
+        :type identifier_type: str
+        :param identifier: The identifier value. (required)
+        :type identifier: str
+        :param transaction_date: The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label.
+        :type transaction_date: str
+        :param scope: The scope in which the instrument lies. When not supplied the scope is 'default'.
+        :type scope: str
+        :param as_at: The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: AddBusinessDaysToDateResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.calculate_settlement_date_with_http_info(identifier_type, identifier, **kwargs)  # noqa: E501
+
+    def calculate_settlement_date_with_http_info(self, identifier_type, identifier, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.  # noqa: E501
+
+        Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.calculate_settlement_date_with_http_info(identifier_type, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param identifier_type: An identifier type attached to the Instrument. (required)
+        :type identifier_type: str
+        :param identifier: The identifier value. (required)
+        :type identifier: str
+        :param transaction_date: The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label.
+        :type transaction_date: str
+        :param scope: The scope in which the instrument lies. When not supplied the scope is 'default'.
+        :type scope: str
+        :param as_at: The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified.
+        :type as_at: datetime
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (AddBusinessDaysToDateResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'identifier_type',
+            'identifier',
+            'transaction_date',
+            'scope',
+            'as_at'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method calculate_settlement_date" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'identifier_type' is set
+        if self.api_client.client_side_validation and ('identifier_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['identifier_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `identifier_type` when calling `calculate_settlement_date`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in local_var_params or  # noqa: E501
+                                                        local_var_params['identifier'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `identifier` when calling `calculate_settlement_date`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('identifier_type' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['identifier_type']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier_type` when calling `calculate_settlement_date`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('identifier_type' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['identifier_type']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier_type` when calling `calculate_settlement_date`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'identifier_type' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['identifier_type']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier_type` when calling `calculate_settlement_date`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('identifier' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['identifier']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier` when calling `calculate_settlement_date`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('identifier' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['identifier']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier` when calling `calculate_settlement_date`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'identifier' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['identifier']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `identifier` when calling `calculate_settlement_date`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `calculate_settlement_date`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `calculate_settlement_date`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `calculate_settlement_date`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'identifier_type' in local_var_params:
+            path_params['identifierType'] = local_var_params['identifier_type']  # noqa: E501
+        if 'identifier' in local_var_params:
+            path_params['identifier'] = local_var_params['identifier']  # noqa: E501
+
+        query_params = []
+        if 'transaction_date' in local_var_params and local_var_params['transaction_date'] is not None:  # noqa: E501
+            query_params.append(('transactionDate', local_var_params['transaction_date']))  # noqa: E501
+        if 'scope' in local_var_params and local_var_params['scope'] is not None:  # noqa: E501
+            query_params.append(('scope', local_var_params['scope']))  # noqa: E501
+        if 'as_at' in local_var_params and local_var_params['as_at'] is not None:  # noqa: E501
+            query_params.append(('asAt', local_var_params['as_at']))  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.237'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "AddBusinessDaysToDateResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/instruments/{identifierType}/{identifier}/settlementdate', 'GET',
             path_params,
             query_params,
             header_params,

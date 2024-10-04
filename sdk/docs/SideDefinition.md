@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **units** | **str** | The value, field or property key defining the side&#39;s units. | 
 **amount** | **str** | The value, field or property key defining the side&#39;s amount | 
 **notional_amount** | **str** | The value, field or property key defining the side&#39;s notional amount | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

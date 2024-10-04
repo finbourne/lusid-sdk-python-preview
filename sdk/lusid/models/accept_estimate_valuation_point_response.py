@@ -68,7 +68,7 @@ class AcceptEstimateValuationPointResponse(object):
         :type candidate_valuation_point: lusid.ValuationPointDataResponse
         :param latest_valuation_point: 
         :type latest_valuation_point: lusid.ValuationPointDataResponse
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -159,7 +159,6 @@ class AcceptEstimateValuationPointResponse(object):
     def links(self):
         """Gets the links of this AcceptEstimateValuationPointResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this AcceptEstimateValuationPointResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -170,7 +169,6 @@ class AcceptEstimateValuationPointResponse(object):
     def links(self, links):
         """Sets the links of this AcceptEstimateValuationPointResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this AcceptEstimateValuationPointResponse.  # noqa: E501
         :type links: list[lusid.Link]

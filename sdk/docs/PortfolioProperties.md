@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | The portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
 **staged_modifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

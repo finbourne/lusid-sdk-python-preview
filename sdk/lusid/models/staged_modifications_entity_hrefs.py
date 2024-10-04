@@ -68,7 +68,7 @@ class StagedModificationsEntityHrefs(object):
         :type preview: str
         :param latest:  The specific Uniform Resource Identifier (URI) for the staged modification at latest time.
         :type latest: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -160,7 +160,6 @@ class StagedModificationsEntityHrefs(object):
     def links(self):
         """Gets the links of this StagedModificationsEntityHrefs.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this StagedModificationsEntityHrefs.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -171,7 +170,6 @@ class StagedModificationsEntityHrefs(object):
     def links(self, links):
         """Sets the links of this StagedModificationsEntityHrefs.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this StagedModificationsEntityHrefs.  # noqa: E501
         :type links: list[lusid.Link]

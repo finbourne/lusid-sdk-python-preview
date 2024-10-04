@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **entity_type** | **str** | The identifier for the custom entity type, derived from the “entityTypeName” provided on creation. | 
 **field_schema** | [**list[CustomEntityFieldDefinition]**](CustomEntityFieldDefinition.md) | The description of the fields on the custom entity type. | 
 **version** | [**Version**](Version.md) |  | 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

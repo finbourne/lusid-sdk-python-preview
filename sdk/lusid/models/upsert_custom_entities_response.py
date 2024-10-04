@@ -73,7 +73,7 @@ class UpsertCustomEntitiesResponse(object):
         :type staged: dict[str, lusid.CustomEntityResponse]
         :param failed:  The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.
         :type failed: dict[str, lusid.ErrorDetail]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -190,7 +190,6 @@ class UpsertCustomEntitiesResponse(object):
     def links(self):
         """Gets the links of this UpsertCustomEntitiesResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this UpsertCustomEntitiesResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -201,7 +200,6 @@ class UpsertCustomEntitiesResponse(object):
     def links(self, links):
         """Sets the links of this UpsertCustomEntitiesResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this UpsertCustomEntitiesResponse.  # noqa: E501
         :type links: list[lusid.Link]

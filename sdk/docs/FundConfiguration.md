@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **back_out_filters** | [**list[ComponentFilter]**](ComponentFilter.md) | The set of filters used to decide which JE lines are included in the back outs. | [optional] 
 **properties** | [**dict(str, ModelProperty)**](ModelProperty.md) | A set of properties for the Fund Configuration. | [optional] 
 **version** | [**Version**](Version.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

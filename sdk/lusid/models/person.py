@@ -93,7 +93,7 @@ class Person(object):
         :type relationships: list[lusid.Relationship]
         :param version: 
         :type version: lusid.Version
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -309,7 +309,6 @@ class Person(object):
     def links(self):
         """Gets the links of this Person.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this Person.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -320,7 +319,6 @@ class Person(object):
     def links(self, links):
         """Sets the links of this Person.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this Person.  # noqa: E501
         :type links: list[lusid.Link]

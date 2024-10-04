@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **values** | [**dict(str, CustomEntityResponse)**](CustomEntityResponse.md) | The custom-entities which have been successfully updated or created. | [optional] 
 **staged** | [**dict(str, CustomEntityResponse)**](CustomEntityResponse.md) | The custom-entities that have been staged for update or creation. | [optional] 
 **failed** | [**dict(str, ErrorDetail)**](ErrorDetail.md) | The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

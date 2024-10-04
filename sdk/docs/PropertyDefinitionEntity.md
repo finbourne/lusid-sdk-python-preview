@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **deleted_property_definition** | [**PropertyDefinition**](PropertyDefinition.md) |  | [optional] 
 **previewed_status** | **str** | The status of the previewed entity. | [optional] 
 **previewed_property_definition** | [**PropertyDefinition**](PropertyDefinition.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

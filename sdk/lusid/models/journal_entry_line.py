@@ -193,7 +193,7 @@ class JournalEntryLine(object):
         :type ledger_column: str
         :param journal_entry_line_type:  Indicates the Journal Entry Line type
         :type journal_entry_line_type: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -964,7 +964,6 @@ class JournalEntryLine(object):
     def links(self):
         """Gets the links of this JournalEntryLine.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this JournalEntryLine.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -975,7 +974,6 @@ class JournalEntryLine(object):
     def links(self, links):
         """Sets the links of this JournalEntryLine.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this JournalEntryLine.  # noqa: E501
         :type links: list[lusid.Link]

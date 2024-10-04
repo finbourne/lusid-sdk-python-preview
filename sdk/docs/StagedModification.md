@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **requested_changes** | [**RequestedChanges**](RequestedChanges.md) |  | [optional] 
 **entity_hrefs** | [**StagedModificationsEntityHrefs**](StagedModificationsEntityHrefs.md) |  | [optional] 
 **display_name** | **str** | The display name of the entity the staged modification applies to. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **holding_sign** | **str** | Indicates if the Journal Entry Line is operating against a Long or Short holding. | [optional] 
 **ledger_column** | **str** | Indicates if the Journal Entry Line is credit or debit. | [optional] 
 **journal_entry_line_type** | **str** | Indicates the Journal Entry Line type | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

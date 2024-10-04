@@ -73,7 +73,7 @@ class CancelOrdersAndMoveRemainingResponse(object):
         :type failed: dict[str, lusid.ErrorDetail]
         :param metadata:  Meta data associated with the cancellation event.
         :type metadata: dict(str, list[ResponseMetaData])
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -190,7 +190,6 @@ class CancelOrdersAndMoveRemainingResponse(object):
     def links(self):
         """Gets the links of this CancelOrdersAndMoveRemainingResponse.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this CancelOrdersAndMoveRemainingResponse.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -201,7 +200,6 @@ class CancelOrdersAndMoveRemainingResponse(object):
     def links(self, links):
         """Sets the links of this CancelOrdersAndMoveRemainingResponse.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this CancelOrdersAndMoveRemainingResponse.  # noqa: E501
         :type links: list[lusid.Link]

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **amount** | **float** | The result of applying the fee to the calculation base, and scaled down to a day. | [optional] 
 **previous_accrual** | **float** | The previous valuation point&#39;s total accrual. | [optional] 
 **total_accrual** | **float** | The sum of the PreviousAccrual and Amount. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -36,8 +36,10 @@ class TransactionPriceType(object):
     YIELD = "Yield"
     SPREAD = "Spread"
     CASHFLOWPERUNIT = "CashFlowPerUnit"
+    CLEANPRICE = "CleanPrice"
+    DIRTYPRICE = "DirtyPrice"
 
-    allowable_values = [PRICE, YIELD, SPREAD, CASHFLOWPERUNIT]  # noqa: E501
+    allowable_values = [PRICE, YIELD, SPREAD, CASHFLOWPERUNIT, CLEANPRICE, DIRTYPRICE]  # noqa: E501
 
     """
     Attributes:

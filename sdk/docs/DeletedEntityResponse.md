@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **as_at** | **datetime** | The asAt datetime at which the deletion was committed to LUSID. | 
 **entity_type** | **str** | The type of the entity that the deleted response applies to. | [optional] 
 **entity_unique_id** | **str** | The unique Id of the entity that the deleted response applies to. | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

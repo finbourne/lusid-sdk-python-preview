@@ -78,7 +78,7 @@ class StagedModificationsRequestedChangeInterval(object):
         :type new_value: lusid.PropertyValue
         :param as_at_basis:  Whether the change represents the modification when the request was made or the modification as it would be at the latest time.
         :type as_at_basis: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -217,7 +217,6 @@ class StagedModificationsRequestedChangeInterval(object):
     def links(self):
         """Gets the links of this StagedModificationsRequestedChangeInterval.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this StagedModificationsRequestedChangeInterval.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -228,7 +227,6 @@ class StagedModificationsRequestedChangeInterval(object):
     def links(self, links):
         """Sets the links of this StagedModificationsRequestedChangeInterval.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this StagedModificationsRequestedChangeInterval.  # noqa: E501
         :type links: list[lusid.Link]

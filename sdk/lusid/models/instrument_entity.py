@@ -113,7 +113,7 @@ class InstrumentEntity(object):
         :type previewed_status: str
         :param previewed_instrument: 
         :type previewed_instrument: lusid.Instrument
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -439,7 +439,6 @@ class InstrumentEntity(object):
     def links(self):
         """Gets the links of this InstrumentEntity.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this InstrumentEntity.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -450,7 +449,6 @@ class InstrumentEntity(object):
     def links(self, links):
         """Sets the links of this InstrumentEntity.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this InstrumentEntity.  # noqa: E501
         :type links: list[lusid.Link]

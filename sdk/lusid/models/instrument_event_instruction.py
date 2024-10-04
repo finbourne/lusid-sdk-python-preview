@@ -93,7 +93,7 @@ class InstrumentEventInstruction(object):
         :type version: lusid.Version
         :param href:  The uri for this version of this instruction
         :type href: str
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -308,7 +308,6 @@ class InstrumentEventInstruction(object):
     def links(self):
         """Gets the links of this InstrumentEventInstruction.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this InstrumentEventInstruction.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -319,7 +318,6 @@ class InstrumentEventInstruction(object):
     def links(self, links):
         """Sets the links of this InstrumentEventInstruction.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this InstrumentEventInstruction.  # noqa: E501
         :type links: list[lusid.Link]

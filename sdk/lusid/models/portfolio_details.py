@@ -123,7 +123,7 @@ class PortfolioDetails(object):
         :type amortisation_rule_set_id: lusid.ResourceId
         :param staged_modifications: 
         :type staged_modifications: lusid.StagedModificationsInfo
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -493,7 +493,6 @@ class PortfolioDetails(object):
     def links(self):
         """Gets the links of this PortfolioDetails.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this PortfolioDetails.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -504,7 +503,6 @@ class PortfolioDetails(object):
     def links(self, links):
         """Sets the links of this PortfolioDetails.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this PortfolioDetails.  # noqa: E501
         :type links: list[lusid.Link]

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **deleted_instrument** | [**Instrument**](Instrument.md) |  | [optional] 
 **previewed_status** | **str** | The status of the previewed entity. | [optional] 
 **previewed_instrument** | [**Instrument**](Instrument.md) |  | [optional] 
-**links** | [**list[Link]**](Link.md) | Collection of links. | [optional] 
+**links** | [**list[Link]**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

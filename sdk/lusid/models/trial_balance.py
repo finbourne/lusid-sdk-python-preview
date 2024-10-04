@@ -103,7 +103,7 @@ class TrialBalance(object):
         :type credit: lusid.MultiCurrencyAmounts
         :param properties:  Properties found on the mapped 'Account', as specified in request
         :type properties: dict[str, lusid.ModelProperty]
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -387,7 +387,6 @@ class TrialBalance(object):
     def links(self):
         """Gets the links of this TrialBalance.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this TrialBalance.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -398,7 +397,6 @@ class TrialBalance(object):
     def links(self, links):
         """Sets the links of this TrialBalance.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this TrialBalance.  # noqa: E501
         :type links: list[lusid.Link]

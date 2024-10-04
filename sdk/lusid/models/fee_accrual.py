@@ -88,7 +88,7 @@ class FeeAccrual(object):
         :type previous_accrual: float
         :param total_accrual:  The sum of the PreviousAccrual and Amount.
         :type total_accrual: float
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -305,7 +305,6 @@ class FeeAccrual(object):
     def links(self):
         """Gets the links of this FeeAccrual.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this FeeAccrual.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -316,7 +315,6 @@ class FeeAccrual(object):
     def links(self, links):
         """Sets the links of this FeeAccrual.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this FeeAccrual.  # noqa: E501
         :type links: list[lusid.Link]

@@ -83,7 +83,7 @@ class FeeType(object):
         :type component_transactions: list[lusid.ComponentTransaction]
         :param version: 
         :type version: lusid.Version
-        :param links:  Collection of links.
+        :param links: 
         :type links: list[lusid.Link]
 
         """  # noqa: E501
@@ -261,7 +261,6 @@ class FeeType(object):
     def links(self):
         """Gets the links of this FeeType.  # noqa: E501
 
-        Collection of links.  # noqa: E501
 
         :return: The links of this FeeType.  # noqa: E501
         :rtype: list[lusid.Link]
@@ -272,7 +271,6 @@ class FeeType(object):
     def links(self, links):
         """Sets the links of this FeeType.
 
-        Collection of links.  # noqa: E501
 
         :param links: The links of this FeeType.  # noqa: E501
         :type links: list[lusid.Link]
