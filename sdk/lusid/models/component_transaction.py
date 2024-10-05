@@ -42,24 +42,27 @@ class ComponentTransaction(object):
         'display_name': 'str',
         'condition': 'str',
         'transaction_field_map': 'TransactionFieldMap',
-        'transaction_property_map': 'list[TransactionPropertyMap]'
+        'transaction_property_map': 'list[TransactionPropertyMap]',
+        'preserve_tax_lot_structure': 'bool'
     }
 
     attribute_map = {
         'display_name': 'displayName',
         'condition': 'condition',
         'transaction_field_map': 'transactionFieldMap',
-        'transaction_property_map': 'transactionPropertyMap'
+        'transaction_property_map': 'transactionPropertyMap',
+        'preserve_tax_lot_structure': 'preserveTaxLotStructure'
     }
 
     required_map = {
         'display_name': 'required',
         'condition': 'optional',
         'transaction_field_map': 'required',
-        'transaction_property_map': 'required'
+        'transaction_property_map': 'required',
+        'preserve_tax_lot_structure': 'optional'
     }
 
-    def __init__(self, display_name=None, condition=None, transaction_field_map=None, transaction_property_map=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, display_name=None, condition=None, transaction_field_map=None, transaction_property_map=None, preserve_tax_lot_structure=None, local_vars_configuration=None):  # noqa: E501
         """ComponentTransaction - a model defined in OpenAPI"
         
         :param display_name:  (required)
@@ -70,6 +73,8 @@ class ComponentTransaction(object):
         :type transaction_field_map: lusid.TransactionFieldMap
         :param transaction_property_map:  (required)
         :type transaction_property_map: list[lusid.TransactionPropertyMap]
+        :param preserve_tax_lot_structure:  Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events.
+        :type preserve_tax_lot_structure: bool
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -80,12 +85,14 @@ class ComponentTransaction(object):
         self._condition = None
         self._transaction_field_map = None
         self._transaction_property_map = None
+        self._preserve_tax_lot_structure = None
         self.discriminator = None
 
         self.display_name = display_name
         self.condition = condition
         self.transaction_field_map = transaction_field_map
         self.transaction_property_map = transaction_property_map
+        self.preserve_tax_lot_structure = preserve_tax_lot_structure
 
     @property
     def display_name(self):
@@ -188,6 +195,29 @@ class ComponentTransaction(object):
             raise ValueError("Invalid value for `transaction_property_map`, must not be `None`")  # noqa: E501
 
         self._transaction_property_map = transaction_property_map
+
+    @property
+    def preserve_tax_lot_structure(self):
+        """Gets the preserve_tax_lot_structure of this ComponentTransaction.  # noqa: E501
+
+        Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events.  # noqa: E501
+
+        :return: The preserve_tax_lot_structure of this ComponentTransaction.  # noqa: E501
+        :rtype: bool
+        """
+        return self._preserve_tax_lot_structure
+
+    @preserve_tax_lot_structure.setter
+    def preserve_tax_lot_structure(self, preserve_tax_lot_structure):
+        """Sets the preserve_tax_lot_structure of this ComponentTransaction.
+
+        Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events.  # noqa: E501
+
+        :param preserve_tax_lot_structure: The preserve_tax_lot_structure of this ComponentTransaction.  # noqa: E501
+        :type preserve_tax_lot_structure: bool
+        """
+
+        self._preserve_tax_lot_structure = preserve_tax_lot_structure
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
