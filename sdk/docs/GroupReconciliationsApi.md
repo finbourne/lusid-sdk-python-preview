@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**list_comparison_results**](GroupReconciliationsApi.md#list_comparison_results) | **GET** /api/reconciliations/comparisonresults | [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
 [**list_comparison_rulesets**](GroupReconciliationsApi.md#list_comparison_rulesets) | **GET** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
 [**list_group_reconciliation_definitions**](GroupReconciliationsApi.md#list_group_reconciliation_definitions) | **GET** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions
+[**run_reconciliation**](GroupReconciliationsApi.md#run_reconciliation) | **POST** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
 [**update_comparison_ruleset**](GroupReconciliationsApi.md#update_comparison_ruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
 [**update_group_reconciliation_definition**](GroupReconciliationsApi.md#update_group_reconciliation_definition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
 
@@ -809,6 +810,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The group reconciliation definition in the specified scope |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **run_reconciliation**
+> GroupReconciliationRunResponse run_reconciliation(scope, code, group_reconciliation_run_request=group_reconciliation_run_request)
+
+[EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
+
+Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.GroupReconciliationsApi(api_client)
+    scope = 'scope_example' # str | The scope of the group reconciliation definition to use for the reconciliation.
+code = 'code_example' # str | The code of the group reconciliation definition to use for the reconciliation.
+group_reconciliation_run_request = {"instanceId":"24aea188-8548-461c-8ff7-4dd61bcee68a","datesToReconcile":{"left":{"effectiveAt":"2024-10-08T00:00:00.0000000+00:00","asAt":"2024-10-09T10:00:00.0000000+00:00"},"right":{"effectiveAt":"2024-10-08T00:00:00.0000000+00:00","asAt":"2024-10-09T10:00:00.0000000+00:00"}}} # GroupReconciliationRunRequest |  (optional)
+
+    try:
+        # [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
+        api_response = api_instance.run_reconciliation(scope, code, group_reconciliation_run_request=group_reconciliation_run_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupReconciliationsApi->run_reconciliation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the group reconciliation definition to use for the reconciliation. | 
+ **code** | **str**| The code of the group reconciliation definition to use for the reconciliation. | 
+ **group_reconciliation_run_request** | [**GroupReconciliationRunRequest**](GroupReconciliationRunRequest.md)|  | [optional] 
+
+### Return type
+
+[**GroupReconciliationRunResponse**](GroupReconciliationRunResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The results of the reconciliation run |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
