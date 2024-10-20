@@ -4,6 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batch_update_comparison_results**](GroupReconciliationsApi.md#batch_update_comparison_results) | **POST** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/comparisonresults/$batchReview | [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
 [**create_comparison_ruleset**](GroupReconciliationsApi.md#create_comparison_ruleset) | **POST** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] CreateComparisonRuleset: Create a Group Reconciliation Comparison Ruleset
 [**create_group_reconciliation_definition**](GroupReconciliationsApi.md#create_group_reconciliation_definition) | **POST** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] CreateGroupReconciliationDefinition: Create Group Reconciliation Definition
 [**delete_comparison_ruleset**](GroupReconciliationsApi.md#delete_comparison_ruleset) | **DELETE** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
@@ -18,6 +19,87 @@ Method | HTTP request | Description
 [**update_comparison_ruleset**](GroupReconciliationsApi.md#update_comparison_ruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
 [**update_group_reconciliation_definition**](GroupReconciliationsApi.md#update_group_reconciliation_definition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
 
+
+# **batch_update_comparison_results**
+> BatchUpdateUserReviewForComparisonResultResponse batch_update_comparison_results(scope, code, batch_update_user_review_for_comparison_result_request, success_mode=success_mode)
+
+[EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
+
+Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven't passed validation or are not related to the definition will be returned with respectful error details.
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.GroupReconciliationsApi(api_client)
+    scope = 'scope_example' # str | Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.
+code = 'code_example' # str | GroupReconciliationDefinitionId code.
+batch_update_user_review_for_comparison_result_request = [{"comparisonResultId":"ResultIdSample","userReviewAdd":{"breakCode":"BreakCodeName","commentText":"OneComment"},"userReviewRemove":{"breakCodeAsAtAdded":"2024-06-01T10:30:00.0000000+00:00"}},{"comparisonResultId":"ResultIdOtherSample","userReviewAdd":{"matchKey":"MatchKey","commentText":"AnotherComment"},"userReviewRemove":{"commentTextAsAtAdded":"2024-06-01T10:30:00.0000000+00:00"}}] # list[BatchUpdateUserReviewForComparisonResultRequest] | A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.
+success_mode = 'Partial' # str | Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \"Partial\" (default) | \"Atomic\". (optional) (default to 'Partial')
+
+    try:
+        # [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
+        api_response = api_instance.batch_update_comparison_results(scope, code, batch_update_user_review_for_comparison_result_request, success_mode=success_mode)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GroupReconciliationsApi->batch_update_comparison_results: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults. | 
+ **code** | **str**| GroupReconciliationDefinitionId code. | 
+ **batch_update_user_review_for_comparison_result_request** | [**list[BatchUpdateUserReviewForComparisonResultRequest]**](BatchUpdateUserReviewForComparisonResultRequest.md)| A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp. | 
+ **success_mode** | **str**| Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. | [optional] [default to &#39;Partial&#39;]
+
+### Return type
+
+[**BatchUpdateUserReviewForComparisonResultResponse**](BatchUpdateUserReviewForComparisonResultResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The collections of comparison result Ids that succeeded or failed to update along with the updated entities or error details. |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_comparison_ruleset**
 > GroupReconciliationComparisonRuleset create_comparison_ruleset(create_group_reconciliation_comparison_ruleset_request=create_group_reconciliation_comparison_ruleset_request)
