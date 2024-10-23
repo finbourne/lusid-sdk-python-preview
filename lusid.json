@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.1.249",
+    "version": "1.1.250",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -94538,7 +94538,10 @@
                       "removeContingentCashflowsInPaymentDiary": false,
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                      "conservedQuantityForLookthroughExpansion": "PV"
+                      "conservedQuantityForLookthroughExpansion": "PV",
+                      "returnZeroPv": {
+                        "instrumentMatured": false
+                      }
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -94610,7 +94613,10 @@
                       "removeContingentCashflowsInPaymentDiary": false,
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                      "conservedQuantityForLookthroughExpansion": "PV"
+                      "conservedQuantityForLookthroughExpansion": "PV",
+                      "returnZeroPv": {
+                        "instrumentMatured": false
+                      }
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -94682,7 +94688,10 @@
                       "removeContingentCashflowsInPaymentDiary": false,
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                      "conservedQuantityForLookthroughExpansion": "PV"
+                      "conservedQuantityForLookthroughExpansion": "PV",
+                      "returnZeroPv": {
+                        "instrumentMatured": false
+                      }
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -94754,7 +94763,10 @@
                       "removeContingentCashflowsInPaymentDiary": false,
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                      "conservedQuantityForLookthroughExpansion": "PV"
+                      "conservedQuantityForLookthroughExpansion": "PV",
+                      "returnZeroPv": {
+                        "instrumentMatured": false
+                      }
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -94936,7 +94948,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -95003,7 +95018,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -95100,7 +95118,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -95167,7 +95188,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -95264,7 +95288,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -95331,7 +95358,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -96098,7 +96128,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -96182,7 +96215,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -96266,7 +96302,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -96699,7 +96738,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -96766,7 +96808,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -96863,7 +96908,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -96930,7 +96978,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -97027,7 +97078,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -97094,7 +97148,10 @@
                             "removeContingentCashflowsInPaymentDiary": false,
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                            "conservedQuantityForLookthroughExpansion": "PV"
+                            "conservedQuantityForLookthroughExpansion": "PV",
+                            "returnZeroPv": {
+                              "instrumentMatured": false
+                            }
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -97278,7 +97335,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -97362,7 +97422,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -97446,7 +97509,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -97619,7 +97685,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -97703,7 +97772,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -97787,7 +97859,10 @@
                         "removeContingentCashflowsInPaymentDiary": false,
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
-                        "conservedQuantityForLookthroughExpansion": "PV"
+                        "conservedQuantityForLookthroughExpansion": "PV",
+                        "returnZeroPv": {
+                          "instrumentMatured": false
+                        }
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -157478,7 +157553,6 @@
           },
           {
             "required": [
-              "code",
               "deliveryType",
               "domCcy",
               "instrumentType",
@@ -157486,8 +157560,7 @@
               "optionSettlementDate",
               "optionType",
               "startDate",
-              "strike",
-              "underlyingIdentifier"
+              "strike"
             ],
             "type": "object",
             "properties": {
@@ -157526,14 +157599,14 @@
                 "description": "The domestic currency of the instrument."
               },
               "underlyingIdentifier": {
-                "minLength": 1,
                 "type": "string",
-                "description": "The market identifier type of the underlying code, e.g RIC.\r\n\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
+                "description": "The market identifier type of the underlying code, e.g RIC.\r\n\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].\r\nOptional field, should be used in combination with the Code field.\r\nNot compatible with the Underlying field.",
+                "nullable": true
               },
               "code": {
-                "minLength": 1,
                 "type": "string",
-                "description": "The identifying code for the equity underlying, e.g. 'IBM.N'."
+                "description": "The identifying code for the equity underlying, e.g. 'IBM.N'.\r\nOptional field, should be used in combination with the UnderlyingIdentifier field.\r\nNot compatible with the Underlying field.",
+                "nullable": true
               },
               "equityOptionType": {
                 "type": "string",
@@ -176920,6 +176993,9 @@
             "type": "string",
             "description": "When performing lookthrough portfolio expansion with ScalingMethodology set to \"Sum\" or \"AbsoluteSum\",\r\nthe quantity specified here will be conserved and apportioned to lookthrough constituents.\r\nFor example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.\r\nWhen expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.\r\nThe number of units of each equity held is then implied.\r\nNote that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.\r\n            \r\nAllowed values are: \"PV\" (default), \"Exposure\".",
             "nullable": true
+          },
+          "returnZeroPv": {
+            "$ref": "#/components/schemas/ReturnZeroPvOptions"
           }
         },
         "additionalProperties": false,
@@ -183330,6 +183406,17 @@
         ],
         "type": "string",
         "description": "Enum of possible result value type. Used discriminate the result values"
+      },
+      "ReturnZeroPvOptions": {
+        "type": "object",
+        "properties": {
+          "instrumentMatured": {
+            "type": "boolean",
+            "description": "Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)\r\nor a zero PV (true)."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Options to indicate which errors to ignore when performing valuation."
       },
       "ReverseStockSplitEvent": {
         "allOf": [
