@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.1.251",
+    "version": "1.1.252",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -154847,7 +154847,7 @@
         "properties": {
           "scope": {
             "maxLength": 64,
-            "minLength": 1,
+            "minLength": 0,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used",
@@ -156297,6 +156297,9 @@
             "description": "The as-at datetime at which properties were deleted.",
             "format": "date-time"
           },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -156353,6 +156356,15 @@
             "type": "string",
             "description": "The as-at datetime at which the instrument was deleted.",
             "format": "date-time"
+          },
+          "staged": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/StagedModificationsInfo"
+            },
+            "description": "Information about the pending staged modifications for the current entity.",
+            "nullable": true,
+            "readOnly": true
           },
           "links": {
             "type": "array",
