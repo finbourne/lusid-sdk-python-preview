@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.1.252",
+    "version": "1.1.253",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -161087,9 +161087,6 @@
             "description": "The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period.",
             "format": "double"
           },
-          "unitisation": {
-            "$ref": "#/components/schemas/UnitisationData"
-          },
           "miscellaneous": {
             "type": "object",
             "additionalProperties": {
@@ -176858,9 +176855,6 @@
         "properties": {
           "nav": {
             "$ref": "#/components/schemas/FundPreviousNAV"
-          },
-          "unitisation": {
-            "$ref": "#/components/schemas/UnitisationData"
           }
         },
         "additionalProperties": false,
