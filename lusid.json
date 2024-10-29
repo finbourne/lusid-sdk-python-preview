@@ -169392,12 +169392,6 @@
                 },
                 "description": "Dictionary of identifiers of the mastered instrument"
               },
-              "assetClass": {
-                "type": "string",
-                "description": "Asset class of the mastered instrument - read only field\r\n\r\nSupported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].",
-                "nullable": true,
-                "readOnly": true
-              },
               "masteredDomCcy": {
                 "type": "string",
                 "description": "DomCcy of the Instrument that Mastered Instrument points to - read only field",
@@ -169425,6 +169419,12 @@
               "masteredScope": {
                 "type": "string",
                 "description": "Scope of the Instrument that Mastered Instrument points to - read only field",
+                "nullable": true,
+                "readOnly": true
+              },
+              "masteredAssetClass": {
+                "type": "string",
+                "description": "Asset class of the underlying mastered instrument - read only field\r\n\r\nSupported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].",
                 "nullable": true,
                 "readOnly": true
               },

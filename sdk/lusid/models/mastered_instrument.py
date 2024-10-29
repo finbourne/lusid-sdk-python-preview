@@ -40,44 +40,42 @@ class MasteredInstrument(object):
     """
     openapi_types = {
         'identifiers': 'dict(str, str)',
-        'asset_class': 'str',
         'mastered_dom_ccy': 'str',
         'mastered_instrument_type': 'str',
         'mastered_lusid_instrument_id': 'str',
         'mastered_name': 'str',
         'mastered_scope': 'str',
+        'mastered_asset_class': 'str',
         'instrument_type': 'str'
     }
 
     attribute_map = {
         'identifiers': 'identifiers',
-        'asset_class': 'assetClass',
         'mastered_dom_ccy': 'masteredDomCcy',
         'mastered_instrument_type': 'masteredInstrumentType',
         'mastered_lusid_instrument_id': 'masteredLusidInstrumentId',
         'mastered_name': 'masteredName',
         'mastered_scope': 'masteredScope',
+        'mastered_asset_class': 'masteredAssetClass',
         'instrument_type': 'instrumentType'
     }
 
     required_map = {
         'identifiers': 'required',
-        'asset_class': 'optional',
         'mastered_dom_ccy': 'optional',
         'mastered_instrument_type': 'optional',
         'mastered_lusid_instrument_id': 'optional',
         'mastered_name': 'optional',
         'mastered_scope': 'optional',
+        'mastered_asset_class': 'optional',
         'instrument_type': 'required'
     }
 
-    def __init__(self, identifiers=None, asset_class=None, mastered_dom_ccy=None, mastered_instrument_type=None, mastered_lusid_instrument_id=None, mastered_name=None, mastered_scope=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, identifiers=None, mastered_dom_ccy=None, mastered_instrument_type=None, mastered_lusid_instrument_id=None, mastered_name=None, mastered_scope=None, mastered_asset_class=None, instrument_type=None, local_vars_configuration=None):  # noqa: E501
         """MasteredInstrument - a model defined in OpenAPI"
         
         :param identifiers:  Dictionary of identifiers of the mastered instrument (required)
         :type identifiers: dict(str, str)
-        :param asset_class:  Asset class of the mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
-        :type asset_class: str
         :param mastered_dom_ccy:  DomCcy of the Instrument that Mastered Instrument points to - read only field
         :type mastered_dom_ccy: str
         :param mastered_instrument_type:  Type of the Instrument that Mastered Instrument points to - read only field
@@ -88,6 +86,8 @@ class MasteredInstrument(object):
         :type mastered_name: str
         :param mastered_scope:  Scope of the Instrument that Mastered Instrument points to - read only field
         :type mastered_scope: str
+        :param mastered_asset_class:  Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
+        :type mastered_asset_class: str
         :param instrument_type:  The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required)
         :type instrument_type: str
 
@@ -97,22 +97,22 @@ class MasteredInstrument(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._identifiers = None
-        self._asset_class = None
         self._mastered_dom_ccy = None
         self._mastered_instrument_type = None
         self._mastered_lusid_instrument_id = None
         self._mastered_name = None
         self._mastered_scope = None
+        self._mastered_asset_class = None
         self._instrument_type = None
         self.discriminator = None
 
         self.identifiers = identifiers
-        self.asset_class = asset_class
         self.mastered_dom_ccy = mastered_dom_ccy
         self.mastered_instrument_type = mastered_instrument_type
         self.mastered_lusid_instrument_id = mastered_lusid_instrument_id
         self.mastered_name = mastered_name
         self.mastered_scope = mastered_scope
+        self.mastered_asset_class = mastered_asset_class
         self.instrument_type = instrument_type
 
     @property
@@ -139,29 +139,6 @@ class MasteredInstrument(object):
             raise ValueError("Invalid value for `identifiers`, must not be `None`")  # noqa: E501
 
         self._identifiers = identifiers
-
-    @property
-    def asset_class(self):
-        """Gets the asset_class of this MasteredInstrument.  # noqa: E501
-
-        Asset class of the mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].  # noqa: E501
-
-        :return: The asset_class of this MasteredInstrument.  # noqa: E501
-        :rtype: str
-        """
-        return self._asset_class
-
-    @asset_class.setter
-    def asset_class(self, asset_class):
-        """Sets the asset_class of this MasteredInstrument.
-
-        Asset class of the mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].  # noqa: E501
-
-        :param asset_class: The asset_class of this MasteredInstrument.  # noqa: E501
-        :type asset_class: str
-        """
-
-        self._asset_class = asset_class
 
     @property
     def mastered_dom_ccy(self):
@@ -277,6 +254,29 @@ class MasteredInstrument(object):
         """
 
         self._mastered_scope = mastered_scope
+
+    @property
+    def mastered_asset_class(self):
+        """Gets the mastered_asset_class of this MasteredInstrument.  # noqa: E501
+
+        Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].  # noqa: E501
+
+        :return: The mastered_asset_class of this MasteredInstrument.  # noqa: E501
+        :rtype: str
+        """
+        return self._mastered_asset_class
+
+    @mastered_asset_class.setter
+    def mastered_asset_class(self, mastered_asset_class):
+        """Sets the mastered_asset_class of this MasteredInstrument.
+
+        Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].  # noqa: E501
+
+        :param mastered_asset_class: The mastered_asset_class of this MasteredInstrument.  # noqa: E501
+        :type mastered_asset_class: str
+        """
+
+        self._mastered_asset_class = mastered_asset_class
 
     @property
     def instrument_type(self):
