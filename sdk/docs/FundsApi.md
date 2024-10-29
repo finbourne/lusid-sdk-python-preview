@@ -221,7 +221,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.FundsApi(api_client)
     scope = 'scope_example' # str | The scope of the Fund.
-fund_request = {"code":"FundCode","displayName":"Fund Name","description":"Standard Fund","fundConfigurationId":{"scope":"FundConfigurationScope","code":"FundConfigurationCode"},"aborId":{"scope":"AborScope","code":"AborCode"},"shareClassInstrumentScopes":["Scope1","Scope2"],"shareClassInstruments":[{"instrumentIdentifiers":{"Instrument/default/Figi":"GB0007980598"}}],"type":"Master","inceptionDate":"9999-12-31T23:59:59.9999999+00:00","decimalPlaces":6,"yearEndDate":{"day":1,"month":12},"properties":{"Fund/MyScope/FundManagerName":{"key":"Fund/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2020-03-05T00:00:00.0000000+00:00"}}} # FundRequest | The definition of the Fund.
+fund_request = {"code":"FundCode","displayName":"Fund Name","description":"Standard Fund","fundConfigurationId":{"scope":"FundConfigurationScope","code":"FundConfigurationCode"},"aborId":{"scope":"AborScope","code":"AborCode"},"shareClassInstrumentScopes":["Scope1"],"shareClassInstruments":[{"instrumentIdentifiers":{"Instrument/default/Figi":"GB0007980598"}},{"instrumentIdentifiers":{"Instrument/default/ClientInternal":"ShareClassA"}}],"type":"Master","inceptionDate":"2024-01-01T00:00:00.0000000+00:00","decimalPlaces":6,"yearEndDate":{"day":1,"month":12},"properties":{"Fund/MyScope/FundManagerName":{"key":"Fund/MyScope/FundManagerName","value":{"labelValue":"Smith"},"effectiveFrom":"2024-01-01T00:00:00.0000000+00:00"}}} # FundRequest | The definition of the Fund.
 
     try:
         # [EXPERIMENTAL] CreateFund: Create a Fund.

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.1.253",
+    "version": "1.1.254",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -38051,18 +38051,22 @@
                   "code": "AborCode"
                 },
                 "shareClassInstrumentScopes": [
-                  "Scope1",
-                  "Scope2"
+                  "Scope1"
                 ],
                 "shareClassInstruments": [
                   {
                     "instrumentIdentifiers": {
                       "Instrument/default/Figi": "GB0007980598"
                     }
+                  },
+                  {
+                    "instrumentIdentifiers": {
+                      "Instrument/default/ClientInternal": "ShareClassA"
+                    }
                   }
                 ],
                 "type": "Master",
-                "inceptionDate": "9999-12-31T23:59:59.9999999+00:00",
+                "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
                   "day": 1,
@@ -38074,7 +38078,7 @@
                     "value": {
                       "labelValue": "Smith"
                     },
-                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2024-01-01T00:00:00.0000000+00:00"
                   }
                 }
               }
@@ -38096,18 +38100,22 @@
                   "code": "AborCode"
                 },
                 "shareClassInstrumentScopes": [
-                  "Scope1",
-                  "Scope2"
+                  "Scope1"
                 ],
                 "shareClassInstruments": [
                   {
                     "instrumentIdentifiers": {
                       "Instrument/default/Figi": "GB0007980598"
                     }
+                  },
+                  {
+                    "instrumentIdentifiers": {
+                      "Instrument/default/ClientInternal": "ShareClassA"
+                    }
                   }
                 ],
                 "type": "Master",
-                "inceptionDate": "9999-12-31T23:59:59.9999999+00:00",
+                "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
                   "day": 1,
@@ -38119,7 +38127,7 @@
                     "value": {
                       "labelValue": "Smith"
                     },
-                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2024-01-01T00:00:00.0000000+00:00"
                   }
                 }
               }
@@ -38141,18 +38149,22 @@
                   "code": "AborCode"
                 },
                 "shareClassInstrumentScopes": [
-                  "Scope1",
-                  "Scope2"
+                  "Scope1"
                 ],
                 "shareClassInstruments": [
                   {
                     "instrumentIdentifiers": {
                       "Instrument/default/Figi": "GB0007980598"
                     }
+                  },
+                  {
+                    "instrumentIdentifiers": {
+                      "Instrument/default/ClientInternal": "ShareClassA"
+                    }
                   }
                 ],
                 "type": "Master",
-                "inceptionDate": "9999-12-31T23:59:59.9999999+00:00",
+                "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
                   "day": 1,
@@ -38164,7 +38176,7 @@
                     "value": {
                       "labelValue": "Smith"
                     },
-                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2024-01-01T00:00:00.0000000+00:00"
                   }
                 }
               }
@@ -38186,18 +38198,22 @@
                   "code": "AborCode"
                 },
                 "shareClassInstrumentScopes": [
-                  "Scope1",
-                  "Scope2"
+                  "Scope1"
                 ],
                 "shareClassInstruments": [
                   {
                     "instrumentIdentifiers": {
                       "Instrument/default/Figi": "GB0007980598"
                     }
+                  },
+                  {
+                    "instrumentIdentifiers": {
+                      "Instrument/default/ClientInternal": "ShareClassA"
+                    }
                   }
                 ],
                 "type": "Master",
-                "inceptionDate": "9999-12-31T23:59:59.9999999+00:00",
+                "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
                   "day": 1,
@@ -38209,7 +38225,7 @@
                     "value": {
                       "labelValue": "Smith"
                     },
-                    "effectiveFrom": "2020-03-05T00:00:00.0000000+00:00"
+                    "effectiveFrom": "2024-01-01T00:00:00.0000000+00:00"
                   }
                 }
               }
