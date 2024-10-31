@@ -9,11 +9,1010 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.1.257",
+    "version": "1.1.258",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
-    }
+    },
+    "x-fbn-error-codes": {
+      "-10": {
+        "title": "Server Configuration Error"
+      },
+      "-1": {
+        "title": "Unknown error",
+        "description": "An unexpected error was encountered on our side."
+      },
+      "102": {
+        "title": "Version Not Found"
+      },
+      "103": {
+        "title": "Api Rate Limit Violation"
+      },
+      "104": {
+        "title": "Instrument Not Found"
+      },
+      "105": {
+        "title": "Property Not Found"
+      },
+      "106": {
+        "title": "Portfolio Recursion Depth"
+      },
+      "108": {
+        "title": "Group Not Found"
+      },
+      "109": {
+        "title": "Portfolio Not Found"
+      },
+      "110": {
+        "title": "Property Schema Not Found"
+      },
+      "111": {
+        "title": "Portfolio Ancestry Not Found"
+      },
+      "112": {
+        "title": "Portfolio With Id Already Exists"
+      },
+      "113": {
+        "title": "Orphaned Portfolio"
+      },
+      "119": {
+        "title": "Missing Base Claims"
+      },
+      "121": {
+        "title": "Property Not Defined"
+      },
+      "122": {
+        "title": "Cannot Delete System Property"
+      },
+      "123": {
+        "title": "Cannot Modify Immutable Property Field"
+      },
+      "124": {
+        "title": "Property Already Exists"
+      },
+      "125": {
+        "title": "Invalid Property Life Time"
+      },
+      "126": {
+        "title": "Property Constraint Style Excludes Properties"
+      },
+      "127": {
+        "title": "Cannot Modify Default Data Type"
+      },
+      "128": {
+        "title": "Group Already Exists"
+      },
+      "129": {
+        "title": "No Such Data Type"
+      },
+      "130": {
+        "title": "Undefined Value For Data Type"
+      },
+      "131": {
+        "title": "Unsupported Value Type Defined On Data Type"
+      },
+      "132": {
+        "title": "Validation Error"
+      },
+      "133": {
+        "title": "Loop Detected In Group Hierarchy"
+      },
+      "134": {
+        "title": "Undefined Acceptable Values"
+      },
+      "135": {
+        "title": "Sub Group Already Exists"
+      },
+      "138": {
+        "title": "Price Source Not Found"
+      },
+      "139": {
+        "title": "Analytic Store Not Found"
+      },
+      "141": {
+        "title": "Analytic Store Already Exists"
+      },
+      "143": {
+        "title": "Client Instrument Already Exists"
+      },
+      "144": {
+        "title": "Duplicate In Parameter Set"
+      },
+      "147": {
+        "title": "Results Not Found"
+      },
+      "148": {
+        "title": "Order Field Not In Result Set"
+      },
+      "149": {
+        "title": "Operation Failed"
+      },
+      "150": {
+        "title": "Elastic Search Error"
+      },
+      "151": {
+        "title": "Invalid Parameter Value"
+      },
+      "153": {
+        "title": "Command Processing Failure"
+      },
+      "154": {
+        "title": "Entity State Construction Failure"
+      },
+      "155": {
+        "title": "Entity Timeline Does Not Exist"
+      },
+      "156": {
+        "title": "Concurrency Conflict Failure"
+      },
+      "157": {
+        "title": "Invalid Request"
+      },
+      "158": {
+        "title": "Event Publish Unknown"
+      },
+      "159": {
+        "title": "Event Query Failure"
+      },
+      "160": {
+        "title": "Blob Did Not Exist"
+      },
+      "162": {
+        "title": "Sub System Request Failure"
+      },
+      "163": {
+        "title": "Sub System Configuration Failure"
+      },
+      "165": {
+        "title": "Failed To Delete"
+      },
+      "166": {
+        "title": "Upsert Client Instrument Failure"
+      },
+      "167": {
+        "title": "Illegal As At Interval"
+      },
+      "168": {
+        "title": "Illegal Bitemporal Query"
+      },
+      "169": {
+        "title": "Invalid Alternate Id"
+      },
+      "170": {
+        "title": "Cannot Add Non-Writable Properties To Entity"
+      },
+      "171": {
+        "title": "Entity Already Exists In Group"
+      },
+      "172": {
+        "title": "Entity With Id Does Not Exist"
+      },
+      "173": {
+        "title": "Entity With Id Already Exists"
+      },
+      "174": {
+        "title": "Derived Portfolio Details Do Not Exist"
+      },
+      "175": {
+        "title": "Entity Not In Group"
+      },
+      "176": {
+        "title": "Portfolio With Name Already Exists"
+      },
+      "177": {
+        "title": "Invalid Transactions"
+      },
+      "178": {
+        "title": "Reference Portfolio Not Found"
+      },
+      "179": {
+        "title": "Duplicate Id"
+      },
+      "180": {
+        "title": "Command Retrieval Failure"
+      },
+      "181": {
+        "title": "Data Filter Application Failure"
+      },
+      "182": {
+        "title": "Search Failed"
+      },
+      "183": {
+        "title": "Movements Engine Configuration Key Failure"
+      },
+      "184": {
+        "title": "Fx Rate Source Not Found"
+      },
+      "185": {
+        "title": "Accrual Source Not Found"
+      },
+      "186": {
+        "title": "Access Denied"
+      },
+      "187": {
+        "title": "Invalid Identity Token"
+      },
+      "188": {
+        "title": "Invalid Request Headers"
+      },
+      "189": {
+        "title": "Price Not Found"
+      },
+      "190": {
+        "title": "Invalid Sub Holding Keys Provided"
+      },
+      "191": {
+        "title": "Duplicate Sub Holding Keys Provided"
+      },
+      "192": {
+        "title": "Cut Definition Not Found"
+      },
+      "193": {
+        "title": "Cut Definition Invalid"
+      },
+      "194": {
+        "title": "Time Variant Property Deletion Date Unspecified"
+      },
+      "195": {
+        "title": "Perpetual Property Deletion Date Specified"
+      },
+      "196": {
+        "title": "Time Variant Property Upsert Date Unspecified"
+      },
+      "197": {
+        "title": "Perpetual Property Upsert Date Specified"
+      },
+      "200": {
+        "title": "Invalid Unit For Data Type"
+      },
+      "201": {
+        "title": "Invalid Type For Data Type"
+      },
+      "202": {
+        "title": "Invalid Value For Data Type"
+      },
+      "203": {
+        "title": "Unit Not Defined For Data Type"
+      },
+      "204": {
+        "title": "Units Not Supported On Data Type"
+      },
+      "205": {
+        "title": "Cannot Specify Units On Data Type"
+      },
+      "206": {
+        "title": "Unit Schema Inconsistent With Data Type"
+      },
+      "207": {
+        "title": "Unit Definition Not Specified"
+      },
+      "208": {
+        "title": "Duplicate Unit Definitions Specified"
+      },
+      "209": {
+        "title": "Invalid Units Definition"
+      },
+      "210": {
+        "title": "Invalid Instrument Identifier Unit"
+      },
+      "211": {
+        "title": "Holdings Adjustment Does Not Exist"
+      },
+      "212": {
+        "title": "Could Not Build Excel Url"
+      },
+      "213": {
+        "title": "Could Not Get Excel Version"
+      },
+      "214": {
+        "title": "Instrument By Code Not Found"
+      },
+      "215": {
+        "title": "Entity Schema Does Not Exist"
+      },
+      "216": {
+        "title": "Feature Not Supported On Portfolio Type"
+      },
+      "217": {
+        "title": "Quote Not Found"
+      },
+      "218": {
+        "title": "Invalid Quote Identifier"
+      },
+      "219": {
+        "title": "Invalid Metric For Data Type"
+      },
+      "220": {
+        "title": "Invalid Instrument Definition"
+      },
+      "221": {
+        "title": "Instrument Upsert Failure"
+      },
+      "222": {
+        "title": "Reference Portfolio Request Not Supported"
+      },
+      "223": {
+        "title": "Transaction Portfolio Request Not Supported"
+      },
+      "224": {
+        "title": "Invalid Property Value Assignment"
+      },
+      "230": {
+        "title": "Transaction Type Not Found"
+      },
+      "231": {
+        "title": "Transaction Type Duplication"
+      },
+      "232": {
+        "title": "Portfolio Does Not Exist At Given Date"
+      },
+      "233": {
+        "title": "Query Parser Failure"
+      },
+      "234": {
+        "title": "Duplicate Constituent"
+      },
+      "235": {
+        "title": "Unresolved Instrument Constituent"
+      },
+      "236": {
+        "title": "Unresolved Instrument In Transition"
+      },
+      "237": {
+        "title": "Missing Side Definitions"
+      },
+      "240": {
+        "title": "Duplicate Calculations Failure"
+      },
+      "299": {
+        "title": "Invalid Recipe"
+      },
+      "300": {
+        "title": "Missing Recipe"
+      },
+      "301": {
+        "title": "Dependencies"
+      },
+      "304": {
+        "title": "Portfolio Preprocess Failure"
+      },
+      "310": {
+        "title": "Valuation Engine Failure"
+      },
+      "311": {
+        "title": "Task Factory Failure"
+      },
+      "312": {
+        "title": "Task Evaluation Failure"
+      },
+      "313": {
+        "title": "Task Generation Failure"
+      },
+      "314": {
+        "title": "Engine Configuration Failure"
+      },
+      "315": {
+        "title": "Model Specification Failure"
+      },
+      "320": {
+        "title": "Market Data Key Failure"
+      },
+      "321": {
+        "title": "Market Resolver Failure"
+      },
+      "322": {
+        "title": "Market Data Failure"
+      },
+      "330": {
+        "title": "Curve Failure"
+      },
+      "331": {
+        "title": "Volatility Surface Failure"
+      },
+      "332": {
+        "title": "Volatility Cube Failure"
+      },
+      "350": {
+        "title": "Instrument Failure"
+      },
+      "351": {
+        "title": "Cash Flows Failure"
+      },
+      "352": {
+        "title": "Reference Data Failure"
+      },
+      "360": {
+        "title": "Aggregation Failure"
+      },
+      "361": {
+        "title": "Aggregation Measure Failure"
+      },
+      "370": {
+        "title": "Result Retrieval Failure"
+      },
+      "371": {
+        "title": "Result Processing Failure"
+      },
+      "372": {
+        "title": "Vendor Result Processing Failure"
+      },
+      "373": {
+        "title": "Vendor Result Mapping Failure"
+      },
+      "374": {
+        "title": "Vendor Library Unauthorised"
+      },
+      "375": {
+        "title": "Vendor Connectivity Error"
+      },
+      "376": {
+        "title": "Vendor Interface Error"
+      },
+      "377": {
+        "title": "Vendor Pricing Failure"
+      },
+      "378": {
+        "title": "Vendor Translation Failure"
+      },
+      "379": {
+        "title": "Vendor Key Mapping Failure"
+      },
+      "380": {
+        "title": "Vendor Reflection Failure"
+      },
+      "381": {
+        "title": "Vendor Process Failure"
+      },
+      "382": {
+        "title": "Vendor System Failure"
+      },
+      "390": {
+        "title": "Attempt To Upsert Duplicate Quotes"
+      },
+      "391": {
+        "title": "Corporate Action Source Does Not Exist"
+      },
+      "392": {
+        "title": "Corporate Action Source Already Exists"
+      },
+      "393": {
+        "title": "Instrument Identifier Already In Use"
+      },
+      "394": {
+        "title": "Properties Not Found"
+      },
+      "395": {
+        "title": "Batch Operation Aborted"
+      },
+      "400": {
+        "title": "Invalid Iso4217 Currency Code"
+      },
+      "401": {
+        "title": "Cannot Assign Instrument Identifier To Currency"
+      },
+      "402": {
+        "title": "Cannot Assign Currency Identifier To Non Currency"
+      },
+      "403": {
+        "title": "Currency Instrument Cannot Be Deleted"
+      },
+      "404": {
+        "title": "Currency Instrument Cannot Have Economic Definition"
+      },
+      "405": {
+        "title": "Currency Instrument Cannot Have Lookthrough Portfolio"
+      },
+      "406": {
+        "title": "Cannot Create Currency Instrument With Multiple Identifiers"
+      },
+      "407": {
+        "title": "Specified Currency Is Undefined"
+      },
+      "410": {
+        "title": "Index Does Not Exist"
+      },
+      "411": {
+        "title": "Sort Field Does Not Exist"
+      },
+      "413": {
+        "title": "Negative Pagination Parameters"
+      },
+      "414": {
+        "title": "Invalid Search Syntax"
+      },
+      "415": {
+        "title": "Filter Execution Timeout"
+      },
+      "420": {
+        "title": "Side Definition Inconsistent"
+      },
+      "450": {
+        "title": "Invalid Quote Access Metadata Rule"
+      },
+      "451": {
+        "title": "Access Metadata Not Found"
+      },
+      "452": {
+        "title": "Invalid Access Metadata Identifier"
+      },
+      "460": {
+        "title": "Standard Resource Not Found"
+      },
+      "461": {
+        "title": "Standard Resource Conflict"
+      },
+      "462": {
+        "title": "Calendar Not Found"
+      },
+      "463": {
+        "title": "Date In A Calendar Not Found"
+      },
+      "464": {
+        "title": "Invalid Date Source Data"
+      },
+      "465": {
+        "title": "Invalid Timezone"
+      },
+      "601": {
+        "title": "Person Identifier Already In Use"
+      },
+      "602": {
+        "title": "Person Not Found"
+      },
+      "603": {
+        "title": "Cannot Set Identifier"
+      },
+      "617": {
+        "title": "Invalid Recipe Specification In Request"
+      },
+      "618": {
+        "title": "Inline Recipe Deserialisation Failure"
+      },
+      "619": {
+        "title": "Identifier Types Not Set For Entity"
+      },
+      "620": {
+        "title": "Cannot Delete All Client Defined Identifiers"
+      },
+      "650": {
+        "title": "The Order requested was not found."
+      },
+      "654": {
+        "title": "The Allocation requested was not found."
+      },
+      "655": {
+        "title": "Cannot build the fx forward target with the given holdings."
+      },
+      "656": {
+        "title": "Group does not contain expected entities."
+      },
+      "665": {
+        "title": "Destination directory not found"
+      },
+      "667": {
+        "title": "Relation definition already exists"
+      },
+      "672": {
+        "title": "Could not retrieve file contents"
+      },
+      "673": {
+        "title": "Missing entitlements for entities in Group"
+      },
+      "674": {
+        "title": "Next Best Action not found"
+      },
+      "676": {
+        "title": "Relation definition not defined"
+      },
+      "677": {
+        "title": "Invalid entity identifier for relation"
+      },
+      "681": {
+        "title": "Sorting by specified field not supported",
+        "description": "One or more of the provided fields to order by were either invalid or not supported."
+      },
+      "682": {
+        "title": "Too many fields to sort by",
+        "description": "The number of fields to sort the data by exceeds the number allowed by the endpoint"
+      },
+      "684": {
+        "title": "Sequence Not Found"
+      },
+      "685": {
+        "title": "Sequence Already Exists"
+      },
+      "686": {
+        "title": "Non-cycling sequence has been exhausted"
+      },
+      "687": {
+        "title": "Legal Entity Identifier Already In Use"
+      },
+      "688": {
+        "title": "Legal Entity Not Found"
+      },
+      "689": {
+        "title": "The supplied pagination token is invalid"
+      },
+      "690": {
+        "title": "Property Type Is Not Supported"
+      },
+      "691": {
+        "title": "Multiple Tax-lots For Currency Type Is Not Supported"
+      },
+      "692": {
+        "title": "This endpoint does not support impersonation"
+      },
+      "693": {
+        "title": "Entity type is not supported for Relationship"
+      },
+      "694": {
+        "title": "Relationship Validation Failure"
+      },
+      "695": {
+        "title": "Relationship Not Found"
+      },
+      "697": {
+        "title": "Derived Property Formula No Longer Valid"
+      },
+      "698": {
+        "title": "Story is not available"
+      },
+      "703": {
+        "title": "Corporate Action Does Not Exist"
+      },
+      "720": {
+        "title": "The provided sort and filter combination is not valid"
+      },
+      "721": {
+        "title": "A2B generation failed"
+      },
+      "722": {
+        "title": "Aggregated Return Calculation Failure"
+      },
+      "723": {
+        "title": "Custom Entity Definition Identifier Already In Use"
+      },
+      "724": {
+        "title": "Custom Entity Definition Not Found"
+      },
+      "725": {
+        "title": "The Placement requested was not found."
+      },
+      "726": {
+        "title": "The Execution requested was not found."
+      },
+      "727": {
+        "title": "The Block requested was not found."
+      },
+      "728": {
+        "title": "The Participation requested was not found."
+      },
+      "729": {
+        "title": "The Package requested was not found."
+      },
+      "730": {
+        "title": "The OrderInstruction requested was not found."
+      },
+      "732": {
+        "title": "Custom Entity not found."
+      },
+      "733": {
+        "title": "Custom Entity Identifier already in use."
+      },
+      "735": {
+        "title": "Calculation Failed."
+      },
+      "736": {
+        "title": "An expected key on HttpResponse is missing."
+      },
+      "737": {
+        "title": "A required fee detail is missing."
+      },
+      "738": {
+        "title": "Zero rows were returned from Luminesce"
+      },
+      "739": {
+        "title": "Provided Weekend Mask was invalid"
+      },
+      "742": {
+        "title": "Custom Entity fields do not match the definition"
+      },
+      "746": {
+        "title": "The provided sequence is not valid."
+      },
+      "751": {
+        "title": "The type of the Custom Entity is different than the type provided in the definition."
+      },
+      "752": {
+        "title": "Luminesce process returned an error."
+      },
+      "753": {
+        "title": "File name or content incompatible with operation."
+      },
+      "755": {
+        "title": "Schema of response from Drive is not as expected."
+      },
+      "757": {
+        "title": "Schema of response from Luminesce is not as expected."
+      },
+      "758": {
+        "title": "Luminesce timed out."
+      },
+      "763": {
+        "title": "Invalid Lusid Entity Identifier Unit"
+      },
+      "768": {
+        "title": "Fee rule not found."
+      },
+      "769": {
+        "title": "Cannot update the base currency of a portfolio with transactions loaded"
+      },
+      "771": {
+        "title": "Transaction configuration source not found"
+      },
+      "774": {
+        "title": "Compliance rule not found."
+      },
+      "775": {
+        "title": "Fund accounting document cannot be processed."
+      },
+      "778": {
+        "title": "Unable to look up FX rate from trade ccy to portfolio ccy for some of the trades."
+      },
+      "782": {
+        "title": "The Property definition dataType is not matching the derivation formula dataType"
+      },
+      "783": {
+        "title": "The Property definition domain is not supported for derived properties"
+      },
+      "788": {
+        "title": "Compliance run not found failure."
+      },
+      "790": {
+        "title": "Custom Entity has missing or invalid identifiers"
+      },
+      "791": {
+        "title": "Custom Entity definition already exists"
+      },
+      "792": {
+        "title": "Compliance PropertyKey is missing."
+      },
+      "793": {
+        "title": "Compliance Criteria Value for matching is missing."
+      },
+      "795": {
+        "title": "Cannot delete identifier definition"
+      },
+      "796": {
+        "title": "Tax rule set not found."
+      },
+      "797": {
+        "title": "A tax rule set with this id already exists."
+      },
+      "798": {
+        "title": "Multiple rule sets for the same property key are applicable."
+      },
+      "799": {
+        "title": "The request must contain a date or diary entry."
+      },
+      "800": {
+        "title": "Can not upsert an instrument event of this type."
+      },
+      "801": {
+        "title": "The instrument event does not exist."
+      },
+      "802": {
+        "title": "The Instrument event is missing salient information."
+      },
+      "803": {
+        "title": "The Instrument event could not be processed."
+      },
+      "804": {
+        "title": "Some data requested does not follow the order graph assumptions."
+      },
+      "805": {
+        "title": "The instrument event type does not exist."
+      },
+      "806": {
+        "title": "The transaction template specification does not exist."
+      },
+      "807": {
+        "title": "The default transaction template does not exist."
+      },
+      "808": {
+        "title": "The transaction template does not exist."
+      },
+      "811": {
+        "title": "A price could not be found for an order."
+      },
+      "812": {
+        "title": "A price could not be found for an allocation."
+      },
+      "813": {
+        "title": "Chart of Accounts not found."
+      },
+      "814": {
+        "title": "Account not found."
+      },
+      "815": {
+        "title": "Abor not found."
+      },
+      "816": {
+        "title": "Abor Configuration not found."
+      },
+      "817": {
+        "title": "Reconciliation mapping not found"
+      },
+      "818": {
+        "title": "Attribute type could not be deleted because it doesn't exist."
+      },
+      "819": {
+        "title": "Reconciliation not found."
+      },
+      "820": {
+        "title": "Custodian Account not found."
+      },
+      "821": {
+        "title": "Allocation Failure"
+      },
+      "822": {
+        "title": "Reconciliation run not found"
+      },
+      "823": {
+        "title": "Reconciliation break not found"
+      },
+      "824": {
+        "title": "Entity link type could not be deleted because it doesn't exist."
+      },
+      "828": {
+        "title": "Address key definition not found."
+      },
+      "829": {
+        "title": "Compliance template not found."
+      },
+      "830": {
+        "title": "Action not supported"
+      },
+      "831": {
+        "title": "Reference list not found."
+      },
+      "832": {
+        "title": "Posting Module not found."
+      },
+      "833": {
+        "title": "The type of parameter provided did not match that required by the compliance rule."
+      },
+      "834": {
+        "title": "The parameters provided by a rule did not match those required by its template."
+      },
+      "835": {
+        "title": "The entity has a property in a domain that is not supprted for that entity type."
+      },
+      "836": {
+        "title": "Structured result data not found."
+      },
+      "837": {
+        "title": "Diary entry not found."
+      },
+      "838": {
+        "title": "Diary entry could not be created."
+      },
+      "839": {
+        "title": "Diary entry already exists."
+      },
+      "861": {
+        "title": "Compliance run summary not found."
+      },
+      "869": {
+        "title": "Conflicting instrument properties in batch."
+      },
+      "870": {
+        "title": "Compliance run summary already exists."
+      },
+      "871": {
+        "title": "The specified impersonated user does not exist"
+      },
+      "874": {
+        "title": "Provided Property Domain is not supported for entity filter."
+      },
+      "875": {
+        "title": "Cannot Delete System Reference List."
+      },
+      "876": {
+        "title": "Cleardown Module not found."
+      },
+      "879": {
+        "title": "Portfolios do not have the same base currency"
+      },
+      "880": {
+        "title": "There was a problem with the definition of the compliance expression."
+      },
+      "881": {
+        "title": "Block overplaced."
+      },
+      "882": {
+        "title": "Order not approved."
+      },
+      "883": {
+        "title": "Cannot update the shared fields of a block with associated orders."
+      },
+      "886": {
+        "title": "Cannot lock the period."
+      },
+      "887": {
+        "title": "Cannot apply clear down module."
+      },
+      "888": {
+        "title": "Cannot upsert Instrument Event Instruction."
+      },
+      "889": {
+        "title": "Cannot read Instrument Event Instruction."
+      },
+      "895": {
+        "title": "The Capital Ratio Calculation Is Wrong."
+      },
+      "910": {
+        "title": "Cannot update a block referenced by a placement."
+      },
+      "911": {
+        "title": "A Fund that references this Abor already exists."
+      },
+      "912": {
+        "title": "Cannot add decision to Staged Modification."
+      },
+      "913": {
+        "title": "The Staged Modification could not be applied."
+      },
+      "914": {
+        "title": "Action cannot be executed."
+      },
+      "915": {
+        "title": "Cannot upsert multiple versions of the same property in one request."
+      },
+      "916": {
+        "title": "Placement and direct descendents have more executed quantity than total placement quantity."
+      },
+      "917": {
+        "title": "Cannot update a placement with this EntryType."
+      },
+      "918": {
+        "title": "Cannot update a placement in this State."
+      },
+      "919": {
+        "title": "Placement could not be cancelled."
+      },
+      "920": {
+        "title": "Share Class not configured in Fund"
+      },
+      "921": {
+        "title": "Share Class Sub Holding Key not configured in Portfolio"
+      },
+      "922": {
+        "title": "Could not update an order."
+      },
+      "923": {
+        "title": "Multiple sets of Share Class Sub Holding Keys configured across the Portfolios of a Fund."
+      },
+      "924": {
+        "title": "One or more matrix cells could not be added to the matrix."
+      },
+      "925": {
+        "title": "There was a problem with the provided matrix definition."
+      },
+      "926": {
+        "title": "Matrix definition does not exist."
+      },
+      "927": {
+        "title": "Matrix definition could not be deleted because it doesn't exist."
+      },
+      "928": {
+        "title": "DataType with Id already exists."
+      },
+      "929": {
+        "title": "Square matrix is incomplete."
+      }
+    },
+    "x-fbn-description": "LUSID is an API-first, SaaS-native investment data management platform. It models entities such as instruments, portfolios, transactions and holdings to manage and value portfolios, and supports data integrations, flexible data modelling, and a bitemporal record of all activity."
   },
   "servers": [
     {
@@ -42998,7 +43997,7 @@
         "tags": [
           "Instrument Events"
         ],
-        "summary": "[EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.",
+        "summary": "[EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.",
         "description": "Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.",
         "operationId": "QueryInstrumentEvents",
         "parameters": [
@@ -43179,7 +44178,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instrumentevents/$queryApplicableInstrumentEvents": {
@@ -141464,7 +142463,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -141482,7 +142487,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -141500,7 +142511,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -141579,7 +142596,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141591,7 +142614,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141603,7 +142632,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141615,7 +142650,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             }
@@ -141634,7 +142675,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -141646,7 +142693,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -141658,7 +142711,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -141759,7 +142818,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -141771,7 +142836,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -141783,7 +142854,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -141869,7 +142946,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141880,7 +142963,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141891,7 +142980,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -141902,7 +142997,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             }
@@ -141921,7 +143022,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -141933,7 +143040,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -141945,7 +143058,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -142780,7 +143899,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -142798,7 +143923,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -142816,7 +143947,13 @@
                       "format": 1,
                       "name": "example-item",
                       "description": "example-item",
-                      "content": "{ \"example-key\": \"example-value\" }"
+                      "content": {
+                        "model": "fixed",
+                        "weights": {
+                          "VOD": 23,
+                          "TESC": 45
+                        }
+                      }
                     }
                   ],
                   "href": "http://example.com",
@@ -142895,7 +144032,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -142907,7 +144050,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -142919,7 +144068,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -142931,7 +144086,13 @@
                 "format": 1,
                 "name": "example-name",
                 "description": "example-description",
-                "content": "example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             }
@@ -142950,7 +144111,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -142962,7 +144129,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -142974,7 +144147,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -143075,7 +144254,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -143087,7 +144272,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -143099,7 +144290,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -143185,7 +144382,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -143196,7 +144399,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -143207,7 +144416,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             },
@@ -143218,7 +144433,13 @@
               "example": {
                 "format": 2,
                 "description": "updated-example-description",
-                "content": "updated-example-content",
+                "content": {
+                  "model": "fixed",
+                  "weights": {
+                    "VOD": 23,
+                    "TESC": 45
+                  }
+                },
                 "type": "rebalance-config"
               }
             }
@@ -143237,7 +144458,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -143249,7 +144476,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -143261,7 +144494,13 @@
                   "format": 1,
                   "name": "example-item",
                   "description": "example-item",
-                  "content": "{ \"example-key\": \"example-value\" }"
+                  "content": {
+                    "model": "fixed",
+                    "weights": {
+                      "VOD": 23,
+                      "TESC": 45
+                    }
+                  }
                 }
               }
             }
@@ -158204,6 +159443,24 @@
             "minLength": 1,
             "type": "string",
             "description": "Code of the underlying, for an option on futures this should be the futures code."
+          },
+          "deliveryDays": {
+            "type": "integer",
+            "description": "Number of business days between exercise date and settlement of the option payoff or underlying.",
+            "format": "int32"
+          },
+          "businessDayConvention": {
+            "type": "string",
+            "description": "The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.\r\nSupported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].",
+            "nullable": true
+          },
+          "settlementCalendars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of strings denoting calendars used in calculating the option settlement date.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -192346,9 +193603,6 @@
             "description": "The description of a workspace item."
           },
           "content": {
-            "maxLength": 6000,
-            "minLength": 0,
-            "type": "string",
             "description": "The content associated with a workspace item."
           },
           "version": {
@@ -192395,9 +193649,6 @@
             "description": "The description of a workspace item."
           },
           "content": {
-            "maxLength": 6000,
-            "minLength": 0,
-            "type": "string",
             "description": "The content associated with a workspace item."
           },
           "type": {
@@ -192432,9 +193683,6 @@
             "description": "The description of a workspace item."
           },
           "content": {
-            "maxLength": 6000,
-            "minLength": 0,
-            "type": "string",
             "description": "The content associated with a workspace item."
           },
           "type": {
