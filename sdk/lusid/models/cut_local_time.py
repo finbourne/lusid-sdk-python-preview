@@ -40,26 +40,31 @@ class CutLocalTime(object):
     """
     openapi_types = {
         'hours': 'int',
-        'minutes': 'int'
+        'minutes': 'int',
+        'seconds': 'float'
     }
 
     attribute_map = {
         'hours': 'hours',
-        'minutes': 'minutes'
+        'minutes': 'minutes',
+        'seconds': 'seconds'
     }
 
     required_map = {
         'hours': 'optional',
-        'minutes': 'optional'
+        'minutes': 'optional',
+        'seconds': 'optional'
     }
 
-    def __init__(self, hours=None, minutes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, hours=None, minutes=None, seconds=None, local_vars_configuration=None):  # noqa: E501
         """CutLocalTime - a model defined in OpenAPI"
         
         :param hours: 
         :type hours: int
         :param minutes: 
         :type minutes: int
+        :param seconds: 
+        :type seconds: float
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -68,12 +73,15 @@ class CutLocalTime(object):
 
         self._hours = None
         self._minutes = None
+        self._seconds = None
         self.discriminator = None
 
         if hours is not None:
             self.hours = hours
         if minutes is not None:
             self.minutes = minutes
+        if seconds is not None:
+            self.seconds = seconds
 
     @property
     def hours(self):
@@ -116,6 +124,27 @@ class CutLocalTime(object):
         """
 
         self._minutes = minutes
+
+    @property
+    def seconds(self):
+        """Gets the seconds of this CutLocalTime.  # noqa: E501
+
+
+        :return: The seconds of this CutLocalTime.  # noqa: E501
+        :rtype: float
+        """
+        return self._seconds
+
+    @seconds.setter
+    def seconds(self, seconds):
+        """Sets the seconds of this CutLocalTime.
+
+
+        :param seconds: The seconds of this CutLocalTime.  # noqa: E501
+        :type seconds: float
+        """
+
+        self._seconds = seconds
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

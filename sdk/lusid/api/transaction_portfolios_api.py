@@ -86,7 +86,7 @@ class TransactionPortfoliosApi(object):
     def adjust_holdings(self, scope, code, effective_at, adjust_holding_request, **kwargs):  # noqa: E501
         """AdjustHoldings: Adjust holdings  # noqa: E501
 
-        Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
+        Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -124,7 +124,7 @@ class TransactionPortfoliosApi(object):
     def adjust_holdings_with_http_info(self, scope, code, effective_at, adjust_holding_request, **kwargs):  # noqa: E501
         """AdjustHoldings: Adjust holdings  # noqa: E501
 
-        Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
+        Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -667,6 +667,216 @@ class TransactionPortfoliosApi(object):
 
         return self.api_client.call_api(
             '/api/transactionportfolios/{scope}/{code}/$batchtradetickets', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_types_map=response_types_map,
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def batch_set_holdings(self, scope, code, success_mode, request_body, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] BatchSetHoldings: Batch set holdings  # noqa: E501
+
+        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.batch_set_holdings(scope, code, success_mode, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. (required)
+        :type code: str
+        :param success_mode: Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (required)
+        :type success_mode: str
+        :param request_body: The selected set of holdings to adjust to the provided targets for the               transaction portfolio. (required)
+        :type request_body: dict(str, AdjustHoldingForDateRequest)
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: BatchAdjustHoldingsResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.batch_set_holdings_with_http_info(scope, code, success_mode, request_body, **kwargs)  # noqa: E501
+
+    def batch_set_holdings_with_http_info(self, scope, code, success_mode, request_body, **kwargs):  # noqa: E501
+        """[EARLY ACCESS] BatchSetHoldings: Batch set holdings  # noqa: E501
+
+        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.batch_set_holdings_with_http_info(scope, code, success_mode, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param scope: The scope of the transaction portfolio. (required)
+        :type scope: str
+        :param code: The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. (required)
+        :type code: str
+        :param success_mode: Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (required)
+        :type success_mode: str
+        :param request_body: The selected set of holdings to adjust to the provided targets for the               transaction portfolio. (required)
+        :type request_body: dict(str, AdjustHoldingForDateRequest)
+        :param reconciliation_methods: Optional parameter for specifying a reconciliation method: e.g. FxForward.
+        :type reconciliation_methods: list[str]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object, the HTTP status code, and the headers.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: (BatchAdjustHoldingsResponse, int, HTTPHeaderDict)
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'scope',
+            'code',
+            'success_mode',
+            'request_body',
+            'reconciliation_methods'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_headers'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method batch_set_holdings" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'scope' is set
+        if self.api_client.client_side_validation and ('scope' not in local_var_params or  # noqa: E501
+                                                        local_var_params['scope'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `scope` when calling `batch_set_holdings`")  # noqa: E501
+        # verify the required parameter 'code' is set
+        if self.api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
+                                                        local_var_params['code'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `batch_set_holdings`")  # noqa: E501
+        # verify the required parameter 'success_mode' is set
+        if self.api_client.client_side_validation and ('success_mode' not in local_var_params or  # noqa: E501
+                                                        local_var_params['success_mode'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `success_mode` when calling `batch_set_holdings`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `request_body` when calling `batch_set_holdings`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `batch_set_holdings`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('scope' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['scope']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `batch_set_holdings`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'scope' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['scope']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `scope` when calling `batch_set_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `batch_set_holdings`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('code' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['code']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `batch_set_holdings`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'code' in local_var_params and not re.search(r'^[a-zA-Z0-9\-_]+$', local_var_params['code']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `code` when calling `batch_set_holdings`, must conform to the pattern `/^[a-zA-Z0-9\-_]+$/`")  # noqa: E501
+        if self.api_client.client_side_validation and ('success_mode' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['success_mode']) > 64):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `success_mode` when calling `batch_set_holdings`, length must be less than or equal to `64`")  # noqa: E501
+        if self.api_client.client_side_validation and ('success_mode' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['success_mode']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `success_mode` when calling `batch_set_holdings`, length must be greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'scope' in local_var_params:
+            path_params['scope'] = local_var_params['scope']  # noqa: E501
+        if 'code' in local_var_params:
+            path_params['code'] = local_var_params['code']  # noqa: E501
+
+        query_params = []
+        if 'success_mode' in local_var_params and local_var_params['success_mode'] is not None:  # noqa: E501
+            query_params.append(('successMode', local_var_params['success_mode']))  # noqa: E501
+        if 'reconciliation_methods' in local_var_params and local_var_params['reconciliation_methods'] is not None:  # noqa: E501
+            query_params.append(('reconciliationMethods', local_var_params['reconciliation_methods']))  # noqa: E501
+            collection_formats['reconciliationMethods'] = 'multi'  # noqa: E501
+
+        header_params = dict(local_var_params.get('_headers', {}))
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+
+        header_params['Accept-Encoding'] = "gzip, deflate, br"
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'])  # noqa: E501
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '1.1.258'
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        response_types_map = {
+            200: "BatchAdjustHoldingsResponse",
+            400: "LusidValidationProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/transactionportfolios/{scope}/{code}/holdings/$batchSet', 'POST',
             path_params,
             query_params,
             header_params,
@@ -6929,7 +7139,7 @@ class TransactionPortfoliosApi(object):
     def set_holdings(self, scope, code, effective_at, adjust_holding_request, **kwargs):  # noqa: E501
         """SetHoldings: Set holdings  # noqa: E501
 
-        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
+        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6967,7 +7177,7 @@ class TransactionPortfoliosApi(object):
     def set_holdings_with_http_info(self, scope, code, effective_at, adjust_holding_request, **kwargs):  # noqa: E501
         """SetHoldings: Set holdings  # noqa: E501
 
-        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.  # noqa: E501
+        Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

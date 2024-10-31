@@ -113795,7 +113795,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -113810,7 +113811,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -113825,7 +113827,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -113840,7 +113843,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -114063,7 +114067,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -114077,7 +114082,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -114091,7 +114097,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -114105,7 +114112,8 @@
                 "description": "description of cut label",
                 "cutLocalTime": {
                   "hours": 17,
-                  "minutes": 0
+                  "minutes": 0,
+                  "seconds": 0
                 },
                 "timeZone": "GB"
               }
@@ -130624,7 +130632,7 @@
           "Transaction Portfolios"
         ],
         "summary": "SetHoldings: Set holdings",
-        "description": "Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically\r\nconstruct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio\r\nare always set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
+        "description": "Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically\r\nconstruct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio\r\nare always set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.",
         "operationId": "SetHoldings",
         "parameters": [
           {
@@ -130948,7 +130956,7 @@
           "Transaction Portfolios"
         ],
         "summary": "AdjustHoldings: Adjust holdings",
-        "description": "Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will\r\nautomatically construct adjustment transactions to ensure that the holdings which have been adjusted are\r\nalways set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.",
+        "description": "Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will\r\nautomatically construct adjustment transactions to ensure that the holdings which have been adjusted are\r\nalways set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.",
         "operationId": "AdjustHoldings",
         "parameters": [
           {
@@ -132095,6 +132103,490 @@
         "responses": {
           "200": {
             "description": "The successful AdjustHolding requests along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchAdjustHoldingsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchAdjustHoldingsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchAdjustHoldingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/holdings/$batchSet": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EARLY ACCESS] BatchSetHoldings: Batch set holdings",
+        "description": "Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically\r\nconstruct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio\r\nare always set to the provided targets for the specified effective datetime. Read more about the difference between\r\nadjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.\r\n            \r\nEach request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.\r\nIt serves only as a way to easily identify each adjustment in the response.\r\n\r\nNote: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code",
+        "operationId": "BatchSetHoldings",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n             the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "successMode",
+            "in": "query",
+            "description": "Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "default": "Partial"
+            }
+          },
+          {
+            "name": "reconciliationMethods",
+            "in": "query",
+            "description": "Optional parameter for specifying a reconciliation method: e.g. FxForward.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The selected set of holdings to adjust to the provided targets for the\r\n             transaction portfolio.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/AdjustHoldingForDateRequest"
+                }
+              },
+              "example": {
+                "AdjustHoldingRequest1": {
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "BBG000C6K6G9",
+                    "Instrument/default/Isin": "GB00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 100,
+                      "cost": {
+                        "amount": 10000,
+                        "currency": "GBP"
+                      },
+                      "portfolioCost": 10000,
+                      "price": 100,
+                      "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                },
+                "AdjustHoldingRequest2": {
+                  "effectiveAt": "2019-10-02T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "CCG000C6K6G9",
+                    "Instrument/default/Isin": "US00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 50,
+                      "cost": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "portfolioCost": 500,
+                      "price": 50,
+                      "purchaseDate": "2019-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2019-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/AdjustHoldingForDateRequest"
+                }
+              },
+              "example": {
+                "AdjustHoldingRequest1": {
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "BBG000C6K6G9",
+                    "Instrument/default/Isin": "GB00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 100,
+                      "cost": {
+                        "amount": 10000,
+                        "currency": "GBP"
+                      },
+                      "portfolioCost": 10000,
+                      "price": 100,
+                      "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                },
+                "AdjustHoldingRequest2": {
+                  "effectiveAt": "2019-10-02T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "CCG000C6K6G9",
+                    "Instrument/default/Isin": "US00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 50,
+                      "cost": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "portfolioCost": 500,
+                      "price": 50,
+                      "purchaseDate": "2019-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2019-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/AdjustHoldingForDateRequest"
+                }
+              },
+              "example": {
+                "AdjustHoldingRequest1": {
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "BBG000C6K6G9",
+                    "Instrument/default/Isin": "GB00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 100,
+                      "cost": {
+                        "amount": 10000,
+                        "currency": "GBP"
+                      },
+                      "portfolioCost": 10000,
+                      "price": 100,
+                      "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                },
+                "AdjustHoldingRequest2": {
+                  "effectiveAt": "2019-10-02T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "CCG000C6K6G9",
+                    "Instrument/default/Isin": "US00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 50,
+                      "cost": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "portfolioCost": 500,
+                      "price": 50,
+                      "purchaseDate": "2019-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2019-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/AdjustHoldingForDateRequest"
+                }
+              },
+              "example": {
+                "AdjustHoldingRequest1": {
+                  "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "BBG000C6K6G9",
+                    "Instrument/default/Isin": "GB00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 100,
+                      "cost": {
+                        "amount": 10000,
+                        "currency": "GBP"
+                      },
+                      "portfolioCost": 10000,
+                      "price": 100,
+                      "purchaseDate": "2018-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2018-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                },
+                "AdjustHoldingRequest2": {
+                  "effectiveAt": "2019-10-02T00:00:00.0000000+00:00",
+                  "instrumentIdentifiers": {
+                    "Instrument/default/Figi": "CCG000C6K6G9",
+                    "Instrument/default/Isin": "US00BH4HKS39"
+                  },
+                  "subHoldingKeys": {
+                    "Transaction/Algo/Name": {
+                      "key": "Transaction/Algo/Name",
+                      "value": {
+                        "labelValue": "Algo1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "Holding/Entity/Name": {
+                      "key": "Holding/Entity/Name",
+                      "value": {
+                        "labelValue": "Financial Entity"
+                      }
+                    }
+                  },
+                  "taxLots": [
+                    {
+                      "units": 50,
+                      "cost": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "portfolioCost": 500,
+                      "price": 50,
+                      "purchaseDate": "2019-03-05T00:00:00.0000000+00:00",
+                      "settlementDate": "2019-03-08T00:00:00.0000000+00:00",
+                      "notionalCost": 100,
+                      "variationMargin": 25,
+                      "variationMarginPortfolioCcy": 25
+                    }
+                  ],
+                  "currency": "GBP"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successful SetHolding requests along with any failures",
             "content": {
               "text/plain": {
                 "schema": {
@@ -156721,6 +157213,10 @@
           "minutes": {
             "type": "integer",
             "format": "int32"
+          },
+          "seconds": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

@@ -48,7 +48,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CutLabelDefinitionsApi(api_client)
-    create_cut_label_definition_request = {"code":"CutLabelCode","displayName":"CutLabelDisplayName","description":"description of cut label","cutLocalTime":{"hours":17,"minutes":0},"timeZone":"GB"} # CreateCutLabelDefinitionRequest | The cut label definition (optional)
+    create_cut_label_definition_request = {"code":"CutLabelCode","displayName":"CutLabelDisplayName","description":"description of cut label","cutLocalTime":{"hours":17,"minutes":0,"seconds":0},"timeZone":"GB"} # CreateCutLabelDefinitionRequest | The cut label definition (optional)
 
     try:
         # CreateCutLabelDefinition: Create a Cut Label
@@ -359,7 +359,7 @@ with lusid.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid.CutLabelDefinitionsApi(api_client)
     code = 'code_example' # str | The Code of the Cut Label that is being updated
-update_cut_label_definition_request = {"displayName":"CutLabelDisplayName","description":"description of cut label","cutLocalTime":{"hours":17,"minutes":0},"timeZone":"GB"} # UpdateCutLabelDefinitionRequest | The cut label update definition (optional)
+update_cut_label_definition_request = {"displayName":"CutLabelDisplayName","description":"description of cut label","cutLocalTime":{"hours":17,"minutes":0,"seconds":0},"timeZone":"GB"} # UpdateCutLabelDefinitionRequest | The cut label update definition (optional)
 
     try:
         # UpdateCutLabelDefinition: Update a Cut Label

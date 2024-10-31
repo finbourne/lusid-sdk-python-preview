@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**adjust_holdings**](TransactionPortfoliosApi.md#adjust_holdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings
 [**batch_adjust_holdings**](TransactionPortfoliosApi.md#batch_adjust_holdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchAdjust | [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
 [**batch_create_trade_tickets**](TransactionPortfoliosApi.md#batch_create_trade_tickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+[**batch_set_holdings**](TransactionPortfoliosApi.md#batch_set_holdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchSet | [EARLY ACCESS] BatchSetHoldings: Batch set holdings
 [**batch_upsert_transactions**](TransactionPortfoliosApi.md#batch_upsert_transactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
 [**build_transactions**](TransactionPortfoliosApi.md#build_transactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions
 [**cancel_adjust_holdings**](TransactionPortfoliosApi.md#cancel_adjust_holdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings
@@ -49,7 +50,7 @@ Method | HTTP request | Description
 
 AdjustHoldings: Adjust holdings
 
-Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
+Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.
 
 ### Example
 
@@ -284,6 +285,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The successfully created trade ticket requests along with any failures |  -  |
+**400** | The details of the input related failure |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **batch_set_holdings**
+> BatchAdjustHoldingsResponse batch_set_holdings(scope, code, success_mode, request_body, reconciliation_methods=reconciliation_methods)
+
+[EARLY ACCESS] BatchSetHoldings: Batch set holdings
+
+Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import lusid
+from lusid.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.lusid.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = lusid.Configuration(
+    host = "https://www.lusid.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with lusid.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = lusid.TransactionPortfoliosApi(api_client)
+    scope = 'scope_example' # str | The scope of the transaction portfolio.
+code = 'code_example' # str | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
+success_mode = 'Partial' # str | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (default to 'Partial')
+request_body = {"AdjustHoldingRequest1":{"effectiveAt":"2018-03-05T00:00:00.0000000+00:00","instrumentIdentifiers":{"Instrument/default/Figi":"BBG000C6K6G9","Instrument/default/Isin":"GB00BH4HKS39"},"subHoldingKeys":{"Transaction/Algo/Name":{"key":"Transaction/Algo/Name","value":{"labelValue":"Algo1"}}},"properties":{"Holding/Entity/Name":{"key":"Holding/Entity/Name","value":{"labelValue":"Financial Entity"}}},"taxLots":[{"units":100,"cost":{"amount":10000,"currency":"GBP"},"portfolioCost":10000,"price":100,"purchaseDate":"2018-03-05T00:00:00.0000000+00:00","settlementDate":"2018-03-08T00:00:00.0000000+00:00","notionalCost":100,"variationMargin":25,"variationMarginPortfolioCcy":25}],"currency":"GBP"},"AdjustHoldingRequest2":{"effectiveAt":"2019-10-02T00:00:00.0000000+00:00","instrumentIdentifiers":{"Instrument/default/Figi":"CCG000C6K6G9","Instrument/default/Isin":"US00BH4HKS39"},"subHoldingKeys":{"Transaction/Algo/Name":{"key":"Transaction/Algo/Name","value":{"labelValue":"Algo1"}}},"properties":{"Holding/Entity/Name":{"key":"Holding/Entity/Name","value":{"labelValue":"Financial Entity"}}},"taxLots":[{"units":50,"cost":{"amount":500,"currency":"USD"},"portfolioCost":500,"price":50,"purchaseDate":"2019-03-05T00:00:00.0000000+00:00","settlementDate":"2019-03-08T00:00:00.0000000+00:00","notionalCost":100,"variationMargin":25,"variationMarginPortfolioCcy":25}],"currency":"GBP"}} # dict(str, AdjustHoldingForDateRequest) | The selected set of holdings to adjust to the provided targets for the               transaction portfolio.
+reconciliation_methods = ['reconciliation_methods_example'] # list[str] | Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)
+
+    try:
+        # [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+        api_response = api_instance.batch_set_holdings(scope, code, success_mode, request_body, reconciliation_methods=reconciliation_methods)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TransactionPortfoliosApi->batch_set_holdings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **str**| The scope of the transaction portfolio. | 
+ **code** | **str**| The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. | 
+ **success_mode** | **str**| Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial | [default to &#39;Partial&#39;]
+ **request_body** | [**dict(str, AdjustHoldingForDateRequest)**](AdjustHoldingForDateRequest.md)| The selected set of holdings to adjust to the provided targets for the               transaction portfolio. | 
+ **reconciliation_methods** | [**list[str]**](str.md)| Optional parameter for specifying a reconciliation method: e.g. FxForward. | [optional] 
+
+### Return type
+
+[**BatchAdjustHoldingsResponse**](BatchAdjustHoldingsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The successful SetHolding requests along with any failures |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -2795,7 +2879,7 @@ Name | Type | Description  | Notes
 
 SetHoldings: Set holdings
 
-Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
+Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.
 
 ### Example
 
