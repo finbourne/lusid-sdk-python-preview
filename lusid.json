@@ -22822,7 +22822,8 @@
                               ],
                               "complianceStepType": "GroupFilterStep"
                             }
-                          ]
+                          ],
+                          "referencedGroupLabel": "Some Referenced Group Label"
                         }
                       ],
                       "links": [
@@ -22948,7 +22949,8 @@
                               ],
                               "complianceStepType": "GroupFilterStep"
                             }
-                          ]
+                          ],
+                          "referencedGroupLabel": "Some Referenced Group Label"
                         }
                       ],
                       "links": [
@@ -23074,7 +23076,8 @@
                               ],
                               "complianceStepType": "GroupFilterStep"
                             }
-                          ]
+                          ],
+                          "referencedGroupLabel": "Some Referenced Group Label"
                         }
                       ],
                       "links": [
@@ -23657,7 +23660,8 @@
                           ],
                           "complianceStepType": "GroupFilterStep"
                         }
-                      ]
+                      ],
+                      "referencedGroupLabel": "Some Referenced Group Label"
                     }
                   ],
                   "links": [
@@ -23777,7 +23781,8 @@
                           ],
                           "complianceStepType": "GroupFilterStep"
                         }
-                      ]
+                      ],
+                      "referencedGroupLabel": "Some Referenced Group Label"
                     }
                   ],
                   "links": [
@@ -23897,7 +23902,8 @@
                           ],
                           "complianceStepType": "GroupFilterStep"
                         }
-                      ]
+                      ],
+                      "referencedGroupLabel": "Some Referenced Group Label"
                     }
                   ],
                   "links": [
@@ -153576,6 +153582,13 @@
               "$ref": "#/components/schemas/ComplianceStep"
             },
             "description": "The steps expressed in this template, with their required parameters"
+          },
+          "referencedGroupLabel": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of a given referenced group in a Compliance Rule Template Variation",
+            "nullable": true
           }
         },
         "additionalProperties": false

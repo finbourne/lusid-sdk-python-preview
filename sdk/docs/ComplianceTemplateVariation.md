@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **properties** | [**dict(str, PerpetualProperty)**](PerpetualProperty.md) | Properties associated with the Compliance Template Variation | 
 **accepted_address_keys** | [**ResourceId**](ResourceId.md) |  | 
 **steps** | [**list[ComplianceStep]**](ComplianceStep.md) | The steps expressed in this template, with their required parameters | 
+**referenced_group_label** | **str** | The label of a given referenced group in a Compliance Rule Template Variation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

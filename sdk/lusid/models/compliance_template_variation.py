@@ -44,7 +44,8 @@ class ComplianceTemplateVariation(object):
         'required_parameters': 'list[ComplianceTemplateParameter]',
         'properties': 'dict(str, PerpetualProperty)',
         'accepted_address_keys': 'ResourceId',
-        'steps': 'list[ComplianceStep]'
+        'steps': 'list[ComplianceStep]',
+        'referenced_group_label': 'str'
     }
 
     attribute_map = {
@@ -53,7 +54,8 @@ class ComplianceTemplateVariation(object):
         'required_parameters': 'requiredParameters',
         'properties': 'properties',
         'accepted_address_keys': 'acceptedAddressKeys',
-        'steps': 'steps'
+        'steps': 'steps',
+        'referenced_group_label': 'referencedGroupLabel'
     }
 
     required_map = {
@@ -62,10 +64,11 @@ class ComplianceTemplateVariation(object):
         'required_parameters': 'required',
         'properties': 'required',
         'accepted_address_keys': 'required',
-        'steps': 'required'
+        'steps': 'required',
+        'referenced_group_label': 'optional'
     }
 
-    def __init__(self, label=None, description=None, required_parameters=None, properties=None, accepted_address_keys=None, steps=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, label=None, description=None, required_parameters=None, properties=None, accepted_address_keys=None, steps=None, referenced_group_label=None, local_vars_configuration=None):  # noqa: E501
         """ComplianceTemplateVariation - a model defined in OpenAPI"
         
         :param label:  Label of a Compliance Template Variation (required)
@@ -80,6 +83,8 @@ class ComplianceTemplateVariation(object):
         :type accepted_address_keys: lusid.ResourceId
         :param steps:  The steps expressed in this template, with their required parameters (required)
         :type steps: list[lusid.ComplianceStep]
+        :param referenced_group_label:  The label of a given referenced group in a Compliance Rule Template Variation
+        :type referenced_group_label: str
 
         """  # noqa: E501
         if local_vars_configuration is None:
@@ -92,6 +97,7 @@ class ComplianceTemplateVariation(object):
         self._properties = None
         self._accepted_address_keys = None
         self._steps = None
+        self._referenced_group_label = None
         self.discriminator = None
 
         self.label = label
@@ -100,6 +106,7 @@ class ComplianceTemplateVariation(object):
         self.properties = properties
         self.accepted_address_keys = accepted_address_keys
         self.steps = steps
+        self.referenced_group_label = referenced_group_label
 
     @property
     def label(self):
@@ -254,6 +261,35 @@ class ComplianceTemplateVariation(object):
             raise ValueError("Invalid value for `steps`, must not be `None`")  # noqa: E501
 
         self._steps = steps
+
+    @property
+    def referenced_group_label(self):
+        """Gets the referenced_group_label of this ComplianceTemplateVariation.  # noqa: E501
+
+        The label of a given referenced group in a Compliance Rule Template Variation  # noqa: E501
+
+        :return: The referenced_group_label of this ComplianceTemplateVariation.  # noqa: E501
+        :rtype: str
+        """
+        return self._referenced_group_label
+
+    @referenced_group_label.setter
+    def referenced_group_label(self, referenced_group_label):
+        """Sets the referenced_group_label of this ComplianceTemplateVariation.
+
+        The label of a given referenced group in a Compliance Rule Template Variation  # noqa: E501
+
+        :param referenced_group_label: The referenced_group_label of this ComplianceTemplateVariation.  # noqa: E501
+        :type referenced_group_label: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                referenced_group_label is not None and len(referenced_group_label) > 64):
+            raise ValueError("Invalid value for `referenced_group_label`, length must be less than or equal to `64`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                referenced_group_label is not None and len(referenced_group_label) < 1):
+            raise ValueError("Invalid value for `referenced_group_label`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._referenced_group_label = referenced_group_label
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
