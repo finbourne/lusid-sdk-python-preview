@@ -50,7 +50,7 @@ class ComparisonAttributeValuePair(object):
 
     required_map = {
         'attribute_name': 'required',
-        'value': 'required'
+        'value': 'optional'
     }
 
     def __init__(self, attribute_name=None, value=None, local_vars_configuration=None):  # noqa: E501
@@ -58,7 +58,7 @@ class ComparisonAttributeValuePair(object):
         
         :param attribute_name:  Comparison rule attribute name. (required)
         :type attribute_name: str
-        :param value:  Computed value for the comparison rule attribute. (required)
+        :param value:  Computed value for the comparison rule attribute.
         :type value: str
 
         """  # noqa: E501
@@ -121,11 +121,6 @@ class ComparisonAttributeValuePair(object):
         :param value: The value of this ComparisonAttributeValuePair.  # noqa: E501
         :type value: str
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                value is not None and len(value) < 1):
-            raise ValueError("Invalid value for `value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._value = value
 

@@ -152154,8 +152154,7 @@
       },
       "ComparisonAttributeValuePair": {
         "required": [
-          "attributeName",
-          "value"
+          "attributeName"
         ],
         "type": "object",
         "properties": {
@@ -152165,9 +152164,9 @@
             "description": "Comparison rule attribute name."
           },
           "value": {
-            "minLength": 1,
             "type": "string",
-            "description": "Computed value for the comparison rule attribute."
+            "description": "Computed value for the comparison rule attribute.",
+            "nullable": true
           }
         },
         "additionalProperties": false
